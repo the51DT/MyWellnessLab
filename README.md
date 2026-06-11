@@ -10,9 +10,9 @@ Amway myWellness LAB Vue 3 + Vite 프론트엔드 프로젝트입니다.
 ## 시작하기
 
 ```bash
-# 1. 저장소 클론
-git clone <repository-url>
-cd akl-mywellnesslab-front-preDev
+# 1. 저장소 클론 (기본 브랜치: master)
+git clone -b master https://github.com/the51DT/MyWellnessLab.git
+cd MyWellnessLab
 
 # 2. 의존성 설치
 npm install
@@ -21,10 +21,16 @@ npm install
 npm run dev
 ```
 
-브라우저에서 아래 주소로 접속합니다.
+`npm run dev` 실행 후 **터미널에 출력되는 Local URL**로 접속합니다. (기본 설정 포트: **443**)
 
-- **서비스 인트로:** https://localhost:444/intro (443 포트 사용 중이면 444로 자동 변경)
-- **퍼블리싱 목록 (로그인 불필요):** https://localhost:444/publishing
+```
+➜  Local:   https://localhost:443/
+```
+
+443 포트가 이미 사용 중이면 Vite가 **444 등 다른 포트**를 자동으로 사용합니다. 이때는 터미널에 표시된 주소를 그대로 쓰면 됩니다.
+
+- **서비스 인트로:** `{Local URL}/intro`
+- **퍼블리싱 목록 (로그인 불필요):** `{Local URL}/publishing`
 
 > `npm run dev`는 HTTPS로 실행됩니다. 최초 실행 시 `vite-plugin-mkcert`가 로컬 인증서를 생성할 수 있습니다.
 
@@ -55,7 +61,7 @@ npm run dev
 
 로그인 없이 UI 목업을 확인할 수 있습니다.
 
-1. https://localhost:444/publishing 접속
+1. `npm run dev` 실행 후 터미널에 나온 Local URL + `/publishing` 접속
 2. **리스트** 탭에서 원하는 화면 링크 클릭
 
 주요 경로:
@@ -81,15 +87,15 @@ src/
 ## GitHub에 올릴 때
 
 ```bash
-git init
+git init -b master
 git add .
 git commit -m "Initial commit"
-git remote add origin <repository-url>
-git push -u origin main
+git remote add origin https://github.com/the51DT/MyWellnessLab.git
+git push -u origin master
 ```
 
 ## 참고
 
 - 개발 API: `https://mywellnesslab.dev.amway.co.kr`
 - Amway UAT 로그인: `https://uat.amway.co.kr/login`
-- 443 포트가 이미 사용 중이면 Vite가 다른 포트(예: 444)를 사용합니다.
+- 로컬 개발 서버 포트는 `vite.config.js`에서 **443**으로 설정되어 있습니다. 포트 충돌 시 Vite가 다른 포트를 쓰므로, 항상 터미널 출력 URL을 확인하세요.

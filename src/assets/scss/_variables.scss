@@ -1,0 +1,43 @@
+
+$font-color: #000000;
+$body-font-color: #171717;
+$placeholder-color: #AAAAAA;
+$shadow-color: #B7B7B7;
+$indicator-color : #545759;
+$point-color: #F78E00;
+$footer-color: #545759;
+$nutri-color: #F78E00;
+$disable-color: #D6D6D6;
+$background-color: #F4EEEA;
+$background-point-color: #FFF2E8;
+$meal-backgorund-color: rgba(249, 118, 25, 0.1);
+
+$border-color: #CECECE;
+$shadow-font-color: #646464;
+$background-grey-color: #EAEAEA;
+$body-sub-color: #797979;
+
+$vh: calc(var(--vh, 1vh) * 100);
+$max-width: 100vw; //1280px; //100vw;
+$target-width: 960px; // Tablet
+$width: 360px; // Iphone 13 mini
+$height: 780px; // Iphone 13 mini max
+$header: 4.375rem;
+$service-header: 6rem;
+$footer : 4.375rem;
+$footer-menu : 5rem;
+
+//font-weight
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+
+// font size
+$font-size-none-unit: 16;
+$font-size: basicFontSize($font-size-none-unit); 
+
+// $pdf-scale: 1.3; //pdf사이즈 595/842기준으로 작업해서 작은 사이즈 업스케일링
+$pdf-scale: 4; //pdf사이즈 595/842기준으로 작업해서 작은 사이즈 업스케일링
+$pdf-text-ratio: 100vw;

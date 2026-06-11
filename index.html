@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/img/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/img/favicon/favicon-120x120.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="/img/favicon/favicon-152x152.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="/img/favicon/favicon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/img/favicon/favicon-512x512.png">
+    <link rel="apple-touch-icon" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/favicon/favicon-120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/favicon/favicon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/favicon-180x180.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/img/favicon/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/img/favicon/favicon-512x512.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/img/favicon/favicon-32x32.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="myWellness LAB">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#ffffff">
+    <meta name="msapplication-navbutton-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>myWellness LAB</title>
+    <link rel="dns-prefetch" href="//cdn.heapanalytics.com" />
+    <link rel="dns-prefetch" href="//tags.tiqcdn.com" />
+
+    <script type="text/javascript">
+      window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};
+      window.utag_cfg_ovrd.noview = true
+
+      window.utag_data = {
+        site_country: 'kr',
+        site_currencyCode: 'krw',
+        site_language: 'ko',
+        site_prefix: 'amway',
+        site_region: 'apac',
+        site_subRegion: 'korea',
+        site_type: 'responsive',
+        site_type_short: '',
+        site_webProperty: 'Business Tools - Korea',
+        site_webProperty_mod: 'mywellnesslab.amway.co.kr | Business Tools - Korea',
+        visitor_imcID: '',
+        visitor_partyID: '',
+        visitor_pinNumber: '',
+        visitor_userProfile: '',
+        tealium_datasource: 'none',
+        page_section: 'home',
+        page_name: 'home',
+        page_category: '',
+        page_subCategory: ''
+      };
+    </script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let env = window.location.hostname === 'mywellnesslab.amway.co.kr' ? 'prod' : 'dev';
+
+      (function (a, b, c, d) {
+        a = 'https://tags.tiqcdn.com/utag/amway/kr-content/' + env + '/utag.js'
+        b=document;
+        c='script';
+        d=b.createElement(c);
+        d.src=a;
+        d.type='text/java'+c;
+        d.async=true;
+        a=b.getElementsByTagName(c)[0];
+        a.parentNode.insertBefore(d,a);
+      })()
+    </script>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

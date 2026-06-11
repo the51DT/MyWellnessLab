@@ -1,0 +1,1822 @@
+@font-face {
+  font-family: 'RixSinHead_Light';
+  src: url('@/assets/font/RixSinHead_Light.eot'); /* IE9 Compat Modes */
+  src: url('@/assets/font/RixSinHead_Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('@/assets/font/RixSinHead_Light.woff2') format('woff2'), /* Super Modern Browsers */
+  url('@/assets/font/RixSinHead_Light.woff') format('woff'); /* Pretty Modern Browsers */
+  
+  /* 삼성 인터넷 브라우저 폰트 로딩 안정화 */
+  font-display: swap;
+  font-stretch: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'RixSinHead_Medium';
+  src: url('@/assets/font/RixSinHead_Medium.eot'); /* IE9 Compat Modes */
+  src: url('@/assets/font/RixSinHead_Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('@/assets/font/RixSinHead_Medium.woff2') format('woff2'), /* Super Modern Browsers */
+  url('@/assets/font/RixSinHead_Medium.woff') format('woff'); /* Pretty Modern Browsers */
+}
+@font-face {
+  font-family: 'RixSinHead_Bold';
+  src: url('@/assets/font/RixSinHead_Bold.eot'); /* IE9 Compat Modes */
+  src: url('@/assets/font/RixSinHead_Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('@/assets/font/RixSinHead_Bold.woff2') format('woff2'), /* Super Modern Browsers */
+  url('@/assets/font/RixSinHead_Bold.woff') format('woff'); /* Pretty Modern Browsers */
+}
+@font-face {
+  font-family: 'RixSinHead_ExtraBold';
+  src: url('@/assets/font/RixSinHead_ExtraBold.eot'); /* IE9 Compat Modes */
+  src: url('@/assets/font/RixSinHead_ExtraBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('@/assets/font/RixSinHead_ExtraBold.woff2') format('woff2'), /* Super Modern Browsers */
+  url('@/assets/font/RixSinHead_ExtraBold.woff') format('woff'); /* Pretty Modern Browsers */
+}
+
+html {
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+$background-color-sky: #C8E2FF;
+$background-color-green: #1DB196;
+$background-color-gray: #F1F1F1;
+$background-color-gray2: #F9F9F9;
+$background-color-gray3: #F2F2F2;
+$background-color-main: #F6F6F6;
+$background-color-kakao: #FAE100;
+$background-color-biolet: #7E7EFF;
+$background-color-danger: #F4DAE4;
+$background-color-caution: #FCECDE;
+$background-color-interest: #E7F2E0;
+$background-color-danger-soft: #FBC0BE;
+$background-color-caution-soft: #FBDAB4;
+$background-color-interest-soft: #C5ECC4;
+
+$border-color-black: #000;
+$border-color-gray: #999;
+$border-color-green: #1DB196;
+$border-radius-default: 1.2rem;
+$border-style: solid 0.4rem #F6F6F6;
+
+$box-background-skyblue: #f0f5fd;
+$box-background-gray: #f4f4f4;
+$box-background-gray2: #F9F9F9; /*설문 배경*/
+$box-background-gray3: #F6F6F6; /*분석 결과 배경*/
+$box-background-white: #fff;
+$box-background-pink: #fcdfd7;
+$box-background-trans: transparent;
+$box-font-color-white: #fff;
+$box-line-color-gray: #ccc;
+$box-line-color-gray2: #d7d7d7;
+$box-line-color-gray3: #E1E1E1;
+$box-line-color-blue: #567bf3;
+$box-radius-big: 3rem;
+$box-shadow-default: 0 0 .7rem rgba(0, 0, 0, .1);
+$box-shadow-soft: 0 .2rem .8rem rgba(0, 0, 0, .1);
+
+$btn-line-color-gray: #d6d6d6;
+$btn-line-color-gray2: #e8e8e8;
+$btn-line-color-gray3: #B9B9B9;
+$btn-line-color-softGray: #dadada;
+$btn-line-color-softGray2: #d7d7d7;
+$btn-line-color-blue: #567bf3;
+$btn-line-color-blue2: #028fc4;
+$btn-line-color-navy: #002f5f;
+$btn-line-color-green: #1DB196;
+$btn-line-color-greenSoft: #C9E9E3;
+$btn-background-white: #fff;
+$btn-background-gray: #ECECEC;
+$btn-background-blue: #567bf3;
+$btn-background-blue2: #028fc4;
+$btn-background-greenSoft: #F8FFFD;
+$btn-background-green: #1DB196;
+$btn-background-navy: #002f5f;
+$btn-background-trans: transparent;
+$btn-font-color-white: #fff;
+$btn-font-color-navy: #002f5f;
+$btn-font-color-blue: #567bf3;
+$btn-font-color-green: #1DB196;
+$btn-font-color-gray: #222;
+$btn-font-color-gray2: #c8c8c8;
+$btn-font-color-gray3: #555;
+$btn-font-size-small: 1.2rem;
+$btn-font-size-small2: 1.4rem;
+$btn-font-size-small3: 1.3rem;
+$btn-font-size-default: 1.6rem;
+$btn-font-size-big: 1.8rem;
+$btn-min: 3rem;
+
+$btn-bottom-height: 5rem;
+
+$card-background-1: #10226a;
+
+$font-family-light: "RixSinHead_Light", sans-serif;
+$font-family-medium: "RixSinHead_Medium", sans-serif;
+$font-family-bold: "RixSinHead_Bold", sans-serif;
+$font-family-eBold: "RixSinHead_ExtraBold", sans-serif;
+
+$header-height: 4.8rem;
+$header-height-pc: 8rem;
+
+$input-background-color: #fff;
+$input-background-color-disabled: #F2F2F2;
+$input-background-color-trans: transparent;
+$input-txt-color: #222222;
+$input-txt-color-disabled: #999999;
+$input-border-color-focus: #7E7E7E;
+$input-line-color-deepGray: #666;
+
+$line-color-gray: #ccc;
+$line-color-gray2: #A2A2A2; /*설문 > 단계 중앙 선*/
+$line-color-gray3: #F6F6F6; /*설문 > 그룹 하단 선*/
+$line-color-gray4: #d6d6d6; /*설문 > 그룹 하단 선*/
+$line-color-gray5: #E5E5E5;
+$line-color-green: #1DB196; /*설문 > 단계 중앙 선 > active*/
+
+$step-color-done: #7e7e7e;
+$step-color-yet: #d8d8d8;
+$step-color-bg: #fff;
+$step-color-now: #1DB196;
+
+$label-font-color-blue: #567bf3;
+$label-line-color-blue: #567bf3;
+
+$marginTop-big3: 4rem;
+$marginTop-big2: 6rem;
+$marginTop-big: 3rem;
+$marginTop-default: 2rem;
+$marginTop-default2: 2.2rem;
+$marginTop-small: 1rem;
+$marginTop-small2: 1.5rem;
+$marginTop-small3: .5rem;
+$marginTop-small4: .8rem;
+$marginRight-default: 2rem;
+$marginRight-small: 1rem;
+$marginBottom-small: 1rem;
+$marginBottom-small2: .5rem;
+$marginBottom-small3: .8rem;
+$marginBottom-default: 2rem;
+$marginBottom-big: 4rem;
+$marginBottom-big2: 5rem;
+$marginBottom-big3: 3rem;
+$marginLeft-default: 2rem;
+$marginLeft-small: 1rem;
+$marginLeft-small2: 1.5rem;
+$marginLeft-small3: .5rem;
+
+$padding-default: 1.6rem;
+$paddingTop-big3: 5.2rem;
+$paddingTop-big2: 6rem;
+$paddingTop-big1: 3rem;
+$paddingTop-default: 2rem;
+$paddingTop-small: 1rem;
+$paddingRight-default: 1.5rem;
+$paddingBottom-big: 3rem;
+$paddingBottom-default: 2rem;
+$paddingBottom-small: 1rem;
+$paddingBottom-small2: .5rem;
+$paddingLeft-default: 1.5rem;
+$paddingLeft-big: 5rem;
+
+$popup-dark: rgba(0, 0, 0, .5);
+$popup-background: white;
+
+$radio-background-color-green: #1DB196;
+$radio-border-color-gray: #CCCCCC;
+$radio-border-color-green: #1DB196;
+$radio-txt-color-gray: #CCCCCC;
+
+$select-line-color-gray: #dadada;
+$select-color: #999999;
+
+$space-small: 1rem;
+$space-default: 1.5rem;
+$space-big: 2rem;
+$space-big2: 4rem;
+$space-big3: 1.6rem;
+
+$tit-font-size-big3: 2rem;
+$tit-font-size-big2: 1.8rem;
+$tit-font-size-big: 2.8rem;
+$tit-font-size-default: 1.6rem;
+$tit-font-size-small: 1.4rem;
+$tit-font-size-small2: 1.5rem;
+$tit-font-size-small3: 1.3rem;
+$tit-font-color-blue: #567bf3;
+$tit-font-color-gray: #222;
+
+$tooltip-line-color: #BEBEBE;
+$tooltip-background-color: white;
+
+$txt-font-size-default: 1.6rem;
+$txt-font-size-small: 1.1rem;
+$txt-font-size-small2: 1.3rem;
+$txt-font-size-small3: 1.4rem;
+$txt-font-size-small4: 1rem;
+$txt-font-size-small5: 1.2rem;
+$txt-font-size-small6: 1.5rem;
+$txt-font-size-big: 1.8rem;
+$txt-font-size-big2: 2rem;
+$txt-font-size-big3: 3.2rem;
+$txt-font-size-big4: 2.8rem;
+$txt-font-color-white: #fff;
+$txt-font-color-gray: #808080;
+$txt-font-color-gray2: #555;
+$txt-font-color-gray3: #222;
+$txt-font-color-gray4: #7e7e7e;
+$txt-font-color-gray5: #999;
+$txt-font-color-red: #ed2250;
+$txt-font-color-red2: #F6746F;
+$txt-font-color-green2: #10BE83;
+$txt-font-color-blue: #91a5ba;
+$txt-font-color-navy: #002f5f;
+$txt-font-color-black: #000;
+$txt-font-color-green: #1DB196; /*설문 > 검진 날짜*/
+$txt-font-color-danger: #e95371;
+$txt-font-color-caution: #f8b500;
+$txt-font-color-interest: #5ab651;
+$txt-font-color-interest-blue: #55c3F1;
+$txt-line-height-small: 1.2;
+$txt-line-height-small2: 1.4;
+$txt-line-height-big: 2;
+
+$w-pc: 960px;
+$w-pc-small: 920px;
+$w-pc-small2: 400px;
+$w-pc-small3: 600px;
+$w-pc-small4: 800px;
+$w-full: 100%;
+
+@mixin scrollbarNone{
+  scrollbar-width: none;
+  &::-webkit-scrollbar{
+    display: none;
+  }
+}
+@mixin afterSet{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -50%;
+  margin-top: -50%;
+}
+@mixin alignBetween($center: space-between, $verti: ""){
+  display: flex;
+  justify-content: $center;
+  @if $verti == verti{
+    align-items: center;
+  }
+}
+@mixin alignBottom{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+@mixin alignCenter{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin alignCenter2{
+  margin: auto;
+  display: block;
+}
+@mixin alignCenter3{
+  margin-right: auto;
+  margin-left: auto;
+}
+@mixin alignUl{
+  padding-left: 0;
+  list-style: none;
+  li{
+    display: flex;
+  }
+}
+@mixin boxStyle($pt: ""){
+  background-color: white;
+  box-shadow: 0 -0.3rem 0.6rem rgba(0, 0, 0, 0.05);
+  border-radius: 3rem 3rem 0 0;
+  padding: 2.8rem 2rem;
+  @if $pt == small{
+    padding-top: 2rem;
+  }
+  @media (min-width: $w-pc) {
+    border-radius: 3rem;
+  }
+}
+@mixin noBox{
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0;
+}
+@mixin btnBasicWhite($full: ""){
+  $btnBasicWhite-height: 3.8rem;
+  @include btnClear;
+  min-height: $btnBasicWhite-height;
+  border: solid .1rem $btn-line-color-gray;
+  border-radius: $btnBasicWhite-height;
+  font-size: $btn-font-size-small2;
+  font-family: $font-family-medium;
+  background-color: $btn-background-white;
+  color: $btn-font-color-gray;
+  padding: 0.8rem 0;
+  cursor: pointer;
+  @media (min-width: $w-pc) {
+    font-size: 1.5rem;
+    min-height: 4.4rem;
+  }
+  @if $full == full {
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+  }
+  @include childCenter;
+  &.active{
+    @include radioActive;
+    font-family: $font-family-bold;
+  }
+  span[class$="--span"]{
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: $font-family-light;
+  }
+  &.active{
+    span[class$="--span"]{
+      font-family: $font-family-bold;
+    }
+  }
+}
+@mixin btnPopGreen{
+  $CheckupBlood--pop-btn-br: 3.6rem;
+  @include btnClear;
+  min-width: 11.6rem;
+  height: $CheckupBlood--pop-btn-br;
+  background-color: #1DB196;
+  border-radius: calc($CheckupBlood--pop-btn-br / 2);
+  font-size: 1.4rem;
+  font-family: $font-family-medium;
+  color: #fff;
+  //margin-right: .5rem;
+  //margin-left: .5rem;
+  &:hover{
+    background-color: #18957e;
+  }
+}
+@mixin btnPopGray{
+  $CheckupBlood--pop-btn-br: 3.6rem;
+  @include btnClear;
+  min-width: 11.6rem;
+  height: $CheckupBlood--pop-btn-br;
+  border-radius: calc($CheckupBlood--pop-btn-br / 2);
+  font-size: 1.4rem;
+  font-family: $font-family-medium;
+  background-color: #F1F1F1;
+  color: #666666;
+  &:hover{
+    background-color: #e7e7e7;
+    border-color: #e7e7e7;
+  }
+  //margin-right: .5rem;
+  //margin-left: .5rem;
+}
+@mixin btnBig2($height: ""){
+  $size: 5.2rem;
+  @include btnClear;
+  min-height: $size;
+  border-radius: $size;
+  border: solid .1rem #1DB196;
+  background-color: #1DB196;
+  color: white;
+  font-size: $btn-font-size-default;
+  font-family: $font-family-light;
+  display: block;
+  @media (min-width: $w-pc) {
+    height: 5.2rem;
+    font-size: 1.8rem;
+  }
+  @if $height == small{
+    font-size: 1.5rem;
+    min-height: 4rem;
+    @media (min-width: $w-pc) {
+      min-height: 4.4rem;
+    }
+  }
+  &:hover{
+    background-color: #18957e;
+    border-color: #18957e;
+  }
+  &:disabled{
+    background-color: #D8D8D8;
+    border-color: #D8D8D8;
+    color: #999999;
+  }
+}
+@mixin btnBig($white: ""){
+  $btnBig-height: 4.8rem;
+  @include btnClear;
+  height: $btnBig-height;
+  border-radius: calc($btnBig-height / 2);
+  border: solid .1rem #1DB196;
+  background-color: #1DB196;
+  color: white;
+  font-size: $btn-font-size-default;
+  font-family: $font-family-light;
+  &:hover{
+    background-color: #18957e;
+    border-color: #18957e;
+  }
+  &:disabled{
+    background-color: #D8D8D8;
+    border-color: #D8D8D8;
+    color: #999999;
+  }
+  @media (min-width: $w-pc) {
+    height: 5.2rem;
+    font-size: 1.8rem;
+  }
+  @if $white != ""{
+    background-color: white;
+    border-color: #B9B9B9;
+    color: #222;
+    &:hover{
+      background-color: #fff;
+      border-color: #7e7e7e;
+    }
+  }
+  @if $white == gray{
+    background-color: #F1F1F1;
+    border-color: #F1F1F1;
+    color: #666;
+    &:hover{
+      background-color: #e7e7e7;
+      border-color: #e7e7e7;
+    }
+  }
+  @if $white == kakao{
+    background-color: #FEE102;
+    border-color: #FEE102;
+    color: #222;
+  }
+}
+@mixin btnGreen{
+  $size: 3.6rem;
+  @include btnClear;
+  min-height: $size;
+  border-radius: $size;
+  border: solid .1rem #1DB196;
+  background-color: #1DB196;
+  color: white;
+  font-size: $btn-font-size-small2;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  &:hover{
+    background-color: #18957e;
+    border-color: #18957e;
+  }
+}
+@mixin btnClear{
+  border: none;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@mixin btnDisabled{
+  background-color: #D8D8D8;
+  border-color: #D8D8D8;
+  color: #999999;
+  cursor: default;
+}
+@mixin btnHover{
+  background-color: #18957e;
+  border-color: #18957e;
+  cursor: pointer;
+}
+@mixin btnSmall($style: default){
+  @if $style == default{
+    background-color: #1DB196;
+    border: solid 0.1rem #1DB196;
+    color: white; 
+    &:hover{
+      background-color: #18957e;
+      border-color: #18957e;
+    }
+  } @else if $style == gray{
+    background-color: #ECECEC;
+    border: solid 0.1rem #ECECEC;
+    color: #999999;
+    &:hover{
+      border-color: #7e7e7e;
+    }
+  } @else if $style == line{
+    background-color: white;
+    border: solid .1rem #CCCCCC;
+    color: #555;
+    &:hover{
+      border-color: #7e7e7e;
+    }
+  }
+  height: 2.8rem;
+  border-radius: 1.4rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  font-size: 1.2rem;
+}
+@mixin btnSmall2($padding: ""){
+  background-color: white;
+  border: solid .1rem #7E7E7E;
+  color: #555;
+  font-family: $font-family-light;
+  font-weight: normal;
+  font-size: 1.3rem;
+  padding: .2rem .8rem;
+  border-radius: 1.4rem;
+  @media (min-width: $w-pc) {
+    border-radius: 1.45rem;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    padding: 0.7rem 1.2rem 0.6rem;
+  }
+  @if $padding != ""{
+    padding: .65rem 1rem;
+    border-radius: 2rem;
+  }
+}
+@mixin btnGuide{
+  @include btnClear;
+  font-size: 1.3rem;
+  font-family: "RixSinHead_Light", sans-serif;
+  color: #fff;
+  background: #222;
+  border-radius: 1.5rem;
+  padding: 0.4rem 0.8rem 0.4rem 2.8rem;
+  position: relative;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  &:before{
+    content: url("../../../public/img/ico_check.svg");
+    filter: grayscale(100%) brightness(0%);
+    transform: scale(0.8);
+    width: 1.1rem;
+    position: absolute;
+    left: 0.5rem;
+    top: 0.6rem;
+    z-index: 1;
+  }
+  &:after{
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 0.3rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+@mixin btnMore{
+  @include btnClear;
+  font-size: $btn-font-size-big;
+  color: $btn-font-color-gray3;
+  &:after{
+    content: url("../../../public/img/ico_arrow_down.svg");
+    margin-left: 1rem;
+  }
+}
+@mixin btnTxt($color: #999, $under: ""){
+  @include btnClear;
+  font-size: 1.4rem;
+  color: $color;
+  @if $under == under{
+    text-decoration: underline;
+    text-underline-offset: .3rem;
+  }
+}
+@mixin btnTxt2{
+  @include btnClear;
+  font-family: $font-family-light;
+  font-size: 1.6rem;
+  color: #555;
+  text-decoration: underline;
+}
+@mixin btnTxt3{
+  @include btnClear;
+  font-size: 1.4rem;
+  color: #000;
+  @media (min-width: $w-pc) {
+    font-size: 1.6rem;
+  }
+  &:after{
+    content: "";
+    background: url("/img/ico_arrow_right.svg") no-repeat right;
+    width: .5rem;
+    height: 1rem;
+    display: inline-block;
+    margin-left: 1rem;
+    vertical-align: -1%;
+  }
+}
+@mixin btnTxt4{
+  @include btnClear;
+  font-weight: 300;
+  color: #7e7e7e;
+  padding: 0.4rem 1rem 0.3rem;
+  border: 0.1rem solid #7e7e7e;
+  border-radius: 2rem;
+}
+@mixin childCenter($lc: ""){
+  display: flex;
+  align-items: center;
+  @if $lc == ""{
+    justify-content: center;
+  }
+}
+@mixin mainMsg{
+  font-size: $txt-font-size-big2;
+  color: $txt-font-color-gray3;
+  @media (min-width: $w-pc) {
+    font-size: 2.4rem;
+  }
+  &-strong{
+    color: $txt-font-color-green;
+  }
+  strong{
+    color: $txt-font-color-green;
+  }
+}
+@mixin mainMsg2{ /*로그인 가입*/
+  font-size: $txt-font-size-big2;
+  font-family: $font-family-bold;
+  color: $txt-font-color-gray3;
+  text-align: center;
+  margin-top: $marginTop-big3;
+  &-strong{
+    color: $txt-font-color-green;
+  }
+  strong{
+    color: $txt-font-color-green;
+  }
+  .gray{
+    color: $txt-font-color-gray2;
+    font-family: $font-family-medium;
+  }
+}
+@mixin popupPadding{
+  padding: 3rem 2rem 3rem;
+}
+@mixin popupTxt($val: #555){
+  font-size: 1.5rem;
+  color: $val;
+  line-height: 1.4;
+  text-align: center;
+}
+@mixin radioCustom{
+  input[type=radio]{
+    display: none;
+    &:checked{
+      & + *{
+        border-color: $radio-border-color-green;
+        border-width: .5rem;
+        //background: $radio-background-color-green url("@/assets/img/ico_check_white.svg") center no-repeat;
+      }
+    }
+  }
+  .radio{
+    &--icon{
+      display: inline-block;
+      $radius: 2rem;
+      width: $radius;
+      height: $radius;
+      border: solid .1rem $radio-border-color-gray;
+      border-radius: calc($radius / 2);
+      margin-right: 1rem;
+    }
+  }
+}
+@mixin radioBtn($val: #F6F6F6, $height: 3.8rem, $interest: ""){
+  //min-width: 7.6rem;
+  min-height: $height;
+  background-color: $val;
+  border: solid .1rem #D6D6D6;
+  border-radius: 1.9rem;
+  display: block;
+  @if $interest == interest {
+    background-color: $btn-background-white;
+    font-size: $btn-font-size-small2;
+  }
+}
+@mixin radioActive{
+  background: #FCFFFE url("../../../public/img/ico_check.svg") no-repeat right;
+  background-position-x: calc(100% - 1rem);
+  background-position-y: 45%;
+  border: solid .2rem #1DB196;
+  box-shadow: 0 .3rem .5rem rgba(145, 185, 178, .3);
+  color: $btn-font-color-green;
+  min-height: 3.8rem;
+  padding-top: 0.462rem;
+  padding-bottom: 0.5rem;
+  @media (min-width: $w-pc) {
+    min-height: 4.4rem;
+    border-radius: 3rem;
+  }
+}
+@mixin responsive{
+  @media ( min-width: 1400px ) {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+@mixin selectCustom($waist: ""){
+  position: relative;
+  select{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 3rem;
+    border-color: #d6d6d6;
+    padding-left: 1rem;
+    font-size: 1.4rem;
+    width: 100%;
+    text-align: center;
+    text-align-last: center;
+    -moz-text-align-last: center;
+    padding-right: 3rem;
+    color: #222;
+    @media (min-width: $w-pc) {
+      font-size: 1.5rem;
+    }
+  }
+  &:after{
+    content: url("../../../public/img/ic_arrow_down_black.svg");
+    position: absolute;
+    right: 1rem;
+    pointer-events: none;
+    top: 50%;
+    transform: translateY(-64%);
+    height: 2rem;
+  }
+  @if $waist != "" {
+    padding-right: 1.5rem;
+    select{
+      padding-right: 0;
+    }
+    &:after{
+      right: 0;
+      transform: translateY(-50%);
+    }
+  }
+}
+@mixin shadowBox{
+  border-radius: 1.2rem;
+  box-shadow: 0 .2rem .8rem rgba(0, 0, 0, .08);
+  background-color: white;
+}
+@mixin spaceRLSmall($space: -.5rem, $mt: $marginTop-small){
+  margin-right: $space;
+  margin-left: $space;
+  margin-top: $mt;
+  @media (min-width: $w-pc) {
+    margin-right: $space - .2rem;
+    margin-left: $space - .2rem;
+  }
+}
+@mixin spaceRLSDefault($class: m, $size: $space-big){
+  @if $class == p{
+    padding-right: $size;
+    padding-left: $size;
+    //@media (min-width: $w-pc) {
+    //  padding-right: 6rem;
+    //  padding-left: 6rem;
+    //}
+  } @else {
+    margin-right: $size;
+    margin-left: $size;
+    //@media (min-width: $w-pc) {
+    //  margin-right: 6rem;
+    //  margin-left: 6rem;
+    //}
+  }
+}
+@mixin tableStyle{
+  border-top: solid .1rem #A7A7A7;
+  th, td{
+    border-bottom: solid .1rem #E1E1E1;
+    border-right: solid .1rem #E1E1E1;
+    padding: 1rem;
+    font-size: 1.3rem;
+    word-break: break-all;
+    @media (min-width: $w-pc) {
+      font-size: 1.5rem;
+    }
+  }
+  th{
+    background-color: #F1F1F1;
+    color: #444;
+    font-size: 1.3rem;
+    font-family: $font-family-medium;
+    font-weight: normal;
+    text-align: center;
+  }
+  td{
+    font-size: 1.3rem;
+    font-family: $font-family-medium;
+    color: #222;
+    background-color: $box-background-white;
+    &:last-child{
+      border-right: none;
+    }
+  }
+}
+@mixin titleBig8{
+  font-family: $font-family-bold;
+  font-weight: normal;
+  font-size: 5rem;
+}
+@mixin titleBig7{
+  font-size: 3rem;
+  line-height: 3rem;
+}
+@mixin titleBig6{
+  font-size: 3.3rem;
+  font-family: $font-family-medium;
+  color: #555;
+}
+@mixin titleBig5{
+  font-size: 2.5rem;
+  color: #222;
+  font-family: $font-family-eBold;
+  letter-spacing: -.15rem;
+  @media (min-width: $w-pc) {
+    font-size: 3.2rem;
+  }
+}
+@mixin titleBig4{
+  font-size: 3rem;
+  color: #222;
+  text-decoration: underline;
+  text-decoration-thickness: .1rem;
+  text-underline-offset: .5rem;
+}
+@mixin titleBig3{
+  font-size: 2.8rem;
+  color: $txt-font-color-danger;
+}
+@mixin titleBig2{
+  font-size: 2.2rem;
+  font-family: $font-family-bold;
+  font-weight: 500;
+  color: #222;
+  position: relative;
+  z-index: 1;
+  @media (min-width: $w-pc) {
+    font-size: 2.6rem;
+  }
+  &:before{
+    content: "";
+    display: block;
+    height: 1.4rem;
+    border-radius: 1rem;
+    background-color: rgba(29, 177, 150, .2);
+    position: absolute;
+    width: calc(100% + 1rem);
+    top: 1.3rem;
+    left: -.3rem;
+    z-index: -1;
+    @media (min-width: $w-pc) {
+      top: 1.7rem;
+    }
+  }
+}
+@mixin titleBig{
+  font-size: $tit-font-size-big3; /*2rem*/
+  font-family: $font-family-bold;
+  color: $tit-font-color-gray; /*#222*/
+}
+@mixin titleDefault($color: $tit-font-color-gray){
+  font-size: $tit-font-size-big2; /*1.8rem*/
+  font-family: $font-family-bold;
+  color: $color; /*#222*/
+  @media (min-width: $w-pc) {
+    font-family: $font-family-bold;
+    font-size: 2rem;
+  }
+}
+@mixin titleSmall{
+  font-size: 1.3rem;
+  color: #222;
+  @media (min-width: $w-pc) {
+    font-size: 1.6rem;
+  }
+}
+@mixin titleSmall2{
+  font-size: 1.6rem;
+  font-family: $font-family-bold;
+  color: #222;
+}
+@mixin titleSmall3{
+  font-size: 1.5rem;
+  color: #222;
+}
+@mixin titleSmall4{
+  font-size: 1.1rem;
+  font-family: $font-family-light;
+  color: #222;
+  line-height: 1.4rem;
+}
+@mixin titleSmall5{
+  font-size: 1.5rem;
+  font-family: $font-family-medium;
+  color: #646464;
+}
+@mixin titleItem{
+  font-size: $tit-font-size-small; /*1.4rem*/
+  color: $tit-font-color-gray; /*#222*/
+  @media (min-width: $w-pc) {
+    font-size: 1.6rem;
+  }
+}
+@mixin txtBig12{
+  font-size: 3.2rem;
+  font-family: $font-family-light;
+  line-height: 3.2rem;
+}
+@mixin txtBig11{
+  font-size: 2rem;
+  font-family: $font-family-bold;
+  font-weight: 500;
+  color: #222;
+}
+@mixin txtBig10{
+  font-size: 2.8rem;
+  font-family: $font-family-bold;
+  color: #222;
+}
+@mixin txtBig9{
+  font-size: 5rem;
+  font-family: $font-family-bold;
+  color: #555;    
+  font-weight: normal;
+  letter-spacing: -0.2rem;
+}
+@mixin txtBig8{
+  font-size: 3.6rem;
+  font-family: $font-family-medium;
+  color: #555;
+  letter-spacing: -0.18rem;
+  @media (min-width: $w-pc) {
+    font-size: 4.8rem;
+    margin-top: -1rem;
+  }
+}
+@mixin txtBig7{
+  font-size: 2.4rem;
+  font-family: $font-family-bold;
+  color: #222;
+}
+@mixin txtBig6{
+  font-size: 4rem;
+  font-family: $font-family-bold;
+  color: #000;
+  @media (min-width: $w-pc) {
+    font-size: 6.2rem;
+  }
+}
+@mixin txtBig5{
+  font-size: 1.8rem;
+  font-family: $font-family-bold;
+  color: #555;
+  @media (min-width: $w-pc) {
+    font-size: 2.3rem;
+  }
+}
+@mixin txtBig4{
+  font-size: 4.4rem;
+  font-family: $font-family-bold;
+}
+@mixin txtBig3{
+  font-size: 3rem;
+  color: #555;
+  font-family: $font-family-bold;
+}
+@mixin txtBig2{
+  font-size: 3.2rem;
+  color: $txt-font-color-gray2;
+  font-family: $font-family-bold;
+}
+@mixin txtBig($color: $txt-font-color-green){
+  font-size: 2rem;
+  font-family: $font-family-bold;
+  color: $color;
+  strong{
+    font-weight: normal;
+  }
+}
+@mixin txtSmall($color: #222){
+  font-size: 1.5rem;
+  font-family: $font-family-medium;
+  color: $color;
+  @media (min-width: $w-pc) {
+    font-size: 1.8rem;
+  }
+}
+@mixin txtSmall2($color: #555){
+  font-size: 1.4rem;
+  font-family: $font-family-medium;
+  color: $color;
+  @media (min-width: $w-pc) {
+    font-size: 1.6rem;
+  }
+}
+@mixin txtSmall3($color: #7E7E7E){
+  font-size: 1.3rem;
+  font-family: $font-family-medium;
+  color: $color;
+  @media (min-width: $w-pc) {
+    font-size: 1.5rem;
+  }
+}
+@mixin txtSmall4($color: #222){
+  font-size: 1.6rem;
+  font-family: $font-family-medium;
+  color: $color;
+  @media (min-width: $w-pc) {
+    font-size: 1.8rem;
+  }
+}
+@mixin txtSmall5($color: #555){
+  font-size: 1.2rem;
+  font-family: $font-family-medium;
+  color: $color;
+}
+@mixin txtSmall6{
+  font-size: 1.2rem;
+  font-family: $font-family-light;
+  color: #7e7e7e;
+  background: #fff;
+}
+@mixin txtSmall7{
+  font-size: 1.4rem;
+  font-family: $font-family-medium;
+  font-weight: normal;
+  color: #555;
+  margin-top: 1.6rem;
+  text-align: center;
+  @media (min-width: $w-pc) {
+    font-size: 1.6rem;
+    margin-top: 6rem;
+  }
+}
+@mixin validationTxt($ff: $font-family-medium, $ok: no ){
+  color: #FF4646;
+  font-size: 1.3rem;
+  font-family: $ff;
+  @media (min-width: $w-pc) {
+    font-size: 1.5rem;
+  }
+  @if $ok == ok {
+    color: $txt-font-color-green2;
+  }
+}
+
+//설문
+@mixin checkupStep($num, $line: '') {
+  .BaseStep--step:nth-child(#{$num}) {
+    border-bottom: solid .2rem $line-color-green;
+    &:after {
+      $size: 1.6rem;
+      background-color: $line-color-green;
+      border-width: 0;
+      width: $size;
+      height: $size;
+      top: 0;
+      right: -.1rem;
+      @media (min-width: $w-pc) {
+        $size: 2.2rem;
+        width: $size;
+        height: $size;
+        right: -.2rem;
+        top: -.27rem;
+      }
+    }
+  }
+  @if $line != '' {
+    .BaseStep--step:nth-child(#{$line}) {
+      border-bottom: solid .2rem $line-color-green;
+    }
+  }
+}
+@mixin checkupRLSpace{
+  padding-right: 2rem;
+  padding-left: 2rem;
+  //@media (min-width: $w-pc) {
+  //  padding-right: 6rem;
+  //  padding-left: 6rem;
+  //}
+}
+@mixin checkupGroupStyle{
+  margin: 0 2rem;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 0;
+  @media (min-width: $w-pc) {
+    max-width: 50rem;
+    margin: 0 auto;
+  }
+}
+@mixin checkupTit{ /*설문 > 기본검사, 접히는 그룹 타이틀*/
+  font-size: 2.2rem;
+  font-family: $font-family-medium;
+  color: #222222;
+}
+
+// iOS Safari vh 문제 해결을 위한 범용 mixin들
+@mixin vh-fallback($property: height, $vh-value: 100, $offset: 0rem) {
+  /* ① 기본값 - 구형 브라우저 지원 */
+  #{$property}: calc(#{$vh-value}vh - #{$offset});
+  /* ② Safari 보정 - iOS Safari 호환성 */
+  #{$property}: calc(-webkit-fill-available - #{$offset});
+  /* ③ JS 폴백 - 동적 vh 변수 지원 */
+  #{$property}: calc(var(--vh, 1vh) * #{$vh-value} - #{$offset});
+  
+  /* ④ 최신 브라우저 - 최종 덮어쓰기 */
+  @supports (height: #{$vh-value}dvh) {
+    #{$property}: calc(#{$vh-value}dvh - #{$offset});
+  }
+}
+
+@mixin min-vh-fallback($vh-value: 100, $offset: 0rem) {
+  @include vh-fallback(min-height, $vh-value, $offset);
+}
+
+@mixin max-vh-fallback($vh-value: 100, $offset: 0rem) {
+  @include vh-fallback(max-height, $vh-value, $offset);
+}
+
+@mixin height-vh-fallback($vh-value: 100, $offset: 0rem) {
+  @include vh-fallback(height, $vh-value, $offset);
+}
+
+@mixin btnBottomFixLayout{
+  display: flex;
+  flex-direction: column;
+  @include min-vh-fallback(100, 4.9rem);
+  text-align: center;
+  @media (min-width: $w-pc) {
+    min-height: unset;
+    justify-content: space-between;
+  }
+}
+@mixin iconCircle{
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 0.1rem solid #a1dfd4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (min-width: $w-pc) {
+    width: 5.2rem;
+    height: 5.2rem;
+  }
+}
+@mixin transitionContents{
+  overflow: hidden;
+  &>:last-child{
+    margin-bottom: 4rem;
+    @media (min-width: $w-pc) {
+      margin-bottom: 2.4rem;
+    }
+  }
+}
+@mixin itemTit($color: #333){
+  font-size: 1.4rem;
+  font-family: $font-family-light;
+  color: $color;
+  @media (min-width: $w-pc) {
+    font-size: 1.6rem;
+  }
+}
+@mixin radioTxt{
+  font-size: 1.4rem;
+  color: #222;
+}
+@mixin checkupMainTxt($item){
+  @include mainMsg;
+  //min-height: 8rem;
+  margin-bottom: 3rem;
+  line-height: 1.4;
+  padding-left: 5rem;
+  @media (min-width: $w-pc) {
+    padding-left: 6.5rem;
+  }
+  &:before{
+    left: 0;
+    $digit: 4rem;
+    content: "";
+    width: $digit;
+    height: $digit;
+    border: solid .1rem #94DBCE;
+    border-radius: calc( $digit / 2 );
+    display: inline-block;
+    background: center no-repeat;
+    position: absolute;
+    margin-top: -.5rem;
+    @media (min-width: $w-pc) {
+      $size: 5.2rem;
+      width: $size;
+      height: $size;
+      border-radius: $size;
+      margin-top: -1rem;
+    }
+    @if $item == memory{
+      background-image: url("../../../public/img/ico_memory.svg");
+    }
+    @if $item == eye{
+      background-image: url("../../../public/img/ico_eye.svg");
+    }
+    @if $item == nose{
+      background-image: url("../../../public/img/ico_nose.svg");
+    }
+    @if $item == stomach{
+      background-image: url("../../../public/img/ico_stomach.svg");
+    }
+    @if $item == intestine{
+      background-image: url("../../../public/img/ico_intestine.svg");
+    }
+    @if $item == jointAndBone{
+      background-image: url("../../../public/img/ico_jointAndBone.svg");
+    }
+    @if $item == immunity{
+      background-image: url("../../../public/img/ico_immunity.svg");
+    }
+    @if $item == menopause{
+      background-image: url("../../../public/img/ico_menopause.svg");
+    }
+    @if $item == prostate{
+      background-image: url("../../../public/img/ico_prostate.svg");
+    }
+    @if $item == menstrual{
+      background-image: url("../../../public/img/ico_menstrual.svg");
+    }
+    @if $item == eq5d{
+      background-image: url("../../../public/img/ico_eq5d.svg");
+    }
+    @if $item == physicalActivity{
+      background-image: url("../../../public/img/ico_physicalActivity.svg");
+    }
+    @if $item == drink{
+      background-image: url("../../../public/img/ico_drinkSmokeSleep.svg");
+    }
+    @if $item == Smoke{
+      background-image: url("../../../public/img/ico_smoke.svg");
+    }
+    @if $item == Sleep{
+      background-image: url("../../../public/img/ico_sleep.svg");
+    }
+    @if $item == water{
+      background-image: url("../../../public/img/ico_water.svg");
+    }
+    margin-right: 1rem;
+    float: left;
+  }
+}
+@mixin checkupQuestion{
+  font-size: 2.2rem;
+  font-family: $font-family-bold;
+  color: $txt-font-color-gray3;
+  line-height: $txt-line-height-small2;
+  display: flex;
+  gap: 0.5rem;
+  word-break: break-all;
+  @media (min-width: $w-pc) {
+    font-size: 2.2rem;
+  }
+}
+@mixin checkupAnswer2{
+  display: flex;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-top: 1.6rem;
+  @media (min-width: $w-pc) {
+    gap: 2.8rem;
+  }
+  & > *{
+    width: calc(50% - 0.6rem);
+    @media (min-width: $w-pc) {
+      width: calc(50% - 1.4rem);
+    }
+  }
+  span{margin-top: .2rem}
+}
+@mixin checkupAnswerTxt{
+  font-size: $txt-font-size-small2;
+  font-family: $font-family-medium;
+  color: $txt-font-color-gray2;
+  line-height: $txt-line-height-small;
+  @media (min-width: $w-pc) {
+    font-size: 1.5rem;
+  }
+}
+@mixin checkupRadio{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  input[type=radio]{
+    display: none;
+    &:checked{
+      & + *{
+        border-color: $radio-border-color-green;
+        background: $radio-background-color-green url("/img/ico_check_white.svg") center no-repeat;
+      }
+    }
+  }
+  .radio{
+    &--icon{
+      display: inline-block;
+      $radius: 2.4rem;
+      width: $radius;
+      height: $radius;
+      border: solid .1rem $radio-border-color-gray;
+      border-radius: calc($radius / 2);
+    }
+  }
+  input[type=radio]{
+    margin-right: auto;
+    margin-left: auto;
+    &:checked{
+      & + *{
+        font-family: $font-family-bold;
+      }
+    }
+  }
+  span[class$="--span"]{
+    @include checkupAnswerTxt;
+    display: block;
+  }
+}
+@mixin checkupAnswerSpace{
+  padding-top: 6rem;
+  @media (min-width: $w-pc) {
+    padding-top: 8rem;
+  }
+  &:first-child{
+    padding-top: 0;
+  }
+}
+
+@mixin txtAnalyze{
+  font-size: 1.8rem;
+  font-family: $font-family-light;
+  color: #555;
+  line-height: 2.6rem;
+  strong{
+    font-family: $font-family-bold;
+    font-weight: normal;
+  }
+}
+
+@mixin lightTxtAnalyze{
+  font-size: 1.6rem;
+  font-family: $font-family-medium;
+  color: #646464;
+  line-height: 2.2rem;
+  background: #ebebeb;
+  border-radius: 2.8rem;
+  padding: 0.6rem;
+  letter-spacing: -0.096rem;
+  @media (min-width: $w-pc) {
+    font-size: 1.8rem;
+  }
+}
+
+@mixin legendWrap{
+  @include alignBetween($verti: verti);
+  gap: 10px;
+  @media (max-width: 360px) {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+}
+@mixin legendCOn{
+  @include alignUl;
+  font-size: 1rem;
+  font-family: $font-family-medium;
+  color: #7e7e7e;
+  position: relative;
+  padding-left: 12px;
+  @media (min-width: $w-pc) {
+    font-size: 1.2rem;
+    font-family: $font-family-light;
+  }
+  &::before {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    @media (min-width: $w-pc) {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+  &.is-green {
+    &::before {
+      background: $txt-font-color-interest;
+    }
+  }
+  &.is-yellow {
+    &::before {
+      background: $txt-font-color-caution;
+    }
+  }
+  &.is-red {
+    &::before {
+      background: $txt-font-color-danger;
+    }
+  }
+}
+
+@mixin textLine{
+  font-family: $font-family-light;
+  margin: 0 0.6rem;
+}
+.text-line {
+  @include textLine;
+}
+
+@mixin tooltip{
+  position: absolute;
+  background: #646464;
+  padding: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 0.6rem;
+  z-index: 1;
+  &.tooltip-bottom-arrow:after{
+    content: '';
+    position: absolute;
+    bottom: -1.8rem;
+    left: 70%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: #646464 transparent transparent transparent;
+  }
+  &.tooltip-top-arrow:after{
+    content: '';
+    position: absolute;
+    top: -1.8rem;
+    left: 70%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #646464 transparent;
+  }
+  .tooltip-text {
+    font-family: $font-family-light;
+    font-size: 1.3rem;
+    color: $txt-font-color-white;
+    span {
+      color: #72ffee;
+      font-size: 1.3rem;
+      display: block;
+      margin-top: 0.5rem;
+    }
+  }
+  .tooltip-icon{
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img{
+      width: 1.2rem;
+      height: 1.2rem;
+      filter: invert(100%);
+      opacity: 0.6;
+    }
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  word-break: keep-all;
+}
+
+html{
+  font-family: $font-family-bold, serif;
+  font-size: 10px;
+}
+
+body {
+  @include min-vh-fallback(100, 0rem);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.4;
+  font-size: 1.6rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -.06rem;
+  background-color: #ffffff;
+  
+  /* Safe area support for all devices */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Force white status bar/header background for all environments */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: env(safe-area-inset-top, 44px);
+  background-color: #ffffff;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+a {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+}
+
+button{
+  cursor: pointer;
+  font-family: $font-family-bold, serif;
+  &:hover{
+    transition: background-color .5s;
+  }
+}
+
+hr{
+  border: none;
+  height: 1px;
+  background-color: $line-color-gray;
+  &.gray{
+    background-color: $line-color-gray4;
+  }
+  &.gray2{
+    background-color: #e5e5e5;
+  }
+  &.dot{
+    background-color: transparent;
+    border-bottom: dashed .2rem #adadad;
+  }
+  &.dot2{
+    background-color: transparent;
+    border-bottom: dashed .1rem #adadad;
+  }
+}
+
+img{
+  max-width: 100%;
+}
+
+input[type="checkbox"]{
+  width: 2rem;
+  height: 2rem;
+  vertical-align: sub;
+  margin-right: .6rem;
+  @media (min-width: $w-pc) {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+  &.custom{
+    position: absolute;
+    opacity: 0;
+    & + span{
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      background-color: $background-color-gray2;
+      border: solid .2rem #E1E1E1;
+      border-radius: .4rem;
+      vertical-align: middle;
+      margin-right: .8rem;
+      @media (min-width: $w-pc) {
+        width: 2.2rem;
+        height: 2.2rem;
+      }
+    }
+    &:focus{
+      & + span{
+        border: solid 2px $border-color-green;
+      }
+    }
+    &:checked{
+      &+span{
+        border-color: $border-color-green;
+        background: $background-color-green url("/img/ico_check_white.svg") no-repeat center;
+      }
+    }
+  }
+}
+
+input[type="radio"]{
+  width: 2rem;
+  height: 2rem;
+  vertical-align: sub;
+  margin-right: .6rem;
+}
+
+input[type="text"], input[type="password"], input[type="number"]{
+  $radius: 4rem;
+  $radiusPc: 4.25rem;
+  height: $radius;
+  border: solid 1px $select-line-color-gray;
+  border-radius: $radius;
+  padding-left: 1.5rem;
+  font-family: $font-family-bold, serif;
+  font-size: 1.4rem;
+  width: 100%;
+  @media (min-width: $w-pc) {
+    height: $radiusPc;
+    font-size: 1.5rem;
+  }
+  & [disabled="disabled"] {
+    background-color: #f4f4f4;
+  }
+  &:focus{
+    outline-color: $line-color-green;
+  }
+  &.noBorder{
+    &:focus{
+      outline: none;
+    }
+  }
+  &:-webkit-autofill {
+    background-color: white !important;
+  }
+}
+
+input[type="password"]{
+  font-family: serif;
+  &::-ms-reveal{
+    display: none;
+  }
+}
+
+input::placeholder, textarea::placeholder{
+  color: #ccc;
+  font-family: $font-family-medium;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.layout--normal, .layout--checkup{
+  main{
+    //min-height: calc( 100vh - $header-height );
+    //@media (min-width: 620px) {
+    //  width: 620px;
+    //  margin: auto;
+    //}
+  }
+  &.short{
+    main{
+      @media (min-width: 400px) {
+        width: 40rem;
+        @include alignCenter3;
+      }
+    }
+  }
+  &.middle{
+    main{
+      @media (min-width: 620px) {
+        max-width: 66rem;
+        @include alignCenter3;
+      }
+      @media (min-width: $w-pc) {
+        max-width: 62rem;
+        padding-bottom: 6rem;
+      }
+    }
+  }
+  &.wide{
+    main{
+      @media (min-width: $w-pc-small) {
+        width: 92rem;
+        @include alignCenter3;
+        padding-bottom: 4rem;
+      }
+    }
+  }
+}
+
+// 설문 > 체성분 > 스크롤 없는 화면
+.layout--checkup:has(.CheckupBodyKeyLogin){
+  main{
+    @media (min-width: $w-pc) {
+      @include height-vh-fallback(100, 8rem);
+    }
+  }
+}
+
+select{
+  -webkit-appearance: none;
+  height: 4rem;
+  border-color: $select-line-color-gray;
+  border-radius: .2rem;
+  padding-left: .6rem;
+  font-family: $font-family-bold, serif;
+  color: #222;
+  @media (min-width: $w-pc) {
+    height: 4.4rem;
+  }
+  &:focus{
+    border-color: $line-color-green;
+    outline-color: $line-color-green;
+  }
+  &.noBorder{
+    &:focus{
+      border-color: transparent;
+      outline-color: transparent;
+    }
+  }
+  &:disabled{
+    background-color: $background-color-gray3;
+  }
+  &.circle{
+    border-radius: 3rem;
+    border-color: #d6d6d6;
+    padding-left: 1rem;
+    font-size: 1.4rem;
+    width: 100%;
+    text-align: center;
+    padding-right: 3rem;
+  }
+}
+
+table{
+  border-collapse: collapse;
+}
+
+textarea{
+  width: 100%;
+}
+
+ul{
+  padding-left: 2rem;
+}
+
+.tag-wrap{
+  text-align: left;
+  .tag{
+    font-size: 1.2rem;
+    font-family: 'RixSinHead_Light';
+    color: #1db196;
+    background: #d9f0ed;
+    border-radius: 0.4rem;
+    padding: 0.2rem 0.4rem;
+    letter-spacing: -0.03rem;
+    @media (min-width: $w-pc) {
+      font-size: 1.4rem;
+    }
+    &.tag-manual{
+      color: #5353cb;
+      background: #e6e6ff;
+    }
+    &.tag-bodykey{
+      color: #01865f;
+      background: #d8ffe0;
+    }
+    &.red{
+      background-color: #FFE5E3;
+      color: #E7272C;
+    }
+    &.biolet{
+      background-color: #E6E6FF;
+      color: #5353CB;
+    }
+  }
+}

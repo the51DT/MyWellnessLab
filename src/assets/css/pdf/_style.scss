@@ -1,0 +1,124 @@
+@import "variables";
+
+body,
+html {
+  font-size: 14px;
+  // font-family: "NotoSansKR", sans-serif;
+  font-family: "Pretendard", "MarkPro", sans-serif;
+  min-height: calc(var(--vh, 1vh) * 100);
+  max-width: $max-width;
+  margin: 0 auto;
+  position: relative;
+  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    min-height: -webkit-fill-available;
+  }
+  color: $black;
+  overflow-x: hidden;
+}
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.btn {
+  border-radius: 25px;
+  background: $amway;
+  color: $white;
+  height: 56px;
+  width: 100%;
+
+  font-size: 19px;
+  font-weight: 500;
+  cursor: pointer;
+  &.sm {
+    font-size: 17px;
+    height: 48px;
+  }
+  &:hover {
+    // background: #c8926d;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      // background: #c8926d;
+    }
+  }
+}
+main {
+  min-height: $vh;
+  max-width: $max-width;
+}
+
+.loading {
+  position: fixed;
+  // max-width: $max-width;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba($color: #000000, $alpha: 0.4);
+  z-index: 2999;
+  @include flex(center, center);
+  .loading-box {
+    width: 200px;
+    height: 100px;
+    background: #53575a;
+    border-radius: 20px;
+    box-shadow: 3px 3px 6px rgba($color: #000000, $alpha: 0.16);
+    padding: 10px;
+    p {
+      color: $white;
+      font-weight: 700;
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    @keyframes jump {
+      from {
+      }
+      to {
+        transform: translateY(-5px);
+      }
+    }
+    .loading-icon {
+      @include flex(center, center);
+      height: 50px;
+      gap: 10px;
+      span {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        // background: #c4926d;
+        background: #2aaa93;
+        transform: translateY(0px);
+
+        @for $i from 1 to 6 {
+          &:nth-child(#{$i}) {
+            animation: jump 0.5s #{$i * 0.2}s linear alternate infinite;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  button:hover {
+    // background: #c4926d;
+  }
+}
+
+.wrapper {
+  // max-width: 1280px;
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}

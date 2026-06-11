@@ -1,0 +1,18 @@
+<svg id="구성_요소_177_1" data-name="구성 요소 177 – 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19" height="23" viewBox="0 0 19 23">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_18800" data-name="사각형 18800" width="19" height="23" fill="#74cc89"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="사각형_18801" data-name="사각형 18801" width="12.16" height="8.628" transform="translate(0 0)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="그룹_107738" data-name="그룹 107738" clip-path="url(#clip-path)">
+    <path id="패스_55449" data-name="패스 55449" d="M4.862,2.77A13.579,13.579,0,0,0,9,.424L9.5,0l.509.423A13.605,13.605,0,0,0,14.138,2.77a9.032,9.032,0,0,0,4,.549l.86-.1,0,6.562a14.415,14.415,0,0,1-2.469,8.318,12.3,12.3,0,0,1-6.854,4.869L9.5,23l-.17-.037a12.313,12.313,0,0,1-6.858-4.869A14.443,14.443,0,0,1,0,9.777L0,3.215l.864.1a9.015,9.015,0,0,0,4-.549" transform="translate(0 -0.001)" fill="#5fce84"/>
+    <g id="그룹_107741" data-name="그룹 107741" transform="translate(3.42 7.186)">
+      <g id="그룹_107740" data-name="그룹 107740" transform="translate(0 0)" clip-path="url(#clip-path-2)">
+        <path id="패스_55450" data-name="패스 55450" d="M10.6.266a.925.925,0,0,1,1.3,0,.907.907,0,0,1,0,1.28L5.014,8.363a.925.925,0,0,1-1.3,0L.268,4.947a.9.9,0,0,1,0-1.285.919.919,0,0,1,1.292,0l2.8,2.778Z" transform="translate(0 0)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

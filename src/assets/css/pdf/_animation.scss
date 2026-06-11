@@ -1,0 +1,73 @@
+@keyframes modal {
+  from {
+    top: 100%;
+  }
+  to {
+    top: 0;
+  }
+}
+
+@keyframes slide {
+  from {
+    left: -100%;
+  }
+
+  to {
+    left: 0;
+  }
+}
+@keyframes scale {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.scale-enter-active {
+  animation: scale 0.2s;
+}
+
+.scale-leave-active {
+  animation: scale 0.2s reverse;
+}
+
+.modal-enter-active {
+  animation: modal 0.2s;
+}
+.modal-leave-active {
+  animation: modal 0.2s reverse;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.2s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
+.slide-enter-active {
+  animation: slide 0.2s;
+}
+
+.slide-leave-active {
+  animation: slide 0.2s reverse;
+}

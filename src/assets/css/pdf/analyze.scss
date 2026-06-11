@@ -1,0 +1,101 @@
+@import "variables";
+
+main {
+  min-height: $vh;
+}
+
+section {
+  @include flex(flex-start, flex-start);
+
+  flex-direction: column;
+
+  padding: 0 28px 40px;
+  padding-top: calc($header + 30px);
+  min-height: calc($vh);
+  background-color: #f3f3f3;
+  max-width: $max-width;
+
+  margin: 0 auto;
+}
+
+.input-box {
+  @include flex(center, flex-start);
+  flex-direction: column;
+  width: 100%;
+  height: 68px;
+  border: 1px solid rgba($color: #bcbec0, $alpha: 0.2);
+  border-radius: 34px;
+  background: $white;
+  position: relative;
+  padding: 5px 24px;
+  p {
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  input {
+    width: calc(100% - 60px);
+    background: transparent;
+    font-size: 15px;
+    font-weight: 500;
+    &::placeholder {
+      color: #d4d5d6;
+    }
+  }
+  span {
+    position: absolute;
+    right: 20px;
+    bottom: 18px;
+    padding: 3px 10px;
+    border-radius: 11px;
+    background: #f6f6f7;
+    color: #a9abac;
+    font-size: 10px;
+  }
+}
+
+.toggle {
+  @include flex(flex-start, center);
+  flex-direction: row;
+  padding-left: 22px;
+  gap: 21px;
+  width: 100%;
+  span {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+    color: #54585b;
+  }
+  .button {
+    @include flex(center, center);
+    height: 67px;
+    border-radius: 50px;
+    flex: 1;
+    background-color: white;
+
+    color: #54585b;
+    font-size: 14px;
+    font-family: Pretendard;
+    font-weight: 500;
+  }
+
+  .selected {
+    background-color: #c4926d;
+    color: white;
+  }
+}
+
+.button-box {
+  width: 100%;
+}
+
+.gap {
+  flex: 1;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: calc($vh - $header - 70px);
+}

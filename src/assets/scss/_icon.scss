@@ -1,0 +1,302 @@
+.checkmark-circle {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  position: absolute;
+  border: 1px solid #adadad;
+  display: inline-block;
+}
+.checkmark-circle.left{
+  left:0;
+  top: 0
+}
+.checkmark-circle.right{
+  right:0
+}
+
+.checkmark-circle::after {
+  content: "";
+  position: absolute;
+  width: 0.6rem;
+  height: 0.4rem;
+  border: 1px solid #adadad;
+  border-width: 2px 2px 0px 0px;
+  top: 42%;
+  left: 77%;
+  transform: translate(-100%, -50%) rotate(133deg);
+}
+.checkmark-circle.active{
+  background-color: $point-color;
+  border: 1px solid $point-color;
+  &::after{
+    position: absolute;
+    width: 0.6rem;
+    height: 0.4rem;
+    border: 1px solid #fff;
+    border-width: 2px 2px 0px 0px;
+    top: 42%;
+    left: 77%;
+    transform: translate(-100%, -50%) rotate(133deg);
+  }
+}
+
+.checkmark {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-block;
+  position: absolute;
+  &.active::after {
+    border-color: $point-color;
+  }
+
+}
+.checkmark.black::after{  
+  border: 1px solid #000;
+  border-width: 2px 2px 0px 0px;
+
+}
+.checkmark::after {
+  content: "";
+  position: absolute;
+  width: 0.8rem;
+  height: 0.3rem;
+  border: 1px solid #fff;
+  border-width: 2px 2px 0px 0px;
+  top: 42%;
+  left: 80%;
+  transform: translate(-100%, -50%) rotate(133deg);
+}
+
+.mark-arrow-left {
+  
+    display: block;
+    background: none;
+    width: 1rem;
+    height: 1rem;
+    background: transparent;
+    text-decoration: none;
+    color: transparent;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    border-top: 2px solid #fff;
+    border-left:2px solid #fff;
+
+  &.black {
+    border-top:2px solid  rgba(1,1,1,1);
+    border-left:2px solid  rgba(1,1,1,1);
+  }
+  &.grey{
+    border-top:2px solid  #464646;
+    border-left:2px solid  #464646;
+  }
+}
+.mark-arrow-right {
+ 
+  display: block;
+  background: none;
+  width: 1rem;
+  height: 1rem;
+  background: transparent;
+  text-decoration: none;
+  color: transparent;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  border-top: 2px solid #fff;
+  border-left:2px solid #fff;
+
+  &.black {
+    border-top:2px solid  rgba(1,1,1,1);
+    border-left:2px solid  rgba(1,1,1,1);
+  }
+  &.grey{
+    border-top:2px solid  #E2E2E2;
+    border-left:2px solid  #E2E2E2;
+  }
+}
+.mark-arrow-down, .mark-arrow-down-calendar {
+  // position: absolute;
+  // right: -20px;
+  // top: 5px;
+  vertical-align: text-top !important;
+  display: inline-block;
+  border: solid #fff;
+  border-width: 0 0.1rem 0.1rem 0;
+  padding: 0.3em;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  &.gray {
+    border-color: $border-color;
+  }
+  &.black {
+    border-color: #464646;
+  
+  }
+}
+.mark-arrow-up {
+  // position: absolute;
+  vertical-align: text-top;
+  right: 1rem;
+  top: 1rem;
+  display: inline-block;
+  border: solid #fff;
+  border-width: 0 0.1rem 0.1rem 0;
+  padding: 0.2em;
+  transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+  &.black {
+    border-color: rgba(1,1,1,1);
+  
+  }
+}
+.dot-list {
+  &::before {
+    content: "•";
+    margin: 0 calcRem(6);
+  }
+  
+  &:last-child::after {
+    content: "";
+    margin: 0;
+  }
+}
+.dot {
+  display: inline-block;
+  width: calcRem(15);
+  height: calcRem(15);
+  border-radius: 50%;
+  background: #96999c;
+
+  &.danger {
+    background-color: #E95371
+  }
+
+  &.warning {
+    background-color: #F7B638;
+  }
+
+  &.normal{
+    background-color: #45C157;
+  }
+}
+.i-close {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  position: relative;
+  width: 1.6rem;
+  height: 1.6rem;
+
+  &.white::before, &.white::after {
+    background: #fff;
+  }
+
+  &::before,&::after {
+    left: 14px;
+    content: ' ';
+    height: 1.5rem;
+    width: 2px;
+    position: absolute;
+    background: #000;
+  }
+  &::before {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  &::after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+}
+.i-plus-explain {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: $point-color;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.i-plus-circle {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: $point-color;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.i-plus-circle:before, .i-plus-circle:after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+}
+
+.i-plus-circle:before {
+  width: 2px;
+  height: 14px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.i-plus-circle:after {
+  width: 14px;
+  height: 2px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.i-setting{
+  background: url('@/assets/images/icons/setting.png') no-repeat;
+  background-size: contain;
+}
+
+.i-hamburger {
+  background: url('@/assets/images/icons/menu.png') no-repeat;
+  background-size: contain;
+}
+
+.i-hamburger-white {
+  background: url('@/assets/images/icons/menu-white.png') no-repeat;
+  background-size: contain;
+}
+.i-edit {
+  background: url('@/assets/images/icons/edit.png') no-repeat;
+  background-size: contain;
+}
+.i-statistics {
+  background: url('@/assets/images/icons/statistics.png') no-repeat;
+  background-size: contain;
+}
+
+.i-health-plan {
+  background: url('@/assets/images/icons/health-plan.png') no-repeat;
+  background-size: contain;
+}
+.i-time {
+  background: url('@/assets/images/icons/time.png') no-repeat;
+  background-size: contain;
+}
+.i-cancel{
+  background: url('@/assets/images/icons/i-cancel.png') no-repeat;
+  background-size: cover;
+}
+.i-info{
+  background: url('@/assets/images/icons/info.png') no-repeat;
+  background-size: contain;
+} 
+.i-triangle-down-icon{
+  background: url('@/assets/images/icons/triangle-down.png') no-repeat;
+  background-size: contain;
+}
+.i-capture-result-info{
+  background: url('@/assets/images/icons/capture-result-info.png') no-repeat;
+  background-size: contain;
+}
+

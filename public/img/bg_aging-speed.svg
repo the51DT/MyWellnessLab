@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255" height="167" viewBox="0 0 255 167">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.984" y1="1" x2="0.132" y2="0.328" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#dda450"/>
+      <stop offset="0.218" stop-color="#fd7549"/>
+      <stop offset="0.502" stop-color="#e89d48"/>
+      <stop offset="0.774" stop-color="#baba69"/>
+      <stop offset="1" stop-color="#93d285"/>
+    </linearGradient>
+  </defs>
+  <g id="그룹_107718" data-name="그룹 107718" transform="translate(14618 -1558)">
+    <path id="빼기_40" data-name="빼기 40" d="M245.936,127H235C234.737,60.831,182.028,7,117.5,7A115.382,115.382,0,0,0,35.7,41H31.32c1.523-1.7,3.106-3.374,4.706-4.974a123.2,123.2,0,0,1,39.1-26.36A122.348,122.348,0,0,1,98.212,2.5a124.18,124.18,0,0,1,49.577,0A122.3,122.3,0,0,1,191.77,21.007a123.344,123.344,0,0,1,44.564,54.116A122.314,122.314,0,0,1,243.5,98.212,123.861,123.861,0,0,1,246,123c0,1.322-.021,2.667-.064,4Z" transform="translate(-14610 1577)" fill="url(#linear-gradient)"/>
+    <line id="선_302" data-name="선 302" x2="38" y2="115" transform="translate(-14531.5 1579.5)" fill="none" stroke="#7e7eff" stroke-linecap="round" stroke-width="1" stroke-dasharray="2 4"/>
+    <text id="목표속도_x_0.9" data-name="목표속도
+x 0.9" transform="translate(-14543 1570)" fill="#555" font-size="12" font-family="RixSinHeadPB, RixSinHead_Pro" letter-spacing="-0.04em"><tspan x="-41.76" y="0">목표속도</tspan><tspan x="-25.44" y="14">x 0.9</tspan></text>
+    <g id="타원_1434" data-name="타원 1434" transform="translate(-14538 1570)" fill="none" stroke="#7e7eff" stroke-width="1">
+      <circle cx="4.5" cy="4.5" r="4.5" stroke="none"/>
+      <circle cx="4.5" cy="4.5" r="4" fill="none"/>
+    </g>
+    <text id="x_2.5" data-name="x 2.5" transform="translate(-14389 1720)" fill="#555" font-size="12" font-family="RixSinHeadPB, RixSinHead_Pro" letter-spacing="-0.04em"><tspan x="0" y="0">x 2.5</tspan></text>
+    <text id="x_0.5" data-name="x 0.5" transform="translate(-14591 1633)" fill="#555" font-size="12" font-family="RixSinHeadPB, RixSinHead_Pro" letter-spacing="-0.04em"><tspan x="0" y="0">x 0.5</tspan></text>
+    <line id="선_313" data-name="선 313" x1="118" transform="translate(-14482 1704)" fill="none" stroke="#b2b2b2" stroke-width="1"/>
+    <rect id="사각형_18513" data-name="사각형 18513" width="23" height="38" transform="translate(-14618 1673)" fill="rgba(255,255,255,0)"/>
+  </g>
+</svg>

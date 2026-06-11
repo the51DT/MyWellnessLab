@@ -1,0 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+a{
+  color: inherit;
+  text-decoration: none;
+}
+a:hover, a:focus, a:active{
+  text-decoration: none;
+  color: inherit;
+}
+ul, ol, li{
+  list-style: none;
+}
+span{
+  vertical-align: middle;
+}
+  
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}

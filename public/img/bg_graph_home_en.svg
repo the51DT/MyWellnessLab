@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="209" height="128" viewBox="0 0 209 128">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.97" y1="0.898" x2="0.166" y2="0.324" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f6ae5a"/>
+      <stop offset="0.174" stop-color="#fd7549"/>
+      <stop offset="0.381" stop-color="#fe803d"/>
+      <stop offset="0.663" stop-color="#f6b15a"/>
+      <stop offset="1" stop-color="#7ed47c"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <path id="패스_55082" data-name="패스 55082" d="M96.558,0A96.6,96.6,0,0,0,0,96.65H0c0,.017,0,.032,0,.049a8.268,8.268,0,1,0,16.536,0c0-.016,0-.032,0-.049h0a80.275,80.275,0,0,1,160.55,0,8.014,8.014,0,1,0,16.028,0A96.6,96.6,0,0,0,96.558,0Z" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+    </clipPath>
+  </defs>
+  <g id="그룹_107567" data-name="그룹 107567" transform="translate(21027 5997)">
+    <g id="그룹_105346" data-name="그룹 105346" transform="translate(-21019 -5996)" clip-path="url(#clip-path)">
+      <rect id="사각형_17611" data-name="사각형 17611" width="193.114" height="104.966" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+    </g>
+    <g id="그룹_105351" data-name="그룹 105351" transform="translate(-21085.941 -6335)">
+      <line id="선_302" data-name="선 302" x2="87.941" y2="59.603" transform="translate(75.5 377.5)" fill="none" stroke="#7e7eff" stroke-linecap="round" stroke-width="1" stroke-dasharray="2 4"/>
+      <g id="타원_1434" data-name="타원 1434" transform="translate(68 370)" fill="none" stroke="#7e7eff" stroke-width="1">
+        <circle cx="4.5" cy="4.5" r="4.5" stroke="none"/>
+        <circle cx="4.5" cy="4.5" r="4" fill="none"/>
+      </g>
+    </g>
+    <rect id="사각형_17612" data-name="사각형 17612" width="195" height="109" transform="translate(-21020 -5997)" fill="none"/>
+    <text id="x_0.5" data-name="x 0.5" transform="translate(-21025 -5874)" fill="#555" font-size="12" font-family="RixSinHeadPB, RixSinHead_Pro" letter-spacing="-0.04em"><tspan x="0" y="0">x 0.5</tspan></text>
+    <text id="목표" transform="translate(-21027 -5970)" fill="#555" font-size="12" font-family="RixSinHeadPB, RixSinHead_Pro" letter-spacing="-0.04em"><tspan x="0" y="0">Target</tspan></text>
+    <text id="x_2.5" data-name="x 2.5" transform="translate(-20844 -5874)" fill="#555" font-size="12" font-family="RixSinHeadPB, RixSinHead_Pro" letter-spacing="-0.04em"><tspan x="0" y="0">x 2.5</tspan></text>
+  </g>
+</svg>

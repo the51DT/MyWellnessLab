@@ -1,0 +1,214 @@
+.flex-1 {
+  flex: 1 !important;
+}
+.flex-none {
+  flex: none !important;
+}
+.flex-warp {
+  flex-wrap: wrap !important;
+}
+.d-block {
+  display: block !important;
+}
+.d-flex {
+  display: flex;
+}
+.d-flex-top {
+  display: flex;
+  align-items: flex-start !important;
+}
+
+.d-flex-center{
+  display: flex;
+  align-items: center !important;
+}
+
+.d-flex-stretch{
+  display: flex;
+  align-items: stretch;
+}
+.d-flex-bottom {
+  display: flex;
+  align-items: flex-end !important;
+}
+.d-flex-baseline {
+  display: flex;
+  align-items: baseline !important;
+}
+.justify-content-around {
+  justify-content: space-around !important;
+}
+.justify-content-center {
+  justify-content: center !important;
+}
+.justify-content-between {
+  justify-content: space-between !important;
+}
+.justify-content-end {
+  justify-content: flex-end !important;
+}
+.justify-content-evenly {
+  justify-content: space-evenly;
+}
+.float-r {
+  float: right;
+}
+.text-right {
+  text-align: right !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-left {
+  text-align: left !important;
+}
+.position-r{
+  position: relative !important;
+}
+.position-a{
+  position: absolute !important;
+}
+.btn {
+  cursor:pointer;
+}
+.nutrilog-color {
+  color: $point-color
+}
+.top-0 {
+  top: 0 !important;
+}
+.bottom-0 {
+  bottom:0 !important;
+}
+.m-auto {
+  margin: auto !important;
+}
+.p-r {
+  position: relative !important;
+}
+.p-a {
+  position: absolute !important;
+}
+.bg-shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  background-color: black;
+  opacity: 0.9;
+  z-index: 1000;
+}
+.font-regular {
+  font-weight: $regular !important;
+}
+.font-light {
+  font-weight: $light !important;
+}
+.font-medium {
+  font-weight: $medium !important;
+}
+.font-semibold {      
+  font-weight: $semibold !important;
+}
+.font-bold {
+  font-weight: $bold !important;
+}
+@for $i from 0 to 101 {
+  .w-#{$i} {
+    width: ($i * 1%) !important;
+  }
+  .h-#{$i} {
+    height: ($i * 1%) !important;
+  }
+  .m-#{$i} {
+    margin: ($i + 0rem) ($i + 0rem) ($i + 0rem) ($i + 0rem) !important;
+  }
+  .mx-#{$i} {
+    margin-left: ($i + 0rem) !important;
+    margin-right: ($i + 0rem) !important;
+  }
+  .mr-#{$i} {
+    margin-right: ($i + 0rem) !important;
+  }
+  .mt-#{$i} {
+    margin-top: ($i + 0rem) !important;
+  }
+  .ml-#{$i} {
+    margin-left: ($i + 0rem) !important;
+  }
+  .mb-#{$i} {
+    margin-bottom: ($i + 0rem) !important;
+  }
+  .p-#{$i} {
+    padding: ($i + 0rem) ($i + 0rem) ($i + 0rem) ($i + 0rem) !important;
+  }
+  .px-#{$i} {
+    padding-left: ($i + 0rem) !important;
+    padding-right: ($i + 0rem) !important;
+  }
+  .pr-#{$i} {
+    padding-right: ($i + 0rem) !important;
+  }
+  .pt-#{$i} {
+    padding-top: ($i + 0rem) !important;
+  }
+  .pl-#{$i} {
+    padding-left: ($i + 0rem) !important;
+  }
+  .pb-#{$i} {
+    padding-bottom: ($i + 0rem) !important;
+  }
+  .fs-#{$i} {
+    font-size: ($i + 0rem) !important;
+  }
+
+  .m-0-#{$i} {
+    margin: ($i * 0.1rem) ($i * 0.1rem) ($i * 0.1rem) ($i * 0.1rem) !important;
+  }
+  .mx-0-#{$i} {
+    margin-left: ($i * 0.1rem) !important;
+    margin-right: ($i * 0.1rem) !important;
+  }
+  .mr-0-#{$i} {
+    margin-right: ($i * 0.1rem) !important;
+  }
+  .mt-0-#{$i} {
+    margin-top: ($i * 0.1rem) !important;
+  }
+  .ml-0-#{$i} {
+    margin-left: ($i * 0.1rem) !important;
+  }
+  .mb-0-#{$i} {
+    margin-bottom: ($i * 0.1rem) !important;
+  }
+  .p-0-#{$i} {
+    padding: ($i * 0.1rem) ($i * 0.1rem) ($i * 0.1rem) ($i * 0.1rem) !important;
+  }
+  .px-0-#{$i} {
+    padding-left: ($i * 0.1rem) !important;
+    padding-right: ($i * 0.1rem) !important;
+  }
+  .pr-0-#{$i} {
+    padding-right: ($i * 0.1rem) !important;
+  }
+  .pt-0-#{$i} {
+    padding-top: ($i * 0.1rem) !important;
+  }
+  .pl-0-#{$i} {
+    padding-left: ($i * 0.1rem) !important;
+  }
+  .pb-0-#{$i} {
+    padding-bottom: ($i * 0.1rem) !important;
+  }
+  .fs-0-#{$i} {
+    font-size: ($i * 0.1rem) !important;
+  }
+
+  
+  
+}

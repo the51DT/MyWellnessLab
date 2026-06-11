@@ -1,0 +1,39 @@
+@import "mixin";
+
+$black: #53575a;
+$white: #fff;
+$bg: #d5d1c3;
+$border: #bcbec0;
+$gray: #d4d5d6;
+$amway: #2aaa93;
+
+$vh: calc(var(--vh, 1vh) * 100);
+$max-width: 100vw; //1280px; //100vw;
+$target-width: 960px;
+$header: 65px; //55px;
+$tab-toggle-height: 51px;
+//font-size
+$fxl: 20px;
+$fl: 16px;
+$fn: 14px;
+$fs: 12px;
+
+//font-weight
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+
+//margin
+$mxs: 5px;
+$ms: 10px;
+$mn: 15px;
+$ml: 20px;
+$mxl: 30px;
+
+// $pdf-scale: 1.3; //pdf사이즈 595/842기준으로 작업해서 작은 사이즈 업스케일링
+$pdf-scale: 4; //pdf사이즈 595/842기준으로 작업해서 작은 사이즈 업스케일링
+$pdf-text-ratio: 100vw;
+
+//pdf 제목
+$tit-color: #008352;

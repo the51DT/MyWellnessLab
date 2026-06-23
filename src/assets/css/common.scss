@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @font-face {
   font-family: 'RixSinHead_Light';
   src: url('@/assets/font/RixSinHead_Light.eot'); /* IE9 Compat Modes */
@@ -43,7 +45,7 @@ $background-color-green: #1DB196;
 $background-color-gray: #F1F1F1;
 $background-color-gray2: #F9F9F9;
 $background-color-gray3: #F2F2F2;
-$background-color-main: #F6F6F6;
+$background-color-main: #FAFAFA;
 $background-color-kakao: #FAE100;
 $background-color-biolet: #7E7EFF;
 $background-color-danger: #F4DAE4;
@@ -61,7 +63,7 @@ $border-style: solid 0.4rem #F6F6F6;
 
 $box-background-skyblue: #f0f5fd;
 $box-background-gray: #f4f4f4;
-$box-background-gray2: #F9F9F9; /*설문 배경*/
+$box-background-gray2: #FAFAFA; /*설문 배경*/
 $box-background-gray3: #F6F6F6; /*분석 결과 배경*/
 $box-background-white: #fff;
 $box-background-pink: #fcdfd7;
@@ -220,6 +222,32 @@ $txt-font-size-big: 1.8rem;
 $txt-font-size-big2: 2rem;
 $txt-font-size-big3: 3.2rem;
 $txt-font-size-big4: 2.8rem;
+$txt-size:(
+  head: (
+    2xs: 2.4rem,
+    xs: 2.6rem,
+    sm: 2.8rem,
+    md: 3.2rem,
+    lg: 3.6rem,
+    xl: 4rem,
+    2xl: 4.8rem,
+  ),
+  body: (
+    2xs: 1.4rem,
+    xs: 1.5rem,
+    sm: 1.6rem,
+    md: 1.8rem,
+    lg: 2rem,
+    xl: 2.2rem,
+  ),
+  caption: (
+    xs: .9rem,
+    sm: 1rem,
+    md: 1.1rem,
+    lg: 1.2rem,
+    xl: 1.3rem,
+  ),
+);
 $txt-font-color-white: #fff;
 $txt-font-color-gray: #808080;
 $txt-font-color-gray2: #555;
@@ -248,6 +276,10 @@ $w-pc-small3: 600px;
 $w-pc-small4: 800px;
 $w-full: 100%;
 
+@mixin txtStyle($type: body, $size: md) {
+  font-size: map.get(map.get($txt-size, $type), $size);
+  line-height: if(sass($type == head): 1.2; else: 1.5);
+}
 @mixin scrollbarNone{
   scrollbar-width: none;
   &::-webkit-scrollbar{
@@ -354,12 +386,12 @@ $w-full: 100%;
 @mixin btnPopGreen{
   $CheckupBlood--pop-btn-br: 3.6rem;
   @include btnClear;
-  min-width: 11.6rem;
+  width: 100%;
   height: $CheckupBlood--pop-btn-br;
   background-color: #1DB196;
   border-radius: calc($CheckupBlood--pop-btn-br / 2);
-  font-size: 1.4rem;
-  font-family: $font-family-medium;
+  @include txtStyle(caption, lg);
+  font-weight: 400;
   color: #fff;
   //margin-right: .5rem;
   //margin-left: .5rem;
@@ -370,13 +402,12 @@ $w-full: 100%;
 @mixin btnPopGray{
   $CheckupBlood--pop-btn-br: 3.6rem;
   @include btnClear;
-  min-width: 11.6rem;
+  width: 100%;
   height: $CheckupBlood--pop-btn-br;
   border-radius: calc($CheckupBlood--pop-btn-br / 2);
-  font-size: 1.4rem;
-  font-family: $font-family-medium;
+  @include txtStyle(caption, lg);
+  font-weight: 400;
   background-color: #F1F1F1;
-  color: #666666;
   &:hover{
     background-color: #e7e7e7;
     border-color: #e7e7e7;
@@ -385,15 +416,13 @@ $w-full: 100%;
   //margin-left: .5rem;
 }
 @mixin btnBig2($height: ""){
-  $size: 5.2rem;
+  $size: 6rem;
   @include btnClear;
   min-height: $size;
   border-radius: $size;
   border: solid .1rem #1DB196;
   background-color: #1DB196;
   color: white;
-  font-size: $btn-font-size-default;
-  font-family: $font-family-light;
   display: block;
   @media (min-width: $w-pc) {
     height: 5.2rem;
@@ -424,8 +453,8 @@ $w-full: 100%;
   border: solid .1rem #1DB196;
   background-color: #1DB196;
   color: white;
-  font-size: $btn-font-size-default;
-  font-family: $font-family-light;
+  @include txtStyle(body, sm);
+  font-weight: 400;
   &:hover{
     background-color: #18957e;
     border-color: #18957e;
@@ -522,9 +551,9 @@ $w-full: 100%;
   }
   height: 2.8rem;
   border-radius: 1.4rem;
-  padding-right: 1rem;
-  padding-left: 1rem;
-  font-size: 1.2rem;
+  padding-right: 1.2rem;
+  padding-left: 1.2rem;
+  @include txtStyle(caption, lg);
 }
 @mixin btnSmall2($padding: ""){
   background-color: white;
@@ -651,11 +680,10 @@ $w-full: 100%;
   }
 }
 @mixin mainMsg2{ /*로그인 가입*/
-  font-size: $txt-font-size-big2;
-  font-family: $font-family-bold;
-  color: $txt-font-color-gray3;
+  @include txtStyle(body, lg);
+  font-weight: 500;
   text-align: center;
-  margin-top: $marginTop-big3;
+  margin-top: 13.3rem;
   &-strong{
     color: $txt-font-color-green;
   }
@@ -894,9 +922,8 @@ $w-full: 100%;
   }
 }
 @mixin titleBig{
-  font-size: $tit-font-size-big3; /*2rem*/
-  font-family: $font-family-bold;
-  color: $tit-font-color-gray; /*#222*/
+  @include txtStyle(body, lg);
+  font-weight: 500;
 }
 @mixin titleDefault($color: $tit-font-color-gray){
   font-size: $tit-font-size-big2; /*1.8rem*/
@@ -1026,8 +1053,7 @@ $w-full: 100%;
   }
 }
 @mixin txtSmall2($color: #555){
-  font-size: 1.4rem;
-  font-family: $font-family-medium;
+  @include txtStyle(body, 2xs);
   color: $color;
   @media (min-width: $w-pc) {
     font-size: 1.6rem;
@@ -1072,10 +1098,10 @@ $w-full: 100%;
     margin-top: 6rem;
   }
 }
-@mixin validationTxt($ff: $font-family-medium, $ok: no ){
+@mixin validationTxt($fw: 400, $ok: no ){
   color: #FF4646;
-  font-size: 1.3rem;
-  font-family: $ff;
+  @include txtStyle(caption, lg);
+  font-weight: $fw;
   @media (min-width: $w-pc) {
     font-size: 1.5rem;
   }
@@ -1193,9 +1219,8 @@ $w-full: 100%;
     }
   }
 }
-@mixin itemTit($color: #333){
-  font-size: 1.4rem;
-  font-family: $font-family-light;
+@mixin itemTit($color: #1A1818){
+  @include txtStyle(body, 2xs);
   color: $color;
   @media (min-width: $w-pc) {
     font-size: 1.6rem;
@@ -1520,7 +1545,7 @@ $w-full: 100%;
 }
 
 html{
-  font-family: $font-family-bold, serif;
+  font-family: "Pretendard", serif;
   font-size: 10px;
 }
 
@@ -1534,8 +1559,9 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  letter-spacing: -.06rem;
+  letter-spacing: -.02rem;
   background-color: #ffffff;
+  color: #1a1818;
   
   /* Safe area support for all devices */
   padding-top: env(safe-area-inset-top);
@@ -1563,7 +1589,8 @@ a {
 
 button{
   cursor: pointer;
-  font-family: $font-family-bold, serif;
+  font-family: "Pretendard", serif;
+  font-weight: 600;
   &:hover{
     transition: background-color .5s;
   }
@@ -1644,11 +1671,12 @@ input[type="text"], input[type="password"], input[type="number"]{
   $radius: 4rem;
   $radiusPc: 4.25rem;
   height: $radius;
-  border: solid 1px $select-line-color-gray;
+  border: solid 1px $line-color-gray5;
   border-radius: $radius;
+  font-family: "Pretendard", serif;
   padding-left: 1.5rem;
-  font-family: $font-family-bold, serif;
-  font-size: 1.4rem;
+  color: #1A1818;
+  @include txtStyle(body, 2xs);
   width: 100%;
   @media (min-width: $w-pc) {
     height: $radiusPc;
@@ -1678,8 +1706,8 @@ input[type="password"]{
 }
 
 input::placeholder, textarea::placeholder{
-  color: #ccc;
-  font-family: $font-family-medium;
+  color: $txt-font-color-gray;
+  font-family: "Pretendard", serif;
 }
 
 /* Chrome, Safari, Edge, Opera */

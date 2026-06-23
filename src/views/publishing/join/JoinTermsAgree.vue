@@ -27,8 +27,7 @@ function checkAll(event) {
   <section class="JoinTermsAgree--wrap">
     <div class="JoinTermsAgree--in-wrap">
       <div class="JoinTermsAgree--txt">
-        <span class="gray">myWellness LAB 서비스 이용을 위해</span> <br>
-        약관에 동의가 필요합니다
+        myWellness LAB 서비스 이용을 위해<br>약관에 동의가 필요합니다
       </div>
       <div class="JoinTermsAgree--wrap2">
         <div class="JoinTermsAgree--all-check-wrap">
@@ -50,7 +49,7 @@ function checkAll(event) {
                   hidden="hidden">
                 <span></span>
               </span>
-              <span class="JoinTermsAgree--tit">서비스 이용약관 (필수)</span>
+              <span class="JoinTermsAgree--tit">서비스 이용약관 <span class="color--green">(필수)</span></span>
             </label>
           </div>
           <div class="JoinTermsAgree--texts"> <!--231222 약관 추가로 변경-->
@@ -65,7 +64,7 @@ function checkAll(event) {
                   hidden="hidden">
                 <span></span>
               </span>
-              <span class="JoinTermsAgree--privacy-tit">개인정보 처리방침 동의 (필수)</span>
+              <span class="JoinTermsAgree--privacy-tit">개인정보 처리방침 동의 <span class="color--green">(필수)</span></span>
             </label>
           </div>
           <div class="JoinTermsAgree--texts"> <!--231222 방침 추가로 변경-->
@@ -74,11 +73,11 @@ function checkAll(event) {
         </div>
       </div>
     </div>
+    <div class="btn--bottom">
+      <button @click="router.push('/join-phone-certification')" :disabled="!btnNext" type="button"
+        class="JoinTermsAgree--btm-btn">다음</button>
+    </div>
   </section>
-  <div class="btn--bottom JoinTermsAgree--btm">
-    <button @click="router.push('/join-phone-certification')" :disabled="!btnNext" type="button"
-      class="JoinTermsAgree--btm-btn">다음</button>
-  </div>
 </template>
 
 <style lang="scss"></style>

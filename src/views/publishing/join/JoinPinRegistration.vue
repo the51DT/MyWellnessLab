@@ -70,9 +70,11 @@ function inputTxtRe(val) {
 <template>
   <section class="JoinPinRegistration--wrap"> <!--231129 클래스 삭제-->
     <div class="space--all-default JoinPinRegistration--in-wrap">
-
+      <div class="JoinPinRegistration--txt--sub">
+        최초 가입 시에는 PIN 번호 등록이 필요합니다
+      </div>
       <div class="JoinPinRegistration--txt">
-        PIN 번호를 등록해주세요
+        네 자리 숫자로 PIN 번호를 등록해 주세요
       </div>
       <div class="JoinPinRegistration--pin-wrap">
         <h2 class="JoinPinRegistration--tit-wrap">
@@ -93,10 +95,10 @@ function inputTxtRe(val) {
       </div>
 
     </div>
+    <div class="btn--bottom JoinPinRegistration--btm">
+      <button :disabled="!btnNext" type="button" class="JoinPinRegistration--btn">서비스 가입 완료</button>
+    </div>
   </section>
-  <div class="btn--bottom JoinPinRegistration--btm">
-    <button :disabled="!btnNext" type="button" class="JoinPinRegistration--btn">서비스 가입 완료</button>
-  </div>
 </template>
 
 <style lang="scss"></style>

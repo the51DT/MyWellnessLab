@@ -10,6 +10,7 @@ const certificationResult = ref() /* 인증 결과 값 */
 const timerReady = ref(false) /* 3분 유효한지 여부 */
 const BaseCertificationInputRef = ref(null) /* 인증번호 입력 컴포넌트 */
 const btnNext = ref(false) /* 다음 버튼 */
+const phoneError = ref(false) /* 2026 오류 추가 */
 
 function phoneInput(val) { /* 폰번호 입력되면 실시간으로 호출, val : 폰번호 */
   val ? phoneNumber.value = true : phoneNumber.value = false /* 폰 번호 입력되었으면 인증 보내기 버튼 활성화 */
@@ -38,28 +39,29 @@ function timerEnd() {
   certificationResult.value = '휴대폰 인증시간이 경과되었습니다. 다시 인증해주세요'
 }
 
+// 2026 오류 추가
+function phoneErrorCheck(value) {
+  phoneError.value = value
+}
+
 </script>
 
 <template>
   <section class="JoinPhoneCertification--wrap"> <!--231129 container 클래스 삭제-->
     <div class="JoinPhoneCertification--in-wrap">
       <div class="txt--center JoinPhoneCertification--txt">
-        <span class="gray">실제 사용하는</span> <br> 휴대폰번호를 인증 해주세요
+        실제 사용 중인<br> 휴대폰번호를 인증 해주세요
       </div>
-      <div class="JoinPhoneCertification--txt2">
-        ※ myWellness LAB 휴대폰번호 인증 시,<br>
-        암웨이 회원프로필의 휴대폰번호는 변경되지 않습니다
+      <div class="JoinPhoneCertification--txt2">myWellness LAB 휴대폰번호 인증 시,<br>암웨이 회원프로필의 휴대폰번호는 변경되지 않습니다
       </div>
 
       <div class="JoinPhoneCertification--phone-wrap">
         <h2 class="JoinPhoneCertification--h2">
           <label for="jpc01" class="JoinPhoneCertification--phone-tit">휴대폰번호 입력</label>
         </h2>
-        <BasePhoneInput :maxlength="11" :id="`jpc01`" @inputTxt="phoneInput" @certificationStart="certificationStart"
+        <BasePhoneInput :maxlength="11" :id="`jpc01`" @inputTxt="phoneInput" @certificationStart="certificationStart" @inputError="phoneErrorCheck"
           :placeholder="`'-' 없이  숫자만 입력하세요`" />
-        <!--        <div class="JoinPhoneCertification&#45;&#45;validation"> &lt;!&ndash;폰번호가 안 맞을 경우 벨리데이션 처리해주세요&ndash;&gt;-->
-        <!--          휴대폰  번호  입력규칙에  맞지 않습니다-->
-        <!--        </div>-->
+        <div v-if="phoneError" class="JoinPhoneCertification&#45;&#45;validation">휴대폰  번호가 올바르지 않습니다.</div>
 
       </div>
 

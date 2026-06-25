@@ -49,7 +49,7 @@ function checkAll(event) {
                   hidden="hidden">
                 <span></span>
               </span>
-              <span class="JoinTermsAgree--tit">서비스 이용약관 <span class="color--green">(필수)</span></span>
+              <span class="JoinTermsAgree--tit">서비스 이용약관<span class="color--green"> (필수)</span></span>
             </label>
           </div>
           <div class="JoinTermsAgree--texts"> <!--231222 약관 추가로 변경-->
@@ -64,7 +64,7 @@ function checkAll(event) {
                   hidden="hidden">
                 <span></span>
               </span>
-              <span class="JoinTermsAgree--privacy-tit">개인정보 처리방침 동의 <span class="color--green">(필수)</span></span>
+              <span class="JoinTermsAgree--privacy-tit">개인정보 처리방침 동의<span class="color--green"> (필수)</span></span>
             </label>
           </div>
           <div class="JoinTermsAgree--texts"> <!--231222 방침 추가로 변경-->

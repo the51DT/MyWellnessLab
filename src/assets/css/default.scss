@@ -1224,7 +1224,6 @@ footer{
         color: $txt-font-color-gray;
         text-align: left;
         &.center {
-          margin-top: 1.2rem;
           text-align: center;
         }
       }
@@ -1339,10 +1338,9 @@ footer{
       @include height-vh-fallback(100, 0rem);
     }
   }
-  
   &.pin-lost-modal{
     .pop-text-bold{
-      margin-top: 1rem;
+      margin-top: 0.8rem;
     }
   }
   
@@ -1771,6 +1769,41 @@ footer{
         width: 100%;
         max-width: 48rem;
       }
+    }
+  }
+  // 팀 참여 완료 후 보상 수령처 선택 팝업
+  &.TeamRewardPopup{
+    .pop-content-wrap{
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .pop-select{
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      > span{
+        @include txtStyle(body, xs);
+        white-space: nowrap;
+      }
+      &--wrap{
+        width: 100%;
+        position: relative;
+        &::after{
+          @include afterSet;
+          top: 1rem;
+          left: auto;
+          right: 2rem;
+          width: 2rem;
+          height: 2rem;
+          margin: 0;
+          background: url("/img/ic_arrow_down_black.svg") no-repeat center / 1.3rem;
+          pointer-events: none;
+        }
+      }
+    }
+    .pop-text-caption{
+      margin-top: 0;
     }
   }
 }
@@ -3306,11 +3339,6 @@ footer{
       flex-grow: 1;
       @media (min-width: $w-pc) {
         min-height: auto;
-      }
-    }
-    &-reset {
-      .pop-text-bold {
-        margin-top: 0.8rem;
       }
     }
   }

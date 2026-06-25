@@ -191,14 +191,14 @@ onBeforeUnmount(() => {
         </address>
         <div class="footer--address">
           {{ $t('LayoutHome.footer.businessNum') }}
-        </div>
+        </div> <!-- 202606 사업자 등록번호 분리 -->
         <div class="footer--link">
           {{ $t('LayoutHome.hostingProvider') }}: {{ $t('LayoutHome.amwayKorea') }}
           <a href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=1208103391" target="_blank">{{ $t('LayoutHome.businessInfoPage') }}</a>
         </div>
         <div class="footer--copy">
-          ALL CONTENT Copyright © 2024<br>Amway Korea LTD. ALL RIGHTS RESERVED.
-        </div>
+          ALL CONTENT Copyright © 2024<br />Amway Korea LTD. ALL RIGHTS RESERVED.
+        </div> <!-- 202606 줄바꿈 추가 -->
       </div>
     </footer>
 

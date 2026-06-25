@@ -71,7 +71,7 @@ onMounted(async () => {
 
     <div class="intro--unit unit3">
       <p class="intro--copy-sub">{{ $t('Intro.text9') }}</p>
-      <p class="intro--copy" v-html="$t('Intro.text10')"></p>
+      <p class="intro--copy" v-html="$t('Intro.text10')"></p> <!-- 202606 v-html로 변경 -->
       <p class="intro--desc" v-html="$t('Intro.desc3')"></p>
     </div>
 

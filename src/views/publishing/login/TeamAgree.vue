@@ -3,17 +3,17 @@ import { onMounted, ref } from 'vue'
 import router from '@/router'
 import BasePopupTit from '@/views/publishing/BasePopupTit.vue'
 
-/* 2026 퍼블확인용 */
+/* 퍼블확인용 */
 const isShowTeamTermsPopup = ref(false)
 const isShowTeamJoinPopup = ref(false)
 
-/* 2026 퍼블확인용 */
+/* 퍼블확인용 */
 function termsAgree() {
   isShowTeamTermsPopup.value = false
   isShowTeamJoinPopup.value = true
 }
 
-/* 2026 퍼블확인용 */
+/* 퍼블확인용 */
 onMounted(async () => {
   // 페이지 진입 시 개인정보 제3자 제공 이용동의 표시
   isShowTeamTermsPopup.value = true
@@ -44,8 +44,14 @@ onMounted(async () => {
     </template>
   </BasePopupTit>
 
-  <!-- 개인정보 제3자 제공 이용동의 팝업 -->
-  <BasePopupTit v-if="isShowTeamJoinPopup" class="team-reward-pop" :close-btn="false">
+  <!-- 팀 참여 완료 후 보상 수령처 선택 팝업 -->
+  <!-- 
+    팀 가입 완료 시 챌린지 팀일 경우이며, 팀별 개인 수령일 경우 해당 팝업 호출
+    [2-1] 보상 수령처 선택 전에는 비활성화 처리 (확인버튼)
+    [확인] 시 팀 목록화면으로 이동
+    **팀가입 완료 시점에 한번만 호출 됨
+  -->
+  <BasePopupTit v-if="isShowTeamJoinPopup" class="TeamRewardPopup" :close-btn="false">
     <template v-slot:title>팀 참여 완료</template>
     <template v-slot:contents>
       <div class="pop-content-wrap">
@@ -53,11 +59,13 @@ onMounted(async () => {
         <p class="pop-text-light">챌린지 성공 보상을 위해<br>보상 수령처를 선택해 주세요.</p>
         <div class="pop-select">
           <span>보상 수령처</span>
-          <select class="circle">
-            <option selected="" disabled="" value="">선택</option>
-            <option value="">보상 수령처1</option>
-            <option value="">보상 수령처2</option>
-          </select>
+          <div class="pop-select--wrap">
+            <select name="teamRewardPoint" class="circle">
+              <option value="" selected disabled>선택</option>
+              <option value="1">보상 수령처 예시1</option>
+              <option value="2">보상 수령처 예시2</option>
+            </select>
+          </div>
         </div>
         <div class="pop-text-caption center">*챌린지 팀 가입의 경우, 카카오 알림톡을 통해<br>챌린지와 관련된 안내를 받으실 수 있습니다.</div>
       </div>

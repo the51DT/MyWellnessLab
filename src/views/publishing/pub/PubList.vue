@@ -6,10 +6,19 @@ import router from '@/router'
 
 const data = ref([
   {
+    div: '',
+    div2: '',
+    div3: '',
+    loca: '',
+    go: '',
+    msg: "개발 파일 수정된 부분에 '202606' 포함된 주석 확인 필요",
+    confirm: ''
+  },
+  {
     div: '인트로',
     div2: '',
     div3: '',
-    loca: '@/views/publishing/Intro.vue',
+    loca: '@/views/Intro.vue',
     go: '/publishing/home/intro',
     msg: "ver 26.06.22 완료",
     confirm: ''
@@ -45,25 +54,25 @@ const data = ref([
     div: '가입',
     div2: '사용자 선택',
     div3: '',
-    loca: '@/views/publishing/Join.vue',
+    loca: '@/views/auth/Profile.vue<br>@/views/publishing/Join.vue -> 확인용 경로로 이동됨',
     go: '/publishing/join/pub-join',
-    msg: '기존경로 : @/views/publishing/Login.vue<br>ver 26.06.22 완료',
+    msg: '로그인 사용자 선택과 동일<br>가입 확인 팝업 확인용 경로에서 노출<br>ver 26.06.22 완료',
     confirm: ''
   },
   {
     div: '',
     div2: '약관 동의',
     div3: '',
-    loca: '@/views/publishing/join/JoinTermsAgree.vue',
+    loca: '@/views/auth/TermsAgree.vue<br>@/views/publishing/join/JoinTermsAgree.vue -> 확인용 경로로 이동됨',
     go: '/publishing/join/join-terms-agree',
-    msg: "ver 26.06.22 완료",
+    msg: "개발파일 `202606` 주석 확인 필요<br>ver 26.06.22 완료",
     confirm: ''
   },
   {
     div: '',
     div2: '휴대폰 인증',
     div3: '',
-    loca: '@/views/publishing/join/JoinPhoneCertification.vue',
+    loca: '@/views/auth/PhoneCertification.vue',
     go: '/publishing/join/join-phone-certification',
     msg: "ver 26.06.22 완료",
     confirm: ''
@@ -72,16 +81,16 @@ const data = ref([
     div: '',
     div2: 'PIN 번호 등록',
     div3: '',
-    loca: '@/views/publishing/join/JoinPinRegistration.vue',
+    loca: '@/views/auth/PinRegistration.vue<br>@/views/publishing/join/JoinPinRegistration.vue -> 확인용 경로로 이동됨',
     go: '/publishing/join/join-pin-registration',
-    msg: "ver 26.06.22 완료",
+    msg: "'202606' 주석 개발파일 적용 필요<br>ver 26.06.22 완료",
     confirm: ''
   },
   {
     div: '로그인',
     div2: '사용자 선택',
     div3: '',
-    loca: '@/views/publishing/Login.vue',
+    loca: '@/views/auth/Profile.vue<br>@/views/publishing/Login.vue -> 확인용 경로로 이동됨',
     go: '/publishing/login/pub-login',
     msg: 'ver 26.06.22 완료',
     confirm: ''
@@ -90,9 +99,9 @@ const data = ref([
     div: '     ',
     div2: 'PIN 번호 입력',
     div3: '',
-    loca: '@/views/publishing/login/LoginPin.vue',
+    loca: '@/views/auth/Pin.vue<br>@/views/publishing/login/LoginPin.vue -> 확인용 경로로 이동됨',
     go: '/publishing/login/login-pin',
-    msg: 'ver 26.06.22 완료',
+    msg: "'202606' 주석 개발파일 적용 필요<br>ver 26.06.22 완료",
     confirm: ''
   },
   {
@@ -101,7 +110,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/login/TeamAgree.vue',
     go: '/publishing/login/team-agree',
-    msg: '',
+    msg: '신규제작<br>ver 26.06.22 완료',
     confirm: ''
   },
   {
@@ -509,7 +518,7 @@ function go (val) {
         <td>{{ item.div }}</td>
         <td>{{ item.div2 }}</td>
         <td>{{ item.div3 }}</td>
-        <td><a @click="go(item.go)" href="javascript: void(0);">{{ item.loca }}</a></td>
+        <td><a @click="go(item.go)" href="javascript: void(0);" v-html="item.loca"></a></td>
         <td v-html="item.msg" />
         <td>{{ item.confirm }}</td>
       </tr>

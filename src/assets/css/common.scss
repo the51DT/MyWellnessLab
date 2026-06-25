@@ -1776,7 +1776,7 @@ select{
   border-color: $select-line-color-gray;
   border-radius: .2rem;
   padding-left: .6rem;
-  font-family: $font-family-bold, serif;
+  @include txtStyle(body, 2xs);
   color: #222;
   @media (min-width: $w-pc) {
     height: 4.4rem;
@@ -1797,10 +1797,9 @@ select{
   &.circle{
     border-radius: 3rem;
     border-color: #d6d6d6;
-    padding-left: 1rem;
+    padding-left: 2rem;
     font-size: 1.4rem;
     width: 100%;
-    text-align: center;
     padding-right: 3rem;
   }
 }

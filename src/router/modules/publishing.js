@@ -19,7 +19,7 @@ const publishingRouter = {
         {
           path: "",
           name: "pubHome",
-          component: () => import("@/views/publishing/Home.vue"),
+          component: () => import("@/views/Home.vue"),
           meta: {
             title: "홈",
           },
@@ -64,7 +64,7 @@ const publishingRouter = {
           path: "join-phone-certification",
           name: "pubViewJoinPhoneCertification",
           component: () =>
-            import("@/views/publishing/join/JoinPhoneCertification.vue"),
+            import("@/views/auth/PhoneCertification.vue"),
           meta: {
             title: "휴대폰 인증",
             class: "short",

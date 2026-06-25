@@ -239,7 +239,7 @@ onMounted(async () => {
   <section class="JoinTermsAgree--wrap">
     <div class="JoinTermsAgree--in-wrap">
       <div class="JoinTermsAgree--txt">
-        <span class="gray">{{ $t('TermsAgree.text1') }}</span> <br />
+        {{ $t('TermsAgree.text1') }}<br />
         {{ $t('TermsAgree.text2') }}
       </div>
       <div class="JoinTermsAgree--wrap2">
@@ -273,7 +273,7 @@ onMounted(async () => {
                     hidden />
                 <span />
               </span>
-              <span class="JoinTermsAgree--tit">{{ item.termsTypeName }}</span>
+              <span class="JoinTermsAgree--tit">{{ item.termsTypeName }}<span class="color--green"> (필수)</span></span> <!-- 202606 / <span class="color--green"> (필수)</span> 필수항목일 때 노출 필요 -->
             </label>
           </div>
           <div class="JoinTermsAgree--texts"> <!--231222 약관 추가로 변경-->
@@ -294,8 +294,8 @@ onMounted(async () => {
     <BasePopup v-if="isShowJoinConfirmPopup" class="TermsAgree--join-confirm">
       <template v-slot:contents>
         <div class="join-confirm-content">
-          <p class="pop-text-light mint">{{ cleanedUid }}</p>
-          <p class="pop-text-bold mint">{{ user.name || '' }}</p>
+          <p class="pop-text-light">{{ cleanedUid }}</p>
+          <p class="pop-text-light">{{ user.name || '' }}</p>
           <p class="pop-text-bold">{{ $t('TermsAgree.text4') }}</p>
         </div>
         <div class="pop-btn-wrap">

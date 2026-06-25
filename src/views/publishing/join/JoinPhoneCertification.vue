@@ -10,7 +10,7 @@ const certificationResult = ref() /* 인증 결과 값 */
 const timerReady = ref(false) /* 3분 유효한지 여부 */
 const BaseCertificationInputRef = ref(null) /* 인증번호 입력 컴포넌트 */
 const btnNext = ref(false) /* 다음 버튼 */
-const phoneError = ref(false) /* 2026 오류 추가 */
+const phoneError = ref(false) /* 퍼블확인용 오류 추가 */
 
 function phoneInput(val) { /* 폰번호 입력되면 실시간으로 호출, val : 폰번호 */
   val ? phoneNumber.value = true : phoneNumber.value = false /* 폰 번호 입력되었으면 인증 보내기 버튼 활성화 */
@@ -39,7 +39,7 @@ function timerEnd() {
   certificationResult.value = '휴대폰 인증시간이 경과되었습니다. 다시 인증해주세요'
 }
 
-// 2026 오류 추가
+// 퍼블 확인용 오류 추가
 function phoneErrorCheck(value) {
   phoneError.value = value
 }

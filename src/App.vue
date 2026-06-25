@@ -92,8 +92,8 @@ onBeforeUnmount(() => {
 
   <base-popup v-if="isShowJoinAlert" class="openPopContinue">
     <template v-slot:contents>
-      <p class="pop-text-light">{{ $t('App.text1') }}</p>
-      <p class="pop-text-bold">{{ $t('App.text2') }}</p>
+      <p class="pop-text-light">{{ $t('App.text1') }}</p> <!-- 202606 클래스 추가 -->
+      <p class="pop-text-bold">{{ $t('App.text2') }}</p> <!-- 202606 클래스 추가 -->
       <div class="txt--center">
         <button class="btn-pop--green" type="button" @click="moveJoinPage">{{ $t('Common.confirm') }}</button>
       </div>

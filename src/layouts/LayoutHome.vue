@@ -189,12 +189,15 @@ onBeforeUnmount(() => {
         <address>
           {{ $t('LayoutHome.footer.address') }}
         </address>
+        <div class="footer--address">
+          {{ $t('LayoutHome.footer.businessNum') }}
+        </div>
         <div class="footer--link">
           {{ $t('LayoutHome.hostingProvider') }}: {{ $t('LayoutHome.amwayKorea') }}
           <a href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=1208103391" target="_blank">{{ $t('LayoutHome.businessInfoPage') }}</a>
         </div>
         <div class="footer--copy">
-          ALL CONTENT Copyright © 2019 Amway Korea LTD. ALL RIGHTS RESERVED.
+          ALL CONTENT Copyright © 2024<br>Amway Korea LTD. ALL RIGHTS RESERVED.
         </div>
       </div>
     </footer>

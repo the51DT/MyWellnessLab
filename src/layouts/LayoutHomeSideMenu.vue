@@ -172,7 +172,7 @@ watch(isKakao, () => { /* 231214 사이드바가 나오면 사이드메뉴 스�
           <button @click="moveAmwayLoginPage" class="side-bar--login-btn">{{ $t('LayoutHomeSideMenu.btn5')}}</button>
         </div>
 
-        <hr class="dot2" />
+        <!-- <hr class="dot2" /> -->
         <div class="side-bar--btn-wrap">
           <router-link to="/info/guide" class="side-bar--btn">
             <span>{{ $t('LayoutHomeSideMenu.link1')}}</span>

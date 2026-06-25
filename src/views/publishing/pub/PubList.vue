@@ -74,7 +74,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/join/JoinPinRegistration.vue',
     go: '/publishing/join/join-pin-registration',
-    msg: "",
+    msg: "ver 26.06.22 완료",
     confirm: ''
   },
   {
@@ -92,6 +92,15 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/login/LoginPin.vue',
     go: '/publishing/login/login-pin',
+    msg: 'ver 26.06.22 완료',
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '팀가입 URL 접속 팝업',
+    div3: '',
+    loca: '@/views/publishing/login/TeamAgree.vue',
+    go: '/publishing/login/team-agree',
     msg: '',
     confirm: ''
   },

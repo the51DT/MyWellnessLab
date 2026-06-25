@@ -163,7 +163,7 @@
         background-color: white;
       }
       footer{
-        border-top: solid .1rem #F3F3F3;
+        border-top: solid .1rem #F5F5F5;
       }
     }
     .header{
@@ -226,13 +226,12 @@
         max-width: $w-pc;
       }
       address{
-        font-size: 1rem;
-        font-family: "RixSinHead_Light", serif;
+        @include txtStyle(caption, sm);
         color: #666;
         font-style: normal;
-        margin-top: $marginTop-small;
+        margin-top: 1.2rem;
         letter-spacing: 0;
-        max-width: calc(100% - 6rem);
+        max-width: calc(100% - 10rem);
         word-break: break-all;
         @media (min-width: $w-pc) {
           font-size: 1.3rem;
@@ -290,7 +289,7 @@
     @include height-vh-fallback(100, 0rem);
   }
   &--con{
-    width: 29rem;
+    width: 25.6rem;
     position: fixed;
     top: 0;
     background-color: white;
@@ -311,7 +310,7 @@
     justify-content: space-between;
   }
   &--top{
-    padding: 6.8rem 4rem 1.3rem;
+    padding: 4.8rem 2.4rem 1.3rem;
     @media (min-width: $w-pc) {
       padding: 10rem 4rem 5rem;
     }
@@ -426,9 +425,8 @@
   }
   &--btn{
     @include btnClear;
-    font-size: 1.4rem;
-    font-family: $font-family-medium;
-    color: #444;
+    @include txtStyle(body, 2xs);
+    color: #333;
     display: flex;
     justify-content: space-between;
     height: 4rem;
@@ -440,22 +438,22 @@
       height: 6rem;
       font-size: 1.8rem;
     }
-    &:after{
-      content: "";
-      display: block;
-      background: url("/img/ico_arrow_right2.svg") no-repeat right;
-      background-size: contain;
-      width: 2rem;
-      height: 2rem;
-      transform: rotate(-90deg);
-      @media (min-width: $w-pc) {
-        width: 3rem;
-        height: 3rem;
-      }
-    }
+    // &:after{
+    //   content: "";
+    //   display: block;
+    //   background: url("/img/ico_arrow_right2.svg") no-repeat right;
+    //   background-size: contain;
+    //   width: 2rem;
+    //   height: 2rem;
+    //   transform: rotate(-90deg);
+    //   @media (min-width: $w-pc) {
+    //     width: 3rem;
+    //     height: 3rem;
+    //   }
+    // }
   }
   &--btn-wrap{
-    margin-top: 1.5rem;
+    margin-top: 1.6rem;
     @media (min-width: $w-pc) {
       margin-top: 2.6rem;
     }
@@ -467,13 +465,12 @@
     flex-wrap: wrap;
     justify-content: stretch;
     dt{
-      font-size: 1.2rem;
-      color: #222222;
+      @include txtStyle(caption, lg);
+      color: #666;
       display: inline-block;
       width: $width;
       vertical-align: top;
       line-height: 1.3;
-      font-family: $font-family-light;
       @media (min-width: $w-pc) {
         font-size: 1.4rem;
         width: $widthPc;
@@ -513,8 +510,8 @@
       }
     }
     &-wrap{
-      padding: 2.5rem 4rem 2rem;
-      background-color: #F9F9F9;
+      padding: 2.4rem;
+      background-color: #FAFAFA;
       @media (min-width: $w-pc) {
         padding: 3.6rem 4rem 4rem;
       }
@@ -530,20 +527,31 @@
   &--reservation{
     display: flex !important;
     align-items: center;
+    div{
+      @include txtStyle(body, xs);
+      color: #1A1818;
+      font-weight: 500;
+      .side-bar--sub-desc{
+        margin-top: .05rem;
+        font-weight: 400;
+      }
+    }
   }
   &--tell-txt{
-    font-size: 1.8rem;
-    font-family: $font-family-medium;
+    @include txtStyle(body, md);
+    font-weight: 600;
     display: block;
     margin-top: 0.2rem;
+    color: #1A1818;
     @media (min-width: $w-pc) {
       font-size: 2.2rem;
     }
   }
   &--sub-desc{
-    font-size: 1.1rem;
+    @include txtStyle(caption, md);
     color: #7E7E7E;
     display: block;
+    margin-top: .2rem;
     @media (min-width: $w-pc) {
       font-size: 1.3rem;
     }
@@ -556,9 +564,10 @@
     height: $size;
     border-radius: $size;
     background: white url("/img/icon_call.svg") no-repeat center;
+    border: 1px solid #E5E5E5;
     background-size: contain;
     vertical-align: middle;
-    box-shadow: .1rem .2rem .6rem rgba(0, 0, 0, .1);
+    // box-shadow: .1rem .2rem .6rem rgba(0, 0, 0, .1);
     margin-left: .5rem;
     @media (min-width: $w-pc) {
       width: $sizePc;
@@ -576,15 +585,14 @@
   &--out{
     $size: 4rem;
     @include btnClear;
-    background-color: #F1F1F1;
-    font-size: 1.4rem;
-    font-family: $font-family-medium;
-    color: #7E7E7E;
+    background-color: #F0F0F0;
+    @include txtStyle(body, xs);
+    font-weight: 400;
+    color: #666;
     min-height: $size;
     border-radius: $size;
     width: $w-full;
     margin-top: 2rem;
-    letter-spacing: -0.35px;
     &:hover{
       background-color: #e7e7e7;
     }
@@ -601,28 +609,29 @@
   }
   &--login{
     text-align: center;
-    padding-bottom: 2.2rem;
     &-btn{
       @include btnClear;
-      margin: auto;
-      font-size: 1.6rem;
-      color: #444;
+      @include txtStyle(caption, xl);
+      color: #333;
       background: url("/img/ico_login.svg") no-repeat left;
-      padding-left: 50px;
-      height: 40px;
-      text-decoration: underline;
-      text-underline-offset: 3px;
+      padding: .8rem 0 1.2rem;
+      height: 9.2rem;
+      border: 1px solid #E5E5E5;
+      border-radius: 1.2rem;
+      width: 100%;
     }
   }
 }
 footer{
   padding: 2.4rem 2rem;
+  background-color: #FAFAFA;
   @media (min-width: $w-pc) {
     padding-bottom: 5rem;
-    border-top: 1px solid #f3f3f3;
+    border-top: 1px solid #F5F5F5;
   }
 }
 .footer{
+  $footergap: 1.2rem;
   &--menu{
     @include alignUl;
     li{
@@ -630,50 +639,59 @@ footer{
       &:first-child{
         .footer--btn{
           text-decoration: unset;
-          font-family: $font-family-light;
-          margin-right: 1.2rem;
+          font-weight: 400;
+          margin-right: $footergap;
         }
       }
     }
   }
   &--btn{
-    font-size: 1.3rem;
-    font-family: $font-family-medium;
+    @include txtStyle(caption, xl);
+    font-weight: 500;
     text-decoration: underline;
     color: #000;
     text-underline-offset: .4rem;
-    text-decoration-color: #999;
     margin-right: 2rem;
     @media (min-width: $w-pc) {
       font-size: 1.5rem;
     }
   }
   &--cs{
-    font-size: 1.3rem;
-    font-family: "RixSinHead_Light", serif;
-    margin-top: $marginTop-small;
+    @include txtStyle(caption, xl);
+    margin-top: $footergap;
     @media (min-width: $w-pc) {
       font-size: 1.5rem;
     }
   }
-  &--link{
-    font-size: 1rem;
-    font-family: "RixSinHead_Light", serif;
+  &--address{
+    @include txtStyle(caption, sm);
     color: #666;
-    margin-top: 1rem;
+    font-style: normal;
+    margin-top: $footergap;
+    letter-spacing: 0;
+    max-width: calc(100% - 10rem);
+    word-break: break-all;
+    @media (min-width: $w-pc) {
+      font-size: 1.3rem;
+    }
+  }
+  &--link{
+    @include txtStyle(caption, sm );
+    color: #666;
+    margin-top: $footergap;
     a{
-      color: #000;
+      color: #666;
       text-decoration: underline;
+      text-underline-offset: .3rem;
     }
     @media (min-width: $w-pc) {
       font-size: 1.5rem;
     }
   }
   &--copy{
-    font-size: .8rem;
-    font-family: $font-family-light;
-    color: #888;
-    margin-top: $marginTop-small;
+    @include txtStyle(caption, xs);
+    color: #999;
+    margin-top: $footergap;
     letter-spacing: 0;
     @media (min-width: $w-pc) {
       font-size: 1.3rem;
@@ -941,7 +959,7 @@ footer{
   &--top{
     right: 2rem;
     position: fixed;
-    bottom:4rem;
+    bottom:2rem;
     @media (min-width: 1150px) {
       left: 50%;
       margin-left: 500px;
@@ -949,11 +967,11 @@ footer{
     }
     button{
       @include btnClear;
-      $size: 62px;
+      $size: 5.6rem;
       width: $size;
       height: $size;
       border-radius: $size;
-      box-shadow: 0 .3rem .8rem rgba(0, 0, 0, .2);
+      box-shadow: 0 .2rem .6rem 0 rgba(0, 0, 0, .12);
       background-color: white;
       &:after{
         content: "";
@@ -963,7 +981,7 @@ footer{
         background: white url("/img/ico_downarrow.svg") no-repeat center;
         background-size: contain;
         position: absolute;
-        top: 48%;
+        top: 44%;
         left: 50%;
         transform: translate(-50%, -50%) rotate(180deg);
       }
@@ -1143,25 +1161,26 @@ footer{
     &.tit{
       padding: 0;
       width: 100%;
-      @include height-vh-fallback(100, 0rem);
-      border-radius: 0;
-      @media (min-width: $w-pc-small3) {
-        height: auto;        
-        width: calc(100% - 4rem);
-        max-width: 96rem;
-        max-height: 90%;
-        min-height: auto;
-        overflow: auto;
-        border-radius: 1.2rem;
-        .popup--header{
-          border-top-left-radius: 1.2rem;
-          border-top-right-radius: 1.2rem;
-        }
-        .popup--space{
-          height: auto;
-          border-bottom-left-radius: 1.2rem;
-          border-bottom-right-radius: 1.2rem;
-        }
+      height: auto;        
+      width: calc(100% - 4rem);
+      max-width: 96rem;
+      max-height: 90%;
+      min-height: auto;
+      overflow: auto;
+      border-radius: 2rem;
+      .popup--header{
+        border-top-left-radius: 2rem;
+        border-top-right-radius: 2rem;
+      }
+      .popup--space{
+        height: auto;
+        padding: 0 2rem;
+        border-bottom-left-radius: 2rem;
+        border-bottom-right-radius: 2rem;
+      }
+      .pop-btn-wrap{
+        padding: 2rem 0;
+        margin: 0;
       }
       //@media ( min-width: 1400px ) {
       //  width: 49%;
@@ -1199,6 +1218,16 @@ footer{
           font-size: 1.6rem;
         }
       }
+      &-caption{
+        margin-top: .8rem;
+        @include txtStyle(caption, lg);
+        color: $txt-font-color-gray;
+        text-align: left;
+        &.center {
+          margin-top: 1.2rem;
+          text-align: center;
+        }
+      }
     }
     .pop-btn{
       width: calc(50% - 0.4rem);
@@ -1220,26 +1249,43 @@ footer{
         font-size: 1.5rem;
       }
     }
+    .pop-scroll-box{
+      background-color: #F0F0F0;
+      border-radius: 1.2rem;
+      text-align: left;
+      padding: 1.6rem;
+      @include txtStyle(body, 2xs);
+      p{
+        word-break: break-all;
+        .red{
+          color: #FF4646;
+        }
+        .green{
+          color: $txt-font-color-green;
+        }
+        strong{
+          font-weight: 600;
+        }
+      }
+    }
   }
   &--header{
-    font-size: 2rem;
+    @include txtStyle(body, md);
+    font-weight: 500;
     color: #222;
     align-items: center;
     display: flex;
-    height: $header-height;
+    height: 5.5rem;
+    padding: 0 2rem;
     justify-content: space-between;
     line-height: 1;
     margin-right: auto;
     margin-left: auto;
-    background-color: $box-background-gray2;
     @media (min-width: $w-pc) {
       height: 7rem;
     }
-    & > *{
-      flex: auto;
-    }
-    & > *:first-child, & > *:last-child{
-      flex: 1;
+    &:has(div:only-child){
+      justify-content: center;
     }
   }
   &--tit{
@@ -1247,17 +1293,15 @@ footer{
     margin-left: auto;
     @media (min-width: $w-pc) {
       font-size: 2.8rem;
-      font-family: $font-family-bold;
     }
     &-wrap{
       text-align: center;
-      font-family: $font-family-light;
     }
   }
   &--close{
     text-align: right;
-    width: 4.8rem;
-    height: 4.8rem;
+    width: 2.4rem;
+    height: 2.4rem;
     border: none;
     background-color: transparent;
     background-position: center;
@@ -1274,7 +1318,6 @@ footer{
   &--space{
     overflow-y: auto;
     height: calc(var(--vh, 1vh) * 100 - 4.9rem);
-    background-color: $box-background-gray2;
     @media (min-width: $w-pc) {
       height: calc(var(--vh, 1vh) * 100 - 15rem);
       background-color: white;
@@ -3154,7 +3197,7 @@ footer{
       }
       .pinI{
         &.input{
-          background-color: #DEF7F4;
+          // background-color: #DEF7F4;
         }
       }
       &.input{
@@ -3166,7 +3209,7 @@ footer{
           left: 50%;
           transform: translate(-50%, -40%);
           z-index: 1;
-          color: $txt-font-color-green;
+          color: #1A1818;
           font-size: 2.5rem;
           font-weight: 700;
           @media (min-width: $w-pc) {
@@ -3197,6 +3240,30 @@ footer{
       //    }
       //  }
       //}
+    }
+    &.success {
+      .pinI{
+        &.input{
+          background-color: #DEF7F4;
+        }
+      }
+      .pin--wrap.input{
+        &::after{
+          color: $txt-font-color-green;
+        }
+      }
+    }
+    &.failure {
+      .pinI{
+        &.input{
+          background-color: #FFEBEB;
+        }
+      }
+      .pin--wrap.input{
+        &::after{
+          color: #FF4646;
+        }
+      }
     }
   }
   &--validation{
@@ -3239,6 +3306,11 @@ footer{
       flex-grow: 1;
       @media (min-width: $w-pc) {
         min-height: auto;
+      }
+    }
+    &-reset {
+      .pop-text-bold {
+        margin-top: 0.8rem;
       }
     }
   }

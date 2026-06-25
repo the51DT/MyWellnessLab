@@ -6,6 +6,7 @@ const pin1 = ref([]) /* 231129 배열로 변경 */
 const pin2 = ref([]) /* 231129 배열로 변경 */
 const pinResult = ref(false) /* 벨리데이션 텍스트 */
 const btnNext = ref(false) /* 다음 버튼 */
+const pinCheck = ref('') /* 2026 컬러 확인용 */
 
 // 231129 핀 인풋이 4개로 나뉘어 있어서 새로 작업했습니다
 let pin1Str = ''
@@ -20,9 +21,11 @@ function compare() {
     if (pin1Str === pin2Str) {
       pinResult.value = ''
       btnNext.value = true
+      pinCheck.value = 'success' /* 2026 컬러 확인용 */
     } else {
       pinResult.value = '입력된 PIN 번호가 서로 다릅니다.\n다시 입력해주세요'
       btnNext.value = false
+      pinCheck.value = 'failure' /* 2026 컬러 확인용 */
     }
   } else {
     btnNext.value = false
@@ -81,7 +84,12 @@ function inputTxtRe(val) {
           <label for="jpr01" class="JoinPinRegistration--tit">PIN 번호 입력</label>
         </h2>
         <div class="JoinPinRegistration--input-wrap">
-          <BasePinInput @inputTxt="inputTxt" :focus="true" :id="`jpr01`" class="login--input" /> <!--231129 콘포넌트 바꿈-->
+          <BasePinInput @inputTxt="inputTxt" :focus="true" :id="`jpr01`"  class="login--input" 
+            :class="{
+              success: pinCheck === 'success',
+              failure: pinCheck === 'failure'
+            }"
+          /> <!--231129 콘포넌트 바꿈--> <!--2026 컬러 추가 login--input에 이중클래스 success = 초록색 / failure = 빨간색-->
         </div>
       </div>
       <div class="JoinPinRegistration--pin2-wrap">
@@ -89,7 +97,12 @@ function inputTxtRe(val) {
           <label for="jpr02" class="JoinPinRegistration--tit2">PIN 번호 확인</label>
         </h2>
         <div class="JoinPinRegistration--input-wrap">
-          <BasePinInput @inputTxt="inputTxtRe" :id="`jpr02`" class="login--input" /> <!--231129 콘포넌트 바꿈-->
+          <BasePinInput @inputTxt="inputTxtRe" :id="`jpr02`" class="login--input" 
+            :class="{
+              success: pinCheck === 'success',
+              failure: pinCheck === 'failure'
+            }"
+          /> <!--231129 콘포넌트 바꿈--> <!--2026 컬러 추가 login--input에 이중클래스 success = 초록색 / failure = 빨간색-->
         </div>
         <div v-if="pinResult" class="JoinPinRegistration--validation">{{ pinResult }}</div>
       </div>

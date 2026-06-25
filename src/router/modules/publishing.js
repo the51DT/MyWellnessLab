@@ -106,6 +106,15 @@ const publishingRouter = {
             class: "short",
           },
         },
+        {
+          path: "team-agree",
+          name: "pubViewTeamAgree",
+          component: () => import("@/views/publishing/login/TeamAgree.vue"),
+          meta: {
+            title: "",
+            class: "short",
+          },
+        },
       ],
     },
 

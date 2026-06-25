@@ -33,6 +33,26 @@
   url('@/assets/font/RixSinHead_ExtraBold.woff2') format('woff2'), /* Super Modern Browsers */
   url('@/assets/font/RixSinHead_ExtraBold.woff') format('woff'); /* Pretty Modern Browsers */
 }
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700;
+  src: url("@/assets/font/Pretendard-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 600;
+  src: url("@/assets/font/Pretendard-SemiBold.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 500;
+  src: url("@/assets/font/Pretendard-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  src: url("@/assets/font/Pretendard-Regular.woff") format("woff");
+}
 
 html {
   text-size-adjust: 100%;

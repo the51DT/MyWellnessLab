@@ -5,6 +5,7 @@ import { useI18n } from 'vue-i18n'
 import LayoutHomeTerms from '@/layouts/LayoutHomeTerms.vue'
 import LayoutHomePrivacy from '@/layouts/LayoutHomePrivacy.vue'
 import LayoutHomeSideMenu from '@/layouts/LayoutHomeSideMenu.vue'
+import LayoutHomeDock from '@/layouts/LayoutHomeDock.vue' /* 202606 dock 추가 */
 import { useStore } from 'vuex'
 
 const { t } = useI18n()
@@ -141,28 +142,6 @@ onBeforeUnmount(() => {
               <img src="/img/ico_coupon.svg" :alt="$t('LayoutHome.alt.coupon')" />
             </button>
           </div>
-          <div>
-            <button @click="isSideBar = true" type="button" class="btn--menu">
-              <img src="/img/ico_hamburger.svg" :alt="$t('LayoutHome.alt.menu')" />
-            </button>
-
-            <transition name="fade">
-              <div v-if="isSideBar" @click="closeSideMenu" class="side-bar--dark" /> <!--231214 암막-->
-            </transition>
-
-            <transition-group name="slide">
-              <div v-if="isSideBar" class="side-bar--con">
-
-                <LayoutHomeSideMenu
-                  :isPc="isPc"
-                  :isLogin="isLogin"
-                  :accountTypeCode="accountTypeCode"
-                  @closeSideMenu="closeSideMenu" />
-
-              </div>
-            </transition-group>
-
-          </div>
         </div>
 
       </div>
@@ -171,6 +150,34 @@ onBeforeUnmount(() => {
     <main>
       <RouterView />
     </main>
+
+    <!-- S : 202606 dock 추가 -->
+    <aside> <!-- 로그인 시에만 노출 필요, 퍼블 확인을 위해 처리안함 -->
+      <LayoutHomeDock
+        v-model:is-side-bar="isSideBar"
+        :is-pc="isPc"
+        :is-login="isLogin"
+        :account-type-code="accountTypeCode"
+      />
+      <div class="dock-side">
+        <transition name="fade">
+          <div v-if="isSideBar" @click="closeSideMenu" class="side-bar--dark" /> <!--231214 암막-->
+        </transition>
+
+        <transition-group name="slide">
+          <div v-if="isSideBar" class="side-bar--con">
+
+            <LayoutHomeSideMenu
+              :isPc="isPc"
+              :isLogin="isLogin"
+              :accountTypeCode="accountTypeCode"
+              @closeSideMenu="closeSideMenu" />
+
+          </div>
+        </transition-group>
+      </div>
+    </aside>
+    <!-- E : 202606 dock 추가 -->
 
     <footer>
       <div class="footer--wrap">

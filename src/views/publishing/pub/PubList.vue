@@ -6,53 +6,56 @@ import router from '@/router'
 
 const data = ref([
   {
+    cate: '',
     div: '',
     div2: '',
     div3: '',
     loca: '',
     go: '',
-    msg: "개발 파일 수정된 부분에 '202606' 포함된 주석 확인 필요",
+    msg: "개발 파일 수정된 부분 '202606' 주석으로 표시, 해당 날짜 포함된 주석 확인 필요",
     confirm: ''
   },
   {
-    div: '인트로',
+    cate: '홈',
+    div: '인트로 (로그인 전)',
     div2: '',
     div3: '',
     loca: '@/views/Intro.vue',
     go: '/publishing/home/intro',
-    msg: "ver 26.06.22 완료",
+    msg: "가입 화면 이동 얼럿 App.vue에 위치<br>ver 26.06.22 완료",
     confirm: ''
   },
   {
-    div: '홈',
+    div: '로그인 후',
     div2: '',
     div3: '',
-    loca: '@/views/Home.vue<br>@/views/publishing/home.vue -> 확인용 경로로 이동됨',
+    loca: '',
     go: '/publishing/home',
-    msg: "개발파일 수정 필요",
+    msg: "",
     confirm: ''
   },
   {
-    div: '가입',
-    div2: '사용자 선택',
+    cate: '서비스 가입',
+    div: '사용자 선택',
+    div2: '',
     div3: '',
-    loca: '@/views/auth/Profile.vue<br>@/views/publishing/Join.vue -> 확인용 경로로 이동됨',
+    loca: '@/views/auth/Profile.vue<br>@/views/publishing/Join.vue -> 퍼블 확인용 경로',
     go: '/publishing/join/pub-join',
     msg: '로그인 사용자 선택과 동일<br>가입 확인 팝업 확인용 경로에서 노출<br>ver 26.06.22 완료',
     confirm: ''
   },
   {
-    div: '',
-    div2: '약관 동의',
+    div: '약관 동의',
+    div2: '',
     div3: '',
-    loca: '@/views/auth/TermsAgree.vue<br>@/views/publishing/join/JoinTermsAgree.vue -> 확인용 경로로 이동됨',
+    loca: '@/views/auth/TermsAgree.vue<br>@/views/publishing/join/JoinTermsAgree.vue -> 퍼블 확인용 경로',
     go: '/publishing/join/join-terms-agree',
-    msg: "개발파일 `202606` 주석 확인 필요<br>ver 26.06.22 완료",
+    msg: "개발파일 '202606' 주석 확인 필요<br>ver 26.06.22 완료",
     confirm: ''
   },
   {
-    div: '',
-    div2: '휴대폰 인증',
+    div: '휴대폰 인증',
+    div2: '',
     div3: '',
     loca: '@/views/auth/PhoneCertification.vue',
     go: '/publishing/join/join-phone-certification',
@@ -60,39 +63,50 @@ const data = ref([
     confirm: ''
   },
   {
-    div: '',
-    div2: 'PIN 번호 등록',
+    div: 'PIN 번호 등록',
+    div2: '',
     div3: '',
-    loca: '@/views/auth/PinRegistration.vue<br>@/views/publishing/join/JoinPinRegistration.vue -> 확인용 경로로 이동됨',
+    loca: '@/views/auth/PinRegistration.vue<br>@/views/publishing/join/JoinPinRegistration.vue -> 퍼블 확인용 경로',
     go: '/publishing/join/join-pin-registration',
     msg: "'202606' 주석 개발파일 적용 필요<br>ver 26.06.22 완료",
     confirm: ''
   },
   {
-    div: '로그인',
-    div2: '사용자 선택',
+    cate: '로그인',
+    div: '사용자 선택',
+    div2: '',
     div3: '',
-    loca: '@/views/auth/Profile.vue<br>@/views/publishing/Login.vue -> 확인용 경로로 이동됨',
+    loca: '@/views/auth/Profile.vue<br>@/views/publishing/Login.vue -> 퍼블 확인용 경로',
     go: '/publishing/login/pub-login',
     msg: 'ver 26.06.22 완료',
     confirm: ''
   },
   {
-    div: '     ',
-    div2: 'PIN 번호 입력',
+    div: 'PIN 번호 입력',
+    div2: '',
     div3: '',
-    loca: '@/views/auth/Pin.vue<br>@/views/publishing/login/LoginPin.vue -> 확인용 경로로 이동됨',
+    loca: '@/views/auth/Pin.vue<br>@/views/publishing/login/LoginPin.vue -> 퍼블 확인용 경로',
     go: '/publishing/login/login-pin',
     msg: "'202606' 주석 개발파일 적용 필요<br>ver 26.06.22 완료",
     confirm: ''
   },
   {
-    div: '',
-    div2: '팀가입 URL 접속 팝업',
+    div: '팀가입 URL 접속 팝업',
+    div2: '',
     div3: '',
     loca: '@/views/publishing/login/TeamAgree.vue',
     go: '/publishing/login/team-agree',
     msg: '신규제작<br>ver 26.06.22 완료',
+    confirm: ''
+  },
+  {
+    cate: '건강수명분석',
+    div: '웰니스분석',
+    div2: '',
+    div3: '',
+    loca: '@/views/Home.vue<br>@/views/publishing/home.vue -> 퍼블 확인용 경로',
+    go: '/publishing/home',
+    msg: '기존 home 내용이 건강수명분석으로 옮겨져 home path 확인 필요<br>* 파일명+패스 수정은 안했음',
     confirm: ''
   },
   {
@@ -348,6 +362,101 @@ const data = ref([
     confirm: ''
   },
   {
+    cate: '챌린지',
+    div: '챌린지(미진행)',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '챌린지(진행중)',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '(PU) 챌린지 인증 공유하기',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    cate: '나의 팀',
+    div: '',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    cate: '나의 미션 활동',
+    div: '',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    cate: '더보기',
+    div: '',
+    div2: '',
+    div3: '',
+    loca: '@/layouts/LayoutHomeDock.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '쿠폰 보유 현황',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/etc/CouponStatus.vue',
+    go: '/publishing/coupon-status',
+    msg: '',
+    confirm: ''
+  },
+  {
+    div: '서비스 이용안내',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/etc/ServiceUseGuide.vue',
+    go: '/publishing/coupon-status/service-use-guide',
+    msg: '',
+    confirm: ''
+  },
+  {
+    div: 'FAQ',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/etc/Faq.vue',
+    go: '/publishing/coupon-status/pub-faq',
+    msg: '',
+    confirm: ''
+  },
+  {
+    div: 'myWellness LAB 소개',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/etc/Introduce.vue',
+    go: '/publishing/coupon-status/introduce',
+    msg: '',
+    confirm: ''
+  },
+  {
+    cate: '마이페이지',
     div: '마이페이지',
     div2: '',
     div3: '',
@@ -357,8 +466,8 @@ const data = ref([
     confirm: ''
   },
   {
-    div: '',
-    div2: '검진 데이터 이력',
+    div: '검진 데이터 이력',
+    div2: '',
     div3: '',
     loca: '@/views/publishing/mypage/MyPageCheckupDataRecord.vue',
     go: '/publishing/my-page/pub-my-page-checkup-data-record',
@@ -366,17 +475,17 @@ const data = ref([
     confirm: ''
   },
   {
-    div: '',
+    div: '상세',
     div2: '',
-    div3: '상세',
+    div3: '',
     loca: '@/views/publishing/mypage/MyPageCheckupDataRecordDetail.vue',
     go: '/publishing/my-page/pub-my-page-checkup-data-record-detail',
     msg: '',
     confirm: ''
   },
   {
-    div: '',
-    div2: '리포트 인쇄신청 이력',
+    div: '리포트 인쇄신청 이력',
+    div2: '',
     div3: '',
     loca: '@/views/publishing/mypage/MyPageReportPrintRecord.vue',
     go: '/publishing/my-page/pub-my-page-report-print-record',
@@ -385,6 +494,7 @@ const data = ref([
   },
   // {div: "",                       div2: "휴대폰번호 변경",                      div3: "",                loca: "@/views/publishing/mypage/MyPagePhoneChangePopup.vue",                             go: "/my-page-phone-change",                                        msg: "BasePhoneInput.vue '231212' 주석 수정 요망",                                  confirm: ""},
   {
+    cate: '주문/결제',
     div: '주문/결제',
     div2: '',
     div3: '',
@@ -394,8 +504,8 @@ const data = ref([
     confirm: ''
   },
   {
-    div: '',
-    div2: '상세',
+    div: '상세',
+    div2: '',
     div3: '',
     loca: '@/views/publishing/orderNpay/OrderNpayDetail.vue',
     go: '/publishing/order-pay/order-pay-detail',
@@ -412,41 +522,15 @@ const data = ref([
     confirm: ''
   },
   {
+    cate: '점검중',
     div: '',
-    div2: '서비스 이용안내',
-    div3: '',
-    loca: '@/views/publishing/etc/ServiceUseGuide.vue',
-    go: '/publishing/coupon-status/service-use-guide',
-    msg: '',
-    confirm: ''
-  },
-  {
-    div: '',
-    div2: 'FAQ',
-    div3: '',
-    loca: '@/views/publishing/etc/Faq.vue',
-    go: '/publishing/coupon-status/pub-faq',
-    msg: '',
-    confirm: ''
-  },
-  {
-    div: '',
-    div2: '점검중',
+    div2: '',
     div3: '',
     loca: '@/views/publishing/etc/Construction.vue',
     go: '/construction',
     msg: '',
     confirm: ''
   },
-  {
-    div: '',
-    div2: 'myWellness LAB 소개',
-    div3: '',
-    loca: '@/views/publishing/etc/Introduce.vue',
-    go: '/publishing/coupon-status/introduce',
-    msg: '',
-    confirm: ''
-  }
 ])
 
 const data2 = ref([
@@ -510,11 +594,13 @@ function go (val) {
         <th>분류</th>
         <th>분류2</th>
         <th>분류3</th>
+        <th>분류4</th>
         <th>경로</th>
         <th>비고</th>
         <th>컨펌일</th>
       </tr>
       <tr v-for="item in data">
+        <td>{{ item.cate }}</td>
         <td>{{ item.div }}</td>
         <td>{{ item.div2 }}</td>
         <td>{{ item.div3 }}</td>

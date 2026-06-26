@@ -155,8 +155,7 @@
   &--home{
     @include min-vh-fallback(100, 0rem);
     background: $background-color-main;
-    font-size: 12.5px;
-    
+    padding-bottom: 7.8rem;
     &.whiteHeader{
       background-color: white;
       .header{
@@ -202,11 +201,6 @@
       padding: 0;
       display: flex;
       align-items: center;
-      img{
-        @media (min-width: $w-pc) {
-          width: 51px;
-        }
-      }
     }
     .home--img{
       width: 13.2rem;
@@ -245,6 +239,10 @@
       footer{
         display: none;
       }
+    }
+    aside{
+      z-index: 9;
+      position: fixed;
     }
   }
 }
@@ -2899,6 +2897,41 @@ footer{
     }
     &.bottom{
       bottom: 16rem;
+    }
+  }
+  &--dock{
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 96rem;
+    height: 7.8rem;
+    padding: 1.2rem 1.2rem 1.6rem 1.2rem;
+    background: #fff;
+    box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.12);
+    &--list{
+      display: flex;
+      justify-content: center;
+      > div {
+        width: 7.2rem;
+        .btn--menu{
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          @include txtStyle(caption, lg);
+          color: $txt-font-color-gray;
+          font-weight: 400;
+        }
+        &.active{
+          .btn--menu{
+            color: $txt-font-color-green;
+            font-weight: 700;
+          }
+        }
+      }
     }
   }
 }

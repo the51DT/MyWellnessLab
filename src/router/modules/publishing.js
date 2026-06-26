@@ -500,7 +500,16 @@ const publishingRouter = {
           name: "pubCouponStatus",
           component: () => import("@/views/publishing/etc/CouponStatus.vue"),
           meta: {
-            title: "쿠폰 보유 현황",
+            title: "분석권 보유 현황",
+            class: "short",
+          },
+        },
+        {
+          path: "none",
+          name: "pubCouponStatusNone",
+          component: () => import("@/views/coupon/CouponList.vue"),
+          meta: {
+            title: "분석권 보유 현황",
             class: "short",
           },
         },

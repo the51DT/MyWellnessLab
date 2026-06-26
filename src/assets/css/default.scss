@@ -7698,8 +7698,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
 }
 .CouponStatus{ /*분석권 보유 현황 */
-  padding-bottom: 4rem;
-  padding-top: 4rem;
+  padding: 1.2rem 0;
   @include spaceRLSDefault;
   @media (min-width: $w-pc) {
     padding-top: 6rem;
@@ -7885,13 +7884,13 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     }
     &-no{
       text-align: center;
-      margin-top: 4rem;
+      margin-top: 10.2rem;
       @media (min-width: $w-pc) {
         margin-top: 10rem;
       }
       &-txt{
-        font-size: 2rem;
-        color: #222;
+        @include txtStyle(body, lg);
+        font-weight: 600;
         @media (min-width: $w-pc) {
           font-size: 2.4rem;
           margin-top: 1rem;
@@ -7900,7 +7899,8 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       &-txt2{
         @include txtSmall2; 
         width: 27rem;
-        margin: 1.2rem auto;
+        margin: .8rem auto;
+        color: #666;
         @media (min-width: $w-pc) {
           font-size: 1.5rem;
           color: #7e7e7e;
@@ -7908,10 +7908,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       }
       &-img{
         img{
-          height: 14rem;
-          @media (min-width: $w-pc) {
-            height: 18rem;
-          }
+          height: 18rem;
         }
       }
     }
@@ -7950,6 +7947,15 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       min-height: 5.2rem;
       min-width: 34rem;
       margin-top: 4rem;
+    }
+    &-wrap{
+      position: fixed;
+      bottom: 0;
+      padding: 2rem 0;
+      width: calc(100% - 4rem);
+      .CouponStatus--btn{
+        width: 100%;
+      }
     }
   }
 }

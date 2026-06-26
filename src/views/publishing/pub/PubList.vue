@@ -423,9 +423,9 @@ const data = ref([
     div: '쿠폰 보유 현황',
     div2: '',
     div3: '',
-    loca: '@/views/publishing/etc/CouponStatus.vue',
+    loca: '@/views/coupon/CouponList.vue<br>@/views/publishing/etc/CouponStatus.vue -> 퍼블 확인용 경로',
     go: '/publishing/coupon-status',
-    msg: '',
+    msg: '분석권 보유 시',
     confirm: ''
   },
   {
@@ -516,9 +516,9 @@ const data = ref([
     div: '기타',
     div2: '쿠폰 보유 현황',
     div3: '',
-    loca: '@/views/publishing/etc/CouponStatus.vue',
-    go: '/publishing/coupon-status',
-    msg: '',
+    loca: '@/views/coupon/CouponList.vue',
+    go: '/publishing/coupon-status/none',
+    msg: '분석권 없는 경우',
     confirm: ''
   },
   {

@@ -319,8 +319,8 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    margin-bottom: 2.8rem;
-    gap: 0.8rem 1rem;
+    margin-bottom: 1.6rem;
+    gap: 0.8rem;
     @media (min-width: $w-pc) {
       gap: 1rem;
       margin-bottom: 5rem;
@@ -335,20 +335,18 @@
   &--big-btn{
     @include btnClear;
     width: 100%;
-    min-height: 10.2rem;
-    box-shadow: 0 .2rem .8rem rgba(0, 0, 0, .1);
+    min-height: 11.5rem;
     border-radius: 1.2rem;
     border: solid .1rem #E5E5E5;
-    font-size: 1.3rem;
-    font-family: $font-family-medium;
-    color: #222;
-    line-height: 1.2;
+    @include txtStyle(caption, xl);
+    font-weight: 500;
+    color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     text-align: center;
-    padding: 1rem 0;
+    padding: 1.2rem 0;
     &:hover{
       border-color: #7e7e7e;
     }
@@ -362,57 +360,40 @@
     &:before{
       content: "";
       display: block;
-      background: url("/img/img_mypage.png") no-repeat top;
-      background-size: auto 4rem;
+      background: url("/img/img_mypage.png") no-repeat center;
+      background-size: auto 4.8rem;
       width: 100%;
-      height: 4.3rem;
+      height: 4.8rem;
       margin-right: auto;
       margin-left: auto;
-      margin-bottom: .5rem;
-      @media (min-width: $w-pc) {
-        background-size: auto 5.8rem;
-        background-position-y: -0.4rem;
-      }
+      margin-bottom: .4rem;
     }
     &.mypage{
       &:before{
-        @media (min-width: $w-pc) {
-          width: 5rem;
-          height: 5rem;
-          background-position: center;
-          background-size: auto 4.6rem;
-          border-radius: 12px;
-          background-color: #e3edfb;
-          box-shadow: 1px 2px 6px 0 rgba(0, 0, 0, 0.1);
-        }
+        // @media (min-width: $w-pc) {
+        //   width: 5rem;
+        //   height: 5rem;
+        //   background-position: center;
+        //   background-size: auto 4.8rem;
+        //   border-radius: 12px;
+        //   background-color: #e3edfb;
+        //   box-shadow: 1px 2px 6px 0 rgba(0, 0, 0, 0.1);
+        // }
       }
     }
     &.result{
       &:before{
         background-image: url("/img/img_chistory.png");
-        background-size: auto 4.7rem;
-        @media (min-width: $w-pc) {
-          background-size: auto 5.8rem;
-          background-position-y: -0.4rem;
-        }
       }
     }
     &.invite{
       &:before{
         background-image: url("/img/img_invite.png");
-        background-size: auto 5.2rem;
-        background-position: 59% 13%;
       }
     }
     &.abo{
       &:before{
         background-image: url("/img/img_abo.png");
-        background-size: auto 5.2rem;
-        background-position: 66% 44%;
-        @media (min-width: $w-pc) {
-          background-size: auto 5.8rem;
-          background-position-y: -0.4rem;
-        }
       }
     }
     &.dimed{
@@ -613,8 +594,8 @@
       @include btnClear;
       @include txtStyle(caption, xl);
       color: #333;
-      background: url("/img/ico_login.svg") no-repeat left;
-      padding: .8rem 0 1.2rem;
+      background: url("/img/ico_login.svg") no-repeat center top .8rem;
+      padding: 6rem 0 1.2rem;
       height: 9.2rem;
       border: 1px solid #E5E5E5;
       border-radius: 1.2rem;

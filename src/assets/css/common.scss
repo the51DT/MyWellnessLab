@@ -411,7 +411,7 @@ $w-full: 100%;
   background-color: #1DB196;
   border-radius: calc($CheckupBlood--pop-btn-br / 2);
   @include txtStyle(caption, xl);
-  font-weight: 400;
+  font-weight: 600;
   color: #fff;
   //margin-right: .5rem;
   //margin-left: .5rem;
@@ -426,7 +426,7 @@ $w-full: 100%;
   height: $CheckupBlood--pop-btn-br;
   border-radius: calc($CheckupBlood--pop-btn-br / 2);
   @include txtStyle(caption, xl);
-  font-weight: 400;
+  font-weight: 600;
   background-color: #F1F1F1;
   &:hover{
     background-color: #e7e7e7;

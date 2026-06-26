@@ -27,27 +27,9 @@ const data = ref([
     div: '홈',
     div2: '',
     div3: '',
-    loca: '@/views/publishing/home.vue',
+    loca: '@/views/Home.vue<br>@/views/publishing/home.vue -> 확인용 경로로 이동됨',
     go: '/publishing/home',
-    msg: "",
-    confirm: ''
-  },
-  {
-    div: '주문/결제',
-    div2: '',
-    div3: '',
-    loca: '@/views/publishing/OrderNpay.vue',
-    go: '/publishing/order-pay',
-    msg: '',
-    confirm: ''
-  },
-  {
-    div: '',
-    div2: '상세',
-    div3: '',
-    loca: '@/views/publishing/orderNpay/OrderNpayDetail.vue',
-    go: '/publishing/order-pay/order-pay-detail',
-    msg: '',
+    msg: "개발파일 수정 필요",
     confirm: ''
   },
   {
@@ -402,6 +384,24 @@ const data = ref([
     confirm: ''
   },
   // {div: "",                       div2: "휴대폰번호 변경",                      div3: "",                loca: "@/views/publishing/mypage/MyPagePhoneChangePopup.vue",                             go: "/my-page-phone-change",                                        msg: "BasePhoneInput.vue '231212' 주석 수정 요망",                                  confirm: ""},
+  {
+    div: '주문/결제',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/OrderNpay.vue',
+    go: '/publishing/order-pay',
+    msg: '',
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '상세',
+    div3: '',
+    loca: '@/views/publishing/orderNpay/OrderNpayDetail.vue',
+    go: '/publishing/order-pay/order-pay-detail',
+    msg: '',
+    confirm: ''
+  },
   {
     div: '기타',
     div2: '쿠폰 보유 현황',

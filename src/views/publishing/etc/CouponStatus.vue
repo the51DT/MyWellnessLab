@@ -6,7 +6,25 @@ export default {
     return {
       coupon: [ /* 소지한 쿠폰 */
         {
-          title: '마이웰니스 랩 건강 분석 쿠폰',
+          label:'구매', 
+          title: '마이웰니스 랩 건강 분석권',
+          limit: '~ 2023.09.12',
+          description: '마이웰니스 랩 분석권(구매) 쿠폰 안내 문구입니다.',
+          quantity: 8
+        },
+        {
+          label:'양수', 
+          title: '마이웰니스 랩 건강 분석 2023 프로모션 쿠폰',
+          limit: '~ 2023.12.31',
+          quantity: 2
+        },
+        {
+          title: '마이웰니스 랩 건강 분석 2024 프로모션 쿠폰',
+          limit: '~ 2024.12.31',
+          quantity: 4
+        },
+        {
+          title: '마이웰니스 랩 건강 분석권',
           limit: '~ 2023.09.12',
           quantity: 8
         },
@@ -21,7 +39,7 @@ export default {
           quantity: 4
         },
         {
-          title: '마이웰니스 랩 건강 분석 쿠폰',
+          title: '마이웰니스 랩 건강 분석권',
           limit: '~ 2023.09.12',
           quantity: 8
         },
@@ -36,7 +54,7 @@ export default {
           quantity: 4
         },
         {
-          title: '마이웰니스 랩 건강 분석 쿠폰',
+          title: '마이웰니스 랩 건강 분석권',
           limit: '~ 2023.09.12',
           quantity: 8
         },
@@ -51,7 +69,7 @@ export default {
           quantity: 4
         },
         {
-          title: '마이웰니스 랩 건강 분석 쿠폰',
+          title: '마이웰니스 랩 건강 분석권',
           limit: '~ 2023.09.12',
           quantity: 8
         },
@@ -66,7 +84,7 @@ export default {
           quantity: 4
         },
         {
-          title: '마이웰니스 랩 건강 분석 쿠폰',
+          title: '마이웰니스 랩 건강 분석권',
           limit: '~ 2023.09.12',
           quantity: 8
         },
@@ -81,22 +99,7 @@ export default {
           quantity: 4
         },
         {
-          title: '마이웰니스 랩 건강 분석 쿠폰',
-          limit: '~ 2023.09.12',
-          quantity: 8
-        },
-        {
-          title: '마이웰니스 랩 건강 분석 2023 프로모션 쿠폰',
-          limit: '~ 2023.12.31',
-          quantity: 2
-        },
-        {
-          title: '마이웰니스 랩 건강 분석 2024 프로모션 쿠폰',
-          limit: '~ 2024.12.31',
-          quantity: 4
-        },
-        {
-          title: '마이웰니스 랩 건강 분석 쿠폰',
+          title: '마이웰니스 랩 건강 분석권',
           limit: '~ 2023.09.12',
           quantity: 8
         },
@@ -142,14 +145,14 @@ export default {
 <template>
   <section class="CouponStatus">
 
-    <div v-if="coupon.length" class="CouponStatus--info-wrap">
+    <!-- <div v-if="coupon.length" class="CouponStatus--info-wrap">
       <p class="CouponStatus--info">
         <strong>건강설문 및 건강 분석 결과 확인을 위해서는</strong>
         웰니스 쿠폰이 필요합니다
       </p>
-    </div>
+    </div> -->
 
-    <div v-if="coupon.length" class="CouponStatus--total">보유쿠폰
+    <div v-if="coupon.length" class="CouponStatus--total">보유 분석권
       <span class="CouponStatus--total-digit">총
         <strong class="CouponStatus--t-digit">{{coupon.length}}</strong>개
       </span>
@@ -162,10 +165,12 @@ export default {
           <div class="align--between CouponStatus--coupon">
             <div class="CouponStatus--coupon-txt">
               <div class="CouponStatus--c-wrap">
+                <span class="CouponStatus--coupon-type">{{ item.label || "프로모션" }}</span>
                 <strong class="CouponStatus--coupon-tit">{{ item.title }}</strong>
-                <span class="CouponStatus--coupon-limit">사용 기한 :
+                <span class="CouponStatus--coupon-limit">사용기한
                   <span class="CouponStatus--coupon-date">{{ item.limit }}</span>
                 </span>
+                <p v-if="item.description" class="CouponStatus--coupon-desc">{{ item.description }}</p>
               </div>
             </div>
             <div class="CouponStatus--coupon-quan">

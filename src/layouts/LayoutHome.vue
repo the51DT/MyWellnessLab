@@ -152,7 +152,7 @@ onBeforeUnmount(() => {
     </main>
 
     <!-- S : 202606 dock 추가 -->
-    <aside> <!-- 로그인 시에만 노출 필요, 퍼블 확인을 위해 처리안함 -->
+    <aside> <!-- 로그인 시에만 노출 필요(인트로 노출x), 퍼블 확인을 위해 처리안함 -->
       <LayoutHomeDock
         v-model:is-side-bar="isSideBar"
         :is-pc="isPc"

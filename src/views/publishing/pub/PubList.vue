@@ -29,9 +29,27 @@ const data = ref([
     div: '로그인 후',
     div2: '',
     div3: '',
-    loca: '',
-    go: '/publishing/home',
-    msg: "",
+    loca: '@/views/publishing/Main.vue',
+    go: '/publishing/Main',
+    msg: "**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>작업중",
+    confirm: ''
+  },
+  {
+    div: '분석권 보유 현황',
+    div2: '분석권 없는 경우',
+    div3: '',
+    loca: '@/views/coupon/CouponList.vue',
+    go: '/publishing/coupon-status/none',
+    msg: 'ver.260626 완료',
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '분석권 보유 시(퍼블 확인용)',
+    div3: '',
+    loca: '@/views/coupon/CouponList.vue<br>@/views/publishing/etc/CouponStatus.vue -> 퍼블 확인용 경로',
+    go: '/publishing/coupon-status',
+    msg: 'ver.260626 완료',
     confirm: ''
   },
   {
@@ -104,9 +122,9 @@ const data = ref([
     div: '웰니스분석',
     div2: '',
     div3: '',
-    loca: '@/views/Home.vue<br>@/views/publishing/home.vue -> 퍼블 확인용 경로',
+    loca: '@/views/Home.vue<br>@/views/publishing/Home.vue -> 퍼블 확인용 경로',
     go: '/publishing/home',
-    msg: '기존 home 내용이 건강수명분석으로 옮겨져 home path 확인 필요<br>* 파일명+패스 수정은 안했음',
+    msg: '**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**',
     confirm: ''
   },
   {
@@ -420,15 +438,6 @@ const data = ref([
     confirm: ''
   },
   {
-    div: '쿠폰 보유 현황',
-    div2: '',
-    div3: '',
-    loca: '@/views/coupon/CouponList.vue<br>@/views/publishing/etc/CouponStatus.vue -> 퍼블 확인용 경로',
-    go: '/publishing/coupon-status',
-    msg: '분석권 보유 시',
-    confirm: ''
-  },
-  {
     div: '서비스 이용안내',
     div2: '',
     div3: '',
@@ -510,15 +519,6 @@ const data = ref([
     loca: '@/views/publishing/orderNpay/OrderNpayDetail.vue',
     go: '/publishing/order-pay/order-pay-detail',
     msg: '',
-    confirm: ''
-  },
-  {
-    div: '기타',
-    div2: '쿠폰 보유 현황',
-    div3: '',
-    loca: '@/views/coupon/CouponList.vue',
-    go: '/publishing/coupon-status/none',
-    msg: '분석권 없는 경우',
     confirm: ''
   },
   {

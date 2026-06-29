@@ -547,6 +547,20 @@ const publishingRouter = {
       name: "Error",
       component: () => import("@/views/publishing/Error.vue"),
     },
+    {
+      path: "main" /* 메인 - 고도화 홈 */,
+      component: LayoutHome,
+      children: [
+        {
+          path: "",
+          name: "pubMain",
+          component: () => import("@/views/publishing/Main.vue"),
+          meta: {
+            title: "메인",
+          },
+        },
+      ],
+    },
   ],
 };
 

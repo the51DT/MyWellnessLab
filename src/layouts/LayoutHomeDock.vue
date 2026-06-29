@@ -7,7 +7,7 @@ const route = useRoute()
 const menus = [
   {
     label: '홈',
-    path: '/', /* 202606 퍼블로 임시 지정 변경 필요 */
+    path: '/publishing/main', /* 202606 퍼블로 임시 지정 변경 필요 */
     icon: '/img/ico_dock-home.svg',
     activeIcon: '/img/ico_dock-home_on.svg'
   },

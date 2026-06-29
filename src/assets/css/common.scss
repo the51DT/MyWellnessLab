@@ -296,9 +296,10 @@ $w-pc-small3: 600px;
 $w-pc-small4: 800px;
 $w-full: 100%;
 
-@mixin txtStyle($type: body, $size: md) {
+@mixin txtStyle($type: body, $size: md, $weight: 400) {
   font-size: map.get(map.get($txt-size, $type), $size);
   line-height: if(sass($type == head): 1.2; else: 1.5);
+  font-weight: $weight;
 }
 @mixin scrollbarNone{
   scrollbar-width: none;
@@ -1080,8 +1081,7 @@ $w-full: 100%;
   }
 }
 @mixin txtSmall3($color: #7E7E7E){
-  font-size: 1.3rem;
-  font-family: $font-family-medium;
+  @include txtStyle(body, 2xs);
   color: $color;
   @media (min-width: $w-pc) {
     font-size: 1.5rem;

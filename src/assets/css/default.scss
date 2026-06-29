@@ -1133,6 +1133,34 @@ footer{
     &.tit{
       padding: 0;
       width: 100%;
+      @include height-vh-fallback(100, 0rem);
+      border-radius: 0;
+      @media (min-width: $w-pc-small3) {
+        height: auto;        
+        width: calc(100% - 4rem);
+        max-width: 96rem;
+        max-height: 90%;
+        min-height: auto;
+        overflow: auto;
+        border-radius: 1.2rem;
+        .popup--header{
+          border-top-left-radius: 1.2rem;
+          border-top-right-radius: 1.2rem;
+        }
+        .popup--space{
+          height: auto;
+          border-bottom-left-radius: 1.2rem;
+          border-bottom-right-radius: 1.2rem;
+        }
+      }
+      //@media ( min-width: 1400px ) {
+      //  width: 49%;
+      //  margin: auto;
+      //}
+    }
+    &.close{
+      padding: 0;
+      width: 100%;
       height: auto;        
       width: calc(100% - 4rem);
       max-width: 96rem;
@@ -1150,14 +1178,34 @@ footer{
         border-bottom-left-radius: 2rem;
         border-bottom-right-radius: 2rem;
       }
+      .popup-btn-wrap{
+        padding: 2rem 0;
+        margin: 0;
+      }
+      .popup--header{
+        font-weight: 500;
+        height: 5.5rem;
+        padding: 0 2rem;
+        &:has(div:only-child){
+          justify-content: center;
+        }
+        > *:first-child,
+        > *:last-child{
+          flex: 0 0 auto;
+        }
+      }
+      .popup--tit-wrap{
+        @include txtStyle(body, md, 500);
+        font-family: 'Pretendard', serif;
+      }
+      .popup--close{
+        width: 2.4rem;
+        height: 2.4rem;
+      }
       .pop-btn-wrap{
         padding: 2rem 0;
         margin: 0;
       }
-      //@media ( min-width: 1400px ) {
-      //  width: 49%;
-      //  margin: auto;
-      //}
     }
     .pop-text{
       &-light, &-bold{
@@ -1240,21 +1288,24 @@ footer{
     }
   }
   &--header{
-    @include txtStyle(body, md, 500);
+    font-size: 2rem;
     color: #222;
     align-items: center;
     display: flex;
-    height: 5.5rem;
-    padding: 0 2rem;
+    height: $header-height;
     justify-content: space-between;
     line-height: 1;
     margin-right: auto;
     margin-left: auto;
+    background-color: $box-background-gray2;
     @media (min-width: $w-pc) {
       height: 7rem;
     }
-    &:has(div:only-child){
-      justify-content: center;
+    & > *{
+      flex: auto;
+    }
+    & > *:first-child, & > *:last-child{
+      flex: 1;
     }
   }
   &--tit{
@@ -1262,15 +1313,17 @@ footer{
     margin-left: auto;
     @media (min-width: $w-pc) {
       font-size: 2.8rem;
+      font-family: $font-family-bold;
     }
     &-wrap{
       text-align: center;
+      font-family: $font-family-light;
     }
   }
   &--close{
     text-align: right;
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 4.8rem;
+    height: 4.8rem;
     border: none;
     background-color: transparent;
     background-position: center;
@@ -1287,6 +1340,7 @@ footer{
   &--space{
     overflow-y: auto;
     height: calc(var(--vh, 1vh) * 100 - 4.9rem);
+    background-color: $box-background-gray2;
     @media (min-width: $w-pc) {
       height: calc(var(--vh, 1vh) * 100 - 15rem);
       background-color: white;
@@ -4144,16 +4198,128 @@ button{
       }
     }
   }
-  &--misson{
+  &--daily{
     position: relative;
     z-index: 1;
-    width: 32rem;
-    height: 20.7rem;
     margin: 0 auto;
-    box-shadow: .2rem .4rem 2rem 0 rgba(0, 0, 0, 0.3);
-    border-radius: 2.4rem;
-    border: 1px solid #1DB196;
-    background: #fff;
+    padding: 0 2rem 2.4rem;
+    &--box{
+      padding: 1.6rem;
+      box-shadow: .2rem .4rem 2rem 0 rgba(0, 0, 0, 0.3);
+      border-radius: 2.4rem;
+      border: 1px solid #1DB196;
+      background: #fff;
+      overflow: hidden;
+    }
+    &--date{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+      .date{
+        @include btnClear;
+        position: relative;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 99rem;
+        @include txtStyle(body, xs);
+        color: #333;
+        &.select{
+          background-color: #146B5B;
+          font-weight: 700;
+          color: #fff;
+        }
+        &.today{
+          background-color: #fff;
+          border: .4rem solid #146B5B;
+          font-weight: 700;
+          color: #111;
+          &::after{
+            content: 'Today';
+            position: absolute;
+            bottom: -.4rem;
+            left: 50%;
+            transform: translate(-50%, 100%);
+            width: fit-content;
+            @include txtStyle(caption, md);
+            text-align: center;
+            color: #333;
+          }
+          &::before{
+            margin-top: -.4rem;
+          }
+        }
+        &::before{
+          content: '';
+          position: absolute;
+          top: 0;
+          display: block;
+          width: 0;
+          height: 0;
+          border-radius: 1rem;
+          background-color: #146B5B;
+          opacity: 0;
+          transition: all 0.3s ease-in-out;
+        }
+        &.on{
+          &::before{
+            top: -1rem;
+            width: .6rem;
+            height: .6rem;
+            opacity: 1;
+          }
+        }
+        &--more{
+          @include btnClear;
+          flex-shrink: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: .4rem;
+          width: fit-content;
+          margin-left: .2rem;
+          margin-top: .4rem;
+          img{
+            width: 2.4rem;
+            height: 2.4rem;
+          }
+          span{
+            @include txtStyle(caption, md);
+          }
+        }
+      }
+    }
+    &--swiper{
+      margin-top: 1.2rem;
+      .swiper{
+        overflow: visible;
+        &-slide{
+          border-radius: 2rem;
+          box-shadow: .3rem .4rem 2rem 0 rgba(0, 0, 0, 0.2);
+          overflow: hidden;
+        }
+      }
+      .slide-img{
+        position: relative;
+        height: 10.4rem;
+        &--upload{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+      }
+    }
   }
   &--team{
     position: relative;

@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import router from '@/router'
-import BasePopupTit from '@/views/publishing/BasePopupTit.vue'
+import BasePopupClose from '@/views/publishing/BasePopupClose.vue'
 
 /* 퍼블확인용 */
 const isShowTeamTermsPopup = ref(false)
@@ -22,7 +22,7 @@ onMounted(async () => {
 
 <template>
   <!-- 개인정보 제3자 제공 이용동의 팝업 -->
-  <BasePopupTit v-if="isShowTeamTermsPopup">
+  <BasePopupClose v-if="isShowTeamTermsPopup">
     <template v-slot:title>개인정보 제3자 제공 이용동의</template>
     <template v-slot:contents>
       <div class="pop-scroll-box">
@@ -42,7 +42,7 @@ onMounted(async () => {
         <button type="button" @click="termsAgree" class="pop-btn pop-btn--green">동의</button>
       </div>
     </template>
-  </BasePopupTit>
+  </BasePopupClose>
 
   <!-- 팀 참여 완료 후 보상 수령처 선택 팝업 -->
   <!-- 
@@ -51,7 +51,7 @@ onMounted(async () => {
     [확인] 시 팀 목록화면으로 이동
     **팀가입 완료 시점에 한번만 호출 됨
   -->
-  <BasePopupTit v-if="isShowTeamJoinPopup" class="TeamRewardPopup" :close-btn="false">
+  <BasePopupClose v-if="isShowTeamJoinPopup" class="TeamRewardPopup" :close-btn="false">
     <template v-slot:title>팀 참여 완료</template>
     <template v-slot:contents>
       <div class="pop-content-wrap">
@@ -73,7 +73,7 @@ onMounted(async () => {
         <button type="button" @click="" class="pop-btn pop-btn--green">확인</button>
       </div>
     </template>
-  </BasePopupTit>
+  </BasePopupClose>
 </template>
 
 <style lang="scss"></style>

@@ -544,7 +544,7 @@ const data2 = ref([
   }
 ])
 function go (val) {
-  router.push(val)
+  window.open(val, '_blank')
 }
 
 // onMounted(() => {

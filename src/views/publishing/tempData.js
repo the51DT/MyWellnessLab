@@ -26896,5 +26896,8 @@ export const sendData = {
     crea: '1',
     hb: '15',
     bmi: '25.1'
-  }]
+  }],
+  hqAr: {
+    status: 1,
+  },
 }

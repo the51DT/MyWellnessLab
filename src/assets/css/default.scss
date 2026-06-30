@@ -4151,7 +4151,78 @@ button{
       @include txtStyle(body, md, 500);
     }
     &--after{
-      
+      > p{
+        @include txtStyle(head, 2xs, 600);
+      }
+    }
+    &--total{
+      margin-top: 1.6rem;
+      display: flex;
+      padding: 0 2.7rem;
+    }
+    &--graph{
+      width: 100%;
+    }
+    &--score{
+      @include txtStyle(body, sm, 600);
+      margin-top: -.4rem;
+      flex: 0 0 11.5rem;
+      .total{
+        color: #5AB651;
+        &.orange{
+          color: #F8B500;
+        }
+        &.red{
+          color: #E95371;
+        }
+        @include txtStyle(head, xl, 700);
+        span{
+          @include txtStyle(body, sm, 600);
+
+        }
+      }
+    }
+    &--result{
+      display: flex;
+      justify-content: space-between;
+      gap: 1.6rem;
+      align-items: center;
+      margin-top: 1.2rem;
+      padding: 0 2rem;
+      div {
+        position: relative;
+        text-align: center;
+        width: 100%;
+      }
+      div + div::before {
+        content: '';
+        position: absolute;
+        left: -.8rem;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        width: .1rem;
+        height: 4rem;
+        background: #E5E5E5;
+      }
+      p{
+        @include txtStyle(caption, lg, 500);
+        color: #333;
+      }
+      .score{
+        @include txtStyle(head, sm, 700);
+        color: #5AB651;
+        &.orange{
+          color: #F8B500;
+        }
+        &.red{
+          color: #E95371;
+        }
+        span{
+          @include txtStyle(body, md, 600);
+          vertical-align: middle;
+        }
+      }
     }
     &--link {
       @include txtStyle(head, sm, 700);
@@ -4316,8 +4387,15 @@ button{
           }
         }
         &-before{
+          position: relative;
           border: 2px dashed #1DB196;
           border-radius: 2rem;
+          > button{
+            @include btnClear;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+          }
         }
         &-date{
           @include txtStyle(body, 2xs, 600);
@@ -9913,6 +9991,30 @@ $agingIndex: 431px;
       & > *{
         width: 20rem;
       }
+    }
+  }
+  &.main{
+    .echart.gauge{
+      left: -.4rem;
+      bottom: -.5rem;
+      transform: unset;
+    }
+    .AnalyzeAgingSpeed--graph {
+      height: 8.3rem;
+      overflow: hidden;
+    }
+    .AnalyzeAgingSpeed--rank-wrap {
+      width: 3.6rem;
+      height: 3.6rem;
+      border: none;
+    }
+    .AnalyzeAgingSpeed--summary{
+      bottom: .2rem;
+    }
+    .AnalyzeAgingSpeed--speed3{
+      width: 1.6rem;
+      height: 1.3rem;
+      background: url("/img/icon_agingspeed_logo.svg") no-repeat center / 1.6rem;
     }
   }
   &--tab{

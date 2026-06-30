@@ -5,11 +5,16 @@ import AnalyzeAgingSpeedPop from '@/views/publishing/analyze/AnalyzeAgingSpeedPo
 import { defineProps, ref } from 'vue'
 import * as echarts from 'echarts' /* 231208 팝업이 길어서 따로 뺌 */
 import { sendData } from '@/views/publishing/tempData'
+import { tr } from 'date-fns/locale'
 
 export default {
   name: 'AnalyzeAgingSpeed',
   props: {
     isMain: {
+      type: Boolean,
+      default: false
+    },
+    isNewMain: {
       type: Boolean,
       default: false
     }
@@ -35,7 +40,7 @@ export default {
             name: 'Pressure',
             type: 'gauge',
             radius: '100%',
-            startAngle: props.isMain ? 180 : 135,
+            startAngle: props.isNewMain ? 180 : props.isMain ? 180 : 135,
             endAngle: 0,
             min: 0.5,
             max: 2.5,
@@ -57,16 +62,16 @@ export default {
               length: 124.5
             },
             pointer: {
-              icon: 'triangle',
-              length: '105%',
-              width: 8,
-              showAbobe: true,
+              icon: 'image:///img/img_agingspeed_needle.png',
+              length: '170%',
+              width: 5,
+              showAbove: true,
               itemStyle: {
-                color: '#646464'
-              }
+                color: '#111'
+              },
             },
             anchor: {
-              show: true,
+              show: false,
               showAbove: true,
               size: 15,
               color: '#646464',
@@ -110,7 +115,8 @@ export default {
       myChart,
       chartData,
       chartDraw,
-      setChartData
+      setChartData,
+      sendData,
     }
   },
   components: {
@@ -170,7 +176,7 @@ export default {
 </script>
 
 <template>
-  <div class="AnalyzeAgingSpeed" :class="isMain ? 'home' : ''"> <!--노화 억제 분석 지수-->
+  <div class="AnalyzeAgingSpeed" :class="isNewMain ? 'main home' : isMain ? 'home' : ''"> <!--노화 억제 분석 지수-->
     <div class="tooltip AnalyzeAgingSpeed--tooltip" v-if="!props.isMain">
       <h2 class="tooltip--tit AnalyzeAgingSpeed--tip-tit">노화 속도</h2>
       <button
@@ -199,15 +205,21 @@ export default {
       </p>
 
       <div class="AnalyzeAgingSpeed--graph"> <!--그래프-->
-        <!--        <div class="echart guage" :class="isMain ? 'isMain' : ''" ref="echart" />-->
-        <div class="echart guage" :class="isMain ? 'isMain' : ''" ref="echart" />
+        <!--        <div class="echart gauge" :class="isMain ? 'isMain' : ''" ref="echart" />-->
+        <div class="echart gauge" :class="isMain ? 'isMain' : ''" ref="echart" />
         <div class="AnalyzeAgingSpeed--summary">
-          <div class="AnalyzeAgingSpeed--rank-wrap">
-            <strong class="AnalyzeAgingSpeed--speed2" :class="speed <= 1 ? 'green' : 'orange'">
+          <div class="AnalyzeAgingSpeed--rank-wrap" 
+            :class="{
+              'red': sendData.hqAr?.status === 3,
+              'orange': sendData.hqAr?.status === 2,
+              'green': sendData.hqAr?.status === 1
+            }"
+          >
+            <strong v-if="!isNewMain" class="AnalyzeAgingSpeed--speed2" :class="speed <= 1 ? 'green' : 'orange'">
               <span v-if="!isMain">x</span>
               {{ speed }}
             </strong>
-            <span v-if="isMain" class="AnalyzeAgingSpeed--speed3">배속</span>
+            <span v-if="isMain" class="AnalyzeAgingSpeed--speed3"><span v-if="!isNewMain">배속</span></span>
           </div>
           <button
             v-if="!props.isMain"
@@ -233,13 +245,9 @@ export default {
 </template>
 
 <style scoped lang="scss">
-.echart.guage {
-  /* 변경필요 */
-  //width: 24.6rem;
-  width: 120%;
-  //height: 24.6rem;
-  height: 120%;
-  padding-top: 2.8rem;
+.echart.gauge {
+  width: 100%;
+  height: 100%;
   position: absolute !important;
   top: 50%;
   left: 50%;
@@ -252,9 +260,15 @@ export default {
 }
 
 ::v-deep(.echart div) {
-  margin: 2.2rem auto;
+  //bottom: -11.5px;
+  overflow: visible !important;
+  & svg {
+    overflow: visible;
+    
+  }
 }
 
-::v-deep(.home .echart div) {
-  margin-top: -2.6rem;
-}</style>
+// ::v-deep(.home .echart div) {
+//   margin-top: -2.6rem;
+// }
+</style>

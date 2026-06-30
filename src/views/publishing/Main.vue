@@ -18,7 +18,22 @@ export default {
       isBottom: false,
       popup: false,
       selectMisson: false,
-      imageUrl: null,
+      imageUrl: ref(null),
+      tab: ref(0),
+      dailyData: [ /* 퍼블 확인용 데이터*/
+        {
+          day: 'tue',
+          img: '/img/img_home_daily_exam.png',
+        },
+        {
+          day: 'mon',
+          img: '/img/img_home_daily_exam.png',
+        },
+        {
+          day: 'sun',
+          img: 'https://automation.vuejs.org/images/chrome_frameworks_fund.avif',
+        },
+      ],
     }
   },
   setup() {
@@ -27,11 +42,14 @@ export default {
       homeSwiper.value = swiper;
     };
     const onSlideChange = (swiper) => {
+      const dailyComp = swiper.slides[swiper.activeIndex].querySelector(".slide-img--comp");
+      if(dailyComp){
+        dailyComp.classList.add("ani");
+      }
       let dayList = document.querySelectorAll(".main--daily--date .date");
       dayList.forEach((el) => {
         const dayListValue = el.getAttribute("data-day");
-        const swiperActiveValue =
-          swiper.slides[swiper.activeIndex].getAttribute("data-day");
+        const swiperActiveValue = swiper.slides[swiper.activeIndex].getAttribute("data-day");
 
         if (dayListValue === swiperActiveValue) {
           dayList.forEach((element) => {
@@ -149,93 +167,38 @@ export default {
           <swiper :slides-per-view="1" :space-between="24" @swiper="onSwiper" @slideChange="onSlideChange"
             dir="rtl">
             <swiper-slide data-day="sat">
-              <div class="slider-wrap">
-                <div class="profile-area">
-                  <div class="upload-wrap" :class="imageUrl ? 'upload-wrap--noborder' : ''">
-                    <img v-if="imageUrl" class="slide-img--comp" src="" />
-                    <input type="file" id="uploadIcon" class="upload-icon" @change="onFileChange" hidden />
-                    <label for="uploadIcon" class="upload-label" :class="imageUrl ? 'slide-img--upload' : ''">
-                      <img v-if="imageUrl" class="uploaded-img" :src="imageUrl" alt="업로드된 이미지" />
-                      <div v-else class="upload_ani">
-                        <img @click="openCamera" src="" />
-                      </div>
-                    </label>
-                    <p v-if="!imageUrl" class="date">2026년 7월 16일</p>
-                    <div v-if="imageUrl" class="btn_wrap">
-                      <button class="share-btn"></button>
-                      <button class="replace-btn"></button>
-                    </div>
-                  </div>
+              <div v-if="imageUrl" class="slide-img">
+                <img class="slide-img--comp ani" src="/img/img_home_daily_comp.png" />
+                <div class="slide-img--upload">
+                  <img :src="imageUrl" alt="업로드된 이미지" />
                 </div>
               </div>
-            </swiper-slide>
-            <swiper-slide data-day="fri">
-              <div class="slider-wrap">
-                <div class="slide-img">
-                  <img class="slide-img--comp" src="" />
-                  <div class="slide-img--upload">
-                    <img src="/img/img_home_daily_exam.png" />
+              <div v-if="imageUrl" class="btn-wrap">
+                <button class="share-btn"></button>
+                <button class="img-btn"></button>
+              </div>
+              <div v-else class="upload-before">
+                <input type="file" id="uploadIcon" class="upload-icon" @change="onFileChange" hidden />
+                <label for="uploadIcon" class="upload-label" :class="imageUrl ? 'slide-img--upload' : ''">
+                  <img src="/img/img_home_daily_add.png" @click="openCamera" />
+                  <div>
+                    <p class="upload-date">2026년 7월 16일</p>
+                    <p class="upload-text">미션 인증하기</p>
                   </div>
-                  <div class="btn_wrap">
-                    <button class="share-btn"></button>
-                    <button class="replace-btn"></button>
-                  </div>
-                </div>
+                </label>
               </div>
             </swiper-slide>
-            <swiper-slide data-day="thu">
+            <swiper-slide v-for="item in dailyData" :key="item.day" :data-day="item.day">
               <div class="slider-wrap">
                 <div class="slide-img">
-                  <img class="slide-img--comp ani" src="" />
+                  <img class="slide-img--comp" src="/img/img_home_daily_comp.png" />
                   <div class="slide-img--upload">
-                    <img src="/img/img_home_daily_exam.png" />
-                  </div>
-                  <div class="btn_wrap">
-                    <button class="share-btn"></button>
-                    <button class="replace-btn"></button>
+                    <img :src="item.img" />
                   </div>
                 </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide data-day="wed">
-              <div class="slider-wrap">
-                <div class="slide-img">
-                  <img class="slide-img--comp" src="" />
-                  <div class="slide-img--upload">
-                    <img src="/img/img_home_daily_exam.png" />
-                  </div>
-                  <div class="btn_wrap">
-                    <button class="share-btn"></button>
-                    <button class="replace-btn"></button>
-                  </div>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide data-day="mon">
-              <div class="slider-wrap">
-                <div class="slide-img">
-                  <img class="slide-img--comp" src="" />
-                  <div class="slide-img--upload">
-                    <img src="/img/img_home_daily_exam.png" />
-                  </div>
-                  <div class="btn_wrap">
-                    <button class="share-btn"></button>
-                    <button class="replace-btn"></button>
-                  </div>
-                </div>
-              </div>
-            </swiper-slide>
-            <swiper-slide data-day="sun">
-              <div class="slider-wrap">
-                <div class="slide-img">
-                  <img class="slide-img--comp" src="" />
-                  <div class="slide-img--upload">
-                    <img src="/img/img_home_daily_exam.png" />
-                  </div>
-                  <div class="btn_wrap">
-                    <button class="share-btn"></button>
-                    <button class="replace-btn"></button>
-                  </div>
+                <div class="btn-wrap">
+                  <button class="share-btn"></button>
+                  <button class="img-btn"></button>
                 </div>
               </div>
             </swiper-slide>
@@ -245,7 +208,27 @@ export default {
       </div>
     </div>
     <div class="main--team">
-      나의 팀
+      <p class="main--team--tit">나의 팀</p>
+      <div class="main--team--folder">
+        <div class="tab-wrap">
+          <button class="tab" type="button" @click="tab = 0" :class="tab === 0 ? 'active' : ''">챌린지</button>
+          <button class="tab" type="button" @click="tab = 1" :class="tab === 1 ? 'active' : ''">상시</button>
+        </div>
+        <div v-if="tab === 0" class="tab-content tab-content-1">
+          <div class="tab-content--active">챌린지</div>
+          <div class="main--team--no">
+            <img src="/img/img_home_error.png">
+            <p>참여중인 챌린지가 없습니다.</p>
+          </div>
+        </div>
+        <div v-else-if="tab === 1" class="tab-content tab-content-2">
+          <div class="tab-content--active">상시</div>
+          <div class="main--team--no">
+            <img src="/img/img_home_error.png">
+            <p>참여중인 상시 팀이 없습니다.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
   

@@ -12,7 +12,7 @@ const menus = [
     activeIcon: '/img/ico_dock-home_on.svg'
   },
   {
-    label: '건강수명분석',
+    label: '건강수명 분석',
     path: '/publishing/home', /* 202606 퍼블로 임시 지정 변경 필요 */
     icon: '/img/ico_dock-health.svg',
     activeIcon: '/img/ico_dock-health_on.svg'
@@ -33,10 +33,6 @@ const menus = [
 
 const props = defineProps({
   isPc: {
-    type: Boolean,
-    default: false
-  },
-  isLogin: {
     type: Boolean,
     default: false
   },

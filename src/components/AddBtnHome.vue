@@ -1,13 +1,15 @@
 <template>
   <div class="home--addBtn" v-show="shouldShowAddBtn">
     <!-- active 클래스 추가 되는 경우, 하단 푸터 위치값 고정   -->
+    <!-- 202606 내부 구조 수정 -->
+    <button type="button" class="home--addBtn-close" @click="closeDisplay">
+      <img src="/img/btn-close_black.svg" :alt="$t('AddBtnHome.close')">
+    </button>
     <button type="button" class="home--addBtn-create" @click="handleInstallPrompt">
-      <img src="/img/ic_addbtn_home.png" :alt="$t('AddBtnHome.icon')">
-      <span>{{ $t('AddBtnHome.addToHomeScreen') }}</span>
+      <img src="/img/ic_addbtn_home.svg" :alt="$t('AddBtnHome.icon')">
+      <span>홈 화면에<br>추가</span>
     </button>
-    <button type="button" class="home--addBtn-hidden" @click="dontDisplay">
-      <img src="/img/btn-close.svg" :alt="$t('AddBtnHome.close')">
-    </button>
+    <button type="button" class="home--addBtn-hidden" @click="dontDisplay">다시 안 보기</button>
   </div>
 </template>
 
@@ -23,6 +25,11 @@ const deferredPrompt = ref(null)
 // PWA 설치 프롬프트 표시
 const handleInstallPrompt = () => {
   showInstallPrompt()
+}
+
+// 202606 그냥 닫기 이벤트 추가
+const closeDisplay = () => {
+  shouldShowAddBtn.value = false
 }
 
 const dontDisplay = () => {
@@ -45,49 +52,59 @@ onMounted(() => {
 })
 </script>
 
+<!-- 202606 스타일 수정 -->
 <style lang="scss" scoped>
 .home--addBtn {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 48px;
+  bottom: 169px;
+  right: 28px;
   z-index: 1000;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 4px 6px 4px 24px;
-  background: #1db196;
   @media (min-width: 960px) {
     display: none;
   }
 }
 .home--addBtn button{
   border: none;
-  background: transparent;
   padding: 0;
 }
 .home--addBtn-create {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  width: 66px;
+  height: 66px;
+  border-radius: 48px;
+  background: #092F28;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, .4);
   img{
-    width: 32px;
-    height: 32px;
-    vertical-align: middle;
-    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+    margin-bottom: 4px;
   }
   span{
     color: #fff;
-    font-size: 16px;
-    font-family: 'RixSinHead_Light', sans-serif;
+    font-size: 10px;
+    font-family: 'Pretendard', sans-serif;
   }
 }
 .home--addBtn-hidden {
+  background: transparent;
+  margin-top: 2px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #092F28;
+}
+.home--addBtn-close {
+  width: 12px;
+  align-self: flex-end;
+  background: transparent;
   img{
-    width: 40px;
-    height: 40px;
-    vertical-align: middle;
+    width: 100%;
   }
 }
 </style>

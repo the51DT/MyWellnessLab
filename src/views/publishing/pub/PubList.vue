@@ -22,7 +22,7 @@ const data = ref([
     div3: '',
     loca: '@/views/Intro.vue',
     go: '/publishing/home/intro',
-    msg: "가입 화면 이동 얼럿 App.vue에 위치<br>하단 메뉴 퍼블 확인용<br>ver 26.06.22 완료",
+    msg: "가입 화면 이동 얼럿 App.vue에 위치<br>ver 26.06.22 완료",
     confirm: ''
   },
   {

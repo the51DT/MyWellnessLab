@@ -29,6 +29,9 @@ export default {
       <div class="popup--space">
         <slot name="contents"></slot>
       </div>
+      <div v-if="$slots.button" class="pop-btn-wrap">
+        <slot name="button"></slot>
+      </div>
     </div>
   </div>
 </template>

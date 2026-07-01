@@ -37,10 +37,10 @@ onMounted(async () => {
         </p>
       </div>
       <div class="pop-text-caption">원활한 서비스 이용을 위하여 개인정보 제3자 제공에 대하여 동의가 필요합니다. 동의하지 않으실 경우 서비스 이용이 제한됩니다.</div>
-      <div class="pop-btn-wrap">
-        <button type="button" @click="termsAgree" class="pop-btn pop-btn--gray">동의하지 않음</button>
-        <button type="button" @click="termsAgree" class="pop-btn pop-btn--green">동의</button>
-      </div>
+    </template>
+    <template v-slot:button>
+      <button type="button" @click="termsAgree" class="pop-btn pop-btn--gray">동의하지 않음</button>
+      <button type="button" @click="termsAgree" class="pop-btn pop-btn--green">동의</button>
     </template>
   </BasePopupClose>
 
@@ -69,9 +69,9 @@ onMounted(async () => {
         </div>
         <div class="pop-text-caption center">*챌린지 팀 가입의 경우, 카카오 알림톡을 통해<br>챌린지와 관련된 안내를 받으실 수 있습니다.</div>
       </div>
-      <div class="pop-btn-wrap">
-        <button type="button" @click="" class="pop-btn pop-btn--green">확인</button>
-      </div>
+    </template>
+    <template v-slot:button>
+      <button type="button" @click="" class="pop-btn pop-btn--green">확인</button>
     </template>
   </BasePopupClose>
 </template>

@@ -7,6 +7,7 @@ import LayoutHomePrivacy from '@/layouts/LayoutHomePrivacy.vue'
 import LayoutHomeSideMenu from '@/layouts/LayoutHomeSideMenu.vue'
 import LayoutHomeDock from '@/layouts/LayoutHomeDock.vue' /* 202606 dock 추가 */
 import { useStore } from 'vuex'
+import { is } from 'date-fns/locale'
 
 const { t } = useI18n()
 
@@ -22,7 +23,11 @@ const store = useStore()
 const axios = inject('$axios')
 const token = store.getters.getToken
 const accountTypeCode = ref('')
-const isLogin = store.getters.isLogin
+/* 퍼블 확인용 임시 하단 주석이 기존 */
+const isLogin = computed(() => {
+  return route.meta.isLogin === true || store.getters.isLogin
+}) 
+// const isLogin = store.getters.isLogin
 
 function showLink (val) { /* 231208 암웨이 링크 레이어 추가 */
   externalLink.value = val
@@ -142,6 +147,11 @@ onBeforeUnmount(() => {
               <img src="/img/ico_coupon.svg" :alt="$t('LayoutHome.alt.coupon')" />
             </button>
           </div>
+          <div v-if="isLogin">
+            <button type="button" class="btn--menu" @click=""> <!-- 202606 나의 미션 활동 이동 필요 -->
+              <img src="/img/ico_trophy.svg" :alt="$t('LayoutHome.alt.mission')" />
+            </button>
+          </div>
         </div>
 
       </div>
@@ -152,11 +162,10 @@ onBeforeUnmount(() => {
     </main>
 
     <!-- S : 202606 dock 추가 -->
-    <aside> <!-- 로그인 시에만 노출 필요(인트로 노출x), 퍼블 확인을 위해 처리안함 -->
-      <LayoutHomeDock
+    <aside v-if="isLogin">
+      <LayoutHomeDock 
         v-model:is-side-bar="isSideBar"
         :is-pc="isPc"
-        :is-login="isLogin"
         :account-type-code="accountTypeCode"
       />
       <div class="dock-side">

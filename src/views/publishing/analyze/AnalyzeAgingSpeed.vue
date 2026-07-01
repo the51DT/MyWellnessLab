@@ -40,8 +40,8 @@ export default {
             name: 'Pressure',
             type: 'gauge',
             radius: '100%',
-            startAngle: props.isNewMain ? 180 : props.isMain ? 180 : 135,
-            endAngle: 0,
+            startAngle: props.isNewMain ? 190 : props.isMain ? 180 : 135,
+            endAngle: props.isNewMain ? 10 : 0,
             min: 0.5,
             max: 2.5,
             itemStyle: {
@@ -64,7 +64,7 @@ export default {
             pointer: {
               icon: 'image:///img/img_agingspeed_needle.png',
               length: '170%',
-              width: 5,
+              width: 7,
               showAbove: true,
               itemStyle: {
                 color: '#111'

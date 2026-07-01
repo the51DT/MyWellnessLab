@@ -22,6 +22,7 @@ const publishingRouter = {
           component: () => import("@/views/publishing/Home.vue"),
           meta: {
             title: "홈",
+            isLogin: true,
           },
         },
         {
@@ -31,6 +32,7 @@ const publishingRouter = {
           meta: {
             title: "인트로",
             class: "whiteHeader",
+            isLogin: false,
           },
         },
       ],
@@ -557,6 +559,7 @@ const publishingRouter = {
           component: () => import("@/views/publishing/Main.vue"),
           meta: {
             title: "메인",
+            isLogin: true,
           },
         },
       ],

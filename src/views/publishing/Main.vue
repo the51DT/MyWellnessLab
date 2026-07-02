@@ -7,6 +7,7 @@ import 'swiper/css'
 import AnalyzeAgingSpeed from '@/views/publishing/analyze/AnalyzeAgingSpeed.vue'
 import AddBtnHome from '@/components/AddBtnHome.vue'
 import TabRound from '@/components/TabRound.vue'
+import TextDatePicker from '@/components/TextDatePicker.vue'
 import BaseOpener from '@/views/publishing/checkup/BaseOpener.vue'
 import BasePopupTit from '@/views/publishing/BasePopupTit.vue'
 
@@ -18,6 +19,7 @@ export default {
     AnalyzeAgingSpeed,
     AddBtnHome,
     TabRound,
+    TextDatePicker,
     BaseOpener,
     BasePopupTit,
     Swiper,
@@ -188,6 +190,13 @@ export default {
             },
           ]
         }
+      ],
+      successDates: [ /* 나의 인증 현황 퍼블 확인용 데이터 */
+        "2026-07-05",
+        "2026-07-08",
+        "2026-07-10",
+        "2026-07-11",
+        "2026-07-17",
       ],
     }
   },
@@ -609,14 +618,9 @@ export default {
   <BasePopupTit v-if="popup.myDailyPopup" class="MissionSelectPopup" @popupClose="popupClose('myDailyPopup')">
     <template v-slot:title>나의 인증 현황</template>
     <template v-slot:contents>
-      <VDatePicker
-        v-model="selectDate"
-        mode="date"
-        :isToday="true"
-        :attributes="attributes"
-        :model-config="config"
-        :masks="mask"
-        is-required />
+      <div class="popup-date-picker">
+        <TextDatePicker :success-dates="successDates"/>
+      </div>
       <div class="pop-btn-wrap">
         <button type="button" @click="popupClose('myDailyPopup')" class="pop-btn pop-btn--green">인증 공유하기</button>
       </div>

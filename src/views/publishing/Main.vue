@@ -4,12 +4,13 @@ import BasePopup from '@/views/publishing/BasePopup.vue'
 import BasePopupClose from '@/views/publishing/BasePopupClose.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
+import { bodyScroll } from '@/assets/js/common'
 import AnalyzeAgingSpeed from '@/views/publishing/analyze/AnalyzeAgingSpeed.vue'
 import AddBtnHome from '@/components/AddBtnHome.vue'
 import TabRound from '@/components/TabRound.vue'
 import TextDatePicker from '@/components/TextDatePicker.vue'
 import BaseOpener from '@/views/publishing/checkup/BaseOpener.vue'
-import BasePopupTit from '@/views/publishing/BasePopupTit.vue'
+import BasePopupTit from '@/components/BasePopupTit.vue'
 
 export default {
   name: 'Main',

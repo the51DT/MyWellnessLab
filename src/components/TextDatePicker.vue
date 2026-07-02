@@ -175,17 +175,59 @@ export default {
     line-height: 1.5;
     background: transparent;
   }
-  .vc-day-content.success {
-    background: #146B5B;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 0.6rem;
+  .vc-day{
+    pointer-events: none;
+    &-content{
+      width: 3.6rem;
+      height: 3.6rem;
+      font-size: 1.5rem;
+      font-weight: 400;
+      text-align: center;
+      color: #333;
+      font-family: 'Pretendard', serif;
+      &.success {
+        background: #146B5B;
+        color: #fff;
+        font-weight: 700;
+      }
+      &.start {
+        background: #146B5B;
+        color: #fff;
+        font-weight: 700;
+        &::after{
+          content: 'Start';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translate(-50%, 100%);
+          font-size: 1.1rem;
+          line-height: 1.5;
+          font-weight: 400;
+          color: #333;
+        }
+      }
+      &.today {
+        border: .4rem solid #146B5B;
+        color: #146B5B;
+        font-weight: 700;
+        &::after{
+          content: 'Today';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translate(-50%, 100%);
+          font-size: 1.1rem;
+          line-height: 1.5;
+          font-weight: 400;
+          color: #333;
+        }
+      }
+    }
   }
-  .vc-day-content.start {
-    border: 1px solid #000;
-  }
-  .vc-day-content.today {
-    outline: 2px solid #146B5B;
+  .vc-week{
+    + .vc-week{
+      margin-top: 1.7rem;
+    }
   }
 }
 </style>

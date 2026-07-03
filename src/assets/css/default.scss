@@ -1126,7 +1126,7 @@ footer{
   width: 100vw;
   @include height-vh-fallback(100, 0rem);
   position: fixed;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(26, 24, 24, .8);
   z-index: 4;
   &--wrap{
     background-color: white;
@@ -2001,6 +2001,84 @@ footer{
         color: #fff;
         @include txtStyle(caption, lg, 600);
       }
+    }
+  }
+
+  // 메인 배지 획득 팝업
+  &.BadgeAniPopup{
+    .popup--wrap{
+      background: transparent;
+      height: 100%;
+      width: 100%;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .animation_bg {
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      pointer-events: none;
+      display: none;
+    }
+    .badge {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.6rem;
+      &--wrap {
+        display: inline-grid;
+        transition: transform 0.3s;
+        transform: rotateY(0deg);
+        transform-style: preserve-3d;
+        background: transparent;
+        position: relative;
+      }
+      &--wrap > * {
+        grid-area: 1 / 1 / 1 / 1;
+        width: 20rem;
+        height: 20rem;
+        backface-visibility: hidden;
+      }
+      &-img {
+        z-index: 30;
+        img {
+          width: 20rem;
+          height: 20rem;
+        }
+      }
+      &-back {
+        display: block;
+        transform: rotateY(180deg);
+      }
+      &-name {
+        @include txtStyle(body, sm, 600);
+        color: #fff;
+        text-align: center;
+      }
+    }
+    .popup-message {
+      margin-top: 4rem;
+      @include txtStyle(body, md, 600);
+      text-align: center;
+    }
+    .pop-btn-wrap{
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      padding: 2rem 2rem 2.4rem 2rem;
+    }
+    .pop-btn--green{
+      height: 4.8rem;
+      border-radius: 9rem;
+      @include txtStyle(body, sm, 600);
     }
   }
 }

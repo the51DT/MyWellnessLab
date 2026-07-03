@@ -464,14 +464,14 @@ export default {
           <button class="tab" type="button" @click="tab = 1" :class="tab === 1 ? 'active' : ''">상시</button>
         </div>
         <div v-if="tab === 0" class="tab-content tab-content-1">
-          <div class="tab-content--active">챌린지</div>
+          <div class="tab-content--active"><span>챌린지</span></div>
           <div class="main--team--no">
             <img src="/img/img_home_error.png">
             <p>참여중인 챌린지가 없습니다.</p>
           </div>
         </div>
         <div v-else-if="tab === 1" class="tab-content tab-content-2">
-          <div class="tab-content--active">상시</div>
+          <div class="tab-content--active"><span>상시</span></div>
           <div class="main--team--no">
             <img src="/img/img_home_error.png">
             <p>참여중인 상시 팀이 없습니다.</p>

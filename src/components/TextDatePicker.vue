@@ -48,13 +48,13 @@ export default {
 
         wrap.innerHTML = `
           <div class="desc">
-            <p class="desc__text">
+            <p class="desc--text">
               이번 달 나의 미션 인증 횟수
               <strong class="clear-count">6</strong>회
             </p>
             ${
               this.showDetail
-                ? `<p class="desc__text">
+                ? `<p class="desc--text">
                     전체 70일 중에
                     <b class="clear-day">28</b>일 인증 완료했습니다.
                   </p>`
@@ -145,6 +145,7 @@ export default {
     font-size: 1.4rem;
     color: #808080;
     line-height: 1.5;
+    font-family: 'Pretendard', serif;
   }
   .clear-count {
     font-size: 2rem;
@@ -227,6 +228,40 @@ export default {
   .vc-week{
     + .vc-week{
       margin-top: 1.7rem;
+    }
+    &s{
+      margin-top: 1.2rem;
+      padding: 0 1.9rem 3.5rem;
+    }
+    &days{
+      margin-bottom: .4rem;
+    }
+    &day{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 3.6rem;
+      padding: 0;
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #666;
+    }
+    &:has(.vc-day.is-not-in-month):not(:has(.vc-day:not(.is-not-in-month))){
+      display: none;
+    }
+    .weekday-1:not(.is-not-in-month){
+      .vc-day-content:not(.success, .start, .today){
+        color: #146B5B;
+      }
+    }
+  }
+  .vc-monthly{
+    .is-not-in-month{
+      *{
+        opacity: 1;
+        color: #999;
+      }
     }
   }
 }

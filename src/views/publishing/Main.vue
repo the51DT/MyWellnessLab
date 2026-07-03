@@ -530,26 +530,20 @@ export default {
     <template v-slot:title>인증방법 선택</template>
     <template v-slot:contents>
       <!-- 사진 찍기 버튼 -->
-      <div>
+      <div class="popup--ico-btn--wrap">
         <input type="file" accept = "image/*" id="takePicture" @change="openCamera" capture="environment" hidden />
-        <label for="takePicture">
-          <div class="picture-btn">
-            <span> 사진 찍기 </span>
-            <div class="picture-btn-icon">
-              <img src="/img/ico_main_picture-take.svg" alt="사진 찍기 아이콘" />
-            </div>
+        <label for="takePicture" class="popup--ico-btn">
+          <span>사진 찍기</span>
+          <div class="popup--ico-btn--ico">
+            <img src="/img/ico_main_picture-take.svg" />
           </div>
         </label>
-      </div>
-      <!-- 사진 보관함  -->
-      <div>
+        <!-- 사진 보관함  -->
         <input type="file" accept = "image/*" id="uploadPicture" @change="onFileChange" hidden />
-        <label for="uploadPicture">
-          <div class="picture-btn">
-            <span> 사진 보관함 </span>
-            <div class="picture-btn-icon">
-              <img src="/img/ico_main_picture-box.svg" alt="사진 보관함 아이콘" />
-            </div>
+        <label for="uploadPicture" class="popup--ico-btn">
+          <span>사진 보관함</span>
+          <div class="popup--ico-btn--ico">
+            <img src="/img/ico_main_picture-box.svg"/>
           </div>
         </label>
       </div>

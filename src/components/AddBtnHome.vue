@@ -58,7 +58,7 @@ onMounted(() => {
   position: fixed;
   bottom: 169px;
   right: 28px;
-  z-index: 1000;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;

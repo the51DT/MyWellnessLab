@@ -28,18 +28,16 @@ const menus = [
     path: '/', /* 202606 퍼블로 임시 지정 변경 필요 */
     icon: '/img/ico_dock-team.svg',
     activeIcon: '/img/ico_dock-team_on.svg'
+  },
+  {
+    label: '마이',
+    path: '/', /* 202606 퍼블로 임시 지정 변경 필요 */
+    icon: '/img/ico_dock-my.svg',
+    activeIcon: '/img/ico_dock-my_on.svg'
   }
 ]
 
 const props = defineProps({
-  isPc: {
-    type: Boolean,
-    default: false
-  },
-  accountTypeCode: {
-    type: String,
-    default: ''
-  },
   isSideBar: {
     type: Boolean,
     default: false
@@ -77,16 +75,6 @@ function isActive(path) {
             alt=""
           />
           <span>{{ menu.label }}</span>
-        </button>
-      </div>
-
-      <div :class="{ active: isSideBar }">
-        <button @click="openSideMenu" type="button" class="btn--menu">
-          <img
-            :src="isSideBar ? '/img/ico_dock-more_on.svg' : '/img/ico_dock-more.svg'"
-            :alt="$t('LayoutHome.alt.menu')"
-          />
-          <span>더보기</span>
         </button>
       </div>
     </div>

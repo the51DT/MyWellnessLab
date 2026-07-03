@@ -324,11 +324,14 @@
       gap: 1rem;
       margin-bottom: 5rem;
     }
-    &>*{
+    &>*:not(.full-btn){
       width: calc((100% - 1rem) / 2);
       @media (min-width: $w-pc) {
         width: calc((100% - 2rem) / 3);
       }
+    }
+    .full-btn{
+      width: 100%;
     }
   }
   &--big-btn{
@@ -359,9 +362,9 @@
       content: "";
       display: block;
       background: url("/img/img_mypage.png") no-repeat center;
-      background-size: auto 4.8rem;
+      background-size: auto 6rem;
       width: 100%;
-      height: 4.8rem;
+      height: 6rem;
       margin-right: auto;
       margin-left: auto;
       margin-bottom: .4rem;
@@ -394,11 +397,28 @@
         background-image: url("/img/img_abo.png");
       }
     }
+    &.counsel{
+      &:before{
+        background-image: url("/img/img_counsel.png");
+      }
+    }
     &.dimed{
       color: #999;
       background-color: #ebebeb;
       &:before{
         opacity: 0.5;
+      }
+    }
+    &.full{
+      flex-direction: row;
+      gap: 1.2rem;
+      padding: .8rem 2rem;
+      min-height: 5.6rem;
+      &::before{
+        width: 4rem;
+        height: 4rem;
+        background-size: 4rem;
+        margin: 0;
       }
     }
   }
@@ -417,19 +437,17 @@
       height: 6rem;
       font-size: 1.8rem;
     }
-    // &:after{
-    //   content: "";
-    //   display: block;
-    //   background: url("/img/ico_arrow_right2.svg") no-repeat right;
-    //   background-size: contain;
-    //   width: 2rem;
-    //   height: 2rem;
-    //   transform: rotate(-90deg);
-    //   @media (min-width: $w-pc) {
-    //     width: 3rem;
-    //     height: 3rem;
-    //   }
-    // }
+    &:after{
+      content: "";
+      display: block;
+      background: url("/img/ic_arrow_right_black.svg") no-repeat right / .7rem;
+      width: 2rem;
+      height: 2rem;
+      @media (min-width: $w-pc) {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
   }
   &--btn-wrap{
     margin-top: 1.6rem;
@@ -480,6 +498,7 @@
         align-items: center;
         justify-content: end;
         margin-bottom: 1.2rem;
+        padding-top: .5rem;
         @media (min-width: $w-pc) {
           font-size: 2.2rem;
           justify-content: start;
@@ -540,10 +559,8 @@
     height: $size;
     border-radius: $size;
     background: white url("/img/icon_call.svg") no-repeat center;
-    border: 1px solid #E5E5E5;
     background-size: contain;
     vertical-align: middle;
-    // box-shadow: .1rem .2rem .6rem rgba(0, 0, 0, .1);
     margin-left: .5rem;
     @media (min-width: $w-pc) {
       width: $sizePc;
@@ -551,8 +568,6 @@
     }
     &.calendar{
       background-image: url("/img/ico_calendar.svg");
-      background-size: 44%;
-      background-position: 53% 48%;
     }
   }
   &--time{
@@ -1169,6 +1184,8 @@ footer{
       .pop-btn-wrap{
         position: fixed;
         bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
         width: 100%;
         padding: 2rem 2rem 2.4rem 2rem;
         background-color: #F5F5F5;
@@ -1218,6 +1235,7 @@ footer{
       .popup--close{
         width: 2.4rem;
         height: 2.4rem;
+        margin-right: 0;
       }
       .pop-btn-wrap{
         position: sticky;
@@ -1389,6 +1407,7 @@ footer{
     background-color: #fff;
     padding: 1.2rem 2rem;
     @include txtStyle(body, 2xs, 500);
+    color: #1A1818;
     &.center{
       justify-content: center;
     }
@@ -3122,6 +3141,12 @@ footer{
           width: 100%;
           @include txtStyle(caption, lg);
           color: $txt-font-color-gray;
+          img{
+            width: 2.8rem;
+              @media (min-width: $w-pc) {
+                width: 3.6rem;
+              }
+          }
         }
         &.active{
           .btn--menu{
@@ -14750,10 +14775,11 @@ span.legend-dot-interest{
   &--btn{
     &-wrap{
       @include alignBetween(center);
-      margin-top: 2rem;
+      padding-bottom: 2rem;
     }
     &-in{
       min-width: 8rem;
+      width: 100%;
       @media (min-width: $w-pc) {
         min-width: 10rem;
       }
@@ -14775,7 +14801,24 @@ span.legend-dot-interest{
     background: url("/img/ico_link.svg") no-repeat center;
     margin: auto;
     &.kakao{
-      background-image: url("/img/ico_kakao.svg");
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: .6rem;
+      width: 100%;
+      height: auto;
+      padding: .8rem 1.2rem;
+      background: #FDE500;
+      border-radius: 9rem;
+      color: #3A2929;
+      @include txtStyle(body, xs, 600);
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+        background: url("/img/ico_kakao.svg") no-repeat center;
+      }
     }
   }
   &--close{

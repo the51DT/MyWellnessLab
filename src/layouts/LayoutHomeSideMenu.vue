@@ -8,6 +8,7 @@ import PdfViewer from '@/components/PdfViewer.vue'
 import message from '@/components/message'
 import { useI18n } from 'vue-i18n'
 import baseHttp from '@/utils/http/base'
+import BasePopupClose from '@/views/publishing/BasePopupClose.vue'
 
 const { t, locale } = useI18n()
 const store = useStore()
@@ -33,6 +34,7 @@ const pdfUrl = ref('') /* PDF Blob URL */
 const pdfLoading = ref(false) /* PDF 로딩 상태 */
 const pdfError = ref('') /* PDF 에러 메시지 */
 const selectedFileName = ref('') /* 선택된 파일명 */
+const pdfDownload = ref(false) /* 202606 PDF 다운로드 팝업 */
 
 function closeSideMenu () { /* 231218 사이드메뉴 닫기 */
   emit('closeSideMenu')
@@ -46,8 +48,9 @@ function openInvitePop () { /* 231218 초대 팝업 열기 */
     // 허용된 사용자는 원래 기능 사용
     isInvitePop.value = true
   } else {
+    isInvitePop.value = true
     // 나머지는 준비 중 팝업 표시
-    message.alert(t('LayoutHomeSideMenu.featureInPreparation'))
+    // message.alert(t('LayoutHomeSideMenu.featureInPreparation'))
   }
 }
 function closeInvitePop () { /* 231218 초대 팝업 닫기 */
@@ -157,15 +160,18 @@ watch(isKakao, () => { /* 231214 사이드바가 나오면 사이드메뉴 스�
               <span v-html="$t('LayoutHomeSideMenu.btn2').replace(/\n/g, '<br>')"></span>
             </button>
           </div>
-          <div v-if="!isPc && props.accountTypeCode === 'AMWAYBUSINESSNATURE_1'">
-            <button @click="openInvitePop" type="button" class="side-bar--big-btn invite">
+          <div v-if="!isPc && props.accountTypeCode === 'AMWAYBUSINESSNATURE_1'" class="full-btn">
+            <button @click="openInvitePop" type="button" class="side-bar--big-btn full invite">
             <!-- 비활성화 -->
             <!-- <button type="button" class="side-bar--big-btn invite dimed"> -->
               <span v-html="$t('LayoutHomeSideMenu.btn3').replace(/\n/g, '<br>')"></span>
             </button>
           </div>
-          <div v-if="props.accountTypeCode === 'AMWAYBUSINESSNATURE_1'">
-            <button @click="openPdfViewer" type="button" class="side-bar--big-btn abo"><span v-html="$t('LayoutHomeSideMenu.btn4').replace(/\n/g, '<br>')"></span></button>
+          <div v-if="props.accountTypeCode === 'AMWAYBUSINESSNATURE_1'" class="full-btn">
+            <button @click="pdfDownload = true" type="button" class="side-bar--big-btn full abo"><span v-html="$t('LayoutHomeSideMenu.btn4').replace(/\n/g, '<br>')"></span></button>
+          </div>
+          <div v-if="props.accountTypeCode === 'AMWAYBUSINESSNATURE_1'" class="full-btn">
+            <button @click="openPdfViewer" type="button" class="side-bar--big-btn full counsel"><span>상담 템플릿</span></button>
           </div>
         </div>
         <div v-else class="side-bar--login">
@@ -179,6 +185,9 @@ watch(isKakao, () => { /* 231214 사이드바가 나오면 사이드메뉴 스�
           </router-link>
           <router-link to="/info/introduce" class="side-bar--btn">
             <span>{{ $t('LayoutHomeSideMenu.link2')}}</span>
+          </router-link>
+          <router-link to="" class="side-bar--btn"> <!-- 202606 공지사항 이동 필요 -->
+            <span>공지사항</span>
           </router-link>
           <router-link to="/info/faq" class="side-bar--btn">
             <span>FAQ</span>
@@ -226,30 +235,19 @@ watch(isKakao, () => { /* 231214 사이드바가 나오면 사이드메뉴 스�
     </div>
 
     <transition name="fade">
-      <base-popup v-if="isInvitePop">
+      <BasePopupClose v-if="isInvitePop" @popupClose="closeInvitePop()">
+        <template v-slot:title>비회원 고객 초대</template>
         <template v-slot:contents>
+          <!-- 202606 비회원 고객 초대 버튼 수정 -->
           <div class="invite-pop">
-            <p class="invite-pop--txt" v-html="$t('LayoutHomeSideMenu.invite1').replace(/\n/g, '<br>')"></p>
             <div class="invite-pop--btn-wrap">
-              <!--              <div class="invite-pop&#45;&#45;btn-in"> 240110 기능 제공이 안되어 삭제 요청-->
-              <!--                <button @click="copyUrl" type="button" aria-label="URL복사" class="invite-pop&#45;&#45;btn"></button>-->
-              <!--                <span class="invite-pop&#45;&#45;btn-txt">URL 복사</span>-->
-              <!--              </div>-->
               <div v-if="!isPc" class="invite-pop--btn-in">
-                <button
-                  @click="openKakaoPop"
-                  type="button"
-                  aria-label="카카오톡 공유"
-                  class="invite-pop--btn kakao" />
-                <span class="invite-pop--btn-txt">{{ $t('LayoutHomeSideMenu.invite2')}}</span>
+                <button @click="openKakaoPop" type="button" class="invite-pop--btn kakao">카톡으로 초대하기</button>
               </div>
-            </div>
-            <div class="invite-pop--close">
-              <button @click="closeInvitePop" type="button" class="invite-pop--close-btn">{{ $t('Common.close')}}</button>
             </div>
           </div>
         </template>
-      </base-popup>
+      </BasePopupClose>
     </transition>
 
     <!--    <transition name="downUp3">-->
@@ -293,6 +291,28 @@ watch(isKakao, () => { /* 231214 사이드바가 나오면 사이드메뉴 스�
       :title="'마이웰니스 랩 가이드북'"
       @close="closePdfViewer"
     />
+
+    <!-- PDF 로딩 팝업  -->
+  <BasePopupClose v-if="pdfDownload" @popupClose="pdfDownload = false">
+    <template v-slot:title>인증방법 선택</template>
+    <template v-slot:contents>
+      <div class="popup--ico-btn--wrap">
+        <a href="" download class="popup--ico-btn center">
+          <div class="popup--ico-btn--ico">
+            <img src="/img/ico_document.svg" />
+          </div>
+          <span>ABO 가이드 A 다운로드</span>
+        </a>
+
+        <a href="" download class="popup--ico-btn center">
+          <div class="popup--ico-btn--ico">
+            <img src="/img/ico_document.svg"/>
+          </div>
+          <span>ABO 가이드 B 다운로드</span>
+        </a>
+      </div>
+    </template>
+  </BasePopupClose>
 
   </div>
 </template>

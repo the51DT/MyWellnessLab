@@ -7,7 +7,6 @@ import LayoutHomePrivacy from '@/layouts/LayoutHomePrivacy.vue'
 import LayoutHomeSideMenu from '@/layouts/LayoutHomeSideMenu.vue'
 import LayoutHomeDock from '@/layouts/LayoutHomeDock.vue' /* 202606 dock 추가 */
 import { useStore } from 'vuex'
-import { is } from 'date-fns/locale'
 
 const { t } = useI18n()
 
@@ -22,11 +21,12 @@ const isPc = ref(false) /* 231217 pc인지? */
 const store = useStore()
 const axios = inject('$axios')
 const token = store.getters.getToken
-const accountTypeCode = ref('')
 /* 퍼블 확인용 임시 하단 주석이 기존 */
+const accountTypeCode = ref('AMWAYBUSINESSNATURE_1') /* ABO권한 */
 const isLogin = computed(() => {
   return route.meta.isLogin === true || store.getters.isLogin
 }) 
+// const accountTypeCode = ref('')
 // const isLogin = store.getters.isLogin
 
 function showLink (val) { /* 231208 암웨이 링크 레이어 추가 */
@@ -147,10 +147,26 @@ onBeforeUnmount(() => {
               <img src="/img/ico_coupon.svg" :alt="$t('LayoutHome.alt.coupon')" />
             </button>
           </div>
-          <div v-if="isLogin">
-            <button type="button" class="btn--menu" @click=""> <!-- 202606 나의 미션 활동 이동 필요 -->
-              <img src="/img/ico_trophy.svg" :alt="$t('LayoutHome.alt.mission')" />
+          <div>
+            <button @click="isSideBar = true" type="button" class="btn--menu">
+              <img src="/img/ico_hamburger.svg" :alt="$t('LayoutHome.alt.menu')" />
             </button>
+
+            <transition name="fade">
+              <div v-if="isSideBar" @click="closeSideMenu" class="side-bar--dark" /> <!--231214 암막-->
+            </transition>
+
+            <transition-group name="slide">
+              <div v-if="isSideBar" class="side-bar--con">
+
+                <LayoutHomeSideMenu
+                  :isPc="isPc"
+                  :isLogin="isLogin"
+                  :accountTypeCode="accountTypeCode"
+                  @closeSideMenu="closeSideMenu" />
+
+              </div>
+            </transition-group>
           </div>
         </div>
 
@@ -163,28 +179,7 @@ onBeforeUnmount(() => {
 
     <!-- S : 202606 dock 추가 -->
     <aside v-if="isLogin">
-      <LayoutHomeDock 
-        v-model:is-side-bar="isSideBar"
-        :is-pc="isPc"
-        :account-type-code="accountTypeCode"
-      />
-      <div class="dock-side">
-        <transition name="fade">
-          <div v-if="isSideBar" @click="closeSideMenu" class="side-bar--dark" /> <!--231214 암막-->
-        </transition>
-
-        <transition-group name="slide">
-          <div v-if="isSideBar" class="side-bar--con">
-
-            <LayoutHomeSideMenu
-              :isPc="isPc"
-              :isLogin="isLogin"
-              :accountTypeCode="accountTypeCode"
-              @closeSideMenu="closeSideMenu" />
-
-          </div>
-        </transition-group>
-      </div>
+      <LayoutHomeDock />
     </aside>
     <!-- E : 202606 dock 추가 -->
 

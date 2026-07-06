@@ -44,7 +44,7 @@ onMounted(async () => {
 
     <div class="login--center">
       <div class="login--txt">
-        사용자 프로필을 <br v-if="!isPc"> 선택해 주세요
+        사용자 프로필을 <br> 선택해 주세요
       </div>
 
       <!-- 퍼블 확인용 -->
@@ -68,8 +68,7 @@ onMounted(async () => {
     <BasePopup v-if="isShowJoinConfirmPopup" class="TermsAgree--join-confirm">
       <template v-slot:contents>
         <div class="join-confirm-content">
-          <p class="pop-text-light">829055</p>
-          <p class="pop-text-light">안지희</p>
+          <p class="pop-text-light">829055<br>안지희</p>
           <p class="pop-text-bold">마이웰니스 랩에 가입 하시겠습니까?</p>
         </div>
         <div class="pop-btn-wrap">

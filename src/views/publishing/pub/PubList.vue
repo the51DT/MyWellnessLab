@@ -22,8 +22,8 @@ const data = ref([
     div3: '',
     loca: '@/views/Intro.vue',
     go: '/publishing/home/intro',
-    msg: "가입 화면 이동 얼럿 App.vue에 위치<br>ver 26.06.22 완료",
-    confirm: ''
+    msg: "가입 화면 이동 얼럿 App.vue에 위치",
+    confirm: '2026.07.06 퍼블 완료'
   },
   {
     div: '로그인 후',
@@ -59,8 +59,8 @@ const data = ref([
     div3: '',
     loca: '@/views/auth/Profile.vue<br>@/views/publishing/Join.vue -> 퍼블 확인용 경로',
     go: '/publishing/join/pub-join',
-    msg: '로그인 사용자 선택과 동일<br>가입 확인 팝업 확인용 경로에서 노출<br>ver 26.06.22 완료',
-    confirm: ''
+    msg: '로그인 사용자 선택과 동일<br>퍼블 확인용으로 팝업 진입 시 노출, 가입하기 선택 시 페이지 확인가능',
+    confirm: '2026.07.06 퍼블 완료'
   },
   {
     div: '약관 동의',
@@ -68,8 +68,8 @@ const data = ref([
     div3: '',
     loca: '@/views/auth/TermsAgree.vue<br>@/views/publishing/join/JoinTermsAgree.vue -> 퍼블 확인용 경로',
     go: '/publishing/join/join-terms-agree',
-    msg: "개발파일 '202606' 주석 확인 필요<br>ver 26.06.22 완료",
-    confirm: ''
+    msg: "개발파일 '202606' 주석 확인 필요",
+    confirm: '2026.07.06 퍼블 완료'
   },
   {
     div: '휴대폰 인증',
@@ -77,8 +77,8 @@ const data = ref([
     div3: '',
     loca: '@/views/auth/PhoneCertification.vue',
     go: '/publishing/join/join-phone-certification',
-    msg: "ver 26.06.22 완료",
-    confirm: ''
+    msg: "'v-html 로 변경' 주석 확인 필요",
+    confirm: '2026.07.06 퍼블 완료'
   },
   {
     div: 'PIN 번호 등록',
@@ -86,8 +86,8 @@ const data = ref([
     div3: '',
     loca: '@/views/auth/PinRegistration.vue<br>@/views/publishing/join/JoinPinRegistration.vue -> 퍼블 확인용 경로',
     go: '/publishing/join/join-pin-registration',
-    msg: "'202606' 주석 개발파일 적용 필요<br>ver 26.06.22 완료",
-    confirm: ''
+    msg: "'202606' 주석 개발파일 적용 필요",
+    confirm: '2026.07.06 퍼블 완료'
   },
   {
     cate: '로그인',

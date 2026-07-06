@@ -283,12 +283,8 @@ const handleTokenFailConfirm = () => {
 <template>
   <section class="container JoinPhoneCertification--wrap JoinPhoneCertification--first">
     <div class="space--all-default JoinPhoneCertification--in-wrap">
-      <div class="txt--center JoinPhoneCertification--txt">
-        {{ t('PhoneCertification.text1') }}
-      </div>
-      <div class="JoinPhoneCertification--txt2">
-        {{ t('PhoneCertification.text2') }}
-      </div>
+      <div class="txt--center JoinPhoneCertification--txt" v-html="$t('PhoneCertification.text1')"></div> <!-- v-html 로 변경 -->
+      <div class="JoinPhoneCertification--txt2" v-html="$t('PhoneCertification.text2')"></div> <!-- v-html 로 변경 -->
 
       <div class="JoinPhoneCertification--phone-wrap">
         <h2 class="JoinPhoneCertification--h2">

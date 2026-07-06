@@ -108,7 +108,7 @@ function inputTxtRe(val) {
 
     </div>
     <div class="btn--bottom JoinPinRegistration--btm">
-      <button :disabled="!btnNext" type="button" class="JoinPinRegistration--btn">가입 완료</button>
+      <button :disabled="!btnNext" type="button" class="JoinPinRegistration--btn">서비스 가입 완료</button>
     </div>
   </section>
 </template>

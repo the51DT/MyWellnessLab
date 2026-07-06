@@ -1,4 +1,4 @@
-@import "common";
+@use "common" as *;
 
 //레이아웃
 .header{
@@ -3538,7 +3538,7 @@ footer{
         height: 6.1rem;
         padding-left: 0;
         width: 100%;
-        font-size: 24px;
+        font-size: 2.4rem;
         color: black;
 
         position: relative;

@@ -588,8 +588,9 @@ function go (val) {
   <!--  </table>-->
   <!--  <h1>&nbsp;</h1>-->
   <div class="wrap">
-    <h1>퍼블리싱 리스트</h1>
-    <table class="table">
+  <h1>퍼블리싱 리스트</h1>
+  <table class="table">
+    <thead>
       <tr>
         <th>분류</th>
         <th>분류2</th>
@@ -599,17 +600,26 @@ function go (val) {
         <th>비고</th>
         <th>컨펌일</th>
       </tr>
-      <tr v-for="item in data">
+    </thead>
+    <tbody>
+      <tr v-for="item in data" :key="item.go">
         <td>{{ item.cate }}</td>
         <td>{{ item.div }}</td>
         <td>{{ item.div2 }}</td>
         <td>{{ item.div3 }}</td>
-        <td><a @click="go(item.go)" href="javascript: void(0);" v-html="item.loca"></a></td>
-        <td v-html="item.msg" />
+        <td>
+          <a
+            @click="go(item.go)"
+            href="javascript:void(0);"
+            v-html="item.loca"
+          ></a>
+        </td>
+        <td v-html="item.msg"></td>
         <td>{{ item.confirm }}</td>
       </tr>
-    </table>
-  </div>
+    </tbody>
+  </table>
+</div>
 </template>
 
 <style scoped lang="scss">

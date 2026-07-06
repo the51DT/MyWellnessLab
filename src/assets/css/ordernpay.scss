@@ -1,4 +1,4 @@
-@import "common";
+@use "common" as *;
 
 .orderNpay{
   input[type=text], input[type=password], input[type=number]{

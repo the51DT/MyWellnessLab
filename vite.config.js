@@ -17,6 +17,14 @@ const sharedResolve = {
   conditions: ['browser', 'module', 'import', 'default']
 }
 
+const sharedCss = {
+  preprocessorOptions: {
+    scss: {
+      silenceDeprecations: ['legacy-js-api']
+    }
+  }
+}
+
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   loadEnv(mode, rootDir, '')
@@ -31,6 +39,7 @@ export default defineConfig(({ command, mode }) => {
         })
       ],
       resolve: sharedResolve,
+      css: sharedCss,
       optimizeDeps: {
         esbuildOptions: {
           mainFields: ['browser', 'module']
@@ -45,6 +54,7 @@ export default defineConfig(({ command, mode }) => {
   return {
     plugins: [vue()],
     resolve: sharedResolve,
+    css: sharedCss,
     build: {
       commonjsOptions: {
         transformMixedEsModules: true

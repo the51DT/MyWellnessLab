@@ -96,8 +96,8 @@ const data = ref([
     div3: '',
     loca: '@/views/auth/Profile.vue<br>@/views/publishing/Login.vue -> 퍼블 확인용 경로',
     go: '/publishing/login/pub-login',
-    msg: 'ver 26.06.22 완료',
-    confirm: ''
+    msg: '',
+    confirm: '2026.07.06 퍼블 완료'
   },
   {
     div: 'PIN 번호 입력',
@@ -105,8 +105,8 @@ const data = ref([
     div3: '',
     loca: '@/views/auth/Pin.vue<br>@/views/publishing/login/LoginPin.vue -> 퍼블 확인용 경로',
     go: '/publishing/login/login-pin',
-    msg: "'202606' 주석 개발파일 적용 필요<br>ver 26.06.22 완료",
-    confirm: ''
+    msg: "'202606' 주석 개발파일 적용 필요<br>퍼블 임시 PIN 1234",
+    confirm: '2026.07.06 퍼블 완료'
   },
   {
     div: '팀가입 URL 접속 팝업',
@@ -114,8 +114,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/login/TeamAgree.vue',
     go: '/publishing/login/team-agree',
-    msg: '신규제작<br>ver 26.06.22 완료',
-    confirm: ''
+    msg: '',
+    confirm: '2026.07.06 퍼블 완료'
   },
   {
     cate: '건강수명분석',

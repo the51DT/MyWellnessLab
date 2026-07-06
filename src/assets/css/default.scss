@@ -1213,7 +1213,7 @@ footer{
       width: 100%;
       height: auto;        
       width: calc(100% - 4rem);
-      max-width: 96rem;
+      max-width: 48rem;
       @include max-vh-fallback(100, 20.9rem);
       min-height: auto;
       overflow: auto;
@@ -1225,16 +1225,6 @@ footer{
         position: sticky;
         top: 0;
         z-index: 1;
-      }
-      .popup--space{
-        height: auto;
-        padding: 0 2rem;
-        border-bottom-left-radius: 2rem;
-        border-bottom-right-radius: 2rem;
-        background-color: white;
-      }
-      .popup--header{
-        font-weight: 500;
         height: 5.5rem;
         padding: 0 2rem;
         &:has(div:only-child){
@@ -1244,6 +1234,16 @@ footer{
         > *:last-child{
           flex: 0 0 auto;
         }
+        @media (min-width: $w-pc) {
+          height: 6.6rem;
+        }
+      }
+      .popup--space{
+        height: auto;
+        padding: 0 2rem;
+        border-bottom-left-radius: 2rem;
+        border-bottom-right-radius: 2rem;
+        background-color: white;
       }
       .popup--tit-wrap{
         @include txtStyle(body, md, 500);
@@ -1261,6 +1261,9 @@ footer{
         background-color: white;
         padding: 2rem;
         margin: 0;
+        @media (min-width: $w-pc) {
+          padding: 2rem 2rem 2.4rem;
+        }
       }
     }
     .pop-text{
@@ -1297,6 +1300,12 @@ footer{
         &.center {
           text-align: center;
         }
+        .br-pc {
+          display: none;
+          @media (min-width: $w-pc) {
+            display: block;
+          }
+        }
       }
     }
     .pop-btn{
@@ -1318,9 +1327,8 @@ footer{
         @include btnPopGreen;
       }
       @media (min-width: $w-pc) {
-        height: 4rem;
-        border-radius: 2rem;
-        font-size: 1.5rem;
+        height: 4.8rem;
+        border-radius: 4rem;
       }
     }
     .pop-scroll-box{
@@ -1367,13 +1375,9 @@ footer{
   &--tit{
     margin-right: auto;
     margin-left: auto;
-    @media (min-width: $w-pc) {
-      font-size: 2.8rem;
-      font-family: $font-family-bold;
-    }
     &-wrap{
       text-align: center;
-      @include txtStyle(body, lg, 500);
+      @include txtStyle(body, md  , 500);
     }
   }
   &--close{
@@ -1389,9 +1393,8 @@ footer{
     margin-right: 2rem;
     display: block;
     @media (min-width: $w-pc) {
-      background-size: 28%;
-      width: 70px;
-      height: 70px;
+      width: 2.4rem;
+      height: 2.4rem;
     }
   }
   &--space{
@@ -1469,6 +1472,9 @@ footer{
   &.pin-lost-modal{
     .pop-text-bold{
       margin-top: 0.8rem;
+      @media (min-width: $w-pc) {
+        margin-top: .4rem;
+      }
     }
   }
   &-date-picker{
@@ -1904,6 +1910,11 @@ footer{
   }
   // 팀 참여 완료 후 보상 수령처 선택 팝업
   &.TeamRewardPopup{
+    .popup--wrap {
+      @media (min-width: $w-pc) {
+        max-width: 38.8rem;
+      }
+    }
     .pop-content-wrap{
       display: flex;
       flex-direction: column;
@@ -1930,7 +1941,14 @@ footer{
           margin: 0;
           background: url("/img/ic_arrow_down_black.svg") no-repeat center / 1.3rem;
           pointer-events: none;
+          @media (min-width: $w-pc) {
+            top: 1.4rem;
+            right: 1.4rem;
+          }
         }
+      }
+      @media (min-width: $w-pc) {
+        gap: 1.2rem;
       }
     }
     .pop-text-caption{
@@ -2516,6 +2534,7 @@ footer{
     gap: 1rem;
     @media (min-width: $w-pc) {
       gap: 1.2rem;
+      padding: 0 6.1rem;
     }
     li{
       text-align: center;
@@ -3521,12 +3540,13 @@ footer{
     }
   }
   &--input{
-    width: 28rem;
+    width: 30rem;
     margin-right: auto;
     margin-left: auto;
-    margin-top: $marginTop-big2;
+    margin-top: 3.2rem;
     @media (min-width: $w-pc) {
       width: 35.6rem;
+      margin-top: 4rem;
     }
     .pin--wrap{
       width: calc((100% - 3rem) / 4);
@@ -3535,7 +3555,7 @@ footer{
         background-color: #F0F0F0;
         border: none;
         border-radius: 1.2rem;
-        height: 6.1rem;
+        height: 6.6rem;
         padding-left: 0;
         width: 100%;
         font-size: 2.4rem;
@@ -3624,10 +3644,11 @@ footer{
     }
   }
   &--validation{
-    @include validationTxt;
+    @include txtStyle(caption, xl-1, 500);
+    color: #FF4646;
     margin-right: auto;
     margin-left: auto;
-    margin-top: $marginTop-small3;
+    margin-top: 1.2rem;
     width: 22rem;
     @media (min-width: $w-pc) {
       width: 27rem;
@@ -3636,9 +3657,12 @@ footer{
   &--pin{
     &-wrap{
       @include btnBottomFixLayout;
-      padding: 4rem 2rem 2rem;
+      padding: 0 2rem 0;
       @media (min-width: $w-pc) {
         min-height: auto;
+        .login--txt{
+          margin-top: 28.1rem;
+        }
         .popup--wrap.tit{
           min-height: unset;
           .btn--bottom{
@@ -3648,18 +3672,22 @@ footer{
       }
     }
     &-find{
-      margin-top: $marginTop-big;
-      margin-bottom: 8rem;
+      position: absolute;
+      top: 35.3rem;
+      left: 50%;
+      transform: translateX(-50%);
       a{
         display: inline-block;
-        text-underline-offset: 3px;
-        font-family: $font-family-medium;
-        @media (min-width: $w-pc) {
-          font-family: $font-family-light;
-        }
+        text-underline-offset: .4rem;
+        @include txtStyle(body, 2xs, 500);
+        color: #666666;
+      }
+      @media (min-width: $w-pc) {
+        top: 50.6rem;
       }
     }
     &-center{
+      position: relative;
       flex-grow: 1;
       @media (min-width: $w-pc) {
         min-height: auto;
@@ -3671,8 +3699,12 @@ footer{
     margin: 0 auto;
     padding: 0;
     @media (min-width: $w-pc) {
-      margin-top: 8rem;
-      margin-bottom: 4rem;
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 52rem;
+      padding: 2.4rem 2rem 2.8rem 2rem;
     }
   }
 }
@@ -3977,7 +4009,7 @@ footer{
     .btn--bottom{
       padding: 0;
       margin-top: 4rem;
-      @media (min-width: $w-pc-small3) {
+      @media (min-width: $w-pc) {
         position: fixed;
         bottom: 0;
         left: 50%;
@@ -4029,6 +4061,13 @@ footer{
   }
   &--input-wrap .login--input{
     margin-top: 0;
+    width: 28rem;
+    @media (min-width: $w-pc) {
+      width: 35.6rem;
+    }
+    input[type=text], input[type=password], input[type=number], .pin-fake{
+      height: 6.1rem;
+    }
   }
   &--tit{
     // @include txtSmall2(#222);
@@ -4069,7 +4108,8 @@ footer{
   &--validation{
     width: 28rem;
     margin: 1.2rem auto 0;
-    @include validationTxt;
+    @include txtStyle(caption, xl-1, 500);
+    color: #FF4646;
     text-align: center;
     word-break: break-all;
     @media (min-width: $w-pc) {
@@ -4080,11 +4120,15 @@ footer{
     }
   }
   &--validation1 {
-    @include validationTxt($ok: ok);
+    @include txtStyle(caption, xl-1, 500);
+    color: #FF4646;
     width: 22rem;
     margin: .5rem auto auto;
     @media (min-width: $w-pc) {
       width: 27rem;
+    }
+    &.ok{
+      color: $txt-font-color-green2;
     }
   }
 }

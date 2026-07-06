@@ -449,13 +449,13 @@ $w-pc-wrap: 520px;
   }
 }
 @mixin btnPopGreen{
-  $CheckupBlood--pop-btn-br: 3.6rem;
+  $CheckupBlood--pop-btn-br: 4rem;
   @include btnClear;
   width: 100%;
   height: $CheckupBlood--pop-btn-br;
   background-color: #1DB196;
   border-radius: calc($CheckupBlood--pop-btn-br / 2);
-  @include txtStyle(caption, xl, 600);
+  @include txtStyle(body, xs-1, 600);
   color: #fff;
   //margin-right: .5rem;
   //margin-left: .5rem;
@@ -464,12 +464,12 @@ $w-pc-wrap: 520px;
   }
 }
 @mixin btnPopGray{
-  $CheckupBlood--pop-btn-br: 3.6rem;
+  $CheckupBlood--pop-btn-br: 4rem;
   @include btnClear;
   width: 100%;
   height: $CheckupBlood--pop-btn-br;
   border-radius: calc($CheckupBlood--pop-btn-br / 2);
-  @include txtStyle(caption, xl, 600);
+  @include txtStyle(body, xs-1, 600);
   background-color: #F1F1F1;
   &:hover{
     background-color: #e7e7e7;
@@ -1790,7 +1790,7 @@ input[type=number] {
   }
   &.short{
     main{
-      @media (min-width: 400px) {
+      @media (min-width: $w-pc) {
         width: 52rem;
         @include alignCenter3;
       }
@@ -1853,9 +1853,9 @@ select{
     border-radius: 3rem;
     border-color: #d6d6d6;
     padding-left: 2rem;
-    font-size: 1.4rem;
     width: 100%;
     padding-right: 3rem;
+    @include txtStyle(body, 2xs-1);
   }
 }
 

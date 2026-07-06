@@ -36,7 +36,7 @@ onMounted(async () => {
           [보유 기간] <strong>동의 철회 또는 서비스 탈퇴 시 지체 없이 파기</strong>
         </p>
       </div>
-      <div class="pop-text-caption">원활한 서비스 이용을 위하여 개인정보 제3자 제공에 대하여 동의가 필요합니다. 동의하지 않으실 경우 서비스 이용이 제한됩니다.</div>
+      <div class="pop-text-caption">원활한 서비스 이용을 위하여 개인정보 제3자 제공에 대하여 동의가 필요합니다. <br class="br-pc">동의하지 않으실 경우 서비스 이용이 제한됩니다.</div>
     </template>
     <template v-slot:button>
       <button type="button" @click="termsAgree" class="pop-btn pop-btn--gray">동의하지 않음</button>

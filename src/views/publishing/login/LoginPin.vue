@@ -38,6 +38,7 @@ function confirm() {
   if (Number(inputPin.value) === tempPin.value) {
     alert('login ok')
     pinCheck.value = 'success' /* 퍼블 컬러 확인용 */
+    validation.value = ''
   } else {
     if (failCount.value >= 4) {
       isShowLockPopup.value = true /* 퍼블 팝업 확인용 */
@@ -89,7 +90,7 @@ onMounted(async () => {
       /> <!--231129 포커스 추가--> <!--202606 컬러 추가 login--input에 이중클래스 success = 초록색 / failure = 빨간색 개발 적용 필요 -->
       <div v-if="validation" class="login--validation">{{ validation }}</div>
       <div class="txt--center login--pin-find">
-        <a href="javascript: void(0);" class="btn--txt2 c5">PIN 번호 재설정</a>
+        <a href="javascript: void(0);" class="btn--txt2">PIN 번호 재설정</a>
       </div>
     </div>
 

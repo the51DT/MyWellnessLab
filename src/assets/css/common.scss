@@ -1604,7 +1604,7 @@ $w-pc-wrap: 520px;
 }
 
 html{
-  font-family: "Pretendard", serif;
+  font-family: "Pretendard", sans-serif;
   font-size: 10px;
 }
 
@@ -1648,7 +1648,7 @@ a {
 
 button{
   cursor: pointer;
-  font-family: "Pretendard", serif;
+  font-family: "Pretendard", sans-serif;
   font-weight: 600;
   &:hover{
     transition: background-color .5s;
@@ -1732,7 +1732,7 @@ input[type="text"], input[type="password"], input[type="number"]{
   height: $radius;
   border: solid 1px $line-color-gray5;
   border-radius: $radius;
-  font-family: "Pretendard", serif;
+  font-family: "Pretendard", sans-serif;
   padding-left: 1.5rem;
   color: #1A1818;
   @include txtStyle(body, 2xs-1);
@@ -1765,7 +1765,7 @@ input[type="password"]{
 
 input::placeholder, textarea::placeholder{
   color: $txt-font-color-gray;
-  font-family: "Pretendard", serif;
+  font-family: "Pretendard", sans-serif;
 }
 
 /* Chrome, Safari, Edge, Opera */

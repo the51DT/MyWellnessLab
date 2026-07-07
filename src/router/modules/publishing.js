@@ -2,6 +2,7 @@ import LayoutOrderNpay from '@/layouts/LayoutOrderNpay.vue'
 import LayoutNormal from '@/layouts/LayoutNormal.vue'
 import LayoutCheckup from '@/layouts/LayoutCheckup.vue'
 import LayoutHome from '@/layouts/LayoutHome.vue'
+import LayoutHomeNoFooter from "@/layouts/LayoutHomeNoFooter.vue";
 
 const publishingRouter = {
   path: "/publishing",
@@ -560,6 +561,56 @@ const publishingRouter = {
           meta: {
             title: "메인",
             isLogin: true,
+          },
+        },
+      ],
+    },
+    {
+      path: "challenge" /* 챌린지 */,
+      component: LayoutHomeNoFooter,
+      children: [
+        {
+          path: "",
+          name: "pubChallenge",
+          component: () => import("@/views/publishing/Challenge.vue"),
+          meta: {
+            title: "챌린지",
+            isLogin: true,
+          },
+        },
+        {
+          path: "no",
+          name: "pubChallengeNo",
+          component: () => import("@/views/publishing/Challenge.vue"),
+          meta: {
+            title: "챌린지",
+            isLogin: true,
+            isNoChallenge: true,
+          },
+        },
+      ],
+    },
+    {
+      path: "challenge-history" /* 챌린지 */,
+      component: LayoutNormal,
+      children: [
+        {
+          path: "",
+          name: "pubChallengeHistory",
+          component: () =>
+            import("@/views/publishing/challenge/ChallengeHistory.vue"),
+          meta: {
+            title: "챌린지 이력보기",
+          },
+        },
+        {
+          path: "no",
+          name: "pubChallengeHistoryNo",
+          component: () =>
+            import("@/views/publishing/challenge/ChallengeHistory.vue"),
+          meta: {
+            title: "챌린지 이력보기",
+            data: undefined,
           },
         },
       ],

@@ -19,7 +19,7 @@ const menus = [
   },
   {
     label: '챌린지',
-    path: '/', /* 202606 퍼블로 임시 지정 변경 필요 */
+    path: '/publishing/challenge', /* 202606 퍼블로 임시 지정 변경 필요 */
     icon: '/img/ico_dock-challenge.svg',
     activeIcon: '/img/ico_dock-challenge_on.svg'
   },

@@ -381,20 +381,20 @@ const data = ref([
   },
   {
     cate: '챌린지',
-    div: '챌린지(미진행)',
-    div2: '',
-    div3: '',
-    loca: '@/views/publishing//.vue',
-    go: '',
-    msg: "",
-    confirm: ''
-  },
-  {
     div: '챌린지(진행중)',
     div2: '',
     div3: '',
-    loca: '@/views/publishing//.vue',
-    go: '',
+    loca: '@/views/publishing/Challenge.vue',
+    go: '/publishing/challenge',
+    msg: "",
+    confirm: '작업중'
+  },
+  {
+    div: '챌린지(미진행)',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/Challenge.vue',
+    go: '/publishing/challenge/no',
     msg: "",
     confirm: ''
   },
@@ -404,6 +404,24 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing//.vue',
     go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '챌린지 이력보기',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/challenge/ChallengeHistory.vue',
+    go: '/publishing/challenge-history',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '챌린지 이력보기 (진행중 없음)',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/challenge/ChallengeHistory.vue',
+    go: '/publishing/challenge-history/no',
     msg: "",
     confirm: ''
   },

@@ -555,7 +555,7 @@ export default {
   <BasePopupClose v-if="popup.missionPopup" class="MissionSelectPopup" @popupClose="popupClose('missionPopup')">
     <template v-slot:title>미션 선택하기</template>
     <template v-slot:contents>
-      <TabRound :tabs="['추천 미션', '전체 미션']">
+      <TabRound :tabs="[{title: '추천 미션'}, {title:'전체 미션'}]">
         <template #tab-0>
           <div class="mission-select">
             <div v-for="group in recommendMissionGroups" :key="group.key" class="mission-select__group">

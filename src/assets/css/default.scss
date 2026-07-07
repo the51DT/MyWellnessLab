@@ -1247,7 +1247,7 @@ footer{
       }
       .popup--tit-wrap{
         @include txtStyle(body, md, 500);
-        font-family: 'Pretendard', serif;
+        font-family: 'Pretendard', sans-serif;
       }
       .popup--close{
         width: 2.4rem;
@@ -3246,6 +3246,9 @@ footer{
     background: #fff;
     border-radius: 3.2rem 3.2rem 0 0;
     box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.12);
+    @media (min-width: $w-pc) {
+      padding: 1.2rem 2rem 1.6rem;
+    }
     &--list{
       display: flex;
       justify-content: center;
@@ -3257,7 +3260,7 @@ footer{
           justify-content: space-between;
           align-items: center;
           width: 100%;
-          @include txtStyle(caption, lg);
+          @include txtStyle(caption, lg-1, 500);
           color: $txt-font-color-gray;
           img{
             width: 2.8rem;
@@ -3271,6 +3274,12 @@ footer{
             color: $txt-font-color-green;
             font-weight: 700;
           }
+        }
+      }
+      @media (min-width: $w-pc) {
+        justify-content: space-between;
+        > div {
+          width: 8.1rem;
         }
       }
     }
@@ -3703,7 +3712,7 @@ footer{
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 52rem;
+      width: $w-pc-wrap;
       padding: 2.4rem 2rem 2.8rem 2rem;
     }
   }
@@ -3747,7 +3756,7 @@ footer{
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 52rem;
+        width: $w-pc-wrap;
         padding: 2.4rem 2rem 2.8rem;
       }
     }
@@ -3872,7 +3881,7 @@ footer{
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 52rem;
+        width: $w-pc-wrap;
         padding: 2.4rem 2rem 2.8rem;
       }
     }
@@ -4014,7 +4023,7 @@ footer{
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 52rem;
+        width: $w-pc-wrap;
         padding: 2.4rem 2rem 2.8rem;
       }
     }
@@ -4985,7 +4994,7 @@ button{
       flex: 1 1 auto;
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: clip;
+      text-overflow: ellipsis;
     }
     &__body{
       @include txtStyle(caption, xl);
@@ -5003,6 +5012,111 @@ button{
         width: 1.6rem !important;
         height: 1.6rem !important;
         background-size: .6rem !important;
+      }
+    }
+  }
+}
+.challenge{
+  max-width: $w-pc-wrap;
+  margin: 0 auto;
+  padding: 1.2rem 2rem 6rem;
+  &--link {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: .2rem;
+    margin: 2rem auto .8rem;
+    @include txtStyle(body, 2xs);
+    color: #666666;
+    @media (min-width: $w-pc) {
+      margin: 2.4rem auto .8rem;
+    }
+    &::after {
+      content: '';
+      display: block;
+      width: 1.6rem;
+      height: 1.6rem;
+      background: url('/img/ico_arrow_right_gray.svg') no-repeat center / contain;
+    }
+  }
+  &--not{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    padding-top: 10.8rem;
+    text-align: center;
+    @include txtStyle(body, md, 600);
+    > img{
+      width: 6rem;
+    }
+    @media (min-width: $w-pc){
+      padding-top: 24.6rem;
+      > img {
+        width: 8rem;
+      }
+    }
+  }
+  &--recruit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4.3rem;
+    text-align: center;
+    @media (min-width: $w-pc) {
+      padding-top: 5.2rem;
+    }
+    > img {
+      width: 7.2rem;
+      margin-bottom: 1.5rem;
+    }
+    &-box{
+      width: 100%;
+      margin-top: 2rem;
+      padding: 1.6rem 2rem;
+      border-radius: 2.4rem;
+      background-color: #fff;
+      > p{
+        @include txtStyle(body, xs);
+      }
+    }
+    &-info{
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      margin-top: 2rem;
+      > div{
+        display: flex;
+        justify-content: space-between;
+        @include txtStyle(caption, xl-1, 600);
+      }
+      p{
+        flex: 0 0 auto;
+        display: flex;
+        gap: .2rem;
+      }
+      .light{
+        font-weight: 400;
+      }
+      .color{
+        color: #DD366E;
+        margin-left: .2rem;
+      }
+    }
+  }
+  &--start{
+    &-day{
+      @include txtStyle(head, 2xs, 700);
+      margin-bottom: .8rem;
+      span{
+        color: #DD366E;
+      }
+    }
+    &-text{
+      @include txtStyle(body, sm);
+      span{
+        font-weight: 600;
+        color: #DD366E;
       }
     }
   }
@@ -5890,7 +6004,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       }
     }
     .vc-weekday{
-      font-family: "RixSinHead_Bold", serif;
+      font-family: "RixSinHead_Bold", sans-serif;
       @include txtSmall(#7E7E7E);
       @media (min-width: $w-pc) {
         font-size: 2rem;
@@ -15226,7 +15340,7 @@ span.legend-dot-interest{
     justify-content: space-between;
     font-size: 1.3rem;
     color: #555;
-    font-family: "RixSinHead_Bold", serif;
+    font-family: "RixSinHead_Bold", sans-serif;
     margin-top: 5px;
     @media (min-width: $w-pc) {
       font-size: 1.5rem;

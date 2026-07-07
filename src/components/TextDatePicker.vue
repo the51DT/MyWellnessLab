@@ -145,7 +145,7 @@ export default {
     font-size: 1.4rem;
     color: #808080;
     line-height: 1.5;
-    font-family: 'Pretendard', serif;
+    font-family: 'Pretendard', sans-serif;
   }
   .clear-count {
     font-size: 2rem;
@@ -185,7 +185,7 @@ export default {
       font-weight: 400;
       text-align: center;
       color: #333;
-      font-family: 'Pretendard', serif;
+      font-family: 'Pretendard', sans-serif;
       &.success {
         background: #146B5B;
         color: #fff;

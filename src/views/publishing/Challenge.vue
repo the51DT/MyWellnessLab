@@ -19,6 +19,7 @@ const selectedMissionOpen = ref(false); /* 퍼블 확인용 미션 선택 후 �
 const selectedMission = {
   groupTitle: '혈압조절',
   desc: '혈압조절 제품 (코엔자임Q10, 마그네슘, 오메가 3) 챙겨 먹기',
+  title: '영양',
 }
 
 function winWidth () { /* 브라우저 가로 사이즈 체크 */
@@ -37,13 +38,17 @@ onMounted(() => {
   <section class="challenge">
     <div class="main--mission">
       <div class="main--mission__head" :class="{ open: selectedMissionOpen }">
-        <span class="main--mission__badge">{{ selectedMission.groupTitle }}</span>
-        <span class="main--mission__title">{{ selectedMission.desc }}</span>
+        <div class="main--mission__title">
+          <span class="main--mission__badge">{{ selectedMission.groupTitle }}</span>
+          {{ selectedMission.desc }}
+        </div>
         <button type="button" @click="selectedMissionOpen = !selectedMissionOpen"></button>
       </div>
       <transition name="downUp">
         <div v-show="selectedMissionOpen" class="main--mission__body">
-          <p>{{ selectedMission.desc }}</p>
+          <span>#{{ selectedMission.title }}</span>
+          <span>#{{12}}일째</span>
+          <button type="button" class="main--mission__change" @click.stop="">미션 변경하기</button>
         </div>
       </transition>
     </div>

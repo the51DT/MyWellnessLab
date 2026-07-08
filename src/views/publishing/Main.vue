@@ -373,15 +373,17 @@ export default {
         </button>
         <div v-else class="main--mission">
           <div class="main--mission__head" :class="{ open: selectedMissionOpen }">
-            <span class="main--mission__badge">{{ selectedMission.groupTitle }}</span>
-            <span class="main--mission__day">{{12}}일째</span>
-            <span class="main--mission__title">{{ !selectedMissionOpen ? selectedMission.desc : selectedMission.title }}</span>
+            <div class="main--mission__title">
+              <span class="main--mission__badge">{{ selectedMission.groupTitle }}</span>
+              {{ selectedMission.desc }}
+            </div>
             <button type="button" @click="selectedMissionOpen = !selectedMissionOpen"></button>
           </div>
           <transition name="downUp">
             <div v-show="selectedMissionOpen" class="main--mission__body">
-              <p>{{ selectedMission.desc }}</p>
-              <button type="button" class="main--mission__change" @click.stop="popup.missionPopup = true">미션 변경하기</button>
+              <span>#{{ selectedMission.title }}</span>
+              <span>#{{12}}일째</span>
+              <button type="button" class="main--mission__change">미션 변경하기</button>
             </div>
           </transition>
         </div>

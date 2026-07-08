@@ -5329,6 +5329,185 @@ button{
     }
   }
 }
+.challenge-history{
+  max-width: $w-pc-wrap;
+  margin: 0 auto;
+  padding: 1.6rem 2rem 5.3rem;
+  @media (min-width:$w-pc) {
+    padding: 2.8rem 2rem 6rem;
+  }
+  &--wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+  &--card{
+    position: relative;
+    padding: 2rem;
+    border: .1rem solid #E5E5E5;
+    border-radius: 2.4rem;
+    background-color: #fff;
+  }
+  &--btn{
+    @include btnClear;
+    position: absolute;
+    top: 2.3rem;
+    right: 2rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: url("/img/ico_arrow_right_gray.svg") no-repeat center / contain;
+    @media (min-width: $w-pc) {
+      top: 2.5rem;
+      right: 2.4rem;
+    }
+  }
+  &--title{
+    @include txtStyle(body, lg, 700);
+    padding-bottom: 1.6rem;
+    border-bottom: .1rem solid #ebebeb;
+  }
+  &--profile{
+    display: flex;
+    gap: 1.6rem;
+    margin-top: 2rem;
+    img{
+      flex-shrink: 0;
+      width: 8rem;
+      height: 8rem;
+      object-fit: cover;
+      background-color: #f5f5f5;
+      border-radius: 99rem;
+    }
+    > div{
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+    }
+  }
+  &--people{
+    @include txtStyle(caption, lg, 600);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: .1rem;
+    width: fit-content;
+    padding: .2rem .6rem .2rem .4rem;
+    border-radius: 3rem;
+    background-color: #EB608E;
+    &::before{
+      content: '';
+      display: block;
+      width: 1.2rem;
+      height: 1.2rem;
+      background: url("/img/ico_people.svg") no-repeat center / contain;
+    }
+  }
+  &--team{
+    @include txtStyle(body, md, 600);
+    word-break: break-all;
+    span{
+      font-weight: 400;
+    }
+  }
+  &--detail{
+    margin-top: 2rem;
+  }
+  &--info{
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    > div{
+      display: flex;
+      gap: 1rem;
+    }
+    p{
+      @include txtStyle(body, 2xs, 500);
+      display: flex;
+      gap: .6rem;
+      span{
+        font-weight: 600;
+      }
+      &:first-child{
+        @include txtStyle(caption, xl, 500);
+        color: #666;
+        min-width: 6.6rem;
+      }
+    }
+  }
+  &--box{
+    display: flex;
+    margin-top: 1.6rem;
+    padding: 1.2rem 0 1rem;
+    border-radius: 2rem;
+    background-color: #FFF0F5;
+    &.fail{
+      background-color: #f5f5f5;
+      .challenge-history--result{
+        background-color: #333;
+      }
+      > div:not(:first-child)::before{
+        background-color: #D9D9D9;
+      }
+    }
+    > div{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      &:not(:first-child)::before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        display: block;
+        width: .1rem;
+        height: 4rem;
+        background-color: #FDD8E5;
+      }
+    }
+    span{
+      @include txtStyle(caption, lg, 500);
+    }
+    strong{
+      @include txtStyle(body, xl, 700);
+      &::after{
+        content: '%';
+        @include txtStyle(body, xs, 500);
+      }
+    }
+  }
+  &--result{
+    margin: auto;
+    padding: .1rem .6rem;
+    border-radius: .4rem;
+    background-color: #EB608E;
+    @include txtStyle(caption, lg-1, 500);
+    color: #fff;
+  }
+  &--not{
+    @include txtStyle(body, lg, 600);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    padding-bottom: 12rem;
+    @include min-vh-fallback(100, 11.7rem);
+    img{
+      width: 6rem;
+    }
+    @media (min-width: $w-pc) {
+      gap: 2rem;
+      padding-bottom: 5rem;
+      @include min-vh-fallback(100, 16.8rem);
+      img{
+        width: 8rem;
+      }
+    }
+  }
+}
 
 // 설문 프로그래스 바 Progress Bar
 .BaseStep {

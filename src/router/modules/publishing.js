@@ -610,7 +610,7 @@ const publishingRouter = {
             import("@/views/publishing/challenge/ChallengeHistory.vue"),
           meta: {
             title: "챌린지 이력보기",
-            data: undefined,
+            isNoChallenge: true,
           },
         },
       ],

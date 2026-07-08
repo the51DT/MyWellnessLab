@@ -26,7 +26,7 @@ export default {
     },
     pointColor: {
       type: String,
-      default: 'green',
+      default: 'green', /* pink || green */
     },
     titleText: {
       type: String,
@@ -98,11 +98,6 @@ export default {
 
           if (successSet.has(parsedDate)) {
             day.classList.add("success");
-          }
-
-          // start 예시
-          if (parsedDate === "2026-07-01") {
-            day.classList.add("start");
           }
 
           // today 처리
@@ -258,7 +253,6 @@ export default {
     }
   }
   .vc-day{
-    pointer-events: none;
     &-content{
       width: 3.6rem;
       height: 3.6rem;
@@ -267,6 +261,10 @@ export default {
       text-align: center;
       color: #333;
       font-family: 'Pretendard', sans-serif;
+      &:not(.success){
+        cursor: auto;
+        pointer-events: none;
+      }
       &.success {
         background: var(--main-color);
         color: #fff;

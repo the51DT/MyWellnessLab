@@ -101,10 +101,7 @@ export default {
 <template>
   <div ref="targetGauge" class="target-gauge">
     <div class="target-gauge--wrap">
-      <div ref="gauge" class="target-gauge--gauge"
-        :style="{
-          backgroundColor: bgColor
-        }">
+      <div ref="gauge" class="target-gauge--gauge" :style="{backgroundColor: bgColor}">
       </div>
     </div>
     <div class="target-gauge--comp" :style="{ width: 100 - compPer + '%' }">성공!</div>

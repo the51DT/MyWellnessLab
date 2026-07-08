@@ -387,7 +387,7 @@ const data = ref([
     loca: '@/views/publishing/Challenge.vue',
     go: '/publishing/challenge',
     msg: "",
-    confirm: '작업중'
+    confirm: '2026.07.08 퍼블 완료'
   },
   {
     div: '챌린지(미진행)',
@@ -396,7 +396,7 @@ const data = ref([
     loca: '@/views/publishing/Challenge.vue',
     go: '/publishing/challenge/no',
     msg: "",
-    confirm: ''
+    confirm: '2026.07.08 퍼블 완료'
   },
   {
     div: '(PU) 챌린지 인증 공유하기',
@@ -414,7 +414,7 @@ const data = ref([
     loca: '@/views/publishing/challenge/ChallengeHistory.vue',
     go: '/publishing/challenge-history',
     msg: "",
-    confirm: ''
+    confirm: '2026.07.08 퍼블 완료'
   },
   {
     div: '챌린지 이력보기 (진행중 없음)',
@@ -423,7 +423,7 @@ const data = ref([
     loca: '@/views/publishing/challenge/ChallengeHistory.vue',
     go: '/publishing/challenge-history/no',
     msg: "",
-    confirm: ''
+    confirm: '2026.07.08 퍼블 완료'
   },
   {
     cate: '나의 팀',

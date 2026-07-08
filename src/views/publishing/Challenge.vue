@@ -6,6 +6,7 @@ import BasePopupClose from '@/views/publishing/BasePopupClose.vue'
 import BasePopupTit from '@/components/BasePopupTit.vue'
 import TabRound from '@/components/TabRound.vue'
 import TextDatePicker from '@/components/TextDatePicker.vue'
+import TargetGauge from '@/components/TargetGauge.vue'
 
  /* 퍼블 확인용 챌린지 데이터 없을 때 받을 값 */
 const route = useRoute()
@@ -53,12 +54,61 @@ onMounted(() => {
           <img src="/img/visual_alert_pink.png">
           <p>지금은 진행중인 <br v-if="!isPc"> 챌린지가 없습니다.</p>
         </div>
-        <div v-else class="challenge--wrap">
+        <div v-else>
           <div class="challenge--tit">
             <strong>자두자두 졸리다 챌린지</strong>
             <p><span>50</span>일째 참여중입니다.</p>
           </div>
+          <div class="challenge--box">
+            <div class="challenge--box-tit">
+              6월 건강수면 챌린지팀
+              <button type="button"></button> <!-- 팀상세로 이동 -->
+            </div>
+            <div class="challenge--box-info">
+              <p>
+                <span>성공조건</span>
+                <span><em>팀 인증률</em><strong>80%</strong><em>이상</em></span>
+              </p>
+              <p>
+                <span>전체기간</span>
+                <span>2026.02.01 ~ 2026.03.31<em>60일</em></span>
+              </p>
+              <p>
+                <span>1회차 진행</span>
+                <span>2026.02.01 ~ 2026.02.28<em>28일</em></span>
+              </p>
+            </div>
+            <div class="challenge--box-rate">
+              <div class="challenge--box-rate--wrap">
+                <div class="challenge--box-rate--per"><span>팀 인증률</span><strong><span>40</span>%</strong></div>
+                <TargetGauge :gaugePer="40" :targetPer="55" :compPer="65"></TargetGauge>
+              </div>
+              <div class="challenge--box-note">
+                <span><strong>목표치란, </strong>챌린지를 성공하기 위하여 오늘까지 달성해야 할 최소한의 인증률을 말합니다.</span>
+              </div>
+            </div>
+          </div>
+          <TextDatePicker 
+            :pointColor="'pink'"
+            :showDetail="true"
+            :titleText="'나의 챌린지 참여 현황'"
+            :success-dates="[
+              '2026-07-01',
+              '2026-07-02',
+              '2026-07-03',
+              '2026-07-04',
+              '2026-07-05',
+              '2026-07-07',
+            ]"
+            :mission-ranges="[
+              {
+                start: new Date(2026, 6, 1),
+                end: new Date(2026, 6, 21)
+              },
+            ]"
+          />
         </div>
+        <button class="challenge--share">챌린지 인증 공유하기<img src="/img/ico_btn_share.svg"></button>
       </template>
       <template #tab-1>
         <div class="challenge--recruit">
@@ -82,7 +132,61 @@ onMounted(() => {
         </div>
       </template>
       <template #tab-2>
-        종료
+        <div>
+          <div class="challenge--tit">
+            <strong>자두자두 졸리다 챌린지</strong>
+            <p>6월 10일에 챌린지가 종료되었습니다.</p>
+          </div>
+          <div class="challenge--box">
+            <div class="challenge--box-tit">
+              6월 건강수면 챌린지팀
+              <button type="button"></button> <!-- 팀상세로 이동 -->
+            </div>
+            <div class="challenge--box-info">
+              <p>
+                <span>성공조건</span>
+                <span><em>팀 인증률</em><strong>80%</strong><em>이상</em></span>
+              </p>
+              <p>
+                <span>전체기간</span>
+                <span>2026.02.01 ~ 2026.03.31<em>60일</em></span>
+              </p>
+              <p>
+                <span>1회차 진행</span>
+                <span>2026.02.01 ~ 2026.02.28<em>28일</em></span>
+              </p>
+            </div>
+            <div class="challenge--box-rate">
+              <div class="challenge--box-rate--wrap">
+                <div class="challenge--box-rate--per"><span>팀 인증률</span><strong><span>40</span>%</strong></div>
+                <TargetGauge :gaugePer="40" :targetPer="55" :compPer="65"></TargetGauge>
+              </div>
+              <div class="challenge--box-note">
+                <span><strong>목표치란, </strong>챌린지를 성공하기 위하여 오늘까지 달성해야 할 최소한의 인증률을 말합니다.</span>
+              </div>
+            </div>
+          </div>
+          <TextDatePicker 
+            :pointColor="'pink'"
+            :showDetail="true"
+            :titleText="'나의 챌린지 참여 현황'"
+            :success-dates="[
+              '2026-07-01',
+              '2026-07-02',
+              '2026-07-03',
+              '2026-07-04',
+              '2026-07-05',
+              '2026-07-07',
+            ]"
+            :mission-ranges="[
+              {
+                start: new Date(2026, 6, 1),
+                end: new Date(2026, 6, 21)
+              },
+            ]"
+          />
+        </div>
+        <button class="challenge--share">챌린지 인증 공유하기<img src="/img/ico_btn_share.svg"></button>
       </template>
     </TabRound>
   </section>

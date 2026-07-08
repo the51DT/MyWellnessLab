@@ -20,7 +20,7 @@ const publishingRouter = {
         {
           path: "",
           name: "pubHome",
-          component: () => import("@/views/publishing/Home.vue"),
+          component: () => import("@/views/Home.vue"),
           meta: {
             title: "홈",
             isLogin: true,

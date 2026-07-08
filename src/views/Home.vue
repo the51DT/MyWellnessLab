@@ -67,7 +67,11 @@ const handleBodyKeyLoginWrapper = async (loginData) => {
 }
 
 const user = store.getters.getUser
-const isLogin = store.getters.isLogin
+/* 퍼블 확인용 임시 하단 주석이 기존 */
+const isLogin = computed(() => {
+  return route.meta.isLogin === true || store.getters.isLogin
+}) 
+// const isLogin = store.getters.isLogin
 
 const activeFab = ref(false)
 const isBottomFab = ref(false)

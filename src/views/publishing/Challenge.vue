@@ -7,6 +7,8 @@ import BasePopupTit from '@/components/BasePopupTit.vue'
 import TabRound from '@/components/TabRound.vue'
 import TextDatePicker from '@/components/TextDatePicker.vue'
 import TargetGauge from '@/components/TargetGauge.vue'
+import BasePopupImage from '@/views/publishing/BasePopupImage.vue'
+import ChallengeSharePop from '@/views/publishing/challenge/ChallengeSharePop.vue'
 
  /* 퍼블 확인용 챌린지 데이터 없을 때 받을 값 */
 const route = useRoute()
@@ -21,9 +23,23 @@ const selectedMission = {
   desc: '혈압조절 제품 (코엔자임Q10, 마그네슘, 오메가 3) 챙겨 먹기',
   title: '영양',
 }
+const missionCertImagePopup = ref(false) /* 인증사진 보기 팝업 */
+const sharePopup = ref(false) /* 인증 공유하기 팝업 */
 
 function winWidth () { /* 브라우저 가로 사이즈 체크 */
   isPc.value = window.innerWidth > 920
+}
+function imagePopupOpen () {
+  missionCertImagePopup.value = true
+}
+function imagePopupClose () {
+  missionCertImagePopup.value = false
+}
+function sharePopupOpen () {
+  sharePopup.value = true
+}
+function sharePopupClose () {
+  sharePopup.value = false
 }
 
 onMounted(() => {
@@ -111,9 +127,10 @@ onMounted(() => {
                 end: new Date(2026, 6, 21)
               },
             ]"
+            @success-date-click="imagePopupOpen"
           />
+          <button class="challenge--share" @click="sharePopupOpen">챌린지 인증 공유하기<img src="/img/ico_btn_share.svg"></button>
         </div>
-        <button class="challenge--share">챌린지 인증 공유하기<img src="/img/ico_btn_share.svg"></button>
       </template>
       <template #tab-1>
         <div class="challenge--recruit">
@@ -189,12 +206,19 @@ onMounted(() => {
                 end: new Date(2026, 6, 21)
               },
             ]"
+            @success-date-click="imagePopupOpen"
           />
         </div>
-        <button class="challenge--share">챌린지 인증 공유하기<img src="/img/ico_btn_share.svg"></button>
+        <button class="challenge--share" @click="sharePopupOpen">챌린지 인증 공유하기<img src="/img/ico_btn_share.svg"></button>
       </template>
     </TabRound>
   </section>
+
+  <!-- 인증사진 보기 팝업 -->
+  <BasePopupImage v-if="missionCertImagePopup" @popupClose="imagePopupClose"></BasePopupImage>
+
+  <!-- 인증 공유하기 팝업 -->
+  <ChallengeSharePop v-if="sharePopup" @popupClose="sharePopupClose"></ChallengeSharePop>
 </template>
 
 <style lang="scss" scoped>

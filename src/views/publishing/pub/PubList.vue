@@ -386,8 +386,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Challenge.vue',
     go: '/publishing/challenge',
-    msg: "",
-    confirm: '2026.07.08 퍼블 완료'
+    msg: "(PU) 인증사진 보기, (PU) 챌린지 인증 공유하기 퍼블 확인용으로 넣어둠",
+    confirm: '2026.07.09 퍼블 완료'
   },
   {
     div: '챌린지(미진행)',
@@ -397,15 +397,6 @@ const data = ref([
     go: '/publishing/challenge/no',
     msg: "",
     confirm: '2026.07.08 퍼블 완료'
-  },
-  {
-    div: '(PU) 챌린지 인증 공유하기',
-    div2: '',
-    div3: '',
-    loca: '@/views/publishing//.vue',
-    go: '',
-    msg: "",
-    confirm: ''
   },
   {
     div: '챌린지 이력보기',

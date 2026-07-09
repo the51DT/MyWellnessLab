@@ -63,7 +63,7 @@ export default {
         },
         {
           day: 'sun',
-          img: 'https://automation.vuejs.org/images/chrome_frameworks_fund.avif',
+          img: '/img/img_home_daily_exam.png',
         },
       ],
       selectedMissionId: null, /* 퍼블 확인용 선택된 미션 id 데이터 */
@@ -414,7 +414,7 @@ export default {
                   <img :src="imageUrl" alt="업로드된 이미지" />
                 </div>
               </div>
-              <div v-if="imageUrl" class="btn-wrap">
+              <div v-if="imageUrl" class="share-btn-wrap">
                 <button class="share-btn"></button>
                 <button class="img-btn"></button>
               </div>
@@ -447,7 +447,7 @@ export default {
                     <img :src="item.img" />
                   </div>
                 </div>
-                <div class="btn-wrap">
+                <div class="share-btn-wrap">
                   <button class="share-btn"></button>
                   <button class="img-btn"></button>
                 </div>
@@ -532,8 +532,8 @@ export default {
   <BasePopupClose v-if="popup.dailyMethodPopup" @popupClose="popupClose('dailyMethodPopup')">
     <template v-slot:title>인증방법 선택</template>
     <template v-slot:contents>
-      <!-- 사진 찍기 버튼 -->
       <div class="popup--ico-btn--wrap">
+        <!-- 사진 찍기 버튼 -->
         <input type="file" accept = "image/*" id="takePicture" @change="openCamera" capture="environment" hidden />
         <label for="takePicture" class="popup--ico-btn">
           <span>사진 찍기</span>

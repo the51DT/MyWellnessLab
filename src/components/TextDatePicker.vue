@@ -3,6 +3,7 @@ import { nextTick } from "vue";
 
 export default {
   name: "TextDatePicker",
+  emits: ["success-date-click"],
   props: {
     showDetail: {
       type: Boolean,
@@ -58,9 +59,7 @@ export default {
 
         if (!pane || !weeks || !header) return;
 
-        // -----------------------------
-        // 1. 텍스트 영역 (중복 제거)
-        // -----------------------------
+        // 텍스트 영역 (중복 제거)
         const old = pane.querySelector(".calendar-text-wrap");
         if (old) old.remove();
 
@@ -86,9 +85,7 @@ export default {
 
         pane.insertBefore(wrap, weeks);
 
-        // -----------------------------
-        // 2. 날짜 success 처리
-        // -----------------------------
+        // 날짜 success 처리
         const days = pane.querySelectorAll(".vc-day-content");
         const successSet = new Set(this.successDates);
 
@@ -96,8 +93,17 @@ export default {
           const label = day.getAttribute("aria-label");
           const parsedDate = this.parseDate(label);
 
+          day.classList.remove("success", "today");
+          day.onclick = null;
+          day.style.cursor = "";
+
           if (successSet.has(parsedDate)) {
             day.classList.add("success");
+            day.style.cursor = "pointer";
+
+            day.onclick = () => {
+              this.$emit("success-date-click", parsedDate);
+            };
           }
 
           // today 처리
@@ -263,7 +269,6 @@ export default {
       font-family: 'Pretendard', sans-serif;
       &:not(.success){
         cursor: auto;
-        pointer-events: none;
       }
       &.success {
         background: var(--main-color);
@@ -324,7 +329,7 @@ export default {
   }
   .vc-week{
     + .vc-week{
-        margin-top: 1.7rem;
+      margin-top: 1.7rem;
       @media (min-width: 960px) {
         margin-top: 2.5rem;
       }
@@ -388,6 +393,9 @@ export default {
   }
   .vc-highlight-bg-light{
     background-color: var(--sub-color);
+  }
+  .vc-focus:focus-within{
+    box-shadow: none;
   }
 }
 </style>

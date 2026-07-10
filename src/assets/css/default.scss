@@ -216,7 +216,8 @@
     main{
       margin-right: auto;
       margin-left: auto;
-      @include min-vh-fallback(100, 49.8rem);
+      // @include min-vh-fallback(100, 49.8rem);
+      @include min-vh-fallback(100, 43.1rem);
     }
     .footer--wrap{
       margin-right: auto;
@@ -307,7 +308,7 @@
     position: fixed;
     top: 0;
     background-color: white;
-    height: 100%;
+    @include height-vh-fallback(100, 0rem);
     right: 0;
     /* overflow-y: auto; */
     @media (min-width: $w-pc) {
@@ -1218,6 +1219,9 @@ footer{
       min-height: auto;
       overflow: auto;
       border-radius: 2rem;
+      &:not(:has(.popup--close)){
+        max-width: 38.8rem;
+      }
       .popup--header{
         border-top-left-radius: 2rem;
         border-top-right-radius: 2rem;
@@ -1225,8 +1229,9 @@ footer{
         position: sticky;
         top: 0;
         z-index: 1;
-        height: 5.5rem;
-        padding: 0 2rem;
+        height: 5.1rem;
+        padding: 1.6rem 2rem 0;
+        align-items: flex-start;
         &:has(div:only-child){
           justify-content: center;
         }
@@ -1236,6 +1241,7 @@ footer{
         }
         @media (min-width: $w-pc) {
           height: 6.6rem;
+          padding: 2rem 2rem 0;
         }
       }
       .popup--space{
@@ -1259,7 +1265,7 @@ footer{
         bottom: 0;
         z-index: 1;
         background-color: white;
-        padding: 2rem;
+        padding: 1.6rem 2rem 2rem 2rem;
         margin: 0;
         @media (min-width: $w-pc) {
           padding: 2rem 2rem 2.4rem;
@@ -1329,6 +1335,10 @@ footer{
       @media (min-width: $w-pc) {
         height: 4.8rem;
         border-radius: 4rem;
+      }
+      &[disabled]{
+        color: #999;
+        background-color: #E5E5E5;
       }
     }
     .pop-scroll-box{
@@ -1975,6 +1985,7 @@ footer{
         display: flex;
         align-items: center;
         justify-content: space-between;
+        color: #1A1818;
         &.open{
           border-bottom-left-radius: 0;
           border-bottom-right-radius: 0;
@@ -2002,6 +2013,7 @@ footer{
       border-radius: 1.6rem;
       background: #fff;
       text-align: left;
+      color: #1A1818;
       & + .mission-card {
         margin-top: 0.8rem;
       }
@@ -3652,8 +3664,10 @@ footer{
   }
   &--li{
     width: calc((100% - 1rem) / 2);
+    max-width: 15rem;
     @media (min-width: $w-pc) {
       width: calc((100% - 1.2rem) / 2);
+      max-width: unset;
     }
   }
   &--name{
@@ -4193,6 +4207,9 @@ footer{
     }
     input[type=text], input[type=password], input[type=number], .pin-fake{
       height: 6.1rem;
+      @media (min-width: $w-pc) {
+        height: 8rem;
+      }
     }
   }
   &--tit{
@@ -4791,6 +4808,7 @@ button{
           width: fit-content;
           margin-left: .2rem;
           margin-top: .4rem;
+          color: #1A1818;
           img{
             width: 2.4rem;
             height: 2.4rem;
@@ -4958,6 +4976,7 @@ button{
         z-index: 1;
         background: #fff;
         filter: drop-shadow(.2rem .4rem 2rem rgba(0, 0, 0, .3));
+        will-change: filter;
         margin-top: .4rem;
         border-radius: 2.4rem;
         padding: 1.6rem 2rem 2.2rem;
@@ -4994,7 +5013,7 @@ button{
         .tab-content--active{
           left: 0;
           &::after{
-            right: -2.55rem;
+            right: -2.6rem;
             -webkit-mask: radial-gradient(100% 100% at 100% 0, transparent 99%, #000 100%);
             mask: radial-gradient(100% 100% at 100% 0, transparent 99%, #000 100%);
           }
@@ -5008,7 +5027,7 @@ button{
         .tab-content--active{
           right: 0;
           &::after{
-            left: -2.55rem;
+            left: -2.6rem;
             -webkit-mask: radial-gradient(100% 100% at 0 0, transparent 99%, #000 100%);
             mask: radial-gradient(100% 100% at 0 0, transparent 99%, #000 100%);
           }
@@ -5398,6 +5417,7 @@ button{
     border: .1rem solid #ccc;
     background-color: #fff;
     @include txtStyle(body, sm, 600);
+    color: #1A1818;
     img{
       width: 2rem;
     }

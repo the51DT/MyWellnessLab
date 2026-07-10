@@ -262,6 +262,7 @@ export default {
           this.imageUrl = e.target.result;
         };
         reader.readAsDataURL(file);
+        this.popup.dailyMethodPopup = false;
         this.popup.dailyCompPopup = true;
       }
     },
@@ -608,7 +609,7 @@ export default {
       </TabRound>
     </template>
     <template v-slot:button>
-      <button type="button" @click="completeMissionSelect" class="pop-btn" :class="!selectedMissionId ? 'pop-btn--gray' : 'pop-btn--green'" :disabled="!selectedMissionId">선택 완료</button>
+      <button type="button" @click="completeMissionSelect" class="pop-btn pop-btn--green" :disabled="!selectedMissionId">선택 완료</button>
     </template>
   </BasePopupClose>
 

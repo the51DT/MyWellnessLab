@@ -1,4 +1,6 @@
 <script>
+import { bodyScroll } from '@/assets/js/common'
+
 export default {
   name: "BasePopupClose",
   methods: {
@@ -12,6 +14,12 @@ export default {
       default: true
     }
   },
+  mounted () {
+    bodyScroll(false) /* 240110 팝업 노출 시 body 스크롤 정지 */
+  },
+  unmounted () {
+    bodyScroll(true) /* 240110 팝업 삭제 시 body 스크롤 원복 */
+  }
 }
 </script>
 

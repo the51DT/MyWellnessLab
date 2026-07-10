@@ -470,6 +470,7 @@ $w-pc-wrap: 520px;
   height: $CheckupBlood--pop-btn-br;
   border-radius: calc($CheckupBlood--pop-btn-br / 2);
   @include txtStyle(body, xs-1, 600);
+  color: #1A1818;
   background-color: #F1F1F1;
   &:hover{
     background-color: #e7e7e7;
@@ -1836,6 +1837,15 @@ select{
   @media (min-width: $w-pc) {
     height: 4.4rem;
   }
+  &.circle{
+    border-radius: 3rem;
+    border-color: #d6d6d6;
+    background-color: #fff;
+    padding-left: 2rem;
+    width: 100%;
+    padding-right: 3rem;
+    @include txtStyle(body, 2xs-1);
+  }
   &:focus{
     border-color: $line-color-green;
     outline-color: $line-color-green;
@@ -1848,14 +1858,6 @@ select{
   }
   &:disabled{
     background-color: $background-color-gray3;
-  }
-  &.circle{
-    border-radius: 3rem;
-    border-color: #d6d6d6;
-    padding-left: 2rem;
-    width: 100%;
-    padding-right: 3rem;
-    @include txtStyle(body, 2xs-1);
   }
 }
 

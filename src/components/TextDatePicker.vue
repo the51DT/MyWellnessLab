@@ -145,7 +145,6 @@ export default {
         return {
           key: `mission-range-${index}`,
           highlight: {
-            color: this.pointColor,
             fillMode: 'light'
           },
           dates: {
@@ -269,6 +268,7 @@ export default {
       font-family: 'Pretendard', sans-serif;
       &:not(.success){
         cursor: auto;
+        pointer-events: none;
       }
       &:hover{
         background-color: transparent;

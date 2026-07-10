@@ -5,12 +5,13 @@ import BasePopupClose from '@/views/publishing/BasePopupClose.vue'
 import BasePopupBadge from '@/views/publishing/BasePopupBadge.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
-import AnalyzeAgingSpeed from '@/views/publishing/analyze/AnalyzeAgingSpeed.vue'
 import AddBtnHome from '@/components/AddBtnHome.vue'
 import TabRound from '@/components/TabRound.vue'
 import TextDatePicker from '@/components/TextDatePicker.vue'
 import BaseOpener from '@/views/publishing/checkup/BaseOpener.vue'
 import BasePopupTit from '@/components/BasePopupTit.vue'
+import TargetGauge from '@/components/TargetGauge.vue'
+import MainCalenderPop from '@/views/publishing/main/MainCalenderPop.vue'
 
 export default {
   name: 'Main',
@@ -18,10 +19,11 @@ export default {
     BasePopup,
     BasePopupClose,
     BasePopupBadge,
-    AnalyzeAgingSpeed,
+    MainCalenderPop,
     AddBtnHome,
     TabRound,
     TextDatePicker,
+    TargetGauge,
     BaseOpener,
     BasePopupTit,
     Swiper,
@@ -40,6 +42,7 @@ export default {
         chronic: 79,
         muscles: 85,
       },
+      agingSpeed: 0.67, /* 퍼블 확인용 노화속도 */
       isOpen: false, /* 미션 선택 팝업 아코디언 오프너 */
       isAnalyze: false, /* 건강수명분석 여부 */
       selectMission: false, /* 미션선택 여부 */
@@ -76,8 +79,8 @@ export default {
           items: [
             {
               id: 'recommend-nutrition-1',
-              title: '기본',
-              desc: '것모닝하기(아침에 물, 유산균, 프로틴 섭취)',
+              title: '기억력 개선',
+              desc: '견과류 섭취하기',
               recommend: true
             }
           ]
@@ -89,8 +92,8 @@ export default {
           items: [
             {
               id: 'recommend-exercise-1',
-              title: '기본',
-              desc: '20~30분 유산소 운동(빠른 걷기, 실내 자전거, 수영, 가벼운 조깅)',
+              title: '체지방 조절',
+              desc: '중강도 이상 유산소 운동 20~30분 (빠르게 걷기, 수영, 자전거)',
               recommend: true
             }
           ]
@@ -102,8 +105,8 @@ export default {
           items: [
             {
               id: 'recommend-sleep-1',
-              title: '기본',
-              desc: '7시간 이상 연속 수면하기',
+              title: '수면건강',
+              desc: '7~8시간 이상 수면하기',
               recommend: true
             },
           ]
@@ -115,8 +118,8 @@ export default {
           items: [
             {
               id: 'recommend-life-1',
-              title: '기본',
-              desc: '취침 1시간 전 TV, 스마트폰등 전자기기 미사용',
+              title: '위건강',
+              desc: '식후 3시간 이내 눕지 않기',
               recommend: true
             },
           ]
@@ -135,8 +138,28 @@ export default {
             },
             {
               id: 'all-nutrition-2',
-              title: '영양',
-              desc: '채소 1회 이상 섭취하기'
+              title: '혈당조절',
+              desc: '혈당 건강 제품(바나바잎 추출물) 챙겨먹기'
+            },
+            {
+              id: 'all-nutrition-3',
+              title: '운동수행능력/지구력 향상',
+              desc: '매끼니 단백질 (콩, 두부, 달걀, 생선, 우유, 요거트, 살코기) 챙겨먹기'
+            },
+            {
+              id: 'all-nutrition-4',
+              title: '갱년기 여성건강',
+              desc: '당/튀김음식/초가공식품 (달달한 음료, 튀김, 디저트, 빵/면 중심 식사) 줄이기'
+            },
+            {
+              id: 'all-nutrition-5',
+              title: '전립선건강',
+              desc: '전립선 건강제품(쏘팔메토) 챙겨먹기'
+            },
+            {
+              id: 'all-nutrition-6',
+              title: '관절/뼈 건강',
+              desc: '관절/뼈 건강 제품(칼슘/비타민 D, 글루코사민, MSM, 비타민 C, 오미자추출물) 챙겨먹기'
             }
           ]
         },
@@ -326,7 +349,11 @@ export default {
         }
       }
       return null
-    }
+    },
+    angle() { // 바늘 각도
+      const clamped = Math.min(Math.max(this.agingSpeed, 0.5), 1.5)
+      return ((clamped - 0.5) / 1.0) * 180 - 90
+    },
   }
 }
 </script>
@@ -343,7 +370,13 @@ export default {
         <p>나의 건강수명분석과 미션</p>
         <div class="main--analyze--total">
           <div class="main--analyze--graph">
-            <AnalyzeAgingSpeed :isNewMain="true" :isMain="true"/>
+            <img src="/img/bg_main_agingspeed.png">
+            <div class="main--analyze--needle-wrap">
+              <div class="main--analyze--needle-center"> <!-- 배경색 - 기본 초록, .orange 노랑, .red 빨강 -->
+                <img src="/img/icon_agingspeed_logo.svg">
+              </div>
+              <img class="main--analyze--needle" :style="{ transform: `translateX(-50%) rotate(${angle}deg)` }" src="/img/img_agingspeed_needle.svg">
+            </div>
           </div>
           <div class="main--analyze--score">
             <p>노화속도</p>
@@ -370,7 +403,7 @@ export default {
       <div class="main--analyze--btm" :class="{ active: selectedMission, open: selectedMissionOpen }">
         <button v-if="!selectedMissionId" @click="popup.missionPopup = true">
           <span v-if="!isAnalyze">기본 미션으로 시작하기</span> <!-- 건강수명분석 전 -->
-          <span v-else>나의 추천 미션 보기</span> <!-- 건강수명분석 후 -->
+          <span v-else>나의 맞춤 미션으로 선택하기</span> <!-- 건강수명분석 후 -->
         </button>
         <div v-else class="main--mission">
           <div class="main--mission__head" :class="{ open: selectedMissionOpen }">
@@ -384,7 +417,7 @@ export default {
             <div v-show="selectedMissionOpen" class="main--mission__body">
               <span>#{{ selectedMission.title }}</span>
               <span>#{{12}}일째</span>
-              <button type="button" class="main--mission__change">미션 변경하기</button>
+              <button type="button" class="main--mission__change" @click.stop="popup.missionPopup = true">미션 변경하기</button>
             </div>
           </transition>
         </div>
@@ -468,9 +501,29 @@ export default {
         </div>
         <div v-if="tab === 0" class="tab-content tab-content-1">
           <div class="tab-content--active"><span>챌린지</span></div>
-          <div class="main--team--no">
+          <!-- <div class="main--team--no">
             <img src="/img/img_home_error.png">
             <p>참여중인 챌린지가 없습니다.</p>
+          </div> -->
+          <div>
+            <div class="challenge--box-tit">6월 건강수면 챌린지팀</div>
+            <div class="challenge--box-tag">진행중</div>
+            <div class="challenge--box-info">
+              <p>
+                <span>성공조건</span>
+                <span><em>팀 인증률</em><strong>80%</strong><em>이상</em></span>
+              </p>
+              <p>
+                <span>전체기간</span>
+                <span>2026.06.11~2025.08.20 /<em>70일</em></span>
+              </p>
+            </div>
+            <div class="challenge--box-rate">
+              <div class="challenge--box-rate--wrap">
+                <div class="challenge--box-rate--per"><span>팀 인증률</span><strong><span>40</span>%</strong></div>
+                <TargetGauge :gaugePer="40" :targetPer="60" :compPer="80"></TargetGauge>
+              </div>
+            </div>
           </div>
         </div>
         <div v-else-if="tab === 1" class="tab-content tab-content-2">
@@ -479,6 +532,26 @@ export default {
             <img src="/img/img_home_error.png">
             <p>참여중인 상시 팀이 없습니다.</p>
           </div>
+          <!-- <div>
+            <div class="challenge--box-tit">6월 건강수면 챌린지팀</div>
+            <div class="challenge--box-tag">진행중</div>
+            <div class="challenge--box-info">
+              <p>
+                <span>성공조건</span>
+                <span><em>팀 인증률</em><strong>80%</strong><em>이상</em></span>
+              </p>
+              <p>
+                <span>전체기간</span>
+                <span>2026.06.11~2025.08.20 /<em>70일</em></span>
+              </p>
+            </div>
+            <div class="challenge--box-rate">
+              <div class="challenge--box-rate--wrap">
+                <div class="challenge--box-rate--per"><span>팀 인증률</span><strong><span>40</span>%</strong></div>
+                <TargetGauge :gaugePer="40" :targetPer="60" :compPer="80" :bgColor="'#146B5B'"></TargetGauge>
+              </div>
+            </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -558,7 +631,7 @@ export default {
   <BasePopupClose v-if="popup.missionPopup" class="MissionSelectPopup" @popupClose="popupClose('missionPopup')">
     <template v-slot:title>미션 선택하기</template>
     <template v-slot:contents>
-      <TabRound :tabs="[{title: '추천 미션'}, {title:'전체 미션'}]">
+      <TabRound :tabs="[{title: isAnalyze ? '추천 미션' : '기본 미션'}, {title:'전체 미션'}]">
         <template #tab-0>
           <div class="mission-select">
             <div v-for="group in recommendMissionGroups" :key="group.key" class="mission-select__group">
@@ -575,7 +648,7 @@ export default {
                       <span v-if="selectedMissionId === mission.id" class="mission-card__check"></span>
                     </span>
                     <span class="mission-card__desc">{{ mission.desc }}</span>
-                    <span v-if="mission.recommend" class="mission-card__badge">추천</span>
+                    <span v-if="mission.recommend" class="mission-card__badge" >{{ isAnalyze ? '추천' : '기본' }}</span>
                   </button>
                 </div>
               </transition>
@@ -599,7 +672,7 @@ export default {
                       <span v-if="selectedMissionId === mission.id" class="mission-card__check"></span>
                     </span>
                     <span class="mission-card__desc">{{ mission.desc }}</span>
-                    <span v-if="mission.recommend" class="mission-card__badge" >추천</span>
+                    <span v-if="mission.recommend" class="mission-card__badge" >{{ isAnalyze ? '추천' : '기본' }}</span>
                   </button>
                 </div>
               </transition>
@@ -614,17 +687,9 @@ export default {
   </BasePopupClose>
 
   <!-- 나의 인증 현황 팝업 -->
-  <BasePopupTit v-if="popup.myDailyPopup" class="MissionSelectPopup" @popupClose="popupClose('myDailyPopup')">
+  <MainCalenderPop v-if="popup.myDailyPopup" @popupClose="popupClose('myDailyPopup')" :success-dates="successDates">
     <template v-slot:title>나의 인증 현황</template>
-    <template v-slot:contents>
-      <div class="popup-date-picker">
-        <TextDatePicker :success-dates="successDates"/>
-      </div>
-      <div class="pop-btn-wrap">
-        <button type="button" @click="popupClose('myDailyPopup')" class="pop-btn pop-btn--green">인증 공유하기</button>
-      </div>
-    </template>
-  </BasePopupTit>
+  </MainCalenderPop>
 
   <!-- 핀/배지 달성 팝업 -->
   <!-- <BasePopupBadge type="pin" frontImg="/img/pin_ruby.svg" backImg="/img/pin_ruby-back.svg">$마웰랩 핀 명칭$</BasePopupBadge> -->

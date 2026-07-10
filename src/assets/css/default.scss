@@ -4762,7 +4762,7 @@ button{
           background-color: #fff;
           border: .4rem solid #146B5B;
           font-weight: 700;
-          color: #111;
+          color: #146B5B;
           &::after{
             content: 'Today';
             position: absolute;
@@ -9342,7 +9342,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   padding: 1.6rem 0;
   @include spaceRLSDefault;
   @media (min-width: $w-pc) {
-    padding-top: 6rem;
+    padding-top: 2.8rem;
   }
   &--info{
     font-size: $txt-font-size-big2;
@@ -9415,13 +9415,11 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    border: solid .1rem #E5E5E5 ;
-    border-radius: 1.6rem;
+    border-radius: 1.2rem;
     background-color: white;
     min-height: 12rem;
     @media (min-width: $w-pc) {
-      margin-top: 1.6rem;
-      min-height: 19rem;
+      min-height: 12.5rem;
     }
     &.active{
       border-color: $line-color-green;
@@ -9440,10 +9438,10 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     }
     &-type{
       display: inline-block;
-      @include txtStyle(caption, lg, 700);
+      @include txtStyle(caption, lg-1, 600);
       color: #1db196;
       border: 1px solid #1db196;
-      padding: 0 .8rem;
+      padding: 0.1rem .8rem;
       border-radius: 2rem;
       margin-bottom: 0.8rem;
       @media (min-width: $w-pc) {
@@ -9453,9 +9451,6 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     &-tit{
       @include txtStyle(body, md, 600);
       display: block;
-      @media (min-width: $w-pc) {
-        font-size: 1.6rem;
-      }
     }
     &-txt{
       width: calc(100% - 9.2rem);
@@ -9465,9 +9460,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       margin-top: 2rem;
       margin-bottom: 2rem;
       @media (min-width: $w-pc) {
-        width: calc(100% - 9.4rem);
-        margin-top: 2.8rem;
-        margin-bottom: 2.8rem;
+        width: calc(100% - 9.2rem);
       }
     }
     &-quan{
@@ -9478,9 +9471,9 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       background-color: #F5FFFD;
       border-top-right-radius: 1.6rem;
       border-bottom-right-radius: 1.6rem;
-      border-left: dashed .1rem #E5E5E5;
+      border-left: dashed .1rem #9AE0D3;
       @media (min-width: $w-pc) {
-        width: 9.4rem;
+        width: 9.2rem;
       }
       &-digit{
         display: block;
@@ -9488,9 +9481,6 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
         width: fit-content;
         @include txtStyle(head, md, 600);
         color: #146B5B;
-        @media (min-width: $w-pc) {
-          font-size: 3.3rem;
-        }
         span{
           margin-left: .1rem;
           vertical-align: middle;
@@ -9505,42 +9495,31 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       span {
         font-weight: 600;
       }
-      @media (min-width: $w-pc) {
-        font-size: 1.4rem;
-        display: block;
-      }
     }
     &-desc{
       @include txtStyle(caption, lg);
       color: $txt-font-color-gray;
       margin-top: 0.6rem;
       word-break: break-all;
-      @media (min-width: $w-pc) {
-        font-size: 1.3rem;
-      }
     }
     &-no{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      @include min-vh-fallback(100, 16.4rem);
       text-align: center;
-      margin-top: 10.2rem;
+      padding-bottom: 12.4rem;
       @media (min-width: $w-pc) {
-        margin-top: 10rem;
       }
       &-txt{
         @include txtStyle(body, lg, 600);
-        @media (min-width: $w-pc) {
-          font-size: 2.4rem;
-          margin-top: 1rem;
-        }
       }
       &-txt2{
         @include txtSmall2; 
         width: 27rem;
         margin: .8rem auto;
         color: #666;
-        @media (min-width: $w-pc) {
-          font-size: 1.5rem;
-          color: #7e7e7e;
-        }
       }
       &-img{
         img{
@@ -9583,24 +9562,26 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     padding-right: 2rem;
     padding-left: 2rem;
     margin: auto;
-    margin-top: 2.4rem;
     min-width: 20rem;
+    min-height: 4.8rem;
     @media (min-width: $w-pc) {
       font-size: 1.8rem;
       min-height: 5.2rem;
       min-width: 34rem;
-      margin-top: 4rem;
     }
     &-wrap{
       position: fixed;
       left: 50%;
       transform: translateX(-50%);
       bottom: 0;
-      padding: 2rem 0;
-      width: calc(100% - 4rem);
-      max-width: 96rem;
+      padding: 2rem 2rem 2.4rem;
+      width: 100%;
+      max-width: $w-pc-wrap;
       .CouponStatus--btn{
         width: 100%;
+      }
+      @media (min-width: $w-pc) {
+        padding: 2.4rem 2rem 2.8rem;
       }
     }
   }

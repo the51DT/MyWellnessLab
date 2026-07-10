@@ -142,12 +142,17 @@ onBeforeUnmount(() => {
         </div>
 
         <div class="header--menu">
+          <!-- S : 202606 dock 추가 -->
+          <aside v-if="isLogin">
+            <LayoutHomeDock />
+          </aside>
           <div v-if="isLogin">
             <button type="button" class="btn--menu" @click="moveCouponPage">
               <img src="/img/ico_coupon.svg" :alt="$t('LayoutHome.alt.coupon')" />
             </button>
           </div>
           <div>
+            <!-- E : 202606 dock 추가 -->
             <button @click="isSideBar = true" type="button" class="btn--menu">
               <img src="/img/ico_hamburger.svg" :alt="$t('LayoutHome.alt.menu')" />
             </button>
@@ -176,12 +181,6 @@ onBeforeUnmount(() => {
     <main>
       <RouterView />
     </main>
-
-    <!-- S : 202606 dock 추가 -->
-    <aside v-if="isLogin">
-      <LayoutHomeDock />
-    </aside>
-    <!-- E : 202606 dock 추가 -->
 
     <footer>
       <div class="footer--wrap">

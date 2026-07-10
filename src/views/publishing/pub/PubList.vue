@@ -40,8 +40,8 @@ const data = ref([
     div3: '',
     loca: '@/views/coupon/CouponList.vue',
     go: '/publishing/coupon-status/none',
-    msg: 'ver.260626 완료',
-    confirm: ''
+    msg: '메뉴 구조 변경으로 홈에서 제외 필요',
+    confirm: '2026.07.10 퍼블 완료'
   },
   {
     div: '',
@@ -49,8 +49,8 @@ const data = ref([
     div3: '',
     loca: '@/views/coupon/CouponList.vue<br>@/views/publishing/etc/CouponStatus.vue -> 퍼블 확인용 경로',
     go: '/publishing/coupon-status',
-    msg: 'ver.260626 완료',
-    confirm: ''
+    msg: '메뉴 구조 변경으로 홈에서 제외 필요',
+    confirm: '2026.07.10 퍼블 완료'
   },
   {
     cate: '서비스 가입',

@@ -58,8 +58,10 @@ export default {
             <p class="title">나의 미션 인증 횟수</p>
             <p class="num"><span>2</span>회</p>
           </div>
-          <div class="share-btn-wrap">
-            <button class="share-btn"></button>
+          <div class="info-wrap">
+            <img src="/img/pin_ruby.svg"> <!-- 퍼블 확인용 임시 -->
+            <p><span>$닉네임$</span>님의</p>
+            <p><span class="cate">운동</span>미션 인증</p>
           </div>
         </div>
       </div>

@@ -8,6 +8,10 @@ export default {
     };
   },
   props: {
+    todayImg: {
+      type: Boolean,
+      default: false
+    }
   },
   methods: {
     close(){
@@ -39,6 +43,7 @@ export default {
         </div>
         <div class="share-btn-wrap">
           <button class="share-btn"></button>
+          <button v-if="todayImg" class="img-btn"></button>
         </div>
       </div>
     </div>

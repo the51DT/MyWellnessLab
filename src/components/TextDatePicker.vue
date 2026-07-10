@@ -270,6 +270,9 @@ export default {
       &:not(.success){
         cursor: auto;
       }
+      &:hover{
+        background-color: transparent;
+      }
       &.success {
         background: var(--main-color);
         color: #fff;

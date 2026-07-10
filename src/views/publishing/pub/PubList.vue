@@ -31,7 +31,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Main.vue',
     go: '/publishing/main',
-    msg: "**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>작업중",
+    msg: "**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**",
     confirm: ''
   },
   {
@@ -49,7 +49,7 @@ const data = ref([
     div3: '',
     loca: '@/views/coupon/CouponList.vue<br>@/views/publishing/etc/CouponStatus.vue -> 퍼블 확인용 경로',
     go: '/publishing/coupon-status',
-    msg: '메뉴 구조 변경으로 홈에서 제외 필요',
+    msg: '',
     confirm: '2026.07.10 퍼블 완료'
   },
   {

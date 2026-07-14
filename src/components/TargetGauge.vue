@@ -105,7 +105,7 @@ export default {
       </div>
     </div>
     <div class="target-gauge--comp" :style="{ width: 100 - compPer + '%' }">성공!</div>
-    <div class="target-gauge--target" :style="{ left: targetPer + '%' }">목표치</div>
+    <div v-if="targetPer" class="target-gauge--target" :style="{ left: targetPer + '%' }">목표치</div>
   </div>
 </template>
 

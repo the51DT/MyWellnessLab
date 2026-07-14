@@ -32,7 +32,7 @@ export default {
   data () {
     return {
       isScroll: false,
-      isBottom: false,
+      isPc: false,
       imageUrl: ref(null),
       tab: ref(0),
       missionTab: ref(0),
@@ -46,7 +46,8 @@ export default {
       isOpen: false, /* 미션 선택 팝업 아코디언 오프너 */
       isAnalyze: false, /* 건강수명분석 여부 */
       selectMission: false, /* 미션선택 여부 */
-      popup: {
+      floatingDay: true,  /* 챌린지대기 노출 플로팅 버튼 */
+      popup: { /* 퍼블 확인용 팝업값 */
         missionPopup: false, /* 미션선택 팝업 */
         noMissionPopup: false, /* 선택 미션 없을 시 팝업 */
         dailyCompPopup: false, /* 인증완료 팝업 */
@@ -256,12 +257,7 @@ export default {
   },
   methods: {
     winWidth () { /* 브라우저 가로 사이즈 체크 */
-      this.isScroll = window.scrollY > 200
-      if (window.scrollY > 500) {
-        this.isBottom = true
-      } else {
-        this.isBottom = false
-      }
+      this.isPc = window.innerWidth > 920
     },
     /*  팝업 열기 */
     popupOpen (val) {
@@ -330,6 +326,28 @@ export default {
     this.winWidth()
     window.addEventListener('scroll', () => {
       this.winWidth()
+
+      let scrollY = window.scrollY;
+      const homeAddBtn = document.querySelector(".home--addBtn");
+      const stickyCardBox = document.querySelector(".main-sticky");
+      const stickyArea = document.querySelector(".main--team");
+      const stickyAreaY = stickyArea.offsetTop;
+      const winHeight = window.innerHeight;
+      const stickyTarget = document.querySelector(".main-sticky-target");
+
+      if (!stickyCardBox) {
+        return;
+      } else {
+        if (scrollY + winHeight / 2 >= stickyAreaY) {
+          stickyCardBox.classList.remove("sticky");
+          homeAddBtn.classList.add("active");
+          stickyTarget.style.display = "block";
+        } else {
+          stickyCardBox.classList.add("sticky");
+          homeAddBtn.classList.remove("active");
+          stickyTarget.style.display = "none";
+        }
+      }
     })
     this.dayBtn()
   },
@@ -501,6 +519,7 @@ export default {
         </div>
         <div v-if="tab === 0" class="tab-content tab-content-1">
           <div class="tab-content--active"><span>챌린지</span></div>
+          <!-- 챌린지 없는 경우 -->
           <!-- <div class="main--team--no">
             <img src="/img/img_home_error.png">
             <p>참여중인 챌린지가 없습니다.</p>
@@ -518,7 +537,7 @@ export default {
                 <span>2026.06.11~2025.08.20 /<em>70일</em></span>
               </p>
             </div>
-            <div class="challenge--box-rate">
+            <div class="challenge--box-rate main-sticky-target">
               <div class="challenge--box-rate--wrap">
                 <div class="challenge--box-rate--per"><span>팀 인증률</span><strong><span>40</span>%</strong></div>
                 <TargetGauge :gaugePer="40" :targetPer="60" :compPer="80"></TargetGauge>
@@ -552,6 +571,21 @@ export default {
               </div>
             </div>
           </div> -->
+        </div>
+      </div>
+
+      <!-- 하단 플로팅 -->
+      <div v-if="!isPc" class="main-sticky">
+        <!-- 진행 전 -->
+        <div v-if="floatingDay" class="main-sticky-before">
+          <strong>챌린지 시작 D-$00$</strong>
+          <span>챌린지 참여를 위해 팀에 참여해 주세요.</span>
+          <button @click="floatingDay = false"></button>
+        </div>
+        <!-- 진행중 -->
+        <div v-else class="challenge--box-rate--wrap">
+          <div class="challenge--box-rate--per"><span>팀 인증률</span><strong><span>40</span>%</strong></div>
+          <TargetGauge :gaugePer="40" :compPer="80"></TargetGauge>
         </div>
       </div>
     </div>

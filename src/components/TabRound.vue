@@ -1,15 +1,34 @@
 <script>
 export default {
   name: "TabRound",
+  emits: ["update:modelValue"],
   props: {
     tabs: {
       type: Array,
       default: () => []
+    },
+    modelValue: {
+      type: Number,
+      default: null
     }
   },
   data () {
     return {
-      activeTab: 0
+      innerActiveTab: 0
+    }
+  },
+  computed: {
+    activeTab: {
+      get () {
+        return this.modelValue !== null ? this.modelValue : this.innerActiveTab
+      },
+      set (value) {
+        if (this.modelValue !== null) {
+          this.$emit("update:modelValue", value)
+        } else {
+          this.innerActiveTab = value
+        }
+      }
     }
   }
 }

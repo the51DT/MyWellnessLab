@@ -101,10 +101,10 @@ export default {
 <template>
   <div ref="targetGauge" class="target-gauge">
     <div class="target-gauge--wrap">
-      <div ref="gauge" class="target-gauge--gauge" :style="{backgroundColor: bgColor}">
+      <div ref="gauge" class="target-gauge--gauge" :style="{backgroundColor: bgColor, width: gaugePer + '%' }">
       </div>
     </div>
-    <div class="target-gauge--comp" :style="{ width: 100 - compPer + '%' }">성공!</div>
+    <div v-if="compPer" class="target-gauge--comp" :style="{ width: 100 - compPer + '%' }" :class="gaugePer >= compPer ? 'comp' : ''">성공!</div>
     <div v-if="targetPer" class="target-gauge--target" :style="{ left: targetPer + '%' }">목표치</div>
   </div>
 </template>
@@ -154,6 +154,9 @@ export default {
     @media (min-width: 960px) {
       height: calc(100% - 1.2rem);
       font-size: 1.8rem;
+    }
+    &.comp{
+      background-color: #1DB196;
     }
   }
   &--target{

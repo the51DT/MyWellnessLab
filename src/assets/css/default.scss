@@ -5227,6 +5227,7 @@ button{
             padding: .6rem 1.6rem;
             border-radius: 9rem;
             box-shadow: 0 .2rem .6rem 0 rgba(29, 177, 150, 0.12);
+            background-color: var(--folder-tab-color);
             @media (min-width: $w-pc) {
               padding: 1.1rem 1.6rem;
             }
@@ -5234,7 +5235,7 @@ button{
         }
       }
       .tab-content-1{
-        $tab1-color: #EB608E;
+        --folder-tab-color: #EB608E;
         border-top-left-radius: 0;
         .tab-content--active{
           left: 0;
@@ -5243,20 +5244,10 @@ button{
             -webkit-mask: radial-gradient(100% 100% at 100% 0, transparent 99%, #000 100%);
             mask: radial-gradient(100% 100% at 100% 0, transparent 99%, #000 100%);
           }
-          span{
-            background-color: $tab1-color;
-          }
-        }
-        .challenge--box-tag{
-          background-color: $tab1-color;
-        }
-        .challenge--box-info strong,
-        .challenge--box-rate--per strong {
-          color: $tab1-color;
         }
       }
       .tab-content-2{
-        $tab2-color: #146B5B;
+        --folder-tab-color: #146B5B;
         border-top-right-radius: 0;
         .tab-content--active{
           right: 0;
@@ -5265,17 +5256,6 @@ button{
             -webkit-mask: radial-gradient(100% 100% at 0 0, transparent 99%, #000 100%);
             mask: radial-gradient(100% 100% at 0 0, transparent 99%, #000 100%);
           }
-          span{
-            background-color: $tab2-color;
-          }
-        }
-        .challenge--box-tag{
-          background-color: $tab2-color;
-        }
-        
-        .challenge--box-info strong,
-        .challenge--box-rate--per strong {
-          color: $tab2-color;
         }
       }
     }
@@ -5301,6 +5281,7 @@ button{
       margin-bottom: 1.2rem;
       padding: .1rem .6rem;
       color: #fff;
+      background-color: var(--folder-tab-color);
       @include txtStyle(caption, lg-1, 500);
       @media (min-width:$w-pc){
         margin-bottom: 1.6rem;
@@ -5332,6 +5313,7 @@ button{
       }
       strong{
         @include txtStyle(body, md, 700);
+        color: var(--folder-tab-color);
       }
     }
     &--box-rate{
@@ -5340,6 +5322,9 @@ button{
       border: none;
       @media (min-width:$w-pc){
         margin-top: 1.6rem;
+      }
+      strong {
+        color: var(--folder-tab-color);
       }
     }
     &--box-rate--wrap{
@@ -5663,6 +5648,7 @@ button{
     &--per{
       display: flex;
       flex-direction: column;
+      flex: 0 0 auto;
       @include txtStyle(body, 2xs, 500);
       strong{
         @include txtStyle(body, md, 700);
@@ -5967,6 +5953,262 @@ button{
         width: 8rem;
       }
     }
+  }
+}
+.team{
+  max-width: $w-pc-wrap;
+  margin: 0 auto;
+  padding: 1.2rem 2rem 11.8rem;
+  @media (min-width:$w-pc){
+    padding-bottom: 4.8rem;
+  }
+  &--tit{
+    @include txtStyle(body, md);
+    padding-left: .6rem;
+    margin: 2.4rem auto 1.6rem;
+    @media (min-width: $w-pc) {
+      margin: 2.8rem auto 2rem;
+    }
+    strong{
+      @include txtStyle(head, 2xs, 700);
+    }
+    span{
+      color: #1DB196;
+      font-weight: 700;
+    }
+  }
+  &--card{
+    position: relative;
+    width: 100%;
+    padding: 1.8rem 2rem 2.2rem;
+    border: .16rem solid var(--team-point-color);
+    border-radius: 2.4rem;
+    background-color: #fff;
+    text-align: left;
+    &.challenge-team{
+      --team-point-color: #EB608E;
+    }
+    &.regular-team{
+      --team-point-color: #146B5B;
+    }
+    @media (min-width:$w-pc) {
+      .challenge--box-rate{
+        padding-top: 2rem;
+        margin-top: 2rem;
+      }
+    }
+  }
+  &--card-tit{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    > div {
+      display: flex;
+      gap: .4rem;
+      align-items: center;
+    }
+  }
+  &--card-state{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .1rem .6rem;
+    height: 2rem;
+    border-radius: .4rem;
+    background-color: var(--team-point-color);
+    @include txtStyle(caption, lg-1, 500);
+    color: #fff;
+    &.wait{
+      border: .1rem solid var(--team-point-color);
+      background-color: #fff;
+      color: var(--team-point-color);
+    }
+    &.end{
+      background-color: #404040;
+    }
+    &.fail{
+      background-color: #E5E5E5;
+      color: #808080;
+    }
+  }
+  &--card-ranking{
+    @include txtStyle(caption, xl-1, 500);
+    color: #666;
+    span{
+      @include txtStyle(body, 2xs, 700);
+      color: var(--team-point-color);
+    }
+  }
+  &--card-favorites{
+    @include btnClear;
+    width: 2rem;
+    height: 2rem;
+    background: url('/img/ico_star.svg') no-repeat center / contain;
+    margin-left: .2rem;
+    &.active{
+      background-image: url('/img/ico_star_on.svg');
+    }
+  }
+  &--card-add{
+    @include btnClear;
+    width: 2rem;
+    height: 2rem;
+    background: url('/img/ico_invite.svg') no-repeat center / contain;
+  }
+  &--card-profile{
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    margin-top: 1.2rem;
+    > div:not(.team--card-img){
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      width: calc(100% - 8rem);
+    }
+    p{
+      display: flex;
+      gap: .4rem;
+      @media (min-width:$w-pc) {
+        gap: .6rem;
+      }
+    }
+  }
+  &--card-img{
+    position: relative;
+    flex-shrink: 0;
+    img{
+      width: 6.4rem;
+      height: 6.4rem;
+      object-fit: cover;
+      background-color: #f5f5f5;
+      border-radius: 99rem;
+    }
+    &.leader::after{
+      content: '';
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      display: block;
+      width: 1.8rem;
+      height: 1.8rem;
+      background: url('/img/ico_leader.png') no-repeat center / cover;
+    }
+  }
+  &--card-tag{
+    @include txtStyle(caption, lg, 600);
+    color: var(--team-point-color);
+    border: .1rem solid var(--team-point-color);
+    border-radius: 99rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 .8rem;
+  }
+  &--card-people{
+    @include txtStyle(caption, lg, 600);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: .1rem;
+    width: fit-content;
+    padding: .2rem .6rem .2rem .4rem;
+    border-radius: 3rem;
+    background-color: var(--team-point-color);
+    &::before{
+      content: '';
+      display: block;
+      width: 1.2rem;
+      height: 1.2rem;
+      background: url("/img/ico_people.svg") no-repeat center / contain;
+    }
+  }
+  &--card-team{
+    @include txtStyle(body, md, 600);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    padding-right: 2.4rem;
+    @media (min-width:$w-pc) {
+      padding-right: 2.8rem;
+    }
+    &::after{
+      content: '';
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      position: absolute;
+      display: block;
+      width: 2.4rem;
+      height: 2.4rem;
+      background: url('/img/ico_arrow_right_gray.svg') no-repeat center / contain;
+      @media (min-width:$w-pc) {
+        width: 2.8rem;
+        height: 2.8rem;
+      }
+    }
+  }
+  &--card-info{
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    margin-top: 1.2rem;
+    @media (min-width:$w-pc){
+      margin-top: 1.6rem;
+    }
+    > div{
+      display: flex;
+      gap: 2.4rem;
+    }
+    p{
+      @include txtStyle(body, 2xs);
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      color: #333;
+      @media (min-width:$w-pc){
+        justify-content: flex-end;
+        gap: .6rem;
+      }
+      span{
+        font-weight: 600;
+        width: 3rem;
+      }
+      .success{
+        color: var(--team-point-color);
+        width: fit-content;
+      }
+      .fail{
+        color: #808080;
+        width: fit-content;
+      }
+      &:first-child{
+        @include txtStyle(caption, xl-1, 500);
+        width: 6rem;
+        flex: 0 0 auto;
+        @media (min-width:$w-pc){
+          justify-content: flex-start;
+          width: 7rem;
+        }
+      }
+    }
+  }
+  &--card-list{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: .4rem;
+    @media (min-width:$w-pc) {
+      gap: 1.6rem;
+      margin-top: .8rem;
+    }
+  }
+  .challenge--box-rate--wrap{
+    gap: .7rem;
+  }
+  .challenge--box-rate--per strong{
+    color: var(--team-point-color);
   }
 }
 .share-btn-wrap{

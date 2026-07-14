@@ -15,6 +15,7 @@ const data = ref([
     msg: "개발 파일 수정된 부분 '202606' 주석으로 표시, 해당 날짜 포함된 주석 확인 필요",
     confirm: ''
   },
+  { cate: 'blank'},
   {
     cate: '홈',
     div: '인트로 (로그인 전)',
@@ -52,6 +53,7 @@ const data = ref([
     msg: '',
     confirm: '2026.07.10 퍼블 완료'
   },
+  { cate: 'blank'},
   {
     cate: '서비스 가입',
     div: '사용자 선택',
@@ -89,6 +91,7 @@ const data = ref([
     msg: "'202606' 주석 개발파일 적용 필요",
     confirm: '2026.07.06 퍼블 완료'
   },
+  { cate: 'blank'},
   {
     cate: '로그인',
     div: '사용자 선택',
@@ -117,6 +120,7 @@ const data = ref([
     msg: '',
     confirm: '2026.07.06 퍼블 완료'
   },
+  { cate: 'blank'},
   {
     cate: '건강수명분석',
     div: '웰니스분석',
@@ -379,6 +383,7 @@ const data = ref([
     msg: "",
     confirm: ''
   },
+  { cate: 'blank'},
   {
     cate: '챌린지',
     div: '챌린지(진행중)',
@@ -416,9 +421,191 @@ const data = ref([
     msg: "",
     confirm: '2026.07.08 퍼블 완료'
   },
+  { cate: 'blank'},
   {
     cate: '나의 팀',
+    div: '목록',
+    div2: '팀 있는 경우',
+    div3: '',
+    loca: '@/views/publishing/MyTeam.vue',
+    go: '/publishing/my-team',
+    msg: "팀초대, 플로팅 버튼 작업필요",
+    confirm: '작업중'
+  },
+  {
+    cate: '',
     div: '',
+    div2: '팀 없는 경우',
+    div3: '',
+    loca: '@/views/publishing/MyTeam.vue',
+    go: '/publishing/my-team/no',
+    msg: "",
+    confirm: '2026.07.14 퍼블 완료'
+  },
+  {
+    div: '챌린지',
+    div2: '팀 만들기',
+    div3: '',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '팀 정보',
+    div3: '팀장',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '팀원',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '팀 랭킹',
+    div3: '',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '팀원 현황보기',
+    div3: '목록',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '조회된 팀원 없음',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '팀원 상세',
+    div3: '팀장',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '팀원(대표뱃지 없는 경우)',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '상시',
+    div2: '팀 만들기',
+    div3: '',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '팀 정보',
+    div3: '팀장',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '팀원',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '팀 랭킹',
+    div3: '',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '팀원 현황보기',
+    div3: '목록',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '조회된 팀원 없음',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '팀원 상세',
+    div3: '팀장',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '팀원(대표뱃지 없는 경우)',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '초대한 팀원 보기',
+    div2: '목록',
+    div3: '',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '없는 경우',
+    div3: '',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    div: '(PU) 팀 초대하기',
     div2: '',
     div3: '',
     loca: '@/views/publishing//.vue',
@@ -426,6 +613,16 @@ const data = ref([
     msg: "",
     confirm: ''
   },
+  {
+    div: '(PU) 이전 팀의 팀원 초대하기',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing//.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  { cate: 'blank'},
   {
     cate: '나의 미션 활동',
     div: '',
@@ -436,14 +633,64 @@ const data = ref([
     msg: "",
     confirm: ''
   },
+  { cate: 'blank'},
   {
     cate: '더보기',
-    div: '',
-    div2: '',
+    div: '사이드바',
+    div2: '비로그인',
     div3: '',
     loca: '@/layouts/LayoutHomeDock.vue',
+    go: '/publishing/home/intro',
+    msg: "디자인 수정 반영 필요",
+    confirm: ''
+  },
+  {
+    cate: '',
+    div: '',
+    div2: '로그인',
+    div3: '',
+    loca: '@/layouts/LayoutHomeDock.vue',
+    go: '/publishing/main',
+    msg: "디자인 수정 반영 필요",
+    confirm: ''
+  },
+  {
+    cate: '',
+    div: '공지사항',
+    div2: '',
+    div3: '',
+    loca: '@/layouts/.vue',
     go: '',
     msg: "",
+    confirm: ''
+  },
+  {
+    div: '점검중',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/etc/Construction.vue',
+    go: '/construction',
+    msg: '',
+    confirm: ''
+  },
+  {
+    cate: '',
+    div: '로딩',
+    div2: '일반 텍스트',
+    div3: '',
+    loca: '@/views/publishing/etc/.vue',
+    go: '',
+    msg: '',
+    confirm: ''
+  },
+  {
+    cate: '',
+    div: '',
+    div2: '리포트 파일 생성 로딩',
+    div3: '',
+    loca: '@/views/publishing/etc/.vue',
+    go: '',
+    msg: '',
     confirm: ''
   },
   {
@@ -473,6 +720,7 @@ const data = ref([
     msg: '',
     confirm: ''
   },
+  { cate: 'blank'},
   {
     cate: '마이페이지',
     div: '마이페이지',
@@ -510,6 +758,7 @@ const data = ref([
     msg: '',
     confirm: ''
   },
+  { cate: 'blank'},
   // {div: "",                       div2: "휴대폰번호 변경",                      div3: "",                loca: "@/views/publishing/mypage/MyPagePhoneChangePopup.vue",                             go: "/my-page-phone-change",                                        msg: "BasePhoneInput.vue '231212' 주석 수정 요망",                                  confirm: ""},
   {
     cate: '주문/결제',
@@ -527,16 +776,6 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/orderNpay/OrderNpayDetail.vue',
     go: '/publishing/order-pay/order-pay-detail',
-    msg: '',
-    confirm: ''
-  },
-  {
-    cate: '점검중',
-    div: '',
-    div2: '',
-    div3: '',
-    loca: '@/views/publishing/etc/Construction.vue',
-    go: '/construction',
     msg: '',
     confirm: ''
   },
@@ -611,7 +850,7 @@ function go (val) {
       </tr>
     </thead>
     <tbody>
-      <tr v-for="item in data" :key="item.go">
+      <tr v-for="item in data" :key="item.go" :class="item.cate === 'blank' ? 'colorBg': ''">
         <td>{{ item.cate }}</td>
         <td>{{ item.div }}</td>
         <td>{{ item.div2 }}</td>
@@ -645,5 +884,11 @@ td {
   border-bottom: solid 1px #ddd;
   border-left: solid 1px #ddd;
   padding: 1rem;
+}
+.colorBg td{
+  color: transparent;
+  background-color: #f7f7f7;
+  padding: 0;
+  font-size: 1.4rem;
 }
 </style>

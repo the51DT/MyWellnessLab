@@ -615,6 +615,31 @@ const publishingRouter = {
         },
       ],
     },
+    {
+      path: "my-team" /* 나의 팀 */,
+      component: LayoutHomeNoFooter,
+      children: [
+        {
+          path: "",
+          name: "pubMyTeam",
+          component: () => import("@/views/publishing/MyTeam.vue"),
+          meta: {
+            title: "나의 팀",
+            isLogin: true,
+          },
+        },
+        {
+          path: "no",
+          name: "pubMyTeamNo",
+          component: () => import("@/views/publishing/MyTeam.vue"),
+          meta: {
+            title: "나의 팀",
+            isLogin: true,
+            isNoTeam: true,
+          },
+        },
+      ],
+    },
   ],
 };
 

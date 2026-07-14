@@ -15,6 +15,8 @@ const router = useRouter()
 const title = ref(document.title) /* 페이지 제목 */
 const externalLink = ref(false) /* 암웨이 이동 레이어 노출 */
 const isSideBar = ref(false) /* 231214 사이드바 오프너 */
+const isPopupTerms = ref(false) /* 231216 이용약관 오프너 */
+const isPopupPrivacy = ref(false) /* 231216 개인정보 처리방침 오프너 */
 const isPc = ref(false) /* 231217 pc인지? */
 const store = useStore()
 const axios = inject('$axios')
@@ -29,6 +31,18 @@ const isLogin = computed(() => {
 
 function showLink (val) { /* 231208 암웨이 링크 레이어 추가 */
   externalLink.value = val
+}
+function openTerms () {
+  isPopupTerms.value = true
+}
+function termsClose () {
+  isPopupTerms.value = false
+}
+function openPrivacy () {
+  isPopupPrivacy.value = true
+}
+function privacyClose () {
+  isPopupPrivacy.value = false
 }
 function winWidth () { /* 브라우저 가로 사이즈 체크 */
   isPc.value = window.innerWidth > 920
@@ -128,14 +142,28 @@ onBeforeUnmount(() => {
         </div>
 
         <div class="header--menu">
+          <!-- S : 202606 dock 추가 -->
+          <aside v-if="isLogin">
+            <LayoutHomeDock />
+          </aside>
+          <!-- E : 202606 dock 추가 -->
+          <!-- 나의 미션 활동 -->
           <div v-if="isLogin">
+            <button type="button" class="btn--menu">
+              <img :src="isPc ? '/img/ico_trophy_gray.svg' : '/img/ico_trophy.svg'" :alt="'나의 미션 활동'" />
+              <span v-if="isPc">나의 미션 활동</span>
+            </button>
+          </div>
+          <!-- 분석권쿠폰 -->
+          <!-- <div v-if="isLogin">
             <button type="button" class="btn--menu" @click="moveCouponPage">
               <img src="/img/ico_coupon.svg" :alt="$t('LayoutHome.alt.coupon')" />
             </button>
-          </div>
+          </div> -->
           <div>
             <button @click="isSideBar = true" type="button" class="btn--menu">
-              <img src="/img/ico_hamburger.svg" :alt="$t('LayoutHome.alt.menu')" />
+              <img :src="isPc ? '/img/ico_hamburger_gray.svg' : '/img/ico_hamburger.svg'" :alt="$t('LayoutHome.alt.menu')" />
+              <span v-if="isPc">더보기</span>
             </button>
 
             <transition name="fade">
@@ -162,10 +190,5 @@ onBeforeUnmount(() => {
     <main>
       <RouterView />
     </main>
-
-    <aside v-if="isLogin">
-      <LayoutHomeDock />
-    </aside>
-
   </div>
 </template>

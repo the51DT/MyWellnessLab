@@ -147,14 +147,23 @@ onBeforeUnmount(() => {
             <LayoutHomeDock />
           </aside>
           <!-- E : 202606 dock 추가 -->
+          <!-- 나의 미션 활동 -->
           <div v-if="isLogin">
+            <button type="button" class="btn--menu">
+              <img :src="isPc ? '/img/ico_trophy_gray.svg' : '/img/ico_trophy.svg'" :alt="'나의 미션 활동'" />
+              <span v-if="isPc">나의 미션 활동</span>
+            </button>
+          </div>
+          <!-- 분석권쿠폰 -->
+          <!-- <div v-if="isLogin">
             <button type="button" class="btn--menu" @click="moveCouponPage">
               <img src="/img/ico_coupon.svg" :alt="$t('LayoutHome.alt.coupon')" />
             </button>
-          </div>
+          </div> -->
           <div>
             <button @click="isSideBar = true" type="button" class="btn--menu">
-              <img src="/img/ico_hamburger.svg" :alt="$t('LayoutHome.alt.menu')" />
+              <img :src="isPc ? '/img/ico_hamburger_gray.svg' : '/img/ico_hamburger.svg'" :alt="$t('LayoutHome.alt.menu')" />
+              <span v-if="isPc">더보기</span>
             </button>
 
             <transition name="fade">

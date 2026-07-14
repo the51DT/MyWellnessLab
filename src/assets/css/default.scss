@@ -200,17 +200,19 @@
           align-items: flex-start;
         }
         > div:not(:only-child) {
-          position: relative;
-          &::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: -2.1rem;
-            transform: translateY(-50%);
-            display: block;
-            width: .1rem;
-            height: 1.8rem;
-            background-color: #D9D9D9;
+          @media (min-width: $w-pc) {
+            position: relative;
+            &::before {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: -2.1rem;
+              transform: translateY(-50%);
+              display: block;
+              width: .1rem;
+              height: 1.8rem;
+              background-color: #D9D9D9;
+            }
           }
         }
       }

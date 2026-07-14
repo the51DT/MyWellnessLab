@@ -573,20 +573,20 @@ export default {
           </div> -->
         </div>
       </div>
+    </div>
 
-      <!-- 하단 플로팅 -->
-      <div v-if="!isPc" class="main-sticky">
-        <!-- 진행 전 -->
-        <div v-if="floatingDay" class="main-sticky-before">
-          <strong>챌린지 시작 D-$00$</strong>
-          <span>챌린지 참여를 위해 팀에 참여해 주세요.</span>
-          <button @click="floatingDay = false"></button>
-        </div>
-        <!-- 진행중 -->
-        <div v-else class="challenge--box-rate--wrap">
-          <div class="challenge--box-rate--per"><span>팀 인증률</span><strong><span>40</span>%</strong></div>
-          <TargetGauge :gaugePer="40" :compPer="80"></TargetGauge>
-        </div>
+    <!-- 하단 플로팅 -->
+    <div v-if="!isPc" class="main-sticky">
+      <!-- 진행 전 -->
+      <div v-if="floatingDay" class="main-sticky-before">
+        <strong>챌린지 시작 D-$00$</strong>
+        <span>챌린지 참여를 위해 팀에 참여해 주세요.</span>
+        <button @click="floatingDay = false"></button>
+      </div>
+      <!-- 진행중 -->
+      <div v-else class="challenge--box-rate--wrap">
+        <div class="challenge--box-rate--per"><span>팀 인증률</span><strong><span>40</span>%</strong></div>
+        <TargetGauge :gaugePer="40" :compPer="80"></TargetGauge>
       </div>
     </div>
   </section>

@@ -22,6 +22,7 @@ export default {
       type: Array,
     },
   },
+  emits: ["popupClose"],
   methods: {
     close(){
       this.$emit("popupClose")
@@ -61,14 +62,7 @@ export default {
     </div>
     <div class="popup-date-picker">
       <TextDatePicker 
-        :success-dates="[
-          '2026-07-01',
-          '2026-07-02',
-          '2026-07-03',
-          '2026-07-04',
-          '2026-07-05',
-          '2026-07-07',
-        ]"
+        :success-dates="successDates"
         @success-date-click="imagePopupOpen"
       />
     </div>

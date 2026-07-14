@@ -39,7 +39,6 @@ export default {
   },
   data() {
     return {
-      selectDate: null,
       config: {},
       mask: {},
     };
@@ -94,16 +93,51 @@ export default {
           const parsedDate = this.parseDate(label);
 
           day.classList.remove("success", "today");
-          day.onclick = null;
           day.style.cursor = "";
+
+          if (day._successClickHandler) {
+            day.removeEventListener("click", day._successClickHandler, true);
+          }
+          if (day._successTouchHandler) {
+            day.removeEventListener("touchend", day._successTouchHandler, true);
+          }
+          if (day._successPointerHandler) {
+            day.removeEventListener("pointerup", day._successPointerHandler, true);
+          }
+
+          day.onclick = null;
+          day._successClickHandler = null;
+          day._successTouchHandler = null;
+          day._successPointerHandler = null;
 
           if (successSet.has(parsedDate)) {
             day.classList.add("success");
             day.style.cursor = "pointer";
 
-            day.onclick = () => {
+            const openPopup = (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              e.stopImmediatePropagation();
+
               this.$emit("success-date-click", parsedDate);
+
+              nextTick(() => {
+                day.classList.remove(
+                  "vc-blue",
+                  "vc-highlight-content-solid",
+                  "vc-attr",
+                  "vc-focus"
+                );
+              });
             };
+
+            day._successClickHandler = openPopup;
+            day._successTouchHandler = openPopup;
+            day._successPointerHandler = openPopup;
+
+            day.addEventListener("click", openPopup, true);
+            day.addEventListener("touchend", openPopup, true);
+            day.addEventListener("pointerup", openPopup, true);
           }
 
           // today 처리
@@ -141,6 +175,10 @@ export default {
   },
   computed: {
     calendarAttributes () {
+      if (!this.missionRanges || this.missionRanges.length === 0) {
+        return []
+      }
+
       return this.missionRanges.map((range, index) => {
         return {
           key: `mission-range-${index}`,
@@ -162,13 +200,11 @@ export default {
   <div class="text-date-picker" :class="`theme-${pointColor}`">
     <div v-if="titleText" class="text-date-picker--title">{{ titleText }}</div>
     <VDatePicker
-      v-model="selectDate"
       mode="date"
       :attributes="calendarAttributes"
       :model-config="config"
       :masks="mask"
       @update:page="addMessages"
-      is-required
     />
   </div>
 </template>
@@ -277,6 +313,8 @@ export default {
         background: var(--main-color);
         color: #fff;
         font-weight: 700;
+        cursor: pointer;
+        pointer-events: auto;
       }
       &.start {
         background: var(--main-color);

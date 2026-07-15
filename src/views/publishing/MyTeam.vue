@@ -1,14 +1,12 @@
 <script setup>
-import { onMounted, ref, computed } from 'vue'
+import { onMounted, ref, computed, onBeforeUnmount } from 'vue'
 import { useRoute } from 'vue-router'
 import { funcIsPc } from '@/assets/js/common'
 import BasePopupClose from '@/views/publishing/BasePopupClose.vue'
 import BasePopup from '@/components/BasePopup.vue'
 import TabRound from '@/components/TabRound.vue'
-import TextDatePicker from '@/components/TextDatePicker.vue'
 import TargetGauge from '@/components/TargetGauge.vue'
-import BasePopupImage from '@/views/publishing/BasePopupImage.vue'
-import ChallengeSharePop from '@/views/publishing/challenge/ChallengeSharePop.vue'
+import BtnTop from '@/views/publishing/BtnTop.vue'
 
  /* 퍼블 확인용 데이터 없을 때 받을 값 */
 const route = useRoute()
@@ -26,9 +24,20 @@ const selectedMission = {
 const inviteTeamPopup = ref(true); /* 챌린지 한정 팀 초대 알림 팝업 */
 const unableJoinPopup = ref(false); /* 팀 가입 불가 안내 (이미 참여중) 팝업 */
 const activeTeamTab = ref(0) /* 팝업 확인하러가기 버튼 탭 변경 */
+const changeMissionPopup = ref(false); /* 미션 변경 알림 팝업 */
+const porductStatusPopup = ref(false); /* 제품 구매 여부 알림 팝업 */
+const createBtn = ref(true);
 
 function winWidth () { /* 브라우저 가로 사이즈 체크 */
   isPc.value = window.innerWidth > 920
+}
+const handleScroll = () => {
+  const currentScrollY = window.scrollY
+  if (currentScrollY > 100) {
+    createBtn.value = false   // 스크롤이 100px 이상이면 버튼 숨김
+  } else {
+    createBtn.value = true  // 맨 위에 가까우면 버튼 표시
+  }
 }
 
 onMounted(() => {
@@ -36,6 +45,12 @@ onMounted(() => {
   window.addEventListener('resize', () => {
     isPc.value = funcIsPc()
   })
+  window.addEventListener('scroll', handleScroll)
+  handleScroll()
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
 })
 </script>
 
@@ -61,7 +76,7 @@ onMounted(() => {
       <strong><span>김마웨</span>님은</strong>
       <p><span>{{ isNoTeam ? 0 : 4 }}</span>개 팀에 참여중입니다.</p>
     </div>
-    <TabRound v-model="activeTeamTab" :tabs="[{title:'진행중'}, {title:'진행종료'}, {title:'팀 초대', count: isNoTeam ? 0 : 1, new:isNoTeam ? false : true}]">
+    <TabRound v-model="activeTeamTab" :tabs="[{title:'진행중'}, {title:'진행종료'}, {title:'팀 초대', count: isNoTeam ? 0 : 2, new:isNoTeam ? false : true}]"> <!-- ?문 퍼블 확인용 챌린지 없을 때 -->
       <template #tab-0>
         <div v-if="isNoTeam" class="challenge--not"> <!-- v-if = 퍼블 확인용 챌린지 없을 때 -->
           <img src="/img/visual_alert_green.png">
@@ -353,9 +368,55 @@ onMounted(() => {
           <p>초대받은 팀이 없습니다.</p>
         </div>
         <div v-else class="team--card-list">
+          <div class="team--card challenge-team">
+            <div class="team--card-tit">
+              <p>자두자두 졸리다 챌린지</p>
+            </div>
+            <div class="team--card-profile">
+              <div class="team--card-img">
+                <img src="/img/age_20f.png">
+              </div>
+              <div>
+                <p>
+                  <span class="team--card-tag">챌린지</span>
+                  <span class="team--card-crown">오챌리</span>
+                </p>
+                <div class="team--card-team invite">오래오래 건강수면 팀</div>
+                <div class="team--card-day">챌린지 시작까지<span>D-14</span></div>
+              </div>
+            </div>
+            <div class="team--card-invite">
+              <button class="team--invite-delete" aria-label="삭제하기"></button>
+              <button class="team--invite-btn" @click="changeMissionPopup = true">참여하기</button> <!-- 퍼블 확인을 위해 팝업 임의 노출 -->
+            </div>
+          </div>
+          <div class="team--card regular-team">
+            <div class="team--card-profile">
+              <div class="team--card-img">
+                <img src="/img/age_20f.png">
+              </div>
+              <div>
+                <p>
+                  <span class="team--card-tag">상시</span>
+                  <span class="team--card-crown">장챌린지</span>
+                </p>
+                <div class="team--card-team invite">오래오래 건강수면 팀 오래오래 건강수면 팀 오래오래 건강수면 팀</div>
+              </div>
+            </div>
+            <div class="team--card-invite">
+              <button class="team--invite-delete" aria-label="삭제하기"></button>
+              <button class="team--invite-btn">참여하기</button>
+            </div>
+          </div>
         </div>
       </template>
     </TabRound>
+    <BtnTop />
+    <Transition name="fade">
+      <div v-show="createBtn" class="team--create-btn">
+        <button type="button"><img src="/img/ico_plus-white.svg"><span>팀 만들기</span></button>
+      </div>
+    </Transition>
   </section>
 
   <!-- 챌린지 한정 팀 초대 알림 팝업 - 로그인 시 노출 -->
@@ -379,7 +440,39 @@ onMounted(() => {
       <button type="button" @click="unableJoinPopup = false" class="pop-btn pop-btn--green">확인</button>
     </template>
   </BasePopupClose>
+
+  <!-- 미션 변경 알림 팝업 -->
+  <BasePopup v-if="changeMissionPopup">
+    <template v-slot:contents>
+      <p class="pop-text-light">챌린지 참여 시 진행중인 미션이</p>
+      <p class="pop-text-bold">혈압조절 - 혈압조절 제품(코엔자임 Q10, 마그네슘, 오메가3) 챙겨먹기</p>
+      <p class="pop-text-light">미션으로 변경됩니다.<br>챌린지에 참여하시겠습니까?</p>
+      <div class="pop-btn-wrap">
+        <button type="button" @click="changeMissionPopup = false" class="pop-btn pop-btn--gray">닫기</button>
+        <button type="button" @click="changeMissionPopup = false, porductStatusPopup = true" class="pop-btn pop-btn--green">참여하기</button> <!-- 퍼블 확인을 위해 팝업 임의 노출 -->
+      </div>
+    </template>
+  </BasePopup>
+
+  <!-- 제품 구매 여부 알림 팝업 -->
+  <BasePopup v-if="porductStatusPopup">
+    <template v-slot:contents>
+      <p class="pop-text-light">챌린지 참여를 위해<br>제품 구매가 필요합니다.</p>
+      <div class="pop-btn-wrap">
+        <button type="button" @click="porductStatusPopup = false, unableJoinPopup = true" class="pop-btn pop-btn--green">확인</button> <!-- 퍼블 확인을 위해 팝업 임의 노출 -->
+      </div>
+    </template>
+  </BasePopup>
 </template>
 
 <style lang="scss" scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>

@@ -429,8 +429,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/MyTeam.vue',
     go: '/publishing/my-team',
-    msg: "팀초대, 플로팅 버튼 작업필요",
-    confirm: '작업중'
+    msg: "",
+    confirm: '2026.07.15 퍼블 완료'
   },
   {
     cate: '',

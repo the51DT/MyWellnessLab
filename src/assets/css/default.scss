@@ -1002,18 +1002,22 @@ footer{
     bottom:2rem;
     @media (min-width: 1150px) {
       left: 50%;
-      margin-left: 448px;
+      margin-left: 41.6rem;
       right: auto;
       bottom:4rem;
     }
     button{
       @include btnClear;
-      $size: 5.6rem;
-      width: $size;
-      height: $size;
-      border-radius: $size;
+      width: 5.6rem;
+      height: 5.6rem;
+      border-radius: 5.6rem;
       box-shadow: 0 .2rem .6rem 0 rgba(0, 0, 0, .12);
       background-color: white;
+      @media (min-width: 1150px) {
+        width: 6.4rem;
+        height: 6.4rem;
+        border-radius: 6.4rem;
+      }
       &:after{
         content: "";
         display: block;
@@ -6008,6 +6012,9 @@ button{
       gap: .4rem;
       align-items: center;
     }
+    > p {
+      @include txtStyle(body, md, 600);
+    }
   }
   &--card-state{
     display: flex;
@@ -6064,8 +6071,11 @@ button{
     > div:not(.team--card-img){
       display: flex;
       flex-direction: column;
-      gap: .4rem;
+      gap: .6rem;
       width: calc(100% - 8rem);
+      @media (min-width:$w-pc) {
+        gap: .8rem;
+      }
     }
     p{
       display: flex;
@@ -6073,6 +6083,12 @@ button{
       @media (min-width:$w-pc) {
         gap: .6rem;
       }
+    }
+    &:first-child{
+      margin-top: 0;
+    }
+    &:has(.team--card-day){
+      align-items: flex-start;
     }
   }
   &--card-img{
@@ -6124,6 +6140,24 @@ button{
       background: url("/img/ico_people.svg") no-repeat center / contain;
     }
   }
+  &--card-crown{
+    @include txtStyle(caption, lg, 600);
+    color: #146B5B;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    width: fit-content;
+    padding: .2rem .8rem .2rem .6rem;
+    border-radius: 3rem;
+    background-color: #DEF7F4;
+    &::before{
+      content: '';
+      display: block;
+      width: 1.2rem;
+      height: 1.2rem;
+      background: url("/img/ico_crown.svg") no-repeat center / contain;
+    }
+  }
   &--card-team{
     @include txtStyle(body, md, 600);
     white-space: nowrap;
@@ -6148,6 +6182,21 @@ button{
         width: 2.8rem;
         height: 2.8rem;
       }
+    }
+    &.invite{
+      padding-right: 0;
+      &::after{
+        content: none;
+      }
+    }
+  }
+  &--card-day{
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    @include txtStyle(caption, xl-1, 500);
+    span{
+      @include txtStyle(body, 2xs, 600);
     }
   }
   &--card-info{
@@ -6203,6 +6252,78 @@ button{
     @media (min-width:$w-pc) {
       gap: 1.6rem;
       margin-top: .8rem;
+    }
+  }
+  &--card-invite{
+    display: flex;
+    gap: .8rem;
+    margin-top: 1.2rem;
+    @media (min-width:$w-pc) {
+      margin-top: 1.6rem;
+    }
+  }
+  &--invite-delete{
+    @include btnClear;
+    background-color: #fff;
+    border: .1rem solid #ccc;
+    border-radius: 99rem;
+    width: 4rem;
+    height: 4rem;
+    background: url('/img/ico_delete.svg') no-repeat center / 2.8rem;
+    flex: 0 0 auto;
+  }
+  &--invite-btn{
+    @include btnClear;
+    width: 100%;
+    background-color: #1DB196;
+    border-radius: 99rem;
+    color: #fff;
+    @include txtStyle(body, xs-1, 600);
+  }
+  &--create-btn{
+    right: 2rem;
+    position: fixed;
+    bottom: 9.4rem;
+    @media (min-width: 1150px) {
+      left: 50%;
+      margin-left: 39.6rem;
+      right: auto;
+      bottom:4rem;
+    }
+    button{
+      @include btnClear;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .2rem;
+      width: 6.6rem;
+      height: 6.6rem;
+      padding: 1rem 0 1.2rem;
+      border-radius: 99rem;
+      box-shadow: 0 1rem 3rem 0 rgba(0, 0, 0, .4);
+      background-color: #092F28;
+      @include txtStyle(caption, sm, 500);
+      color: #fff;
+      @media (min-width: 1150px) {
+        width: 8.4rem;
+        height: 8.4rem;
+        @include txtStyle(caption, md, 600);
+      }
+    }
+    img{
+      width: 2.8rem;
+      height: 2.8rem;
+      object-fit: cover;
+      @media (min-width: 1150px) {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+  }
+  .btn--top{
+    bottom: 9.4rem;
+    @media (min-width: 1150px) {
+      bottom:4rem;
     }
   }
   .challenge--box-rate--wrap{

@@ -446,10 +446,10 @@ const data = ref([
     div: '챌린지',
     div2: '팀 만들기',
     div3: '',
-    loca: '@/views/publishing//.vue',
-    go: '',
+    loca: '@/views/publishing/team/CreateTeam.vue',
+    go: '/publishing/team/create/challenge',
     msg: "",
-    confirm: ''
+    confirm: '작업중'
   },
   {
     div: '',
@@ -518,8 +518,8 @@ const data = ref([
     div: '상시',
     div2: '팀 만들기',
     div3: '',
-    loca: '@/views/publishing//.vue',
-    go: '',
+    loca: '@/views/publishing/team/CreateTeam.vue',
+    go: '/publishing/team/create/regular',
     msg: "",
     confirm: ''
   },

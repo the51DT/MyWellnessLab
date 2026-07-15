@@ -640,6 +640,30 @@ const publishingRouter = {
         },
       ],
     },
+    {
+      path: "team" /* 나의 팀 상세 */,
+      component: LayoutNormal,
+      children: [
+        {
+          path: "create/challenge",
+          name: "pubTeamCreateChallenge",
+          component: () => import("@/views/publishing/team/CreateTeam.vue"),
+          meta: {
+            title: "팀 만들기",
+            teamClassification: "challenge",
+          },
+        },
+        {
+          path: "create/regular",
+          name: "pubTeamCreateRegular",
+          component: () => import("@/views/publishing/team/CreateTeam.vue"),
+          meta: {
+            title: "팀 만들기",
+            teamClassification: "regular",
+          },
+        },
+      ],
+    },
   ],
 };
 

@@ -655,12 +655,32 @@ const publishingRouter = {
           },
         },
         {
+          path: "create/challenge/manage",
+          name: "pubTeamCreateChallengeManage",
+          component: () => import("@/views/publishing/team/CreateTeam.vue"),
+          meta: {
+            title: "챌린지 팀 관리",
+            teamClassification: "challenge" /* 퍼블 확인용 */,
+            teamManage: true /* 퍼블 확인용 */,
+          },
+        },
+        {
           path: "create/regular",
           name: "pubTeamCreateRegular",
           component: () => import("@/views/publishing/team/CreateTeam.vue"),
           meta: {
             title: "팀 만들기",
             teamClassification: "regular" /* 퍼블 확인용 */,
+          },
+        },
+        {
+          path: "create/regular/manage",
+          name: "pubTeamCreateRegularManage",
+          component: () => import("@/views/publishing/team/CreateTeam.vue"),
+          meta: {
+            title: "상시 팀 관리",
+            teamClassification: "regular" /* 퍼블 확인용 */,
+            teamManage: true /* 퍼블 확인용 */,
           },
         },
       ],

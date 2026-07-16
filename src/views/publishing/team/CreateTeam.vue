@@ -6,6 +6,11 @@ import BasePopup from '@/components/BasePopup.vue'
  /* 퍼블 확인용 챌린지/상시 구분 받을 값 challenge/regular */
 const route = useRoute()
 const teamClassification = ref(route.meta.teamClassification)
+const teamManage = computed(() => { /* 퍼블 확인용 팀 관리 페이지인지 */
+  return route.meta.teamManage === true
+})
+const challengeManage = teamClassification.value === 'challenge' && teamManage.value === true /* 퍼블 확인용 챌린지 팀 관리 */
+const regularManage = teamClassification.value === 'regular' && teamManage.value === true /* 퍼블 확인용 챌린지 팀 관리 */
 
 const leftArea = ref("")
 const rightArea = ref("")
@@ -143,18 +148,18 @@ onMounted(() => {
             <div class="form-item">
               <h5 class="title">
                 보상 수령 방법
-                <span>팀 생성 이후 변경 불가</span>
+                <span v-if="!challengeManage">팀 생성 이후 변경 불가</span>
               </h5>
               <div class="radio-wrap">
                 <div class="inputField--input--radio--wrap">
-                  <input type="radio" class="inputField--input inputField--input--radio" id="rewardTypeTeam" name="rewardType" value="team" checked/>
+                  <input type="radio" class="inputField--input inputField--input--radio" id="rewardTypeTeam" name="rewardType" value="team" checked :disabled="challengeManage"/>
                   <label for="rewardTypeTeam" class="inputField--input--radio--label">
                     <span>팀장이 수령</span>
                   </label>
                 </div>
 
                 <div class="inputField--input--radio--wrap">
-                  <input type="radio" class="inputField--input inputField--input--radio" id="rewardTypeMember" name="rewardType" value="member"/>
+                  <input type="radio" class="inputField--input inputField--input--radio" id="rewardTypeMember" name="rewardType" value="member" :disabled="challengeManage"/>
                   <label for="rewardTypeMember" class="inputField--input--radio--label">
                     <span>팀원 개별 수령</span>
                   </label>
@@ -165,7 +170,7 @@ onMounted(() => {
             <div class="form-item">
               <h5 class="title">보상 수령처</h5>
               <div class="select-wrap">
-                <select class="circle" required>
+                <select class="circle" required :disabled="challengeManage">
                   <option value="" disabled selected>선택</option>
                   <option value="1">값1</option>
                   <option value="2">값2</option>
@@ -181,7 +186,7 @@ onMounted(() => {
             <div class="form-item">
               <h5 class="title">기간</h5>
               <div class="inputField--date--wrap create-team-date">
-                <input type="date" class="inputField--input inputField--date" v-model="regularStartDate" required data-placeholder="시작일 선택" id="regularStartDate" />
+                <input type="date" class="inputField--input inputField--date" v-model="regularStartDate" required :data-placeholder="!regularManage ? '시작일 선택' : ''" id="regularStartDate" :readonly="regularManage" :value="regularManage ? '2026-09-20' : ''"/>
                 <span>~</span>
                 <input type="date" class="inputField--input inputField--date" v-model="regularEndDate" :class="regularNoEndDate ? 'disabled' : ''" required data-placeholder="종료일 선택" id="regularEndDate"/>
               </div>
@@ -198,7 +203,7 @@ onMounted(() => {
 
             <div class="form-item">
               <h5 class="title">목표 인증률</h5>
-              <div class="inputField--radio--wrap">
+              <div v-if="!regularManage" class="inputField--radio--wrap">
                 <ul>
                   <li>
                     <input type="radio" name="targetRate" value="70" id="radio-select01" v-model="targetRate" />
@@ -230,6 +235,7 @@ onMounted(() => {
                   </li>
                 </ul>
               </div>
+              <p class="desc--green">100%</p>
             </div>
 
             <div class="form-item">
@@ -240,7 +246,7 @@ onMounted(() => {
         </div>
       </div>
       <div class="sticky-btn-wrap" :class="{ 'is-bottom': isBottom }">
-        <button class="sticky-btn" @click="unableNamePopup = true">완료</button> <!-- 팝업 퍼블 확인용으로 띄우기 -->
+        <button class="sticky-btn" @click="unableNamePopup = true" :disabled="challengeManage">{{ challengeManage ? '수정' : '완료'}}</button> <!-- 팝업 퍼블 확인용으로 띄우기 -->
         <!-- <button class="sticky-btn" disabled>완료</button> -->
       </div>
       <div ref="bottomObserver" class="sticky-trigger"></div>

@@ -453,21 +453,30 @@ const data = ref([
   },
   {
     div: '',
+    div2: '',
+    div3: '챌린지 팀 관리',
+    loca: '@/views/publishing/team/CreateTeam.vue',
+    go: '/publishing/my-team/create/challenge/manage',
+    msg: "팀 만들기에서 퍼블 확인용 라우터 관리 케이스 적용함",
+    confirm: '2026.07.16 퍼블 완료'
+  },
+  {
+    div: '',
     div2: '팀 정보',
     div3: '팀장',
     loca: '@/views/publishing//.vue',
-    go: '',
+    go: '/publishing/my-team/info/challenge/leader',
     msg: "퍼블 확인용 라우터 케이스 적용",
-    confirm: '작업중'
+    confirm: ''
   },
   {
     div: '',
     div2: '',
     div3: '팀원',
     loca: '@/views/publishing//.vue',
-    go: '',
+    go: '/publishing/my-team/info/challenge',
     msg: "",
-    confirm: '작업중'
+    confirm: ''
   },
   {
     div: '',
@@ -525,21 +534,30 @@ const data = ref([
   },
   {
     div: '',
+    div2: '',
+    div3: '상시 팀 관리',
+    loca: '@/views/publishing/team/CreateTeam.vue',
+    go: '/publishing/my-team/create/regular/manage',
+    msg: "팀 만들기에서 퍼블 확인용 라우터 관리 케이스 적용함",
+    confirm: '2026.07.16 퍼블 완료'
+  },
+  {
+    div: '',
     div2: '팀 정보',
     div3: '팀장',
     loca: '@/views/publishing//.vue',
-    go: '',
+    go: '/publishing/my-team/info/regular/leader',
     msg: "",
-    confirm: '작업중'
+    confirm: ''
   },
   {
     div: '',
     div2: '',
     div3: '팀원',
     loca: '@/views/publishing//.vue',
-    go: '',
+    go: '/publishing/my-team/info/regular',
     msg: "",
-    confirm: '작업중'
+    confirm: ''
   },
   {
     div: '',

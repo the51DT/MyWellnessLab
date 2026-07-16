@@ -6547,6 +6547,18 @@ button{
     background-color: #fff;
     &:checked {
       border: .5rem solid #1DB196;
+      + .inputField--input--radio--label {
+        font-weight: 600;
+      }
+    }
+    &:disabled {
+      background-color: #F5F5F5;
+      &:checked {
+        border-color: #999;
+        + .inputField--input--radio--label {
+          font-weight: 400;
+        }
+      }
     }
     @media (min-width:$w-pc) {
       width: 2.2rem;
@@ -6554,7 +6566,7 @@ button{
     }
   }
   .inputField--input--radio--label {
-    @include txtStyle(body, 2xs, 600);
+    @include txtStyle(body, 2xs, 400);
     color: #333;
   }
   .inputField--input--checkbox {
@@ -6625,6 +6637,14 @@ button{
       pointer-events: none;
       &::before {
         content: '-';
+      }
+    }
+    &:read-only{
+      pointer-events: none;
+      border-color: #ccc;
+      background-color: #F0F0F0;
+      &::after {
+        filter: brightness(0) saturate(100%) invert(57%) sepia(100%) saturate(4%) hue-rotate(349deg) brightness(90%) contrast(87%);
       }
     }
     &::-webkit-calendar-picker-indicator {
@@ -6728,8 +6748,13 @@ button{
       transform: translateY(-50%);
       width: 2rem;
       height: 2rem;
-      background: url(/img/ic_arrow_down_black.svg) no-repeat center / 1.3rem;
+      background: url('/img/ic_arrow_down_black.svg') no-repeat center / 1.3rem;
       pointer-events: none;
+    }
+    &:has(select:disabled) {
+      &::after{
+        background-image: url('/img/ico_arrow_down.svg');
+      }
     }
   }
 }

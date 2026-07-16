@@ -1835,9 +1835,9 @@ select{
   border-radius: .2rem;
   padding-left: .6rem;
   @include txtStyle(body, 2xs);
-  color: #222;
+  color: #1A1818;
   @media (min-width: $w-pc) {
-    height: 4.4rem;
+    height: 4.8rem;
   }
   &.circle{
     border-radius: 3rem;
@@ -1847,6 +1847,12 @@ select{
     width: 100%;
     padding-right: 3rem;
     @include txtStyle(body, 2xs-1);
+    &:invalid {
+      color: #999;
+    }
+    &:focus {
+      color: #1A1818;
+    }
   }
   &:focus{
     border-color: $line-color-green;

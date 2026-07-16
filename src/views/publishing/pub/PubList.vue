@@ -23,7 +23,7 @@ const data = ref([
     div3: '',
     loca: '@/views/Intro.vue',
     go: '/publishing/home/intro',
-    msg: "가입 화면 이동 얼럿 App.vue에 위치",
+    msg: "가입 화면 이동 얼럿 App.vue에 위치<br>퍼블 확인용 라우터 케이스 적용",
     confirm: '2026.07.06 퍼블 완료'
   },
   {
@@ -32,7 +32,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Main.vue',
     go: '/publishing/main',
-    msg: "**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**",
+    msg: "**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>퍼블 확인용 라우터 케이스 적용",
     confirm: '2026.07.14 퍼블 완료'
   },
   {
@@ -400,7 +400,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Challenge.vue',
     go: '/publishing/challenge/no',
-    msg: "",
+    msg: "퍼블 확인용 라우터 케이스 적용",
     confirm: '2026.07.08 퍼블 완료'
   },
   {
@@ -418,7 +418,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/challenge/ChallengeHistory.vue',
     go: '/publishing/challenge-history/no',
-    msg: "",
+    msg: "퍼블 확인용 라우터 케이스 적용",
     confirm: '2026.07.08 퍼블 완료'
   },
   { cate: 'blank'},
@@ -447,9 +447,9 @@ const data = ref([
     div2: '팀 만들기',
     div3: '',
     loca: '@/views/publishing/team/CreateTeam.vue',
-    go: '/publishing/team/create/challenge',
-    msg: "",
-    confirm: '작업중'
+    go: '/publishing/my-team/create/challenge',
+    msg: "퍼블 확인용 라우터 케이스 적용<br>'완료' 버튼 클릭 시 퍼블 확인용으로 팝업 노출",
+    confirm: '2026.07.16 퍼블 완료'
   },
   {
     div: '',
@@ -457,8 +457,8 @@ const data = ref([
     div3: '팀장',
     loca: '@/views/publishing//.vue',
     go: '',
-    msg: "",
-    confirm: ''
+    msg: "퍼블 확인용 라우터 케이스 적용",
+    confirm: '작업중'
   },
   {
     div: '',
@@ -467,7 +467,7 @@ const data = ref([
     loca: '@/views/publishing//.vue',
     go: '',
     msg: "",
-    confirm: ''
+    confirm: '작업중'
   },
   {
     div: '',
@@ -502,7 +502,7 @@ const data = ref([
     div3: '팀장',
     loca: '@/views/publishing//.vue',
     go: '',
-    msg: "",
+    msg: "퍼블 확인용 라우터 케이스 적용",
     confirm: ''
   },
   {
@@ -519,9 +519,9 @@ const data = ref([
     div2: '팀 만들기',
     div3: '',
     loca: '@/views/publishing/team/CreateTeam.vue',
-    go: '/publishing/team/create/regular',
-    msg: "",
-    confirm: ''
+    go: '/publishing/my-team/create/regular',
+    msg: "퍼블 확인용 라우터 케이스 적용",
+    confirm: '2026.07.16 퍼블 완료'
   },
   {
     div: '',
@@ -530,7 +530,7 @@ const data = ref([
     loca: '@/views/publishing//.vue',
     go: '',
     msg: "",
-    confirm: ''
+    confirm: '작업중'
   },
   {
     div: '',
@@ -539,7 +539,7 @@ const data = ref([
     loca: '@/views/publishing//.vue',
     go: '',
     msg: "",
-    confirm: ''
+    confirm: '작업중'
   },
   {
     div: '',
@@ -641,7 +641,7 @@ const data = ref([
     div3: '',
     loca: '@/layouts/LayoutHomeDock.vue',
     go: '/publishing/home/intro',
-    msg: "디자인 수정 반영 필요",
+    msg: "페이지 확인 => 인트로로 이동<br>디자인 수정 반영 필요",
     confirm: ''
   },
   {
@@ -651,7 +651,7 @@ const data = ref([
     div3: '',
     loca: '@/layouts/LayoutHomeDock.vue',
     go: '/publishing/main',
-    msg: "디자인 수정 반영 필요",
+    msg: "페이지 확인 => 메인으로 이동<br>디자인 수정 반영 필요",
     confirm: ''
   },
   {

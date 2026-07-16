@@ -60,7 +60,7 @@ onMounted(async () => {
         <div class="pop-select">
           <span>보상 수령처</span>
           <div class="pop-select--wrap">
-            <select name="teamRewardPoint" class="circle">
+            <select name="teamRewardPoint" class="circle" required>
               <option value="" selected disabled>선택</option>
               <option value="1">보상 수령처 예시1</option>
               <option value="2">보상 수령처 예시2</option>

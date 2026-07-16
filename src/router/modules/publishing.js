@@ -3,6 +3,7 @@ import LayoutNormal from '@/layouts/LayoutNormal.vue'
 import LayoutCheckup from '@/layouts/LayoutCheckup.vue'
 import LayoutHome from '@/layouts/LayoutHome.vue'
 import LayoutHomeNoFooter from "@/layouts/LayoutHomeNoFooter.vue";
+import LayoutNormalLeader from "@/layouts/LayoutNormalLeader.vue";
 
 const publishingRouter = {
   path: "/publishing",
@@ -23,7 +24,7 @@ const publishingRouter = {
           component: () => import("@/views/Home.vue"),
           meta: {
             title: "홈",
-            isLogin: true,
+            isLogin: true /* 퍼블 확인용 */,
           },
         },
         {
@@ -33,7 +34,7 @@ const publishingRouter = {
           meta: {
             title: "인트로",
             class: "whiteHeader",
-            isLogin: false,
+            isLogin: false /* 퍼블 확인용 */,
           },
         },
       ],
@@ -51,7 +52,7 @@ const publishingRouter = {
           component: () => import("@/views/publishing/Join.vue"),
           meta: {
             title: "사용자 선택",
-            class: "short",
+            class: "short lightBg",
           },
         },
         {
@@ -60,7 +61,7 @@ const publishingRouter = {
           component: () => import("@/views/publishing/join/JoinTermsAgree.vue"),
           meta: {
             title: "약관 동의",
-            class: "middle",
+            class: "middle lightBg",
           },
         },
         {
@@ -69,7 +70,7 @@ const publishingRouter = {
           component: () => import("@/views/auth/PhoneCertification.vue"),
           meta: {
             title: "휴대폰 인증",
-            class: "short",
+            class: "short lightBg",
           },
         },
         {
@@ -79,7 +80,7 @@ const publishingRouter = {
             import("@/views/publishing/join/JoinPinRegistration.vue"),
           meta: {
             title: "PIN 번호 등록",
-            class: "short",
+            class: "short lightBg",
           },
         },
       ],
@@ -96,7 +97,7 @@ const publishingRouter = {
           component: () => import("@/views/publishing/Login.vue"),
           meta: {
             title: "사용자 선택",
-            class: "short",
+            class: "short lightBg",
           },
         },
         {
@@ -105,7 +106,7 @@ const publishingRouter = {
           component: () => import("@/views/publishing/login/LoginPin.vue"),
           meta: {
             title: "PIN 번호 입력",
-            class: "short",
+            class: "short lightBg",
           },
         },
         {
@@ -114,7 +115,7 @@ const publishingRouter = {
           component: () => import("@/views/publishing/login/TeamAgree.vue"),
           meta: {
             title: "",
-            class: "short",
+            class: "short lightBg",
           },
         },
       ],
@@ -560,7 +561,7 @@ const publishingRouter = {
           component: () => import("@/views/publishing/Main.vue"),
           meta: {
             title: "메인",
-            isLogin: true,
+            isLogin: true /* 퍼블 확인용 */,
           },
         },
       ],
@@ -575,7 +576,7 @@ const publishingRouter = {
           component: () => import("@/views/publishing/Challenge.vue"),
           meta: {
             title: "챌린지",
-            isLogin: true,
+            isLogin: true /* 퍼블 확인용 */,
           },
         },
         {
@@ -584,8 +585,8 @@ const publishingRouter = {
           component: () => import("@/views/publishing/Challenge.vue"),
           meta: {
             title: "챌린지",
-            isLogin: true,
-            isNoChallenge: true,
+            isLogin: true /* 퍼블 확인용 */,
+            isNoChallenge: true /* 퍼블 확인용 */,
           },
         },
       ],
@@ -610,7 +611,7 @@ const publishingRouter = {
             import("@/views/publishing/challenge/ChallengeHistory.vue"),
           meta: {
             title: "챌린지 이력보기",
-            isNoChallenge: true,
+            isNoChallenge: true /* 퍼블 확인용 */,
           },
         },
       ],
@@ -625,7 +626,7 @@ const publishingRouter = {
           component: () => import("@/views/publishing/MyTeam.vue"),
           meta: {
             title: "나의 팀",
-            isLogin: true,
+            isLogin: true /* 퍼블 확인용 */,
           },
         },
         {
@@ -634,14 +635,14 @@ const publishingRouter = {
           component: () => import("@/views/publishing/MyTeam.vue"),
           meta: {
             title: "나의 팀",
-            isLogin: true,
-            isNoTeam: true,
+            isLogin: true /* 퍼블 확인용 */,
+            isNoTeam: true /* 퍼블 확인용 */,
           },
         },
       ],
     },
     {
-      path: "team" /* 나의 팀 상세 */,
+      path: "my-team" /* 나의 팀 만들기 */,
       component: LayoutNormal,
       children: [
         {
@@ -650,7 +651,7 @@ const publishingRouter = {
           component: () => import("@/views/publishing/team/CreateTeam.vue"),
           meta: {
             title: "팀 만들기",
-            teamClassification: "challenge",
+            teamClassification: "challenge" /* 퍼블 확인용 */,
           },
         },
         {
@@ -659,7 +660,52 @@ const publishingRouter = {
           component: () => import("@/views/publishing/team/CreateTeam.vue"),
           meta: {
             title: "팀 만들기",
-            teamClassification: "regular",
+            teamClassification: "regular" /* 퍼블 확인용 */,
+          },
+        },
+      ],
+    },
+    {
+      path: "my-team/info" /* 나의 팀 상세 */,
+      component: LayoutNormalLeader,
+      children: [
+        {
+          path: "challenge",
+          name: "pubTeamInfoChallenge",
+          component: () => import("@/views/publishing/team/.vue"),
+          meta: {
+            title: "팀 정보",
+            teamClassification: "challenge" /* 퍼블 확인용 */,
+            isLeader: true /* 퍼블 확인용 */,
+          },
+        },
+        {
+          path: "regular",
+          name: "pubTeamInfoRegular",
+          component: () => import("@/views/publishing/team/.vue"),
+          meta: {
+            title: "팀 정보",
+            teamClassification: "regular" /* 퍼블 확인용 */,
+          },
+        },
+        {
+          path: "challenge/leader",
+          name: "pubTeamInfoChallengeLeader",
+          component: () => import("@/views/publishing/team/.vue"),
+          meta: {
+            title: "팀 정보",
+            teamClassification: "challenge" /* 퍼블 확인용 */,
+            isLeader: true /* 퍼블 확인용 */,
+          },
+        },
+        {
+          path: "regular/leader",
+          name: "pubTeamInfoRegularLeader",
+          component: () => import("@/views/publishing/team/.vue"),
+          meta: {
+            title: "팀 정보",
+            teamClassification: "regular" /* 퍼블 확인용 */,
+            isLeader: true /* 퍼블 확인용 */,
           },
         },
       ],

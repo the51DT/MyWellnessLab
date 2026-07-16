@@ -700,6 +700,13 @@ const publishingRouter = {
             noInvitedList: true /* 퍼블 확인용 */,
           },
         },
+        {
+          path: "invite", /* 퍼블 확인용 */
+          name: "pubTeamInvite",
+          component: () => import("@/views/publishing/team/TeamInvitePopup.vue"),
+          meta: {
+          },
+        },
       ],
     },
     {

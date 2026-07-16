@@ -2021,39 +2021,45 @@ footer{
       flex-direction: column;
       gap: 1.2rem;
     }
-    .pop-select{
-      display: flex;
-      align-items: center;
-      gap: .8rem;
-      > span{
-        @include txtStyle(body, xs);
-        white-space: nowrap;
-      }
-      &--wrap{
-        width: 100%;
-        position: relative;
-        &::after{
-          @include afterSet;
-          top: 1rem;
-          left: auto;
-          right: 2rem;
-          width: 2rem;
-          height: 2rem;
-          margin: 0;
-          background: url("/img/ic_arrow_down_black.svg") no-repeat center / 1.3rem;
-          pointer-events: none;
-          @media (min-width: $w-pc) {
-            top: 1.4rem;
-            right: 1.4rem;
-          }
-        }
-      }
-      @media (min-width: $w-pc) {
-        gap: 1.2rem;
-      }
-    }
     .pop-text-caption{
       margin-top: 0;
+    }
+  }
+  .pop-select{
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    > span{
+      @include txtStyle(body, xs);
+      white-space: nowrap;
+    }
+    &--wrap{
+      width: 100%;
+      position: relative;
+      &::after{
+        @include afterSet;
+        top: 1rem;
+        left: auto;
+        right: 2rem;
+        width: 2rem;
+        height: 2rem;
+        margin: 0;
+        background: url("/img/ic_arrow_down_black.svg") no-repeat center / 1.3rem;
+        pointer-events: none;
+        @media (min-width: $w-pc) {
+          top: 1.4rem;
+          right: 1.4rem;
+        }
+      }
+    }
+    select.circle{
+      padding-left: 1.6rem;
+      @media (min-width: $w-pc) {
+        padding-left: 1.8rem;
+      }
+    }
+    @media (min-width: $w-pc) {
+      gap: 1.2rem;
     }
   }
 
@@ -2343,6 +2349,24 @@ footer{
           }
         }
       }
+    }
+  }
+  // 팀 초대가히 팝업
+  &.teamInvitePopup{
+    .invite-pop--btn.kakao{
+      margin-bottom: 1.2rem;
+    }
+  }
+  // 이전 팀의 팀원 초대하기 팝업
+  &.prevTeamInvitePopup{
+    .pop-select {
+      margin-bottom: 1.2rem;
+    }
+    .pop-text-light {
+      word-break: break-all;
+    }
+    .pop-text-caption {
+      margin-top: 1.2rem;
     }
   }
 }
@@ -16933,7 +16957,7 @@ span.legend-dot-interest{
       align-items: center;
       gap: .6rem;
       width: 100%;
-      height: auto;
+      height: 4rem;
       padding: .8rem 1.2rem;
       background: #FDE500;
       border-radius: 9rem;
@@ -16942,9 +16966,16 @@ span.legend-dot-interest{
       &::before{
         content: '';
         display: inline-block;
-        width: 2rem;
-        height: 2rem;
-        background: url("/img/ico_kakao.svg") no-repeat center;
+        width: 1.6rem;
+        height: 1.6rem;
+        background: url("/img/ico_kakao.svg") no-repeat center / contain;
+      }
+      @media (min-width:$w-pc) {
+        height: 4.8rem;
+        &::before{
+          width: 2.4rem;
+          height: 2.4rem;
+        }
       }
     }
   }

@@ -117,7 +117,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/login/TeamAgree.vue',
     go: '/publishing/login/team-agree',
-    msg: '',
+    msg: '퍼블 확인용 라우터 생성<br>사용 시 popupClose emit 필요',
     confirm: '2026.07.06 퍼블 완료'
   },
   { cate: 'blank'},
@@ -623,22 +623,13 @@ const data = ref([
     confirm: '2026.07.16 퍼블 완료'
   },
   {
-    div: '(PU) 팀 초대하기',
+    div: '(PU) 팀 초대하기, 이전 팀의 팀원 초대하기',
     div2: '',
     div3: '',
-    loca: '@/views/publishing//.vue',
-    go: '',
-    msg: "",
-    confirm: ''
-  },
-  {
-    div: '(PU) 이전 팀의 팀원 초대하기',
-    div2: '',
-    div3: '',
-    loca: '@/views/publishing//.vue',
-    go: '',
-    msg: "",
-    confirm: ''
+    loca: '@/views/publishing/team/TeamInvitePopup.vue',
+    go: '/publishing/my-team/invite',
+    msg: "퍼블 확인용 라우터 생성<br>사용 시 popupClose emit 필요<br>디자인 확인 필요",
+    confirm: '2026.07.16 퍼블 완료'
   },
   { cate: 'blank'},
   {

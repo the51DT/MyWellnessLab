@@ -608,19 +608,19 @@ const data = ref([
     div: '초대한 팀원 보기',
     div2: '목록',
     div3: '',
-    loca: '@/views/publishing//.vue',
-    go: '',
+    loca: '@/views/publishing/team/TeamInvited.vue',
+    go: '/publishing/my-team/invited',
     msg: "",
-    confirm: ''
+    confirm: '2026.07.16 퍼블 완료'
   },
   {
     div: '',
     div2: '없는 경우',
     div3: '',
-    loca: '@/views/publishing//.vue',
-    go: '',
-    msg: "",
-    confirm: ''
+    loca: '@/views/publishing/team/TeamInvited.vue',
+    go: '/publishing/my-team/invited/not',
+    msg: "퍼블 확인용 라우터 케이스 적용",
+    confirm: '2026.07.16 퍼블 완료'
   },
   {
     div: '(PU) 팀 초대하기',

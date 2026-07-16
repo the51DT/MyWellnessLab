@@ -642,7 +642,7 @@ const publishingRouter = {
       ],
     },
     {
-      path: "my-team" /* 나의 팀 만들기 */,
+      path: "my-team" /* 나의 팀 서브페이지 - 일반 레이아웃 */,
       component: LayoutNormal,
       children: [
         {
@@ -683,10 +683,27 @@ const publishingRouter = {
             teamManage: true /* 퍼블 확인용 */,
           },
         },
+        {
+          path: "invited",
+          name: "pubTeamInvited",
+          component: () => import("@/views/publishing/team/TeamInvited.vue"),
+          meta: {
+            title: "초대한 팀원 보기",
+          },
+        },
+        {
+          path: "invited/not",
+          name: "pubTeamInvitedNot",
+          component: () => import("@/views/publishing/team/TeamInvited.vue"),
+          meta: {
+            title: "초대한 팀원 보기",
+            noInvitedList: true /* 퍼블 확인용 */,
+          },
+        },
       ],
     },
     {
-      path: "my-team/info" /* 나의 팀 상세 */,
+      path: "my-team/info" /* 나의 팀 상세 - 팀장 레이아웃 */,
       component: LayoutNormalLeader,
       children: [
         {

@@ -6758,6 +6758,104 @@ button{
     }
   }
 }
+.team-invited{
+  &--list{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: .8rem;
+    @media (min-width:$w-pc) {
+      gap: 1.6rem;
+    }
+  }
+  &--card{
+    display: flex;
+    border-radius: 2.4rem;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    > div:not(.card-state) {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      padding: 1.4rem 1.6rem;
+      flex: 1 0 auto;
+      @media (min-width: $w-pc) {
+        gap: 2rem;
+        padding: 1.6rem 2rem;
+      }
+      img{
+        width: 6.4rem;
+        height: 6.4rem;
+        background-color: #F5F5F5;
+        border-radius: 99rem;
+        @media (min-width: $w-pc) {
+          width: 6.8rem;
+          height: 6.8rem;
+        }
+      }
+    }
+    .card-name{
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      p{
+        display: flex;
+        gap: 1.2rem;
+        @include txtStyle(body, 2xs, 600);
+        color: #333;
+      }
+      span{
+        font-weight: 400;
+        color: #666;
+        flex-basis: 4rem;
+      }
+      @media (min-width:$w-pc) {
+        p{
+          gap: 1.6rem;
+        }
+        span{
+          flex-basis: 4.2rem;
+        }
+      }
+    }
+    .card-state{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: .4rem;
+      width: 8.7rem;
+      @include txtStyle(body, 2xs-1, 600);
+      flex: 0 0 auto;
+      @media (min-width:$w-pc) {
+        width: 10.3rem;
+      }
+    }
+    .card-icon{
+      width: 2.8rem;
+      height: 2.8rem;
+      background: url('/img/img_team_comp.png') no-repeat center / contain;
+      @media (min-width:$w-pc) {
+        width: 10.3rem;
+      }
+    }
+    &.comp{
+      .card-state{
+        color: #199982;
+        background-color: #DEF7F4;
+      }
+    }
+    &.wait{
+      .card-state{
+        color: #FF9705;
+        background-color: #FFF1CC;
+      }
+      .card-icon{
+        background-image: url('/img/img_team_wait.png');
+      }
+    }
+  }
+}
 .share-btn-wrap{
   position: absolute;
   z-index: 2;

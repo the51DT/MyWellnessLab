@@ -2023,6 +2023,7 @@ footer{
     }
     .pop-text-caption{
       margin-top: 0;
+      @include txtStyle(caption, lg-1);
     }
   }
   .pop-select{
@@ -6634,9 +6635,8 @@ button{
     border: .1rem solid #e5e5e5;
     border-radius: 99rem;
     background-color: #fff;
-    font-size: 1.5rem;
-    line-height: 1.5;
     color: #1A1818;
+    letter-spacing: -0.2px;
     @include txtStyle(body, 2xs);
     @media (min-width:$w-pc) {
       height: 4.2rem;

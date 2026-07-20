@@ -716,17 +716,16 @@ const publishingRouter = {
         {
           path: "challenge",
           name: "pubTeamInfoChallenge",
-          component: () => import("@/views/publishing/team/.vue"),
+          component: () => import("@/views/publishing/team/TeamInfo.vue"),
           meta: {
             title: "팀 정보",
             teamClassification: "challenge" /* 퍼블 확인용 */,
-            isLeader: true /* 퍼블 확인용 */,
           },
         },
         {
           path: "regular",
           name: "pubTeamInfoRegular",
-          component: () => import("@/views/publishing/team/.vue"),
+          component: () => import("@/views/publishing/team/TeamInfo.vue"),
           meta: {
             title: "팀 정보",
             teamClassification: "regular" /* 퍼블 확인용 */,
@@ -735,7 +734,7 @@ const publishingRouter = {
         {
           path: "challenge/leader",
           name: "pubTeamInfoChallengeLeader",
-          component: () => import("@/views/publishing/team/.vue"),
+          component: () => import("@/views/publishing/team/TeamInfo.vue"),
           meta: {
             title: "팀 정보",
             teamClassification: "challenge" /* 퍼블 확인용 */,
@@ -745,7 +744,7 @@ const publishingRouter = {
         {
           path: "regular/leader",
           name: "pubTeamInfoRegularLeader",
-          component: () => import("@/views/publishing/team/.vue"),
+          component: () => import("@/views/publishing/team/TeamInfo.vue"),
           meta: {
             title: "팀 정보",
             teamClassification: "regular" /* 퍼블 확인용 */,

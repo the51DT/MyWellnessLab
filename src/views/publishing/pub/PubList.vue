@@ -464,19 +464,19 @@ const data = ref([
     div: '',
     div2: '팀 정보',
     div3: '팀장',
-    loca: '@/views/publishing//.vue',
+    loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/challenge/leader',
     msg: "퍼블 확인용 라우터 케이스 적용",
-    confirm: ''
+    confirm: '작업중'
   },
   {
     div: '',
     div2: '',
     div3: '팀원',
-    loca: '@/views/publishing//.vue',
+    loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/challenge',
     msg: "",
-    confirm: ''
+    confirm: '작업중'
   },
   {
     div: '',
@@ -545,19 +545,19 @@ const data = ref([
     div: '',
     div2: '팀 정보',
     div3: '팀장',
-    loca: '@/views/publishing//.vue',
+    loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/regular/leader',
     msg: "",
-    confirm: ''
+    confirm: '작업중'
   },
   {
     div: '',
     div2: '',
     div3: '팀원',
-    loca: '@/views/publishing//.vue',
+    loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/regular',
     msg: "",
-    confirm: ''
+    confirm: '작업중'
   },
   {
     div: '',

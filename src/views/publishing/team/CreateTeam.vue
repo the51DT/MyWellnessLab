@@ -9,14 +9,21 @@ const teamClassification = ref(route.meta.teamClassification)
 const teamManage = computed(() => { /* 퍼블 확인용 팀 관리 페이지인지 */
   return route.meta.teamManage === true
 })
-const challengeManage = teamClassification.value === 'challenge' && teamManage.value === true /* 퍼블 확인용 챌린지 팀 관리 */
-const regularManage = teamClassification.value === 'regular' && teamManage.value === true /* 퍼블 확인용 챌린지 팀 관리 */
+const challengeManage = computed(() => { /* 퍼블 확인용 챌린지 팀 관리 */
+  return teamClassification.value === 'challenge' && teamManage.value === true
+})
+const regularManage = computed(() => { /* 퍼블 확인용 상시 팀 관리 */
+  return teamClassification.value === 'regular' && teamManage.value === true
+})
 
 const leftArea = ref("")
 const rightArea = ref("")
 const imageUrl = ref(null)
 
 const regularStartDate = ref("") /* 상시 시작일 */
+watch(regularManage, (value) => {
+  regularStartDate.value = value ? '2026-09-20' : ''
+}, { immediate: true })
 const regularEndDate = ref("") /* 상시 종료일 */
 const regularNoEndDate = ref(false) /* 상시 종료일 없음 */
 const targetRate = ref("100") /* 목표 인증률 */
@@ -186,7 +193,7 @@ onMounted(() => {
             <div class="form-item">
               <h5 class="title">기간</h5>
               <div class="inputField--date--wrap create-team-date">
-                <input type="date" class="inputField--input inputField--date" v-model="regularStartDate" required :data-placeholder="!regularManage ? '시작일 선택' : ''" id="regularStartDate" :readonly="regularManage" :value="regularManage ? '2026-09-20' : ''"/>
+                <input type="date" class="inputField--input inputField--date" v-model="regularStartDate" required :data-placeholder="!regularManage ? '시작일 선택' : ''" id="regularStartDate" :readonly="regularManage"/>
                 <span>~</span>
                 <input type="date" class="inputField--input inputField--date" v-model="regularEndDate" :class="regularNoEndDate ? 'disabled' : ''" required data-placeholder="종료일 선택" id="regularEndDate"/>
               </div>
@@ -235,7 +242,7 @@ onMounted(() => {
                   </li>
                 </ul>
               </div>
-              <p class="desc--green">100%</p>
+              <p v-if="regularManage" class="desc--green">100%</p>
             </div>
 
             <div class="form-item">

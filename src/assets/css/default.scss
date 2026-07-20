@@ -6627,7 +6627,7 @@ button{
     gap: .4rem;
     > span {
       @include txtStyle(caption, lg);
-      color: #666;
+      color: #808080;
       flex: 0 0 auto;
     }
   }
@@ -6648,6 +6648,7 @@ button{
     background-color: #fff;
     color: #1A1818;
     letter-spacing: -0.2px;
+    text-align: left;
     @include txtStyle(body, 2xs);
     @media (min-width:$w-pc) {
       height: 4.2rem;

@@ -60,14 +60,14 @@ function back(){
   router.back();
 }
 
-function inviteTooltip(e){
-  e.target.closet.q
+function inviteTooltip(e) {
+  e.currentTarget.closest('.leader-menu--tooltip').remove()
 }
 </script>
 
 <template>
   <div class="layout--normal" :class="$route.meta.class"> <!--231201 클래스 추가-->
-    <header class="header">
+    <header class="header greenBg">
       <div class="header--wrap">
         <div class="header--back">
           <button v-if="!isSelectProfile" @click="back" class="header--back-btn" title="뒤로" type="button"></button>
@@ -78,10 +78,10 @@ function inviteTooltip(e){
         <div class="leader-menu"> <!-- 팀장일 경우에만 노출 -->
           <button v-if="isLeader" class="leader-menu--manage" aria-label="팀 관리"></button> <!-- 팀 관리 페이지로 이동 -->
           <div v-if="isLeader" class="leader-menu--invite"> <!-- 팀원 초대 버튼 -->
-            <button></button>
-            <div class="leader-menu--tooltip">
+            <button aria-label="팀원 초대"></button>
+            <div class="leader-menu--tooltip"> <!-- 팀장일 경우에만 노출, 챌린지 - 팀원 모집 기간 동안만 노출 -->
               팀원을 초대해주세요
-              <button class="leader-menu--colse" aria-label="닫기" @click="inviteTooltip()"></button>
+              <button class="leader-menu--close" aria-label="닫기" @click="inviteTooltip"></button>
             </div>
           </div>
         </div>

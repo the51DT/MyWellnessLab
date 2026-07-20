@@ -16,12 +16,23 @@ export default {
     },
     bgColor: {
       type: String,
-      default: '#EB608E'
+      default: 'pink'
     }
   },
   data () {
     return {
-      observer: null
+      observer: null,
+      colorObj: this.bgColor === 'pink' /* 색상 더 생기면 조건 변경 필요 */
+        ? {
+            bg: '#EB608E',
+            gradient1: '#F395B5',
+            gradient2: '#DD366E',
+          }
+        : {
+            bg: '#146B5B',
+            gradient1: '#4BDAC0',
+            gradient2: '#199982',
+          }
     }
   },
   mounted () {
@@ -55,8 +66,6 @@ export default {
     })
 
     this.observer.observe(target)
-    
-    this.posValue(document.querySelectorAll(".target-gauge--target"));
   },
   beforeUnmount () {
     document.removeEventListener("scroll", this.scrollEvents, true)
@@ -85,15 +94,6 @@ export default {
         stickyTarget.style.display = "none"
       }
     },
-    posValue(list) {
-      list.forEach((el) => {
-        if (this.targetPer >= 75) {
-          el.classList.add("ty02")
-        } else {
-          el.classList.remove("ty02");
-        }
-      });
-    }
   }
 }
 </script>
@@ -101,11 +101,12 @@ export default {
 <template>
   <div ref="targetGauge" class="target-gauge">
     <div class="target-gauge--wrap">
-      <div ref="gauge" class="target-gauge--gauge" :style="{backgroundColor: bgColor, width: gaugePer + '%' }">
+      <div v-if="gaugePer < 100" ref="gauge" class="target-gauge--gauge" :style="{backgroundColor: colorObj.bg, width: gaugePer + '%' }">
       </div>
+      <div v-else class="target-gauge--gauge full" :style="`background: linear-gradient(90deg, ${colorObj.gradient1} 0%, ${colorObj.gradient2} 100%);`">100% 달성 완료</div>
     </div>
-    <div v-if="compPer" class="target-gauge--comp" :style="{ width: 100 - compPer + '%' }" :class="gaugePer >= compPer ? 'comp' : ''">성공!</div>
-    <div v-if="targetPer" class="target-gauge--target" :style="{ left: targetPer + '%' }">목표치</div>
+    <div v-if="compPer && gaugePer < 100" class="target-gauge--comp" :style="{ width: 100 - compPer + '%' }" :class="gaugePer >= compPer ? 'comp' : ''">성공!</div>
+    <div ref="target" v-if="targetPer" class="target-gauge--target" :class="{ ty02: targetPer >= 80 }" :style="{ left: targetPer + '%' }">목표치</div>
   </div>
 </template>
 
@@ -134,6 +135,19 @@ export default {
     height: 100%;
     border-radius: 99rem;
     will-change: width;
+    &.full{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      font-size: 2rem;
+      line-height: 1.5;
+      font-weight: 600;
+      color: #fff;
+      @media (min-width: 960px) {
+        font-size: 2.2rem;
+      }
+    }
   }
   &--comp{
     position: absolute;
@@ -165,6 +179,7 @@ export default {
     display: flex;
     align-items: center;
     gap: .3rem;
+    margin-left: -0.6rem;
     font-size: 1.1rem;
     line-height: 1.5;
     color: #666;
@@ -180,15 +195,20 @@ export default {
     }
     &.ty02 {
       flex-direction: row-reverse;
-      transform: translateX(-100%);
+      transform: translateX(calc(-100%));
+      margin-inline: 0.6rem;
     }
     @media (min-width: 960px) {
       top: -1.9rem;
       font-size: 1.3rem;
+      margin-left: -0.75rem;
       &::before{
         border-left: 0.75rem solid transparent;
         border-right: 0.75rem solid transparent;
         border-top: 1rem solid #666;
+      }
+      &.ty02 {
+        margin-inline: 0.75rem;
       }
     }
   }

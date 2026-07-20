@@ -192,7 +192,7 @@ onBeforeUnmount(() => {
             <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">
                 <div class="challenge--box-rate--per"><span>챌린지 인증률</span><strong><span>50</span>%</strong></div>
-                <TargetGauge :gaugePer="50" :bgColor="'#146B5B'"></TargetGauge>
+                <TargetGauge :gaugePer="50" :bgColor="'green'"></TargetGauge>
               </div>
             </div>
           </button>
@@ -228,7 +228,7 @@ onBeforeUnmount(() => {
             <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">
                 <div class="challenge--box-rate--per"><span>챌린지 인증률</span><strong><span>0</span>%</strong></div>
-                <TargetGauge :gaugePer="0" :bgColor="'#146B5B'"></TargetGauge>
+                <TargetGauge :gaugePer="0" :bgColor="'green'"></TargetGauge>
               </div>
             </div>
           </button>

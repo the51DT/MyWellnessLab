@@ -466,7 +466,7 @@ const data = ref([
     div3: '팀장',
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/challenge/leader',
-    msg: "퍼블 확인용 라우터 케이스 적용",
+    msg: "퍼블 확인용 라우터 케이스 적용<br>진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출",
     confirm: '작업중'
   },
   {
@@ -475,7 +475,7 @@ const data = ref([
     div3: '팀원',
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/challenge',
-    msg: "",
+    msg: "진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출",
     confirm: '작업중'
   },
   {
@@ -547,7 +547,7 @@ const data = ref([
     div3: '팀장',
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/regular/leader',
-    msg: "",
+    msg: "퍼블 확인용 라우터 케이스 적용<br>진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출",
     confirm: '작업중'
   },
   {
@@ -556,7 +556,7 @@ const data = ref([
     div3: '팀원',
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/regular',
-    msg: "",
+    msg: "진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출",
     confirm: '작업중'
   },
   {
@@ -628,7 +628,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/team/TeamInvitePopup.vue',
     go: '/publishing/my-team/invite',
-    msg: "퍼블 확인용 라우터 생성<br>사용 시 popupClose emit 필요<br>디자인 확인 필요",
+    msg: "퍼블 확인용 라우터 생성<br>사용 시 popupClose emit 필요",
     confirm: '2026.07.16 퍼블 완료'
   },
   { cate: 'blank'},

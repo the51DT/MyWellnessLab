@@ -567,7 +567,7 @@ export default {
             <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">
                 <div class="challenge--box-rate--per"><span>팀 인증률</span><strong><span>40</span>%</strong></div>
-                <TargetGauge :gaugePer="40" :targetPer="60" :compPer="80" :bgColor="'#146B5B'"></TargetGauge>
+                <TargetGauge :gaugePer="40" :targetPer="60" :compPer="80" :bgColor="'green'"></TargetGauge>
               </div>
             </div>
           </div> -->

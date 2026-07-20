@@ -2352,7 +2352,7 @@ footer{
       }
     }
   }
-  // 팀 초대가히 팝업
+  // 팀 초대하기 팝업
   &.teamInvitePopup{
     .invite-pop--btn.kakao{
       margin-bottom: 1.2rem;
@@ -2365,8 +2365,10 @@ footer{
     }
     .pop-text-light {
       word-break: break-all;
+      @include txtStyle(body, xs-1);
     }
     .pop-text-caption {
+      word-break: break-all;
       margin-top: 1.2rem;
     }
   }

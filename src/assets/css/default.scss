@@ -259,6 +259,7 @@
       @media (min-width: $w-pc) {
         .header--wrap{
           flex-direction: row;
+          justify-content: space-between;
           align-items: center;
           height: 8rem;
           padding-right: 4rem;
@@ -4117,11 +4118,12 @@ footer{
   &--wrap{
     display: flex;
     flex-direction: column;
-    @include min-vh-fallback(100, 19.2rem);
+    @include min-vh-fallback(100, 4.9rem);
     text-align: center;
     padding: 2.4rem 2rem;
     @media (min-width: $w-pc) {
       padding: 2.8rem 0 0;
+      @include min-vh-fallback(100, 19.2rem);
     }
     .btn--bottom{
       padding: 0;
@@ -5382,9 +5384,14 @@ button{
             position: absolute;
             bottom: 0;
             display: block;
-            width: 2.6rem;
-            height: 2.6rem;
+            width: 2.4rem;
+            height: 2.5rem;
             background: #fff;
+            @media (min-width:$w-pc) {
+              width: 3.2rem;
+              height: 3.4rem;
+              bottom: -0.3rem;
+            }
           }
           span{
             display: block;
@@ -5404,9 +5411,14 @@ button{
         .tab-content--active{
           left: 0;
           &::after{
-            right: -2.6rem;
-            -webkit-mask: radial-gradient(100% 100% at 100% 0, transparent 99%, #000 100%);
-            mask: radial-gradient(100% 100% at 100% 0, transparent 99%, #000 100%);
+            right: -2.4rem;
+            -webkit-mask: radial-gradient(3.1rem 3.2rem at 100% 0, transparent 78%, #000 79%);
+            mask: radial-gradient(3.1rem 3.2rem at 100% 0, transparent 78%, #000 79%);
+            @media (min-width:$w-pc) {
+              right: -3.2rem;
+              -webkit-mask: radial-gradient(4.2rem 4rem at 100% 0, transparent 78%, #000 79%);
+              mask: radial-gradient(4.2rem 4rem at 100% 0, transparent 78%, #000 79%);
+            }
           }
         }
       }
@@ -5416,9 +5428,14 @@ button{
         .tab-content--active{
           right: 0;
           &::after{
-            left: -2.6rem;
-            -webkit-mask: radial-gradient(100% 100% at 0 0, transparent 99%, #000 100%);
-            mask: radial-gradient(100% 100% at 0 0, transparent 99%, #000 100%);
+            left: -2.4rem;
+            -webkit-mask: radial-gradient(3.1rem 3.2rem at 0 0, transparent 78%, #000 79%);
+            mask: radial-gradient(3.1rem 3.2rem at 0 0, transparent 78%, #000 79%);
+            @media (min-width:$w-pc) {
+              left: -3.2rem;
+              -webkit-mask: radial-gradient(4.2rem 4rem at 0 0, transparent 78%, #000 79%);
+              mask: radial-gradient(4.2rem 4rem at 0 0, transparent 78%, #000 79%);
+            }
           }
         }
       }

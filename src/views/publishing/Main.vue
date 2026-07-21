@@ -36,6 +36,7 @@ export default {
       imageUrl: ref(null),
       tab: ref(0),
       missionTab: ref(0),
+      stickyScrollHandler: null, /* 260721 / 플로팅 탭 전환 핸들러 추가 */
       analyzeData: { /* 건강수명분석 퍼블 확인용 */
         total: 0.67,
         aging: 77,
@@ -259,6 +260,68 @@ export default {
     winWidth () { /* 브라우저 가로 사이즈 체크 */
       this.isPc = window.innerWidth > 920
     },
+
+    /* [start] 260721 / 플로팅 탭 전환 핸들러 추가 */
+    selectTeamTab (value) {
+      this.tab = value
+
+      this.$nextTick(() => {
+        this.updateMainSticky()
+      })
+    },
+
+    updateMainSticky () {
+      this.winWidth()
+
+      const scrollY = window.scrollY
+      const homeAddBtn = document.querySelector(".home--addBtn")
+      const stickyCardBox = document.querySelector(".main-sticky")
+      const stickyArea = document.querySelector(".main--team")
+
+      if (!stickyCardBox || !stickyArea) return
+
+      const stickyAreaY = stickyArea.offsetTop
+      const winHeight = window.innerHeight
+      const isTeamArea = scrollY + winHeight / 2 >= stickyAreaY
+
+      /* 상시 탭이면 무조건 숨김 */
+      if (this.tab === 1) {
+        stickyCardBox.style.display = "none"
+        stickyCardBox.classList.remove("sticky")
+        if (homeAddBtn) {
+          homeAddBtn.classList.remove("active")
+        }
+        return
+      }
+
+      /* 챌린지 탭 + floatingDay true면 계속 플로팅 */
+      if (this.floatingDay) {
+        stickyCardBox.style.display = ""
+        stickyCardBox.classList.add("sticky")
+        if (homeAddBtn) {
+          homeAddBtn.classList.remove("active")
+        }
+        return
+      }
+
+      /* 챌린지 탭 + floatingDay false일 때 스크롤 조건 */
+      stickyCardBox.style.display = ""
+
+      if (isTeamArea) {
+        stickyCardBox.classList.remove("sticky")
+        if (homeAddBtn) {
+          homeAddBtn.classList.add("active")
+        }
+        return
+      }
+
+      stickyCardBox.classList.add("sticky")
+
+      if (homeAddBtn) {
+        homeAddBtn.classList.remove("active")
+      }
+    },
+    /* [end] 260721 / 플로팅 탭 전환 핸들러 추가 */
     /*  팝업 열기 */
     popupOpen (val) {
       this.popup[val] = true
@@ -324,32 +387,27 @@ export default {
   },
   mounted () {
     this.winWidth()
-    window.addEventListener('scroll', () => {
-      this.winWidth()
 
-      let scrollY = window.scrollY;
-      const homeAddBtn = document.querySelector(".home--addBtn");
-      const stickyCardBox = document.querySelector(".main-sticky");
-      const stickyArea = document.querySelector(".main--team");
-      const stickyAreaY = stickyArea.offsetTop;
-      const winHeight = window.innerHeight;
-      const stickyTarget = document.querySelector(".main-sticky-target");
+    /* [start] 260721 / 플로팅 탭 전환 핸들러 추가 */
+    this.stickyScrollHandler = () => {
+      this.updateMainSticky()
+    }
 
-      if (!stickyCardBox) {
-        return;
-      } else {
-        if (scrollY + winHeight / 2 >= stickyAreaY) {
-          stickyCardBox.classList.remove("sticky");
-          homeAddBtn.classList.add("active");
-          stickyTarget.style.display = "block";
-        } else {
-          stickyCardBox.classList.add("sticky");
-          homeAddBtn.classList.remove("active");
-          stickyTarget.style.display = "none";
-        }
-      }
+    window.addEventListener('scroll', this.stickyScrollHandler)
+
+    this.$nextTick(() => {
+      this.updateMainSticky()
     })
+    /* [end] 260721 / 플로팅 탭 전환 핸들러 추가 */
+
     this.dayBtn()
+  },
+  beforeUnmount () {
+    /* [start] 260721 / 플로팅 탭 전환 핸들러 추가 */
+    if (this.stickyScrollHandler) {
+      window.removeEventListener('scroll', this.stickyScrollHandler)
+    }
+    /* [end] 260721 / 플로팅 탭 전환 핸들러 추가 */
   },
   computed: {
     selectedMission () {
@@ -514,8 +572,9 @@ export default {
       <p class="main--team--tit">나의 팀</p>
       <div class="main--team--folder">
         <div class="tab-wrap">
-          <button class="tab" type="button" @click="tab = 0" :class="tab === 0 ? 'active' : ''">챌린지</button>
-          <button class="tab" type="button" @click="tab = 1" :class="tab === 1 ? 'active' : ''">상시</button>
+          <!-- 260721 / 플로팅 탭 전환 핸들러 추가 - 버튼 클릭 이벤트 수정 -->
+          <button class="tab" type="button" @click="selectTeamTab(0)" :class="tab === 0 ? 'active' : ''">챌린지</button>
+          <button class="tab" type="button" @click="selectTeamTab(1)" :class="tab === 1 ? 'active' : ''">상시</button>
         </div>
         <div v-if="tab === 0" class="tab-content tab-content-1">
           <div class="tab-content--active"><span>챌린지</span></div>
@@ -537,7 +596,7 @@ export default {
                 <span>2026.06.11~2025.08.20 /<em>70일</em></span>
               </p>
             </div>
-            <div class="challenge--box-rate main-sticky-target">
+            <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">
                 <div class="challenge--box-rate--per"><span>팀 인증률</span><strong><span>40</span>%</strong></div>
                 <TargetGauge :gaugePer="40" :targetPer="60" :compPer="80"></TargetGauge>
@@ -581,7 +640,7 @@ export default {
       <div v-if="floatingDay" class="main-sticky-before">
         <strong>챌린지 시작 D-$00$</strong>
         <span>챌린지 참여를 위해 팀에 참여해 주세요.</span>
-        <button @click="floatingDay = false"></button>
+        <button @click="floatingDay = false; updateMainSticky()"></button> <!-- 260721 / 플로팅 탭 전환 핸들러 추가 -->
       </div>
       <!-- 진행중 -->
       <div v-else class="challenge--box-rate--wrap">
@@ -662,6 +721,7 @@ export default {
   </BasePopupClose>
   
   <!-- 미션선택 팝업  -->
+  <!-- 260721 / mission-select 내부 구조 수정 -->
   <BasePopupClose v-if="popup.missionPopup" class="MissionSelectPopup" @popupClose="popupClose('missionPopup')">
     <template v-slot:title>미션 선택하기</template>
     <template v-slot:contents>
@@ -669,23 +729,23 @@ export default {
         <template #tab-0>
           <div class="mission-select">
             <div v-for="group in recommendMissionGroups" :key="group.key" class="mission-select__group">
-              <button type="button" class="mission-select__head" :class="{ open: group.open }" @click="toggleMissionGroup(group)">
+              <div class="mission-select__head" :class="{ open: group.open }">
                 <span>{{ group.title }}</span>
-                <span class="mission-select__arrow"></span>
-              </button>
+                <button type="button" class="mission-select__arrow" @click="toggleMissionGroup(group)"></button>
 
-              <transition name="downUp">
-                <div v-show="group.open" class="mission-select__body">
-                  <button v-for="mission in group.items" :key="mission.id" type="button" class="mission-card" :class="{ active: selectedMissionId === mission.id }" @click="selectMissionItem(mission)">
-                    <span class="mission-card__title">
-                      {{ mission.title }}
-                      <span v-if="selectedMissionId === mission.id" class="mission-card__check"></span>
-                    </span>
-                    <span class="mission-card__desc">{{ mission.desc }}</span>
-                    <span v-if="mission.recommend" class="mission-card__badge" >{{ isAnalyze ? '추천' : '기본' }}</span>
-                  </button>
-                </div>
-              </transition>
+                <transition name="downUp">
+                  <div v-show="group.open" class="mission-select__body">
+                    <button v-for="mission in group.items" :key="mission.id" type="button" class="mission-card" :class="{ active: selectedMissionId === mission.id }" @click="selectMissionItem(mission)">
+                      <span class="mission-card__title">
+                        {{ mission.title }}
+                        <span v-if="selectedMissionId === mission.id" class="mission-card__check"></span>
+                      </span>
+                      <span class="mission-card__desc">{{ mission.desc }}</span>
+                      <span v-if="mission.recommend" class="mission-card__badge" >{{ isAnalyze ? '추천' : '기본' }}</span>
+                    </button>
+                  </div>
+                </transition>
+              </div>
             </div>
           </div>
         </template>
@@ -693,23 +753,23 @@ export default {
         <template #tab-1>
           <div class="mission-select">
             <div v-for="group in allMissionGroups" :key="group.key" class="mission-select__group">
-              <button type="button" class="mission-select__head" :class="{ open: group.open }" @click="toggleMissionGroup(group)">
+              <div class="mission-select__head" :class="{ open: group.open }">
                 <span>{{ group.title }}</span>
-                <span class="mission-select__arrow"></span>
-              </button>
+                <button type="button" class="mission-select__arrow" @click="toggleMissionGroup(group)"></button>
 
-              <transition name="downUp">
-                <div v-show="group.open" class="mission-select__body">
-                  <button v-for="mission in group.items" :key="mission.id" type="button" class="mission-card" :class="{ active: selectedMissionId === mission.id }" @click="selectMissionItem(mission)">
-                    <span class="mission-card__title">
-                      {{ mission.title }}
-                      <span v-if="selectedMissionId === mission.id" class="mission-card__check"></span>
-                    </span>
-                    <span class="mission-card__desc">{{ mission.desc }}</span>
-                    <span v-if="mission.recommend" class="mission-card__badge" >{{ isAnalyze ? '추천' : '기본' }}</span>
-                  </button>
-                </div>
-              </transition>
+                <transition name="downUp">
+                  <div v-show="group.open" class="mission-select__body">
+                    <button v-for="mission in group.items" :key="mission.id" type="button" class="mission-card" :class="{ active: selectedMissionId === mission.id }" @click="selectMissionItem(mission)">
+                      <span class="mission-card__title">
+                        {{ mission.title }}
+                        <span v-if="selectedMissionId === mission.id" class="mission-card__check"></span>
+                      </span>
+                      <span class="mission-card__desc">{{ mission.desc }}</span>
+                      <span v-if="mission.recommend" class="mission-card__badge" >{{ isAnalyze ? '추천' : '기본' }}</span>
+                    </button>
+                  </div>
+                </transition>
+              </div>
             </div>
           </div>
         </template>

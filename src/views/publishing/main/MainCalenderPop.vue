@@ -72,7 +72,7 @@ export default {
   </div>
 
   <!-- 인증사진 보기 팝업 -->
-  <BasePopupImage v-if="missionCertImagePopup" @popupClose="imagePopupClose"></BasePopupImage>
+  <BasePopupImage v-if="missionCertImagePopup" @popupClose="imagePopupClose" :todayImg="true"></BasePopupImage>
 
   <!-- 공유하기 팝업 -->
   <ChallengeSharePop v-if="sharePopup" @popupClose="sharePopupClose"></ChallengeSharePop>

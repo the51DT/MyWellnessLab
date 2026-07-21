@@ -71,7 +71,7 @@ export default {
   background-repeat: no-repeat;
   @media (min-width: 960px) {
     font-size: 1.6rem;
-    padding: .8rem 0;
+    padding: 1rem 0;
   }
   &.active{
     font-weight: 600;

@@ -288,6 +288,7 @@
           max-width: $w-pc;
           padding-left: 4rem;
           flex-direction: column;
+          justify-content: flex-start;
           align-items: flex-start;
           height: 12.8rem;
         }
@@ -2157,36 +2158,42 @@ footer{
         }
       } 
       &__head {
-        @include btnClear;
+        position: relative;
         width: 100%;
         padding: 1.2rem 1.2rem 1.2rem 1.4rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        transition: padding .3s ease;
+        // display: flex;
+        // align-items: center;
+        // justify-content: space-between;
+        text-align: left;
         color: #1A1818;
         @include txtStyle(body, 2xs-1, 600);
         @media (min-width:$w-pc) {
           padding: 1.4rem 1.2rem 1.4rem 1.8rem;
         }
         &.open{
-          border-bottom-left-radius: 0;
-          border-bottom-right-radius: 0;
-          padding-bottom: 0;
           .mission-select__arrow {
             transform: rotate(-180deg);
           }
         }
       }
       &__arrow {
+        @include btnClear;
+        position: absolute;
+        top: 1.2rem;
+        right: 1.2rem;
         width: 2rem;
         height: 2rem;
         background: url('/img/ic_arrow_down_black.svg') no-repeat center / 1.3rem;
-        transition: transform .3s;
+        transition: transform .5s;
+        @media (min-width:$w-pc) {
+          top: 1.6rem;
+        }
       }
       &__body {
-        padding: 0.8rem 1.2rem 1.4rem;
+        margin-top: .8rem;
         @media (min-width:$w-pc) {
-          padding-bottom: 1.6rem;
+          margin-top: 1.6rem;
         }
       }
     }
@@ -2353,6 +2360,12 @@ footer{
       max-width: $w-pc;
       background-color: #F5F5F5;
       z-index: 1;
+      @media (min-width:$w-pc) {
+        height: 8rem;
+      }
+    }
+    .popup--tit-wrap{
+      @include txtStyle(body, lg-1, 500);
     }
   }
   .challenge-share{
@@ -3596,7 +3609,7 @@ footer{
       display: flex;
       justify-content: center;
       > div {
-        width: 7.2rem;
+        width: 100%;
         .btn--menu{
           display: flex;
           flex-direction: column;
@@ -4102,7 +4115,10 @@ footer{
 }
 .JoinTermsAgree{
   &--wrap{
-    @include btnBottomFixLayout;
+    display: flex;
+    flex-direction: column;
+    @include min-vh-fallback(100, 19.2rem);
+    text-align: center;
     padding: 2.4rem 2rem;
     @media (min-width: $w-pc) {
       padding: 2.8rem 0 0;
@@ -4122,10 +4138,15 @@ footer{
   }
   &--in-wrap{
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
   }
   &--wrap2{
     margin-top: 3.2rem;
     text-align: left;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
   }
   &--txt{
     @include mainMsg2;
@@ -4135,6 +4156,10 @@ footer{
     @include alignBetween(flex-start, verti);
     @include txtStyle(body, xs);
     cursor: pointer;
+    margin-bottom: 2rem;
+    @media (min-width:$w-pc) {
+      margin-bottom: 2.8rem;
+    }
     &-txt{
       vertical-align: super;
     }
@@ -4151,11 +4176,9 @@ footer{
     border: .1rem solid $line-color-gray5;
     @include txtStyle(body, 2xs);
     color: $txt-font-color-gray2;
-    height: 13.7rem;
+    height: 1rem;
+    flex: 1 1 auto;
     overflow-y: auto;
-    @media (min-width: $w-pc) {
-      height: 13.2rem;
-    }
     .toastui-editor-contents{
       table{
         table-layout: fixed;
@@ -4170,6 +4193,9 @@ footer{
   }
   &--privacy{
     &-wrap{
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
       margin-top: $marginTop-default;
       @media (min-width: $w-pc) {
         margin-top: 3rem;
@@ -4184,10 +4210,10 @@ footer{
       }
     }
   }
-  &--hr{
-    margin-top: $marginBottom-default;
-    margin-bottom: $marginBottom-default;
-  }
+  // &--hr{
+  //   margin-top: $marginBottom-default;
+  //   margin-bottom: $marginBottom-default;
+  // }
   &--btm{
     margin: 2rem auto 0;
     padding-bottom: 2rem;
@@ -4197,6 +4223,9 @@ footer{
     }
   }
   &--terms-wrap{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     margin-top: $marginTop-default;
     @media (min-width: $w-pc) {
       margin-top: 3rem;
@@ -5016,6 +5045,7 @@ button{
         @include txtStyle(body, xs, 500);
         @media (min-width: $w-pc) {
           min-height: 5.6rem;
+          padding: 0 2.4rem;
         }
         &::after{
           content: '';
@@ -5289,7 +5319,7 @@ button{
     }
     &--folder{
       max-width: $w-pc-wrap;
-      margin: .8rem auto 0;
+      margin: 1.2rem auto 0;
       padding: 0 2rem;
       @media (min-width:$w-pc){
         margin-top: 1.2rem;
@@ -5299,14 +5329,12 @@ button{
         @include btnClear;
         width: 100%;
         height: fit-content;
-        margin-top: .2rem;
-        padding: .8rem 4.8rem;
+        padding: .65rem 4.8rem;
         border-radius: 2.4rem;
         background: #F5F5F5;
         @include txtStyle(body, md, 600);
         color: $txt-font-color-gray;
         @media (min-width:$w-pc){
-          margin-top: .6rem;
           padding: 1.1rem 4.8rem;
         }
         &:not(.active){
@@ -5334,9 +5362,9 @@ button{
         }
         &--active{
           position: absolute;
-          top: -4.7rem;
+          top: -4.8rem;
           width: calc(50% - .2rem);
-          height: 4.7rem;
+          height: 4.8rem;
           border-radius: 2rem 2rem 0 0;
           background: #fff;
           padding: .4rem;
@@ -5360,7 +5388,7 @@ button{
           }
           span{
             display: block;
-            padding: .6rem 1.6rem;
+            padding: .65rem 1.6rem;
             border-radius: 9rem;
             box-shadow: 0 .2rem .6rem 0 rgba(29, 177, 150, 0.12);
             background-color: var(--folder-tab-color);
@@ -5597,12 +5625,6 @@ button{
   border-radius: 5rem;
   background-color: #fff;
   box-shadow: 0 1rem 3rem 0 rgba(0, 0, 0, .5);
-  &-target {
-    display: none;
-    @media (min-width: $w-pc) {
-      display: block;
-    }
-  }
   &.sticky{
     display: block;
     z-index: 1;
@@ -5686,7 +5708,7 @@ button{
     display: flex;
     flex-direction: column;
     gap: .4rem;
-    margin-top: .8rem;
+    margin-top: 2rem;
     padding: 0 .6rem;
     @include txtStyle(body, md);
     span{
@@ -5985,6 +6007,9 @@ button{
       height: 1.2rem;
       background: url("/img/ico_people.svg") no-repeat center / contain;
     }
+    @media (min-width:$w-pc) {
+      min-height: 2.4rem;
+    }
   }
   &--team{
     @include txtStyle(body, md, 600);
@@ -6069,6 +6094,10 @@ button{
     background-color: #EB608E;
     @include txtStyle(caption, lg-1, 500);
     color: #fff;
+    @media (min-width:$w-pc) {
+      padding: .2rem .6rem;
+      min-height: 2.4rem;
+    }
   }
   &--not{
     @include txtStyle(body, lg, 600);
@@ -6544,6 +6573,9 @@ button{
     box-shadow: 0 1rem 3rem 0 rgba(0, 0, 0, .24);
     @include txtStyle(body, sm, 600);
     color: #fff;
+    @media (min-width: $w-pc) {
+      height: 6rem;
+    }
     &:disabled{
       background-color: #E5E5E5;
       color: #999;
@@ -6880,9 +6912,10 @@ button{
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
-    margin-top: .8rem;
+    margin-top: 1.6rem;
     @media (min-width:$w-pc) {
       gap: 1.6rem;
+      margin-top: 2rem;
     }
   }
   &--card{
@@ -7885,6 +7918,9 @@ button{
   #jpc02{
     width: calc(100% - 15rem);
     outline: none;
+    @media (min-width: $w-pc) {
+      height: 4.8rem;
+    }
   }
   & > span{
     @include validationTxt;

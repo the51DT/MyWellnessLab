@@ -244,9 +244,6 @@ export default {
   .calendar-text-wrap {
     margin-top: 0.6rem;
     text-align: center;
-    @media (min-width: 960px) {
-      margin-top: .8rem;
-    }
   }
   .desc--text {
     font-size: 1.4rem;
@@ -254,7 +251,7 @@ export default {
     line-height: 1.5;
     font-family: 'Pretendard', sans-serif;
     @media (min-width: 960px) {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
     }
   }
   .clear-count {
@@ -277,12 +274,33 @@ export default {
   }
   .vc-header{
     margin-top: 1.8rem;
+    padding: 0 2rem;
+    height: 3.3rem;
     @media (min-width: 960px) {
       margin-top: 2rem;
+      height: 3.6rem;
+      padding: 0 2.4rem;
     }
   }
   .vc-arrow{
     background: transparent;
+    width: 3.6rem;
+    height: 2rem;
+    @media (min-width: 960px) {
+      width: 6rem;
+      height: 2.4rem;
+    }
+    svg{
+      width: 2rem;
+      height: 2rem;
+      @media (min-width: 960px) {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+    }
+    &:hover{
+      background: transparent;
+    }
   }
   .vc-title{
     font-size: 2.2rem;
@@ -294,6 +312,10 @@ export default {
     }
   }
   .vc-day{
+    height: 3.6rem;
+    @media (min-width: 960px) {
+      height: 4rem;
+    }
     &-content{
       width: 3.6rem;
       height: 3.6rem;
@@ -370,16 +392,19 @@ export default {
   }
   .vc-week{
     + .vc-week{
-      margin-top: 1.7rem;
+      margin-top: 2.1rem;
       @media (min-width: 960px) {
         margin-top: 2.5rem;
       }
     }
     &s{
       margin-top: 1.2rem;
-      padding: 0 1.9rem 3.5rem;
+      padding: 0;
+      width: calc(100% - 2.8rem);
+      margin: 1.2rem auto 3.5rem;
       @media (min-width: 960px) {
-        padding: 0 2.4rem 2rem;
+        width: calc(100% - 4.8rem);
+        margin: 1.2rem auto 3.3rem;
       }
     }
     &days{

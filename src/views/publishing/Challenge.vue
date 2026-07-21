@@ -100,7 +100,7 @@ onMounted(() => {
             <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">
                 <div class="challenge--box-rate--per"><span>팀 인증률</span><strong><span>40</span>%</strong></div>
-                <TargetGauge :gaugePer="40" :targetPer="55" :compPer="65"></TargetGauge>
+                <TargetGauge :gaugePer="40" :targetPer="55" :compPer="80"></TargetGauge>
               </div>
               <div class="challenge--box-note">
                 <span><strong>목표치란, </strong>챌린지를 성공하기 위하여 오늘까지 달성해야 할 최소한의 인증률을 말합니다.</span>
@@ -179,7 +179,7 @@ onMounted(() => {
             <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">
                 <div class="challenge--box-rate--per"><span>팀 인증률</span><strong><span>40</span>%</strong></div>
-                <TargetGauge :gaugePer="40" :targetPer="55" :compPer="65"></TargetGauge>
+                <TargetGauge :gaugePer="40" :targetPer="55" :compPer="80"></TargetGauge>
               </div>
               <div class="challenge--box-note">
                 <span><strong>목표치란, </strong>챌린지를 성공하기 위하여 오늘까지 달성해야 할 최소한의 인증률을 말합니다.</span>

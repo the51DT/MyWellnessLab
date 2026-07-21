@@ -13,6 +13,10 @@ const targetSection = ref(null)
 
 const accordionOpen = ref(false); /* 월별 팀 인증률 보기 오프너 */
 
+const teamDeletePopup = ref(false) /* 팀 삭제 팝업 */
+const disableDeletePopup = ref(false) /* 팀 삭제 불가 팝업 */
+const teamLeavePopup = ref(false) /* 팀 탈퇴 팝업 */
+
 function checkHeaderBg () {
   const target = targetSection.value
   const header = document.querySelector('.header')
@@ -214,13 +218,167 @@ onBeforeUnmount(() => {
         </div>
       </div>
 
+      <!-- 팀 정보 - 상시 -->
+      <div v-if="teamClassification === 'regular'" class="team-info--box">
+        <ul class="team-info--list">
+          <li>
+            <span class="tit">팀 구분</span>
+            <span class="tag">상시</span>
+          </li>
+          <li>
+            <span class="tit">기간</span>
+            <span>2026.01.01 ~ 2027.01.01<br>365일</span>
+          </li>
+          <li>
+            <span class="tit">팀 가입일</span>
+            <span>2026.02.24</span>
+          </li>
+          <li>
+            <span class="tit">인증 시작일</span>
+            <span>2026.02.24</span>
+          </li>
+          <li>
+            <span class="tit">팀장</span>
+            <span>$닉네임$</span>
+          </li>
+          <li>
+            <span class="tit">참여 인원</span>
+            <span>68명</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 팀 정보 - 챌린지 -->
+      <div v-if="teamClassification === 'challenge'" class="team-info--box">
+        <ul class="team-info--list challenge">
+          <li>
+            <span class="tit">팀 구분</span>
+            <span class="tag">챌린지</span>
+          </li>
+          <li>
+            <span class="tit">전체 일정</span>
+            <span>
+              <strong>2026.01.01 ~ 2026.02.28<br>60일</strong>
+              <strong>1회차 기간</strong>
+              <em>2026.01.01~2026.01.31</em>
+              <strong>2회차 기간</strong>
+              <em>2026.02.01~2026.02.28</em>
+            </span>
+          </li>
+          <li>
+            <span class="tit">팀 가입일</span>
+            <span>2026.02.24</span>
+          </li>
+          <li>
+            <span class="tit">챌린지 시작일</span>
+            <span>2026.02.24</span>
+          </li>
+          <li>
+            <span class="tit">팀장</span>
+            <span>$닉네임$</span>
+          </li>
+          <li>
+            <span class="tit">진행 미션</span>
+            <span>$미션 정보$</span>
+          </li>
+          <li>
+            <span class="tit">성공 조건</span>
+            <span class="color">80%</span>
+          </li>
+          <li>
+            <span class="tit">성공 보상</span>
+            <span>$보상명 20자까지 노출 가능$</span>
+          </li>
+          <li>
+            <span class="tit">보상 수령 방법</span>
+            <span>팀원 개별수령</span>
+          </li>
+          <li>
+            <span class="tit">보상 수령처</span>
+            <span class="select-wrap">
+              <select name="teamRewardPoint" class="circle" required>
+                <option value="1">분당</option>
+                <option value="2" selected>강서</option>
+                <option value="3">인천</option>
+                <option value="4">대전</option>
+                <option value="5">청주</option>
+                <option value="6">부산</option>
+                <option value="7">대구</option>
+                <option value="8">창원</option>
+                <option value="9">울산</option>
+                <option value="10">광주</option>
+                <option value="11">전주</option>
+                <option value="12">강릉</option>
+                <option value="13">제주</option>
+                <option value="14">스타시티</option>
+              </select>
+              <button>저장</button>
+            </span>
+          </li>
+          <li>
+            <span class="tit">보상 수령처</span>
+            <span class="select-wrap">
+              <select name="teamRewardPoint" class="circle" required disabled>
+                <option value="1" selected>분당</option>
+                <option value="2">강서</option>
+                <option value="3">인천</option>
+                <option value="4">대전</option>
+                <option value="5">청주</option>
+                <option value="6">부산</option>
+                <option value="7">대구</option>
+                <option value="8">창원</option>
+                <option value="9">울산</option>
+                <option value="10">광주</option>
+                <option value="11">전주</option>
+                <option value="12">강릉</option>
+                <option value="13">제주</option>
+                <option value="14">스타시티</option>
+              </select>
+              <button disabled>저장</button>
+            </span>
+          </li>
+        </ul>
+      </div>
+
       <button v-if="isLeader" class="team-info--btn-green">초대한 팀원 보기</button>
       <div class="team-info--btn-text">
-        <button v-if="isLeader">팀 삭제</button>
-        <button v-else>팀 탈퇴</button>
+        <button v-if="isLeader" @click="teamDeletePopup = true">팀 삭제</button>
+        <button v-else @click="teamLeavePopup = true">팀 탈퇴</button>
       </div>
     </div>
   </section>
+
+  <!-- 팀 삭제 팝업 -->
+  <BasePopup v-if="teamDeletePopup">
+    <template v-slot:contents>
+      <p class="pop-text-light">팀을 정말 삭제하시겠습니까?</p>
+      <div class="pop-btn-wrap">
+        <button type="button" @click="teamDeletePopup = false" class="pop-btn pop-btn--gray">취소</button>
+        <button type="button" @click="teamDeletePopup = false, disableDeletePopup = true" class="pop-btn pop-btn--green">확인</button> <!-- 퍼블 확인을 위해 팝업 임의 노출 -->
+      </div>
+    </template>
+  </BasePopup>
+
+  <!-- 팀 삭제 불가 팝업 -->
+  <BasePopup v-if="disableDeletePopup">
+    <template v-slot:contents>
+      <p class="pop-text-light">참여중인 팀원이 있어,<br>팀을 삭제할 수 없습니다.</p>
+      <div class="pop-btn-wrap">
+        <button type="button" @click="disableDeletePopup = false" class="pop-btn pop-btn--green">확인</button>
+      </div>
+    </template>
+  </BasePopup>
+
+  <!-- 팀 탈퇴 팝업 -->
+  <BasePopup v-if="teamLeavePopup">
+    <template v-slot:contents>
+      <p class="pop-text-light">팀을 정말 탈퇴하시겠습니까?</p>
+      <div class="pop-btn-wrap">
+        <button type="button" @click="teamLeavePopup = false" class="pop-btn pop-btn--gray">취소</button>
+        <button type="button" @click="teamLeavePopup = false" class="pop-btn pop-btn--green">확인</button>
+      </div>
+    </template>
+  </BasePopup>
 </template>
 
 <style lang="sass" scoped>

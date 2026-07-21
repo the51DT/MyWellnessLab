@@ -467,7 +467,7 @@ const data = ref([
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/challenge/leader',
     msg: "퍼블 확인용 라우터 케이스 적용<br>진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출",
-    confirm: '작업중'
+    confirm: '2026.07.21 퍼블 완료'
   },
   {
     div: '',
@@ -476,7 +476,7 @@ const data = ref([
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/challenge',
     msg: "진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출",
-    confirm: '작업중'
+    confirm: '2026.07.21 퍼블 완료'
   },
   {
     div: '',
@@ -548,7 +548,7 @@ const data = ref([
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/regular/leader',
     msg: "퍼블 확인용 라우터 케이스 적용<br>진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출",
-    confirm: '작업중'
+    confirm: '2026.07.21 퍼블 완료'
   },
   {
     div: '',
@@ -557,7 +557,7 @@ const data = ref([
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/regular',
     msg: "진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출",
-    confirm: '작업중'
+    confirm: '2026.07.21 퍼블 완료'
   },
   {
     div: '',

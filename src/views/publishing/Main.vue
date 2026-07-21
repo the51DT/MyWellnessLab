@@ -430,6 +430,9 @@ export default {
       const clamped = Math.min(Math.max(this.agingSpeed, 0.5), 1.5)
       return ((clamped - 0.5) / 1.0) * 180 - 90
     },
+    badgePopup() { /* 퍼블 확인용 핀/배지 달성 팝업 */
+      return this.$route.meta.badgePopup === true
+    },
   }
 }
 </script>
@@ -786,7 +789,7 @@ export default {
   </MainCalenderPop>
 
   <!-- 핀/배지 달성 팝업 -->
-  <!-- <BasePopupBadge type="pin" frontImg="/img/pin_ruby.svg" backImg="/img/pin_ruby-back.svg">$마웰랩 핀 명칭$</BasePopupBadge> -->
+  <BasePopupBadge v-if="badgePopup" type="pin" frontImg="/img/pin_ruby.svg" backImg="/img/pin_ruby-back.svg">$마웰랩 핀 명칭$</BasePopupBadge>
   <!-- <BasePopupBadge type="badge" frontImg="/img/badge_happy-birthday.svg" backImg="/img/badge_happy-birthday-back.svg">$배지 명칭$</BasePopupBadge> -->
 
   <AddBtnHome />

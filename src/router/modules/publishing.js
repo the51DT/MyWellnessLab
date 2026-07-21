@@ -564,6 +564,16 @@ const publishingRouter = {
             isLogin: true /* 퍼블 확인용 */,
           },
         },
+        {
+          path: "badge",
+          name: "pubMainBadge",
+          component: () => import("@/views/publishing/Main.vue"),
+          meta: {
+            title: "메인",
+            isLogin: true /* 퍼블 확인용 */,
+            badgePopup: true /* 퍼블 확인용 */,
+          },
+        },
       ],
     },
     {
@@ -701,11 +711,11 @@ const publishingRouter = {
           },
         },
         {
-          path: "invite", /* 퍼블 확인용 */
+          path: "invite" /* 퍼블 확인용 */,
           name: "pubTeamInvite",
-          component: () => import("@/views/publishing/team/TeamInvitePopup.vue"),
-          meta: {
-          },
+          component: () =>
+            import("@/views/publishing/team/TeamInvitePopup.vue"),
+          meta: {},
         },
       ],
     },

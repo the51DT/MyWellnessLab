@@ -32,7 +32,16 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Main.vue',
     go: '/publishing/main',
-    msg: "**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>퍼블 확인용 라우터 케이스 적용<br>260721 / mission-select 내부 구조 수정",
+    msg: "**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>퍼블 확인용 라우터 케이스 적용<br>260721 / mission-select 내부 구조 수정<br>260721 / 플로팅 탭 전환 핸들러 추가",
+    confirm: '2026.07.14 퍼블 완료'
+  },
+  {
+    div: '',
+    div2: '핀/배지 달성',
+    div3: '',
+    loca: '@/views/publishing/Main.vue',
+    go: '/publishing/main/badge',
+    msg: "퍼블 확인용 라우터 케이스 적용<br>2026.07.21 퍼블 확인 불가능해 따로 페이지 추가",
     confirm: '2026.07.14 퍼블 완료'
   },
   {

@@ -2253,6 +2253,8 @@ footer{
       background: transparent;
       height: 100%;
       width: 100%;
+      max-height: 100%;
+      max-width: $w-pc-wrap;
       color: #fff;
       display: flex;
       flex-direction: column;
@@ -2293,6 +2295,7 @@ footer{
         img {
           width: 20rem;
           height: 20rem;
+          filter: var(--badge-shadow-color);
         }
       }
       &-back {

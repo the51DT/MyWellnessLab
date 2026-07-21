@@ -790,7 +790,7 @@ export default {
 
   <!-- 핀/배지 달성 팝업 -->
   <BasePopupBadge v-if="badgePopup" type="pin" frontImg="/img/pin_ruby.svg" backImg="/img/pin_ruby-back.svg">$마웰랩 핀 명칭$</BasePopupBadge>
-  <!-- <BasePopupBadge type="badge" frontImg="/img/badge_happy-birthday.svg" backImg="/img/badge_happy-birthday-back.svg">$배지 명칭$</BasePopupBadge> -->
+  <!-- <BasePopupBadge v-if="badgePopup" type="badge" frontImg="/img/badge_happy-birthday.svg" backImg="/img/badge_happy-birthday-back.svg">$배지 명칭$</BasePopupBadge> -->
 
   <AddBtnHome />
 </template>

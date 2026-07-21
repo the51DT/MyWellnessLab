@@ -2325,6 +2325,9 @@ footer{
       height: 4.8rem;
       border-radius: 9rem;
       @include txtStyle(body, sm, 600);
+      @media (min-width:$w-pc) {
+        height: 6rem;
+      }
     }
   }
   // 인증 사진 보기 팝업

@@ -213,10 +213,10 @@
         &::before{
           content: '';
           position: absolute;
-          top: -.8rem;
+          top: -.9rem;
           right: 1.4rem;
           width: 1.6rem;
-          height: 1.1rem;
+          height: 1rem;
           background: url('/img/invite_tooltip_tail.svg') no-repeat center / contain;
           z-index: -1;
         }
@@ -6668,10 +6668,42 @@ button{
   .form-item--sub {
     margin-top: .8rem;
   }
-  .inputField--wrap {
+  .radio-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+  }
+  .select-wrap {
+    position: relative;
+    select.circle{
+      padding-left: 1.6rem;
+      @media (min-width:$w-pc) {
+        padding-left: 1.8rem;
+      }
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 1.4rem;
+      transform: translateY(-50%);
+      width: 2rem;
+      height: 2rem;
+      background: url('/img/ic_arrow_down_black.svg') no-repeat center / 1.3rem;
+      pointer-events: none;
+    }
+    &:has(select:disabled) {
+      &::after{
+        background-image: url('/img/ico_arrow_down.svg');
+      }
+    }
+  }
+}
+.inputField{
+  &--wrap {
     width: 100%;
   }
-  .inputField--input {
+  &--input {
     width: 100%;
     height: 4rem;
     border: .1rem solid #e5e5e5;
@@ -6691,17 +6723,12 @@ button{
       color: #808080;
     }
   }
-  .radio-wrap {
-    display: flex;
-    align-items: center;
-    gap: 1.6rem;
-  }
-  .inputField--input--radio--wrap,
-  .inputField--input--checkbox--wrap {
+  &--input--radio--wrap,
+  &--input--checkbox--wrap {
     display: flex;
     align-items: center;
   }
-  .inputField--input--radio {
+  &--input--radio {
     appearance: none;
     flex: 0 0 auto;
     width: 2rem;
@@ -6730,11 +6757,11 @@ button{
       height: 2.2rem;
     }
   }
-  .inputField--input--radio--label {
+  &--input--radio--label {
     @include txtStyle(body, 2xs, 400);
     color: #333;
   }
-  .inputField--input--checkbox {
+  &--input--checkbox {
     appearance: none;
     flex: 0 0 auto;
     width: 1.6rem;
@@ -6752,11 +6779,11 @@ button{
       height: 1.8rem;
     }
   }
-  .inputField--input--checkbox--label {
+  &--checkbox--label {
     @include txtStyle(caption, xl);
     color: #333;
   }
-  .inputField--date--wrap {
+  &--date--wrap {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
@@ -6767,7 +6794,7 @@ button{
       flex: 0 0 auto;
     }
   }
-  .inputField--date {
+  &--date {
     position: relative;
     -webkit-appearance: none;
     appearance: none;
@@ -6842,7 +6869,7 @@ button{
       pointer-events: none;
     }
   }
-  .inputField--radio--wrap {
+  &--radio--wrap {
     margin-top: 1.2rem;
     @media (min-width:$w-pc) {
       margin-top: 1.4rem;
@@ -6907,25 +6934,6 @@ button{
           width: 2.4rem;
           height: 2.4rem;
         }
-      }
-    }
-  }
-  .select-wrap {
-    position: relative;
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: 1.4rem;
-      transform: translateY(-50%);
-      width: 2rem;
-      height: 2rem;
-      background: url('/img/ic_arrow_down_black.svg') no-repeat center / 1.3rem;
-      pointer-events: none;
-    }
-    &:has(select:disabled) {
-      &::after{
-        background-image: url('/img/ico_arrow_down.svg');
       }
     }
   }
@@ -7693,6 +7701,373 @@ button{
       color: #666;
       padding: 0;
       border-bottom: .1rem solid #666;
+    }
+  }
+}
+.team-ranking{
+  --team-ranking-main: #146B5B;
+  --team-ranking-sub: #E9FCF9;
+  --team-ranking-border: #1DB196;
+  padding: 1.6rem 2rem 0;
+  max-width: $w-pc-wrap;
+  margin: 0 auto;
+  &.challengeColor{
+    --team-ranking-main: #C91D56;
+    --team-ranking-sub: #FFF0F5;
+    --team-ranking-border: #EB608E;
+  }
+  aside{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    width: 100%;
+    max-width: $w-pc;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 2rem;
+    pointer-events: none;
+    @media (min-width: $w-pc) {
+      padding: 2.4rem 2rem;
+    }
+    > button{
+      @include btnClear;
+      width: 2.8rem;
+      height: 2.8rem;
+      background: url('/img/ico_medal.svg') no-repeat center / contain;
+      pointer-events: all;
+      @media (min-width:$w-pc) {
+        width: 3.2rem;
+        height: 3.2rem;
+      }
+    }
+    > div{
+      position: absolute;
+      bottom: -.5rem;
+      right: 1.2rem;
+      transform: translateY(100%);
+      padding: .8rem .8rem 1rem 1.2rem;
+      border-radius: 1.2rem;
+      background-color: #404040;
+      color: #fff;
+      pointer-events: all;
+      @media (min-width:$w-pc) {
+        bottom: .9rem;
+        right: 1.4rem;
+        padding: 1.2rem 1.2rem 1.4rem 1.6rem;
+      }
+      &::before{
+        content: '';
+        position: absolute;
+        top: -.9rem;
+        right: 1.4rem;
+        width: 1.6rem;
+        height: 1rem;
+        background: url('/img/invite_tooltip_tail.svg') no-repeat center / contain;
+        z-index: -1;
+      }
+      > button{
+        @include btnClear;
+        position: absolute;
+        top: .8rem;
+        right: .8rem;
+        width: 2rem;
+        height: 2rem;
+        background: url('/img/ico_invite_x.svg') no-repeat center / contain;
+        @media (min-width:$w-pc) {
+          top: 1.2rem;
+          right: 1.2rem;
+          width: 2.4rem;
+          height: 2.4rem;
+        }
+      }
+    }
+    p{
+      @include txtStyle(caption, xl-1, 700);
+      margin-bottom: .4rem;
+      @media (min-width:$w-pc) {
+        margin-bottom: .5rem;
+      }
+    }
+    ul{
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      padding: 0;
+      width: 13.7rem;
+      @media (min-width:$w-pc) {
+        width: 14.1rem;
+      }
+    }
+    li{
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      list-style: none;
+      > img{
+        width: 1.8rem;
+      }
+    }
+    strong{
+      @include txtStyle(caption, xl-1, 700);
+    }
+    span{
+      @include txtStyle(caption, lg-1);
+    }
+  }
+  &--filter-radio{
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 1.6rem;
+    & + .team-ranking--filter-select{
+      margin-top: .8rem;
+    }
+    @media (min-width:$w-pc) {
+      margin-top: 2rem;
+      & + .team-ranking--filter-select{
+        margin-top: 1.2rem;
+      }
+    }
+  }
+  &--filter-desc{
+    display: flex;
+    gap: .4rem;
+    @include txtStyle(caption, md, 500);
+    color: #808080;
+    text-align: center;
+    margin-top: 1.6rem;
+    p{
+      flex: 1 1 auto;
+      &:last-child{
+        flex: 0 0 18.7rem;
+      }
+    }
+    @media (min-width:$w-pc) {
+      margin-top: 2rem;
+      p:last-child{
+        flex-basis: 19.5rem;
+      }
+    }
+  }
+  &--filter-select{
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    margin-top: .4rem;
+    @include txtStyle(caption, md, 500);
+    color: #808080;
+    @media (min-width:$w-pc) {
+      margin-top: .6rem;
+    }
+  }
+  &--filter-date{
+    @include txtStyle(caption, md, 500);
+    color: #808080;
+    text-align: right;
+    margin-top: 1.6rem;
+  }
+  .select-wrap {
+    position: relative;
+    flex: 0 0 8.3rem;
+    @media (min-width:$w-pc) {
+      flex-basis: 8.9rem;
+    }
+    select.circle{
+      padding-left: 1.6rem;
+      letter-spacing: -0.2px;
+      @media (min-width:$w-pc) {
+        padding-left: 1.8rem;
+      }
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 1.4rem;
+      transform: translateY(-50%);
+      width: 2rem;
+      height: 2rem;
+      background: url('/img/ic_arrow_down_black.svg') no-repeat center / 1.3rem;
+      pointer-events: none;
+    }
+    &:first-child{
+      flex: 1 1 12.9rem;
+      select.circle{
+        padding-right: 3.4rem;
+        text-overflow: ellipsis;
+      }
+    }
+    &:last-child{
+      flex: 0 0 8.9rem;
+      @media (min-width:$w-pc) {
+        flex-basis: 9.6rem;
+      }
+    }
+  }
+  .tab-round--content{
+    margin-top: .8rem;
+    @media (min-width:$w-pc) {
+      margin-top: 1.2rem;
+    }
+  }
+  &--list{
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    @media (min-width: $w-pc) {
+      gap: 1.2rem;
+    }
+  }
+  &--box{
+    display: flex;
+    gap: .8rem;
+    padding: 1.6rem 1.6rem 1.6rem 2rem;
+    background-color: #fff;
+    border-radius: 2.4rem;
+    @media (min-width:$w-pc) {
+      padding: 2rem 2rem 1.8rem 2.4rem;
+    }
+    &.myTeam{
+      background-color: var(--team-ranking-sub);
+      box-shadow: inset 0 0 0 .2rem var(--team-ranking-border);
+      .team-ranking--profile > img{
+        background-color: #fff;
+      }
+      .team-ranking--member{
+        background-color: #fff;
+      }
+    }
+  }
+  &--profile{
+    position: relative;
+    flex-shrink: 0;
+    width: 4.8rem;
+    height: 4.8rem;
+    @media (min-width:$w-pc) {
+      width: 6rem;
+      height: 6rem;
+    }
+    > img {
+      width: 4.8rem;
+      height: 4.8rem;
+      border-radius: 99rem;
+      background-color: #F5F5F5;
+      @media (min-width:$w-pc) {
+        width: 6rem;
+        height: 6rem;
+      }
+    }
+  }
+  &--medal{
+    position: absolute;
+    top: -.7rem;
+    left: -1.3rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    padding: .1rem;
+    background-color: #999;
+    border-radius: 99rem;
+    @media (min-width:$w-pc) {
+      left: -1.7rem;
+      width: 3.6rem;
+      height: 3.6rem;
+    }
+    span{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @include txtStyle(caption, sm, 600);
+      color: #fff;
+    }
+    &.gold,
+    &.silver,
+    &.bronze {
+      background-color: transparent;
+      background-position: center;
+      background-size: 2.9rem;
+      @media (min-width:$w-pc) {
+        background-size: 3.2rem;
+      }
+      span{
+        color: #333;
+        padding-bottom: .4rem;
+        @media (min-width:$w-pc) {
+          padding-bottom: .6rem;
+        }
+      }
+    }
+    &.gold{
+      background-image: url('/img/ico_medal_gold.svg');
+    }
+    &.silver{
+      background-image: url('/img/ico_medal_silver.svg');
+    }
+    &.bronze{
+      background-image: url('/img/ico_medal_bronze.svg');
+    }
+  }
+  &--info{
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    flex-grow: 1;
+    @media (min-width:$w-pc) {
+      gap: .8rem;
+    }
+    > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+  &--team{
+    @include txtStyle(body, 2xs-1, 600);
+  }
+  &--member{
+    @include txtStyle(caption, lg, 600);
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: .1rem;
+    height: 2.2rem;
+    padding: 0 .8rem 0 .6rem;
+    background-color: #F5F5F5;
+    border-radius: 2rem;
+    @media (min-width:$w-pc) {
+      height: 2.4rem;
+    }
+    &::before{
+      content: '';
+      display: block;
+      width: 1.2rem;
+      height: 1.2rem;
+      background: url('/img/ico_people_gray.svg') no-repeat center / contain;
+    }
+  }
+  &--rate{
+    display: flex;
+    align-items: center;
+    @include txtStyle(caption, xl-1);
+    color: #666;
+    strong{
+      margin-left: .4rem;
+      @include txtStyle(body, 2xs, 600);
+      color: var(--team-ranking-main);
+    }
+  }
+  &--sticky{
+    position: sticky;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, .8);
+    margin: .7rem -2rem 0;
+    padding: 1.6rem 2rem 2rem;
+    border-radius: 2.8rem 2.8rem 0 0;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(1.2rem);
+    @media (min-width:$w-pc) {
+      margin-top: 1.7rem;
     }
   }
 }

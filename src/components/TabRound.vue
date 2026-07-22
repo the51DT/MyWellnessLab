@@ -47,6 +47,8 @@ export default {
     </button>
   </div>
 
+  <slot name="common"></slot>
+
   <div class="tab-round--content">
     <slot :name="`tab-${activeTab}`"></slot>
   </div>

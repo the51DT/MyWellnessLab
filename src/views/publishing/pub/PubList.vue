@@ -494,7 +494,7 @@ const data = ref([
     loca: '@/views/publishing/team/TeamRanking.vue',
     go: '/publishing/my-team/ranking/challenge',
     msg: "퍼블 확인용 라우터 케이스 적용",
-    confirm: '작업중'
+    confirm: '2026.07.22 퍼블 완료'
   },
   {
     div: '',
@@ -575,7 +575,7 @@ const data = ref([
     loca: '@/views/publishing/team/TeamRanking.vue',
     go: '/publishing/my-team/ranking/regular',
     msg: "퍼블 확인용 라우터 케이스 적용",
-    confirm: '작업중'
+    confirm: '2026.07.22 퍼블 완료'
   },
   {
     div: '',

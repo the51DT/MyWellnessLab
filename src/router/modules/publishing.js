@@ -717,6 +717,22 @@ const publishingRouter = {
             import("@/views/publishing/team/TeamInvitePopup.vue"),
           meta: {},
         },
+        {
+          path: "ranking/challenge",
+          name: "pubTeamRankingChallenge",
+          component: () => import("@/views/publishing/team/TeamRanking.vue"),
+          meta: {
+            title: "챌린지 팀 랭킹",
+          },
+        },
+        {
+          path: "ranking/regular",
+          name: "pubTeamRankingRegular",
+          component: () => import("@/views/publishing/team/TeamRanking.vue"),
+          meta: {
+            title: "상시 팀 랭킹",
+          },
+        },
       ],
     },
     {

@@ -491,10 +491,10 @@ const data = ref([
     div: '',
     div2: '팀 랭킹',
     div3: '',
-    loca: '@/views/publishing//.vue',
-    go: '',
-    msg: "",
-    confirm: ''
+    loca: '@/views/publishing/team/TeamRanking.vue',
+    go: '/publishing/my-team/ranking/challenge',
+    msg: "퍼블 확인용 라우터 케이스 적용",
+    confirm: '작업중'
   },
   {
     div: '',
@@ -572,10 +572,10 @@ const data = ref([
     div: '',
     div2: '팀 랭킹',
     div3: '',
-    loca: '@/views/publishing//.vue',
-    go: '',
-    msg: "",
-    confirm: ''
+    loca: '@/views/publishing/team/TeamRanking.vue',
+    go: '/publishing/my-team/ranking/regular',
+    msg: "퍼블 확인용 라우터 케이스 적용",
+    confirm: '작업중'
   },
   {
     div: '',

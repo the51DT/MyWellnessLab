@@ -7439,7 +7439,7 @@ button{
   &--rank{
     @include txtStyle(body, md, 600);
     .num{
-      @include txtStyle(head, xl, 700);
+      @include txtStyle(head, xl, 900);
       color: var(--team-info-color);
       margin-right: .2rem;
     }

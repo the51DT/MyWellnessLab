@@ -499,20 +499,29 @@ const data = ref([
   {
     div: '',
     div2: '팀원 현황보기',
-    div3: '목록',
-    loca: '@/views/publishing//.vue',
-    go: '',
-    msg: "",
-    confirm: ''
+    div3: '팀장',
+    loca: '@/views/publishing/team/TeamStatus.vue',
+    go: '/publishing/my-team/status/challenge/leader',
+    msg: "퍼블 확인용 라우터 케이스 적용",
+    confirm: '2026.07.23 퍼블 완료'
   },
   {
     div: '',
     div2: '',
-    div3: '조회된 팀원 없음',
-    loca: '@/views/publishing//.vue',
-    go: '',
+    div3: '팀원',
+    loca: '@/views/publishing/team/TeamStatus.vue',
+    go: '/publishing/my-team/status/challenge',
     msg: "",
-    confirm: ''
+    confirm: '2026.07.23 퍼블 완료'
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '조회된 팀원 없음,<br>1회차만 있는 경우',
+    loca: '@/views/publishing/team/TeamStatus.vue',
+    go: '/publishing/my-team/status/challenge/no',
+    msg: "",
+    confirm: '2026.07.23 퍼블 완료'
   },
   {
     div: '',
@@ -580,20 +589,29 @@ const data = ref([
   {
     div: '',
     div2: '팀원 현황보기',
-    div3: '목록',
-    loca: '@/views/publishing//.vue',
-    go: '',
+    div3: '팀장',
+    loca: '@/views/publishing/team/TeamStatus.vue',
+    go: '/publishing/my-team/status/regular/leader',
+    msg: "퍼블 확인용 라우터 케이스 적용",
+    confirm: '2026.07.23 퍼블 완료'
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '팀원',
+    loca: '@/views/publishing/team/TeamStatus.vue',
+    go: '/publishing/my-team/status/regular',
     msg: "",
-    confirm: ''
+    confirm: '2026.07.23 퍼블 완료'
   },
   {
     div: '',
     div2: '',
     div3: '조회된 팀원 없음',
-    loca: '@/views/publishing//.vue',
-    go: '',
+    loca: '@/views/publishing/team/TeamStatus.vue',
+    go: '/publishing/my-team/status/regular/no',
     msg: "",
-    confirm: ''
+    confirm: '2026.07.23 퍼블 완료'
   },
   {
     div: '',
@@ -632,7 +650,7 @@ const data = ref([
     confirm: '2026.07.16 퍼블 완료'
   },
   {
-    div: '(PU) 팀 초대하기, 이전 팀의 팀원 초대하기',
+    div: '(PU) 팀 초대하기,<br>(PU) 이전 팀의 팀원 초대하기',
     div2: '',
     div3: '',
     loca: '@/views/publishing/team/TeamInvitePopup.vue',
@@ -869,10 +887,10 @@ function go (val) {
     </thead>
     <tbody>
       <tr v-for="item in data" :key="item.go" :class="item.cate === 'blank' ? 'colorBg': ''">
-        <td>{{ item.cate }}</td>
-        <td>{{ item.div }}</td>
-        <td>{{ item.div2 }}</td>
-        <td>{{ item.div3 }}</td>
+        <td v-html="item.cate"></td>
+        <td v-html="item.div"></td>
+        <td v-html="item.div2"></td>
+        <td v-html="item.div3"></td>
         <td>
           <a
             @click="go(item.go)"

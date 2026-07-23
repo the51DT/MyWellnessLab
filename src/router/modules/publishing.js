@@ -733,6 +733,64 @@ const publishingRouter = {
             title: "상시 팀 랭킹",
           },
         },
+        {
+          path: "status/challenge",
+          name: "pubTeamStatusChallenge",
+          component: () => import("@/views/publishing/team/TeamStatus.vue"),
+          meta: {
+            title: "팀원 현황보기",
+            teamClassification: "challenge" /* 퍼블 확인용 */,
+          },
+        },
+        {
+          path: "status/regular",
+          name: "pubTeamStatusRegular",
+          component: () => import("@/views/publishing/team/TeamStatus.vue"),
+          meta: {
+            title: "팀원 현황보기",
+            teamClassification: "regular" /* 퍼블 확인용 */,
+          },
+        },
+        {
+          path: "status/challenge/leader",
+          name: "pubTeamStatusChallengeLeader",
+          component: () => import("@/views/publishing/team/TeamStatus.vue"),
+          meta: {
+            title: "팀원 현황보기",
+            teamClassification: "challenge" /* 퍼블 확인용 */,
+            isLeader: true /* 퍼블 확인용 */,
+          },
+        },
+        {
+          path: "status/regular/leader",
+          name: "pubTeamStatusRegularLeader",
+          component: () => import("@/views/publishing/team/TeamStatus.vue"),
+          meta: {
+            title: "팀원 현황보기",
+            teamClassification: "regular" /* 퍼블 확인용 */,
+            isLeader: true /* 퍼블 확인용 */,
+          },
+        },
+        {
+          path: "status/challenge/no",
+          name: "pubTeamStatusChallengeNo",
+          component: () => import("@/views/publishing/team/TeamStatus.vue"),
+          meta: {
+            title: "팀원 현황보기",
+            teamClassification: "challenge" /* 퍼블 확인용 */,
+            noMember: true /* 퍼블 확인용 */,
+          },
+        },
+        {
+          path: "status/regular/no",
+          name: "pubTeamStatusRegularNo",
+          component: () => import("@/views/publishing/team/TeamStatus.vue"),
+          meta: {
+            title: "팀원 현황보기",
+            teamClassification: "regular" /* 퍼블 확인용 */,
+            noMember: true /* 퍼블 확인용 */,
+          },
+        },
       ],
     },
     {

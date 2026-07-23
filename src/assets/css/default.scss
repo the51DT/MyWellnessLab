@@ -8071,6 +8071,398 @@ button{
     }
   }
 }
+.team-status{
+  --team-status-text: #1DB196;
+  margin: 0 auto;
+  padding: 1.6rem 2rem 2.4rem;
+  max-width: $w-pc-wrap;
+  &.challengeColor{
+    --team-status-text: #DD366E;
+  }
+  .select-wrap {
+    position: relative;
+    select.circle{
+      padding-left: 1.6rem;
+      letter-spacing: -0.2px;
+      @media (min-width:$w-pc) {
+        padding-left: 1.8rem;
+      }
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 1.4rem;
+      transform: translateY(-50%);
+      width: 2rem;
+      height: 2rem;
+      background: url('/img/ic_arrow_down_black.svg') no-repeat center / 1.3rem;
+      pointer-events: none;
+    }
+  }
+  &--filter-wrap{
+    display: flex;
+    gap: .4rem;
+    .select-wrap{
+      flex: 1 1 50%;
+    }
+    @media (min-width:$w-pc) {
+      gap: .6rem;
+    }
+  }
+  .sort-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    &--text{
+      display: inline-flex;
+      align-items: center;
+      gap: .2rem;
+      height: 3.6rem;
+      padding: 0 1rem;
+      border: .1rem solid #ccc;
+      border-radius: 9rem;
+      background-color: #fff;
+      white-space: nowrap;
+      @include txtStyle(caption, xl, 600);
+      @media (min-width:$w-pc) {
+        height: 4rem;
+        padding: 0 1.4rem;
+      }
+      &::before{
+        content: '';
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        background: url('/img/ico_sort.svg') no-repeat center / contain;
+      }
+    }
+    select.circle{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      appearance: none;
+    }
+  }
+  .sort-btn{
+    display: flex;
+    gap: .6rem;
+    button {
+      @include btnClear;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 3.6rem;
+      height: 3.6rem;
+      border: .1rem solid #ccc;
+      border-radius: 9rem;
+      background-color: #fff;
+    }
+    @media (min-width:$w-pc) {
+      gap: .8rem;
+      button {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+  }
+  .btn-favorites{
+    &::before{
+      content: '';
+      display: block;
+      width: 2.4rem;
+      height: 2.4rem;
+      background: url('/img/ico_star.svg') no-repeat center / contain;
+    }
+    &.active::before{
+      background-image: url('/img/ico_star_on.svg');
+    }
+  }
+  .btn-layout{
+    &::before{
+      content: '';
+      display: block;
+      width: 2.4rem;
+      height: 2.4rem;
+      background: url('/img/ico_list.svg') no-repeat center / contain;
+    }
+    &.active::before{
+      background-image: url('/img/ico_list_tile.svg');
+    }
+  }
+  &--sort-wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.6rem;
+    @media (min-width:$w-pc) {
+      margin-top: 2rem;
+    }
+  }
+  &--list{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+    @media (min-width:$w-pc) {
+      gap: 1.4rem;
+      margin-top: 1.4rem;
+    }
+  }
+  &--box{
+    position: relative;
+    display: flex;
+    gap: 1.6rem;
+    padding: 1.8rem 3.6rem 1.8rem 1.6rem;
+    background-color: #fff;
+    border-radius: 2.4rem;
+    @media (min-width:$w-pc) {
+      gap: 2rem;
+      padding: 2.2rem 4rem 2rem 2rem;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 1.2rem;
+      transform: translateY(-50%);
+      display: block;
+      width: 2.4rem;
+      height: 2.4rem;
+      background: url('/img/ico_arrow_right_gray.svg') no-repeat center / contain;
+      @media (min-width:$w-pc) {
+        right: 1.6rem;
+      }
+    }
+  }
+  &--fav{
+    @include btnClear;
+    position: absolute;
+    top: 1.6rem;
+    right: 1.2rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: url('/img/ico_star.svg') no-repeat center / contain;
+    @media (min-width:$w-pc) {
+      top: 2rem;
+      right: 1.6rem;
+    }
+    &.active {
+      background-image: url('/img/ico_star_on.svg');
+    }
+  }
+  &--profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .8rem;
+    width: 6.4rem;
+    flex: 0 0 auto;
+    @media (min-width:$w-pc) {
+      width: 6.8rem;
+    }
+    .img-wrap{
+      position: relative;
+      width: 6.4rem;
+      height: 6.4rem;
+      @media (min-width:$w-pc) {
+        width: 6.8rem;
+        height: 6.8rem;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        border-radius: 99rem;
+        background-color: #F5F5F5;
+        object-fit: cover;
+        overflow: hidden;
+      }
+      &.leader::before{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        display: block;
+        width: 1.8rem;
+        height: 1.8rem;
+        background: url('/img/ico_leader.png') no-repeat center / contain;
+        @media (min-width:$w-pc) {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+    }
+    > p {
+      @include txtStyle(caption, xl-1, 500);
+      color: #333;
+      text-align: center;
+      display: -webkit-box;
+      overflow: hidden;
+      white-space: normal;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+  &--info{
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    dl {
+      display: flex;
+      gap: 1.2rem;
+      @media (min-width:$w-pc) {
+        gap: 2rem;
+      }
+    }
+    dt {
+      @include txtStyle(caption, xl-1, 500);
+      color: #666;
+      flex: 0 0 7.3rem;
+      @media (min-width:$w-pc) {
+        flex-basis: 8.4rem;
+      }
+    }
+    dd {
+      @include txtStyle(caption, xl-1, 600);
+      color: #333;
+      flex: 1 1 auto;
+    }
+    .tag{
+      display: flex;
+      align-items: center;
+      width: fit-content;
+      height: 2rem;
+      padding: 0 .8rem;
+      border-radius: 9rem;
+      background-color: #1DB196;
+      @include txtStyle(caption, lg-1, 600);
+      color: #fff;
+      @media (min-width:$w-pc) {
+        height: 2.4rem;
+      }
+      & + span {
+        display: inline-block;
+        @include txtStyle(caption, xl, 500);
+        color: #666;
+        margin-top: .4rem;
+        @media (min-width:$w-pc) {
+          margin-top: .6rem;
+        }
+      }
+    }
+    .color{
+      color: var(--team-status-text);
+    }
+    .not{
+      display: block;
+      width: 1.6rem;
+      height: 1.6rem;
+      margin-top: .2rem;
+      color: transparent;
+      background: url('/img/ico_x.svg') no-repeat center / 1rem;
+      @media (min-width:$w-pc) {
+        margin-top: .35rem;
+      }
+    }
+  }
+  &--purchase{
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+    width: fit-content;
+    height: 2.4rem;
+    margin-top: .6rem;
+    padding: 0 .8rem 0 .4rem;
+    border-radius: 99rem;
+    background-color: #F0F0F0;
+    color: #999;
+    @include txtStyle(caption, lg-1, 500);
+    @media (min-width:$w-pc) {
+      height: 2.8rem;
+      margin-top: .8rem;
+      padding: 0 1.2rem 0 .8rem;
+    }
+    &::before{
+      content: '';
+      display: block;
+      width: 1.6rem;
+      height: 1.6rem;
+      background: url('/img/ico_purchase.svg') no-repeat center / contain;
+      @media (min-width:$w-pc) {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+    &.active{
+      color: #199982;
+      background-color: #DEF7F4;
+      &::before{
+        background-image: url('/img/ico_purchase_on.svg');
+      }
+    }
+  }
+  .liteVersion {
+    .team-status--box{
+      padding: 1.6rem 3rem 1.4rem 1.6rem;
+      @media (min-width:$w-pc) {
+        padding: 2rem 3.4rem 1.8rem 2rem;
+      }
+      &::after{
+        right: 1rem;
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+    .team-status--info{
+      display: grid;
+      grid-template-columns: 1.3fr 2fr;
+      width: 100%;
+      @media (min-width:$w-pc) {
+        grid-template-columns: 20.6rem 1fr;
+        gap: .8rem 1.2rem;
+      }
+      dl{
+        gap: .6rem;
+        &:nth-child(3){
+          order: 3;
+        }
+        &:nth-child(4){
+          order: 2;
+        }
+      }
+      dt{
+        flex-basis: 4.8rem;
+        @media (min-width:$w-pc) {
+          flex-basis: 5.6rem;
+        }
+      }
+      dl:nth-child(2) dt,
+      dl:nth-child(3) dt {
+        flex-basis: 6.7rem;
+        @media (min-width:$w-pc) {
+          flex-basis: 7.7rem;
+        }
+      }
+      dd{
+        flex-basis: 5.2rem;
+        display: -webkit-box;
+        overflow: hidden;
+        white-space: normal;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
+    .team-status--purchase{
+      margin-top: .2rem;
+      order: 5;
+    }
+  }
+}
 
 // 설문 프로그래스 바 Progress Bar
 .BaseStep {

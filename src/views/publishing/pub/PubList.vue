@@ -619,7 +619,7 @@ const data = ref([
     div3: '팀장',
     loca: '@/views/publishing/team/TeamDetail.vue',
     go: '/publishing/my-team/detail/regular/leader',
-    msg: "",
+    msg: "퍼블 확인용 [팀 내보내기] 버튼 노출",
     confirm: '2026.07.24 퍼블 완료'
   },
   {

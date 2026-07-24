@@ -118,7 +118,7 @@ function imagePopupClose () {
     <button v-if="isLeader && !challengeTeam" class="team-detail--btn-bottom" @click="teamKickPopup = true">팀에서 내보내기</button>
   </section>
 
-  <!-- 팀 내보내기 팝업 -->>
+  <!-- 팀 내보내기 팝업 -->
   <BasePopupClose v-if="teamKickPopup" :close-btn="false">
     <template v-slot:title>$홍길동$님을<br>팀에서 내보내시겠습니까?</template>
     <template v-slot:contents>

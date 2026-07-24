@@ -49,7 +49,7 @@ const clickBtnBtn = () => {
 
 <template>
   <div>
-    <base-popup-tit @popupClose="handleClose">
+    <base-popup-tit @popupClose="handleClose" :class="'pinLostModal'">
       <template v-slot:title>
         <template v-if="componentName === 'PhoneCertification'">
           {{ $t('PinLostModal.text1') }}

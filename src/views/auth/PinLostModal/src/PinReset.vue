@@ -153,7 +153,7 @@ onMounted(() => {
               :autoFocus="false"
               class="login--input"
               :autoCheck="true"
-              @inputTxt="changePin" />
+              @inputTxt="changePin" /> <!--202606 컬러 추가 login--input에 이중클래스 success = 초록색 / failure = 빨간색 개발 적용 필요 -->
           </div>
           <!--          <div v-show="message" class="JoinPinRegistration&#45;&#45;validation1">{{ message }}</div>-->
         </div>
@@ -169,20 +169,22 @@ onMounted(() => {
               class="login--input"
               @inputTxt="changeRePin"
               :autoCheck="true"
-              @checkEnter="handlePinChecked" />
+              @checkEnter="handlePinChecked" /> <!--202606 컬러 추가 login--input에 이중클래스 success = 초록색 / failure = 빨간색 개발 적용 필요 -->
           </div>
           <div v-if="errorMessage" class="JoinPinRegistration--validation" :class="isValidation ? 'ok' : ''">{{ errorMessage }}</div>
         </div>
       </div>
-    </section>
 
-    <div class="btn--bottom JoinPinRegistration--btm">
-      <button
-        :disabled="!isDisabled"
-        type="button"
-        class="JoinPinRegistration--btn"
-        @click="handleComplete">{{ $t('PinReset.text6') }}</button>
-    </div>
+      <!-- [s] 202606 버튼 <section> 안으로 이동 -->
+      <div class="btn--bottom JoinPinRegistration--btm">
+        <button
+          :disabled="!isDisabled"
+          type="button"
+          class="JoinPinRegistration--btn"
+          @click="handleComplete">{{ $t('PinReset.text6') }}</button>
+      </div>
+    </section>
+    <!-- [e] 202606 버튼 <section> 안으로 이동 -->
 
   </div>
 

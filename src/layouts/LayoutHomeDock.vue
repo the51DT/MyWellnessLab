@@ -31,7 +31,7 @@ const menus = [
   },
   {
     label: '마이',
-    path: '/', /* 202606 퍼블로 임시 지정 변경 필요 */
+    path: '/publishing/my-page', /* 202606 퍼블로 임시 지정 변경 필요 */
     icon: '/img/ico_dock-my.svg',
     activeIcon: '/img/ico_dock-my_on.svg'
   }

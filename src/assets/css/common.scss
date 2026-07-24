@@ -524,7 +524,7 @@ $w-pc-wrap: 520px;
   border: solid .1rem #1DB196;
   background-color: #1DB196;
   color: white;
-  @include txtStyle(body, sm, 400);
+  @include txtStyle(body, sm, 600);
   &:hover{
     background-color: #18957e;
     border-color: #18957e;
@@ -585,8 +585,8 @@ $w-pc-wrap: 520px;
   background-repeat: no-repeat;
 }
 @mixin btnDisabled{
-  background-color: #F0F0F0;
-  border-color: #F0F0F0;
+  background-color: #E5E5E5;
+  border-color: #E5E5E5;
   color: #999999;
   cursor: default;
 }
@@ -761,7 +761,6 @@ $w-pc-wrap: 520px;
   }
   .gray{
     color: $txt-font-color-gray2;
-    font-family: $font-family-medium;
   }
 }
 @mixin popupPadding{

@@ -1509,7 +1509,7 @@ footer{
   }
   &--header{
     font-size: 2rem;
-    color: #222;
+    color: #1A1818;
     align-items: center;
     display: flex;
     height: $header-height;
@@ -2530,6 +2530,41 @@ footer{
         height: 100%;
         filter: var(--badge-shadow-color);
       }
+    }
+  }
+  // PIN 번호 재설정 팝업
+  &.pinLostModal{
+    background-color: #fafafa;
+    .popup--wrap{
+      max-width: $w-pc;
+      width: 100%;
+      max-height: unset;
+      @include height-vh-fallback(100, 0rem);
+      border-radius: 0;
+      background-color: #fafafa;
+    }
+    .popup--header{
+      background-color: #fafafa;
+      @media (min-width:$w-pc) {
+        height: 8rem;
+      }
+    }
+    .popup--tit-wrap {
+      @include txtStyle(body, lg-1, 500);
+    }
+    .popup--close{
+      width: 2.8rem;
+      height: 2.8rem;
+      @media (min-width:$w-pc) {
+        width: 3.2rem;
+        height: 3.2rem;
+      }
+    }
+    .popup--space{
+      max-width: $w-pc-wrap;
+      margin: 0 auto;
+      padding-bottom: 0;
+      background-color: #fafafa;
     }
   }
 }
@@ -4349,7 +4384,6 @@ footer{
     @include mainMsg2;
     margin-top: 0;
     .gray{
-      font-family: $font-family-light;
     }
     @media (min-width: $w-pc) {
       font-size: 2.4rem;
@@ -17205,15 +17239,10 @@ span.legend-dot-interest{
   }
 }
 .MyPage{
-  margin-right: $space-big2;
-  margin-left: $space-big2;
-  margin-top: $marginTop-default;
-  padding-bottom: 4rem;
+  max-width: $w-pc-wrap;
+  margin: 0 auto;
+  padding: 1.8rem 2rem 12.6rem;
   @media (min-width: $w-pc) {
-    margin-top: 6rem;
-    margin-right: 3rem;
-    margin-left: 3rem;
-    padding-bottom: 6rem;
   }
   .age-img{
     $radius: 8.4rem;

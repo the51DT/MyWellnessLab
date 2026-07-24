@@ -763,9 +763,9 @@ const data = ref([
     div2: '',
     div3: '',
     loca: '@/views/publishing/mypage/MyPage.vue',
-    go: '/publishing/my-page/pub-my-page',
+    go: '/publishing/my-page',
     msg: "",
-    confirm: ''
+    confirm: '작업중'
   },
   {
     div: '검진 데이터 이력',
@@ -794,8 +794,44 @@ const data = ref([
     msg: '',
     confirm: ''
   },
-  { cate: 'blank'},
+  {
+    div: 'PIN 번호 변경',
+    div2: '',
+    div3: '',
+    loca: '@/views/mypage/MyPagePinChangePopup.vue',
+    go: '/publishing/my-page/pub-my-page-pin-change',
+    msg: '',
+    confirm: ''
+  },
+  {
+    div: 'PIN 번호 분실',
+    div2: '',
+    div3: '',
+    loca: '@/views/auth/PinLostModal/src/PinLostModal.vue',
+    go: '/publishing/my-page/pin-lost',
+    msg: '[PIN 번호 재설정] 클릭 시 나오는 모달<br>휴대폰번호 인증 -> PIN번호 변경 -> PIN 번호 재설정이 완료되었습니다<br>마이페이지 메인 제작 후 합칠 예정',
+    confirm: '2026.07.24 퍼블 완료'
+  },
+  {
+    div: '',
+    div2: '(PU) 휴대폰번호 인증',
+    div3: '',
+    loca: '@/views/auth/PinLostModal/src/PhoneCertification.vue',
+    go: '/publishing/my-page/pub-my-page-phone-certification',
+    msg: 'PIN 번호 분실에 포함 - 내용 확인용 퍼블 페이지(헤더 다름)',
+    confirm: '2026.07.24 퍼블 완료'
+  },
+  {
+    div: '',
+    div2: '(PU) PIN번호 변경',
+    div3: '',
+    loca: '@/views/auth/PinLostModal/src/PinReset.vue',
+    go: '/publishing/my-page/pub-my-page-pin-reset',
+    msg: 'PIN 번호 분실에 포함 - 내용 확인용 퍼블 페이지(헤더 다름)',
+    confirm: '2026.07.24 퍼블 완료'
+  },
   // {div: "",                       div2: "휴대폰번호 변경",                      div3: "",                loca: "@/views/publishing/mypage/MyPagePhoneChangePopup.vue",                             go: "/my-page-phone-change",                                        msg: "BasePhoneInput.vue '231212' 주석 수정 요망",                                  confirm: ""},
+  { cate: 'blank'},
   {
     cate: '주문/결제',
     div: '주문/결제',

@@ -451,6 +451,21 @@ const publishingRouter = {
     },
     {
       path: "my-page" /* 마이페이지 */,
+      component: LayoutHomeNoFooter /* 홈, 인트로, 설문 제외한 레이아웃 */,
+      children: [
+        {
+          path: "",
+          name: "pubMyPage",
+          component: () => import("@/views/mypage/MyPage.vue"),
+          meta: {
+            title: "마이페이지",
+            isLogin: true /* 퍼블 확인용 */,
+          },
+        },
+      ],
+    },
+    {
+      path: "my-page" /* 마이페이지 */,
       component: LayoutNormal /* 홈, 인트로, 설문 제외한 레이아웃 */,
       children: [
         {
@@ -491,6 +506,44 @@ const publishingRouter = {
           meta: {
             title: "리포트 인쇄신청 이력",
             class: "middle",
+          },
+        },
+        {
+          /* 202606 퍼블용 */ path: "pub-my-page-pin-change",
+          name: "pubMyPagePinChange",
+          component: () => import("@/views/mypage/MyPagePinChangePopup.vue"),
+          meta: {
+            title: "PIN 번호 변경",
+            class: "short",
+          },
+        },
+        {
+          /* 202606 퍼블용 */ path: "pub-my-page-phone-certification",
+          name: "pubMyPagePhoneCertification",
+          component: () =>
+            import("@/views/auth/PinLostModal/src/PhoneCertification.vue"),
+          meta: {
+            title: "PIN 번호 분실",
+            class: "short",
+          },
+        },
+        {
+          /* 202606 퍼블용 */ path: "pub-my-page-pin-reset",
+          name: "pubMyPagePinReset",
+          component: () => import("@/views/auth/PinLostModal/src/PinReset.vue"),
+          meta: {
+            title: "PIN 번호 재설정",
+            class: "short lightBg",
+          },
+        },
+        {
+          /* 202606 퍼블용 */ path: "pin-lost",
+          name: "pubMyPagePinLost",
+          component: () =>
+            import("@/views/auth/PinLostModal/src/PinLostModal.vue"),
+          meta: {
+            title: "",
+            class: "short",
           },
         },
       ],

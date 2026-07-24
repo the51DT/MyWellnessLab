@@ -127,8 +127,8 @@ onBeforeMount(() => {
   <div>
     <section class="JoinPhoneCertification--wrap">
       <div class="JoinPhoneCertification--in-wrap">
-        <div class="txt--center JoinPhoneCertification--txt">
-          <span class="gray">{{ $t('PhoneCertificationModal.text1') }}</span><br />{{ $t('PhoneCertificationModal.text2') }}
+        <div class="txt--center JoinPhoneCertification--txt"> <!-- 202606 span.gray 삭제 -->
+          {{ $t('PhoneCertificationModal.text1') }}<br />{{ $t('PhoneCertificationModal.text2') }}
         </div>
         <div class="JoinPhoneCertification--txt2" v-html="$t('PhoneCertificationModal.text3')">
         </div>
@@ -178,10 +178,17 @@ onBeforeMount(() => {
 </template>
 
 <style scoped lang="scss">
-.BasePhoneInput--input {
-  height: 4.25rem;
+.BasePhoneInput--input { // 202606 스타일 수정
+  height: 4rem;
   display: flex;
   align-items: center;
-  margin-left: 1.5rem;
+  margin-left: 1.6rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  @media (min-width: 960px) {
+    height: 4.8rem;
+    margin-left: 1.8rem;
+    font-size: 1.6rem;
+  }
 }
 </style>

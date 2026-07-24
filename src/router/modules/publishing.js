@@ -791,6 +791,44 @@ const publishingRouter = {
             noMember: true /* 퍼블 확인용 */,
           },
         },
+        {
+          path: "detail/challenge",
+          name: "pubTeamDetailChallenge",
+          component: () => import("@/views/publishing/team/TeamDetail.vue"),
+          meta: {
+            title: "팀원 상세",
+            teamClassification: "challenge" /* 퍼블 확인용 */,
+          },
+        },
+        {
+          path: "detail/regular",
+          name: "pubTeamDetailRegular",
+          component: () => import("@/views/publishing/team/TeamDetail.vue"),
+          meta: {
+            title: "팀원 상세",
+            teamClassification: "regular" /* 퍼블 확인용 */,
+          },
+        },
+        {
+          path: "detail/challenge/leader",
+          name: "pubTeamDetailChallengeLeader",
+          component: () => import("@/views/publishing/team/TeamDetail.vue"),
+          meta: {
+            title: "팀원 상세",
+            teamClassification: "challenge" /* 퍼블 확인용 */,
+            isLeader: true /* 퍼블 확인용 */,
+          },
+        },
+        {
+          path: "detail/regular/leader",
+          name: "pubTeamDetailRegularLeader",
+          component: () => import("@/views/publishing/team/TeamDetail.vue"),
+          meta: {
+            title: "팀원 상세",
+            teamClassification: "regular" /* 퍼블 확인용 */,
+            isLeader: true /* 퍼블 확인용 */,
+          },
+        },
       ],
     },
     {

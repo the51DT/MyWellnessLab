@@ -527,19 +527,19 @@ const data = ref([
     div: '',
     div2: '팀원 상세',
     div3: '팀장',
-    loca: '@/views/publishing//.vue',
-    go: '',
-    msg: "퍼블 확인용 라우터 케이스 적용",
-    confirm: ''
+    loca: '@/views/publishing/team/TeamDetail.vue',
+    go: '/publishing/my-team/detail/challenge/leader',
+    msg: "퍼블 확인용 라우터 케이스 적용<br>배지 이미지 퍼블 확인용 임의",
+    confirm: '2026.07.24 퍼블 완료'
   },
   {
     div: '',
     div2: '',
     div3: '팀원(대표뱃지 없는 경우)',
-    loca: '@/views/publishing//.vue',
-    go: '',
+    loca: '@/views/publishing/team/TeamDetail.vue',
+    go: '/publishing/my-team/detail/challenge',
     msg: "",
-    confirm: ''
+    confirm: '2026.07.24 퍼블 완료'
   },
   {
     div: '상시',
@@ -617,19 +617,19 @@ const data = ref([
     div: '',
     div2: '팀원 상세',
     div3: '팀장',
-    loca: '@/views/publishing//.vue',
-    go: '',
+    loca: '@/views/publishing/team/TeamDetail.vue',
+    go: '/publishing/my-team/detail/regular/leader',
     msg: "",
-    confirm: ''
+    confirm: '2026.07.24 퍼블 완료'
   },
   {
     div: '',
     div2: '',
     div3: '팀원(대표뱃지 없는 경우)',
-    loca: '@/views/publishing//.vue',
-    go: '',
+    loca: '@/views/publishing/team/TeamDetail.vue',
+    go: '/publishing/my-team/detail/regular',
     msg: "",
-    confirm: ''
+    confirm: '2026.07.24 퍼블 완료'
   },
   {
     div: '초대한 팀원 보기',

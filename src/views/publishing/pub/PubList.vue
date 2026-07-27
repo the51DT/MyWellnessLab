@@ -41,8 +41,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Main.vue',
     go: '/publishing/main/badge',
-    msg: "퍼블 확인용 라우터 케이스 적용<br>2026.07.21 퍼블 확인 불가능해 따로 페이지 추가",
-    confirm: '2026.07.14 퍼블 완료'
+    msg: "퍼블 확인용 라우터 케이스 적용<br>2026.07.21 퍼블 확인 불가능해 따로 페이지 추가<br>260727 핀/배지 팝업 상단 x 버튼 추가 - src/views/publishing/BasePopupBadge.vue",
+    confirm: '2026.07.27 퍼블 수정'
   },
   {
     div: '분석권 보유 현황',
@@ -457,7 +457,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/team/CreateTeam.vue',
     go: '/publishing/my-team/create',
-    msg: "'팀 구분 - 챌린지 인풋', '완료' 버튼 클릭 시 퍼블 확인용으로 팝업 노출",
+    msg: "'팀 구분 - 챌린지 인풋', '완료' 버튼 클릭 시 퍼블 확인용으로 팝업 노출<br>260727 회차 진행 안내로 변경<br>260727 회차 기간 수정<br>팀 구분 미선택 시 툴팁 & 팝업 추가 / 팀 관리 진입 시 팀 구분 변경 막기 개발 필요<br>260727 팝업 추가",
     confirm: '2026.07.27 퍼블 수정'
   },
   {
@@ -502,8 +502,8 @@ const data = ref([
     div3: '팀장',
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/challenge/leader',
-    msg: "퍼블 확인용 라우터 케이스 적용<br>진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출",
-    confirm: '2026.07.21 퍼블 완료'
+    msg: "퍼블 확인용 라우터 케이스 적용<br>진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출<br>260727 src/layouts/LayoutNormalLeader.vue 수정",
+    confirm: '2026.07.27 퍼블 수정'
   },
   {
     div: '',
@@ -512,7 +512,7 @@ const data = ref([
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/challenge',
     msg: "진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출",
-    confirm: '2026.07.21 퍼블 완료'
+    confirm: '2026.07.27 퍼블 수정'
   },
   {
     div: '',
@@ -575,7 +575,7 @@ const data = ref([
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/regular/leader',
     msg: "퍼블 확인용 라우터 케이스 적용<br>진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출",
-    confirm: '2026.07.21 퍼블 완료'
+    confirm: '2026.07.27 퍼블 수정'
   },
   {
     div: '',
@@ -584,7 +584,7 @@ const data = ref([
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/regular',
     msg: "진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출",
-    confirm: '2026.07.21 퍼블 완료'
+    confirm: '2026.07.27 퍼블 수정'
   },
   {
     div: '',
@@ -771,7 +771,7 @@ const data = ref([
     div: '마이페이지',
     div2: '',
     div3: '',
-    loca: '@/views/publishing/mypage/MyPage.vue',
+    loca: '@/views/mypage/MyPage.vue<br>@/views/publishing/MyPage.vue -> 퍼블 확인용 경로',
     go: '/publishing/my-page',
     msg: "",
     confirm: '작업중'
@@ -800,7 +800,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/mypage/MyPageReportPrintRecord.vue',
     go: '/publishing/my-page/pub-my-page-report-print-record',
-    msg: '',
+    msg: '기존 리스트 파일, 페이지 기획서에 없음',
     confirm: ''
   },
   {
@@ -818,7 +818,7 @@ const data = ref([
     div3: '',
     loca: '@/views/auth/PinLostModal/src/PinLostModal.vue',
     go: '/publishing/my-page/pin-lost',
-    msg: '[PIN 번호 재설정] 클릭 시 나오는 모달<br>휴대폰번호 인증 -> PIN번호 변경 -> PIN 번호 재설정이 완료되었습니다<br>마이페이지 메인 제작 후 합칠 예정',
+    msg: '[PIN 번호 재설정] 클릭 시 나오는 모달<br>휴대폰번호 인증 -> PIN번호 변경 -> PIN 번호 재설정이 완료되었습니다',
     confirm: '2026.07.24 퍼블 완료'
   },
   {

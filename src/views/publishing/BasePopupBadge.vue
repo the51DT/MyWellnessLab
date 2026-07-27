@@ -40,6 +40,9 @@ export default {
     }
   },
   methods: {
+    close(){ /* 260727 핀/배지 팝업 상단 x 버튼 추가 */
+      this.$emit("popupClose")
+    },
     startAnimation() {
       // 로딩 대기
       // await new Promise(r => setTimeout(r, 300));
@@ -137,6 +140,11 @@ export default {
 
 <template>
   <div class="popup BadgeAniPopup">
+    <div class="popup--header"> <!-- 260727 핀/배지 팝업 상단 x 버튼 추가 -->
+      <div class="popup--tit-wrap">
+        <button @click="close" type="button" class="popup--close" aria-label="닫기"></button>
+      </div>
+    </div>
     <div class="popup--wrap">
       <div ref="animationContainer" class="animation_bg"></div>
       <div class="badge">

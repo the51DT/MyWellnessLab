@@ -456,7 +456,8 @@ const publishingRouter = {
         {
           path: "",
           name: "pubMyPage",
-          component: () => import("@/views/mypage/MyPage.vue"),
+          // component: () => import("@/views/mypage/MyPage.vue"),
+          component: () => import("@/views/publishing/MyPage.vue"),
           meta: {
             title: "마이페이지",
             isLogin: true /* 퍼블 확인용 */,
@@ -481,7 +482,7 @@ const publishingRouter = {
           /* 231212 퍼블용 */ path: "pub-my-page-checkup-data-record",
           name: "pubPubMyPageCheckupDataRecord",
           component: () =>
-            import("@/views/publishing/mypage/MyPageCheckupDataRecord.vue"),
+            import("@/views/mypage/MyPageCheckupDataRecord.vue"),
           meta: {
             title: "검진 데이터 이력",
             class: "middle",
@@ -506,15 +507,6 @@ const publishingRouter = {
           meta: {
             title: "리포트 인쇄신청 이력",
             class: "middle",
-          },
-        },
-        {
-          /* 202606 퍼블용 */ path: "pub-my-page-pin-change",
-          name: "pubMyPagePinChange",
-          component: () => import("@/views/mypage/MyPagePinChangePopup.vue"),
-          meta: {
-            title: "PIN 번호 변경",
-            class: "short",
           },
         },
         {

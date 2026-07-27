@@ -129,8 +129,8 @@ const rankingList = [  /* 퍼블 확인용 팀 리스트 */
           <div v-else class="select-wrap">
             <select name="rankingSession" class="circle" required>
               <option value="session_all" selected>전체</option>
-              <option value="session_1">챌린지 $1$회차</option>
-              <option value="session_2">챌린지 $2$회차</option>
+              <option value="session_1">1회차</option>
+              <option value="session_2">2회차</option>
             </select>
           </div>
           <div class="select-wrap">

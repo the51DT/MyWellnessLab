@@ -281,7 +281,7 @@
       }
       &--wrap{
         @include alignBetween(verti);
-        padding-right: .8rem;
+        padding-right: 2rem;
         padding-left: 2rem;
         margin-right: auto;
         margin-left: auto;
@@ -2250,18 +2250,29 @@ footer{
 
   // 메인 배지 획득 팝업
   &.BadgeAniPopup{
+    .popup--header{
+      background: transparent;
+      max-width: $w-pc;
+      color: #fff;
+    }
+    .popup--close{
+      background-image: url('/img/ico_x_white.svg');
+    }
     .popup--wrap{
       background: transparent;
       height: 100%;
       width: 100%;
-      max-height: 100%;
-      max-width: $w-pc-wrap;
+      max-height: calc(100% - 4.8rem);
+      max-width: $w-pc;
       color: #fff;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       position: relative;
+      bottom: 0;
+      top: auto;
+      transform: translateX(-50%);
     }
     .animation_bg {
       width: 100%;
@@ -2320,6 +2331,7 @@ footer{
       left: 50%;
       transform: translateX(-50%);
       width: 100%;
+      max-width: $w-pc-wrap;
       padding: 2rem 2rem 2.4rem 2rem;
     }
     .pop-btn--green{
@@ -2533,7 +2545,7 @@ footer{
     }
   }
   // PIN 번호 재설정 팝업
-  &.pinLostModal{
+  &.fullModal{
     background-color: #fafafa;
     .popup--wrap{
       max-width: $w-pc;
@@ -6002,6 +6014,18 @@ button{
         margin-left: .2rem;
       }
     }
+    &-desc{
+      display: flex;
+      gap: .3rem;
+      margin-top: 1.6rem;
+      @include txtStyle(caption, xl-1, 500);
+      color: #808080;
+      text-align: left;
+      word-break: break-all;
+      &::before{
+        content: '※';
+      }
+    }
   }
   &--start{
     &-day{
@@ -6750,12 +6774,32 @@ button{
         color: #666;
         margin-top: .4rem;
       }
+      &--bold{
+        font-weight: 500;
+        span:first-child{
+          @include txtStyle(body, 2x-1);
+          color: #666;
+          margin-right: .8rem;
+        }
+        // & + & {
+        //   margin-top: .6rem;
+        //   @media (min-width:$w-pc) {
+        //     margin-top: .8rem;
+        //   }
+        // }
+      }
     }
     .period-title{
       @include txtStyle(body, 2xs, 500);
       color: #666;
       margin-top: 1.2rem;
       margin-bottom: .4rem;
+    }
+    .desc--bold + .desc--bold {
+      margin-top: .6rem;
+      @media (min-width:$w-pc) {
+        margin-top: .8rem;
+      }
     }
   }
   .form-item--sub {
@@ -7336,6 +7380,11 @@ button{
       }
     }
   }
+  .mo-br{
+    @media (min-width:$w-pc) {
+      display: none;
+    }
+  }
   &--profile{
     padding: 2rem 0 2.4rem;
     background-color: #1DB196;
@@ -7678,13 +7727,19 @@ button{
       display: block;
       font-weight: 600;
       &:not(:first-child){
-        margin-top: .8rem;
-        margin-bottom: .2rem;
+        margin-top: .4rem;
+        margin-bottom: .8rem;
+        @media (min-width:$w-pc) {
+          margin-bottom: 1.2rem;
+        }
+      }
+      &:last-child {
+        margin-bottom: 0;
       }
     }
     em{
-      @include txtStyle(body, 2xs);
-      color: #666;
+      @include txtStyle(body, xs, 500);
+      color: #808080;
       font-style: normal;
     }
     .select-wrap{
@@ -7733,7 +7788,7 @@ button{
     &.challenge{
       .tit{
         @media (min-width:$w-pc) {
-          width: 10.1rem;
+          width: 11.2rem;
         }
       }
     }
@@ -8240,7 +8295,7 @@ button{
     select.circle{
       position: absolute;
       inset: 0;
-      width: 100%;
+      width: 19rem;
       height: 100%;
       opacity: 0;
       appearance: none;
@@ -17251,19 +17306,7 @@ span.legend-dot-interest{
   @media (min-width: $w-pc) {
   }
   .age-img{
-    $radius: 8.4rem;
-    $radiusPc: 11.4rem;
-    width: $radius;
-    height: $radius;
-    border-radius: calc($radius / 2);
     background: $background-color-sky no-repeat;
-    background-size: cover;
-    margin-bottom: $marginBottom-small;
-    @media (min-width: $w-pc) {
-      width: $radiusPc;
-      height: $radiusPc;
-      border-radius: $radiusPc;
-    }
     &.age20{
       background-image: url("/img/age_20.png");
       &f{
@@ -17290,11 +17333,10 @@ span.legend-dot-interest{
     }
   }
   .info{
-    line-height: $txt-line-height-big;
-    margin-top: $marginTop-big;
+    margin-top: 2.4rem;
     dt{
       display: inline-block;
-      width: 30%;
+      width: 9rem;
       font-size: $txt-font-size-small2;
       font-family: $font-family-light;
       color: $txt-font-color-gray2;
@@ -17359,15 +17401,91 @@ span.legend-dot-interest{
       margin-top: 4rem;
     }
   }
-  .JoinPinRegistration--wrap{
-    @media (min-width: $w-pc) {
-      padding: 0;
-      .btn--bottom{
-        width: 40rem;
-        padding-bottom: 0;
+  .upload{
+    &-wrap{
+      width: 12.8rem;
+      height: 12.8rem;
+      margin: 0 auto;
+      position: relative;
+    }
+    &-label{
+      display: block;
+      width: 100%;
+      height: 100%;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 99rem;
+        border: .2rem solid #1DB196;
+      } 
+    }
+    &-ico{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 99rem;
+      background-color: #146B5B;
+      pointer-events: none;
+      img{
+        width: 2.5rem;
+        height: 2.5rem;
+        object-fit: cover;
       }
     }
-  } 
+  }
+  .btn-modify{
+    @include btnClear;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: url('/img/ico_modify.svg') no-repeat center / contain;
+  }
+  .text-wrap{
+    margin-top: 1.6rem;
+    @media (min-width:$w-pc) {
+      margin-top: 2rem;
+    }
+    &-default{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: .2rem;
+      @include txtStyle(body, lg, 500);
+    }
+    &-modify{
+      .BasePhoneInput{
+        width: 23.4rem;
+        margin: 0 auto;
+        input{
+          padding-right: .8rem;
+          &:focus{
+            outline: none;
+          }
+        }
+        &--btn{
+          min-width: 4.8rem;
+        }
+        @media (min-width:$w-pc) {
+          width: 27.8rem;
+        }
+      }
+      &-desc{
+        @include txtStyle(caption, lg);
+        color: #808080;
+        text-align: center;
+        margin-top: .6rem;
+        @media (min-width:$w-pc) {
+          margin-top: .8rem;
+        }
+      }
+    }
+  }
 }
 .MyPagePhoneChange{
   @include min-vh-fallback(100, $header-height-pc);

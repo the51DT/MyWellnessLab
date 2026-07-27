@@ -263,7 +263,7 @@ function popupClose () {
 
 <template>
   <div>
-    <base-popup-tit v-if="props.isPopupPin" @popupClose="popupClose">
+    <base-popup-tit v-if="props.isPopupPin" @popupClose="popupClose" :class="'fullModal'">
       <template v-slot:title>
         {{ $t('MyPagePinChangePopup.text1') }}
       </template>
@@ -287,6 +287,7 @@ function popupClose () {
                   class="login--input"
                   :autoCheck="true"
                   @checkEnter="handlePinChecked" /> <!--231129 콘포넌트 바꿈-->
+                  <!--202606 배경색 컬러 추가 login--input에 이중클래스 success = 초록색 / failure = 빨간색 개발 적용 필요 -->
               </div>
               <div v-if="pinResult1" class="JoinPinRegistration--validation" :class="pinResult1Ok ? 'ok' : ''">{{ pinResult1 }}</div>
             </div>

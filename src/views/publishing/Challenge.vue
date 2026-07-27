@@ -149,6 +149,7 @@ onMounted(() => {
               </div>
             </div>
           </div>
+          <p class="challenge--recruit-desc">해당 챌린지의 성공 및 보상 수령을 위해 0000 프로모션(309313L) 구매가 필요합니다. 챌린지 종료시점에 구매 인증이 불가할 경우 팀 성공일지라도 개인 보상지급이 불가합니다.</p>
         </div>
       </template>
       <template #tab-2>

@@ -143,7 +143,8 @@ onBeforeUnmount(() => {
 
       <!-- 팀원 인증률 순위 -->
       <div class="team-info--box">
-        <p class="team-info--box-tit">챌린지 $n$회차 팀원 인증률 순위</p>
+        <p v-if="teamClassification === 'challenge'" class="team-info--box-tit">챌린지 $n$회차 팀원 인증률 순위</p>
+        <p v-else class="team-info--box-tit">$2026$년 $7$월 팀원 인증률 순위</p>
         <p class="team-info--box-sub-tit">나의 랭킹</p>
         <div class="team-info--team-rank">
           <div class="team-info--rank"><span class="num">15</span>위</div>
@@ -210,7 +211,8 @@ onBeforeUnmount(() => {
       </div>
       <!-- 팀원 인증률 순위 - 대기중 -->
       <div class="team-info--box">
-        <p class="team-info--box-tit">챌린지 $n$회차 팀원 인증률 순위</p>
+        <p v-if="teamClassification === 'challenge'" class="team-info--box-tit">챌린지 $n$회차 팀원 인증률 순위</p>
+        <p v-else class="team-info--box-tit">$2026$년 $7$월 팀원 인증률 순위</p>
         <p class="team-info--box-sub-tit">나의 랭킹</p>
         <div class="team-info--team-rank">
           <div class="team-info--rank"><span class="num">-</span>위</div>
@@ -259,10 +261,6 @@ onBeforeUnmount(() => {
             <span class="tit">전체 일정</span>
             <span>
               <strong>2026.01.01 ~ 2026.02.28<br>60일</strong>
-              <strong>1회차 기간</strong>
-              <em>2026.01.01~2026.01.31</em>
-              <strong>2회차 기간</strong>
-              <em>2026.02.01~2026.02.28</em>
             </span>
           </li>
           <li>
@@ -282,12 +280,38 @@ onBeforeUnmount(() => {
             <span>$미션 정보$</span>
           </li>
           <li>
+            <span class="tit">1회차 <br class="mo-br">진행 안내</span>
+            <span>
+              <em>진행 기간</em>
+              <strong>2026.08.01 ~ 2026.08.31</strong>
+              <em>성공 조건</em>
+              <strong class="color">80% 이상</strong>
+              <em>성공 보상</em>
+              <strong>$1회차 보상명 (20자 까지 노출 가능)$</strong>
+            </span>
+          </li>
+          <li>
+            <span class="tit">2회차 <br class="mo-br">진행 안내</span>
+            <span>
+              <em>진행 기간</em>
+              <strong>2026.09.01 ~ 2026.09.30</strong>
+              <em>성공 조건</em>
+              <strong class="color">80% 이상</strong>
+              <em>성공 보상</em>
+              <strong>$2회차 보상명 (20자 까지 노출 가능)$</strong>
+            </span>
+          </li>
+          <li>
             <span class="tit">성공 조건</span>
             <span class="color">80%</span>
           </li>
           <li>
             <span class="tit">성공 보상</span>
             <span>$보상명 20자까지 노출 가능$</span>
+          </li>
+          <li>
+            <span class="tit">바우처명</span>
+            <span>$바우처명 20자까지 노출 가능$</span>
           </li>
           <li>
             <span class="tit">보상 수령 방법</span>

@@ -45,7 +45,7 @@ function privacyClose () {
   isPopupPrivacy.value = false
 }
 function winWidth () { /* 브라우저 가로 사이즈 체크 / 202606 920에서 960으로 수정 */
-  isPc.value = window.innerWidth > 960
+  isPc.value = window.innerWidth >= 960
 }
 function closeSideMenu () {
   isSideBar.value = false

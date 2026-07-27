@@ -31,8 +31,8 @@ const targetRate = ref("100") /* 목표 인증률 */
 const bottomObserver = ref(null)
 const isBottom = ref(false) /* 퍼블 확인용 하단 도착 여부 */
 
-const challengeAuthPopup = ref(false) /* 챌린지 권한 팝업 */
-const changeMissionPopup = ref(false) /* 미션 변경 알림 팝업 */
+const challengeAuthPopup = ref(false) /* 260727 챌린지 권한 팝업 추가 */
+const changeMissionPopup = ref(false) /* 260727 미션 변경 알림 팝업 추가 */
 const teamCreatePopup = ref(false) /* 팀 만들기 완료 팝업 */
 const unableNamePopup = ref(false) /* 사용 불가한 팀명 팝업 */
 
@@ -94,6 +94,7 @@ onMounted(() => {
             </div>
           </div>
 
+          <!-- [s] 260727 팀 구분 미선택 시 툴팁 & 팝업 추가 / 팀 관리 진입 시 팀 구분 변경 막기 개발 필요 -->
           <div class="form-item">
             <h5 class="title">팀 구분</h5>
             <div class="radio-wrap">
@@ -113,17 +114,15 @@ onMounted(() => {
             </div>
             <div v-if="!teamClassification" class="JoinPhoneCertification--validation">팀 구분을 선택해 주세요.</div>
           </div>
+          <!-- [e] 260727 팀 구분 미선택 시 툴팁 & 팝업 추가 / 팀 관리 진입 시 팀 구분 변경 막기 개발 필요 -->
 
           <template v-if="teamClassification === 'challenge'">
-            <!-- 기간 : type1 -->
+            <!-- [s] 260727 회차 기간 수정 -->
             <div class="form-item">
               <h5 class="title">전체 기간</h5>
               <p class="desc--period all">2026.01.01~2026.02.28</p>
-              <h5 class="period-title">1회차 진행</h5>
-              <p class="desc--period">2026.01.01~2026.01.31</p>
-              <h5 class="period-title">2회차 진행</h5>
-              <p class="desc--period">2026.02.01~2026.02.28</p>
             </div>
+            <!-- [e] 260727 회차 기간 수정 -->
 
             <div class="form-item">
               <h5 class="title">
@@ -144,16 +143,21 @@ onMounted(() => {
               <p class="desc">10~200</p>
             </div>
 
-            <!-- ABC 수령 case -->
+            <!-- [s] 260727 회차 진행 안내로 변경 -->
             <div class="form-item">
-              <h5 class="title">성공 보상</h5>
-              <p class="desc">$보상명 20자까지 노출 가능$</p>
+              <h5 class="title">1회차 진행 안내</h5>
+              <p class="desc--bold"><span>진행 기간</span>2026.08.01 ~ 2026.08.31</p>
+              <p class="desc--bold"><span>성공 조건</span><span class="desc--green">80% 이상</span></p>
+              <p class="desc--bold"><span>성공 보상</span>$1회차 보상명 (20자 까지 노출 가능)$</p>
             </div>
 
             <div class="form-item">
-              <h5 class="title">바우처명</h5>
-              <p class="desc">$바우처명 20자까지 노출 가능$</p>
+              <h5 class="title">2회차 진행 안내</h5>
+              <p class="desc--bold"><span>진행 기간</span>2026.09.01 ~ 2026.09.30</p>
+              <p class="desc--bold"><span>성공 조건</span><span class="desc--green">80% 이상</span></p>
+              <p class="desc--bold"><span>성공 보상</span>$2회차 보상명 (20자 까지 노출 가능)$</p>
             </div>
+            <!-- [e] 260727 회차 진행 안내로 변경 -->
 
             <div class="form-item">
               <h5 class="title">
@@ -263,6 +267,7 @@ onMounted(() => {
     </div>
   </section>
 
+  <!-- [s] 260727 팝업 추가 -->
   <!-- 챌린지 권한 팝업 -->
   <BasePopup v-if="challengeAuthPopup">
     <template v-slot:contents>
@@ -285,6 +290,7 @@ onMounted(() => {
       </div>
     </template>
   </BasePopup>
+  <!-- [e] 260727 팝업 추가 -->
 
   <!-- 팀 만들기 완료 팝업 -->
   <BasePopup v-if="teamCreatePopup">

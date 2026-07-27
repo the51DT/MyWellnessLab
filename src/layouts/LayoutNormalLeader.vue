@@ -4,6 +4,7 @@ import {ref, watch, computed} from "vue";
 import router from "@/router";
 import { useCheckupSideNavigation } from '@/composables/checkup-side'
 import { useI18n } from 'vue-i18n'
+import BasePopup from '@/components/BasePopup.vue'
 
 const { t } = useI18n()
 const route = useRoute();
@@ -93,6 +94,26 @@ function inviteTooltip(e) {
     </main>
 
   </div>
+
+  <!-- 팀 초대 인원 초과 팝업 -->
+  <!-- <BasePopup v-if="ex1">
+    <template v-slot:contents>
+      <p class="pop-text-light">팀원을 더 이상 초대할 수 없습니다.</p>
+      <div class="pop-btn-wrap">
+        <button type="button" @click="ex1 = false" class="pop-btn pop-btn--green">확인</button>
+      </div>
+    </template>
+  </BasePopup> -->
+
+  <!-- 팀 초대 진행중 기간 팝업 -->
+  <!-- <BasePopup v-if="ex2">
+    <template v-slot:contents>
+      <p class="pop-text-light">현재 팀원 초대 가능 기간이 아닙니다.</p>
+      <div class="pop-btn-wrap">
+        <button type="button" @click="ex2 = false" class="pop-btn pop-btn--green">확인</button>
+      </div>
+    </template>
+  </BasePopup> -->
 </template>
 
 <style scoped>

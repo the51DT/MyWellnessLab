@@ -68,6 +68,7 @@ onBeforeUnmount(() => {
         <div v-show="selectedMissionOpen" class="main--mission__body">
           <span>#{{ selectedMission.title }}</span>
           <span>#{{12}}일째</span>
+          <p>건강기능식품 섭취 시 해당 제품의 복용량, 복용방법과 부작용 등<br>주의사항을 반드시 확인해 주세요.</p> <!-- 260727 미션 주의사항 추가 -->
           <button type="button" class="main--mission__change" @click.stop="">미션 변경하기</button>
         </div>
       </transition>

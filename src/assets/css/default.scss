@@ -2198,6 +2198,18 @@ footer{
           margin-top: 1.6rem;
         }
       }
+      &__note{
+        @include txtStyle(caption, md);
+        color: #808080;
+        word-break: break-all;
+        margin-top: 1.2rem;
+        br{
+          display: none;
+          @media (min-width:$w-pc) {
+            display: block;
+          }
+        }
+      }
     }
     .mission-card {
       position: relative;
@@ -5705,6 +5717,11 @@ button{
       }
       span{
         margin-right: .8rem;
+      }
+      p{
+        @include txtStyle(caption, md);
+        color: #808080;
+        margin-top: .8rem;
       }
     }
     &__change{
@@ -17334,34 +17351,43 @@ span.legend-dot-interest{
   }
   .info{
     margin-top: 2.4rem;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 2.4rem;
+    border: .1rem solid #E5E5E5;
+    @include txtStyle(body, xs-1);
+    color: #333;  
     dt{
       display: inline-block;
       width: 9rem;
-      font-size: $txt-font-size-small2;
-      font-family: $font-family-light;
-      color: $txt-font-color-gray2;
+      margin-right: .6rem;
+      &:not(:first-child) {
+        margin-top: 1.4rem;
+      }
       @media (min-width: $w-pc) {
-        font-size: 1.5rem;
-        width: 12rem;
+        width: 10rem;
+        margin-right: .8rem;
       }
     }
     dd{
       display: inline-block;
-      width: 70%;
-      font-size: $txt-font-size-small6;
-      font-family: $font-family-medium;
-      color: $txt-font-color-gray3;
+      width: calc(100% - 9.6rem);
+      height: 2.25rem;
       @media (min-width: $w-pc) {
-        font-size: 1.8rem;
-        width: calc(100% - 12rem);
+        width: calc(100% - 10.8rem);
+        height: 2.4rem;
       }
     }
     .btn{
       width: 4.6rem;
-      margin-left: 1rem;
-      font-family: $font-family-medium;
       position: relative;
-      top: -0.2rem;
+      top: -0.1rem;
+      &:not(:only-child) {
+        margin-left: .6rem;
+        @media (min-width: $w-pc) {
+          margin-left: .8rem;
+        }
+      }
       @media (min-width: $w-pc) {
         width: auto;
         height: auto;

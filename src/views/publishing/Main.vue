@@ -504,6 +504,7 @@ export default {
             <div v-show="selectedMissionOpen" class="main--mission__body">
               <span>#{{ selectedMission.title }}</span>
               <span>#{{12}}일째</span>
+              <p>건강기능식품 섭취 시 해당 제품의 복용량, 복용방법과 부작용 등<br>주의사항을 반드시 확인해 주세요.</p> <!-- 260727 미션 주의사항 추가 -->
               <button type="button" class="main--mission__change" @click.stop="popup.missionPopup = true">미션 변경하기</button>
             </div>
           </transition>
@@ -759,6 +760,7 @@ export default {
               </div>
             </div>
           </div>
+          <p class="mission-select__note">미션은 마이웰니스랩 리포트의 결과와 별도로 제공되는 서비스입니다.<br>미션 수행은 건강 개선을 보장하지 않으며, 질병의 치료와 무관합니다.</p> <!-- 260727 미션 주의사항 추가 -->
         </template>
 
         <template #tab-1>
@@ -783,6 +785,7 @@ export default {
               </div>
             </div>
           </div>
+          <p class="mission-select__note">미션은 마이웰니스랩 리포트의 결과와 별도로 제공되는 서비스입니다.<br>미션 수행은 건강 개선을 보장하지 않으며, 질병의 치료와 무관합니다.</p> <!-- 260727 미션 주의사항 추가 -->
         </template>
       </TabRound>
     </template>

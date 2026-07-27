@@ -6791,6 +6791,12 @@ button{
       }
     }
   }
+  .JoinPhoneCertification--validation {
+    @include txtStyle(caption, lg);
+    @media (min-width:$w-pc) {
+      margin-top: 1rem;
+    }
+  }
 }
 .inputField{
   &--wrap {

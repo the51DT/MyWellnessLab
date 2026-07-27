@@ -31,6 +31,8 @@ const targetRate = ref("100") /* 목표 인증률 */
 const bottomObserver = ref(null)
 const isBottom = ref(false) /* 퍼블 확인용 하단 도착 여부 */
 
+const challengeAuthPopup = ref(false) /* 챌린지 권한 팝업 */
+const changeMissionPopup = ref(false) /* 미션 변경 알림 팝업 */
 const teamCreatePopup = ref(false) /* 팀 만들기 완료 팝업 */
 const unableNamePopup = ref(false) /* 사용 불가한 팀명 팝업 */
 
@@ -96,9 +98,9 @@ onMounted(() => {
             <h5 class="title">팀 구분</h5>
             <div class="radio-wrap">
               <div class="inputField--input--radio--wrap">
-                <input type="radio" class="inputField--input inputField--input--radio" id="teamTypeChallenge" name="teamType" value="challenge" v-model="teamClassification"/>
+                <input type="radio" class="inputField--input inputField--input--radio" id="teamTypeChallenge" name="teamType" value="challenge" v-model="teamClassification" @change="teamClassification === 'challenge' && (changeMissionPopup = true)"/>
                 <label for="teamTypeChallenge" class="inputField--input--radio--label">
-                  <span>챌린지</span>
+                  <span>챌린지(본사)</span>
                 </label>
               </div>
 
@@ -109,6 +111,7 @@ onMounted(() => {
                 </label>
               </div>
             </div>
+            <div v-if="!teamClassification" class="JoinPhoneCertification--validation">팀 구분을 선택해 주세요.</div>
           </div>
 
           <template v-if="teamClassification === 'challenge'">
@@ -259,6 +262,29 @@ onMounted(() => {
       <div ref="bottomObserver" class="sticky-trigger"></div>
     </div>
   </section>
+
+  <!-- 챌린지 권한 팝업 -->
+  <BasePopup v-if="challengeAuthPopup">
+    <template v-slot:contents>
+      <p class="pop-text-bold">챌린지를 만들 수 있는 권한이 없습니다.</p>
+      <div class="pop-btn-wrap">
+        <button type="button" @click="challengeAuthPopup = false" class="pop-btn pop-btn--green">확인</button>
+      </div>
+    </template>
+  </BasePopup>
+
+  <!-- 미션 변경 알림 팝업 -->
+  <BasePopup v-if="changeMissionPopup">
+    <template v-slot:contents>
+      <p class="pop-text-light">챌린지 팀 만들기 시 진행중인 미션이</p>
+      <p class="pop-text-bold">혈압조절 - 혈압조절 제품(코엔자임 Q10, 마그네슘, 오메가 3) 챙겨먹기</p>
+      <p class="pop-text-light">미션으로 변경됩니다.<br>챌린지 팀을 만드시겠습니까?</p>
+      <div class="pop-btn-wrap">
+        <button type="button" @click="changeMissionPopup = false" class="pop-btn pop-btn--gray">취소</button>
+        <button type="button" @click="changeMissionPopup = false, challengeAuthPopup = true" class="pop-btn pop-btn--green">확인</button>
+      </div>
+    </template>
+  </BasePopup>
 
   <!-- 팀 만들기 완료 팝업 -->
   <BasePopup v-if="teamCreatePopup">

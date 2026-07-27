@@ -709,6 +709,14 @@ const publishingRouter = {
       component: LayoutNormal,
       children: [
         {
+          path: "create",
+          name: "pubTeamCreate",
+          component: () => import("@/views/publishing/team/CreateTeam.vue"),
+          meta: {
+            title: "팀 만들기",
+          },
+        },
+        {
           path: "create/challenge",
           name: "pubTeamCreateChallenge",
           component: () => import("@/views/publishing/team/CreateTeam.vue"),

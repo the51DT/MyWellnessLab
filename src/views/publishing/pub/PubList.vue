@@ -452,13 +452,22 @@ const data = ref([
     confirm: '2026.07.14 퍼블 완료'
   },
   {
-    div: '챌린지',
-    div2: '팀 만들기',
+    div: '팀 만들기',
+    div2: '미 선택',
+    div3: '',
+    loca: '@/views/publishing/team/CreateTeam.vue',
+    go: '/publishing/my-team/create',
+    msg: "'팀 구분 - 챌린지 인풋', '완료' 버튼 클릭 시 퍼블 확인용으로 팝업 노출",
+    confirm: '2026.07.27 퍼블 수정'
+  },
+  {
+    div: '',
+    div2: '챌린지',
     div3: '',
     loca: '@/views/publishing/team/CreateTeam.vue',
     go: '/publishing/my-team/create/challenge',
-    msg: "퍼블 확인용 라우터 케이스 적용<br>'완료' 버튼 클릭 시 퍼블 확인용으로 팝업 노출",
-    confirm: '2026.07.16 퍼블 완료'
+    msg: "퍼블 확인용 라우터 케이스 적용",
+    confirm: '2026.07.27 퍼블 수정'
   },
   {
     div: '',
@@ -467,10 +476,28 @@ const data = ref([
     loca: '@/views/publishing/team/CreateTeam.vue',
     go: '/publishing/my-team/create/challenge/manage',
     msg: "팀 만들기에서 퍼블 확인용 라우터 관리 케이스 적용함",
-    confirm: '2026.07.16 퍼블 완료'
+    confirm: '2026.07.27 퍼블 수정'
   },
   {
     div: '',
+    div2: '상시',
+    div3: '',
+    loca: '@/views/publishing/team/CreateTeam.vue',
+    go: '/publishing/my-team/create/regular',
+    msg: "퍼블 확인용 라우터 케이스 적용",
+    confirm: '2026.07.27 퍼블 수정'
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '상시 팀 관리',
+    loca: '@/views/publishing/team/CreateTeam.vue',
+    go: '/publishing/my-team/create/regular/manage',
+    msg: "팀 만들기에서 퍼블 확인용 라우터 관리 케이스 적용함",
+    confirm: '2026.07.27 퍼블 수정'
+  },
+  {
+    div: '챌린지',
     div2: '팀 정보',
     div3: '팀장',
     loca: '@/views/publishing/team/TeamInfo.vue',
@@ -543,24 +570,6 @@ const data = ref([
   },
   {
     div: '상시',
-    div2: '팀 만들기',
-    div3: '',
-    loca: '@/views/publishing/team/CreateTeam.vue',
-    go: '/publishing/my-team/create/regular',
-    msg: "퍼블 확인용 라우터 케이스 적용",
-    confirm: '2026.07.16 퍼블 완료'
-  },
-  {
-    div: '',
-    div2: '',
-    div3: '상시 팀 관리',
-    loca: '@/views/publishing/team/CreateTeam.vue',
-    go: '/publishing/my-team/create/regular/manage',
-    msg: "팀 만들기에서 퍼블 확인용 라우터 관리 케이스 적용함",
-    confirm: '2026.07.16 퍼블 완료'
-  },
-  {
-    div: '',
     div2: '팀 정보',
     div3: '팀장',
     loca: '@/views/publishing/team/TeamInfo.vue',

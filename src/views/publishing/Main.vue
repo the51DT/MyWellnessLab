@@ -32,7 +32,8 @@ export default {
   data () {
     return {
       isScroll: false,
-      isPc: false,
+      isPc: false, /* 260727 너비 체크 960 기준으로 변경 */
+      isMobile: false, /* 260727 기기 체크 */
       imageUrl: ref(null),
       tab: ref(0),
       missionTab: ref(0),
@@ -259,7 +260,12 @@ export default {
   },
   methods: {
     winWidth () { /* 브라우저 가로 사이즈 체크 */
-      this.isPc = window.innerWidth > 920
+      this.isPc = window.innerWidth > 960 /* 260727 너비 체크 960 기준으로 변경 */
+    },
+    checkDevice () { /* 260727 디바이스 체크 */
+      const userAgent = navigator.userAgent.toLowerCase()
+
+      this.isMobileTablet = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/.test(userAgent) || (navigator.maxTouchPoints > 1 && /macintosh/.test(userAgent))
     },
 
     /* [start] 260721 / 플로팅 탭 전환 핸들러 추가 */
@@ -388,6 +394,7 @@ export default {
   },
   mounted () {
     this.winWidth()
+    this.checkDevice() /* 260727 디바이스 체크 */
 
     /* [start] 260721 / 플로팅 탭 전환 핸들러 추가 */
     this.stickyScrollHandler = () => {
@@ -704,9 +711,9 @@ export default {
     <template v-slot:title>인증방법 선택</template>
     <template v-slot:contents>
       <div class="popup--ico-btn--wrap">
-        <!-- 사진 찍기 버튼 -->
-        <input type="file" accept = "image/*" id="takePicture" @change="openCamera" capture="environment" hidden />
-        <label for="takePicture" class="popup--ico-btn">
+        <!-- 사진 찍기 버튼 --> <!-- 260727 디바이스 체크 후 노출 -->
+        <input v-if="isMobileTablet" type="file" accept = "image/*" id="takePicture" @change="openCamera" capture="environment" hidden />
+        <label v-if="isMobileTablet" for="takePicture" class="popup--ico-btn">
           <span>사진 찍기</span>
           <div class="popup--ico-btn--ico">
             <img src="/img/ico_main_picture-take.svg" />

@@ -94,7 +94,7 @@ const isQuitButtonDisabled = computed(() => {
 
 <template>
   <div>
-    <base-popup-tit v-if="props.isQuit" @popupClose="popupClose" class="MyPageServiceQuitPopup-wrap">
+    <base-popup-tit v-if="props.isQuit" @popupClose="popupClose" class="MyPageServiceQuitPopup-wrap fullModal"> <!-- 202606 .fullModal 추가 -->
       <template v-slot:title>
         {{ $t('MyPageServiceQuitPopup.text1') }}
       </template>
@@ -104,9 +104,8 @@ const isQuitButtonDisabled = computed(() => {
             <div>
               <h2 :class="prefix + '--tit'" v-html="$t('MyPageServiceQuitPopup.text2')">
               </h2>
-              <div :class="prefix + '--desc'">
-                {{ $t('MyPageServiceQuitPopup.text5') }}
-              </div>
+              <div :class="prefix + '--desc'" v-html="$t('MyPageServiceQuitPopup.text5')">
+              </div> <!-- 202606 v-html로 수정 -->
               <label for="agree" :class="prefix + '--agree'">
                 <input
                   v-model="agreeCheck"
@@ -143,8 +142,9 @@ const isQuitButtonDisabled = computed(() => {
                     id=""
                     cols="30"
                     rows="3"
+                    placeholder="아쉬운 점에 대해서 직접 알려주세요."
                     :class="prefix + '--ta'"
-                    :disabled="taDisabled" />
+                    :disabled="taDisabled" /> <!-- 202606 placeholder 추가 -->
                 </div>
               </div>
             </div>
@@ -168,9 +168,9 @@ const isQuitButtonDisabled = computed(() => {
 
     <base-popup v-if="isReal" :class="prefix + '--real'">
       <template v-slot:contents>
-        <p class="pop-text-bold">{{ $t('MyPageServiceQuitPopup.text17') }}
-        </p>
-        <p class="pop-text-light">{{ $t('MyPageServiceQuitPopup.text18') }}</p>
+        <!-- 202606 pop-text- 클래스 수정 -->
+        <p class="pop-text-bold">{{ $t('MyPageServiceQuitPopup.text17') }}</p>
+        <p class="pop-text-caption center">{{ $t('MyPageServiceQuitPopup.text18') }}</p>
         <div class="pop-btn-wrap">
           <button @click="isReal = false" type="button" class="pop-btn pop-btn--gray">{{ $t('Common.cancle') }}</button>
           <button
@@ -181,12 +181,28 @@ const isQuitButtonDisabled = computed(() => {
       </template>
     </base-popup>
 
+    <!-- [s] 202606 챌린지 팀에 가입되어 있을 경우 팝업 -->
+    <!-- <base-popup v-if="ex" :class="prefix + '--real'">
+      <template v-slot:contents>
+        <p class="pop-text-bold red">회원님은 현재 챌린지팀에 가입되어 있습니다.<br>회원탈퇴시 챌린지 팀에서도 탈퇴가 진행됩니다.<br>그래도 탈퇴하시겠습니까?</p>
+        <p class="pop-text-caption center">탈퇴 시, 분석 기록 및 챌린지 기록이 즉시 삭제되어 복구할 수 없습니다.</p>
+        <div class="pop-btn-wrap">
+          <button @click="ex = false" type="button" class="pop-btn pop-btn--gray">{{ $t('Common.cancle') }}</button>
+          <button
+            @click="popupQuitOk"
+            type="button"
+            class="pop-btn pop-btn--green">{{ $t('MyPageServiceQuitPopup.text19') }}</button>
+        </div>
+      </template>
+    </base-popup> -->
+    <!-- [e] 202606 챌린지 팀에 가입되어 있을 경우 팝업 -->
+
     <base-popup v-if="isQuitOk" class="MyPageServiceQuitPopup--real">
       <template v-slot:contents>
-        <p class="pop-text-bold">{{ $t('MyPageServiceQuitPopup.text20') }}
-        </p>
-        <p class="pop-text-light">{{ $t('MyPageServiceQuitPopup.text21') }}
-        </p>
+        <p class="pop-text-light">{{ $t('MyPageServiceQuitPopup.text20') }}
+        </p>  <!-- 202606 클래스 수정 -->
+        <p class="pop-text-light" v-html="$t('MyPageServiceQuitPopup.text21')">
+        </p> <!-- 202606 v-html로 수정 -->
         <div class="pop-btn-wrap">
           <button @click="outOk" type="button" class="MyPageServiceQuitPopup--real--btn">확인</button>
         </div>

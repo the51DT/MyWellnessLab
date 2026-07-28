@@ -482,7 +482,16 @@ const publishingRouter = {
           /* 231212 퍼블용 */ path: "pub-my-page-checkup-data-record",
           name: "pubPubMyPageCheckupDataRecord",
           component: () =>
-            import("@/views/mypage/MyPageCheckupDataRecord.vue"),
+            import("@/views/publishing/mypage/MyPageCheckupDataRecord.vue"),
+          meta: {
+            title: "검진 데이터 이력",
+            class: "middle",
+          },
+        },
+        {
+          /* 231212 퍼블용 */ path: "pub-my-page-checkup-data-record/not",
+          name: "pubPubMyPageCheckupDataRecordNot",
+          component: () => import("@/views/mypage/MyPageCheckupDataRecord.vue"),
           meta: {
             title: "검진 데이터 이력",
             class: "middle",
@@ -494,7 +503,7 @@ const publishingRouter = {
           component: () =>
             import("@/views/publishing/mypage/MyPageCheckupDataRecordDetail.vue"),
           meta: {
-            title: " ",
+            title: "검진 데이터 이력 상세",
             class: "wide",
           },
           props: true,
@@ -536,6 +545,54 @@ const publishingRouter = {
           meta: {
             title: "",
             class: "short",
+          },
+        },
+        {
+          path: "pub-my-anlyze",
+          name: "pubMyPageAnalyzeList",
+          component: () => import("@/views/publishing/Analyze.vue"),
+          meta: {
+            title: "건강수명 분석 결과 이력",
+            class: "wide",
+          },
+        },
+        {
+          path: "pub-my-anlyze/not",
+          name: "pubMyPageAnalyzeListNot",
+          component: () => import("@/views/analyze/Analyze.vue"),
+          meta: {
+            title: "건강수명 분석 결과 이력",
+            class: "wide",
+          },
+        },
+        {
+          path: "pub-my-body",
+          name: "pubMyPageBodyList",
+          component: () =>
+            import("@/views/mypage/MyPageBodyCompositionDataRecord.vue"),
+          meta: {
+            title: "체성분 데이터 이력",
+            class: "middle",
+          },
+        },
+        {
+          path: "pub-my-body/not",
+          name: "pubMyPageBodyNot",
+          component: () =>
+            import("@/views/mypage/MyPageBodyCompositionDataRecord.vue"),
+          meta: {
+            title: "체성분 데이터 이력",
+            class: "middle",
+          },
+        },
+        {
+          path: "pub-my-body/detail",
+          name: "pubMyPageAnalyzeListDetail",
+          component: () =>
+            import("@/views/mypage/MyPageBodyCompositionDataRecordDetail.vue"),
+          meta: {
+            title: "체성분 데이터 이력",
+            class: "wide",
           },
         },
       ],

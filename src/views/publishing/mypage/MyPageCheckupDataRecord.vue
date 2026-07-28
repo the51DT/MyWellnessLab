@@ -43,7 +43,7 @@ export default {
       this.paging += 10;
     },
     winWidth(){
-      this.isPc = window.innerWidth > 920;
+      this.isPc = window.innerWidth > 960;
     }
   },
   mounted() {

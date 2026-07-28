@@ -234,7 +234,7 @@ onMounted(async () => {
 
     <div class="AnalyzeList--complete">
       <h2 class="AnalyzeList--complete-tit">{{ $t('Analyze.text8') }}</h2>
-      <p class="AnalyzeList--complete-total">
+      <p v-if="analysisList.length > 0" class="AnalyzeList--complete-total"> <!-- 202606 v-if 추가 그 외 수정 @/views/publishing/Analyze.vue 참고 -->
         {{ $t('CheckupComplete.text4')}}
         <strong class="AnalyzeList--complete-number">{{ total }}</strong>{{ $t('Analyze.text7') }}
       </p>

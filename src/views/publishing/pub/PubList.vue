@@ -773,44 +773,116 @@ const data = ref([
     div3: '',
     loca: '@/views/mypage/MyPage.vue<br>@/views/publishing/MyPage.vue -> 퍼블 확인용 경로',
     go: '/publishing/my-page',
-    msg: "",
-    confirm: '작업중'
+    msg: "0728 팝업 완료 목록<br>- 휴대폰번호 변경 팝업 = @/views/mypage/MyPagePhoneChangePopup.vue<br>- PIN번호 변경 팝업 = @/views/mypage/MyPagePinChangePopup.vue<br>- 서비스 탈퇴 팝업 (챌린지 팀 팝업 추가) = @/views/mypage/MyPageServiceQuitPopup.vue",
+    confirm: '2026.07.28 퍼블 완료'
+  },
+  {
+    div: '건강수명 분석 결과 이력',
+    div2: '',
+    div3: '',
+    loca: '@/views/analyze/Analyze.vue<br>@/views/publishing/Analyze.vue -> 퍼블 확인용 경로',
+    go: '/publishing/my-page/pub-my-anlyze',
+    msg: '',
+    confirm: '2026.07.28 퍼블 완료'
+  },
+  {
+    div: '',
+    div2: '데이터 없는 경우',
+    div3: '',
+    loca: '@/views/analyze/Analyze.vue',
+    go: '/publishing/my-page/pub-my-anlyze/not',
+    msg: '',
+    confirm: '2026.07.28 퍼블 완료'
+  },
+  {
+    div: '챌린지 성공 보상 지급 이력',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/.vue',
+    go: '',
+    msg: '',
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '데이터 없는 경우',
+    div3: '',
+    loca: '@/views/publishing/.vue',
+    go: '',
+    msg: '',
+    confirm: ''
+  },
+  {
+    div: '분석권 사용 이력',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/.vue',
+    go: '',
+    msg: '기획 확정 대기중',
+    confirm: ''
+  },
+  {
+    div: '',
+    div2: '데이터 없는 경우',
+    div3: '',
+    loca: '@/views/publishing/.vue',
+    go: '',
+    msg: '기획 확정 대기중',
+    confirm: ''
   },
   {
     div: '검진 데이터 이력',
     div2: '',
     div3: '',
-    loca: '@/views/publishing/mypage/MyPageCheckupDataRecord.vue',
+    loca: '@/views/mypage/MyPageCheckupDataRecord.vue<br>@/views/publishing/mypage/MyPageCheckupDataRecord.vue -> 퍼블 확인용 경로',
     go: '/publishing/my-page/pub-my-page-checkup-data-record',
     msg: '',
-    confirm: ''
+    confirm: '작업중'
   },
   {
-    div: '상세',
-    div2: '',
+    div: '',
+    div2: '데이터 없는 경우',
+    div3: '',
+    loca: '@/views/mypage/MyPageCheckupDataRecord.vue',
+    go: '/publishing/my-page/pub-my-page-checkup-data-record/not',
+    msg: '',
+    confirm: '작업중'
+  },
+  {
+    div: '',
+    div2: '상세',
     div3: '',
     loca: '@/views/publishing/mypage/MyPageCheckupDataRecordDetail.vue',
     go: '/publishing/my-page/pub-my-page-checkup-data-record-detail',
     msg: '',
-    confirm: ''
+    confirm: '작업중'
   },
   {
-    div: '리포트 인쇄신청 이력',
+    div: '체성분 데이터 이력',
     div2: '',
     div3: '',
-    loca: '@/views/publishing/mypage/MyPageReportPrintRecord.vue',
-    go: '/publishing/my-page/pub-my-page-report-print-record',
-    msg: '기존 리스트 파일, 페이지 기획서에 없음',
-    confirm: ''
-  },
-  {
-    div: 'PIN 번호 변경',
-    div2: '',
-    div3: '',
-    loca: '@/views/mypage/MyPagePinChangePopup.vue',
-    go: '/publishing/my-page/pub-my-page-pin-change',
+    loca: '@/views/mypage/MyPageBodyCompositionDataRecord.vue',
+    go: '/publishing/my-page/pub-my-body',
     msg: '',
-    confirm: ''
+    confirm: '작업중'
+  },
+  {
+    div: '',
+    div2: '데이터 없는 경우',
+    div3: '',
+    loca: '@/views/mypage/MyPageBodyCompositionDataRecord.vue',
+    go: '/publishing/my-page/pub-my-body/not',
+    msg: '',
+    confirm: '작업중'
+  },
+  {
+    div: '',
+    div2: '상세',
+    div3: '',
+    loca: '@/views/mypage/MyPageBodyCompositionDataRecordDetail.vue',
+    go: '/publishing/my-page/pub-my-body/detail',
+    msg: '',
+    confirm: '작업중'
   },
   {
     div: 'PIN 번호 분실',
@@ -838,6 +910,15 @@ const data = ref([
     go: '/publishing/my-page/pub-my-page-pin-reset',
     msg: 'PIN 번호 분실에 포함 - 내용 확인용 퍼블 페이지(헤더 다름)',
     confirm: '2026.07.24 퍼블 완료'
+  },
+  {
+    div: '리포트 인쇄신청 이력',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/mypage/MyPageReportPrintRecord.vue',
+    go: '/publishing/my-page/pub-my-page-report-print-record',
+    msg: '기존 리스트 파일, 페이지 기획서에 없음',
+    confirm: ''
   },
   // {div: "",                       div2: "휴대폰번호 변경",                      div3: "",                loca: "@/views/publishing/mypage/MyPagePhoneChangePopup.vue",                             go: "/my-page-phone-change",                                        msg: "BasePhoneInput.vue '231212' 주석 수정 요망",                                  confirm: ""},
   { cate: 'blank'},

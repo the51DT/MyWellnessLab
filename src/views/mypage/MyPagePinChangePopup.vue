@@ -263,7 +263,7 @@ function popupClose () {
 
 <template>
   <div>
-    <base-popup-tit v-if="props.isPopupPin" @popupClose="popupClose" :class="'fullModal'">
+    <base-popup-tit v-if="props.isPopupPin" @popupClose="popupClose" :class="'fullModal'"> <!-- 202606 .fullModal 추가 -->
       <template v-slot:title>
         {{ $t('MyPagePinChangePopup.text1') }}
       </template>
@@ -271,9 +271,7 @@ function popupClose () {
         <section class="JoinPinRegistration--wrap"> <!--231129 클래스 삭제-->
           <div class="space--all-default JoinPinRegistration--in-wrap">
 
-            <div class="JoinPinRegistration--txt">
-              {{ $t('MyPagePinChangePopup.text2') }}
-            </div>
+            <div class="JoinPinRegistration--txt" v-html="$t('MyPagePinChangePopup.text2')"></div> <!-- 202606 v-html로 변경 -->
             <div class="JoinPinRegistration--pin-wrap">
               <h2 class="JoinPinRegistration--tit-wrap">
                 <label for="jpr01" class="JoinPinRegistration--tit">{{ $t('MyPagePinChangePopup.text3') }}</label>
@@ -340,7 +338,7 @@ function popupClose () {
     </base-popup-tit>
 
     <transition name="toastFade">
-      <div v-if="isToast" class="toast">
+      <div v-if="isToast" class="toast-green"> <!-- 202606 toast 클래스 변경 -->
         {{ $t('MyPagePinChangePopup.text13') }}
       </div>
     </transition>

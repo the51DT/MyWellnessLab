@@ -168,7 +168,7 @@ function changeReload () {
 </script>
 
 <template>
-  <base-popup-tit v-if="props.isPopupPhone" @popupClose="popupClose">
+  <base-popup-tit v-if="props.isPopupPhone" @popupClose="popupClose" :class="'fullModal'"> <!-- 202606 .fullModal 추가 -->
     <template v-slot:title>
       {{ $t('MyPagePhoneChangePopup.text1') }}
     </template>

@@ -33,7 +33,7 @@ export default {
 </template>
 
 <style scoped>
-.toast {
+/* .toast {
   position: fixed !important;
   bottom: 20px !important;
   left: 50% !important;
@@ -42,5 +42,5 @@ export default {
   max-width: 90%;
   display: inline-block;
   top: auto !important;
-}
+} */
 </style>

@@ -1249,22 +1249,23 @@ footer{
   box-shadow: 0 0 1px 2px #1DB196;
 }
 .label{
-  font-size: $txt-font-size-small5;
+  @include txtStyle(caption, lg-1);
   display: inline-block;
   min-height: 2rem;
   border-radius: .4rem;
   padding-right: .6rem;
-  padding-left: .5rem;
+  padding-left: .6rem;
+  padding-top: .1rem;
   @media (min-width: $w-pc) {
-    font-size: 1.4rem;
+    min-height: 2.4rem;
   }
   &.red{
-    background-color: #FFE5E3;
-    color: #E7272C;
+    background-color: #FEECF0;
+    color: #DA2B4E;
   }
   &.biolet{
     background-color: #E6E6FF;
-    color: #5353CB;
+    color: #5F5FF7;
   }
   &--eng{
     display: block;
@@ -12981,16 +12982,37 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     }
   }
   &--no-data{
-    text-align: center;
     @include txtStyle(body, md, 600);
-    padding-top: 11.2rem;
-    padding-bottom: 4rem;
-    background: url('/img/visual_alert_green.png') no-repeat center top 4rem / 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    padding-bottom: 0rem;
+    @include min-vh-fallback(100, 14rem);
     @media (min-width: $w-pc) {
-      padding-top: 16rem;
-      padding-bottom: 6rem;
-      background-position: center top 6rem;
-      background-size: 8rem;
+      gap: 2rem;
+      padding-bottom: 5rem;
+      @include min-vh-fallback(100, 20rem);
+    }
+    &:before{
+      content: "";
+      background: url("/img/visual_alert_green.png") no-repeat center;
+      background-size: contain;
+      display: block;
+      width: 6rem;
+      height: 6rem;
+      @media (min-width: $w-pc) {
+        width: 8rem;
+        height: 8rem;
+      }
+    }
+  }
+  .AnalyzeList--no-data {
+    min-height: unset;
+    padding: 4rem 0;
+    @media (min-width: $w-pc) {
+      padding: 6rem 0;
     }
   }
 }
@@ -17684,7 +17706,7 @@ span.legend-dot-interest{
   @include min-vh-fallback(100, $header-height-pc);
 }
 .MyPageCheckupDataRecord{
-  padding: 0.4rem 2rem 6rem;
+  padding: 1.6rem 2rem 2.4rem;
   @media (min-width: $w-pc){
     padding: 4rem 0 0;
   }
@@ -17692,10 +17714,14 @@ span.legend-dot-interest{
     padding: 0;
   }
   &--li{
-    border-bottom: solid .1rem $line-color-gray5;
+    & + &{
+      margin-top: 1.2rem;
+    }
     a{
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+      padding: 1.8rem 2rem 1.6rem;
+      border: solid .1rem #E5E5E5;
+      border-radius: 2.4rem;
+      background-color: #fff;
     }
   }
   &--txt{
@@ -17704,12 +17730,8 @@ span.legend-dot-interest{
   $dtWidth2: 7rem;
   $dtWidth2Pc: 8rem;
   &--dt{
-    font-size: 1.4rem;
-    font-family: $font-family-light;
-    color: #555;
-    @media (min-width: $w-pc) {
-      font-size: 1.6rem;
-    }
+    @include txtStyle(body, 2xs-1, 500);
+    color: #808080;
     &.MyPageReportPrintRecord{
       width: $dtWidth2;
       @include txtSmall2(#7e7e7e);
@@ -17719,14 +17741,8 @@ span.legend-dot-interest{
     }
   }
   &--dd{
-    font-size: 1.5rem;
-    color: #222;
-    margin-left: 0.5rem;
-    @media (min-width: $w-pc) {
-      font-size: 1.8rem;
-      font-family: $font-family-medium;
-      letter-spacing: 0;
-    }
+    @include txtStyle(body, xs, 600);
+    color: #1A1818;
     &.MyPageReportPrintRecord{
       width: calc(100% - $dtWidth2);
       @include txtSmall2(#222);
@@ -17736,11 +17752,11 @@ span.legend-dot-interest{
     }
   }
   &--arrow-wrap{
-    @include childCenter;
+    display: flex;
+    align-items: flex-end;
   }
   &--arrow{
-    background: url("/img/ico_arrow_gray.svg") no-repeat right;
-    transform: rotate(-90deg);
+    background: url("/img/ico_arrow_right_gray.svg") no-repeat center / cover;
     width: 2rem;
     height: 2rem;
     @media (min-width: $w-pc) {
@@ -17755,10 +17771,14 @@ span.legend-dot-interest{
     }
   }
   .align--dl{
-    margin-top: 1rem;
-  }
-  .label{
-    padding-top: .2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: .6rem;
+    @media (min-width:$w-pc) {
+      margin-top: .8rem;
+      gap: 1.6rem;
+    }
   }
   &--go{
     width: 40px;
@@ -17776,25 +17796,6 @@ span.legend-dot-interest{
     }
     &:disabled{
       opacity: .5;
-    }
-  }
-  .AnalyzeList--no-data{
-    padding: 6rem 0;
-    background: transparent;
-    &:before{
-      content: "";
-      background: url("/img/ico_no_data.png") no-repeat center;
-      background-size: contain;
-      display: block;
-      width: 14rem;
-      height: 14rem;
-      margin: auto;
-    }
-    span{
-      margin-top: 1.2rem;
-      color: #222;
-      font-size: 2rem;
-      font-family: $font-family-bold;
     }
   }
 }

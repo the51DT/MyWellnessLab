@@ -105,7 +105,7 @@ onMounted(() => {
       <span>{{ $t('MyPageCheckupDataRecord.text2') }}</span>
     </div>
     <div v-else-if="isPc && (data.target.length < totalCount)" class="txt--center MyPageCheckupDataRecord--btn">
-      <button @click="more" type="button" class="btn--txt3">{{ $t('Common.more') }}</button>
+      <button @click="more" type="button" class="AnalyzeList--more-btn">{{ $t('Common.more') }}</button>
     </div>
   </div>
 </template>

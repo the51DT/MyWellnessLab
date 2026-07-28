@@ -837,7 +837,7 @@ const data = ref([
     loca: '@/views/mypage/MyPageCheckupDataRecord.vue<br>@/views/publishing/mypage/MyPageCheckupDataRecord.vue -> 퍼블 확인용 경로',
     go: '/publishing/my-page/pub-my-page-checkup-data-record',
     msg: '',
-    confirm: '작업중'
+    confirm: '2026.07.28 퍼블 완료'
   },
   {
     div: '',
@@ -846,13 +846,13 @@ const data = ref([
     loca: '@/views/mypage/MyPageCheckupDataRecord.vue',
     go: '/publishing/my-page/pub-my-page-checkup-data-record/not',
     msg: '',
-    confirm: '작업중'
+    confirm: '2026.07.28 퍼블 완료'
   },
   {
     div: '',
     div2: '상세',
     div3: '',
-    loca: '@/views/publishing/mypage/MyPageCheckupDataRecordDetail.vue',
+    loca: '@/views/mypage/MyPageCheckupDataRecordDetail.vue<br>@/views/publishing/mypage/MyPageCheckupDataRecordDetail.vue -> 퍼블 확인용 경로',
     go: '/publishing/my-page/pub-my-page-checkup-data-record-detail',
     msg: '',
     confirm: '작업중'

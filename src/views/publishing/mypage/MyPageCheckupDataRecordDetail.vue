@@ -41,6 +41,7 @@ export default {
         {
           tit: '고밀도 콜레스테롤',
           index: '-',
+          type: 'text',
           unit: 'mg/dl'
         },
         {
@@ -91,11 +92,14 @@ export default {
 <template>
   <div :class="prefix">
     <div :class="prefix + '--top'">
+      <div class="tag-wrap">
+        <span class="tag" :class="data.label === '국민건강보험공단' ? 'red' : '직접입력' ? 'biolet' : ''">
+          {{ data.label }}
+        </span>
+      </div>
       <dl :class="prefix + '--dl'">
         <dt>건강 검진일</dt>
-        <dd>: {{ data.date }}</dd>
-        <dt>건강 데이터</dt>
-        <dd>: {{ data.label }}</dd>
+        <dd>{{ data.date }}</dd>
       </dl>
       <div :class="prefix + '--btn-wrap'">
         <button type="button" :class="prefix + '--btn'">이 검진 데이터로 분석 시작하기</button>

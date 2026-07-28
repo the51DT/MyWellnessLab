@@ -684,7 +684,8 @@ $w-pc-wrap: 520px;
   font-size: $btn-font-size-big;
   color: $btn-font-color-gray3;
   &:after{
-    content: url("../../../public/img/ico_arrow_down.svg");
+    // content: url("../../../public/img/ico_arrow_down.svg");
+    content: url("/img/ico_arrow_down.svg");
     margin-left: 1rem;
   }
 }

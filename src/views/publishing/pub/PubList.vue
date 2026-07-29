@@ -798,19 +798,19 @@ const data = ref([
     div: '챌린지 성공 보상 지급 이력',
     div2: '',
     div3: '',
-    loca: '@/views/publishing/.vue',
-    go: '',
+    loca: '@/views/publishing/mypage/MyPageChallengeReward.vue',
+    go: '/publishing/my-page/pub-my-challenge-reward',
     msg: '',
-    confirm: ''
+    confirm: '2026.07.29 퍼블 완료'
   },
   {
     div: '',
     div2: '데이터 없는 경우',
     div3: '',
-    loca: '@/views/publishing/.vue',
-    go: '',
-    msg: '',
-    confirm: ''
+    loca: '@/views/publishing/mypage/MyPageChallengeReward.vue',
+    go: '/publishing/my-page/pub-my-challenge-reward/not',
+    msg: '퍼블 확인용 라우터 케이스 적용',
+    confirm: '2026.07.29 퍼블 완료'
   },
   {
     div: '분석권 사용 이력',
@@ -855,16 +855,16 @@ const data = ref([
     loca: '@/views/mypage/MyPageCheckupDataRecordDetail.vue<br>@/views/publishing/mypage/MyPageCheckupDataRecordDetail.vue -> 퍼블 확인용 경로',
     go: '/publishing/my-page/pub-my-page-checkup-data-record-detail',
     msg: '',
-    confirm: '작업중'
+    confirm: '2026.07.29 퍼블 완료'
   },
   {
     div: '체성분 데이터 이력',
     div2: '',
     div3: '',
-    loca: '@/views/mypage/MyPageBodyCompositionDataRecord.vue',
+    loca: '@/views/mypage/MyPageBodyCompositionDataRecord.vue<br>@/views/publishing/mypage/MyPageBodyCompositionDataRecord.vue -> 퍼블 확인용',
     go: '/publishing/my-page/pub-my-body',
     msg: '',
-    confirm: '작업중'
+    confirm: '2026.07.29 퍼블 완료'
   },
   {
     div: '',
@@ -873,16 +873,16 @@ const data = ref([
     loca: '@/views/mypage/MyPageBodyCompositionDataRecord.vue',
     go: '/publishing/my-page/pub-my-body/not',
     msg: '',
-    confirm: '작업중'
+    confirm: '2026.07.29 퍼블 완료'
   },
   {
     div: '',
     div2: '상세',
     div3: '',
-    loca: '@/views/mypage/MyPageBodyCompositionDataRecordDetail.vue',
+    loca: '@/views/mypage/MyPageBodyCompositionDataRecordDetail.vue<br>@/views/publishing/mypage/MyPageBodyCompositionDataRecordDetail.vue -> 퍼블 확인용',
     go: '/publishing/my-page/pub-my-body/detail',
     msg: '',
-    confirm: '작업중'
+    confirm: '2026.07.29 퍼블 완료'
   },
   {
     div: 'PIN 번호 분실',
@@ -929,7 +929,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/OrderNpay.vue',
     go: '/publishing/order-pay',
-    msg: '',
+    msg: '기존 리스트 파일, 페이지 기획서에 없음',
     confirm: ''
   },
   {
@@ -938,7 +938,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/orderNpay/OrderNpayDetail.vue',
     go: '/publishing/order-pay/order-pay-detail',
-    msg: '',
+    msg: '기존 리스트 파일, 페이지 기획서에 없음',
     confirm: ''
   },
 ])

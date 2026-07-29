@@ -1889,31 +1889,34 @@ ul{
 .tag-wrap{
   text-align: left;
   .tag{
-    font-size: 1.2rem;
-    font-family: 'RixSinHead_Light';
-    color: #1db196;
-    background: #d9f0ed;
+    @include txtStyle(caption, lg-1);
+    color: #33C7AC;
+    background: #D0F0EC;
     border-radius: 0.4rem;
-    padding: 0.2rem 0.4rem;
-    letter-spacing: -0.03rem;
+    padding: 0 0.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: 2rem;
     @media (min-width: $w-pc) {
-      font-size: 1.4rem;
+      height: 2.4rem;
     }
     &.tag-manual{
       color: #5353cb;
       background: #e6e6ff;
     }
     &.tag-bodykey{
-      color: #01865f;
-      background: #d8ffe0;
+      color: #2C7B24;
+      background: #CBEFC8;
     }
     &.red{
-      background-color: #FFE5E3;
-      color: #E7272C;
+      background-color: #FEECF0;
+      color: #DA2B4E;
     }
     &.biolet{
       background-color: #E6E6FF;
-      color: #5353CB;
+      color: #5F5FF7;
     }
   }
 }

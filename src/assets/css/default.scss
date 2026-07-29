@@ -8957,14 +8957,15 @@ button{
   align-items: center;
   &--dt{
     // width: calc((100% - 1rem) * .4);
-    width: 50%;
+    width: 60%;
     @include itemTit;
     display: flex;
     align-items: center;
+    white-space: break-spaces;
   }
   &--dd{
     // width: calc((100% - 1rem) * .6);
-    width: 50%;
+    width: 40%;
     @media (min-width: $w-pc) {
       width: 16rem;
     }
@@ -17759,6 +17760,7 @@ span.legend-dot-interest{
     background: url("/img/ico_arrow_right_gray.svg") no-repeat center / cover;
     width: 2rem;
     height: 2rem;
+    margin-bottom: .1rem;
     @media (min-width: $w-pc) {
       background-size: 84%;
     }
@@ -17800,17 +17802,11 @@ span.legend-dot-interest{
   }
 }
 .MyPageCheckupDataRecordDetail{
-  @include boxStyle;
-  margin-top: 3.2rem;
-  padding-top: 3.2rem;
-  padding-bottom: 6rem;
-  @media (min-width: $w-pc-small3) {
-    max-width: 62rem;
-    margin: 3rem auto 0;
-    padding: 6rem 0;
-  }
+  padding: 1.6rem 2rem 8rem;
   @media (min-width: $w-pc) {
-    margin: 3rem auto 4rem;
+    max-width: $w-pc-wrap;
+    margin: 0 auto;
+    padding: 2.4rem 2rem 6rem;
   }
   &--top{
     @media (min-width: $w-pc-small3) {
@@ -17819,34 +17815,19 @@ span.legend-dot-interest{
     }
   }
   .tag-wrap {
-    margin-bottom: 1rem;
+    margin-bottom: .8rem;
   }
   &--dl{
-    @include txtSmall4;
-    $size: 8rem;
-    $sizePc: 8.5rem;
+    color: #666;
+    @include txtStyle(body, 2xs);
     dt, dd{
       display: inline-block;
     }
     dt{
-      font-size: 1.4rem;
-      font-family: $font-family-light;
-      color: #555;
-      @media (min-width: $w-pc-small3) {
-        font-size: 1.6rem;
-      }
     }
     dd{
-      font-size: 1.5rem;
-      font-family: $font-family-bold;
-      color: #222;
-      margin-left: 0.5rem;
-      @media (min-width: $w-pc-small3) {
-        width: auto;
-        font-size: 1.8rem;
-        font-family: $font-family-medium;
-        letter-spacing: 0;
-      }
+      font-weight: 600;
+      margin-left: .4rem;
     }
   }
   &--hData{
@@ -17855,107 +17836,161 @@ span.legend-dot-interest{
     }
   }
   &--btn{
-    @include btnBig2(small);
+    @include btnClear;
     width: $w-full;
-    @include alignCenter3;    
-    margin-top: 1.4rem;
-    @media (min-width: $w-pc-small3) {
-      max-width: 34rem;
+    height: 4.8rem;
+    background-color: #fff;
+    border-radius: 99rem;
+    border: .1rem solid #ccc;
+    @include txtStyle(body, sm, 600);
+    @media (min-width: $w-pc) {
+      height: 6rem;
     }
     &-wrap{
+      margin-top: 1.6rem;
       margin-bottom: 2.4rem;
+      @media (min-width: $w-pc) {
+        margin-top: 2rem;
+      }
     }
   }
   &--data{
-    @media (min-width: $w-pc-small3) {
-      max-width: 50rem;
-      margin: 0 auto;
+    padding: 1.2rem 2rem 1.6rem;
+    background-color: #fff;
+    border-radius: 2.4rem;
+    border: .1rem solid #e5e5e5;
+    @media (min-width: $w-pc) {
+      padding: 1.6rem 2.8rem 2.4rem;
       .validation{
         margin-top: 0;
       }
     }
   }
+  .CheckupBasicsBasic{
+    &--name{
+      margin-top: 1.2rem;
+      height: 3.8rem;
+      @media (min-width: $w-pc) {
+        margin-top: 1.4rem;
+        height: 4.4rem;
+      }
+      &:first-child{
+        margin-top: 0;
+      }
+    }
+  }
+  .BaseInput--dt{
+    @include txtStyle(body, 2xs-1);
+    color: #666;
+  }
+  .BaseInput--suf{
+    width: fit-content;
+    padding: 0;
+  }
   .BaseInput--suf-in {
-    color: #999;
+    font-family: 'Pretendard', sans-serif;
+    @include txtStyle(body, 2xs-1);
+    color: #808080;
+  }
+  .BaseInput--dd-div.disabled{
+    background-color: transparent;
+    border: none;
+    justify-content: flex-end;
   }
   .BaseInput--dd-div.disabled input {
-    color: #999;
-    font-size: 1.5rem;
-    font-family: $font-family-medium !important;
+    @include txtStyle(body, 2xs-1, 600);
+    color: #1A1818;
+    font-family: 'Pretendard', sans-serif !important;
+    text-align: right;
+    padding-right: .4rem;
+    @media (min-width: $w-pc) {
+      padding-right: .6rem;
+    }
   }
 }
 .MyPageBodyCompositionDataRecord{
   $dtWidth: 6rem;
-  padding: 0.4rem 2rem 6rem;
+  padding: 1.6rem 2rem 2.4rem;
   @media (min-width: $w-pc){
-    padding: 4rem 0 0;
   }
   .bull--no{
     padding: 0;
   }
   &--li{
-    border-bottom: solid .1rem $line-color-gray5;
+    & + &{
+      margin-top: 1.2rem;
+    }
     a{
-      padding-top: 2rem;
-      padding-bottom: 2rem;
+      padding: 1.8rem 2rem 1.6rem;
+      border: solid .1rem #E5E5E5;
+      border-radius: 2.4rem;
+      background-color: #fff;
+      flex-wrap: nowrap;
     }
   }
   &--txt{
-    width: 70%;
+    width: 100%;
   }
   $dtWidth2: 7rem;
   $dtWidth2Pc: 8rem;
   &--arrow-wrap{
-    @include childCenter;
+    display: flex;
+    align-items: flex-end;
+    flex-shrink: 0;
   }
   &--arrow{
-    background: url("/img/ico_arrow_gray.svg") no-repeat right;
-    transform: rotate(-90deg);
+    background: url("/img/ico_arrow_right_gray.svg") no-repeat center / cover;
     width: 2rem;
     height: 2rem;
+    margin-bottom: .1rem;
     @media (min-width: $w-pc) {
       background-size: 84%;
     }
   }
   &--btn{
     margin-top: $marginTop-default;
-    padding-bottom: $paddingBottom-default;
+    @media (min-width: $w-pc) {
+      margin-top: 4rem;
+    }
   }
   &--dl{
-    margin-top: 1rem;
-    text-align: left !important;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: .6rem;
+    @media (min-width:$w-pc) {
+      margin-top: .8rem;
+      gap: 1.6rem;
+    }
     dt, dd{
       display: inline-block;
       text-align: left;
     }
     dt{
-      font-size: 1.4rem;
-      font-family: $font-family-light;
-      color: #555;
-      text-align: left;
-      @media (min-width: $w-pc) {
-        font-size: 1.6rem;
-      }
+      @include txtStyle(body, 2xs-1, 500);
+      color: #808080;
     }
     dd{
-      font-size: 1.5rem;
-      font-family: $font-family-bold;
-      color: #222;
-      text-align: left;
-      @media (min-width: $w-pc) {
-        font-size: 1.8rem;
-        font-family: $font-family-medium;
-        letter-spacing: 0;
-      }
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      @include txtStyle(body, xs, 600);
+      color: #1A1818;
       span.MyPageBodyCompositionDataRecord--dt{
-        font-size: 1.6rem;
-        color: #646464;
-        font-family: $font-family-light;
+        color: #666;
+        font-weight: 500;
       }
     }
   }
   .align--dl{
-    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: .6rem;
+    @media (min-width:$w-pc) {
+      margin-top: .8rem;
+      gap: 1.6rem;
+    }
   }
   .label{
     padding-top: .2rem;
@@ -17978,25 +18013,6 @@ span.legend-dot-interest{
       opacity: .5;
     }
   }
-  .AnalyzeList--no-data{
-    padding: 5.6rem 0;
-    background: transparent;
-    &:before{
-      content: "";
-      background: url("/img/ico_no_data.png") no-repeat center;
-      background-size: contain;
-      display: block;
-      width: 14rem;
-      height: 14rem;
-      margin: auto;
-    }
-    span{
-      margin-top: 1rem;
-      color: #222;
-      font-size: 2rem;
-      font-family: $font-family-bold;
-    }
-  }
 }
 .analyze-checkup-data-record-page{
   @media (min-width: $w-pc-small4) {
@@ -18010,14 +18026,11 @@ span.legend-dot-interest{
   }
 }
 .MyPageBodyCompositionDataRecordDetail{
-  @include boxStyle;
-  padding-top: 3.2rem;
-  padding-bottom: 10rem; //20260319 ASB-13674 - 수정
-  max-width: 62rem;
-  margin: 3.2rem auto 0;
+  padding: 1.6rem 2rem 8rem;
   @media (min-width: $w-pc) {
-    margin: 3rem auto 4rem;
-    padding: 6rem 0;
+    max-width: $w-pc-wrap;
+    margin: 0 auto;
+    padding: 2.4rem 2rem 6rem;
   }
   &--data{
     @media (min-width: $w-pc) {
@@ -18026,32 +18039,19 @@ span.legend-dot-interest{
     }
   }
   .tag-wrap{
-    margin-bottom: 1rem;
-    display: flex;
+    margin-bottom: .8rem;
   }
   &--dl{
-    display: flex;
-    align-items: flex-end;
+    color: #666;
+    @include txtStyle(body, 2xs);
+    dt, dd{
+      display: inline-block;
+    }
     dt{
-      font-size: $txt-font-size-small3;
-      font-family: $font-family-light;
-      color: $txt-font-color-gray2;
-      @media (min-width: $w-pc) {
-        font-size: 1.6rem;
-      }
     }
     dd{
-      font-size: $txt-font-size-small6;
-      color: $txt-font-color-gray3;
-      margin-left: 0.5rem;
-      @media (min-width: $w-pc) {
-        font-size: 1.8rem;
-      }
-      span{
-        font-size: 1.4rem;
-        color: #646464;
-        font-family: $font-family-light;
-      }
+      font-weight: 600;
+      margin-left: .4rem;
     }
   }
   &--hData{
@@ -18064,33 +18064,65 @@ span.legend-dot-interest{
     background-color: #e5e5e5;
     margin: 2.4rem 0;
   }
+  &--btn{
+    @include btnClear;
+    width: $w-full;
+    height: 4.8rem;
+    background-color: #fff;
+    border-radius: 99rem;
+    border: .1rem solid #ccc;
+    @include txtStyle(body, sm, 600);
+    @media (min-width: $w-pc) {
+      height: 6rem;
+    }
+    &-wrap{
+      margin-top: 1.6rem;
+      margin-bottom: 2.4rem;
+      @media (min-width: $w-pc) {
+        margin-top: 2rem;
+      }
+    }
+  }
   &--input-list{
-    margin-top: 2.4rem;
+    padding: 1.2rem 2rem 1.6rem;
+    background-color: #fff;
+    border-radius: 2.4rem;
+    border: .1rem solid #e5e5e5;
+    @media (min-width: $w-pc) {
+      padding: 1.6rem 2.8rem 2.4rem;
+      .validation{
+        margin-top: 0;
+      }
+    }
   }
   &--input{
-    margin-top: 1.6rem;
-    margin-bottom: 1.6rem;
+    margin-top: 1.2rem;
+    height: 3.8rem;
     @media (min-width: $w-pc) {
-      margin-top: 2.4rem;
-      margin-bottom: 0;
+      margin-top: 1.4rem;
+      height: 4.4rem;
+    }
+    &:first-child{
+      margin-top: 0;
     }
     &:last-child{
       margin-bottom: 0;
     }
     .BaseInput--dd-div{
-      &>*:nth-child(1){
-        width: 10%;
-      }
-      &>*:nth-child(2){
-        width: 80%;
-      }
-      &>*:nth-child(3){
-        width: 10%;
+      &.disabled{
+        background-color: transparent;
+        border: none;
+        justify-content: flex-end;
       }
       &.disabled input{
-        color: #999;
-        font-size: 1.5rem;
-        font-family: $font-family-medium !important;
+        @include txtStyle(body, 2xs-1, 600);
+        color: #1A1818;
+        font-family: 'Pretendard', sans-serif !important;
+        text-align: right;
+        padding-right: .4rem;
+        @media (min-width: $w-pc) {
+          padding-right: .6rem;
+        }
       }
     }
   }
@@ -18103,8 +18135,18 @@ span.legend-dot-interest{
     font-weight: 500;
     text-align: center;
   }
+  .BaseInput--dt{
+    @include txtStyle(body, 2xs-1);
+    color: #666;
+  }
+  .BaseInput--suf{
+    width: fit-content;
+    padding: 0;
+  }
   .BaseInput--suf-in{
-    color: #999;
+    font-family: 'Pretendard', sans-serif;
+    @include txtStyle(body, 2xs-1);
+    color: #808080;
   }
   .validation{
     margin-top: 0;
@@ -18348,6 +18390,111 @@ span.legend-dot-interest{
       @include btnPopGreen;
       &.cancel{
         @include btnPopGray;
+      }
+    }
+  }
+}
+.MyPageChallengeReward{
+  padding: 1.6rem 2rem 2.4rem;
+  @media (min-width: $w-pc) {
+    max-width: $w-pc-wrap;
+    margin: 0 auto;
+    padding-bottom: 6rem;
+  }
+  &--ul{
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    padding: 0;
+  }
+  &--box{
+    padding: 2rem 2rem 2.4rem;
+    background-color: #fff;
+    border-radius: 2.4rem;
+    border: .1rem solid #E5E5E5;
+    @media (min-width: $w-pc) {
+      padding: 2.2rem 2rem 2.6rem;
+    }
+  }
+  &--top{
+    padding-bottom: 1.6rem;
+    margin-bottom: 1.6rem;
+    border-bottom: .1rem solid #ebebeb;
+    @media (min-width: $w-pc) {
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+  &--tit{
+    @include txtStyle(body, md, 600);
+    strong{
+      font-weight: 500;
+      &::before{
+        content: '';
+        display: inline-block;
+        width: .1rem;
+        height: 1.4rem;
+        margin: 0 .8rem .2rem;
+        background-color: #D9D9D9;
+        vertical-align: middle;
+      }
+    }
+  }
+  &--team{
+    @include txtStyle(body, sm);
+    color: #666;
+    margin-top: .4rem;
+    strong{
+      font-weight: 600;
+      margin-left: .8rem;
+    }
+  }
+  &--dl{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .8rem;
+    @include txtStyle(body, 2xs-1, 500);
+    @media (min-width:$w-pc) {
+      gap: 1.2rem;
+    }
+    dt{
+      color: #666;
+    }
+    dd{
+      font-weight: 600;
+      color: #333;
+      text-align: right;
+    }
+  }
+  &--link{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    width: fit-content;
+    margin-top: .4rem;
+    @include txtStyle(caption, lg, 500);
+    color: #666;
+    &::before{
+      content: '';
+      position: absolute;
+      bottom: -.1rem;
+      display: block;
+      width: 100%;
+      height: .1rem;
+      background-color: #666;
+    }
+    &::after{
+      content: '';
+      background: url('/img/ico_arrow_right_gray.svg') no-repeat right -.1rem center / contain;
+      display: inline-block;
+      width: 1.3rem;
+      height: 1.7rem;
+      margin-left: -.1rem;
+      @media (min-width:$w-pc) {
+        width: 1.6rem;
+        height: 1.9rem;
+        margin-left: -.2rem;
+        background-position-x: right -.2rem;
       }
     }
   }

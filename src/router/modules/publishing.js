@@ -569,7 +569,7 @@ const publishingRouter = {
           path: "pub-my-body",
           name: "pubMyPageBodyList",
           component: () =>
-            import("@/views/mypage/MyPageBodyCompositionDataRecord.vue"),
+            import("@/views/publishing/mypage/MyPageBodyCompositionDataRecord.vue"),
           meta: {
             title: "체성분 데이터 이력",
             class: "middle",
@@ -587,12 +587,31 @@ const publishingRouter = {
         },
         {
           path: "pub-my-body/detail",
-          name: "pubMyPageAnalyzeListDetail",
+          name: "pubMyPageBodyCompositionDetail",
           component: () =>
-            import("@/views/mypage/MyPageBodyCompositionDataRecordDetail.vue"),
+            import("@/views/publishing/mypage/MyPageBodyCompositionDataRecordDetail.vue"),
           meta: {
             title: "체성분 데이터 이력",
             class: "wide",
+          },
+        },
+        {
+          path: "pub-my-challenge-reward",
+          name: "pubMyPageChallengeReward",
+          component: () =>
+            import("@/views/publishing/mypage/MyPageChallengeReward.vue"),
+          meta: {
+            title: "챌린지 성공 보상 지급 이력",
+          },
+        },
+        {
+          path: "pub-my-challenge-reward/not",
+          name: "pubMyPageChallengeRewardNot",
+          component: () =>
+            import("@/views/publishing/mypage/MyPageChallengeReward.vue"),
+          meta: {
+            title: "챌린지 성공 보상 지급 이력",
+            isNoChallenge: true,
           },
         },
       ],

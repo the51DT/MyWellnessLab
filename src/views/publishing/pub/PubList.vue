@@ -710,35 +710,6 @@ const data = ref([
     confirm: ''
   },
   {
-    div: '점검중',
-    div2: '',
-    div3: '',
-    loca: '@/views/publishing/etc/Construction.vue',
-    go: '/construction',
-    msg: '',
-    confirm: ''
-  },
-  {
-    cate: '',
-    div: '로딩',
-    div2: '일반 텍스트',
-    div3: '',
-    loca: '@/views/publishing/etc/.vue',
-    go: '',
-    msg: '',
-    confirm: ''
-  },
-  {
-    cate: '',
-    div: '',
-    div2: '리포트 파일 생성 로딩',
-    div3: '',
-    loca: '@/views/publishing/etc/.vue',
-    go: '',
-    msg: '',
-    confirm: ''
-  },
-  {
     div: '서비스 이용안내',
     div2: '',
     div3: '',
@@ -764,6 +735,36 @@ const data = ref([
     go: '/publishing/coupon-status/introduce',
     msg: '',
     confirm: ''
+  },
+  { cate: 'blank'},
+  {
+    cate: 'ETC',
+    div: '점검중',
+    div2: '',
+    div3: '',
+    loca: '@/views/Construction.vue',
+    go: '/publishing/construction',
+    msg: '',
+    confirm: '2026.07.29 퍼블 완료'
+  },
+  {
+    div: '에러',
+    div2: '',
+    div3: '', 
+    loca: '@/views/NotFound.vue<br>@/views/publishing/etc/Construction.vue -> 퍼블 확인용 경로',
+    go: '/publishing/error',
+    msg: '500 error 주석처리',
+    confirm: '2026.07.29 퍼블 완료'
+  },
+  {
+    cate: '',
+    div: '로딩',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/etc/Spinner.vue',
+    go: '/publishing/loading',
+    msg: '일반 로딩 주석처리',
+    confirm: '2026.07.29 퍼블 완료'
   },
   { cate: 'blank'},
   {

@@ -668,9 +668,26 @@ const publishingRouter = {
       ],
     },
     {
-      path: "error" /* 기타 */,
-      name: "Error",
-      component: () => import("@/views/publishing/Error.vue"),
+      path: "error" /* 에러 */,
+      component: LayoutHomeNoFooter,
+      children: [
+        {
+          path: "",
+          name: "pubError",
+          component: () => import("@/views/publishing/Error.vue"),
+        },
+      ],
+    },
+    {
+      path: "construction" /* 기타 */,
+      name: "pubConstruction",
+      component: () => import("@/views/Construction.vue"),
+    },
+    {
+      path: "loading" /* 기타 */,
+      name: "pubLoading",
+      component: () => import("@/views/publishing/etc/Spinner.vue"),
+      // component: () => import("@/views/components/etc/Spinner.vue"),
     },
     {
       path: "main" /* 메인 - 고도화 홈 */,

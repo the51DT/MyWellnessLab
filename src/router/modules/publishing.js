@@ -21,10 +21,19 @@ const publishingRouter = {
         {
           path: "",
           name: "pubHome",
-          component: () => import("@/views/Home.vue"),
+          component: () => import("@/views/publishing/Home.vue"),
           meta: {
             title: "홈",
             isLogin: true /* 퍼블 확인용 */,
+          },
+        },
+        {
+          path: "before",
+          name: "pubHomeBefore",
+          component: () => import("@/views/publishing/Home.vue"),
+          meta: {
+            title: "홈",
+            isLogin: false /* 퍼블 확인용 */,
           },
         },
         {
@@ -611,7 +620,26 @@ const publishingRouter = {
             import("@/views/publishing/mypage/MyPageChallengeReward.vue"),
           meta: {
             title: "챌린지 성공 보상 지급 이력",
-            isNoChallenge: true,
+            isNoChallenge: true /* 퍼블 확인용 */,
+          },
+        },
+        {
+          path: "pub-my-coupon-history",
+          name: "pubMyPageCouponHistory",
+          component: () =>
+            import("@/views/publishing/mypage/MyPageCouponHistory.vue"),
+          meta: {
+            title: "분석권 사용 이력",
+          },
+        },
+        {
+          path: "pub-my-coupon-history/not",
+          name: "pubMyPageCouponHistoryNot",
+          component: () =>
+            import("@/views/publishing/mypage/MyPageCouponHistory.vue"),
+          meta: {
+            title: "분석권 사용 이력",
+            noHistory: true /* 퍼블 확인용 */,
           },
         },
       ],

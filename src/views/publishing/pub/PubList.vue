@@ -132,7 +132,17 @@ const data = ref([
   { cate: 'blank'},
   {
     cate: '건강수명분석',
-    div: '웰니스분석',
+    div: '분석 전',
+    div2: '',
+    div3: '',
+    loca: '@/views/Home.vue<br>@/views/publishing/Home.vue -> 퍼블 확인용 경로',
+    go: '/publishing/home/before',
+    msg: '**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**',
+    confirm: ''
+  },
+  {
+    cate: '',
+    div: '분석 후',
     div2: '',
     div3: '',
     loca: '@/views/Home.vue<br>@/views/publishing/Home.vue -> 퍼블 확인용 경로',
@@ -817,19 +827,19 @@ const data = ref([
     div: '분석권 사용 이력',
     div2: '',
     div3: '',
-    loca: '@/views/publishing/.vue',
-    go: '',
-    msg: '기획 확정 대기중',
+    loca: '@/views/publishing/mypage/MyPageCouponHistory.vue',
+    go: '/publishing/my-page/pub-my-coupon-history',
+    msg: '디자인 대기중',
     confirm: ''
   },
   {
     div: '',
     div2: '데이터 없는 경우',
     div3: '',
-    loca: '@/views/publishing/.vue',
-    go: '',
-    msg: '기획 확정 대기중',
-    confirm: ''
+    loca: '@/views/publishing/mypage/MyPageCouponHistory.vue',
+    go: '/publishing/my-page/pub-my-coupon-history/not',
+    msg: '',
+    confirm: '2026.07.29 퍼블 완료'
   },
   {
     div: '검진 데이터 이력',

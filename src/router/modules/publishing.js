@@ -681,7 +681,7 @@ const publishingRouter = {
           component: () => import("@/views/publishing/etc/Faq.vue"),
           meta: {
             title: "FAQ",
-            class: "whiteHeader wide",
+            class: "wide",
           },
         },
         {

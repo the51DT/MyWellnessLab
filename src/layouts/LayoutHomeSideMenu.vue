@@ -145,6 +145,11 @@ watch(isKakao, () => { /* 231214 사이드바가 나오면 사이드메뉴 스�
 <template>
   <div class="side-bar--con-wrap">
 
+    <!-- 202606 닫기버튼 상단으로 이동 -->
+    <div class="header--close txt--right side-bar--close">
+      <button @click="closeSideMenu" type="button" />
+    </div>
+
     <div class="side-bar--contents">
 
       <!-- [s] 202606 메뉴 구조 수정 -->
@@ -229,10 +234,6 @@ watch(isKakao, () => { /* 231214 사이드바가 나오면 사이드메뉴 스�
         <button type="button" class="side-bar--out" @click="doLogout">{{ $t('LayoutHomeSideMenu.logout')}}</button>
       </div>
 
-    </div>
-
-    <div class="header--close txt--right side-bar--close">
-      <button @click="closeSideMenu" type="button" />
     </div>
 
     <transition name="fade">

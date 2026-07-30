@@ -442,13 +442,13 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(34, 34, 34, .6);
+    background: rgba(26, 24, 24, .8);
     width: 100%;
     @include height-vh-fallback(100, 0rem);
     z-index: 1;
   }
   &--con{
-    width: 25.6rem;
+    width: 27.6rem;
     position: fixed;
     top: 0;
     background-color: white;
@@ -457,7 +457,7 @@
     /* overflow-y: auto; */
     z-index: 1;
     @media (min-width: $w-pc) {
-      width: 46rem;
+      width: 36rem;
     }
     &-wrap{
       height: 100%;
@@ -470,96 +470,103 @@
     justify-content: space-between;
   }
   &--top{
-    padding: 4.8rem 2.4rem 1.3rem;
+    padding: 7.2rem 0 0;
+    @include height-vh-fallback(100, 22.4rem);
+    overflow-y: auto;
     @media (min-width: $w-pc) {
-      padding: 10rem 4rem 5rem;
+      padding: 7.2rem 0 0;
     }
   }
   &--wrap{
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    margin-bottom: 1.6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 0.8rem;
+    margin-bottom: 1.6rem;
+    padding: 0 2rem;
     @media (min-width: $w-pc) {
-      gap: 1rem;
-      margin-bottom: 5rem;
-    }
-    &>*:not(.full-btn){
-      width: calc((100% - 1rem) / 2);
-      @media (min-width: $w-pc) {
-        width: calc((100% - 2rem) / 3);
-      }
+      margin-bottom: 1.6rem;
+      padding: 0 3.2rem;
     }
     .full-btn{
       width: 100%;
     }
   }
   &--big-btn{
+    position: relative;
     @include btnClear;
     width: 100%;
-    min-height: 11.5rem;
-    border-radius: 1.2rem;
-    border: solid .1rem #E5E5E5;
-    @include txtStyle(caption, xl, 500);
+    height: 100%;
+    height: 11.5rem;
+    border-radius: 1.6rem;
+    @include txtStyle(caption, xl-1, 500);
     color: #333;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    padding: 1.2rem 0;
+    justify-content: space-between;
+    text-align: left;
+    padding: 1.2rem 1.2rem .8rem 1.2rem;
+    background-color: #F5F5F5;
     &:hover{
-      border-color: #7e7e7e;
+      background-color: #DEF7F4;
+      color: #199982;
+      font-weight: 600;
     }
     @media (min-width: $w-pc) {
-      font-size: 1.6rem;
-      height: 12rem;
-      padding: 1rem 0;
-      gap: 0.6rem;
-      justify-content: center;
+      height: 15.1rem;
+      padding: 1.6rem 1.2rem 1rem 1.6rem;
     }
-    &:before{
+    &:after{
       content: "";
       display: block;
-      background: url("/img/img_mypage.png") no-repeat center;
-      background-size: auto 6rem;
-      width: 100%;
+      background: url("/img/img_mypage.png") no-repeat center / contain;
+      width: 6rem;
       height: 6rem;
-      margin-right: auto;
-      margin-left: auto;
-      margin-bottom: .4rem;
+      position: absolute;
+      bottom: .8rem;
+      right: 1.2rem;
+      @media (min-width:$w-pc) {
+        width: 8rem;
+        height: 8rem;
+        bottom: 1rem;
+      }
     }
-    &.mypage{
-      &:before{
-        // @media (min-width: $w-pc) {
-        //   width: 5rem;
-        //   height: 5rem;
-        //   background-position: center;
-        //   background-size: auto 4.8rem;
-        //   border-radius: 12px;
-        //   background-color: #e3edfb;
-        //   box-shadow: 1px 2px 6px 0 rgba(0, 0, 0, 0.1);
-        // }
+    &.notice{
+      &:after{
+        background-image: url("/img/img_notice.png");
+      }
+    }
+    &.overview{
+      &:after{
+        background-image: url("/img/img_overview.png");
+      }
+    }
+    &.guide{
+      &:after{
+        background-image: url("/img/img_guide_book.png");
+      }
+    }
+    &.faq{
+      &:after{
+        background-image: url("/img/img_faq.png");
       }
     }
     &.result{
-      &:before{
+      &:after{
         background-image: url("/img/img_chistory.png");
       }
     }
     &.invite{
-      &:before{
+      &:after{
         background-image: url("/img/img_invite.png");
       }
     }
     &.abo{
-      &:before{
+      &:after{
         background-image: url("/img/img_abo.png");
       }
     }
     &.counsel{
-      &:before{
+      &:after{
         background-image: url("/img/img_counsel.png");
       }
     }
@@ -570,18 +577,18 @@
         opacity: 0.5;
       }
     }
-    &.full{
-      flex-direction: row;
-      gap: 1.2rem;
-      padding: .8rem 2rem;
-      min-height: 5.6rem;
-      &::before{
-        width: 4rem;
-        height: 4rem;
-        background-size: 4rem;
-        margin: 0;
-      }
-    }
+    // &.full{
+    //   flex-direction: row;
+    //   gap: 1.2rem;
+    //   padding: .8rem 2rem;
+    //   min-height: 5.6rem;
+    //   &::before{
+    //     width: 4rem;
+    //     height: 4rem;
+    //     background-size: 4rem;
+    //     margin: 0;
+    //   }
+    // }
   }
   &--btn{
     @include btnClear;
@@ -628,40 +635,20 @@
       display: inline-block;
       width: $width;
       vertical-align: top;
-      @media (min-width: $w-pc) {
-        font-size: 1.4rem;
-        width: $widthPc;
-      }
     }
     dd{
       display: inline-block;
-      font-size: 1.2rem;
-      color: #7E7E7E;
       width: calc(100% - $width);
       vertical-align: top;
       text-align: right;
-      @media (min-width: $w-pc) {
-        width: calc(100% - $widthPc);
-        font-size: 1.3rem;
-        text-align: left;
-      }
-      strong{
-        font-size: 1.3rem;
-        color: #222;
-        @media (min-width: $w-pc) {
-          font-size: 1.4rem;
-        }
-      }
       &.side-bar--tell{
-        font-size: 1.8rem;
         color: #222;
         display: flex;
         align-items: center;
         justify-content: end;
         margin-bottom: 1.2rem;
-        padding-top: .5rem;
+        padding-top: .2rem;
         @media (min-width: $w-pc) {
-          font-size: 2.2rem;
           justify-content: start;
           align-items: initial;
         }
@@ -669,9 +656,9 @@
     }
     &-wrap{
       padding: 2.4rem;
-      background-color: #f5f5f5;
+      background-color: #FAFAFA;
       @media (min-width: $w-pc) {
-        padding: 3.6rem 4rem 4rem;
+        padding: 2.4rem 4rem 4rem;
       }
     }
   }
@@ -690,7 +677,6 @@
       color: #1A1818;
       .side-bar--sub-desc{
         margin-top: .05rem;
-        font-weight: 400;
       }
     }
   }
@@ -699,22 +685,16 @@
     display: block;
     margin-top: 0.2rem;
     color: #1A1818;
-    @media (min-width: $w-pc) {
-      font-size: 2.2rem;
-    }
   }
   &--sub-desc{
     @include txtStyle(caption, md);
-    color: #7E7E7E;
+    color: #666;
     display: block;
     margin-top: .2rem;
-    @media (min-width: $w-pc) {
-      font-size: 1.3rem;
-    }
   }
   &--call{
-    $size: 3rem;
-    $sizePc: 5.2rem;
+    $size: 2.4rem;
+    $sizePc: 2.8rem;
     @include btnClear;
     width: $size;
     height: $size;
@@ -735,10 +715,10 @@
     line-height: 1.4;
   }
   &--out{
-    $size: 4rem;
+    $size: 3.6rem;
     @include btnClear;
     background-color: #F0F0F0;
-    @include txtStyle(body, xs);
+    @include txtStyle(caption, xl, 500);
     color: #666;
     min-height: $size;
     border-radius: $size;
@@ -748,28 +728,41 @@
       background-color: #e7e7e7;
     }
     @media (min-width: $w-pc) {
-      font-size: 1.6rem;
-      min-height: 4.4rem;
-      margin-top: 2.6rem;
+      min-height: 4rem;
     }
   }
   &--close{
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 3.2rem;
+    right: 2.4rem;
+    button{
+      width: 2.4rem;
+      height: 2.4rem;
+      background-size: 1.4rem;
+    }
+    @media (min-width:$w-pc) {
+      right: 4rem;
+    }
   }
   &--login{
     text-align: center;
+    margin-bottom: 2.8rem;
+    @media (min-width:$w-pc) {
+      margin-bottom: 4rem;
+    }
     &-btn{
       @include btnClear;
-      @include txtStyle(caption, xl);
+      @include txtStyle(body, sm, 600);
       color: #333;
-      background: url("/img/ico_login.svg") no-repeat center top .8rem;
-      padding: 6rem 0 1.2rem;
-      height: 9.2rem;
-      border: 1px solid #E5E5E5;
-      border-radius: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .8rem;
       width: 100%;
+      padding: 0;
+      img{
+        width: 6rem;
+      }
     }
   }
 }

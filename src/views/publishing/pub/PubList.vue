@@ -838,7 +838,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/mypage/MyPageCouponHistory.vue',
     go: '/publishing/my-page/pub-my-coupon-history/not',
-    msg: '',
+    msg: '퍼블 확인용 라우터 케이스 적용',
     confirm: '2026.07.29 퍼블 완료'
   },
   {

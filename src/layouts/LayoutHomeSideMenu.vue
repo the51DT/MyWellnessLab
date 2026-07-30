@@ -147,63 +147,63 @@ watch(isKakao, () => { /* 231214 사이드바가 나오면 사이드메뉴 스�
 
     <div class="side-bar--contents">
 
+      <!-- [s] 202606 메뉴 구조 수정 -->
       <div class="side-bar--top">
 
-        <div v-if="isLogin" class="side-bar--wrap">
-          <div>
-            <button @click="router.push('/my-page/detail')" type="button" class="side-bar--big-btn mypage">
-              <span v-html="$t('LayoutHomeSideMenu.btn1').replace(/\n/g, '<br>')"></span>
+        <div v-if="!isLogin" class="side-bar--login">
+          <button @click="moveAmwayLoginPage" class="side-bar--login-btn">
+            <img src="/img/ico_login.svg"> <!-- 202606 이미지 태그 추가 -->
+            {{ $t('LayoutHomeSideMenu.btn5')}}
+          </button>
+        </div>
+
+        <div class="side-bar--wrap">
+          <div v-if="isLogin">
+            <button @click="router.push('')" type="button" class="side-bar--big-btn notice"> <!-- 202606 공지사항 이동 필요 -->
+              <span>공지사항</span>
             </button>
           </div>
           <div>
-            <button type="button" @click="router.push('/analyze/list');" class="side-bar--big-btn result">
-              <span v-html="$t('LayoutHomeSideMenu.btn2').replace(/\n/g, '<br>')"></span>
+            <button type="button" @click="router.push('/info/introduce');" class="side-bar--big-btn overview">
+              <span v-html="$t('LayoutHomeSideMenu.link2').replace(/\n/g, '<br>')"></span>
             </button>
           </div>
-          <div v-if="!isPc && props.accountTypeCode === 'AMWAYBUSINESSNATURE_1'" class="full-btn">
-            <button @click="openInvitePop" type="button" class="side-bar--big-btn full invite">
+          <div v-if="isLogin">
+            <button type="button" @click="router.push('/info/guide');" class="side-bar--big-btn guide">
+              <span v-html="$t('LayoutHomeSideMenu.link1').replace(/\n/g, '<br>')"></span>
+            </button>
+          </div>
+          <div v-if="isLogin && !isPc && props.accountTypeCode === 'AMWAYBUSINESSNATURE_1'">
+            <button @click="openInvitePop" type="button" class="side-bar--big-btn invite">
             <!-- 비활성화 -->
             <!-- <button type="button" class="side-bar--big-btn invite dimed"> -->
               <span v-html="$t('LayoutHomeSideMenu.btn3').replace(/\n/g, '<br>')"></span>
             </button>
           </div>
-          <div v-if="props.accountTypeCode === 'AMWAYBUSINESSNATURE_1'" class="full-btn">
-            <button @click="pdfDownload = true" type="button" class="side-bar--big-btn full abo"><span v-html="$t('LayoutHomeSideMenu.btn4').replace(/\n/g, '<br>')"></span></button>
+          <div v-if="isLogin && props.accountTypeCode === 'AMWAYBUSINESSNATURE_1'">
+            <button @click="pdfDownload = true" type="button" class="side-bar--big-btn abo"><span v-html="$t('LayoutHomeSideMenu.btn4').replace(/\n/g, '<br>')"></span></button>
           </div>
-          <div v-if="props.accountTypeCode === 'AMWAYBUSINESSNATURE_1'" class="full-btn">
-            <button @click="openPdfViewer" type="button" class="side-bar--big-btn full counsel"><span>상담 템플릿</span></button>
+          <div v-if="isLogin && props.accountTypeCode === 'AMWAYBUSINESSNATURE_1'">
+            <button @click="openPdfViewer" type="button" class="side-bar--big-btn counsel"><span>상담<br>템플릿</span></button>
           </div>
-        </div>
-        <div v-else class="side-bar--login">
-          <button @click="moveAmwayLoginPage" class="side-bar--login-btn">{{ $t('LayoutHomeSideMenu.btn5')}}</button>
-        </div>
-
-        <!-- <hr class="dot2" /> -->
-        <div class="side-bar--btn-wrap">
-          <router-link to="/info/guide" class="side-bar--btn">
-            <span>{{ $t('LayoutHomeSideMenu.link1')}}</span>
-          </router-link>
-          <router-link to="/info/introduce" class="side-bar--btn">
-            <span>{{ $t('LayoutHomeSideMenu.link2')}}</span>
-          </router-link>
-          <router-link to="" class="side-bar--btn"> <!-- 202606 공지사항 이동 필요 -->
-            <span>공지사항</span>
-          </router-link>
-          <router-link to="/info/faq" class="side-bar--btn">
-            <span>FAQ</span>
-          </router-link>
+          <div>
+            <button type="button" @click="router.push('/info/faq');" class="side-bar--big-btn faq">
+              <span v-html="$t('LayoutHomeSideMenu.link3').replace(/\n/g, '<br>')"></span>
+            </button>
+          </div>
         </div>
       </div>
+      <!-- [e] 202606 메뉴 구조 수정 -->
 
       <div class="side-bar--info-wrap">
         <dl class="side-bar--info">
+          <!-- [s] 202606 고객센터 전화걸기 구조 수정 -->
           <dt class="side-bar--dt">
             {{ $t('LayoutHomeSideMenu.info1')}}
-            <span v-if="!isPc" class="side-bar--tell-txt">1588-0080</span>
+            <span class="side-bar--tell-txt">1588-0080</span>
             <span class="side-bar--sub-desc">{{ $t('LayoutHomeSideMenu.info2')}}</span>
           </dt>
           <dd class="side-bar--tell">
-            <span v-if="isPc" class="side-bar--tell-txt">1588-0080</span>
             <button
               v-if="!isPc"
               @click="doCall"
@@ -211,6 +211,7 @@ watch(isKakao, () => { /* 231214 사이드바가 나오면 사이드메뉴 스�
               aria-label="전화걸기"
               class="side-bar--call" />
           </dd>
+          <!-- [e] 202606 고객센터 전화걸기 구조 수정 -->
           <dt class="side-bar--reservation">
             <div>
               {{ $t('LayoutHomeSideMenu.info3')}}

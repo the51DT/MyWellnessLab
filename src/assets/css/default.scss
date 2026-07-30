@@ -12868,6 +12868,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     &-continue-btn{
       @include btnClear;
       @include txtStyle(caption, xl, 600);
+      color: #1A1818;
       width: 100%;
       height: 100%;
       background-color: #F0F0F0;
@@ -12959,6 +12960,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     &-btn{
       @include btnClear;
       @include txtStyle(caption, xl, 600);
+      color: #1A1818;
       width: 8.4rem;
       height: 3.6rem;
       background-color: #F0F0F0;
@@ -17689,6 +17691,7 @@ span.legend-dot-interest{
     height: 2.8rem;
     padding: 0 1.2rem;
     @include txtStyle(caption, lg, 500);
+    color: #1A1818;
     @media (min-width:$w-pc) {
       padding: 0 1.2rem;
     }
@@ -17843,6 +17846,7 @@ span.legend-dot-interest{
     border-radius: 99rem;
     border: .1rem solid #ccc;
     @include txtStyle(body, sm, 600);
+    color: #1A1818;
     @media (min-width: $w-pc) {
       height: 6rem;
     }
@@ -17897,7 +17901,7 @@ span.legend-dot-interest{
     border: none;
     justify-content: flex-end;
   }
-  .BaseInput--dd-div.disabled input {
+  .BaseInput--dd-div.disabled input:disabled {
     @include txtStyle(body, 2xs-1, 600);
     color: #1A1818;
     font-family: 'Pretendard', sans-serif !important;
@@ -18072,6 +18076,7 @@ span.legend-dot-interest{
     border-radius: 99rem;
     border: .1rem solid #ccc;
     @include txtStyle(body, sm, 600);
+    color: #1A1818;
     @media (min-width: $w-pc) {
       height: 6rem;
     }
@@ -18114,7 +18119,7 @@ span.legend-dot-interest{
         border: none;
         justify-content: flex-end;
       }
-      &.disabled input{
+      &.disabled input:disabled{
         @include txtStyle(body, 2xs-1, 600);
         color: #1A1818;
         font-family: 'Pretendard', sans-serif !important;

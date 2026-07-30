@@ -7,7 +7,7 @@ export default {
   data () {
     return {
       prefix: 'Faq', /* 231215 클래스 접두어 */
-      menu: ['회원', '건강분석', '리포트', '쿠폰'], /* 231215 메뉴 */
+      menu: ['전체', '마이웰니스 랩 안내', '이용방법', '분석권', '것모닝코리아챌린지', '미션', '팀', '나의 활동', '기타'], /* 231215 메뉴 */
 
       // 상단 메뉴 드래그 관련
       isDragging: false,
@@ -16,7 +16,7 @@ export default {
 
       data: [
         {
-          category: '회원',
+          category: '마이웰니스 랩 안내',
           data: [
             {
               q: '회원가입은 어떻게 하나요?',
@@ -33,7 +33,7 @@ export default {
           ]
         },
         {
-          category: '건강분석',
+          category: '이용방법',
           data: [
             {
               q: '건강분석은 어떻게 하나요?',
@@ -54,7 +54,7 @@ export default {
           ]
         },
         {
-          category: '리포트',
+          category: '분석권',
           data: [
             {
               q: '리포트은 어떻게 하나요?',
@@ -79,7 +79,7 @@ export default {
           ]
         },
         {
-          category: '쿠폰',
+          category: '기타',
           data: [
             {
               q: '쿠폰은 어떻게 하나요?',
@@ -177,23 +177,26 @@ export default {
 <template>
   <section :class="prefix">
 
-    <div
-      class="AnalyzeDetail--menu"
-      @mousedown="dragStart"
-      @mousemove="drag"
-      @mouseup="dragEnd"
-      ref="scrollContainer">
-      <button
-        v-for="(item, index) in menu"
-        @click="move($event, index)"
-        type="button"
-        class="AnalyzeDetail--menu-btn">{{item}}</button>
+    <div class="AnalyzeDetail--menu--cover">
+      <div
+        class="AnalyzeDetail--menu"
+        @mousedown="dragStart"
+        @mousemove="drag"
+        @mouseup="dragEnd"
+        ref="scrollContainer">
+        <button
+          v-for="(item, index) in menu"
+          :key="index"
+          @click="move($event, index)"
+          type="button"
+          class="AnalyzeDetail--menu-btn">{{item}}</button>
+      </div>
     </div>
 
     <div :class="prefix + '--group'">
-      <h2 :class="prefix + '--tit'">{{data[categoryNum].category}}</h2>
+      <!-- <h2 :class="prefix + '--tit'">{{data[categoryNum].category}}</h2> -->
 
-      <div v-for="(item, index) in data[categoryNum].data" :class="[prefix + '--set', index === isOpen.indexOf(true) ? 'active' : '']">
+      <div v-for="(item, index) in data[categoryNum].data" :key="item.id" :class="[prefix + '--set', index === isOpen.indexOf(true) ? 'active' : '']">
         <div @click="open(index)" :class="prefix + '--dt'">
           <div :class="prefix + '--q'">
             <span>{{item.q}}</span>

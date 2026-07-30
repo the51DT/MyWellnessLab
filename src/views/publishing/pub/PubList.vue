@@ -697,7 +697,7 @@ const data = ref([
     loca: '@/layouts/LayoutHomeDock.vue',
     go: '/publishing/home/intro',
     msg: "페이지 확인 => 인트로로 이동<br>디자인 수정 반영 필요",
-    confirm: ''
+    confirm: '2026.07.30 퍼블 완료'
   },
   {
     cate: '',
@@ -707,12 +707,22 @@ const data = ref([
     loca: '@/layouts/LayoutHomeDock.vue',
     go: '/publishing/main',
     msg: "페이지 확인 => 메인으로 이동<br>디자인 수정 반영 필요",
-    confirm: ''
+    confirm: '2026.07.30 퍼블 완료'
   },
   {
     cate: '',
     div: '공지사항',
-    div2: '',
+    div2: '리스트',
+    div3: '',
+    loca: '@/layouts/.vue',
+    go: '',
+    msg: "",
+    confirm: ''
+  },
+  {
+    cate: '',
+    div: '',
+    div2: '상세',
     div3: '',
     loca: '@/layouts/.vue',
     go: '',
@@ -725,7 +735,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/etc/ServiceUseGuide.vue',
     go: '/publishing/coupon-status/service-use-guide',
-    msg: '',
+    msg: '수급대기',
     confirm: ''
   },
   {
@@ -735,7 +745,7 @@ const data = ref([
     loca: '@/views/publishing/etc/Faq.vue',
     go: '/publishing/coupon-status/pub-faq',
     msg: '',
-    confirm: ''
+    confirm: '2026.07.30 퍼블 완료'
   },
   {
     div: 'myWellness LAB 소개',
@@ -743,7 +753,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/etc/Introduce.vue',
     go: '/publishing/coupon-status/introduce',
-    msg: '',
+    msg: '수급대기',
     confirm: ''
   },
   { cate: 'blank'},

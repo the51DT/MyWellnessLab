@@ -18742,6 +18742,13 @@ span.legend-dot-interest{
     padding-left: .4rem;
     flex: 0 0 auto;
   }
+  &--new{
+    height: 2rem;
+    margin-bottom: .6rem;
+    img{
+      height: 100%;
+    }
+  }
   &--tit{
     @include txtStyle(body, md, 600);
   }

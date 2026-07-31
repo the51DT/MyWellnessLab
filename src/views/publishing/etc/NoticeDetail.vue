@@ -16,6 +16,7 @@ export default {
 <template>
   <section :class="prefix">
     <div :class="prefix + '--top'">
+      <div :class="prefix + '--new'"><img src="/img/ico_new.png" alt="new"></div> <!-- 새로운 공지일 경우 노출 필요 -->
       <div :class="prefix + '--tit'">고정된 공지사항입니다 고정된 공지사항입니다 공지사항 제목 두 줄 케이스</div>
       <div :class="prefix + '--date'">2026.04.02</div>
     </div>

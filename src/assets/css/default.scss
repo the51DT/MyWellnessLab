@@ -1385,9 +1385,6 @@ footer{
         border-bottom-left-radius: 2rem;
         border-bottom-right-radius: 2rem;
         background-color: white;
-        &:last-child {
-          padding-bottom: 2rem;
-        }
       }
       .popup--tit-wrap{
         @include txtStyle(body, md, 500);
@@ -18679,6 +18676,85 @@ span.legend-dot-interest{
         }
       }
     }
+  }
+}
+.NoticeList{
+  padding: 1.6rem 2rem;
+  max-width: $w-pc-wrap;
+  margin: 0 auto;
+  @media (min-width:$w-pc) {
+    padding: 2.4rem 2rem;
+  }
+  &--item-cover{
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+  }
+  &--item{
+    display:flex;
+    flex-direction:column;
+    gap: .8rem;
+    padding: 1.6rem;
+    border-radius: 1.6rem;
+    background: #fff;
+  }
+  &--item-head{
+    display: flex;
+    gap: .6rem;
+  }
+  &--ico{
+    width: 2rem;
+    height: 2rem;
+    img {
+      width: 100%;
+    }
+  }
+  &--item-body{
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    &-tit{
+      @include txtStyle(body, 2xs, 500);
+      color: #1A1818;
+    }
+    &-date{
+      @include txtStyle(caption, xl);
+      color: #666;
+    }
+  }
+}
+.NoticeDetail{
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 1.6rem 2rem;
+  max-width: $w-pc-wrap;
+  margin: 0 auto;
+  @include min-vh-fallback(100, 4.9rem);
+  @media (min-width:$w-pc) {
+    padding: 2.4rem 2rem;
+    @include min-vh-fallback(100, 8rem);
+  }
+  &--top{
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    padding-left: .4rem;
+    flex: 0 0 auto;
+  }
+  &--tit{
+    @include txtStyle(body, md, 600);
+  }
+  &--date{
+    @include txtStyle(body, 2xs);
+    color: #666;
+  }
+  &--content{
+    flex: 1 1 auto;
+    padding: 1.6rem;
+    border-radius: 1.6rem;
+    background-color: #fff;
+    @include txtStyle(body, 2xs, 500);
   }
 }
 .ServiceUseGuide{

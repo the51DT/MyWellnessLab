@@ -717,7 +717,7 @@ const data = ref([
     loca: '@/views/publishing/etc/NoticeList.vue',
     go: '/publishing/coupon-status/pub-noti-list',
     msg: "",
-    confirm: ''
+    confirm: '2026.07.31 퍼블 완료'
   },
   {
     cate: '',
@@ -727,7 +727,7 @@ const data = ref([
     loca: '@/views/publishing/etc/NoticeDetail.vue',
     go: '/publishing/coupon-status/pub-noti-detail',
     msg: "",
-    confirm: ''
+    confirm: '2026.07.31 퍼블 완료'
   },
   {
     div: '서비스 이용안내',

@@ -694,20 +694,12 @@ const publishingRouter = {
           },
         },
         {
-          path: "guestInvite",
-          name: "pubGuestInvite",
-          component: () =>
-            import("@/views/publishing/etc/GuestInvitePopup.vue"),
-          meta: {},
-        },
-        {
           path: "pub-noti-list",
           name: "pubNotiList",
           component: () =>
             import("@/views/publishing/etc/NoticeList.vue"),
           meta: {
             title: "공지사항",
-            class: "wide",
           },
         },
         {
@@ -717,7 +709,6 @@ const publishingRouter = {
             import("@/views/publishing/etc/NoticeDetail.vue"),
           meta: {
             title: "공지사항",
-            class: "wide",
           },
         },
       ],

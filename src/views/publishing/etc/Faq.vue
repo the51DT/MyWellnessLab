@@ -194,6 +194,7 @@ export default {
     </div>
 
     <div :class="prefix + '--group'">
+      <!-- 202606 전체 카테고리일 시 전체 항목 노출 개발 필요 (기획 변경 가능성 있음) -->
       <!-- <h2 :class="prefix + '--tit'">{{data[categoryNum].category}}</h2> -->
 
       <div v-for="(item, index) in data[categoryNum].data" :key="item.id" :class="[prefix + '--set', index === isOpen.indexOf(true) ? 'active' : '']">

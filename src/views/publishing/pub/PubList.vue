@@ -733,8 +733,8 @@ const data = ref([
     div: '서비스 이용안내',
     div2: '',
     div3: '',
-    loca: '@/views/publishing/etc/Introduce.vue',
-    go: '/publishing/coupon-status/introduce',
+    loca: '@/views/publishing/etc/ServiceUseGuide.vue',
+    go: '/publishing/coupon-status/service-use-guide',
     msg: '수급대기',
     confirm: ''
   },

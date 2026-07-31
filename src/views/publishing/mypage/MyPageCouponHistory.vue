@@ -8,148 +8,244 @@ const noHistory = computed(() => {
   return route.meta.noHistory === true
 })
 
-const coupon = [ /* 소지한 쿠폰 */
-  {
-    label:'구매', 
-    title: '마이웰니스 랩 건강 분석권',
-    limit: '~ 2023.09.12',
-    description: '마이웰니스 랩 분석권(구매) 쿠폰 안내 문구입니다.',
-    quantity: 8
-  },
-  {
-    label:'양수', 
-    title: '마이웰니스 랩 건강 분석 2023 프로모션 쿠폰',
-    limit: '~ 2023.12.31',
-    quantity: 2
-  },
-  {
-    title: '마이웰니스 랩 건강 분석 2024 프로모션 쿠폰',
-    limit: '~ 2024.12.31',
-    quantity: 4
-  },
-  {
-    title: '마이웰니스 랩 건강 분석권',
-    limit: '~ 2023.09.12',
-    quantity: 8
-  },
-  {
-    title: '마이웰니스 랩 건강 분석 2023 프로모션 쿠폰',
-    limit: '~ 2023.12.31',
-    quantity: 2
-  },
-  {
-    title: '마이웰니스 랩 건강 분석 2024 프로모션 쿠폰',
-    limit: '~ 2024.12.31',
-    quantity: 4
-  },
-  {
-    title: '마이웰니스 랩 건강 분석권',
-    limit: '~ 2023.09.12',
-    quantity: 8
-  },
-  {
-    title: '마이웰니스 랩 건강 분석 2023 프로모션 쿠폰',
-    limit: '~ 2023.12.31',
-    quantity: 2
-  },
-  {
-    title: '마이웰니스 랩 건강 분석 2024 프로모션 쿠폰',
-    limit: '~ 2024.12.31',
-    quantity: 4
-  },
-  {
-    title: '마이웰니스 랩 건강 분석권',
-    limit: '~ 2023.09.12',
-    quantity: 8
-  },
-  {
-    title: '마이웰니스 랩 건강 분석 2023 프로모션 쿠폰',
-    limit: '~ 2023.12.31',
-    quantity: 2
-  },
-  {
-    title: '마이웰니스 랩 건강 분석 2024 프로모션 쿠폰',
-    limit: '~ 2024.12.31',
-    quantity: 4
-  },
-  {
-    title: '마이웰니스 랩 건강 분석권',
-    limit: '~ 2023.09.12',
-    quantity: 8
-  },
-  {
-    title: '마이웰니스 랩 건강 분석 2023 프로모션 쿠폰',
-    limit: '~ 2023.12.31',
-    quantity: 2
-  },
-  {
-    title: '마이웰니스 랩 건강 분석 2024 프로모션 쿠폰',
-    limit: '~ 2024.12.31',
-    quantity: 4
-  },
-  {
-    title: '마이웰니스 랩 건강 분석권',
-    limit: '~ 2023.09.12',
-    quantity: 8
-  },
-  {
-    title: '마이웰니스 랩 건강 분석 2023 프로모션 쿠폰',
-    limit: '~ 2023.12.31',
-    quantity: 2
-  },
-  {
-    title: '마이웰니스 랩 건강 분석 2024 프로모션 쿠폰',
-    limit: '~ 2024.12.31',
-    quantity: 4
-  },
-  {
-    title: '마이웰니스 랩 건강 분석권',
-    limit: '~ 2023.09.12',
-    quantity: 8
-  },
-  {
-    title: '마이웰니스 랩 건강 분석 2023 프로모션 쿠폰',
-    limit: '~ 2023.12.31',
-    quantity: 2
-  },
-  {
-    title: '마이웰니스 랩 건강 분석 2024 프로모션 쿠폰',
-    limit: '~ 2024.12.31',
-    quantity: 4
-  }
-]
+const open = (e) => {
+  const detail = e.currentTarget.closest('.MyPageCouponHistory--detail')
+  const status = detail.querySelector('.MyPageCouponHistory--status')
 
+  if (!detail || !status) return
+
+  detail.classList.toggle('active')
+}
 </script>
 
 <template>
-  <section class="CouponStatus MyCouponStatus">
+  <section class="MyPageCouponHistory">
     <div v-if="noHistory" class="AnalyzeList--no-data"> <!-- v-if 퍼블 확인용 -->
       <span>분석권 사용 이력이 없습니다</span>
     </div>
 
-    <div v-else class="CouponStatus--list">
-      <div v-if="coupon.length">
-        <div v-for="(item, index) in coupon" :key="index" class="CouponStatus--list-for">
-          <div class="align--between CouponStatus--coupon">
-            <div class="CouponStatus--coupon-txt">
-              <div class="CouponStatus--c-wrap">
-                <span class="CouponStatus--coupon-type">{{ item.label || "프로모션" }}</span>
-                <strong class="CouponStatus--coupon-tit">{{ item.title }}</strong>
-                <span class="CouponStatus--coupon-limit">사용기한
-                  <span class="CouponStatus--coupon-date">{{ item.limit }}</span>
-                </span>
-                <p v-if="item.description" class="CouponStatus--coupon-desc">{{ item.description }}</p>
-              </div>
-            </div>
-            <div class="CouponStatus--coupon-quan">
-              <span class="CouponStatus--coupon-quan-in">
-                <span class="CouponStatus--coupon-quan-digit">{{ item.quantity }}<span class="CouponStatus--jang">장</span></span>
-              </span>
+    <div v-else class="MyPageCouponHistory--list">
+      <div class="MyPageCouponHistory--card">
+        <div class="MyPageCouponHistory--type">구매</div>
+        <div class="MyPageCouponHistory--tit">마이웰니스 랩 건강 분석권</div>
+        <div class="MyPageCouponHistory--info">
+          <span>사용 가능 수량</span>
+          <strong>2개</strong>
+          <span>사용기한</span>
+          <strong>~2026.09.12</strong>
+        </div>
+        <div class="MyPageCouponHistory--detail">
+          <div @click="open" class="MyPageCouponHistory--trigger">
+            <span>상세 내역 보기</span>
+            <div class="MyPageCouponHistory--btn-wrap">
+              <button type="button" aria-label="펼치기/닫기"></button>
             </div>
           </div>
+          <transition name="downUp2">
+            <div class="MyPageCouponHistory--status">
+              <div>
+                <p>사용 완료</p>
+                <div class="MyPageCouponHistory--table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>대상자</th>
+                        <th>구매일</th>
+                        <th>사용일</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>본인</td>
+                        <td>26.04.15</td>
+                        <td>26.05.20</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div>
+                <p>양도 완료</p>
+                <div class="MyPageCouponHistory--table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>대상자</th>
+                        <th>구매일</th>
+                        <th>사용일</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>임아영</td>
+                        <td>26.04.15</td>
+                        <td>26.05.20</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div>
+                <p>사용 가능</p>
+                <div class="MyPageCouponHistory--table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>구매일</th>
+                        <th>사용기한</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>26.07.15</td>
+                        <td>26.09.20</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>26.07.15</td>
+                        <td>26.09.20</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </transition>
         </div>
       </div>
 
+      <div class="MyPageCouponHistory--card">
+        <div class="MyPageCouponHistory--type">양수</div>
+        <div class="MyPageCouponHistory--tit">마이웰니스 랩 건강 분석권</div>
+        <div class="MyPageCouponHistory--info">
+          <span>사용 가능 수량</span>
+          <strong>2개</strong>
+          <span>사용기한</span>
+          <strong>~2026.09.12</strong>
+        </div>
+        <div class="MyPageCouponHistory--detail">
+          <div @click="open" class="MyPageCouponHistory--trigger">
+            <span>상세 내역 보기</span>
+            <div class="MyPageCouponHistory--btn-wrap">
+              <button type="button" aria-label="펼치기/닫기"></button>
+            </div>
+          </div>
+          <transition name="downUp2">
+            <div class="MyPageCouponHistory--status">
+              <div>
+                <p>사용 완료</p>
+                <div class="MyPageCouponHistory--table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>양도자</th>
+                        <th>구매일</th>
+                        <th>사용일</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>임아영</td>
+                        <td>26.04.15</td>
+                        <td>26.05.20</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>오종현</td>
+                        <td>26.04.15</td>
+                        <td>26.05.20</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div>
+                <p>사용 가능</p>
+                <div class="MyPageCouponHistory--table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>양도자</th>
+                        <th>구매일</th>
+                        <th>사용기한</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>박주연</td>
+                        <td>26.04.15</td>
+                        <td>26.09.20</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </transition>
+        </div>
+      </div>
+      <div class="MyPageCouponHistory--card disabled"> <!-- 사용 가능 수량 0개 = .disabled -->
+        <div class="MyPageCouponHistory--type">프로모션</div>
+        <div class="MyPageCouponHistory--tit">마이웰니스 랩 건강 분석권 2026 프로모션 쿠폰</div>
+        <div class="MyPageCouponHistory--info">
+          <span>사용 가능 수량</span>
+          <strong>0개</strong>
+          <span>사용기한</span>
+          <strong>-</strong>
+        </div>
+        <div class="MyPageCouponHistory--detail">
+          <div @click="open" class="MyPageCouponHistory--trigger">
+            <span>상세 내역 보기</span>
+            <div class="MyPageCouponHistory--btn-wrap">
+              <button type="button" aria-label="펼치기/닫기"></button>
+            </div>
+          </div>
+          <transition name="downUp2">
+            <div class="MyPageCouponHistory--status">
+              <div>
+                <p>사용 완료</p>
+                <div class="MyPageCouponHistory--table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>지급일</th>
+                        <th>사용일</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>26.03.15</td>
+                        <td>26.04.20</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>26.05.15</td>
+                        <td>26.07.20</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div>
+                <p>사용 가능</p>
+                <span>사용 가능한 분석권이 없습니다.</span>
+              </div>
+            </div>
+          </transition>
+        </div>
+      </div>
     </div>
 
   </section>

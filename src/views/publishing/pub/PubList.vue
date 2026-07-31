@@ -696,7 +696,7 @@ const data = ref([
     div3: '',
     loca: '@/layouts/LayoutHomeDock.vue',
     go: '/publishing/home/intro',
-    msg: "페이지 확인 => 인트로로 이동<br>디자인 수정 반영 필요",
+    msg: "페이지 확인 => 인트로로 이동",
     confirm: '2026.07.30 퍼블 완료'
   },
   {
@@ -706,7 +706,7 @@ const data = ref([
     div3: '',
     loca: '@/layouts/LayoutHomeDock.vue',
     go: '/publishing/main',
-    msg: "페이지 확인 => 메인으로 이동<br>디자인 수정 반영 필요",
+    msg: "페이지 확인 => 메인으로 이동",
     confirm: '2026.07.30 퍼블 완료'
   },
   {
@@ -839,8 +839,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/mypage/MyPageCouponHistory.vue',
     go: '/publishing/my-page/pub-my-coupon-history',
-    msg: '디자인 대기중',
-    confirm: ''
+    msg: '',
+    confirm: '2026.07.31 퍼블 완료'
   },
   {
     div: '',

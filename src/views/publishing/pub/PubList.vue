@@ -714,8 +714,8 @@ const data = ref([
     div: '공지사항',
     div2: '리스트',
     div3: '',
-    loca: '@/layouts/.vue',
-    go: '',
+    loca: '@/views/publishing/etc/NoticeList.vue',
+    go: '/publishing/coupon-status/pub-noti-list',
     msg: "",
     confirm: ''
   },
@@ -724,8 +724,8 @@ const data = ref([
     div: '',
     div2: '상세',
     div3: '',
-    loca: '@/layouts/.vue',
-    go: '',
+    loca: '@/views/publishing/etc/NoticeDetail.vue',
+    go: '/publishing/coupon-status/pub-noti-detail',
     msg: "",
     confirm: ''
   },
@@ -733,8 +733,8 @@ const data = ref([
     div: '서비스 이용안내',
     div2: '',
     div3: '',
-    loca: '@/views/publishing/etc/ServiceUseGuide.vue',
-    go: '/publishing/coupon-status/service-use-guide',
+    loca: '@/views/publishing/etc/Introduce.vue',
+    go: '/publishing/coupon-status/introduce',
     msg: '수급대기',
     confirm: ''
   },
@@ -786,7 +786,15 @@ const data = ref([
     msg: '일반 로딩 주석처리',
     confirm: '2026.07.29 퍼블 완료'
   },
-  { cate: 'blank'},
+  {
+    div: '(PU) 비회원 고객 초대',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/etc/GuestInvitePopup.vue',
+    go: '/publishing/coupon-status/guestInvite',    
+    msg: '수급대기',
+    confirm: ''
+  },
   {
     cate: '마이페이지',
     div: '마이페이지',

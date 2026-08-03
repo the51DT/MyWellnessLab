@@ -785,16 +785,7 @@ const data = ref([
     go: '/publishing/loading',
     msg: '일반 로딩 주석처리',
     confirm: '2026.07.29 퍼블 완료'
-  },
-  {
-    div: '(PU) 비회원 고객 초대',
-    div2: '',
-    div3: '',
-    loca: '@/views/publishing/etc/GuestInvitePopup.vue',
-    go: '/publishing/coupon-status/guestInvite',    
-    msg: '수급대기',
-    confirm: ''
-  },
+  },  
   {
     cate: '마이페이지',
     div: '마이페이지',

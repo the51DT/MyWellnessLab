@@ -164,17 +164,17 @@ watch(isKakao, () => { /* 231214 사이드바가 나오면 사이드메뉴 스�
 
         <div class="side-bar--wrap">
           <div v-if="isLogin">
-            <button @click="router.push('')" type="button" class="side-bar--big-btn notice"> <!-- 202606 공지사항 이동 필요 -->
+            <button @click="router.push('/publishing/coupon-status/pub-noti-list')" type="button" class="side-bar--big-btn notice"> <!-- 202606 공지사항 이동 필요 -->
               <span>공지사항</span>
             </button>
           </div>
           <div>
-            <button type="button" @click="router.push('/info/introduce');" class="side-bar--big-btn overview">
+            <button type="button" @click="router.push('/publishing/coupon-status/Introduce');" class="side-bar--big-btn overview">
               <span v-html="$t('LayoutHomeSideMenu.link2').replace(/\n/g, '<br>')"></span>
             </button>
           </div>
           <div v-if="isLogin">
-            <button type="button" @click="router.push('/info/guide');" class="side-bar--big-btn guide">
+            <button type="button" @click="router.push('/publishing/coupon-status/service-use-guide');" class="side-bar--big-btn guide">
               <span v-html="$t('LayoutHomeSideMenu.link1').replace(/\n/g, '<br>')"></span>
             </button>
           </div>
@@ -192,7 +192,7 @@ watch(isKakao, () => { /* 231214 사이드바가 나오면 사이드메뉴 스�
             <button @click="openPdfViewer" type="button" class="side-bar--big-btn counsel"><span>상담<br>템플릿</span></button>
           </div>
           <div>
-            <button type="button" @click="router.push('/info/faq');" class="side-bar--big-btn faq">
+            <button type="button" @click="router.push('/publishing/coupon-status/pub-faq');" class="side-bar--big-btn faq">
               <span v-html="$t('LayoutHomeSideMenu.link3').replace(/\n/g, '<br>')"></span>
             </button>
           </div>

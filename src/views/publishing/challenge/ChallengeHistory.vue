@@ -21,7 +21,7 @@ const isNoChallenge = computed(() => {
         <button class="challenge-history--btn"></button> <!-- 상세로 이동 -->
         <div class="challenge-history--title">챌린지 타이틀명</div>
         <div class="challenge-history--profile">
-          <img src="/img/age_20f.png">
+          <img src="/img/team_profile_exam.png"> <!-- 08.07 퍼블 수정 : 이미지 변경 -->
           <div>
             <div class="challenge-history--people">200명</div>
             <div class="challenge-history--team"><span>팀명 </span>아침마다 오 마이 아침마다 오 마이 아침마다 오 마이 아침마다 오 마이</div>
@@ -71,7 +71,7 @@ const isNoChallenge = computed(() => {
         <button class="challenge-history--btn"></button> <!-- 상세로 이동 -->
         <div class="challenge-history--title">챌린지 타이틀명</div>
         <div class="challenge-history--profile">
-          <img src="/img/age_20.png">
+          <img src="/img/team_profile_exam.png"> <!-- 08.07 퍼블 수정 : 이미지 변경 -->
           <div>
             <div class="challenge-history--people">30명</div>
             <div class="challenge-history--team"><span>팀명 </span>아침마다 오 마이</div>

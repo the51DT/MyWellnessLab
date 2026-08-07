@@ -95,7 +95,7 @@ onBeforeUnmount(() => {
             </div>
             <div class="team--card-profile">
               <div class="team--card-img">
-                <img src="/img/age_20f.png">
+                <img src="/img/team_profile_exam.png"> <!-- 2026.08.07 퍼블 수정 : 이미지 변경 -->
               </div>
               <div>
                 <p>
@@ -137,7 +137,7 @@ onBeforeUnmount(() => {
             </div>
             <div class="team--card-profile">
               <div class="team--card-img leader"> <!-- .leader 팀장 아이콘 -->
-                <img src="/img/age_20f.png">
+                <img src="/img/team_profile_exam.png"> <!-- 2026.08.07 퍼블 수정 : 이미지 변경 -->
               </div>
               <div>
                 <p>
@@ -174,7 +174,7 @@ onBeforeUnmount(() => {
             </div>
             <div class="team--card-profile">
               <div class="team--card-img">
-                <img src="/img/age_20f.png">
+                <img src="/img/team_profile_exam.png"> <!-- 2026.08.07 퍼블 수정 : 이미지 변경 -->
               </div>
               <div>
                 <p>
@@ -210,7 +210,7 @@ onBeforeUnmount(() => {
             </div>
             <div class="team--card-profile">
               <div class="team--card-img leader">
-                <img src="/img/age_20f.png">
+                <img src="/img/team_profile_exam.png"> <!-- 2026.08.07 퍼블 수정 : 이미지 변경 -->
               </div>
               <div>
                 <p>
@@ -250,7 +250,7 @@ onBeforeUnmount(() => {
             </div>
             <div class="team--card-profile">
               <div class="team--card-img">
-                <img src="/img/age_20f.png">
+                <img src="/img/team_profile_exam.png"> <!-- 2026.08.07 퍼블 수정 : 이미지 변경 -->
               </div>
               <div>
                 <p>
@@ -284,7 +284,7 @@ onBeforeUnmount(() => {
             </div>
             <div class="team--card-profile">
               <div class="team--card-img">
-                <img src="/img/age_20f.png">
+                <img src="/img/team_profile_exam.png"> <!-- 2026.08.07 퍼블 수정 : 이미지 변경 -->
               </div>
               <div>
                 <p>
@@ -310,7 +310,7 @@ onBeforeUnmount(() => {
             </div>
             <div class="team--card-profile">
               <div class="team--card-img leader">
-                <img src="/img/age_20f.png">
+                <img src="/img/team_profile_exam.png"> <!-- 2026.08.07 퍼블 수정 : 이미지 변경 -->
               </div>
               <div>
                 <p>
@@ -344,7 +344,7 @@ onBeforeUnmount(() => {
             </div>
             <div class="team--card-profile">
               <div class="team--card-img leader">
-                <img src="/img/age_20f.png">
+                <img src="/img/team_profile_exam.png"> <!-- 2026.08.07 퍼블 수정 : 이미지 변경 -->
               </div>
               <div>
                 <p>
@@ -375,7 +375,7 @@ onBeforeUnmount(() => {
             </div>
             <div class="team--card-profile">
               <div class="team--card-img">
-                <img src="/img/age_20f.png">
+                <img src="/img/team_profile_exam.png"> <!-- 2026.08.07 퍼블 수정 : 이미지 변경 -->
               </div>
               <div>
                 <p>
@@ -394,7 +394,7 @@ onBeforeUnmount(() => {
           <div class="team--card regular-team">
             <div class="team--card-profile">
               <div class="team--card-img">
-                <img src="/img/age_20f.png">
+                <img src="/img/team_profile_exam.png"> <!-- 2026.08.07 퍼블 수정 : 이미지 변경 -->
               </div>
               <div>
                 <p>

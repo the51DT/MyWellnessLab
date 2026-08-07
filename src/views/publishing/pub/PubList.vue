@@ -23,8 +23,8 @@ const data = ref([
     div3: '',
     loca: '@/views/Intro.vue',
     go: '/publishing/home/intro',
-    msg: "가입 화면 이동 얼럿 App.vue에 위치<br>퍼블 확인용 라우터 케이스 적용",
-    confirm: '2026.07.06 퍼블 완료'
+    msg: "가입 화면 이동 얼럿 App.vue에 위치<br>퍼블 확인용 라우터 케이스 적용<br>260807 서비스 이용안내 메뉴(비로그인,로그인 모두 노출로 변경) - LayoutHomeSideMenu.vue",
+    confirm: '2026.08.07 퍼블 수정'
   },
   {
     div: '로그인 후',
@@ -428,8 +428,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/challenge/ChallengeHistory.vue',
     go: '/publishing/challenge-history',
-    msg: "",
-    confirm: '2026.07.08 퍼블 완료'
+    msg: "260807 이미지 변경",
+    confirm: '2026.08.07 퍼블 수정'
   },
   {
     div: '챌린지 이력보기 (진행중 없음)',
@@ -448,8 +448,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/MyTeam.vue',
     go: '/publishing/my-team',
-    msg: "",
-    confirm: '2026.07.15 퍼블 완료'
+    msg: "260807 이미지 변경",
+    confirm: '2026.08.07 퍼블 수정'
   },
   {
     cate: '',

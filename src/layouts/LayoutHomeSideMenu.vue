@@ -173,7 +173,7 @@ watch(isKakao, () => { /* 231214 사이드바가 나오면 사이드메뉴 스�
               <span v-html="$t('LayoutHomeSideMenu.link2').replace(/\n/g, '<br>')"></span>
             </button>
           </div>
-          <div v-if="isLogin">
+          <div> <!-- 2026.08.07 퍼블 수정 : 서비스 이용안내 로그인,비로그인 모두 노출 -->
             <button type="button" @click="router.push('/publishing/coupon-status/service-use-guide');" class="side-bar--big-btn guide">
               <span v-html="$t('LayoutHomeSideMenu.link1').replace(/\n/g, '<br>')"></span>
             </button>

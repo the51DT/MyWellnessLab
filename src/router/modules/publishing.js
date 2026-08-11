@@ -811,6 +811,22 @@ const publishingRouter = {
       ],
     },
     {
+      path: "my-mission" /* 나의 미션 활동 */,
+      component: LayoutNormal,
+      children: [
+        {
+          path: "MyMissoinActivity",
+          name: "pubMyMissoinActivity",
+          component: () =>
+            import("@/views/publishing/mission/MyMissionActivity.vue"),
+          meta: {
+            title: "나의 미션 활동",
+            class: "my--activity",
+          },
+        },
+      ],
+    },
+    {
       path: "my-team" /* 나의 팀 */,
       component: LayoutHomeNoFooter,
       children: [

@@ -677,16 +677,15 @@ const data = ref([
     msg: "퍼블 확인용 라우터 생성<br>사용 시 popupClose emit 필요",
     confirm: '2026.07.16 퍼블 완료'
   },
-  { cate: 'blank'},
   {
     cate: '나의 미션 활동',
     div: '',
     div2: '',
     div3: '',
-    loca: '@/views/publishing//.vue',
-    go: '',
-    msg: "",
-    confirm: ''
+    loca: '@/views/publishing/mission/MyMissionActivity.vue',
+    go: '/publishing/my-mission/MyMissoinActivity',
+    msg: "08.10~11 - 레이아웃 및 미션 활동 메인 화면 작업 완료",
+    confirm: '퍼블 작업 진행중(08.10 ~ )'
   },
   { cate: 'blank'},
   {

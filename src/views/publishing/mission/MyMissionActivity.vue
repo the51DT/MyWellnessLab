@@ -21,8 +21,13 @@ export default {
       pubMyMissionAct.layerClose('badges_reward')
     })
   },
-  methods: {   
-    
+  methods: {
+    openBadgeSetting() {
+      this.$router.push({
+        name: 'pubMyBadgeSetting',
+        query: { hasBadges: 'true' },
+      })
+    },
   },
 }
 
@@ -171,10 +176,11 @@ export default {
       <div class="activity__area_badge-section activity__area-record">
         <div class="para-title">
           <h5> 현재 기록 </h5>
-          <button>이전 기록 
+          <button type="button" @click="$router.push({ name: 'pubMyMissionPrevious' })">
+            이전 기록
             <div class="img-wrap">
-              <img src="/img/ico_arrow_right_black.svg" alt="" /> 
-            </div>            
+              <img src="/img/ico_arrow_right_black.svg" alt="" />
+            </div>
           </button>
         </div>
         <div class="activity__area-record-box-wrap">
@@ -248,31 +254,31 @@ export default {
         <h5> 배지 활동 </h5>
         <p> 총 <span class="val green"> 13개</span> 보유 </p>
       </div>
-      <!--  대표 뱃지 있을 시 -->
+      <!--  대표 배지있을 시 -->
       <div class="represent__badge-wrap">
         <div class="represent__badge">
           <BadgeDefault img="pin--ruby.svg">
             챌린지 러버
           </BadgeDefault>
           <div class="btn">
-            <button type="button" class="btn-text" title="대표 배지 설정 "> 대표 배지 설정</button>
-            <button type="button" class="btn-modify" title="대표 배지 설정"><span class="blind">대표 배지 설정</span></button>
+            <button type="button" class="btn-text" title="대표 배지 설정" @click="openBadgeSetting"> 대표 배지 설정</button>
+            <button type="button" class="btn-modify" title="대표 배지 설정" @click="openBadgeSetting"><span class="blind">대표 배지 설정</span></button>
           </div>
         </div>
       </div>
-      <!-- 대표 뱃지 없을 시 -->
+      <!-- 대표 배지없을 시 -->
       <!-- <div class="represent__badge-wrap">
         <div class="represent__badge no-represent">
           <p class="represent__badge-txt">획득한 배지에서 대표배지를<br/> 설정해주세요 </p>
           <div class="btn">
-            <button type="button" class="btn-text" title="대표 배지 설정 "> 대표 배지 설정</button>
-            <button type="button" class="btn-modify" title="대표 배지 설정"><span class="blind">대표 배지 설정</span></button>
+            <button type="button" class="btn-text" title="대표 배지 설정" @click="openBadgeSetting"> 대표 배지 설정</button>
+            <button type="button" class="btn-modify" title="대표 배지 설정" @click="openBadgeSetting"><span class="blind">대표 배지 설정</span></button>
           </div>
         </div>
         <p class="represent__badge-subtxt">아직 획득한 배지가 없어요 </p>
       </div> -->
 
-      <div class="activity__area_badge-section pt0">
+      <div class="activity__area_badge-section">
         <div class="para-title-2rd">
           <h6> 연속인증 </h6>
         </div>

@@ -815,8 +815,8 @@ const publishingRouter = {
       component: LayoutNormal,
       children: [
         {
-          path: "MyMissoinActivity",
-          name: "pubMyMissoinActivity",
+          path: "MyMissionActivity",
+          name: "pubMyMissionActivity",
           component: () =>
             import("@/views/publishing/mission/MyMissionActivity.vue"),
           meta: {
@@ -824,6 +824,39 @@ const publishingRouter = {
             class: "my--activity",
           },
         },
+        {
+          path: "MyMissionPrevious",
+          name: "pubMyMissionPrevious",
+          component: () =>
+            import("@/views/publishing/mission/MyMissionPrevious.vue"),
+          meta: {
+            title: "이전 기록",
+            class: "my--previous",
+          },
+        },
+        {
+          path: "MyMissionNoData",
+          name: "pubMyMissionNoData",
+          component: () =>
+            import("@/views/publishing/mission/MyMissionNoData.vue"),
+          meta: {            
+            title: "이전 기록",
+            class: "my--previous",
+          },
+        },
+        {
+          path: "MyBadgeSetting",
+          name: "pubMyBadgeSetting",
+          component: () =>
+            import("@/views/publishing/mission/MyBadgeSetting.vue"),
+          props: (route) => ({
+            hasBadges: route.query.hasBadges !== 'false',
+          }),
+          meta: {
+            title: "대표 배지 설정",
+            class: "my--badge",
+          },
+        },        
       ],
     },
     {

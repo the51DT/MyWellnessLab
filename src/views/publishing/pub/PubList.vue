@@ -683,11 +683,40 @@ const data = ref([
     div2: '',
     div3: '',
     loca: '@/views/publishing/mission/MyMissionActivity.vue',
-    go: '/publishing/my-mission/MyMissoinActivity',
+    go: '/publishing/my-mission/MyMissionActivity',
     msg: "08.10~11 - 레이아웃 및 미션 활동 메인 화면 작업 완료",
     confirm: '퍼블 작업 진행중(08.10 ~ )'
   },
-  { cate: 'blank'},
+  {
+    cate: '',
+    div: '이전 기록',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/mission/MyMissionPrevious.vue',
+    go: '/publishing/my-mission/MyMissionPrevious',
+    msg: "",
+    confirm: ''
+  },
+  {
+    cate: '',
+    div: '',
+    div2: '데이터 없는 경우',
+    div3: '',
+    loca: '@/views/publishing/mission/MyMissionNoData.vue',
+    go: '/publishing/my-mission/MyMissionNoData',
+    msg: "",
+    confirm: ''
+  },
+  {
+    cate: '',
+    div: '대표 배지 설정',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/mission/MyBadgeSetting.vue',
+    go: '/publishing/my-mission/MyBadgeSetting',
+    msg: "",
+    confirm: ''
+  },  
   {
     cate: '더보기',
     div: '사이드바',

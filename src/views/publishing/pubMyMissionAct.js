@@ -1,4 +1,4 @@
-function layerClose (type) {
+function layerOpen (type) {
 
   // 나의 미션 활동 > badges_reward 툴팁 이벤트
   if(type == 'badges_reward') {
@@ -7,9 +7,9 @@ function layerClose (type) {
     const closeButtons = document.querySelectorAll('.badges_reward_btn__pop__close')
 
     openButtons.forEach((button) => {
-      if (button.dataset.layerCloseBound === 'true') return
+      if (button.dataset.layerOpenBound === 'true') return
 
-      button.dataset.layerCloseBound = 'true'
+      button.dataset.layerOpenBound = 'true'
       button.addEventListener('click', (event) => {
         event.preventDefault()
         popups.forEach((popup) => popup.classList.remove('on'))
@@ -27,15 +27,15 @@ function layerClose (type) {
           rewardWrap.style.setProperty('--reward-arrow-left', `${arrowLeft}px`)
           targetPopup.classList.add('on')
           popArrow.classList.add('on')
-          // document.querySelector("body").style.overflow = "hidden";
+          document.querySelector("body").style.overflow = "hidden";
         }
       })    
     })
 
     closeButtons.forEach((button) => {
-      if (button.dataset.layerCloseBound === 'true') return
+      if (button.dataset.layerOpenBound === 'true') return
 
-      button.dataset.layerCloseBound = 'true'
+      button.dataset.layerOpenBound = 'true'
       button.addEventListener('click', (event) => {
         event.preventDefault()
         const popup = button.closest('.badges_reward_btn__pop')
@@ -48,7 +48,7 @@ function layerClose (type) {
           if (popArrow) {
             popArrow.classList.remove('on')
           }
-          // document.querySelector("body").style.overflow = "auto";
+          document.querySelector("body").style.overflow = "auto";
         }
       })
     })
@@ -57,12 +57,12 @@ function layerClose (type) {
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
-    layerClose('badges_reward')
+    layerOpen('badges_reward')
   }, { once: true })
 } else {
-  layerClose('badges_reward')
+  layerOpen('badges_reward')
 }
 
 export default {
-  layerClose,
+  layerOpen,
 }

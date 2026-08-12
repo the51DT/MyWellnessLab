@@ -21,7 +21,7 @@ export default {
   },
   mounted() {
     nextTick(() => {
-      pubMyMissionAct.layerClose('badges_reward')
+      pubMyMissionAct.layerOpen('badges_reward')
     })
   },
   methods: {
@@ -59,7 +59,7 @@ export default {
       this.isBadgeModalOpen = false
       this.selectedBadge = null
       this.isConfiguredBadgeModal = false
-    },
+    },  
   },
 }
 

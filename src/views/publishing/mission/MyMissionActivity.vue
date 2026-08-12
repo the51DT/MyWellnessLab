@@ -10,7 +10,10 @@ export default {
 
   },
   data () {
-    return {      
+    return {
+      selectedBadge: null,
+      isBadgeModalOpen: false,
+      isConfiguredBadgeModal: false,
     }
   },
   setup() {
@@ -27,6 +30,35 @@ export default {
         name: 'pubMyBadgeSetting',
         query: { hasBadges: 'true' },
       })
+    },
+    handleBadgeClick(event) {
+      const badgeItem = event.target.closest('.badge-box')
+      if (!badgeItem) return
+      if (badgeItem.classList.contains('is-disabled')) return
+
+      const titleElement = badgeItem.querySelector('.badge__name p')
+      const imgElement = badgeItem.querySelector('img')
+      const rawTitle = titleElement ? titleElement.textContent : '배지'
+
+      this.selectedBadge = {
+        title: rawTitle.replace(/\$/g, '').trim(),
+        img: imgElement ? imgElement.getAttribute('src').split('/').pop() : '',
+      }
+      this.isConfiguredBadgeModal = false
+      this.isBadgeModalOpen = true
+    },
+    openConfiguredBadgeModal() {
+      this.selectedBadge = {
+        title: '챌린지 러버',
+        img: 'pin--ruby.svg',
+      }
+      this.isConfiguredBadgeModal = true
+      this.isBadgeModalOpen = true
+    },
+    closeBadgeModal() {
+      this.isBadgeModalOpen = false
+      this.selectedBadge = null
+      this.isConfiguredBadgeModal = false
     },
   },
 }
@@ -256,18 +288,18 @@ export default {
       </div>
       <!--  대표 배지있을 시 -->
       <div class="represent__badge-wrap">
-        <div class="represent__badge">
+        <div class="represent__badge" @click="openConfiguredBadgeModal">
           <BadgeDefault img="pin--ruby.svg">
             챌린지 러버
           </BadgeDefault>
           <div class="btn">
-            <button type="button" class="btn-text" title="대표 배지 설정" @click="openBadgeSetting"> 대표 배지 설정</button>
-            <button type="button" class="btn-modify" title="대표 배지 설정" @click="openBadgeSetting"><span class="blind">대표 배지 설정</span></button>
+            <button type="button" class="btn-text" title="대표 배지 설정" @click.stop="openBadgeSetting"> 대표 배지 설정</button>
+            <button type="button" class="btn-modify" title="대표 배지 설정" @click.stop="openBadgeSetting"><span class="blind">대표 배지 설정</span></button>
           </div>
         </div>
       </div>
       <!-- 대표 배지없을 시 -->
-      <!-- <div class="represent__badge-wrap">
+      <div class="represent__badge-wrap">
         <div class="represent__badge no-represent">
           <p class="represent__badge-txt">획득한 배지에서 대표배지를<br/> 설정해주세요 </p>
           <div class="btn">
@@ -276,13 +308,13 @@ export default {
           </div>
         </div>
         <p class="represent__badge-subtxt">아직 획득한 배지가 없어요 </p>
-      </div> -->
+      </div>
 
-      <div class="activity__area_badge-section">
+      <div class="activity__area_badge-section pt0">
         <div class="para-title-2rd">
           <h6> 연속인증 </h6>
         </div>
-        <div class="badge-box-wrap home">
+        <div class="badge-box-wrap home" @click="handleBadgeClick">
           <div class="badge-box">
             <BadgeDefault img="badge--mission_streak_10.svg">10일 연속 인증</BadgeDefault>
           </div>
@@ -323,7 +355,7 @@ export default {
         <div class="para-title-2rd">
           <h6> 챌린지 참여 </h6>
         </div>
-        <div class="badge-box-wrap home">
+        <div class="badge-box-wrap home" @click="handleBadgeClick">
           <div class="badge-box">
             <BadgeDefault img="badge--challenge_complete_1.svg"> 것모닝코리아 챌린지 1회 성공</BadgeDefault>
           </div>
@@ -349,7 +381,7 @@ export default {
         <div class="para-title-2rd">
           <h6> 팀장 </h6>
         </div>
-        <div class="badge-box-wrap home">
+        <div class="badge-box-wrap home" @click="handleBadgeClick">
           <div class="badge-box">
             <BadgeDefault img="badge--self_starter.svg">솔플 축하</BadgeDefault>
           </div>
@@ -378,7 +410,7 @@ export default {
         <div class="para-title-2rd">
           <h6> 이벤트 배지 </h6>
         </div>
-        <div class="badge-box-wrap home">
+        <div class="badge-box-wrap home" @click="handleBadgeClick">
           <div class="badge-box">
             <BadgeDefault img="badge--event_figure_richDevos.svg">리치 디보스 탄생일</BadgeDefault>
           </div>
@@ -457,7 +489,7 @@ export default {
           <div class="badge-box">
             <BadgeDefault img="badge--family_power.svg">가족의 힘</BadgeDefault>
           </div>
-          <div class="badge-box">
+          <div class="badge-box is-disabled">
             <BadgeDefault img="badge--lock.svg" pointColor="lock">$미획득 배지$</BadgeDefault>
           </div>
         </div>
@@ -469,9 +501,48 @@ export default {
 
 
   <!-- <AppNav :activity="true"></AppNav> -->
+
+  <div
+    v-if="isBadgeModalOpen"
+    class="badge-modal-layer"
+    @click.self="closeBadgeModal"
+  >
+    <div class="badge-modal-card">
+      <button class="badge-modal__close" type="button" @click="closeBadgeModal" aria-label="닫기">
+        <span class="blind">닫기</span>
+      </button>
+
+      <div class="badge-modal__hero">
+        <div class="badge-modal__thumb">
+          <BadgeDefault v-if="selectedBadge" :img="selectedBadge.img" />
+        </div>
+
+        <span v-if="isConfiguredBadgeModal" class="badge-modal__tag">대표배지</span>
+
+        <p class="badge-modal__title">
+          {{ selectedBadge ? selectedBadge.title : '' }}
+        </p>
+
+        <p class="badge-modal__copy">
+          배지를 획득하셨어요!
+        </p>
+      </div>
+
+      <div class="badge-modal__guide">
+        <span class="badge-modal__guide-tag">획득방법</span>
+        <p class="badge-modal__guide-text">$미션 인증 {{ selectedBadge ? selectedBadge.title : '' }}$</p>
+      </div>
+
+      <button class="badge-modal__primary" type="button" @click="closeBadgeModal">
+        {{ isConfiguredBadgeModal ? '대표배지 설정 해제' : '대표배지 설정' }}
+      </button>
+    </div>
+  </div>
 </template>
 
-
 <style lang="scss">
-
+.badge-box.is-disabled { /* 잠긴 배지일 경우 */
+  opacity: 0.45;
+  cursor: not-allowed;
+}
 </style>

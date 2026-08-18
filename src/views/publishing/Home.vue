@@ -1,12 +1,12 @@
 <script setup>
 import { onBeforeMount, onMounted, onBeforeUnmount, ref, computed, watch, nextTick } from 'vue'
 import { useStore } from 'vuex'
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router' /* useRoute 퍼블 확인용 */
 import BasePopup from '@/components/BasePopup.vue'
 import AnalyzeAgingSpeed from '@/views/analyze/components/analyzeAgingSpeed'
 import AnalysisSharePopup from '@/components/AnalysisSharePopup.vue'
 import BodyCompositionPopup from '@/components/BodyCompositionPopup.vue'
-// import AddBtnHome from '@/components/AddBtnHome.vue'
+import AddBtnHome from '@/components/AddBtnHome.vue'
 import { Navigation, Pagination } from 'swiper/modules'
 import * as couponApi from '@/apis/coupon'
 import * as checkupApi from '@/apis/checkup'
@@ -20,7 +20,7 @@ const { t } = useI18n()
 
 const store = useStore()
 const router = useRouter()
-const route = useRoute()
+const route = useRoute() /* useRoute 퍼블 확인용 */
 const moveStep = useMoveStep()
 
 // PWA는 AddBtnHome 컴포넌트에서 처리
@@ -66,12 +66,20 @@ const handleBodyKeyLoginWrapper = async (loginData) => {
   }
 }
 
-const user = store.getters.getUser
 /* 퍼블 확인용 임시 하단 주석이 기존 */
+const user =  {
+  name: '이하늘'
+}
 const isLogin = computed(() => {
   return route.meta.isLogin === true || store.getters.isLogin
 }) 
+// const user = store.getters.getUser
 // const isLogin = store.getters.isLogin
+
+
+const isBefore = computed(() => { /* 퍼블 확인용 분석전 */
+  return route.meta.isBefore === true
+}) 
 
 const activeFab = ref(false)
 const isBottomFab = ref(false)
@@ -242,7 +250,7 @@ const getMyAnalysisCompleteDetail = async () => {
   try {
     isDataLoading.value = true // 로딩 시작
 
-    const data = [ /* 퍼블 확인용 */
+    const swiperData = [ /* 퍼블 확인용 */
       {
         id: 1,
         basicsId: 1,
@@ -278,6 +286,38 @@ const getMyAnalysisCompleteDetail = async () => {
       {
         id: 2,
         basicsId: 2,
+        analysedDate: '2026.08.01 09:20:00',
+        reportType: '2D',
+        hcrReference: [],
+        showMuscleBalanceTooltip: true,
+        hqOxi: {
+          score: 68,
+          status: 'MANAGE'
+        },
+        hqMet: {
+          score: 58,
+          status: 'WARNING'
+        },
+        hqMusBal: {
+          score: 0,
+          status: 'WARNING'
+        },
+        dqData: {
+          RFS_score: 65
+        },
+        metData: {
+          met: 4.8
+        },
+        shData: {
+          sh_score: 72
+        },
+        agingRate: 1.12,
+        agingSpeed: 1.12,
+        agingSpeedStatus: 'WARNING'
+      },
+      {
+        id: 3,
+        basicsId: 3,
         analysedDate: '2026.01.15 09:20:00',
         reportType: '2D',
         hcrReference: [],
@@ -308,10 +348,12 @@ const getMyAnalysisCompleteDetail = async () => {
         agingSpeedStatus: 'WARNING'
       }
     ]
-    myAnalysisCompleteList.value = data /* 퍼블 확인용 */
+    if(isBefore.value === false) { /* 퍼블 확인용 */
+      myAnalysisCompleteList.value = swiperData
+    }
 
-    /* const response = await analysisApi.getMyAnalysisCompleteDetail()
-        
+    const response = await analysisApi.getMyAnalysisCompleteDetail()
+    
         const data = response.data?.logmeCompleteAnalysisMySimple || []
 
     if (data && data.length > 0) {
@@ -322,23 +364,24 @@ const getMyAnalysisCompleteDetail = async () => {
           // 체성분 입력 툴팁 제어
           showMuscleBalanceTooltip: true
         }
-      }) */
+      })
 
-    // 현재 일자
-    const today = new Date()
-    // 첫 번째 분석 일자
-    const aDate = new Date(dateConvert(myAnalysisCompleteList.value[0].analysedDate, '-'))
-    // 분석일에서 6개월 더한 일자
-    const addSixMonth = new Date(new Date(aDate).setMonth(aDate.getMonth() + 6))
-    // 분석일에서 12개월 더한 일자
-    const addOneYear = new Date(new Date(aDate).setMonth(aDate.getMonth() + 12))
-    
-    if (today >= addSixMonth && today < addOneYear) {
-      // 6개월 경과시
-      motivationMessage.value = t('Home.text2') //'건강한 생활습관을 꾸준히 관리해주세요'
-    } else if (today >= addOneYear) {
-      // 12개월 경과시
-      motivationMessage.value = t('Home.text3') //'새로운 웰니스 분석을 통해 변화되는 결과를 확인해보세요'
+      // 현재 일자
+      const today = new Date()
+      // 첫 번째 분석 일자
+      const aDate = new Date(dateConvert(myAnalysisCompleteList.value[0].analysedDate, '-'))
+      // 분석일에서 6개월 더한 일자
+      const addSixMonth = new Date(new Date(aDate).setMonth(aDate.getMonth() + 6))
+      // 분석일에서 12개월 더한 일자
+      const addOneYear = new Date(new Date(aDate).setMonth(aDate.getMonth() + 12))
+      
+      if (today >= addSixMonth && today < addOneYear) {
+        // 6개월 경과시
+        motivationMessage.value = ref(t('Home.text2'))//'건강한 생활습관을 꾸준히 관리해주세요'
+      } else if (today >= addOneYear) {
+        // 12개월 경과시
+         motivationMessage.value = ref(t('Home.text3')) //'새로운 웰니스 분석을 통해 변화되는 결과를 확인해보세요'
+      }
     }
   } catch (e) {
     console.error(e)
@@ -561,18 +604,20 @@ const getHealthTrafficLight = (item) => {
                   </div> 
                 </div>
 
+                <!-- [s] 2606 라이브 버전에 맞춰 복약 부분 미노출 -->
                 <!-- S : 20260306 ASB-13674 - 마이웰니스랩 과학적 표현 강화 -->
-                <p class="home--medication">
-                  {{ $t('Router.checkup.text21') }}: 
-                  <span class="home--medication-detail">
+                <!-- <p class="home--medication"> -->
+                  <!-- {{ $t('Router.checkup.text21') }}:  -->
+                  <!-- <span class="home--medication-detail"> -->
                     <!-- to 개발 | 복약정보가 없을 경우 -->
                     <!-- {{ $t('CheckupMedication.text4') }} -->
                     
                     <!-- to 개발 | 복약정보가 있을 경우 -->
-                    {{ $t('CheckupMedication.text9') }}, {{ $t('CheckupMedication.text10') }}, {{ $t('CheckupMedication.text14') }}, {{ $t('CheckupMedication.text7') }}, {{ $t('CheckupMedication.text12') }}, {{ $t('CheckupMedication.text8') }}
-                  </span>
-                </p>
+                    <!-- {{ $t('CheckupMedication.text9') }}, {{ $t('CheckupMedication.text10') }}, {{ $t('CheckupMedication.text14') }}, {{ $t('CheckupMedication.text7') }}, {{ $t('CheckupMedication.text12') }}, {{ $t('CheckupMedication.text8') }} -->
+                  <!-- </span> -->
+                <!-- </p> -->
                 <!-- E : 20260306 ASB-13674 - 마이웰니스랩 과학적 표현 강화 -->
+                <!-- [e] 2606 라이브 버전에 맞춰 복약 부분 미노출 -->
 
                 <p class="home--info" v-html="$t('Home.healthSummary', {
                   rate: `<span class='${getAgingSpeedClass(item)}'>${getAgingRate(item)}${$t('AnalyzeAgingSpeedDetail.text2')}, ${getAgingSpeedText(item)}</span>`,
@@ -730,7 +775,7 @@ const getHealthTrafficLight = (item) => {
       </div> <!--비주얼 이미지-->
 
       <div class="btn--re-checkup" :class="[activeFab ? 'active' : '', isBottomFab ? 'bottom' : '']" @click="moveCheckUpPage">
-        <span>{{ $t('Home.text14') }}<br /><span>{{ $t('Home.text16') }}</span></span>
+        <span>마이웰니스 랩 분석 시작</span> <!-- 2606 텍스트 수정 -->
       </div>
     </template>
 
@@ -813,7 +858,7 @@ const getHealthTrafficLight = (item) => {
     />
 
     <!-- PWA 홈 화면 추가 버튼 -->
-    <!-- <AddBtnHome /> -->
+    <AddBtnHome />
   </section>
 </template>
 

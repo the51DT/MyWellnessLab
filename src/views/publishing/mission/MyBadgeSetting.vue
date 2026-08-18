@@ -1,20 +1,19 @@
 <script>
 import BadgeDefault from '@/views/publishing/BadgeDefault.vue'
+import { bodyScroll } from '@/assets/js/common'
 
 export default {
   name: 'MyBadgeSetting',
   props: {
-    hasBadges: {
-      type: Boolean,
-      default: true,
-    }
   },
   components: {
     BadgeDefault,
   },
   data () {
     return {
-      selectedBadgeId: '',
+      isBottom: false, /* 퍼블 확인용 하단 도착 여부 */
+      bottomObserverInstance: null, /* 퍼블 확인용 하단 옵저버 */
+      selectedBadgeId: 'mission_streak_20',  /* 퍼블 확인용 대표 배지 임의 지정 */
       badges: [
         { id: 'mission_streak_10', img: 'badge--mission_streak_10.svg', label: '10일 연속 인증' },
         { id: 'mission_streak_20', img: 'badge--mission_streak_20.svg', label: '20일 연속 인증' },
@@ -56,13 +55,48 @@ export default {
     goBack() {
       this.$router.back()
     },
+    close(){
+      this.$emit("popupClose")
+    },
+  },
+  mounted() {
+    bodyScroll(false) /* 팝업 노출 시 body 스크롤 정지 */
+
+    this.bottomObserverInstance = new IntersectionObserver(
+      ([entry]) => {
+        this.isBottom = entry.isIntersecting
+      },
+      {
+        threshold: 1
+      }
+    )
+
+    if (this.$refs.bottomObserver) {
+      this.bottomObserverInstance.observe(this.$refs.bottomObserver)
+    }
+  },
+  unmounted() {
+    if (this.bottomObserverInstance) {
+      this.bottomObserverInstance.disconnect()
+    }
+
+    bodyScroll(true) /* 팝업 삭제 시 body 스크롤 원복 */
   },
 }
 </script>
 
 <template>
-  <div class="activity-content-area">
-    <div class="represent__pop" v-if="hasBadges">
+  <div class="popup MyBadgeSetting">
+    <div class="represent__pop">
+      <div class="align--between popup--header">
+        <div />
+        <div class="popup--tit-wrap">
+          <span class="popup--tit"><slot name="title" /></span>
+        </div>
+        <div>
+          <button @click="close" type="button" class="popup--close" />
+        </div>
+      </div>
       <div class="activity__area_badge-section">        
         <div class="badge-box-wrap">
           <button
@@ -77,25 +111,11 @@ export default {
           </button>
         </div>
       </div>
-      <div class="btn-area ty02">
+      <div class="btn-area ty02" :class="{ 'is-bottom': isBottom }">
         <button class="custom-btn-light" type="button" @click="goBack">취소</button>
         <button class="custom-btn" type="button" @click="confirmSelection">확인</button>
       </div>
-    </div>
-    <div class="represent__pop" v-else>
-      <div class="error">
-        <div>
-          <img src="/img/img_error.png" class="error--img" alt="" />
-        </div>
-        <h2 class="error--tit">
-          아직 획득한 배지가 없어요.
-        </h2>
-      </div>      
-      <div class="btn-area-wrap">
-        <div class="btn-area">
-          <button class="custom-btn" type="button" @click="goBack">확인</button>
-        </div>
-      </div>
+      <div ref="bottomObserver" class="sticky-trigger"></div>
     </div>
   </div>
 </template>

@@ -33,7 +33,8 @@ const publishingRouter = {
           component: () => import("@/views/publishing/Home.vue"),
           meta: {
             title: "홈",
-            isLogin: false /* 퍼블 확인용 */,
+            isLogin: true /* 퍼블 확인용 */,
+            isBefore: true /* 퍼블 확인용 */,
           },
         },
         {
@@ -696,8 +697,7 @@ const publishingRouter = {
         {
           path: "pub-noti-list",
           name: "pubNotiList",
-          component: () =>
-            import("@/views/publishing/etc/NoticeList.vue"),
+          component: () => import("@/views/publishing/etc/NoticeList.vue"),
           meta: {
             title: "공지사항",
           },
@@ -705,8 +705,7 @@ const publishingRouter = {
         {
           path: "pub-noti-detail",
           name: "pubNotiDetail",
-          component: () =>
-            import("@/views/publishing/etc/NoticeDetail.vue"),
+          component: () => import("@/views/publishing/etc/NoticeDetail.vue"),
           meta: {
             title: "공지사항",
           },
@@ -839,24 +838,11 @@ const publishingRouter = {
           name: "pubMyMissionNoData",
           component: () =>
             import("@/views/publishing/mission/MyMissionNoData.vue"),
-          meta: {            
+          meta: {
             title: "이전 기록",
             class: "my--previous",
           },
         },
-        {
-          path: "MyBadgeSetting",
-          name: "pubMyBadgeSetting",
-          component: () =>
-            import("@/views/publishing/mission/MyBadgeSetting.vue"),
-          props: (route) => ({
-            hasBadges: route.query.hasBadges !== 'false',
-          }),
-          meta: {
-            title: "대표 배지 설정",
-            class: "my--badge",
-          },
-        },        
       ],
     },
     {

@@ -17,11 +17,8 @@ export default {
   },
   data () {
     return {
-        leftArea: "",
-        isIntersecting: false,
-        observer: null,
-        refs: [],
-        modules: [Navigation],
+      leftArea: "",
+      modules: [Navigation],
     }
   },
   setup() {
@@ -37,40 +34,38 @@ export default {
     return { swiperOptions };
 
   },
+  methods: {
+    checkHeaderBg () {
+      const target = document.querySelector('.activity__area-terms-tab')
+      const header = document.querySelector('.header')
+
+      if (!target || !header) return
+
+      const headerHeight = header.offsetHeight
+      const targetTop = target.getBoundingClientRect().top
+
+      if (header.classList.contains('greenBg')) {
+        header.classList.remove('greenBg')
+      }
+
+      if (targetTop <= headerHeight) {
+        header.classList.add('whiteBg')
+      } else {
+        header.classList.remove('whiteBg')
+      }
+    },
+  },
   mounted() {
     this.$nextTick(() => {
-      setTimeout(() => {
-        const HEADER_HEIGHT = 72; // 헤더 높이(px)
-        const sentinels = this.$refs.sentinel;
-        this.observer = new IntersectionObserver(
-          ([entry]) => {
-            // sentinel이 사라지면(=섹션이 헤더를 지나면) bgGray → bgWhite
-            this.isIntersecting = entry.isIntersecting || window.scrollY <= 2;
-          },
-          {
-            rootMargin: `-${HEADER_HEIGHT}px 0px 0px 0px`,
-            threshold: 0.1
-          }
-        );
-        this.observer.observe(sentinels);
-
-        // 초기 상태 바로 반영
-        const rect = sentinels.getBoundingClientRect();
-        this.isIntersecting = rect.top >= HEADER_HEIGHT;
-
-      }, 100);
-    });
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY <= 3) {
-        this.isIntersecting = true;
-      }
-    });
+      this.checkHeaderBg()
+      window.addEventListener('scroll', this.checkHeaderBg)
+    })
   },
   beforeUnmount() {
-    const target = this.$refs.targetSection
-    if (this.observer && target) {
-      this.observer.unobserve(target)
+    window.removeEventListener('scroll', this.checkHeaderBg)
+    const header = document.querySelector('.header')
+    if (header) {
+      header.classList.remove('whiteBg')
     }
   }
 };
@@ -169,10 +164,6 @@ export default {
                 </div>
               </div>
             </div>
-
-            <!-- ref 중복 사용 불가능하여 첫번째 슬라이드에만 ref 활성화 (??) -->            
-            <!-- <div ref="sentinel" style="height:0"></div> -->
-
             <div class="activity__area-terms-tab">
               <div class="para-title" ref="targetSection">
                 <h5> 획득한 배지 </h5>

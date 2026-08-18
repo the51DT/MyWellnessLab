@@ -1,19 +1,24 @@
 <script>
 import { nextTick } from 'vue'
+import MyBadgeSetting from '@/views/publishing/mission/MyBadgeSetting.vue'
 import BadgeDefault from '@/views/publishing/BadgeDefault.vue'
-import pubMyMissionAct from "@/views/publishing/pubMyMissionAct.js";
+import BasePopupClose from '@/views/publishing/BasePopupClose.vue'
 
 export default {
   name: 'MyMissionActivity',
   components: {
     BadgeDefault,
-
+    MyBadgeSetting,
+    BasePopupClose,
   },
   data () {
     return {
       selectedBadge: null,
       isBadgeModalOpen: false,
       isConfiguredBadgeModal: false,
+      myBedgeSetting: false,
+      isRewardTooltipOpen: false,
+      noBadgePopup: false,
     }
   },
   setup() {
@@ -21,20 +26,24 @@ export default {
   },
   mounted() {
     nextTick(() => {
-      pubMyMissionAct.layerOpen('badges_reward')
+      this.checkHeaderBg()
+      window.addEventListener('scroll', this.checkHeaderBg)
     })
+  },
+  unmounted() {
+    window.removeEventListener('scroll', this.checkHeaderBg)
+    const header = document.querySelector('.header')
+    if (header) {
+      header.classList.add('greenBg')
+    }
   },
   methods: {
     openBadgeSetting() {
-      this.$router.push({
-        name: 'pubMyBadgeSetting',
-        query: { hasBadges: 'true' },
-      })
+      this.myBedgeSetting = true
     },
     handleBadgeClick(event) {
       const badgeItem = event.target.closest('.badge-box')
       if (!badgeItem) return
-      if (badgeItem.classList.contains('is-disabled')) return
 
       const titleElement = badgeItem.querySelector('.badge__name p')
       const imgElement = badgeItem.querySelector('img')
@@ -59,7 +68,37 @@ export default {
       this.isBadgeModalOpen = false
       this.selectedBadge = null
       this.isConfiguredBadgeModal = false
-    },  
+    },
+    checkHeaderBg () {
+      const target = document.querySelector('.activity__area-terms-tab.home')
+      const header = document.querySelector('.header')
+
+      if (!target || !header) return
+
+      const headerHeight = header.offsetHeight
+      const targetTop = target.getBoundingClientRect().top
+
+      if (targetTop <= headerHeight) {
+        header.classList.remove('greenBg')
+      } else {
+        header.classList.add('greenBg')
+      }
+    },
+    openRewardTooltip(event) {
+      const button = event.currentTarget
+      const rewardWrap = this.$refs.rewardWrap
+
+      if (!rewardWrap) return
+
+      const buttonRect = button.getBoundingClientRect()
+      const rewardRect = rewardWrap.getBoundingClientRect()
+
+      this.rewardArrowLeft = `${buttonRect.left - rewardRect.left + (buttonRect.width / 2)}px`
+      this.isRewardTooltipOpen = true
+    },
+    closeRewardTooltip() {
+      this.isRewardTooltipOpen = false
+    },
   },
 }
 
@@ -93,20 +132,19 @@ export default {
           <div class="badge__desc">
             <div class="badge__desc-info">
               <span class="badge__desc-my"> 다이아몬드 </span>            
-              <button type="button" class="badges_reward_btn__open">
+              <button type="button" class="badges_reward_btn__open" @click="openRewardTooltip">
                 <img src="/img/ico_tooltip_black.svg" alt="핀레벨 뱃지 설명 툴팁 오픈 버튼" />
               </button>
             </div>
             <div class="badge__desc-name">
               <span> 닉네임 영문 최대 20자 </span>
             </div>           
-            <div class="badges_reward">
-              <div class="badges_reward_btn">                
-                <div class="badges_reward_btn__arrow"><span class="blind">상단 화살표</span></div>
-                <div class="badges_reward_btn__pop">
+            <div class="badges_reward" ref="rewardWrap" :style="{ '--reward-arrow-left': rewardArrowLeft }">
+              <div class="badges_reward_btn">
+                <div class="badges_reward_btn__pop" :class="{ on: isRewardTooltipOpen }">
                   
-                  <span class="badges_reward_btn-txt"> 총 인증 횟수에 따라 것모닝핀이 올라갑니다. </span>
-                  <button class="badges_reward_btn__pop__close"></button>
+                  <span class="badges_reward_btn-txt"> 총 인증 횟수에 따라<br/>것모닝핀이 올라갑니다. </span>
+                  <button class="badges_reward_btn__pop__close" @click="closeRewardTooltip"></button>
                   <div class="activity__area_badge-section">
                     <div class="badge-box-wrap">
                       <div class="badge-box">
@@ -292,20 +330,20 @@ export default {
           <BadgeDefault img="pin--ruby.svg">
             챌린지 러버
           </BadgeDefault>
-          <div class="btn">
-            <button type="button" class="btn-text" title="대표 배지 설정" @click.stop="openBadgeSetting"> 대표 배지 설정</button>
-            <button type="button" class="btn-modify" title="대표 배지 설정" @click.stop="openBadgeSetting"><span class="blind">대표 배지 설정</span></button>
-          </div>
+          <button class="btn" type="button" title="대표 배지 설정" @click.stop="openBadgeSetting">
+            <div class="btn-text"> 대표 배지 설정</div>
+            <div class="btn-modify"><span class="blind">대표 배지 설정</span></div>
+          </button>
         </div>
       </div>
       <!-- 대표 배지없을 시 -->
       <div class="represent__badge-wrap">
         <div class="represent__badge no-represent">
           <p class="represent__badge-txt">획득한 배지에서 대표배지를<br/> 설정해주세요 </p>
-          <div class="btn">
-            <button type="button" class="btn-text" title="대표 배지 설정" @click="openBadgeSetting"> 대표 배지 설정</button>
-            <button type="button" class="btn-modify" title="대표 배지 설정" @click="openBadgeSetting"><span class="blind">대표 배지 설정</span></button>
-          </div>
+          <button class="btn" type="button" title="대표 배지 설정" @click="noBadgePopup = true">
+            <div class="btn-text"> 대표 배지 설정</div>
+            <div class="btn-modify"><span class="blind">대표 배지 설정</span></div>
+          </button>
         </div>
         <p class="represent__badge-subtxt">아직 획득한 배지가 없어요 </p>
       </div>
@@ -498,9 +536,21 @@ export default {
 
   </div>
 
+  <!-- 대표 배지 설정 팝업 -->
+  <MyBadgeSetting v-if="myBedgeSetting" @popupClose="myBedgeSetting = false">
+    <template v-slot:title>대표 배지 설정</template>
+  </MyBadgeSetting>
 
-
-  <!-- <AppNav :activity="true"></AppNav> -->
+  <!-- 대표 배지 설정 없을 시 팝업  -->
+  <BasePopupClose v-if="noBadgePopup" :close-btn="false">
+    <template v-slot:title>대표 배지 설정</template>
+    <template v-slot:contents>
+      <p class="pop-text-light">아직 획득한 배지가 없어요.</p>
+    </template>
+    <template v-slot:button>
+      <button type="button" @click="noBadgePopup = false" class="pop-btn pop-btn--green">닫기</button>
+    </template>
+  </BasePopupClose>
 
   <div
     v-if="isBadgeModalOpen"
@@ -541,8 +591,4 @@ export default {
 </template>
 
 <style lang="scss">
-.badge-box.is-disabled { /* 잠긴 배지일 경우 */
-  opacity: 0.45;
-  cursor: not-allowed;
-}
 </style>

@@ -5,7 +5,7 @@ import BasePopupClose from '@/views/publishing/BasePopupClose.vue'
 import BasePopupBadge from '@/views/publishing/BasePopupBadge.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
-import AddBtnHome from '@/components/AddBtnHome.vue'
+import AddBtnHomeRound from '@/components/AddBtnHomeRound.vue' /* 260818 홈 추가 버튼 수정 */
 import TabRound from '@/components/TabRound.vue'
 import TextDatePicker from '@/components/TextDatePicker.vue'
 import BaseOpener from '@/views/publishing/checkup/BaseOpener.vue'
@@ -20,7 +20,7 @@ export default {
     BasePopupClose,
     BasePopupBadge,
     MainCalenderPop,
-    AddBtnHome,
+    AddBtnHomeRound,  /* 260818 홈 추가 버튼 수정 */
     TabRound,
     TextDatePicker,
     TargetGauge,
@@ -804,7 +804,7 @@ export default {
   <BasePopupBadge v-if="badgePopup" @popupClose="badgePopupClose = true" type="pin" frontImg="/img/pin_ruby.svg" backImg="/img/pin_ruby-back.svg">$마웰랩 핀 명칭$</BasePopupBadge>
   <!-- <BasePopupBadge v-if="badgePopup" @popupClose="badgePopupClose = true" type="badge" frontImg="/img/badge_happy-birthday.svg" backImg="/img/badge_happy-birthday-back.svg">$배지 명칭$</BasePopupBadge> -->
 
-  <AddBtnHome />
+  <AddBtnHomeRound /> <!-- 260818 홈 추가 버튼 수정 -->
 </template>
 
 <style lang="scss" scoped>

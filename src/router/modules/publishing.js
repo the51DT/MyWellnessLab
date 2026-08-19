@@ -843,6 +843,16 @@ const publishingRouter = {
             class: "my--previous",
           },
         },
+        {
+          path: "MyMissionRecords",
+          name: "pubMyMissionRecords",
+          component: () =>
+            import("@/views/publishing/mission/MyMissionRecords.vue"),
+          meta: {
+            title: "미션별 누적 인증 기록",
+            class: "short",
+          },
+        },
       ],
     },
     {

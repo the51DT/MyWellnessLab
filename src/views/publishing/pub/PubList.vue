@@ -32,8 +32,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Main.vue',
     go: '/publishing/main',
-    msg: "**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>퍼블 확인용 라우터 케이스 적용<br>260721 / mission-select 내부 구조 수정<br>260721 / 플로팅 탭 전환 핸들러 추가<br>260727 인증방법 선택 사진 찍기 디바이스 체크 후 노출되게 수정<br>260727 미션 주의사항 추가<br>260818 홈 추가 버튼 수정",
-    confirm: '2026.08.18 퍼블 수정'
+    msg: "**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>퍼블 확인용 라우터 케이스 적용<br>260721 / mission-select 내부 구조 수정<br>260721 / 플로팅 탭 전환 핸들러 추가<br>260727 인증방법 선택 사진 찍기 디바이스 체크 후 노출되게 수정<br>260727 미션 주의사항 추가<br>260818 홈 추가 버튼 수정<br>260819 tit 내부 버튼 추가",
+    confirm: '2026.08.19 퍼블 수정'
   },
   {
     div: '',
@@ -685,7 +685,7 @@ const data = ref([
     loca: '@/views/publishing/mission/MyMissionActivity.vue',
     go: '/publishing/my-mission/MyMissionActivity',
     msg: "핀/배지 이미지 확정X - 확정 시 수정",
-    confirm: '퍼블 작업 진행중(08.10 ~ )'
+    confirm: '2026.08.19 퍼블 완료'
   },
   {
     cate: '',
@@ -706,6 +706,16 @@ const data = ref([
     go: '/publishing/my-mission/MyMissionNoData',
     msg: "",
     confirm: '2026.08.18 퍼블 완료'
+  },
+  {
+    cate: '',
+    div: '미션별 누적 인증 기록',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/mission/MyMissionRecords.vue',
+    go: '/publishing/my-mission/MyMissionRecords',
+    msg: "아이콘 타입 디자인 정리 필요",
+    confirm: '2026.08.19 퍼블 완료'
   },
   {
     cate: '더보기',

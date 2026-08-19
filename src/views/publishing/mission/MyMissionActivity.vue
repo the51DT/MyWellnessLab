@@ -15,11 +15,415 @@ export default {
     return {
       selectedBadge: null,
       isBadgeModalOpen: false,
-      isConfiguredBadgeModal: false,
       myBedgeSetting: false,
       isRewardTooltipOpen: false,
+      rewardArrowLeft: '0rem',
       noBadgePopup: false,
+      pinList: [ /* 핀 등급 툴팁 리스트 */
+        {
+          pinImg: 'beginner',
+          pinName: '비기너',
+          pinCount: '0',
+        },
+        {
+          pinImg: 'rookie',
+          pinName: '루키',
+          pinCount: '2',
+        },
+        {
+          pinImg: 'bronze_foundation',
+          pinName: '브론즈 파운데이션',
+          pinCount: '5',
+        },
+        {
+          pinImg: 'bronze_builder',
+          pinName: '브론즈 빌더',
+          pinCount: '6',
+        },
+        {
+          pinImg: 'silver_producer',
+          pinName: '실버 프로듀서',
+          pinCount: '11',
+        },
+        {
+          pinImg: 'gold_producer',
+          pinName: '골드 프로듀서',
+          pinCount: '31',
+        },
+        {
+          pinImg: 'platinum',
+          pinName: '플래티늄',
+          pinCount: '51',
+        },
+        {
+          pinImg: 'ruby',
+          pinName: '루비',
+          pinCount: '71',
+        },
+        {
+          pinImg: 'sapphire',
+          pinName: '사파이어',
+          pinCount: '91',
+        },
+        {
+          pinImg: 'emerald',
+          pinName: '에메랄드',
+          pinCount: '111',
+        },
+        {
+          pinImg: 'diamond',
+          pinName: '다이아몬드',
+          pinCount: '131',
+        },
+        {
+          pinImg: 'exclutive_diamond',
+          pinName: '수석 다이아몬드',
+          pinCount: '151',
+        },
+        {
+          pinImg: 'double_diamond',
+          pinName: '더블 다이아몬드',
+          pinCount: '181',
+        },
+        {
+          pinImg: 'triple_diamond',
+          pinName: '트리플 다이아몬드',
+          pinCount: '211',
+        },
+        {
+          pinImg: 'crown',
+          pinName: '크라운',
+          pinCount: '241',
+        },
+        {
+          pinImg: 'founders_crown',
+          pinName: '파운더스 크라운',
+          pinCount: '271',
+        },
+        {
+          pinImg: 'crown_ambassador',
+          pinName: '크라운 앰배서더',
+          pinCount: '301',
+        },
+        {
+          pinImg: 'founders_crown_ambassador',
+          pinName: '파운더스 크라운 앰배서더',
+          pinCount: '316',
+        },
+        {
+          pinImg: 'founders_crown_ambassador_40',
+          pinName: '파운더스 크라운 앰배서더 40',
+          pinCount: '331',
+        },
+        {
+          pinImg: 'founders_crown_ambassador_50',
+          pinName: '파운더스 크라운 앰배서더 50',
+          pinCount: '346',
+        },
+        {
+          pinImg: 'founders_crown_ambassador_60',
+          pinName: '파운더스 크라운 앰배서더 60',
+          pinCount: '361',
+        },
+      ],
+      /* 퍼블 확인용 배지 리스트 */
+      badgeCate1: [
+        {
+          badgeImg: 'mission_streak_10',
+          badgeName: '10일 연속 인증',
+          badgeHint: '$10일 연속 인증 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'mission_streak_20',
+          badgeName: '20일 연속 인증',
+          badgeHint: '$20일 연속 인증 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'mission_streak_30',
+          badgeName: '30일 연속 인증',
+          badgeHint: '$30일 연속 인증 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'mission_streak_60',
+          badgeName: '60일 연속 인증',
+          badgeHint: '$60일 연속 인증 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'mission_streak_90',
+          badgeName: '90일 연속 인증',
+          badgeHint: '$90일 연속 인증 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'mission_streak_100',
+          badgeName: '100일 연속 인증',
+          badgeHint: '$100일 연속 인증 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'mission_streak_180',
+          badgeName: '180일 연속 인증',
+          badgeHint: '$180일 연속 인증 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'mission_streak_200',
+          badgeName: '200일 연속 인증',
+          badgeHint: '$200일 연속 인증 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'mission_streak_240',
+          badgeName: '240일 연속 인증',
+          badgeHint: '$240일 연속 인증 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'mission_streak_300',
+          badgeName: '300일 연속 인증',
+          badgeHint: '$300일 연속 인증 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'mission_streak_365',
+          badgeName: '365일 연속 인증',
+          badgeHint: '$365일 연속 인증 배지 획득 방법$',
+        },
+      ],
+      badgeCate2: [
+        {
+          badgeImg: 'challenge_complete_1',
+          badgeName: '것모닝코리아 챌린지 1회 성공',
+          badgeHint: '$것모닝코리아 챌린지 1회 성공 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'challenge_complete_2',
+          badgeName: '것모닝코리아 챌린지 2회 성공',
+          badgeHint: '$것모닝코리아 챌린지 2회 성공 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'challenge_beginner',
+          badgeName: '챌린지 비기너',
+          badgeHint: '$챌린지 비기너 배지 획득 방법$',
+          configured: true, /* 대표 배지 임의 설정 */
+        },
+        {
+          badgeImg: 'challenge_perfect',
+          badgeName: '챌린지 퍼펙트',
+          badgeHint: '$챌린지 퍼펙트 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'challenge_final_sprint',
+          badgeName: '챌린지 막판스퍼트',
+          badgeHint: '$챌린지 막판스퍼트 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'challenge_slow_aging',
+          badgeName: '저속노화 성공',
+          badgeHint: '$저속노화 성공 배지 획득 방법$',
+        },
+      ],
+      badgeCate3: [
+        {
+          badgeImg: 'self_starter',
+          badgeName: '솔플 축하',
+          badgeHint: '$솔플 축하 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'new_leader',
+          badgeName: '팀장',
+          badgeHint: '$팀장 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'proven_leader',
+          badgeName: '팀장의 자질',
+          badgeHint: '$팀장의 자질 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'inspiring_leader',
+          badgeName: '팀장의 정석',
+          badgeHint: '$팀장의 정석 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'elite_leader',
+          badgeName: '우수 팀장',
+          badgeHint: '$우수 팀장 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'ultimate_leader',
+          badgeName: '혹독한 팀장',
+          badgeHint: '$혹독한 팀장 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'flawless_leader',
+          badgeName: '가혹한 팀장',
+          badgeHint: '$가혹한 팀장 배지 획득 방법$',
+        },
+      ],
+      badgeCate4: [
+        {
+          badgeImg: 'event_figure_richDevos',
+          badgeName: '리치 디보스 탄생일',
+          badgeHint: '$리치 디보스 탄생일 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'event_figure_jayVanAndel',
+          badgeName: '제이 벤 엔델 탄생일',
+          badgeHint: '$제이 벤 엔델 탄생일 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'amway_korea',
+          badgeName: '한국암웨이 창립기념일',
+          badgeHint: '$한국암웨이 창립기념일 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'amway_global',
+          badgeName: '파운더스데이',
+          badgeHint: '$파운더스데이 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'happy_new_year',
+          badgeName: '새해 첫날',
+          badgeHint: '$새해 첫날 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'happy_chuseok',
+          badgeName: '추석',
+          badgeHint: '$추석 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'mission_start',
+          badgeName: '첫 인증',
+          badgeHint: '$첫 인증 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'family_duo',
+          badgeName: '2대 것모너',
+          badgeHint: '$2대 것모너 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'big_family',
+          badgeName: '다둥이',
+          badgeHint: '$다둥이 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'family_day',
+          badgeName: '패밀리데이',
+          badgeHint: '$패밀리데이 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'childrens_day',
+          badgeName: '어린이날',
+          badgeHint: '$어린이날 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'octopus_mode',
+          badgeName: '문어발',
+          badgeHint: '$문어발 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'happy_birthday',
+          badgeName: '나의 생일',
+          badgeHint: '$나의 생일 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'returning_hero',
+          badgeName: '복귀왕',
+          badgeHint: '$복귀왕 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'early_bird',
+          badgeName: '얼리 것모너',
+          badgeHint: '$얼리 것모너 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'brunch_lover',
+          badgeName: '브런치 것모너',
+          badgeHint: '$브런치 것모너 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'womens_day',
+          badgeName: '세계 여성의날',
+          badgeHint: '$세계 여성의날 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'earth_day',
+          badgeName: '지구의 날',
+          badgeHint: '$지구의 날 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'halloween_hustler',
+          badgeName: '고스트 것모닝',
+          badgeHint: '$고스트 것모닝 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'valentines_day',
+          badgeName: '스윗 것모닝',
+          badgeHint: '$스윗 것모닝 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'liberation_day',
+          badgeName: '광복절',
+          badgeHint: '$광복절 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'summer_gutmoring',
+          badgeName: '썸머 것모닝',
+          badgeHint: '$썸머 것모닝 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'winter_gutmoring',
+          badgeName: '윈터 것모닝',
+          badgeHint: '$윈터 것모닝 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'merry_christmas',
+          badgeName: '메리 크리스마스',
+          badgeHint: '$메리 크리스마스 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'best_teammate',
+          badgeName: '베스트 팀메이트',
+          badgeHint: '$베스트 팀메이트 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'family_power',
+          badgeName: '가족의 힘',
+          badgeHint: '$가족의 힘 배지 획득 방법$',
+        },
+        {
+          badgeImg: 'lock',
+          badgeName: '가족의 힘',
+          badgeHint: '$잠긴 배지 획득 방법$',
+          disabled: true, /* 미획득 배지 */
+        },
+      ],
     }
+  },
+  computed: {
+    badgeCategories() { /* 배지 카테고리 */
+      return [
+        {
+          title: '연속인증',
+          sectionClass: 'pt0',
+          list: this.badgeCate1,
+        },
+        {
+          title: '챌린지 참여(본사)',
+          sectionClass: '',
+          list: this.badgeCate2,
+        },
+        {
+          title: '팀장',
+          sectionClass: '',
+          list: this.badgeCate3,
+        },
+        {
+          title: '이벤트 배지',
+          sectionClass: '',
+          list: this.badgeCate4,
+        },
+      ]
+    },
+    configuredBadge() { /* 대표 배지 확인 */
+      return this.badgeCategories
+        .flatMap(category => category.list)
+        .find(badge => badge.configured === true)
+    },
   },
   setup() {
 
@@ -41,33 +445,22 @@ export default {
     openBadgeSetting() {
       this.myBedgeSetting = true
     },
-    handleBadgeClick(event) {
-      const badgeItem = event.target.closest('.badge-box')
-      if (!badgeItem) return
-
-      const titleElement = badgeItem.querySelector('.badge__name p')
-      const imgElement = badgeItem.querySelector('img')
-      const rawTitle = titleElement ? titleElement.textContent : '배지'
+    handleBadgeClick(badge) {
+      const isDisabled = badge.disabled === true
 
       this.selectedBadge = {
-        title: rawTitle.replace(/\$/g, '').trim(),
-        img: imgElement ? imgElement.getAttribute('src').split('/').pop() : '',
+        title: badge.badgeName,
+        img: isDisabled ? 'badge--lock.svg' : `badge--${badge.badgeImg}.svg`,
+        hint: badge.badgeHint,
+        disabled: isDisabled,
+        configured: badge.configured === true,
       }
-      this.isConfiguredBadgeModal = false
-      this.isBadgeModalOpen = true
-    },
-    openConfiguredBadgeModal() {
-      this.selectedBadge = {
-        title: '챌린지 러버',
-        img: 'pin--ruby.svg',
-      }
-      this.isConfiguredBadgeModal = true
+
       this.isBadgeModalOpen = true
     },
     closeBadgeModal() {
       this.isBadgeModalOpen = false
       this.selectedBadge = null
-      this.isConfiguredBadgeModal = false
     },
     checkHeaderBg () {
       const target = document.querySelector('.activity__area-terms-tab.home')
@@ -92,8 +485,9 @@ export default {
 
       const buttonRect = button.getBoundingClientRect()
       const rewardRect = rewardWrap.getBoundingClientRect()
+      const arrowLeftPx = buttonRect.left - rewardRect.left + (buttonRect.width / 2)
 
-      this.rewardArrowLeft = `${buttonRect.left - rewardRect.left + (buttonRect.width / 2)}px`
+      this.rewardArrowLeft = `${arrowLeftPx / 10}rem`
       this.isRewardTooltipOpen = true
     },
     closeRewardTooltip() {
@@ -147,93 +541,11 @@ export default {
                   <button class="badges_reward_btn__pop__close" @click="closeRewardTooltip"></button>
                   <div class="activity__area_badge-section">
                     <div class="badge-box-wrap">
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--beginner.svg">비기너</BadgeDefault>
-                        <span> 0회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--rookie.svg">루키</BadgeDefault>
-                        <span> 2회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--bronze_foundation.svg">브론즈 파운데이션</BadgeDefault>
-                        <span> 5회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--bronze_builder.svg">브론즈 빌더</BadgeDefault>
-                        <span> 8회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--silver_producer.svg">실버 프로듀서</BadgeDefault>
-                        <span> 11회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--gold_producer.svg">골드 프로듀서</BadgeDefault>
-                        <span> 31회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--platinum.svg">플래티늄</BadgeDefault>
-                        <span> 51회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--ruby.svg">루비</BadgeDefault>
-                        <span> 71회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--sapphire.svg">사파이어</BadgeDefault>
-                        <span> 91회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--emerald.svg">에메랄드</BadgeDefault>
-                        <span> 111회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--diamond.svg">다이아몬드</BadgeDefault>
-                        <span> 131회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--exclutive_diamond.svg">수석 다이아몬드</BadgeDefault>
-                        <span> 151회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--double_diamond.svg">더블 다이아몬드</BadgeDefault>
-                        <span> 181회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--triple_diamond.svg">트리플 다이아몬드</BadgeDefault>
-                        <span> 211회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--crown.svg">크라운</BadgeDefault>
-                        <span> 241회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--founders_crown.svg">파운더스 크라운</BadgeDefault>
-                        <span> 271회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--crown_ambassador.svg">크라운 앰배서더</BadgeDefault>
-                        <span> 301회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--founders_crown_ambassador.svg">파운더스 크라운 앰배서더
+                      <div v-for="pin in pinList" :key="pin.pinImg" class="badge-box">
+                        <BadgeDefault :img="`pin--${pin.pinImg}.svg`">
+                          {{ pin.pinName }}
                         </BadgeDefault>
-                        <span> 316회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--founders_crown_ambassador_40.svg">파운더스 크라운 앰배서더 40
-                        </BadgeDefault>
-                        <span> 331회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--founders_crown_ambassador_50.svg">파운더스 크라운 앰배서더 50
-                        </BadgeDefault>
-                        <span> 346회</span>
-                      </div>
-                      <div class="badge-box">
-                        <BadgeDefault pointColor="white" img="pin--founders_crown_ambassador_60.svg">파운더스 크라운 앰배서더 60
-                        </BadgeDefault>
-                        <span> 361회</span>
+                        <span>{{ pin.pinCount }}회</span>
                       </div>
                     </div>
                   </div>
@@ -324,19 +636,36 @@ export default {
         <h5> 배지 활동 </h5>
         <p> 총 <span class="val green"> 13개</span> 보유 </p>
       </div>
-      <!--  대표 배지있을 시 -->
+
       <div class="represent__badge-wrap">
-        <div class="represent__badge" @click="openConfiguredBadgeModal">
-          <BadgeDefault img="pin--ruby.svg">
-            챌린지 러버
+        <!-- 대표 배지있을 시 -->
+        <div v-if="configuredBadge" class="represent__badge" @click="handleBadgeClick(configuredBadge)">
+          <BadgeDefault :img="`badge--${configuredBadge.badgeImg}.svg`">
+            {{ configuredBadge.badgeName }}
           </BadgeDefault>
           <button class="btn" type="button" title="대표 배지 설정" @click.stop="openBadgeSetting">
-            <div class="btn-text"> 대표 배지 설정</div>
-            <div class="btn-modify"><span class="blind">대표 배지 설정</span></div>
+            <div class="btn-text">대표 배지 설정</div>
+            <div class="btn-modify">
+              <span class="blind">대표 배지 설정</span>
+            </div>
           </button>
         </div>
+
+        <!-- 대표 배지없을 시 -->
+        <template v-else>
+          <div class="represent__badge no-represent">
+            <p class="represent__badge-txt">획득한 배지에서 대표배지를<br/> 설정해주세요</p>
+            <button class="btn" type="button" title="대표 배지 설정" @click="noBadgePopup = true">
+              <div class="btn-text">대표 배지 설정</div>
+              <div class="btn-modify">
+                <span class="blind">대표 배지 설정</span>
+              </div>
+            </button>
+          </div>
+          <p class="represent__badge-subtxt">아직 획득한 배지가 없어요</p>
+        </template>
       </div>
-      <!-- 대표 배지없을 시 -->
+      <!-- s : 대표 배지없을 시 퍼블 확인용-->
       <div class="represent__badge-wrap">
         <div class="represent__badge no-represent">
           <p class="represent__badge-txt">획득한 배지에서 대표배지를<br/> 설정해주세요 </p>
@@ -347,188 +676,24 @@ export default {
         </div>
         <p class="represent__badge-subtxt">아직 획득한 배지가 없어요 </p>
       </div>
+      <!-- e : 대표 배지없을 시 퍼블 확인용-->
 
-      <div class="activity__area_badge-section pt0">
+      <div v-for="category in badgeCategories" :key="category.title" class="activity__area_badge-section" :class="category.sectionClass">
         <div class="para-title-2rd">
-          <h6> 연속인증 </h6>
+          <h6>{{ category.title }}</h6>
         </div>
-        <div class="badge-box-wrap home" @click="handleBadgeClick">
-          <div class="badge-box">
-            <BadgeDefault img="badge--mission_streak_10.svg">10일 연속 인증</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--mission_streak_20.svg">20일 연속 인증</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--mission_streak_30.svg">30일 연속 인증</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--mission_streak_60.svg">60일 연속 인증</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--mission_streak_90.svg">90일 연속 인증</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--mission_streak_100.svg">100일 연속 인증</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--mission_streak_180.svg">180일 연속 인증</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--mission_streak_200.svg">200일 연속 인증</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--mission_streak_240.svg">240일 연속 인증</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--mission_streak_300.svg">300일 연속 인증</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--mission_streak_365.svg">365일 연속 인증</BadgeDefault>
-          </div>
-        </div>
-      </div>
 
-      <div class="activity__area_badge-section">
-        <div class="para-title-2rd">
-          <h6> 챌린지 참여 </h6>
-        </div>
-        <div class="badge-box-wrap home" @click="handleBadgeClick">
-          <div class="badge-box">
-            <BadgeDefault img="badge--challenge_complete_1.svg"> 것모닝코리아 챌린지 1회 성공</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--challenge_complete_2.svg"> 것모닝코리아 챌린지 2회 성공</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--challenge_beginner.svg">챌린지 비기너</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--challenge_perfect.svg">챌린지 퍼펙트</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--challenge_final_sprint.svg">챌린지 막판스퍼트</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--challenge_slow_aging.svg">저속노화 성공</BadgeDefault>
-          </div>
-        </div>
-      </div>
-
-      <div class="activity__area_badge-section">
-        <div class="para-title-2rd">
-          <h6> 팀장 </h6>
-        </div>
-        <div class="badge-box-wrap home" @click="handleBadgeClick">
-          <div class="badge-box">
-            <BadgeDefault img="badge--self_starter.svg">솔플 축하</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--new_leader.svg">팀장</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--proven_leader.svg">팀장의 자질</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--inspiring_leader.svg">팀장의 정석</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--elite_leader.svg">우수 팀장</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--ultimate_leader.svg">혹독한 팀장</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--flawless_leader.svg">가혹한 팀장</BadgeDefault>
-          </div>
-        </div>
-      </div>
-
-      <div class="activity__area_badge-section">
-        <div class="para-title-2rd">
-          <h6> 이벤트 배지 </h6>
-        </div>
-        <div class="badge-box-wrap home" @click="handleBadgeClick">
-          <div class="badge-box">
-            <BadgeDefault img="badge--event_figure_richDevos.svg">리치 디보스 탄생일</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--event_figure_jayVanAndel.svg">제이 벤 엔델 탄생일</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--amway_korea.svg">한국암웨이 창립기념일 </BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--amway_global.svg">파운더스데이 </BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--happy_new_year.svg">새해 첫날</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--happy_chuseok.svg">추석</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--mission_start.svg">첫 인증</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--family_duo.svg">2대 것모너</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--big_family.svg">다둥이</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--family_day.svg">패밀리데이</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--childrens_day.svg">어린이날</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--octopus_mode.svg">문어발</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--happy_birthday.svg">나의 생일</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--returning_hero.svg">복귀왕</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--early_bird.svg">얼리 것모너</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--brunch_lover.svg">브런치 것모너</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--womens_day.svg">세계 여성의날</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--earth_day.svg">지구의 날</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--halloween_hustler.svg">고스트 것모닝</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--valentines_day.svg">스윗 것모닝</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--liberation_day.svg">광복절</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--summer_gutmoring.svg">썸머 것모닝</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--winter_gutmoring.svg">윈터 것모닝</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--merry_christmas.svg">메리 크리스마스</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--best_teammate.svg">베스트 팀메이트</BadgeDefault>
-          </div>
-          <div class="badge-box">
-            <BadgeDefault img="badge--family_power.svg">가족의 힘</BadgeDefault>
-          </div>
-          <div class="badge-box is-disabled">
-            <BadgeDefault img="badge--lock.svg" pointColor="lock">$미획득 배지$</BadgeDefault>
+        <div class="badge-box-wrap home">
+          <div
+            v-for="badge in category.list"
+            :key="badge.badgeImg"
+            class="badge-box"
+            :class="{ 'is-disabled': badge.disabled }"
+            @click="handleBadgeClick(badge)"
+          >
+            <BadgeDefault :img="badge.disabled ? 'badge--lock.svg' : `badge--${badge.badgeImg}.svg`" :pointColor="badge.disabled ? 'lock' : ''">
+              {{ badge.badgeName }}
+            </BadgeDefault>
           </div>
         </div>
       </div>
@@ -567,24 +732,24 @@ export default {
           <BadgeDefault v-if="selectedBadge" :img="selectedBadge.img" />
         </div>
 
-        <span v-if="isConfiguredBadgeModal" class="badge-modal__tag">대표배지</span>
+        <span v-if="selectedBadge && selectedBadge.configured" class="badge-modal__tag">대표배지</span>
 
         <p class="badge-modal__title">
           {{ selectedBadge ? selectedBadge.title : '' }}
         </p>
 
-        <p class="badge-modal__copy">
+        <p v-if="selectedBadge && !selectedBadge.disabled" class="badge-modal__copy">
           배지를 획득하셨어요!
         </p>
       </div>
 
       <div class="badge-modal__guide">
         <span class="badge-modal__guide-tag">획득방법</span>
-        <p class="badge-modal__guide-text">$미션 인증 {{ selectedBadge ? selectedBadge.title : '' }}$</p>
+        <p class="badge-modal__guide-text">{{ selectedBadge ? selectedBadge.hint : '' }}</p>
       </div>
 
-      <button class="badge-modal__primary" type="button" @click="closeBadgeModal">
-        {{ isConfiguredBadgeModal ? '대표배지 설정 해제' : '대표배지 설정' }}
+      <button v-if="selectedBadge && !selectedBadge.disabled" class="badge-modal__primary" type="button" @click="closeBadgeModal"> <!-- 2606 클릭 시 대표 배지 설정 기능 필요 -->
+        {{ selectedBadge && selectedBadge.configured ? '대표 배지 설정 해제' : '대표 배지 설정' }}
       </button>
     </div>
   </div>

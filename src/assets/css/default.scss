@@ -5595,9 +5595,33 @@ button{
     }
     &--box-tit{
       @include txtStyle(body, xl, 600);
+      word-break: break-all;
       margin-bottom: .4rem;
+      align-items: flex-start;
+      gap: .4rem;
       @media (min-width:$w-pc){
         margin-bottom: .8rem;
+        gap: .6rem;
+      }
+      span{
+        display: -webkit-box;
+        overflow: hidden;
+        white-space: normal;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        word-break: break-all;
+      }
+      button{
+        margin-top: .4rem;
+        width: 2.4rem;
+        height: 2.4rem;
+        background: url('/img/ic_arrow_right_black.svg') no-repeat center / .9rem;
+        @media (min-width:$w-pc){
+          width: 2.8rem;
+          height: 2.8rem;
+          background-size: 1.1rem;
+        }
       }
     }
     &--box-info{
@@ -5884,6 +5908,7 @@ button{
     align-items: center;
     margin-bottom: 1.2rem;
     button{
+      flex-shrink: 0;
       @include btnClear;
       width: 2rem;
       height: 2rem;
@@ -17738,6 +17763,16 @@ span.legend-dot-interest{
     @media (min-width: $w-pc) {
       margin-top: 4rem;
     }
+    .btn--txt3{
+      font-family: 'Pretendard', sans-serif;
+      @include txtStyle(body, xs-1, 600);
+      color: #808080;
+      &::after{
+        width: 1.3rem;
+        height: .8rem;
+        vertical-align: middle;
+      }
+    }
   }
   .align--dl{
     display: flex;
@@ -20642,7 +20677,15 @@ span.legend-dot-interest{
       @media (min-width:$w-pc) {
         width: 11rem;
         height: 11rem;
-        margin-bottom: 1.4rem;
+      }
+      &__wrap{
+        width: 100%;
+        height: 100%;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
     }
   }
@@ -20765,11 +20808,11 @@ span.legend-dot-interest{
         width: 100%;
         border-radius: 2rem;
         padding: 1.4rem 1.2rem 1.6rem;
-        height: 14.2rem;
+        min-height: 14.2rem;
         cursor: pointer;
         @media (min-width:$w-pc) {
           padding: 2rem 1.6rem 2.4rem;
-          height: 18.1rem;
+          min-height: 18.1rem;
         }
         .badge {
           &__wrap {
@@ -20914,7 +20957,11 @@ span.legend-dot-interest{
       }
       .badge__wrap {
         img {
-          width: 12.8rem;
+          width: auto;
+          height: 14rem;
+          @media (min-width:$w-pc) {
+            height: 16rem;
+          }
         }
       }
 
@@ -21004,7 +21051,7 @@ span.legend-dot-interest{
                 border-radius: 1.2rem;
                 display: none;
                 @media (min-width:$w-pc) {
-                  padding-bottom: 2.4rem;
+                  padding: 1.6rem 1.6rem 2.4rem;
                 }
                 &.on {
                   display: flex;
@@ -21046,9 +21093,13 @@ span.legend-dot-interest{
               .badge-box-wrap {
                 row-gap: 0.4rem;
                 column-gap: 0.8rem;
+                @media (min-width:$w-pc) {
+                  gap: .8rem;
+                }
                 .badge-box {
                   padding: 0.8rem 0 0;
                   height: auto;
+                  min-height: unset;
                   background: transparent;
                   color: #fff;
                   text-align: center;
@@ -21057,6 +21108,7 @@ span.legend-dot-interest{
                   align-items: center;
                   gap: .2rem;
                   @include txtStyle(caption, lg-1);
+                  cursor: default;
                 }
                 .badge__wrap{
                   height: 8.4rem;
@@ -21161,6 +21213,7 @@ span.legend-dot-interest{
       background: #f5f5f5;
       border-radius: 3.2rem 3.2rem 0 0;
       @media (min-width: $w-pc) {
+        padding-bottom: 8rem;
         border-radius: 0;
       }
       &.home {
@@ -21178,17 +21231,12 @@ span.legend-dot-interest{
           }
 
           .represent__badge-txt {
-            font-weight: 400;
-            font-size: 1.5rem;
-            line-height: 2.25rem;
-            color: #1a1818;
+            @include txtStyle(body, xs);
             text-align: center;
           }
 
           .represent__badge-subtxt {
-            font-weight: 400;
-            font-size: 1.4rem;
-            line-height: 2.1rem;
+            @include txtStyle(body, 2xs-1);
             color: #666;
             text-align: center;
           }
@@ -21437,5 +21485,106 @@ span.legend-dot-interest{
   .badge-setting__card.is-selected {
     border-color: #1DB196;
     background: #F5FFFD;
+  }
+}
+
+/* 미션별 누적 인증 기록 */
+.mission-records{
+  max-width: $w-pc-wrap;
+  margin: 0 auto;
+  padding: 1.6rem 2rem 2.4rem;
+  &--select{
+    position: relative;
+    margin-bottom: 1.6rem;
+    @media (min-width:$w-pc) {
+      margin-bottom: 2rem;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 1.4rem;
+      transform: translateY(-50%);
+      width: 2rem;
+      height: 2rem;
+      background: url('/img/ic_arrow_down_black.svg') no-repeat center / 1.3rem;
+      pointer-events: none;
+    }
+  }
+  &--list{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    @media (min-width:$w-pc) {
+      gap: 1.4rem;
+    }
+  }
+  &--card{
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    padding: 1.6rem;
+    border: .1rem solid #e5e5e5;
+    border-radius: 2.4rem;
+    background-color: #fff;
+  }
+  &--tag-wrap{
+    display: flex;
+    gap: .4rem;
+    @media (min-width:$w-pc) {
+      gap: .6rem;
+    }
+  }
+  &--tag{
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+    height: 2rem;
+    padding: 0 .8rem;
+    background-color: #146B5B;
+    border-radius: 2rem;
+    @include txtStyle(caption, lg-1, 600);
+    color: white;
+    @media (min-width:$w-pc) {
+      height: 2.4rem;
+    }
+    i{
+      display: block;
+      width: 1.6rem;
+      height: 1.6rem;
+      margin-left: -.2rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+    .ico{
+      &-eye{
+        background-image: url('/img/ico_eye_white.svg');
+      }
+      &-liver{
+        background-image: url('/img/ico_liver_white.svg');
+      }
+      &-bone{
+        background-image: url('/img/ico_bone_white.svg');
+      }
+    }
+    &.orange{
+      background-color: #FF9705;
+    }
+    &.green{
+      background-color: #1DB196;
+    }
+  }
+  &--title{
+    @include txtStyle(caption, xl-1, 600);
+    color: #333;
+    word-break: break-all;
+  }
+  .MyPageCheckupDataRecord--btn{
+    padding-bottom: 0;
+    margin-top: 2.4rem;
+    @media (min-width:$w-pc) {
+      margin-top: 4.8rem;
+    }
   }
 }

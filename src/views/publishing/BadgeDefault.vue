@@ -5,7 +5,7 @@
     </div>
     <div class="badge__name">
       <span v-if="show" class="badge__name_tag"> 대표배지 </span>
-      <p :class="pointColor">
+      <p>
         <slot />
       </p>
     </div>
@@ -41,10 +41,6 @@ export default {
     pointColor: {
       type: String,
       default: ''
-    },
-    isTag: {
-      type: Boolean,
-      default: false
     },
     width: {
       type: String,

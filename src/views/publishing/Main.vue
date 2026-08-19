@@ -596,7 +596,7 @@ export default {
             <p>참여중인 챌린지가 없습니다.</p>
           </div> -->
           <div>
-            <div class="challenge--box-tit">6월 건강수면 챌린지팀</div>
+            <div class="challenge--box-tit"><span>6월 건강수면 챌린지팀 6월 건강수면 챌린지팀 6월 건강수면 챌린지팀 6월 건강수면 챌린지팀</span><button type="button" @click=""></button></div> <!-- 260819 tit 내부 버튼 추가 / 팀상세 이동 필요 -->
             <div class="challenge--box-tag">진행중</div>
             <div class="challenge--box-info">
               <p>
@@ -622,8 +622,9 @@ export default {
             <img src="/img/img_home_error.png">
             <p>참여중인 상시 팀이 없습니다.</p>
           </div>
+          <!-- 260819 tit 내부 버튼 추가 / 팀상세 이동 필요 -->
           <!-- <div>
-            <div class="challenge--box-tit">6월 건강수면 챌린지팀</div>
+            <div class="challenge--box-tit"><span>6월 건강수면 챌린지팀</span><button type="button" @click=""></button></div> 
             <div class="challenge--box-tag">진행중</div>
             <div class="challenge--box-info">
               <p>

@@ -691,7 +691,7 @@ export default {
             :class="{ 'is-disabled': badge.disabled }"
             @click="handleBadgeClick(badge)"
           >
-            <BadgeDefault :img="badge.disabled ? 'badge--lock.svg' : `badge--${badge.badgeImg}.svg`" :pointColor="badge.disabled ? 'lock' : ''">
+            <BadgeDefault :img="badge.disabled ? 'badge--lock.svg' : `badge--${badge.badgeImg}.svg`">
               {{ badge.badgeName }}
             </BadgeDefault>
           </div>

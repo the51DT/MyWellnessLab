@@ -829,7 +829,6 @@ const publishingRouter = {
             import("@/views/publishing/mission/MyMissionPrevious.vue"),
           meta: {
             title: "이전 기록",
-            class: "my--previous",
           },
         },
         {
@@ -839,7 +838,6 @@ const publishingRouter = {
             import("@/views/publishing/mission/MyMissionNoData.vue"),
           meta: {
             title: "이전 기록",
-            class: "my--previous",
           },
         },
         {

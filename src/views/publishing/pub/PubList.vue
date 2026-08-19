@@ -695,7 +695,7 @@ const data = ref([
     loca: '@/views/publishing/mission/MyMissionPrevious.vue',
     go: '/publishing/my-mission/MyMissionPrevious',
     msg: "",
-    confirm: ''
+    confirm: '2026.08.19 퍼블 완료'
   },
   {
     cate: '',

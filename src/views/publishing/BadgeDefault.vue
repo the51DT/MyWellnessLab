@@ -4,7 +4,6 @@
       <img :src="imageSrc" alt="badge" :style="imgStyle" />
     </div>
     <div class="badge__name">
-      <span v-if="show" class="badge__name_tag"> 대표배지 </span>
       <p>
         <slot />
       </p>
@@ -46,10 +45,6 @@ export default {
       type: String,
       default: ''
     },
-    show: {
-      type: Boolean,
-      default: false,
-    }
   },
   computed: {
     imageSrc() {

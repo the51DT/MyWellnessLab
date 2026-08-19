@@ -820,7 +820,6 @@ const publishingRouter = {
             import("@/views/publishing/mission/MyMissionActivity.vue"),
           meta: {
             title: "나의 미션 활동",
-            class: "my--activity",
           },
         },
         {

@@ -499,7 +499,7 @@ export default {
 </script>
 
 <template>
-  <div class="activity bg-green">
+  <div class="activity bg-green my--activity">
     <div class="activity__area">
       <div class="activity__area-certified">
         <div>

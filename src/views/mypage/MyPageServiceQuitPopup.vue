@@ -182,9 +182,10 @@ const isQuitButtonDisabled = computed(() => {
     </base-popup>
 
     <!-- [s] 202606 챌린지 팀에 가입되어 있을 경우 팝업 -->
+    <!-- 260820 문구 수정 -->
     <!-- <base-popup v-if="ex" :class="prefix + '--real'">
       <template v-slot:contents>
-        <p class="pop-text-bold red">회원님은 현재 챌린지팀에 가입되어 있습니다.<br>회원탈퇴시 챌린지 팀에서도 탈퇴가 진행됩니다.<br>그래도 탈퇴하시겠습니까?</p>
+        <p class="pop-text-bold red">회원님은 현재 챌린지 팀에 가입되어 있습니다. 회원 탈퇴 시 챌린지 팀에서도 자동으로 탈퇴됩니다. 그래도 탈퇴하시겠습니까?</p>
         <p class="pop-text-caption center">탈퇴 시, 분석 기록 및 챌린지 기록이 즉시 삭제되어 복구할 수 없습니다.</p>
         <div class="pop-btn-wrap">
           <button @click="ex = false" type="button" class="pop-btn pop-btn--gray">{{ $t('Common.cancle') }}</button>

@@ -96,9 +96,10 @@ function inviteTooltip(e) {
   </div>
 
   <!-- 팀 초대 인원 초과 팝업 -->
+  <!-- 260820 문구 수정 -->
   <!-- <BasePopup v-if="ex1">
     <template v-slot:contents>
-      <p class="pop-text-light">팀원을 더 이상 초대할 수 없습니다.</p>
+      <p class="pop-text-light">팀 가입 가능 인원을 초과하여<br>더 이상 팀원을 초대할 수 없습니다.</p>
       <div class="pop-btn-wrap">
         <button type="button" @click="ex1 = false" class="pop-btn pop-btn--green">확인</button>
       </div>

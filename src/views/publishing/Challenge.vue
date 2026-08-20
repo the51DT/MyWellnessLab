@@ -104,7 +104,7 @@ onMounted(() => {
                 <TargetGauge :gaugePer="40" :targetPer="55" :compPer="80"></TargetGauge>
               </div>
               <div class="challenge--box-note">
-                <span><strong>목표치란, </strong>챌린지를 성공하기 위하여 오늘까지 달성해야 할 최소한의 인증률을 말합니다.</span>
+                <span><strong>목표치란, </strong>챌린지 성공을 위해 오늘까지 달성해야 하는 최소 인증률입니다.</span> <!-- 260820 문구 수정 -->
               </div>
             </div>
           </div>
@@ -137,7 +137,7 @@ onMounted(() => {
           <p class="challenge--start-day">챌린지 시작 <span>D-{{3}}</span></p>
           <p class="challenge--start-text"><span>바른수면 챌린지</span>가<br>2026년 7월 3일에 시작됩니다.</p>
           <div class="challenge--recruit-box">
-            <p>챌린지 참여를 위해,<br>챌린지 시작 전 팀에 참여해 주세요.</p> <!-- 팀 가입 전 -->
+            <p>챌린지에 참여하려면<br>챌린지 시작 전 팀에 참여해 주세요.</p> <!-- 팀 가입 전 --> <!-- 260820 문구 수정 -->
             <!-- <p><span>7월 건강수면 팀</span>에 참여가 완료되었습니다.</p> --> <!-- 팀 가입 후 -->
             <div class="challenge--recruit-info">
               <div>
@@ -150,7 +150,7 @@ onMounted(() => {
               </div>
             </div>
           </div>
-          <p class="challenge--recruit-desc">해당 챌린지의 성공 및 보상 수령을 위해 0000 프로모션(309313L) 구매가 필요합니다. 챌린지 종료시점에 구매 인증이 불가할 경우 팀 성공일지라도 개인 보상지급이 불가합니다.</p>
+          <p class="challenge--recruit-desc">챌린지 성공 및 보상 수령을 위해 OOOO 프로모션(300000L) 구매가 필요합니다. 챌린지 종료 시점까지 구매 인증을 완료하지 않으면 팀이 성공하더라도 개인 보상이 지급되지 않습니다.</p> <!-- 260820 문구 수정 -->
         </div>
       </template>
       <template #tab-2>
@@ -184,7 +184,7 @@ onMounted(() => {
                 <TargetGauge :gaugePer="40" :targetPer="55" :compPer="80"></TargetGauge>
               </div>
               <div class="challenge--box-note">
-                <span><strong>목표치란, </strong>챌린지를 성공하기 위하여 오늘까지 달성해야 할 최소한의 인증률을 말합니다.</span>
+                <span><strong>목표치란, </strong>챌린지 성공을 위해 오늘까지 달성해야 하는 최소 인증률입니다.</span> <!-- 260820 문구 수정 -->
               </div>
             </div>
           </div>

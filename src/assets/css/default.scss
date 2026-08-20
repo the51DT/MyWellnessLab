@@ -304,6 +304,7 @@
         @media (min-width: $w-pc) {
           gap: 4.2rem;
           align-items: flex-start;
+          padding-bottom: 2rem;
         }
         > div:not(:only-child) {
           @media (min-width: $w-pc) {
@@ -1439,6 +1440,9 @@ footer{
         }
         &.mint{
           color: #1db196;
+        }
+        &.green{
+          color: #199982;
         }
       }
       &-light{
@@ -6560,30 +6564,28 @@ button{
     }
   }
   &--card-info{
-    display: flex;
-    flex-direction: column;
-    gap: .4rem;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: .4rem 1rem;
     margin-top: 1.2rem;
+    @include txtStyle(body, 2xs);
+    color: #333;
     @media (min-width:$w-pc){
       margin-top: 1.6rem;
     }
     > div{
       display: flex;
-      gap: 2.4rem;
-    }
-    p{
-      @include txtStyle(body, 2xs);
-      display: flex;
       justify-content: space-between;
-      width: 100%;
-      color: #333;
-      @media (min-width:$w-pc){
-        justify-content: flex-end;
-        gap: .6rem;
-      }
+      align-items: center;
+      gap: 1rem;
+    }
+    em{
+      @include txtStyle(caption, xl-1, 500);
+      font-style: normal;
       span{
         font-weight: 600;
         width: 3rem;
+        margin-left: .4rem;
       }
       .success{
         color: var(--team-point-color);
@@ -6593,15 +6595,9 @@ button{
         color: #808080;
         width: fit-content;
       }
-      &:first-child{
-        @include txtStyle(caption, xl-1, 500);
-        width: 6rem;
-        flex: 0 0 auto;
-        @media (min-width:$w-pc){
-          justify-content: flex-start;
-          width: 7rem;
-        }
-      }
+    }
+    strong{
+      font-weight: 600;
     }
   }
   &--card-list{
@@ -8640,8 +8636,6 @@ button{
       }
       dl{
         gap: .6rem;
-        &:nth-child(3){
-          order: 3;
         }
         &:nth-child(4){
           order: 2;
@@ -8671,7 +8665,6 @@ button{
       }
     }
     .team-status--purchase{
-      margin-top: .2rem;
       order: 5;
     }
   }

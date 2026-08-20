@@ -81,7 +81,7 @@ onBeforeUnmount(() => {
       <template #tab-0>
         <div v-if="isNoTeam" class="challenge--not"> <!-- v-if = 퍼블 확인용 챌린지 없을 때 -->
           <img src="/img/visual_alert_green.png">
-          <p>지금은 참여중인 팀이 없습니다.</p>
+          <p>현재 참여 중인 팀이 없습니다.</p> <!-- 260820 문구 수정 -->
         </div>
         <div v-else class="team--card-list">
           <button class="team--card challenge-team"> <!-- 202606 클릭 시 해당 팀 상세 페이지로 이동 필요 -->
@@ -106,18 +106,17 @@ onBeforeUnmount(() => {
               </div>
             </div>
             <div class="team--card-info">
-              <div>
-                <p>전체 기간</p>
-                <p>2026.02.01 ~ 2026.03.31<span>60일</span></p>
-              </div>
-              <div>
-                <p>1회차 진행</p>
-                <p>2026.02.01 ~ 2026.02.28<span>30일</span></p>
-              </div>
-              <div>
-                <p>2회차 진행</p>
-                <p>2026.03.01 ~ 2026.03.31<span>30일</span></p>
-              </div>
+              <!-- [s] 260820 .team--card-info 내부구조 수정 -->
+              <em>전체 기간</em>
+              <span>2026.02.01 ~ 2026.03.31</span>
+              <strong>60일</strong>
+              <em>1회차 진행</em>
+              <span>2026.02.01 ~ 2026.02.28</span>
+              <strong>30일</strong>
+              <em>2회차 진행</em>
+              <span>2026.03.01 ~ 2026.03.31</span>
+              <strong>30일</strong>
+              <!-- [e] 260820 .team--card-info 내부구조 수정 -->
             </div>
             <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">
@@ -148,10 +147,11 @@ onBeforeUnmount(() => {
               </div>
             </div>
             <div class="team--card-info">
-              <div>
-                <p>전체 기간</p>
-                <p>2026.02.01 ~ 2026.03.31<span>60일</span></p>
-              </div>
+              <!-- [s] 260820 .team--card-info 내부구조 수정 -->
+              <em>전체 기간</em>
+              <span>2026.02.01 ~ 2026.03.31</span>
+              <strong>60일</strong>
+              <!-- [e] 260820 .team--card-info 내부구조 수정 -->
             </div>
             <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">
@@ -185,10 +185,11 @@ onBeforeUnmount(() => {
               </div>
             </div>
             <div class="team--card-info">
-              <div>
-                <p>전체 기간</p>
-                <p>2026.02.01 ~ 2026.03.31<span>60일</span></p>
-              </div>
+              <!-- [s] 260820 .team--card-info 내부구조 수정 -->
+              <em>전체 기간</em>
+              <span>2026.02.01 ~ 2026.03.31</span>
+              <strong>60일</strong>
+              <!-- [e] 260820 .team--card-info 내부구조 수정 -->
             </div>
             <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">
@@ -221,10 +222,11 @@ onBeforeUnmount(() => {
               </div>
             </div>
             <div class="team--card-info">
-              <div>
-                <p>전체 기간</p>
-                <p>2026.02.01 ~ 2026.03.31<span>60일</span></p>
-              </div>
+              <!-- [s] 260820 .team--card-info 내부구조 수정 -->
+              <em>전체 기간</em>
+              <span>2026.02.01 ~ 2026.03.31</span>
+              <strong>60일</strong>
+              <!-- [e] 260820 .team--card-info 내부구조 수정 -->
             </div>
             <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">
@@ -238,7 +240,7 @@ onBeforeUnmount(() => {
       <template #tab-1>
         <div v-if="isNoTeam" class="challenge--not"> <!-- v-if = 퍼블 확인용 챌린지 없을 때 -->
           <img src="/img/visual_alert_green.png">
-          <p>지금은 참여중인 팀이 없습니다.</p>
+          <p>현재 참여 중인 팀이 없습니다.</p> <!-- 260820 문구 수정 -->
         </div>
         <div v-else class="team--card-list">
           <button class="team--card challenge-team">
@@ -261,18 +263,17 @@ onBeforeUnmount(() => {
               </div>
             </div>
             <div class="team--card-info">
-              <div>
-                <p>전체 기간</p>
-                <p>2026.02.01 ~ 2026.03.31<span>60일</span></p>
-              </div>
-              <div>
-                <p>1회차 <span class="success">성공</span></p>
-                <p>2026.02.01 ~ 2026.02.28<span>30일</span></p>
-              </div>
-              <div>
-                <p>2회차 <span class="fail">실패</span></p>
-                <p>2026.03.01 ~ 2026.03.31<span>30일</span></p>
-              </div>
+              <!-- [s] 260820 .team--card-info 내부구조 수정 -->
+              <em>전체 기간</em>
+              <span>2026.02.01 ~ 2026.03.31</span>
+              <strong>60일</strong>
+              <em>1회차<span class="success">성공</span></em>
+              <span>2026.02.01 ~ 2026.02.28</span>
+              <strong>30일</strong>
+              <em>2회차<span class="fail">실패</span></em>
+              <span>2026.03.01 ~ 2026.03.31</span>
+              <strong>30일</strong>
+              <!-- [e] 260820 .team--card-info 내부구조 수정 -->
             </div>
           </button>
           <button class="team--card regular-team">
@@ -295,10 +296,11 @@ onBeforeUnmount(() => {
               </div>
             </div>
             <div class="team--card-info">
-              <div>
-                <p>전체 기간</p>
-                <p>2026.02.01 ~ 2026.03.31<span>60일</span></p>
-              </div>
+              <!-- [s] 260820 .team--card-info 내부구조 수정 -->
+              <em>전체 기간</em>
+              <span>2026.02.01 ~ 2026.03.31</span>
+              <strong>60일</strong>
+              <!-- [e] 260820 .team--card-info 내부구조 수정 -->
             </div>
           </button>
           <button class="team--card challenge-team">
@@ -321,18 +323,17 @@ onBeforeUnmount(() => {
               </div>
             </div>
             <div class="team--card-info">
-              <div>
-                <p>전체 기간</p>
-                <p>2026.02.01 ~ 2026.03.31<span>60일</span></p>
-              </div>
-              <div>
-                <p>1회차 <span class="fail">실패</span></p>
-                <p>2026.02.01 ~ 2026.02.28<span>30일</span></p>
-              </div>
-              <div>
-                <p>2회차 <span class="fail">실패</span></p>
-                <p>2026.03.01 ~ 2026.03.31<span>30일</span></p>
-              </div>
+              <!-- [s] 260820 .team--card-info 내부구조 수정 -->
+              <em>전체 기간</em>
+              <span>2026.02.01 ~ 2026.03.31</span>
+              <strong>60일</strong>
+              <em>1회차<span class="fail">실패</span></em>
+              <span>2026.02.01 ~ 2026.02.28</span>
+              <strong>30일</strong>
+              <em>2회차<span class="fail">실패</span></em>  
+              <span>2026.03.01 ~ 2026.03.31</span>
+              <strong>30일</strong>
+              <!-- [e] 260820 .team--card-info 내부구조 수정 -->
             </div>
           </button>
           <button class="team--card regular-team">
@@ -355,10 +356,11 @@ onBeforeUnmount(() => {
               </div>
             </div>
             <div class="team--card-info">
-              <div>
-                <p>전체 기간</p>
-                <p>2026.02.01 ~ 2026.03.31<span>60일</span></p>
-              </div>
+              <!-- [s] 260820 .team--card-info 내부구조 수정 -->
+              <em>전체 기간</em>
+              <span>2026.02.01 ~ 2026.03.31</span>
+              <strong>60일</strong>
+              <!-- [e] 260820 .team--card-info 내부구조 수정 -->
             </div>
           </button>
         </div>
@@ -445,9 +447,14 @@ onBeforeUnmount(() => {
   <!-- 미션 변경 알림 팝업 -->
   <BasePopup v-if="changeMissionPopup">
     <template v-slot:contents>
-      <p class="pop-text-light">챌린지 참여 시 진행중인 미션이</p>
-      <p class="pop-text-bold">혈압조절 - 혈압조절 제품(코엔자임 Q10, 마그네슘, 오메가3) 챙겨먹기</p>
-      <p class="pop-text-light">미션으로 변경됩니다.<br>챌린지에 참여하시겠습니까?</p>
+      <!-- [s] 260820 문구 수정 -->
+      <p class="pop-text-light">챌린지에 참여하시면 진행중인 미션이</p>
+      <p>
+        <span class="pop-text-bold green">혈압조절 - 혈압조절 제품(코엔자임 Q10, 마그네슘, 오메가3) 챙겨먹기</span>
+        <span class="pop-text-light">로 변경됩니다.</span>
+      </p>
+      <p class="pop-text-light">챌린지에 참여하시겠습니까?</p>
+      <!-- [e] 260820 문구 수정 -->
       <div class="pop-btn-wrap">
         <button type="button" @click="changeMissionPopup = false" class="pop-btn pop-btn--gray">닫기</button>
         <button type="button" @click="changeMissionPopup = false, porductStatusPopup = true" class="pop-btn pop-btn--green">참여하기</button> <!-- 퍼블 확인을 위해 팝업 임의 노출 -->
@@ -458,7 +465,7 @@ onBeforeUnmount(() => {
   <!-- 제품 구매 여부 알림 팝업 -->
   <BasePopup v-if="porductStatusPopup">
     <template v-slot:contents>
-      <p class="pop-text-light">챌린지 참여를 위해<br>제품 구매가 필요합니다.</p>
+      <p class="pop-text-light">챌린지는 제품을 구매하셔야<br>참여할 수 있습니다.</p> <!-- 260820 문구 수정 -->
       <div class="pop-btn-wrap">
         <button type="button" @click="porductStatusPopup = false, unableJoinPopup = true" class="pop-btn pop-btn--green">확인</button> <!-- 퍼블 확인을 위해 팝업 임의 노출 -->
       </div>

@@ -55,7 +55,7 @@ onMounted(async () => {
     <template v-slot:title>팀 참여 완료</template>
     <template v-slot:contents>
       <div class="pop-content-wrap">
-        <p class="pop-text-light">$팀명$에 참여가 완료되었습니다.</p>
+        <p class="pop-text-light">$챌린지명$의 $팀명$ 팀에 참여가 완료되었습니다.</p> <!-- 260820 문구 수정 -->
         <p class="pop-text-light">챌린지 성공 보상을 위해<br>보상 수령처를 선택해 주세요.</p>
         <div class="pop-select">
           <span>보상 수령처</span>

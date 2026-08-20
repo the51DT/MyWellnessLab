@@ -131,57 +131,57 @@ export default {
         {
           badgeImg: 'mission_streak_10',
           badgeName: '10일 연속 인증',
-          badgeHint: '$10일 연속 인증 배지 획득 방법$',
+          badgeHint: '$10일 연속 미션 인증$',
         },
         {
           badgeImg: 'mission_streak_20',
           badgeName: '20일 연속 인증',
-          badgeHint: '$20일 연속 인증 배지 획득 방법$',
+          badgeHint: '$20일 연속 미션 인증$',
         },
         {
           badgeImg: 'mission_streak_30',
           badgeName: '30일 연속 인증',
-          badgeHint: '$30일 연속 인증 배지 획득 방법$',
+          badgeHint: '$30일 연속 미션 인증$',
         },
         {
           badgeImg: 'mission_streak_60',
           badgeName: '60일 연속 인증',
-          badgeHint: '$60일 연속 인증 배지 획득 방법$',
+          badgeHint: '$60일 연속 미션 인증$',
         },
         {
           badgeImg: 'mission_streak_90',
           badgeName: '90일 연속 인증',
-          badgeHint: '$90일 연속 인증 배지 획득 방법$',
+          badgeHint: '$90일 연속 미션 인증$',
         },
         {
           badgeImg: 'mission_streak_100',
           badgeName: '100일 연속 인증',
-          badgeHint: '$100일 연속 인증 배지 획득 방법$',
+          badgeHint: '$100일 연속 미션 인증$',
         },
         {
           badgeImg: 'mission_streak_180',
           badgeName: '180일 연속 인증',
-          badgeHint: '$180일 연속 인증 배지 획득 방법$',
+          badgeHint: '$180일 연속 미션 인증$',
         },
         {
           badgeImg: 'mission_streak_200',
           badgeName: '200일 연속 인증',
-          badgeHint: '$200일 연속 인증 배지 획득 방법$',
+          badgeHint: '$200일 연속 미션 인증$',
         },
         {
           badgeImg: 'mission_streak_240',
           badgeName: '240일 연속 인증',
-          badgeHint: '$240일 연속 인증 배지 획득 방법$',
+          badgeHint: '$240일 연속 미션 인증$',
         },
         {
           badgeImg: 'mission_streak_300',
           badgeName: '300일 연속 인증',
-          badgeHint: '$300일 연속 인증 배지 획득 방법$',
+          badgeHint: '$300일 연속 미션 인증$',
         },
         {
           badgeImg: 'mission_streak_365',
           badgeName: '365일 연속 인증',
-          badgeHint: '$365일 연속 인증 배지 획득 방법$',
+          badgeHint: '$365일 연속 미션 인증$',
         },
       ],
       badgeCate2: [
@@ -385,10 +385,24 @@ export default {
           badgeName: '가족의 힘',
           badgeHint: '$가족의 힘 배지 획득 방법$',
         },
+      ],
+      badgeCate5: [
         {
           badgeImg: 'lock',
-          badgeName: '가족의 힘',
-          badgeHint: '$잠긴 배지 획득 방법$',
+          badgeName: '저속노화 스타트 분석 1회',
+          badgeHint: '$저속노화 스타트 분석 1회 획득 방법$',
+          disabled: true, /* 미획득 배지 */
+        },
+        {
+          badgeImg: 'lock',
+          badgeName: '저속노화 스타트 분석 2회',
+          badgeHint: '$저속노화 스타트 분석 2회 획득 방법$',
+          disabled: true, /* 미획득 배지 */
+        },
+        {
+          badgeImg: 'lock',
+          badgeName: '저속노화 스타트 분석 3회',
+          badgeHint: '$저속노화 스타트 분석 3회 획득 방법$',
           disabled: true, /* 미획득 배지 */
         },
       ],
@@ -398,12 +412,12 @@ export default {
     badgeCategories() { /* 배지 카테고리 */
       return [
         {
-          title: '연속인증',
+          title: '연속 인증',
           sectionClass: 'pt0',
           list: this.badgeCate1,
         },
         {
-          title: '챌린지 참여(본사)',
+          title: '챌린지(본사)',
           sectionClass: '',
           list: this.badgeCate2,
         },
@@ -413,9 +427,14 @@ export default {
           list: this.badgeCate3,
         },
         {
-          title: '이벤트 배지',
+          title: '이벤트 뱃지',
           sectionClass: '',
           list: this.badgeCate4,
+        },
+        {
+          title: '마이웰니스 랩 분석',
+          sectionClass: '',
+          list: this.badgeCate5,
         },
       ]
     },

@@ -96,7 +96,7 @@ onMounted(() => {
 
           <!-- [s] 260727 팀 구분 미선택 시 툴팁 & 팝업 추가 / 팀 관리 진입 시 팀 구분 변경 막기 개발 필요 -->
           <div class="form-item">
-            <h5 class="title">팀 구분</h5>
+            <h5 class="title">팀 유형</h5> <!-- 260820 문구 수정 -->
             <div class="radio-wrap">
               <div class="inputField--input--radio--wrap">
                 <input type="radio" class="inputField--input inputField--input--radio" id="teamTypeChallenge" name="teamType" value="challenge" v-model="teamClassification" @change="teamClassification === 'challenge' && (changeMissionPopup = true)"/>
@@ -112,7 +112,7 @@ onMounted(() => {
                 </label>
               </div>
             </div>
-            <div v-if="!teamClassification" class="JoinPhoneCertification--validation">팀 구분을 선택해 주세요.</div>
+            <div v-if="!teamClassification" class="JoinPhoneCertification--validation">팀 유형을 선택해 주세요.</div> <!-- 260820 문구 수정 -->
           </div>
           <!-- [e] 260727 팀 구분 미선택 시 툴팁 & 팝업 추가 / 팀 관리 진입 시 팀 구분 변경 막기 개발 필요 -->
 
@@ -133,6 +133,15 @@ onMounted(() => {
               <p class="desc--mission">1회 이상 식후 15분 가볍게 걷기</p>
             </div>
 
+            <!-- [s] 260820 챌린지 자율 미션 케이스 추가 -->
+            <div class="form-item">
+              <h5 class="title">
+                자율 미션 챌린지
+                <span>자유롭게 변경 가능</span>
+              </h5>
+            </div>
+            <!-- [e] 260820 챌린지 자율 미션 케이스 추가 -->
+
             <div class="form-item">
               <h5 class="title">성공 조건</h5>
               <p class="desc--green">80% 이상</p>
@@ -140,7 +149,7 @@ onMounted(() => {
 
             <div class="form-item">
               <h5 class="title">참여 가능 팀원</h5>
-              <p class="desc">10~200</p>
+              <p class="desc">10~200명</p> <!-- 260820 문구 수정 -->
             </div>
 
             <!-- [s] 260727 회차 진행 안내로 변경 -->
@@ -305,7 +314,7 @@ onMounted(() => {
   <!-- 사용 불가한 팀명 팝업 -->
   <BasePopup v-if="unableNamePopup">
     <template v-slot:contents>
-      <p class="pop-text-light">사용이 불가한 팀명 입니다.<br>다시 입력해 주세요.</p>
+      <p class="pop-text-light">사용할 수 없는 팀명입니다.<br>다시 입력해 주세요.</p> <!-- 260820 문구 수정 -->
       <div class="pop-btn-wrap">
         <button type="button" @click="unableNamePopup = false, teamCreatePopup = true" class="pop-btn pop-btn--green">확인</button> <!-- teamCreatePopup 팝업 퍼블 확인용으로 띄우기 -->
       </div>

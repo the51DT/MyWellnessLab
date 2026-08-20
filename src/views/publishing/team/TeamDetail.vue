@@ -89,7 +89,7 @@ function imagePopupClose () {
         <dl>
           <dt>인증 횟수</dt> <!-- 챌린지/상시 구분 퍼블 임의 -->
           <dd v-if="challengeTeam"><span class="color">223</span> / {{ 1000 }}회</dd>
-          <dd v-else><span class="color">223</span>회<span class="session">9월 22회</span></dd>
+          <dd v-else><span class="session">9월 22회</span><span class="color">223</span>회</dd> <!-- 260820 문구 수정 -->
         </dl>
       </div>
       <div v-if="challengeTeam && isLeader" class="team-status--purchase active">제품 구매완료</div> <!-- .active 구매완료 / 없으면 미구매 스타일 -->
@@ -122,7 +122,7 @@ function imagePopupClose () {
   <BasePopupClose v-if="teamKickPopup" :close-btn="false">
     <template v-slot:title>$홍길동$님을<br>팀에서 내보내시겠습니까?</template>
     <template v-slot:contents>
-      <p class="pop-text-light">팀에서 내보낸다면, 팀내의 활동 내역이 삭제 됩니다.</p>
+      <p class="pop-text-light">팀에서 내보내면, 팀 내 활동 내역이 삭제됩니다.</p> <!-- 260820 문구 수정 -->
     </template>
     <template v-slot:button>
       <button type="button" @click="teamKickPopup = false" class="pop-btn pop-btn--gray">취소</button>

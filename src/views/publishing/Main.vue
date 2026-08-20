@@ -652,7 +652,7 @@ export default {
       <!-- 진행 전 -->
       <div v-if="floatingDay" class="main-sticky-before">
         <strong>챌린지 시작 D-$00$</strong>
-        <span>챌린지 참여를 위해 팀에 참여해 주세요.</span>
+        <span>챌린지에 참여하려면 팀에 참여해 주세요.</span> <!-- 260820 문구 수정 -->
         <button @click="floatingDay = false; updateMainSticky()"></button> <!-- 260721 / 플로팅 탭 전환 핸들러 추가 -->
       </div>
       <!-- 진행중 -->

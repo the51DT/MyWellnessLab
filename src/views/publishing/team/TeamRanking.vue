@@ -102,7 +102,7 @@ const rankingList = [  /* 퍼블 확인용 팀 리스트 */
         </ul>
       </div>
     </aside>
-    <TabRound :tabs="[{title:'인증률'}, {title:'인증횟수'}, ...(challengeTeam ? [{ title: '혜택 순위' }] : []) ]">
+    <TabRound :tabs="[{title:'인증률'}, {title:'인증 횟수'}, ...(challengeTeam ? [{ title: '혜택 순위' }] : []) ]"> <!-- 260820 문구 수정 -->
       <template #common>
         <div v-if="!challengeTeam" class="team-ranking--filter-radio">
           <div class="inputField--input--radio--wrap">
@@ -111,7 +111,7 @@ const rankingList = [  /* 퍼블 확인용 팀 리스트 */
           </div>
           <div class="inputField--input--radio--wrap">
             <input class="inputField--input--radio" type="radio" id="season" value="season" name="period">
-            <lable class="inputField--input--radio--label" for="season">시즌</lable>
+            <lable class="inputField--input--radio--label" for="season">시즌(PF)</lable> <!-- 260820 문구 수정 -->
           </div>
         </div>
         <div v-if="challengeTeam" class="team-ranking--filter-desc">

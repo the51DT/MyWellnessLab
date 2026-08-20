@@ -94,10 +94,10 @@ const memberList = ref([ /* 퍼블 확인용 챌린지 팀원 데이터 */
     </div>
     <div class="team-status--sort-wrap">
       <div class="sort-wrap">
-        <span class="sort-wrap--text">높은 랭킹순</span>
+        <span class="sort-wrap--text">랭킹 높은 순</span> <!-- 260820 문구 수정 -->
         <select name="statusSort" class="circle" required @change="$event.currentTarget.previousElementSibling.textContent = $event.currentTarget.selectedOptions[0].textContent">
-          <option value="sort_1" selected>높은 랭킹순</option>
-          <option value="sort_2">낮은 랭킹순</option>
+          <option value="sort_1" selected>랭킹 높은 순</option> <!-- 260820 문구 수정 -->
+          <option value="sort_2">랭킹 낮은 순</option> <!-- 260820 문구 수정 -->
           <option value="sort_3">전체 인증횟수 높은 순</option>
           <option value="sort_4">전체 인증횟수 낮은 순</option>
           <option value="sort_5">닉네임 가나다순</option>

@@ -70,7 +70,7 @@ onBeforeUnmount(() => {
             <p class="box-desc"><span class="num">40</span><span class="per">%</span></p>
           </div>
           <div>
-            <p class="box-tit">팀 인증횟수/성공횟수</p>
+            <p class="box-tit">성공 조건</p> <!-- 260820 문구 수정 -->
             <p class="box-desc"><span class="num">58</span><span class="count">/300</span>회</p>
           </div>
         </div>
@@ -87,7 +87,7 @@ onBeforeUnmount(() => {
             <p class="box-desc"><span class="num">0</span><span class="per">%</span></p>
           </div>
           <div>
-            <p class="box-tit">팀 인증횟수/성공횟수</p>
+            <p class="box-tit">성공 조건</p> <!-- 260820 문구 수정 -->
             <p class="box-desc"><span class="num">0</span><span class="count">/300</span>회</p>
           </div>
         </div>
@@ -104,7 +104,7 @@ onBeforeUnmount(() => {
             <p class="box-desc"><span class="num">100</span><span class="per">%</span></p>
           </div>
           <div>
-            <p class="box-tit">팀 인증횟수/성공횟수</p>
+            <p class="box-tit">성공 조건</p> <!-- 260820 문구 수정 -->
             <p class="box-desc"><span class="num">300</span><span class="count">/300</span>회</p>
           </div>
         </div>
@@ -386,7 +386,7 @@ onBeforeUnmount(() => {
   <!-- 팀 삭제 불가 팝업 -->
   <BasePopup v-if="disableDeletePopup">
     <template v-slot:contents>
-      <p class="pop-text-light">참여중인 팀원이 있어,<br>팀을 삭제할 수 없습니다.</p>
+      <p class="pop-text-light">참여 중인 팀원이 있어,<br>팀을 삭제할 수 없습니다.</p> <!-- 260820 문구 수정 -->
       <div class="pop-btn-wrap">
         <button type="button" @click="disableDeletePopup = false" class="pop-btn pop-btn--green">확인</button>
       </div>

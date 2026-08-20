@@ -31,7 +31,7 @@ const prevTeamInvitePopup = ref(false) /* 팀 초대하기 팝업 퍼블 확인�
           </select>
         </div>
       </div>
-      <p class="pop-text-light">팀원 모두에게 일괄로 초대 메시지가 전송됩니다.<br>팀원은 초대받은 팀 목록에서 ‘참여하기’를 선택해야 팀에 참여됩니다.</p>
+      <p class="pop-text-light">팀원 모두에게 초대 메시지가 일괄 전송됩니다. 팀원은 초대받은 팀 목록에서 '참여하기'를 선택해야 팀에 참여할 수 있습니다.</p> <!-- 260820 문구 수정 -->
       <p class="pop-text-caption center">* 카카오톡으로 초대하기와 초대링크 복사하기로 초대한 경우 초대받은 팀 목록에 표시되지 않습니다.</p>
     </template>
     <template v-slot:button>

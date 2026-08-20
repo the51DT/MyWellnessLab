@@ -16,7 +16,7 @@ const rankingList = [  /* 퍼블 확인용 팀 리스트 */
     teamName: '우리몸은 GUT Morning을 원한다 GUT Morning을 원한다!',
     teamMember: 100,
     teamRate: 100,
-    teamImg: '/img/age_20f.png',
+    teamImg: '/img/team_profile_exam.png',
   },
   {
     teamName: '아침마다 오 마이 GUT Morning',
@@ -29,49 +29,49 @@ const rankingList = [  /* 퍼블 확인용 팀 리스트 */
     teamName: '아침마다 오 마이 GUT Morning',
     teamMember: 99,
     teamRate: 90,
-    teamImg: '/img/age_20f.png',
+    teamImg: '/img/team_profile_exam.png',
   },
   {
     teamName: '아침마다 오 마이 GUT Morning',
     teamMember: 99,
     teamRate: 90,
-    teamImg: '/img/profile_exam1.png',
+    teamImg: '/img/team_profile_exam.png',
   },
   {
     teamName: '아침마다 오 마이 GUT Morning',
     teamMember: 99,
     teamRate: 70,
-    teamImg: '/img/age_20f.png',
+    teamImg: '/img/team_profile_exam.png',
   },
   {
     teamName: '아침마다 오 마이 GUT Morning',
     teamMember: 99,
     teamRate: 70,
-    teamImg: '/img/profile_exam2.png',
+    teamImg: '/img/team_profile_exam.png',
   },
   {
     teamName: '아침마다 오 마이 GUT Morning',
     teamMember: 99,
     teamRate: 70,
-    teamImg: '/img/age_20f.png',
+    teamImg: '/img/team_profile_exam.png',
   },
   {
     teamName: '아침마다 오 마이 GUT Morning',
     teamMember: 99,
     teamRate: 70,
-    teamImg: '/img/profile_exam3.png',
+    teamImg: '/img/team_profile_exam.png',
   },
   {
     teamName: '아침마다 오 마이 GUT Morning',
     teamMember: 99,
     teamRate: 70,
-    teamImg: '/img/profile_exam4.png',
+    teamImg: '/img/team_profile_exam.png',
   },
   {
     teamName: '아침마다 오 마이 GUT Morning',
     teamMember: 99,
     teamRate: 70,
-    teamImg: '/img/profile_exam5.png',
+    teamImg: '/img/team_profile_exam.png',
   },
 ]
 </script>
@@ -195,7 +195,7 @@ const rankingList = [  /* 퍼블 확인용 팀 리스트 */
               <div class="team-ranking--medal"> <!-- 금메달 .gold / 은메달 .silver / 동메달(랭킹 리스트x) .bronze / 그 외 회색 -->
                 <span>999위</span>
               </div>
-              <img src="/img/age_20f.png">
+              <img src="/img/team_profile_exam.png">
             </div>
             <div class="team-ranking--info">
               <p class="team-ranking--team">아침마다 오 마이 GUT Morning</p>
@@ -239,7 +239,7 @@ const rankingList = [  /* 퍼블 확인용 팀 리스트 */
               <div class="team-ranking--medal silver"> <!-- 금메달 .gold / 은메달 .silver / 동메달(랭킹 리스트x) .bronze / 그 외 회색 -->
                 <span>2위</span>
               </div>
-              <img src="/img/age_20f.png">
+              <img src="/img/team_profile_exam.png">
             </div>
             <div class="team-ranking--info">
               <p class="team-ranking--team">아침마다 오 마이 GUT Morning</p>
@@ -283,7 +283,7 @@ const rankingList = [  /* 퍼블 확인용 팀 리스트 */
               <div class="team-ranking--medal"> <!-- 금메달 .gold / 은메달 .silver / 동메달(랭킹 리스트x) .bronze / 그 외 회색 -->
                 <span>999위</span>
               </div>
-              <img src="/img/age_20f.png">
+              <img src="/img/team_profile_exam.png">
             </div>
             <div class="team-ranking--info">
               <p class="team-ranking--team">아침마다 오 마이 GUT Morning</p>

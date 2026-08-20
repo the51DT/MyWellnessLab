@@ -20,7 +20,7 @@ const memberList = ref([ /* 퍼블 확인용 챌린지 팀원 데이터 */
   {
     nickname: '닉네임 두 줄 케이스 줄바꿈',
     leader: true,
-    profileImg: '/img/age_20f.png',
+    profileImg: '/img/img_profile.png',
     ranking: 1,
     name: '홍길동 여러줄 여러줄 여러줄 Case',
     missionCate: '근육(근력)근건강',
@@ -34,7 +34,7 @@ const memberList = ref([ /* 퍼블 확인용 챌린지 팀원 데이터 */
   {
     nickname: '닉네임',
     leader: false,
-    profileImg: '/img/age_20f.png',
+    profileImg: '/img/img_profile.png',
     ranking: 2,
     name: '홍길동',
     missionCate: '혈당조절',
@@ -48,7 +48,7 @@ const memberList = ref([ /* 퍼블 확인용 챌린지 팀원 데이터 */
   {
     nickname: '닉네임',
     leader: false,
-    profileImg: '/img/age_20f.png',
+    profileImg: '/img/img_profile.png',
     ranking: 3,
     name: '홍길동',
     missionCate: '혈당조절',

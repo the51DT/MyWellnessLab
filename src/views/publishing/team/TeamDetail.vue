@@ -58,7 +58,7 @@ function imagePopupClose () {
   <section class="team-detail" :class="{ challengeColor : challengeTeam}">
     <div class="team-detail--profile">
       <div class="img-wrap" :class="{leader:isLeader}"> <!-- .leader 팀장 표시 -->
-        <img src="/img/age_20f.png">
+        <img src="/img/img_profile.png">
       </div>
       <p class="nickname">닉네임 영문 최대 20자</p>
       <p v-if="isLeader" class="name">홍길동</p>

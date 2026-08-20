@@ -269,14 +269,16 @@
     .header{
       background: #F5F5F5;
       &--logo{
+        height: 2.7rem;
+        display: flex;
+        align-items: flex-start;
+        flex: 0 0 auto;
         padding-top: .5rem;
         position: relative;
         flex: 2;
         @media (min-width:$w-pc) {
           height: 8rem;
-          display: flex;
           align-items: center;
-          flex: 0 0 auto;
         }
       }
       &--wrap{
@@ -346,10 +348,11 @@
       }
     }
     .home--img{
-      width: 13.2rem;
+      width: auto;
+      height: 2.4rem;
       vertical-align: bottom;
       @media (min-width: $w-pc) {
-        width: 16.9rem;
+        height: 2.8rem;
       }
     }
     main{
@@ -403,19 +406,19 @@
 .select-home{
   width: max-content;
   position: absolute;
-  top: -1.82rem;
+  top: -.7rem;
   left: -1.2rem;
   //margin-top: 1rem;
   //margin-left: -1rem;
-  padding: 1.4rem 1.2rem .8rem;
+  padding: 1.2rem .8rem .8rem 1.2rem;
   background-color: white;
   box-shadow: 0 .2rem .6rem 0 rgba(0, 0, 0, .12);
   border-radius: 1.2rem;
   display: flex;
   @media (min-width: $w-pc) {
-    top: 1.6rem;
+    top: 2.35rem;
     left: -1.6rem;
-    padding: 1.2rem 1.2rem 1.2rem 1.6rem;
+    padding: 1.5rem 1.2rem 1.2rem 1.6rem;
     z-index: 1;
   }
   &--btn{
@@ -428,13 +431,21 @@
     &:first-child{
       margin-top: 0;
     }
+    &:not(:has(.home--img)){
+      width: 13.2rem;
+      height: 2.3rem;
+      @media (min-width: $w-pc) {
+        width: 17.2rem;
+        height: 3rem;
+      }
+      img{
+        height: 100%;
+        width: auto;
+      }
+    }
   }
   .header--home{
     transform: rotate(180deg);
-    margin-top: -0.3rem;
-    @media (min-width: $w-pc) {
-      margin-top: -.1rem;
-    }
   }
 }
 .side-bar{
@@ -3086,7 +3097,10 @@ footer{
     position: relative;
     padding: 2rem;
     max-width: $w-pc-wrap;
-    margin: 0 auto;
+    margin: .8rem auto 0;
+    @media (min-width: $w-pc) {
+      margin-top: 0;
+    }
     // @media (min-width: 460px) {
     //   padding-left: 0;
     //   padding-right: 0;

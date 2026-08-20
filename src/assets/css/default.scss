@@ -8636,6 +8636,8 @@ button{
       }
       dl{
         gap: .6rem;
+        &:nth-child(2){
+          order: 5;
         }
         &:nth-child(4){
           order: 2;
@@ -8665,7 +8667,8 @@ button{
       }
     }
     .team-status--purchase{
-      order: 5;
+      margin-top: 0;
+      order: 6;
     }
   }
 }
@@ -8793,7 +8796,7 @@ button{
       }
     }
     .session{
-      &::before{
+      &::after{
         content: '';
         display: inline-block;
         width: .1rem;
@@ -18439,7 +18442,8 @@ span.legend-dot-interest{
   &--tit{
     @include txtStyle(body, md, 600);
     strong{
-      font-weight: 500;
+      font-weight: 700;
+      color: #199982;
       &::before{
         content: '';
         display: inline-block;

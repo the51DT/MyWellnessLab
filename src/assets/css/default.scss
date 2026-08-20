@@ -21612,14 +21612,56 @@ span.legend-dot-interest{
       background-size: contain;
     }
     .ico{
+      &-default{
+        background-image: url('/img/ico_default_white.svg');
+      }
+      &-sleep{
+        background-image: url('/img/ico_sleep_white.svg');
+      }
       &-eye{
         background-image: url('/img/ico_eye_white.svg');
       }
       &-liver{
         background-image: url('/img/ico_liver_white.svg');
       }
+      &-antioxidant{
+        background-image: url('/img/ico_antioxidant_white.svg');
+      }
+      &-stomach{
+        background-image: url('/img/ico_stomach_white.svg');
+      }
+      &-intestine{
+        background-image: url('/img/ico_intestine_white.svg');
+      }
       &-bone{
         background-image: url('/img/ico_bone_white.svg');
+      }
+      &-memory{
+        background-image: url('/img/ico_memory_white.svg');
+      }
+      &-blood-flow{
+        background-image: url('/img/ico_blood-flow_white.svg');
+      }
+      &-blood-pressure{
+        background-image: url('/img/ico_blood-pressure_white.svg');
+      }
+      &-lipid{
+        background-image: url('/img/ico_lipid_white.svg');
+      }
+      &-body-fat{
+        background-image: url('/img/ico_body-fat_white.svg');
+      }
+      &-blood-sugar{
+        background-image: url('/img/ico_blood-sugar_white.svg');
+      }
+      &-muscle{
+        background-image: url('/img/ico_muscle_white.svg');
+      }
+      &-prostate{
+        background-image: url('/img/ico_prostate_white.svg');
+      }
+      &-menopause{
+        background-image: url('/img/ico_menopause_white.svg');
       }
     }
     &.orange{

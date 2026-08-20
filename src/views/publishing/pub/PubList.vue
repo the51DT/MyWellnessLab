@@ -715,7 +715,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/mission/MyMissionRecords.vue',
     go: '/publishing/my-mission/MyMissionRecords',
-    msg: "아이콘 타입 디자인 정리 필요",
+    msg: "260820 배지 아이콘 클래스 정리 주석 추가",
     confirm: '2026.08.19 퍼블 완료'
   },
   { cate: 'blank'},

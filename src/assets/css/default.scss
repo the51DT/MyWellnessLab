@@ -3359,12 +3359,11 @@ footer{
       font-family: $font-family-bold;
     }
     .swiper-slide{
-      padding-bottom: 3rem;
       @media (min-width: 460px) {
-        width: 41rem;
+        width: 45rem;
       }
       @media (min-width: $w-pc) {
-        width: 41rem;
+        width: 45rem;
         opacity: .46;
       }
       &.swiper-slide-active{
@@ -8539,6 +8538,12 @@ button{
       @include txtStyle(caption, xl-1, 600);
       color: #333;
       flex: 1 1 auto;
+      span + .color{
+        margin-left: .4rem;
+        @media (min-width:$w-pc) {
+          margin-left: .6rem;
+        }
+      }
     }
     .tag{
       display: flex;
@@ -8583,16 +8588,15 @@ button{
     align-items: center;
     gap: .2rem;
     width: fit-content;
-    height: 2.4rem;
-    margin-top: .6rem;
+    height: 2rem;
     padding: 0 .8rem 0 .4rem;
     border-radius: 99rem;
     background-color: #F0F0F0;
     color: #999;
     @include txtStyle(caption, lg-1, 500);
     @media (min-width:$w-pc) {
-      height: 2.8rem;
-      margin-top: .8rem;
+      height: 2.4rem;
+      margin-top: .2rem;
       padding: 0 1.2rem 0 .8rem;
     }
     &::before{
@@ -8628,10 +8632,11 @@ button{
     }
     .team-status--info{
       display: grid;
-      grid-template-columns: 1.3fr 2fr;
+      grid-template-columns: 1.3fr 1fr;
+      gap: .6rem 1.2rem;
       width: 100%;
       @media (min-width:$w-pc) {
-        grid-template-columns: 20.6rem 1fr;
+        grid-template-columns: 1.1fr 1fr;
         gap: .8rem 1.2rem;
       }
       dl{
@@ -8649,13 +8654,6 @@ button{
           flex-basis: 5.6rem;
         }
       }
-      dl:nth-child(2) dt,
-      dl:nth-child(3) dt {
-        flex-basis: 6.7rem;
-        @media (min-width:$w-pc) {
-          flex-basis: 7.7rem;
-        }
-      }
       dd{
         flex-basis: 5.2rem;
         display: -webkit-box;
@@ -8669,6 +8667,25 @@ button{
     .team-status--purchase{
       margin-top: 0;
       order: 6;
+    }
+  }
+  &:not(.challengeColor){
+    .liteVersion{
+      .team-status--info {
+        grid-template-columns: 1fr 1.6fr;
+        gap: .6rem;
+        dl{
+          &:nth-child(2) {
+            grid-column: 1 / -1;
+          }
+          &:nth-child(3),
+          &:nth-child(4){
+            dt{
+              flex-basis: 6.7rem;
+            }
+          }
+        }
+      }
     }
   }
 }

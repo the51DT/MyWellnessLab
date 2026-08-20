@@ -539,7 +539,7 @@ const data = ref([
     div3: '팀장',
     loca: '@/views/publishing/team/TeamStatus.vue',
     go: '/publishing/my-team/status/challenge/leader',
-    msg: "퍼블 확인용 라우터 케이스 적용<br>260820 문구 수정",
+    msg: "퍼블 확인용 라우터 케이스 적용<br>260820 문구 수정 / .team-status--info 내부 수정",
     confirm: '2026.08.20 퍼블 수정'
   },
   {

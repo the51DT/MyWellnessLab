@@ -22,11 +22,11 @@ const memberList = ref([ /* 퍼블 확인용 챌린지 팀원 데이터 */
     leader: true,
     profileImg: '/img/age_20f.png',
     ranking: 1,
-    name: '홍길동',
-    missionCate: '혈당조절',
+    name: '홍길동 여러줄 여러줄 여러줄 Case',
+    missionCate: '근육(근력)근건강',
     missionDetail: '1회 이상 식후 15분 가볍게 걷기',
     count: 563,
-    per: 60,
+    per: 100,
     today: true,
     purchase: true,
     isFavorite: true,
@@ -121,6 +121,7 @@ const memberList = ref([ /* 퍼블 확인용 챌린지 팀원 데이터 */
           <p>{{ item.nickname }}</p>
         </div>
         <div class="team-status--info">
+          <!-- [s] 260820 .team-status--info 내부 수정 -->
           <dl v-if="!sortLayout">
             <dt>랭킹</dt>
             <dd>{{ item.ranking }}위</dd>
@@ -133,18 +134,19 @@ const memberList = ref([ /* 퍼블 확인용 챌린지 팀원 데이터 */
             <dt>닉네임</dt>
             <dd>{{ item.nickname }}</dd>
           </dl>
-          <dl v-if="!sortLayout && isLeader">
+          <dl v-if="isLeader">
             <dt>진행 미션</dt>
-            <dd><span class="tag">{{ item.missionCate }}</span><span>{{ item.missionDetail }}</span></dd>
+            <dd><span class="tag">{{ item.missionCate }}</span><span v-if="!sortLayout">{{ item.missionDetail }}</span></dd>
           </dl>
           <dl>
-            <dt>{{ challengeTeam ? '인증 횟수' : sortLayout ? '전체인증횟수' : '전체 인증 횟수' }}</dt> <!-- 챌린지/상시 구분 퍼블 임의 -->
+            <dt>{{ challengeTeam ? '인증횟수' : sortLayout ? '전체인증횟수' : '전체 인증 횟수' }}</dt> <!-- 챌린지/상시 구분 퍼블 임의 -->
             <dd>{{ item.count }}회</dd>
           </dl>
           <dl>
             <dt>{{ challengeTeam ? '인증률' : sortLayout ? '이달의인증' : '이 달의 인증' }}</dt> <!-- 챌린지/상시 구분 퍼블 임의 -->
-            <dd><span v-if="!challengeTeam">12월 22회&nbsp;</span><span class="color">{{ item.per }}%</span></dd>
+            <dd><span v-if="!challengeTeam">12월 22회</span><span class="color">{{ item.per }}%</span></dd>
           </dl>
+          <!-- [e] 260820 .team-status--info 내부 수정 -->
           <dl>
             <dt>{{ sortLayout ? '오늘인증' : '오늘 인증' }}</dt>
             <dd v-if="item.today"><span class="color">O</span></dd>

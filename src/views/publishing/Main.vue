@@ -451,7 +451,7 @@ export default {
       <div v-if="!isAnalyze" class="main--analyze--before"> <!-- 건강수명분석 전 -->
         <video class="main--analyze--video" :src="'/img/video_main_graph.mp4'" autoplay muted playsinline></video>
         <p>건강수명 분석을 하고</p>
-        <a @click="popup.surveyContinuePopup = true" href="javascript:void(0)" class="main--analyze--link">맞춤 미션 추천을<br>받아보세요</a>
+        <a @click="popup.surveyContinuePopup = true" href="javascript:void(0)" class="main--analyze--link">맞춤 미션을<br>추천 받아보세요</a> <!-- 260821 문구 수정 -->
       </div>
       <div v-else class="main--analyze--after"> <!-- 건강수명분석 후 -->
         <p>나의 건강수명분석과 미션</p>

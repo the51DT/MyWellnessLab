@@ -252,6 +252,7 @@ $txt-size:(
     2xs: 2.4rem,
     2xs-1: 2.4rem,
     xs: 2.6rem,
+    xs-1: 2.6rem,
     sm: 2.8rem,
     md: 3.2rem,
     lg: 3.6rem,
@@ -265,6 +266,7 @@ $txt-size:(
     xs-1: 1.5rem,
     xs-2: 1.5rem,
     sm: 1.6rem,
+    sm-1: 1.6rem,
     md: 1.8rem,
     lg: 2rem,
     lg-1: 2rem,
@@ -287,6 +289,7 @@ $txt-size-pc:(
     2xs: 2.6rem,
     2xs-1: 3.2rem,
     xs: 2.8rem,
+    xs-1: 3.2rem,
     sm: 3.2rem,
     md: 3.6rem,
     lg: 4.8rem,
@@ -300,6 +303,7 @@ $txt-size-pc:(
     xs-1: 1.6rem,
     xs-2: 2rem,
     sm: 1.8rem,
+    sm-1: 2rem,
     md: 2rem,
     lg: 2.2rem,
     lg-1: 2.4rem,
@@ -330,7 +334,8 @@ $txt-font-color-blue: #91a5ba;
 $txt-font-color-navy: #002f5f;
 $txt-font-color-black: #000;
 $txt-font-color-green: #1DB196; /*설문 > 검진 날짜*/
-$txt-font-color-danger: #e95371;
+// $txt-font-color-danger: #e95371;
+$txt-font-color-danger: #DA2B4E;
 $txt-font-color-caution: #f8b500;
 $txt-font-color-interest: #5ab651;
 $txt-font-color-interest-blue: #55c3F1;

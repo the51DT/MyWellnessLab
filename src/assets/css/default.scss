@@ -5138,7 +5138,7 @@ button{
     }
     &--link {
       display: block;
-      @include txtStyle(head, sm, 700);
+      @include txtStyle(head, xs-1, 700);
       color: #1A1818;
       margin-top: .6rem;
       @media (min-width:$w-pc) {
@@ -5150,25 +5150,27 @@ button{
         width: 2.8rem;
         height: 2.8rem;
         margin-left: .2rem;
-        margin-bottom: .3rem;
+        margin-bottom: .2rem;
         background: url("/img/ic_arrow_right_black.svg") no-repeat center / 1.1rem;
         vertical-align: bottom;
         @media (min-width:$w-pc) {
           width: 3.2rem;
           height: 3.2rem;
           background-size: 1.2rem;
+          margin-bottom: .3rem;
         }
       }
     }
     &--video{
       position: absolute;
       z-index: -1;
-      top: -.5rem;
-      right: -1.5rem;
-      width: 14.95rem;
+      top: -.0rem;
+      right: -1rem;
+      width: 14.3rem;
       transform: rotate(-3.84deg);
       @media (min-width:$w-pc) {
         width: 19.2rem;
+        top: -.8rem;
       }
     }
     &--btm{

@@ -914,7 +914,7 @@ const getHealthTrafficLight = (item) => {
     <base-popup v-if="openPopNoCoupon" class="openPopContinue">
       <template v-slot:contents>
         <p class="pop-text-bold">{{ $t('Home.text18') }}</p>
-        <p class="color--gray space--top-small">※ {{ $t('Home.text19') }}</p>
+        <p class="pop-text-caption center">※ {{ $t('Home.text19') }}</p> <!-- 2606 분석권 없음 팝업 캡션 클래스 수정 -->
         <div class="pop-btn-wrap">
           <button @click="openPopNoCoupon = false" class="pop-btn--green" type="button">{{ $t('Common.confirm') }}</button>
         </div>
@@ -929,13 +929,14 @@ const getHealthTrafficLight = (item) => {
           <button @click="handleNewCheckup" class="pop-btn pop-btn--gray" type="button">{{ $t('Home.text20') }}</button>
           <button @click="handleContinuCheckup" class="pop-btn pop-btn--green" type="button">{{ $t('Home.text21') }}</button>
         </div>
-        <div class="openPopContinue--close">
+        <!-- 2606 이어하기 확인 팝업 x 버튼 삭제 -->
+        <!-- <div class="openPopContinue--close">
           <button
             @click="openPopContinue = false"
             type="button"
             aria-label="닫기"
             class="popup--close" />
-        </div>
+        </div> -->
       </template>
     </base-popup>
 

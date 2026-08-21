@@ -273,7 +273,8 @@ onBeforeUnmount(() => {
         <div ref="agingSectionRef" class="AnalysisSummary--speed AnalysisSummary--bg">
           <div class="AnalysisSummary--desc">
             <p class="AnalysisSummary--desc-user">
-              <span> {{ user.name }}  </span>
+              <span> 이하늘  </span> <!-- 2606 퍼블 확인용 텍스트 아래가 원본 -->
+              <!-- <span> {{ user.name }}  </span> -->
               {{ $t('Common.name2')}}
               {{ $t('HomeSummary.text2')}}
             </p>

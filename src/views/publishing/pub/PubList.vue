@@ -147,8 +147,8 @@ const data = ref([
     div3: '',
     loca: '@/views/Home.vue<br>@/views/publishing/Home.vue -> 퍼블 확인용 경로',
     go: '/publishing/home',
-    msg: '코드 수정 사항<br>2606 라이브 버전에 맞춰 복약 부분 미노출 - 0818 기획 요청<br>2606 하단 플로팅 버튼 텍스트 수정 - Home.text14, 16 수정<br>2606 스타일 수정 - 하단 scoped style 태그 내부 수정<br>2606 swiper 옵션 수정 - .home--my-result<br><br>AnalyzeAgingSpeed.vue 수정<br>2606 바늘 디자인 수정',
-    confirm: '2026.08.21 퍼블 완료'
+    msg: '코드 수정 사항<br>2606 라이브 버전에 맞춰 복약 부분 미노출 - 0818 기획 요청<br>2606 하단 플로팅 버튼 텍스트 수정 - Home.text14, 16 수정<br>2606 스타일 수정 - 하단 scoped style 태그 내부 수정<br>2606 swiper 옵션 수정 - .home--my-result<br>2606 분석권 없음 팝업 캡션 클래스 수정 - Home.text18, 19 텍스트 변경 <br>2606 이어하기 확인 팝업 x 버튼 삭제<br><br>AnalyzeAgingSpeed.vue 수정<br>2606 바늘 디자인 수정<br><br>AnalysisSharePopup.vue 수정<br>2606 퍼블 확인용 텍스트 아래가 원본',
+    confirm: '작업중'
   },
   {
     div: '설문입력',

@@ -1,178 +1,390 @@
-<script>
-import BaseTooltip from '../BaseTooltip.vue'
-import router from '@/router'
-import AnalyzeAgingSpeedPop from '@/views/publishing/analyze/AnalyzeAgingSpeedPop.vue'
-import { defineProps, ref } from 'vue'
-import * as echarts from 'echarts' /* 231208 팝업이 길어서 따로 뺌 */
-import { sendData } from '@/views/publishing/tempData'
+<script setup>
+import { ref, defineProps, computed, watch, onMounted, onBeforeUnmount, toRaw } from 'vue'
+import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
+import BaseTooltip from '@/components/BaseTooltip.vue'
+import AnalyzeAgingSpeedPop from './AnalyzeAgingSpeedPop.vue'
+import * as echarts from 'echarts'
+import { useI18n } from 'vue-i18n'
+import { mwlRound, mwlRoundAgingRate, getColor } from '@/assets/js/common'
 
-export default {
-  name: 'AnalyzeAgingSpeed',
-  props: {
-    isMain: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup (props) {
-    const echart = ref(null)
-    const myChart = ref(null)
-    const chartData = ref({
-      score: 0, // 점수
-      grade: '-', // 수준
-      ages: 0, // 연령대 비교군
-      comparisonGroup: 0, // 비교군 수
-      ranking: 0 // 순위
-    })
-    function chartDraw () {
-      this.myChart.setOption({
-        tooltip: {
-          show: false,
-          formatter: '{a} <br/>{b} : {c}%'
-        },
-        series: [
-          {
-            name: 'Pressure',
-            type: 'gauge',
-            radius: '100%',
-            startAngle: props.isMain ? 180 : 135,
-            endAngle: 0,
-            min: 0.5,
-            max: 2.5,
-            itemStyle: {
-              color: '#008352'
-            },
-            splitNumber: 0,
-            splitLine: {
-              show: false,
-              distance: -30,
-              length: 40,
-              lineStyle: {
-                color: '#000',
-                width: 1
-              }
-            },
-            axisTick: {
-              splitNumber: 1,
-              length: 124.5
-            },
-            pointer: {
-              icon: 'triangle',
-              length: '105%',
-              width: 8,
-              showAbobe: true,
-              itemStyle: {
-                color: '#646464'
-              }
-            },
-            anchor: {
-              show: true,
-              showAbove: true,
-              size: 15,
-              color: '#646464',
-              borderColor: '#646464',
-              itemStyle: {
-                borderWidth: 5,
-                color: '#fff',
-                borderColor: '#646464'
-              }
-            },
-            axisLabel: { show: false },
-            detail: { show: false },
-            axisLine: {
-              lineStyle: {
-                width: 0,
-                color: [
-                  [0.1, '#7ED47C'],
-                  [0.2, '#A2C87A'],
-                  [0.3, '#B4BD6D'],
-                  [0.4, '#C9B05E'],
-                  [0.5, '#DDA450'],
-                  [0.6, '#F8B500'],
-                  [0.7, '#F09B5A'],
-                  [0.8, '#FC754B'],
-                  [0.9, '#FA7458'],
-                  [1, '#F87D7D']
-                ]
-              }
-            },
-            data: [{ value: 1.2 }]
-          }
-        ]
-      })
-    }
-    function setChartData () {
-      Object.assign(chartData.value, {}, sendData.hqData)
-    }
-    return {
-      props,
-      echart,
-      myChart,
-      chartData,
-      chartDraw,
-      setChartData
-    }
-  },
-  components: {
-    AnalyzeAgingSpeedPop,
-    BaseTooltip
-  }, /* 231208 콤포넌트 추가 */
+const { t, locale } = useI18n()
+const router = useRouter()
+const store = useStore()
 
-  data () {
-    return {
-      tooltip: false, /* 툴팁 오프너 */
-      tooltipEdge: 0, /* 툴팁 꼬다리 위치 */
-      speed: 1.42, /* 노화 속도 */
-      description: '일반적인', /* 노화 속도 설명, 빠른/일반적인/느린 */
-      target: 0.9, /* 목표 속도 */
-      isPopupReason: false /* 팝업 오프너 */
-      // 231208 오프너 변수 팝업 안으로 이동
-    }
+// 게이지 애니메이션 속도(ms)
+const GAUGE_ANIMATION_MS = 3000
+
+const props = defineProps({
+  isMain: {
+    type: Boolean,
+    default: false
   },
-  computed: {
-    setSpeed () {
-      return this.speed * 180 / 2.28
-    },
-    setTarget () {
-      return this.target * 180 / 2.28
-    },
-    isAllReason () {
-      return !this.isDangerReason
-    }
+  isShare: {
+    type: Boolean,
+    default: false
   },
-  methods: {
-    tooltipClose () { /* 툴팁 닫기 */
-      this.tooltip = false
-    },
-    openTooltip ($event) { /* 툴팁 열기 */
-      this.tooltip = true
-      this.tooltipEdge = $event.x
-    },
-    detailView () { /* 자세히 보기 이동 */
-      router.push('/publishing/analyze/analyze-aging-speed-detail')
-    },
-    popupReason () { /* 노화 속도 요인 팝업 */
-      this.isPopupReason = true
-    },
-    popupClose () {
-      this.isPopupReason = false
-    }
-    // 231208 탭 노출 함수 팝업 안으로 이동
+  // [s] 퍼블 확인용
+  sendData: {
+    type: Object,
+    default: null
   },
-  mounted () {
-    this.myChart = echarts.init(this.echart, null, {
-      renderer: 'svg'
-    })
-    this.setChartData()
-    this.chartDraw()
+  // [e] 퍼블 확인용
+  currentSection: {
+    type: Number,
+    default: undefined
+  }
+})
+
+const echart = ref(null)
+const myChart = ref(null)
+
+const chartData = ref({
+  score: 0, // 점수
+  grade: '-', // 수준
+  ages: 0, // 연령대 비교군
+  comparisonGroup: 0, // 비교군 수
+  ranking: 0 // 순위
+})// API를 통해 가져올 데이터
+
+// [s] 퍼블 확인용
+const publishingSendData = {
+  hqAr: {
+    aging_rate: 1.42,
+    status: 2
+  },
+  hqReage: {
+    reage: 38
+  },
+  hqReference: {},
+  analyzeAge: 35,
+  commonInfo: {
+    analysisType: 'A'
+  },
+  hqDataList: [],
+  basics: {},
+  ariRisk: {
+    SBP: 1,
+    DBP: 1,
+    WC: 2,
+    BMI: 3,
+    GLU: 2,
+    TG: 1,
+    TC: 1,
+    HDL: 1,
+    LDL: 2,
+    GOT: 1,
+    GPT: 1,
+    HB: 1,
+    CREA: 1,
+    smok_dur: 2,
+    pack_year: 1,
+    sleep_time: 3,
+    drink_amt: 2,
+    MET: 1,
+    EQ5D: 1,
+    per_bodyfat: 2,
+    WASM: 1
   }
 }
+
+const viewData = computed(() => {
+  return props.sendData || publishingSendData
+})
+// [e] 퍼블 확인용
+
+const tooltip = ref(false) /* 툴팁 오프너 */
+const tooltipEdge = ref(0) /* 툴팁 꼬다리 위치 */
+const isPopupReason = ref(false) /* 팝업 오프너 */
+
+const speedText = computed(() => {
+  // 퍼블 확인용
+  const status = viewData.value.hqAr?.status || 2
+
+  switch (status) {
+    case 1:
+      return t('AnalyzeAgingSpeed.text40') // 저속 노화
+    case 2:
+      return t('AnalyzeAgingSpeed.text43') // 보통 노화
+    case 3:
+      return t('AnalyzeAgingSpeed.text44') // 고속 노화
+    default:
+      return t('AnalyzeAgingSpeed.text43') // 보통 노화
+  }
+})
+
+/**
+ * 툴팁 닫기
+ */
+function tooltipClose () {
+  tooltip.value = false
+}
+
+/**
+ * 툴팁 열기
+ * @param {*} $event
+ */
+function openTooltip ($event) {
+  tooltip.value = true
+  tooltipEdge.value = $event.x
+}
+
+/**
+ * 자세히 보기 이동
+ */
+function detailView () {
+  // 퍼블 확인용
+  const data = viewData.value
+  const sectionToSave = props.currentSection !== undefined ? props.currentSection : 0
+  store.dispatch('analyze/setCurrentSection', sectionToSave)
+  
+  // AnalyzeAgingSpeedDetail에서 실제로 사용하는 데이터만 추출
+  const essentialData = {
+    hqData: {
+      AgingRate: mwlRoundAgingRate(data.hqAr?.aging_rate),  // hqAr에서 aging_rate 사용
+      ReAge: data.hqReage?.reage         // hqReage에서 reage 사용
+    },
+    hqReference: data.hqReference,
+    analyzeAge: data.analyzeAge,
+    commonInfo: {
+      analysisType: data.commonInfo?.analysisType
+    },
+    hqAr: data.hqAr,                    // hqAr 전체 데이터
+    hqReage: data.hqReage,              // 건강나이 데이터
+    ariRisk: data.ariRisk,              // 위험 요인 데이터
+    hqDataList: data.hqDataList,        // 차트 데이터용 hqDataList 추가
+    basics: data.basics                  // 성별 등 기본 정보 추가
+  }
+  
+  store.dispatch('analyze/setDetail', essentialData)
+  
+  router.push({
+    path: '/analyze/aging-speed'
+  })
+}
+
+/**
+ * 노화 속도 요인 팝업
+ */
+function popupReason () {
+  isPopupReason.value = true
+}
+
+/**
+ * 팝업 종료
+ */
+function popupClose () {
+  isPopupReason.value = false
+}
+
+/**
+ * 차트 생성
+ */
+function chartDraw () {
+  myChart.value.setOption({
+    // 애니메이션을 더 느리게
+    animation: true,
+    animationDuration: GAUGE_ANIMATION_MS,
+    animationDurationUpdate: GAUGE_ANIMATION_MS,
+    animationEasing: 'cubicOut',
+    animationEasingUpdate: 'cubicOut',
+    tooltip: {
+      show: false,
+      formatter: '{a} <br/>{b} : {c}%'
+    },
+    series: [
+      {
+        name: 'Pressure',
+        type: 'gauge',
+        radius: props.isShare? '100%' : '120%', 
+        center: props.isShare? ['50%', '75%'] : ['50%', '60%'], 
+        startAngle: props.isMain ? 197 : 180,
+        endAngle: props.isMain ? -17 : 0,
+        // startAngle: 180,
+        // endAngle: 0,
+        min: 0.5,
+        max: 1.5,
+        itemStyle: {
+          color: '#008352'
+        },
+        splitNumber: 0,
+        splitLine: {
+          show: false,
+          distance: -30,
+          length: 40,
+          lineStyle: {
+            color: '#000',
+            width: 1
+          }
+        },
+        axisTick: {
+          splitNumber: 1,
+          length: 124.5
+        },
+        pointer: { // 2606 바늘 디자인 수정
+          icon: 'image:///img/img_agingspeed_needle.svg',
+          length: props.isShare ? '138%' : (props.isMain ? '125%' : '85%'),
+          width: 12,
+          showAbove: true,
+        },
+        anchor: {
+          show: false,
+          showAbove: true,
+          size: 15,
+          color: '#646464',
+          borderColor: '#646464',
+          itemStyle: {
+            borderWidth: 5,
+            color: '#fff',
+            borderColor: '#646464'
+          }
+        },
+        axisLabel: { show: false },
+        detail: { show: false },
+        axisLine: {
+          lineStyle: {
+            width: 0,
+            color: [
+              [0.1, '#7ED47C'],
+              [0.2, '#A2C87A'],
+              [0.3, '#B4BD6D'],
+              [0.4, '#C9B05E'],
+              [0.5, '#DDA450'],
+              [0.6, '#F8B500'],
+              [0.7, '#F09B5A'],
+              [0.8, '#FC754B'],
+              [0.9, '#FA7458'],
+              [1, '#F87D7D']
+            ]
+          }
+        },
+        data: [{ value: chartData.value.AgingRate }]
+      }
+    ]
+  })
+}
+
+/**
+ * 차트 데이터 저장
+ */
+function setChartData () {
+  // [s] 퍼블 확인용
+  const data = viewData.value
+  const agingRate = data.hqAr?.aging_rate
+    ? mwlRoundAgingRate(data.hqAr.aging_rate)
+    : '0.0'
+  
+  chartData.value = {
+    ...data.hqAr,
+    AgingRate: agingRate
+  }
+  // [e] 퍼블 확인용
+}
+
+function getWorstList () {
+  let rtnTxt
+  const arr = []
+  const worst = []
+  let obj
+  let ariRisk = null
+
+  // [s] 퍼블 확인용
+  if (viewData.value.ariRisk) {
+    ariRisk = viewData.value.ariRisk
+  // [e] 퍼블 확인용
+
+    // WWI, FMR, RFS 제외하고 ariRisk 값이 2 or 3인 항목만 필터링
+    for (const key in ariRisk) {
+      if (key !== 'WWI' && key !== 'FMR' && key !== 'RFS' && ariRisk[key] >= 2) {
+        obj = {}
+        obj.key = key
+        obj.val = ariRisk[key]
+        worst.push(obj)
+      }
+    }
+
+    // ariRisk 값이 높은 순으로 정렬
+    worst.sort((a, b) => {
+      if (a.val < b.val) return 1
+      if (a.val > b.val) return -1
+      return 0
+    })
+
+    worst.forEach((item, index) => {
+      arr.push(titleObj[worst[index].key])
+    })
+
+    rtnTxt = arr.join(', ')
+  }
+
+  return rtnTxt
+}
+
+const titleObj = {
+  SBP: t('AnalyzeAgingSpeed.text16'),
+  DBP: t('AnalyzeAgingSpeed.text17'),
+  WC: t('AnalyzeAgingSpeed.text18'),
+  BMI: t('AnalyzeAgingSpeed.text19'),
+  GLU: t('AnalyzeAgingSpeed.text20'),
+  TG: t('AnalyzeAgingSpeed.text21'),
+  TC: t('AnalyzeAgingSpeed.text22'),
+  HDL: t('AnalyzeAgingSpeed.text23'),
+  LDL: t('AnalyzeAgingSpeed.text24'),
+  GOT: t('AnalyzeAgingSpeed.text25'),
+  GPT: t('AnalyzeAgingSpeed.text26'),
+  HB: t('AnalyzeAgingSpeed.text27'),
+  CREA: t('AnalyzeAgingSpeed.text28'),
+  smok_dur: t('AnalyzeAgingSpeed.text29'),
+  pack_year: t('AnalyzeAgingSpeed.text30'),
+  sleep_time: t('AnalyzeAgingSpeed.text31'),
+  drink_amt: t('AnalyzeAgingSpeed.text32'),
+  MET: t('AnalyzeAgingSpeed.text33'),
+  EQ5D: t('AnalyzeAgingSpeed.text34'),
+  per_bodyfat: t('AnalyzeAgingSpeed.text38'),
+  WASM: t('AnalyzeAgingSpeed.text39')
+}
+
+// [s] 퍼블 확인용
+watch(viewData, () => {
+  setChartData()
+
+  if (myChart.value) {
+    chartDraw()
+  }
+}, { deep: true })
+// [e] 퍼블 확인용
+
+let resizeObserver = null;
+
+onMounted(() => {
+  resizeObserver = new ResizeObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.contentRect.width > 0 && entry.contentRect.height > 0) {
+        if (!myChart.value) {
+          myChart.value = echarts.init(echart.value, null, { renderer: 'svg' })
+          setChartData()
+          chartDraw()
+        } else {
+          myChart.value.resize()
+        }
+      }
+    }
+  })
+
+  resizeObserver.observe(echart.value)
+})
+
+onBeforeUnmount(() => {
+  if (resizeObserver) {
+    resizeObserver.disconnect()
+  }
+})
 </script>
 
 <template>
-  <div class="AnalyzeAgingSpeed" :class="isMain ? 'home' : ''"> <!--노화 억제 분석 지수-->
+  <div class="AnalyzeAgingSpeed" :class="{ 'home': isMain, 'isShare': isShare }"> <!--노화 억제 분석 지수--> <!--231208 메인용 동적 클래스 추가-->
     <div class="tooltip AnalyzeAgingSpeed--tooltip" v-if="!props.isMain">
-      <h2 class="tooltip--tit AnalyzeAgingSpeed--tip-tit">노화 속도</h2>
+      <h2 class="tooltip--tit AnalyzeAgingSpeed--tip-tit">{{ $t('AnalyzeAgingSpeed.text4') }}</h2>
       <button
         @click="openTooltip($event)"
         class="btn--tooltip AnalyzeAgingSpeed--tip-btn"
@@ -185,61 +397,81 @@ export default {
         @tooltipClose="tooltipClose"
         class="AnalyzeAgingSpeed--tip-dom">
         <template v-slot:contents>
-          <p class="AnalyzeAgingSpeed--tip-txt">노화 속도는 노화 억제 분석 지수 및 만성질환 억제 분석 지수를 결합한 점수와 실제 나이 사이의 관계를 바탕으로 산출된
-            값입니다<br /> 건강하게 나이 드는 것에 대한 기준으로 보통의 노화 속도인 1.0배속보다 느린 0.9배속 이하로 노화 속도를 목표합니다 나의 노화 속도를 확인해 보세요</p>
+          <ul class="AnalyzeAgingSpeed--tip-txt">
+            <li>{{ $t('AnalyzeAgingSpeed.text47') }}</li>
+            <li>{{ $t('AnalyzeAgingSpeed.text6') }}</li>
+            <li>{{ $t('AnalyzeAgingSpeed.text7') }}</li>
+          </ul>
         </template>
       </base-tooltip>
-
     </div>
 
     <div class="analyze-box">
-      <p class="AnalyzeAgingSpeed--info" v-if="!props.isMain">노화속도가
-        <strong class="AnalyzeAgingSpeed--speed">{{ speed }}</strong>배속으로
-        <strong class="AnalyzeAgingSpeed--description">{{ description }} 노화</strong>가 진행 중 입니다
+      <p class="AnalyzeAgingSpeed--info" v-if="!props.isMain"
+        :class="{
+          'red': viewData.hqAr?.status === 3,
+          'orange': viewData.hqAr?.status === 2,
+          'green': viewData.hqAr?.status === 1
+        }"
+      ><!-- class 퍼블 확인용 -->
+        {{ $t('AnalyzeAgingSpeed.text8') }}
+        <strong class="AnalyzeAgingSpeed--speed">
+          {{ chartData.AgingRate }}{{ $t('AnalyzeAgingSpeed.text35') }}</strong>{{ $t('AnalyzeAgingSpeed.text36') }}
+        <strong class="AnalyzeAgingSpeed--description">
+          {{ speedText }}
+        </strong>{{ $t('AnalyzeAgingSpeed.text41') }}
+        {{ $t('AnalyzeAgingSpeed.text45') }}
+        <!-- 건강 나이 적용 개발 요망 -->
+        <!-- 퍼블 확인용 -->
+        <strong class="AnalyzeAgingSpeed--speed black">{{ mwlRound(viewData?.hqReage?.reage || 0, 0) }}{{ $t('Common.age2') }}</strong>{{ $t('AnalyzeAgingSpeed.text46') }}
       </p>
 
-      <div class="AnalyzeAgingSpeed--graph"> <!--그래프-->
-        <!--        <div class="echart guage" :class="isMain ? 'isMain' : ''" ref="echart" />-->
-        <div class="echart guage" :class="isMain ? 'isMain' : ''" ref="echart" />
+      <div class="AnalyzeAgingSpeed--graph" :data-lang="$i18n.locale">
+        <div class="echart gauge" :class="isMain ? 'isMain' : ''" ref="echart" />
+
         <div class="AnalyzeAgingSpeed--summary">
-          <div class="AnalyzeAgingSpeed--rank-wrap">
-            <strong class="AnalyzeAgingSpeed--speed2" :class="speed <= 1 ? 'green' : 'orange'">
-              <span v-if="!isMain">x</span>
-              {{ speed }}
+          <div class="AnalyzeAgingSpeed--rank-wrap"
+            :class="{
+              'red': viewData.hqAr?.status === 3,
+              'orange': viewData.hqAr?.status === 2,
+              'green': viewData.hqAr?.status === 1
+            }"
+          ><!-- class 퍼블 확인용 -->
+            <strong class="AnalyzeAgingSpeed--speed2">
+              <!-- <span v-if="!isMain">x</span> -->
+              {{ chartData.AgingRate }}
             </strong>
-            <span v-if="isMain" class="AnalyzeAgingSpeed--speed3">배속</span>
+            <!-- <span v-if="isMain" class="AnalyzeAgingSpeed--speed3">{{ $t('AnalyzeAgingSpeed.text12') }}</span> -->
+            <span class="AnalyzeAgingSpeed--speed3">{{ $t('AnalyzeAgingSpeed.text12') }}</span>
           </div>
           <button
             v-if="!props.isMain"
             @click="detailView"
             type="button"
-            class="AnalyzeAgingSpeed--more-btn">자세히 보기</button>
+            class="AnalyzeAgingSpeed--more-btn">{{ $t('Common.detail2') }}</button>
         </div>
-
       </div>
 
       <div v-if="!props.isMain" class="AnalyzeAgingSpeed--reason">
-        <p class="AnalyzeAgingSpeed--reason-txt">* 나의 노화속도에 영향을 미치는 요인을 확인해 보세요</p>
+        <p class="AnalyzeAgingSpeed--reason-tit">{{ $t('AnalyzeAgingSpeed.text37') }}</p>
+        <p class="AnalyzeAgingSpeed--reason-txt">
+                   {{ getWorstList() }}
+        </p>
         <div class="AnalyzeAgingSpeed--btn-wrap">
-          <button @click="popupReason" type="button" class="AnalyzeAgingSpeed--btn">더보기</button>
+          <button @click="popupReason" type="button" class="AnalyzeAgingSpeed--btn">{{ $t('Common.detail2') }}</button>
         </div>
       </div>
-
     </div>
 
-    <AnalyzeAgingSpeedPop :openPop="isPopupReason" @popupClose="popupClose" /> <!--231208 팝업 추가-->
-
+    <!-- 퍼블 확인용 -->
+    <AnalyzeAgingSpeedPop :openPop="isPopupReason" :sendData="viewData" @popupClose="popupClose" />
   </div>
 </template>
 
 <style scoped lang="scss">
-.echart.guage {
-  /* 변경필요 */
-  //width: 24.6rem;
-  width: 120%;
-  //height: 24.6rem;
-  height: 120%;
-  padding-top: 2.8rem;
+.echart.gauge {
+  width: 100%;
+  height: 100%;
   position: absolute !important;
   top: 50%;
   left: 50%;
@@ -252,9 +484,15 @@ export default {
 }
 
 ::v-deep(.echart div) {
-  margin: 2.2rem auto;
+  //bottom: -11.5px;
+  overflow: visible !important;
+  & svg {
+    overflow: visible;
+    
+  }
 }
 
-::v-deep(.home .echart div) {
-  margin-top: -2.6rem;
-}</style>
+// ::v-deep(.home .echart div) {
+//   margin-top: -2.6rem;
+// }
+</style>

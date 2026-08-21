@@ -374,7 +374,7 @@ const publishingRouter = {
           name: "pubAnalyze",
           component: () => import("@/views/publishing/Analyze.vue"),
           meta: {
-            title: "분석 결과 이력",
+            title: "건강수명 분석 결과 이력",
             class: "wide",
           },
         },

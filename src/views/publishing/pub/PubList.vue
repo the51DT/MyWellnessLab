@@ -12,7 +12,7 @@ const data = ref([
     div3: '',
     loca: '',
     go: '',
-    msg: "개발 파일 수정된 부분 '202606' 주석으로 표시, 해당 날짜 포함된 주석 확인 필요",
+    msg: "개발 파일 수정된 부분 '202606' or '2606' 주석으로 표시, 해당 날짜 포함된 주석 확인 필요",
     confirm: ''
   },
   { cate: 'blank'},
@@ -137,8 +137,8 @@ const data = ref([
     div3: '',
     loca: '@/views/Home.vue<br>@/views/publishing/Home.vue -> 퍼블 확인용 경로',
     go: '/publishing/home/before',
-    msg: '**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**',
-    confirm: ''
+    msg: '**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>퍼블 확인용 라우터 케이스 적용',
+    confirm: '2026.08.21 퍼블 완료'
   },
   {
     cate: '',
@@ -147,8 +147,8 @@ const data = ref([
     div3: '',
     loca: '@/views/Home.vue<br>@/views/publishing/Home.vue -> 퍼블 확인용 경로',
     go: '/publishing/home',
-    msg: '코드 수정 사항<br>2606 라이브 버전에 맞춰 복약 부분 미노출 - 0818 기획 요청<br>2606 하단 플로팅 버튼 텍스트 수정 - Home.text14, 16 수정<br>2606 스타일 수정 - 하단 scoped style 태그 내부 수정',
-    confirm: ''
+    msg: '코드 수정 사항<br>2606 라이브 버전에 맞춰 복약 부분 미노출 - 0818 기획 요청<br>2606 하단 플로팅 버튼 텍스트 수정 - Home.text14, 16 수정<br>2606 스타일 수정 - 하단 scoped style 태그 내부 수정<br>2606 swiper 옵션 수정 - .home--my-result<br><br>AnalyzeAgingSpeed.vue 수정<br>2606 바늘 디자인 수정',
+    confirm: '2026.08.21 퍼블 완료'
   },
   {
     div: '설문입력',
@@ -331,13 +331,13 @@ const data = ref([
     confirm: ''
   },
   {
-    div: '분석 결과 이력',
+    div: '건강수명 분석 결과 이력',
     div2: '',
     div3: '',
-    loca: '@/views/publishing/Analyze.vue',
+    loca: '@/views/analyze/Analyze.vue<br>@/views/publishing/Analyze.vue -> 퍼블 확인용',
     go: '/publishing/analyze',
-    msg: '',
-    confirm: ''
+    msg: '코드 수정 (퍼블파일 확인)<br>설문 삭제 팝업 - BasePopup 퍼블 확인용 데이터 추가<br>삭제 완료 팝업 BaseToast 토스트 팝업으로 변경 (퍼블파일 확인)<br>winWidth() 사이즈 체크 920 -> 960<br>.AnalyzeList--ing-checkup 문구 수정 (검진일:date) -> 검진일date<br>.AnalyzeList--complete-total 데이터 없을 시 미노출<br>.AnalyzeList--complete-btn 퍼블 확인용 경로 지정됨<br>260821 문구 수정 (퍼블 파일만)',
+    confirm: '2026.08.21 퍼블 수정'
   },
   {
     div: '',
@@ -833,8 +833,8 @@ const data = ref([
     div3: '',
     loca: '@/views/analyze/Analyze.vue<br>@/views/publishing/Analyze.vue -> 퍼블 확인용 경로',
     go: '/publishing/my-page/pub-my-anlyze',
-    msg: '',
-    confirm: '2026.07.28 퍼블 완료'
+    msg: '건강수명 분석 쪽 동일 파일',
+    confirm: '2026.08.21 퍼블 수정'
   },
   {
     div: '',

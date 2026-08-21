@@ -3,7 +3,8 @@ import { onBeforeMount, onMounted, onBeforeUnmount, ref, computed, watch, nextTi
 import { useStore } from 'vuex'
 import { useRouter, useRoute } from 'vue-router' /* useRoute 퍼블 확인용 */
 import BasePopup from '@/components/BasePopup.vue'
-import AnalyzeAgingSpeed from '@/views/analyze/components/analyzeAgingSpeed'
+import AnalyzeAgingSpeed from '@/views/publishing/analyze/AnalyzeAgingSpeed.vue' /* 퍼블 확인용 아래가 원본 */
+// import AnalyzeAgingSpeed from '@/views/analyze/components/analyzeAgingSpeed'
 import AnalysisSharePopup from '@/components/AnalysisSharePopup.vue'
 import BodyCompositionPopup from '@/components/BodyCompositionPopup.vue'
 import AddBtnHome from '@/components/AddBtnHome.vue'
@@ -258,23 +259,64 @@ const getMyAnalysisCompleteDetail = async () => {
         reportType: '3D',
         hcrReference: [],
         showMuscleBalanceTooltip: true,
+
+        // [s] 퍼블 확인용 - AnalyzeAgingSpeed 전달 데이터
+        hqAr: {
+          aging_rate: 0.52,
+          status: 1
+        },
+        hqReage: {
+          reage: 35
+        },
+        ariRisk: {
+          SBP: 1,
+          DBP: 1,
+          WC: 2,
+          BMI: 1,
+          GLU: 1,
+          TG: 1,
+          TC: 1,
+          HDL: 1,
+          LDL: 1,
+          GOT: 1,
+          GPT: 1,
+          HB: 1,
+          CREA: 1,
+          smok_dur: 1,
+          pack_year: 1,
+          sleep_time: 2,
+          drink_amt: 1,
+          MET: 1,
+          EQ5D: 1,
+          per_bodyfat: 1,
+          WASM: 1
+        },
+        hqReference: {},
+        analyzeAge: 35,
+        commonInfo: {
+          analysisType: 'normal'
+        },
+        hqDataList: [],
+        basics: {},
+        // [e] 퍼블 확인용 - AnalyzeAgingSpeed 전달 데이터
+
         hqOxi: {
           score: 77,
-          status: 'MANAGE'
+          status: 1
         },
         hqMet: {
           score: 85,
-          status: 'GOOD'
+          status: 1
         },
         hqMusBal: {
           score: 62,
-          status: 'WARNING'
+          status: 3
         },
         dqData: {
           RFS_score: 74
         },
         metData: {
-          met: 7.2
+          met: 600
         },
         shData: {
           sh_score: 81
@@ -286,21 +328,62 @@ const getMyAnalysisCompleteDetail = async () => {
       {
         id: 2,
         basicsId: 2,
-        analysedDate: '2026.08.01 09:20:00',
+        analysedDate: '2026.11.01 09:20:00',
         reportType: '2D',
         hcrReference: [],
         showMuscleBalanceTooltip: true,
+
+        // [s] 퍼블 확인용 - AnalyzeAgingSpeed 전달 데이터
+        hqAr: {
+          aging_rate: 1.12,
+          status: 2
+        },
+        hqReage: {
+          reage: 42
+        },
+        ariRisk: {
+          SBP: 1,
+          DBP: 2,
+          WC: 2,
+          BMI: 3,
+          GLU: 2,
+          TG: 1,
+          TC: 1,
+          HDL: 1,
+          LDL: 2,
+          GOT: 1,
+          GPT: 1,
+          HB: 1,
+          CREA: 1,
+          smok_dur: 2,
+          pack_year: 1,
+          sleep_time: 3,
+          drink_amt: 2,
+          MET: 1,
+          EQ5D: 1,
+          per_bodyfat: 2,
+          WASM: 1
+        },
+        hqReference: {},
+        analyzeAge: 39,
+        commonInfo: {
+          analysisType: 'normal'
+        },
+        hqDataList: [],
+        basics: {},
+        // [e] 퍼블 확인용 - AnalyzeAgingSpeed 전달 데이터
+
         hqOxi: {
           score: 68,
-          status: 'MANAGE'
+          status: 1
         },
         hqMet: {
           score: 58,
-          status: 'WARNING'
+          status: 2
         },
         hqMusBal: {
           score: 0,
-          status: 'WARNING'
+          status: 3
         },
         dqData: {
           RFS_score: 65
@@ -322,17 +405,58 @@ const getMyAnalysisCompleteDetail = async () => {
         reportType: '2D',
         hcrReference: [],
         showMuscleBalanceTooltip: true,
+
+        // [s] 퍼블 확인용 - AnalyzeAgingSpeed 전달 데이터
+        hqAr: {
+          aging_rate: 1.48,
+          status: 3
+        },
+        hqReage: {
+          reage: 48
+        },
+        ariRisk: {
+          SBP: 3,
+          DBP: 2,
+          WC: 3,
+          BMI: 3,
+          GLU: 2,
+          TG: 3,
+          TC: 2,
+          HDL: 1,
+          LDL: 3,
+          GOT: 1,
+          GPT: 2,
+          HB: 1,
+          CREA: 1,
+          smok_dur: 3,
+          pack_year: 2,
+          sleep_time: 3,
+          drink_amt: 2,
+          MET: 2,
+          EQ5D: 1,
+          per_bodyfat: 3,
+          WASM: 1
+        },
+        hqReference: {},
+        analyzeAge: 41,
+        commonInfo: {
+          analysisType: 'normal'
+        },
+        hqDataList: [],
+        basics: {},
+        // [e] 퍼블 확인용 - AnalyzeAgingSpeed 전달 데이터
+
         hqOxi: {
           score: 68,
-          status: 'MANAGE'
+          status: 1
         },
         hqMet: {
           score: 58,
-          status: 'WARNING'
+          status: 2
         },
         hqMusBal: {
           score: 0,
-          status: 'WARNING'
+          status: 3
         },
         dqData: {
           RFS_score: 65
@@ -343,8 +467,8 @@ const getMyAnalysisCompleteDetail = async () => {
         shData: {
           sh_score: 72
         },
-        agingRate: 1.12,
-        agingSpeed: 1.12,
+        agingRate: 1.38,
+        agingSpeed: 1.38,
         agingSpeedStatus: 'WARNING'
       }
     ]
@@ -572,20 +696,25 @@ const getHealthTrafficLight = (item) => {
       <div class="home--start-wrap">
         <div class="home--my-result">
           <!-- <h2 v-if="isEmptyAnalysisComplete" class="home--my-result--tit">{{ $t('Home.text6') }} </h2> -->
+          <!-- 2606 swiper 옵션 수정 -->
           <swiper
             :centered-slides="true"
-            :space-between="10"
+            :space-between="8"
             :pagination="{
               clickable: true
             }"
             :navigation="true"
-            :slidesPerView="1.2"
+            :slides-per-view="1.2"
             :breakpoints="{
               '0': {
                 slidesPerView: 1.2,
               },
               '520': {
                 slidesPerView: 'auto'
+              },
+              '960': {
+                slidesPerView: 'auto',
+                spaceBetween: 12,
               }
             }"
             :modules="modules"
@@ -689,7 +818,10 @@ const getHealthTrafficLight = (item) => {
                         <div v-html="$t('Home.bodyCompositionUpgrade')"></div>
                         <span>
                           <!-- 2026.12.31 까지 -->
-                          {{ getUpgradeDate(item.analysedDate) }} {{ $t('Home.text33') }}
+                          <!-- [s] 2606 날짜 strong 태그 추가 -->
+                          <strong>{{ getUpgradeDate(item.analysedDate) }}</strong>
+                          {{ $t('Home.text33') }}
+                          <!-- [s] 2606 날짜 strong 태그 추가 -->
                         </span>
                       </div>
                       <div class="tooltip-icon">
@@ -775,7 +907,7 @@ const getHealthTrafficLight = (item) => {
       </div> <!--비주얼 이미지-->
 
       <div class="btn--re-checkup" :class="[activeFab ? 'active' : '', isBottomFab ? 'bottom' : '']" @click="moveCheckUpPage">
-        <span>마이웰니스 랩 분석 시작</span> <!-- 2606 텍스트 수정 -->
+        <span>마이웰니스 랩 분석 시작</span> <!-- 2606 하단 플로팅 버튼 텍스트 수정 -->
       </div>
     </template>
 
@@ -862,7 +994,7 @@ const getHealthTrafficLight = (item) => {
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped> /* 2606 스타일 수정 */
 :deep(.swiper-button-next){
   @media (max-width: 960px) {
     display: none;
@@ -876,36 +1008,35 @@ const getHealthTrafficLight = (item) => {
 :deep(.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after){
   content: "";
   display: block;
-  width: 40px;
-  height: 40px;
-  background: url("/img/home_slide.svg") no-repeat center;
-  background-size: 60%;
 }
 :deep(.swiper-button-prev, .swiper-button-next){
-  top: var(--swiper-navigation-top-offset, 44%);
+  top: var(--swiper-navigation-top-offset, 50%);
 }
 :deep(.swiper-button-next, .swiper-rtl .swiper-button-prev) {
   top: 50%;
   right: auto;
-  left: calc(50% + 23rem);
-  transform: translateY(-50%);
+  left: calc(50% + 18.2rem);
+  transform: translateY(-100%);
   margin-top: 0;
+  width: 5.6rem;
+  height: 5.6rem;
+  background: url("/img/home_slide.svg") no-repeat center;
+  background-size: 100%;
 }
 :deep(.swiper-button-prev, .swiper-rtl .swiper-button-next) {
   top: 50%;
   left: auto;
-  right: calc(50% + 23rem);
-  transform: translateY(-50%);
+  right: calc(50% + 21rem);
+  transform: translateY(-100%) rotate(180deg);
   margin-top: 0;
+  width: 5.6rem;
+  height: 5.6rem;
+  background: url("/img/home_slide.svg") no-repeat center;
+  background-size: 100%;
 }
 :deep(.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after){
   content: "";
   display: block;
-  width: 40px;
-  height: 40px;
-  background: url("/img/home_slide.svg") no-repeat center;
-  background-size: 60%;
-  transform: rotate(180deg);
 }
 :deep(.swiper-button-prev.swiper-button-disabled){
   display: none;

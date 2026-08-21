@@ -49,6 +49,7 @@ export default {
   },
   methods: {
     deleteRow(value){ /*이력 삭제*/
+      // 202606 얼럿 삭제
       // if(confirm("진행중인 건강설문을 삭제하시겠습니까?")){
         this.ingData = this.ingData.filter( item => item.value !== value );
 
@@ -133,7 +134,7 @@ export default {
         </div>
 
         <div v-if="completeData.length > paging && isPc" class="AnalyzeList--more">
-          <button @click="more" type="button" class="AnalyzeList--more-btn">더 보기</button>
+          <button @click="more" type="button" class="AnalyzeList--more-btn">더보기</button> <!-- 260821 문구 수정 -->
         </div>
 
         <div v-if="completeData.length === 0" class="AnalyzeList--no-data">분석 완료된 설문이 없습니다</div>

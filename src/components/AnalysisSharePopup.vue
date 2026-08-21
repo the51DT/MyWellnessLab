@@ -3,7 +3,8 @@ import BasePopupTit from '@/components/BasePopupTit.vue'
 import { ref, defineProps, defineEmits, watch, nextTick, onMounted, onBeforeUnmount } from 'vue'
 import { useStore } from 'vuex'
 import { useI18n } from 'vue-i18n' 
-import AnalyzeAgingSpeed from '@/views/analyze/components/analyzeAgingSpeed'
+import AnalyzeAgingSpeed from '@/views/publishing/analyze/AnalyzeAgingSpeed.vue' /* 퍼블 확인용 아래가 원본 */
+// import AnalyzeAgingSpeed from '@/views/analyze/components/analyzeAgingSpeed'
 import { bodyScroll, getScoreColor, getStatusColor, mwlRound, getScoreStatus, getColor } from '@/assets/js/common'
 import html2canvas from 'html2canvas'
 import * as echarts from 'echarts'
@@ -273,10 +274,8 @@ onBeforeUnmount(() => {
         <div ref="agingSectionRef" class="AnalysisSummary--speed AnalysisSummary--bg">
           <div class="AnalysisSummary--desc">
             <p class="AnalysisSummary--desc-user">
-              <span> 이하늘  </span> <!-- 2606 퍼블 확인용 텍스트 아래가 원본 -->
-              <!-- <span> {{ user.name }}  </span> -->
-              {{ $t('Common.name2')}}
-              {{ $t('HomeSummary.text2')}}
+              <!-- 2606 .AnalysisSummary--desc-user br 추가 / 퍼블 확인용 name 임의 설정 -->
+              <span>이하늘</span>{{ $t('Common.name2')}}<br> {{ $t('HomeSummary.text2')}}
             </p>
             <!-- 분석일 -->
             <p class="AnalysisSummary--desc-date">
@@ -290,10 +289,11 @@ onBeforeUnmount(() => {
             <div>
               <div class="home--aging">
                 <div>
-                  <span class="home--aging-circle"></span>
+                  <!-- 2606 그래프 텍스트 삭제 -->
+                  <!-- <span class="home--aging-circle"></span>
                   <span class="home--aging-09">x 0.9</span>
                   <span class="home--aging-05">x 0.5</span>
-                  <span class="home--aging-15">x 1.5 이상</span>
+                  <span class="home--aging-15">x 1.5 이상</span> -->
                   <AnalyzeAgingSpeed :id="`g_` + analysisData.id" :isMain="true" :isShare="true" :sendData="analysisData" />
                 </div>
               </div>
@@ -320,7 +320,7 @@ onBeforeUnmount(() => {
                 <span>{{ $t('AnalyzeDetail.text4')}}</span>
               </span>
               <div class="AnalysisSummary--list-num" :style="{color: getColor(analysisData.hqMet?.status)}">
-                {{ mwlRound(analysisData.hqMet?.score || 0, 0) }} <span>{{ $t('Common.score')}}</span>
+                {{ mwlRound(analysisData.hqMet?.score || 0, 0) }}<span>{{ $t('Common.score')}}</span> <!-- 2606 .AnalysisSummary--list-num 숫자 띄어쓰기 삭제 -->
               </div>
             </div>
 
@@ -331,7 +331,7 @@ onBeforeUnmount(() => {
                 <span>{{ $t('AnalyzeDetail.text3')}}</span>
               </span>
               <span class="AnalysisSummary--list-num" :style="{color: getColor(analysisData.hqOxi?.status)}">
-                {{ mwlRound(analysisData.hqOxi?.score || 0, 0) }} <span>{{ $t('Common.score')}}</span>
+                {{ mwlRound(analysisData.hqOxi?.score || 0, 0) }}<span>{{ $t('Common.score')}}</span> <!-- 2606 .AnalysisSummary--list-num 숫자 띄어쓰기 삭제 -->
               </span>
             </div>
 
@@ -342,7 +342,7 @@ onBeforeUnmount(() => {
                 <span>{{ $t('AnalyzeDetail.text38')}}</span>
               </span>
               <span class="AnalysisSummary--list-num" :style="{color: getColor(analysisData.hqMusBal?.status)}">
-                {{ mwlRound(analysisData.hqMusBal?.score || 0, 0) }} <span>{{ $t('Common.score')}}</span>
+                {{ mwlRound(analysisData.hqMusBal?.score || 0, 0) }}<span>{{ $t('Common.score')}}</span> <!-- 2606 .AnalysisSummary--list-num 숫자 띄어쓰기 삭제 -->
               </span>
             </div>
 
@@ -353,7 +353,7 @@ onBeforeUnmount(() => {
                 <span>{{ $t('Home.text29')}}</span>
               </span>
               <span class="AnalysisSummary--list-num" :style="{color: getScoreColor(analysisData.dqData?.RFS_score || 0 , 'rfs')}">
-                {{ mwlRound(analysisData.dqData?.RFS_score || 0 , 0) }} <span>{{ $t('Common.score')}}</span>
+                {{ mwlRound(analysisData.dqData?.RFS_score || 0 , 0) }}<span>{{ $t('Common.score')}}</span> <!-- 2606 .AnalysisSummary--list-num 숫자 띄어쓰기 삭제 -->
               </span>
             </div>
 
@@ -364,7 +364,7 @@ onBeforeUnmount(() => {
               <span>{{ $t('Home.text30')}}</span>
             </span>
             <span class="AnalysisSummary--list-num" :style="{color: getScoreColor(analysisData.metData?.met, 'musMass')}">
-              {{ mwlRound(analysisData.metData?.met || 0, 0) }} <span>MET</span>
+              {{ mwlRound(analysisData.metData?.met || 0, 0) }}<span>MET</span> <!-- 2606 .AnalysisSummary--list-num 숫자 띄어쓰기 삭제 -->
             </span>
           </div>
 
@@ -375,7 +375,7 @@ onBeforeUnmount(() => {
                 <span>{{ $t('Home.text31')}}</span>
               </span>
               <span class="AnalysisSummary--list-num" :style="{color: getScoreColor(analysisData.shData?.sh_score, 'sh')}">
-                {{ mwlRound(analysisData.shData?.sh_score || 0, 0) }} <span>{{ $t('Common.score')}}</span>
+                {{ mwlRound(analysisData.shData?.sh_score || 0, 0) }}<span>{{ $t('Common.score')}}</span> <!-- 2606 .AnalysisSummary--list-num 숫자 띄어쓰기 삭제 -->
               </span>
             </div>
           </div>
@@ -397,7 +397,7 @@ onBeforeUnmount(() => {
   <div v-if="showPreview" class="preview-overlay" @click="closePreview">
     <div class="preview-ic-close-wrap">
       <div class="preview-ic-close" @click="closePreview">
-        <img src="/img/btn-close.svg" :alt="$t('AnalysisSharePopup.close')">
+        <img src="/img/icon_close_white.svg" :alt="$t('AnalysisSharePopup.close')"> <!-- 2606 프리뷰 닫기 버튼 이미지 변경 -->
       </div>
     </div>
     <div class="preview-container" @click.stop>
@@ -407,3 +407,26 @@ onBeforeUnmount(() => {
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+  .AnalysisSharePopup {
+  :deep(.isShare .echart.gauge) {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none;
+  }
+
+  :deep(.isShare .AnalyzeAgingSpeed--graph) {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+  }
+
+  :deep(.isShare .echart div),
+  :deep(.isShare .echart svg) {
+    overflow: visible !important;
+  }
+}
+</style>

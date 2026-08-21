@@ -381,10 +381,6 @@ const getMyAnalysisCompleteDetail = async () => {
           score: 58,
           status: 2
         },
-        hqMusBal: {
-          score: 0,
-          status: 3
-        },
         dqData: {
           RFS_score: 65
         },
@@ -453,10 +449,6 @@ const getMyAnalysisCompleteDetail = async () => {
         hqMet: {
           score: 58,
           status: 2
-        },
-        hqMusBal: {
-          score: 0,
-          status: 3
         },
         dqData: {
           RFS_score: 65

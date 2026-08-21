@@ -197,11 +197,13 @@ function chartDraw () {
         name: 'Pressure',
         type: 'gauge',
         radius: props.isShare? '100%' : '120%', 
-        center: props.isShare? ['50%', '75%'] : ['50%', '60%'], 
+        /* 2606 건강수명분석, 공유팝업 그래프 디자인 수정 */
+        center: props.isShare? ['50%', '70%'] : ['50%', '60%'], 
         startAngle: props.isMain ? 197 : 180,
         endAngle: props.isMain ? -17 : 0,
-        // startAngle: 180,
-        // endAngle: 0,
+        /* center: props.isShare? ['50%', '75%'] : ['50%', '60%'], 
+        startAngle: 180,
+        endAngle: 0, */
         min: 0.5,
         max: 1.5,
         itemStyle: {
@@ -223,8 +225,8 @@ function chartDraw () {
         },
         pointer: { // 2606 바늘 디자인 수정
           icon: 'image:///img/img_agingspeed_needle.svg',
-          length: props.isShare ? '138%' : (props.isMain ? '125%' : '85%'),
-          width: 12,
+          length: props.isShare ? '110%' : (props.isMain ? '125%' : '85%'),
+          width: props.isShare ? 10 : 12,
           showAbove: true,
         },
         anchor: {
@@ -361,7 +363,11 @@ onMounted(() => {
     for (const entry of entries) {
       if (entry.contentRect.width > 0 && entry.contentRect.height > 0) {
         if (!myChart.value) {
-          myChart.value = echarts.init(echart.value, null, { renderer: 'svg' })
+          /* [s] 2606 막대기 디자인 변경으로 인한 공유 팝업 렌더러 변경 */
+          myChart.value = echarts.init(echart.value, null, {
+            renderer: props.isShare ? 'canvas' : 'svg'
+          })
+          /* [e] 2606 막대기 디자인 변경으로 인한 공유 팝업 렌더러 변경 */
           setChartData()
           chartDraw()
         } else {
@@ -427,6 +433,9 @@ onBeforeUnmount(() => {
       </p>
 
       <div class="AnalyzeAgingSpeed--graph" :data-lang="$i18n.locale">
+        <!-- [s] 2606 공유 이미지 캡처 시 배경 화질 보정 -->
+        <img v-if="isShare" class="AnalyzeAgingSpeed--graph-bg" src="/img/bg_agingspeed_home_ko.svg" alt="x0.5 ~ x1.5이상 저속노화 기준 x0.9"/>
+        <!-- [e] 2606 공유 이미지 캡처 시 배경 화질 보정 -->
         <div class="echart gauge" :class="isMain ? 'isMain' : ''" ref="echart" />
 
         <div class="AnalyzeAgingSpeed--summary">

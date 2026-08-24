@@ -343,9 +343,9 @@ const data = ref([
     div: '',
     div2: '마이웰니스 랩 분석 결과',
     div3: '',
-    loca: '@/views/publishing/analyze/AnalyzeDetail.vue',
+    loca: '@/views/analyze/detail/AnalyzeDetail.vue<br>@/views/publishing/analyze/AnalyzeDetail.vue -> 퍼블 확인용',
     go: '/publishing/analyze/analyze-detail',
-    msg: "",
+    msg: "코드 수정<br>라우터 wide 클래스 삭제<br><br>LayoutAnalyze.vue<br>2026 퍼블 확인용 헤더 홈 버튼 아래 주석 원본<br><br>AnalyzeCheckupData.vue<br>2606 라이브 버전에 맞춰서 안내 문구 삭제<br>2606 분석일 ':' 삭제",
     confirm: ''
   },
   {
@@ -420,7 +420,7 @@ const data = ref([
     loca: '@/views/publishing/Challenge.vue',
     go: '/publishing/challenge/no',
     msg: "퍼블 확인용 라우터 케이스 적용",
-    confirm: '2026.07.08 퍼블 완료'
+    confirm: '"'
   },
   {
     div: '챌린지 이력보기',
@@ -428,8 +428,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/challenge/ChallengeHistory.vue',
     go: '/publishing/challenge-history',
-    msg: "260807 이미지 변경",
-    confirm: '2026.08.07 퍼블 수정'
+    msg: "260807 이미지 변경<br>260824 문구 수정",
+    confirm: '2026.08.24 퍼블 수정'
   },
   {
     div: '챌린지 이력보기 (진행중 없음)',
@@ -438,7 +438,7 @@ const data = ref([
     loca: '@/views/publishing/challenge/ChallengeHistory.vue',
     go: '/publishing/challenge-history/no',
     msg: "퍼블 확인용 라우터 케이스 적용",
-    confirm: '2026.07.08 퍼블 완료'
+    confirm: '"'
   },
   { cate: 'blank'},
   {
@@ -512,8 +512,8 @@ const data = ref([
     div3: '팀장',
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/challenge/leader',
-    msg: "퍼블 확인용 라우터 케이스 적용<br>진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출<br>260727 src/layouts/LayoutNormalLeader.vue 수정<br>260820 문구 수정 / + LayoutNormalLeader.vue",
-    confirm: '2026.08.20 퍼블 수정'
+    msg: "퍼블 확인용 라우터 케이스 적용<br>진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출<br>260727 src/layouts/LayoutNormalLeader.vue 수정<br>260820 문구 수정 / + LayoutNormalLeader.vue<br>260824 참여 인원 추가",
+    confirm: '2026.08.24 퍼블 수정'
   },
   {
     div: '',

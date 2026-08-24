@@ -32,7 +32,9 @@ const translatedTitle = computed(() => {
 })
 
 const isDetailRoute = computed(() => {
-  return route.name === 'AnalyzeDetail'
+  // 2606 퍼블 확인용 헤더 홈 버튼 아래 주석 원본
+  return route.name === 'AnalyzeDetail' || 'pubAnalyzeDetail'
+  // return route.name === 'AnalyzeDetail'
 })
 const handleBack = () => {
   if (analysisType === 'onetime' && isDetailRoute.value) {

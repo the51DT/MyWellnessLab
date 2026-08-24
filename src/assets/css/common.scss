@@ -1471,13 +1471,9 @@ $w-pc-wrap: 520px;
 }
 
 @mixin txtAnalyze{
-  font-size: 1.8rem;
-  font-family: $font-family-light;
-  color: #555;
-  line-height: 2.6rem;
+  @include txtStyle(body, sm);
   strong{
-    font-family: $font-family-bold;
-    font-weight: normal;
+    font-weight: 600;
   }
 }
 

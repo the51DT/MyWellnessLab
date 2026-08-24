@@ -279,6 +279,12 @@ onBeforeUnmount(() => {
             <span class="tit">진행 미션</span>
             <span>$미션 정보$</span>
           </li>
+          <!-- [s] 260824 참여 인원 추가 -->
+          <li>
+            <span class="tit">참여 인원</span>
+            <span>N명 <span v-if="teamClassification === 'challenge'">(최소 인원 N명)</span></span>
+          </li>
+          <!-- [e] 260824 참여 인원 추가 -->
           <li>
             <span class="tit">1회차 <br class="mo-br">진행 안내</span>
             <span>

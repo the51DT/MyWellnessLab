@@ -4,6 +4,7 @@ import LayoutCheckup from '@/layouts/LayoutCheckup.vue'
 import LayoutHome from '@/layouts/LayoutHome.vue'
 import LayoutHomeNoFooter from "@/layouts/LayoutHomeNoFooter.vue";
 import LayoutNormalLeader from "@/layouts/LayoutNormalLeader.vue";
+import LayoutAnalyze from "@/layouts/LayoutAnalyze.vue";
 
 const publishingRouter = {
   path: "/publishing",
@@ -367,7 +368,7 @@ const publishingRouter = {
     },
     {
       /* 분석 */ path: "analyze",
-      component: LayoutNormal,
+      component: LayoutAnalyze,
       children: [
         {
           path: "",

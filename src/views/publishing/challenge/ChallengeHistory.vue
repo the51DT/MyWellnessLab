@@ -13,7 +13,7 @@ const isNoChallenge = computed(() => {
   <section class="challenge-history">
     <div v-if="isNoChallenge" class="challenge-history--not"> <!-- v-if 퍼블 확인용 -->
       <img src="/img/visual_alert_pink.png">
-      <p>진행중인 챌린지가 없습니다.</p>
+      <p>챌린지 이력이 없습니다.</p> <!-- 260824 문구 수정 -->
     </div>
 
     <div v-else class="challenge-history--wrap">

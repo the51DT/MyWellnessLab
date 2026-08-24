@@ -6408,13 +6408,6 @@ button{
     color: #1A1818;
     &.challenge-team{
       --team-point-color: #EB608E;
-      .team--card-crown{
-        background-color: #FEE6EE;
-        color: #C91D56;
-        &::before{
-          background-image: url('/img/ico_crown_pink.svg');
-        }
-      }
       .team--invite-btn{
         background-color: #EB608E;
       }
@@ -6568,20 +6561,20 @@ button{
   }
   &--card-crown{
     @include txtStyle(caption, lg, 600);
-    color: #146B5B;
+    color: white;
     display: flex;
     align-items: center;
     gap: .4rem;
     width: fit-content;
     padding: .2rem .8rem .2rem .6rem;
     border-radius: 3rem;
-    background-color: #DEF7F4;
+    background-color: var(--team-point-color);
     &::before{
       content: '';
       display: block;
       width: 1.2rem;
       height: 1.2rem;
-      background: url("/img/ico_crown.svg") no-repeat center / contain;
+      background: url("/img/ico_crown_white.svg") no-repeat center / contain;
     }
   }
   &--card-team{

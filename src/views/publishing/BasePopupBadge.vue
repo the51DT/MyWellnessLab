@@ -9,12 +9,13 @@
     - $명칭$ : 핀/배지 명칭 작성
 */
 import { bodyScroll } from '@/assets/js/common'
+import lottie from 'lottie-web' /* 260824 로티 추가 */
 
 export default {
   name: "BasePopupBadge",
   data() {
     return {
-      // isReady: false,
+      lottieAnimations: [], /* 260824 로티 추가 */
     };
   },
   props: {
@@ -32,49 +33,60 @@ export default {
     }
   },
   computed: {
-    imgStyle() {
+    /* imgStyle() {
       const color = this.getShadowColor(this.frontImg);
       return {
         '--badge-shadow-color': `drop-shadow(0 .5rem 2rem ${color}80)` // 80 = 50% 투명도
       };
-    }
+    } */
   },
   methods: {
     close(){ /* 260727 핀/배지 팝업 상단 x 버튼 추가 */
       this.$emit("popupClose")
     },
     startAnimation() {
-      // 로딩 대기
-      // await new Promise(r => setTimeout(r, 300));
-      const box = this.$refs.box;
-      if (!box) return;
+      const box = this.$refs.box
+      if (!box) return
 
-      // 애니메이션
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           box.animate(
             [
-              { offset: 0, transform: 'rotateY(0deg)' },
-              { offset: 0.05, transform: 'rotateY(360deg)' },
-              { offset: 0.1, transform: 'rotateY(0deg)' },
-              { offset: 0.2, transform: 'rotateY(360deg)' },
-              { offset: 0.3, transform: 'rotateY(0deg)' },
-              { offset: 0.45, transform: 'rotateY(360deg)' },
-              { offset: 0.6, transform: 'rotateY(180deg)' },
-              { offset: 0.7, transform: 'rotateY(90deg)' },
-              { offset: 0.75, transform: 'rotateY(45deg)' },
-              { offset: 0.8, transform: 'rotateY(0deg)' },
-              { offset: 0.89, transform: 'rotateY(0deg) translateY(-55px)' },
-              { offset: 0.96, transform: 'rotateY(0deg) translateY(-55px)' },
-              { offset: 1, transform: 'rotateY(0deg) translateY(0)' }
+              { offset: 0, transform: 'translateY(0) scale(1, 1) rotateY(0deg)' },
+
+              // 처음 아래로 눌림
+              { offset: 0.02, transform: 'translateY(2rem) scale(1.2, .8) rotateY(0deg)' },
+              { offset: 0.04, transform: 'translateY(-5rem) scale(1, 1) rotateY(0deg)' },
+
+              // 첫 번째 뒤집힘
+              { offset: 0.07, transform: 'translateY(-8rem) scale(.05, 1) rotateY(90deg)' },
+              { offset: 0.09, transform: 'translateY(-8rem) scale(1, 1) rotateY(180deg)' },
+
+              // 두 번째 뒤집힘
+              { offset: 0.13, transform: 'translateY(-7.5rem) scale(.05, 1) rotateY(270deg)' },
+              { offset: 0.18, transform: 'translateY(-6.5rem) scale(1, 1) rotateY(360deg)' },
+
+              // 튕기면서 내려옴
+              { offset: 0.21, transform: 'translateY(0) scale(1.2, .8) rotateY(360deg)' },
+              { offset: 0.25, transform: 'translateY(.4rem) scale(.94, 1.06) rotateY(360deg)' },
+              { offset: 0.30, transform: 'translateY(0) scale(1.02, .98) rotateY(360deg)' },
+              { offset: 0.36, transform: 'translateY(0) scale(.99, 1.01) rotateY(360deg)' },
+              { offset: 0.43, transform: 'translateY(0) scale(1, 1) rotateY(360deg)' },
+
+              // 정지 구간
+              { offset: 1, transform: 'translateY(0) scale(1, 1) rotateY(360deg)' }
             ],
-            { duration: 2700, easing: 'ease-in', fill: 'forwards' }
-          );
-        });
-      });
+            {
+              duration: 12500,
+              easing: 'cubic-bezier(.17, .67, .33, 1)',
+              fill: 'forwards'
+            }
+          )
+        })
+      })
     },
     // 배지 이미지 이름마다 shadow값 지정
-    getShadowColor(img) {
+    /* getShadowColor(img) {
       if (img.includes('challenge_perfect') || img.includes('challenge_beginner')) return '#51DFD8';
       if (img.includes('beginner') || img.includes('mission_streak')) return '#1EC159';
       if (img.includes('rookie') || img.includes('gold')) return '#FF8D2F';
@@ -126,14 +138,113 @@ export default {
 
 
       return '#000000';
+    }, */
+    async startLottie() { /* 260824 로티 추가 */
+      const lottieList = [
+        {
+          container: this.$refs.moTextLevelup,
+          path: '/lottie/MO_TEXT_motion_levelup.json',
+          loop: false,
+          autoplay: true
+        },
+        {
+          container: this.$refs.pcTextLevelup,
+          path: '/lottie/PC_TEXT_motion_levelup.json',
+          loop: false,
+          autoplay: true
+        },
+        {
+          container: this.$refs.moTextNewBadge,
+          path: '/lottie/MO_TEXT_motion_newbadge.json',
+          loop: false,
+          autoplay: true
+        },
+        {
+          container: this.$refs.pcTextNewBadge,
+          path: '/lottie/PC_TEXT_motion_newbadge.json',
+          loop: false,
+          autoplay: true
+        },
+        {
+          container: this.$refs.moParticle,
+          path: '/lottie/MO_Confetti_motion_2.json',
+          loop: false,
+          autoplay: true
+        },
+        {
+          container: this.$refs.pcParticle,
+          path: '/lottie/PC_Confetti_motion_2.json',
+          loop: false,
+          autoplay: true
+        },
+        {
+          container: this.$refs.moBadge,
+          path: '/lottie/MO_Badge_motion.json',
+          loop: false,
+          autoplay: true,
+          replaceImg: this.frontImg
+        },
+        {
+          container: this.$refs.pcBadge,
+          path: '/lottie/PC_Badge_motion.json',
+          loop: false,
+          autoplay: true,
+          replaceImg: this.frontImg
+        },
+      ]
+
+      this.lottieAnimations = await Promise.all(
+        lottieList
+          .filter(item => item.container)
+          .map(async item => {
+            if (item.replaceImg) {
+              const response = await fetch(item.path)
+              const animationData = await response.json()
+
+              if (animationData.assets) {
+                const imageAsset = animationData.assets.find(asset => {
+                  return asset.p && /\.(png|jpg|jpeg|svg|webp)$/i.test(asset.p)
+                })
+
+                if (imageAsset) {
+                  imageAsset.u = ''
+                  imageAsset.p = item.replaceImg
+                }
+              }
+
+              return lottie.loadAnimation({
+                container: item.container,
+                renderer: 'svg',
+                loop: item.loop,
+                autoplay: item.autoplay,
+                animationData
+              })
+            }
+
+            return lottie.loadAnimation({
+              container: item.container,
+              renderer: 'svg',
+              loop: item.loop,
+              autoplay: item.autoplay,
+              path: item.path
+            })
+          })
+      )
     },
   },
   mounted() {
-    this.startAnimation();
+    this.startLottie() /* 260824 로티 추가 */
+    // this.startAnimation();
     bodyScroll(false) /* 팝업 노출 시 body 스크롤 정지 */
   },
   unmounted() {
     bodyScroll(true) /* 팝업 삭제 시 body 스크롤 원복 */
+
+    /* 260824 로티 추가 */
+    this.lottieAnimations.forEach(animation => {
+      animation.destroy()
+    })
+    this.lottieAnimations = []
   },
 };
 </script>
@@ -146,20 +257,12 @@ export default {
       </div>
     </div>
     <div class="popup--wrap">
-      <div ref="animationContainer" class="animation_bg"></div>
-      <div class="badge">
-        <div class="badge--wrap" ref="box" :style="imgStyle"> <!-- :class="{ start: isReady }" -->
-          <div class="badge-img badge-front">
-            <img :src="frontImg" class="badge-front" />
-          </div>
-          <div class="badge-img badge-back">
-            <img :src="backImg" class="badge-back" />
-          </div>
-        </div>
-        <span class="badge-name">
-          <slot />
-        </span>
-      </div>
+      <div ref="moTextLevelup" class="animation-text"></div>
+      <div ref="moParticle" class="animation-bg"></div>
+      <div ref="moBadge" class="animation-motion"></div>
+      <span class="badge-name">
+        <slot />
+      </span>
       <div class="popup-message">
         <p>축하합니다!</p>
         <p v-if="type === 'badge'">새로운 배지를 달성했습니다!</p>
@@ -172,6 +275,3 @@ export default {
   </div>
 
 </template>
-
-
-

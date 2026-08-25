@@ -77,69 +77,73 @@ const handleSuccess = () => {
             name="AnalyzePrivacyAgree-check"
             class="custom input-focus" />
           <span />
-          {{ $t('CheckupPrivacyAgree.text1') }}
+          민감정보 수집 이용동의 <strong>(필수)</strong> <!-- 2606 CheckupPrivacyAgree.text1, 16 (필수/선택) 분리 필요 -->
         </label>
-        <div class="txt--desc c222 AnalyzePrivacyAgree--info">
-          {{ $t('CheckupPrivacyAgree.text2') }}
+        <!-- [s] 2606 label 밑 내용 감싸는 AnalyzePrivacyAgree--box 추가 -->
+        <div class="AnalyzePrivacyAgree--box">
+          <div class="txt--desc c222 AnalyzePrivacyAgree--info">
+            {{ $t('CheckupPrivacyAgree.text2') }}
+          </div>
+          <div class="txt--desc c222 AnalyzePrivacyAgree--info2">
+            {{ $t('CheckupPrivacyAgree.text3') }}
+          </div>
+          <div class="downUp4--wrap">
+            <transition name="downUp4">
+              <table v-if="toggleRule1" class="AnalyzePrivacyAgree--tb">
+                <thead>
+                  <tr>
+                    <th>{{ $t('CheckupPrivacyAgree.text4') }}</th>
+                    <th>{{ $t('CheckupPrivacyAgree.text5') }}</th>
+                    <th>{{ $t('CheckupPrivacyAgree.text6') }}</th>
+                    <th>{{ $t('CheckupPrivacyAgree.text32') }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>{{ $t('CheckupPrivacyAgree.text7') }}</th>
+                    <td class="light">{{ $t('CheckupPrivacyAgree.text8') }}</td>
+                    <td class="light">{{ $t('CheckupPrivacyAgree.text9') }}</td>
+                    <td class="light">{{ $t('CheckupPrivacyAgree.text33') }}</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('CheckupPrivacyAgree.text10') }}</th>
+                    <td>
+                      {{ $t('CheckupPrivacyAgree.text11') }}
+                    </td>
+                    <td>
+                      {{ $t('CheckupPrivacyAgree.text12') }}
+                    </td>
+                    <td>
+                      {{ $t('CheckupPrivacyAgree.text34') }}
+                    </td>
+                  </tr>
+                  <tr v-if="isShowSelectedAgree">
+                    <th>{{ $t('CheckupPrivacyAgree.text13') }}</th>
+                    <td>{{ $t('CheckupPrivacyAgree.text14') }}</td>
+                    <td>{{ $t('CheckupPrivacyAgree.text14') }}</td>
+                    <td>{{ $t('CheckupPrivacyAgree.text14') }}</td>
+                  </tr>
+                  <tr v-else>
+                    <th>{{ $t('CheckupPrivacyAgree.text13') }}</th>
+                    <td>{{ $t('CheckupPrivacyAgree.text35') }}</td>
+                    <td>{{ $t('CheckupPrivacyAgree.text35') }}</td>
+                    <td>{{ $t('CheckupPrivacyAgree.text35') }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </transition>
+          </div>
+          <div class="txt--center AnalyzePrivacyAgree--more">
+            <button
+              @click="toggleRule1 = !toggleRule1"
+              type="button"
+              class="btn--txt3"
+              :class="toggleRule1 ? 'up' : ''">{{ $t('Common.more') }}</button>
+          </div>
         </div>
-        <div class="txt--desc c222 AnalyzePrivacyAgree--info2">
-          {{ $t('CheckupPrivacyAgree.text3') }}
-        </div>
-        <div class="downUp4--wrap">
-          <transition name="downUp4">
-            <table v-if="toggleRule1" class="AnalyzePrivacyAgree--tb">
-              <thead>
-                <tr>
-                  <th>{{ $t('CheckupPrivacyAgree.text4') }}</th>
-                  <th>{{ $t('CheckupPrivacyAgree.text5') }}</th>
-                  <th>{{ $t('CheckupPrivacyAgree.text6') }}</th>
-                  <th>{{ $t('CheckupPrivacyAgree.text32') }}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th>{{ $t('CheckupPrivacyAgree.text7') }}</th>
-                  <td class="light">{{ $t('CheckupPrivacyAgree.text8') }}</td>
-                  <td class="light">{{ $t('CheckupPrivacyAgree.text9') }}</td>
-                  <td class="light">{{ $t('CheckupPrivacyAgree.text33') }}</td>
-                </tr>
-                <tr>
-                  <th>{{ $t('CheckupPrivacyAgree.text10') }}</th>
-                  <td>
-                    {{ $t('CheckupPrivacyAgree.text11') }}
-                  </td>
-                  <td>
-                    {{ $t('CheckupPrivacyAgree.text12') }}
-                  </td>
-                  <td>
-                    {{ $t('CheckupPrivacyAgree.text34') }}
-                  </td>
-                </tr>
-                <tr v-if="isShowSelectedAgree">
-                  <th>{{ $t('CheckupPrivacyAgree.text13') }}</th>
-                  <td>{{ $t('CheckupPrivacyAgree.text14') }}</td>
-                  <td>{{ $t('CheckupPrivacyAgree.text14') }}</td>
-                  <td>{{ $t('CheckupPrivacyAgree.text14') }}</td>
-                </tr>
-                <tr v-else>
-                  <th>{{ $t('CheckupPrivacyAgree.text13') }}</th>
-                  <td>{{ $t('CheckupPrivacyAgree.text35') }}</td>
-                  <td>{{ $t('CheckupPrivacyAgree.text35') }}</td>
-                  <td>{{ $t('CheckupPrivacyAgree.text35') }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </transition>
-        </div>
-        <div class="txt--center AnalyzePrivacyAgree--more">
-          <button
-            @click="toggleRule1 = !toggleRule1"
-            type="button"
-            class="btn--txt3"
-            :class="toggleRule1 ? 'up' : ''">{{ $t('Common.more') }}</button>
-        </div>
+        <!-- [e] 2606 label 밑 내용 감싸는 AnalyzePrivacyAgree--box 추가 -->
       </div>
-      <hr />
+      <!-- 2606 hr 태그 삭제 -->
       <div class="space--top-big" v-if="isShowSelectedAgree">
         <label>
           <input
@@ -148,57 +152,61 @@ const handleSuccess = () => {
             name="AnalyzePrivacyAgree-check"
             class="custom" />
           <span />
-          {{ $t('CheckupPrivacyAgree.text16') }}
+          민감정보(건강정보) 제3자 제공 동의 <strong>(선택)</strong> <!-- 2606 CheckupPrivacyAgree.text1, 16 (필수/선택) 분리 필요 -->
         </label>
-        <div class="txt--desc c222 AnalyzePrivacyAgree--info">
-          {{ $t('CheckupPrivacyAgree.text17') }}
+        <!-- [s] 2606 label 밑 내용 감싸는 AnalyzePrivacyAgree--box 추가 -->
+        <div class="AnalyzePrivacyAgree--box">
+          <div class="txt--desc c222 AnalyzePrivacyAgree--info">
+            {{ $t('CheckupPrivacyAgree.text17') }}
+          </div>
+          <div class="txt--desc c222 AnalyzePrivacyAgree--info2">
+            {{ $t('CheckupPrivacyAgree.text18') }}
+          </div>
+          <div class="downUp4--wrap">
+            <transition name="downUp4">
+              <table v-if="toggleRule2" class="AnalyzePrivacyAgree--tb">
+                <tbody>
+                  <tr>
+                    <th>{{ $t('CheckupPrivacyAgree.text19') }}</th>
+                    <td>{{ $t('CheckupPrivacyAgree.text20') }}</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('CheckupPrivacyAgree.text7') }}</th>
+                    <td>
+                      <ul>
+                        <li>{{ $t('CheckupPrivacyAgree.text21') }}</li>
+                        <li>{{ $t('CheckupPrivacyAgree.text22') }}</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('CheckupPrivacyAgree.text10') }}</th>
+                    <td>
+                      <ul>
+                        <li>{{ $t('CheckupPrivacyAgree.text23') }}</li>
+                        <li>{{ $t('CheckupPrivacyAgree.text24') }}</li>
+                        <li>{{ $t('CheckupPrivacyAgree.text25') }}</li>
+                        <li>{{ $t('CheckupPrivacyAgree.text26') }}</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('CheckupPrivacyAgree.text13') }}</th>
+                    <td v-html="$t('CheckupPrivacyAgree.text27')"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </transition>
+          </div>
+          <div class="txt--center AnalyzePrivacyAgree--more">
+            <button
+              @click="toggleRule2 = !toggleRule2"
+              type="button"
+              class="btn--txt3"
+              :class="toggleRule2 ? 'up' : ''">{{ $t('Common.more') }}</button>
+          </div>
         </div>
-        <div class="txt--desc c222 AnalyzePrivacyAgree--info2">
-          {{ $t('CheckupPrivacyAgree.text18') }}
-        </div>
-        <div class="downUp4--wrap">
-          <transition name="downUp4">
-            <table v-if="toggleRule2" class="AnalyzePrivacyAgree--tb">
-              <tbody>
-                <tr>
-                  <th>{{ $t('CheckupPrivacyAgree.text19') }}</th>
-                  <td>{{ $t('CheckupPrivacyAgree.text20') }}</td>
-                </tr>
-                <tr>
-                  <th>{{ $t('CheckupPrivacyAgree.text7') }}</th>
-                  <td>
-                    <ul>
-                      <li>{{ $t('CheckupPrivacyAgree.text21') }}</li>
-                      <li>{{ $t('CheckupPrivacyAgree.text22') }}</li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <th>{{ $t('CheckupPrivacyAgree.text10') }}</th>
-                  <td>
-                    <ul>
-                      <li>{{ $t('CheckupPrivacyAgree.text23') }}</li>
-                      <li>{{ $t('CheckupPrivacyAgree.text24') }}</li>
-                      <li>{{ $t('CheckupPrivacyAgree.text25') }}</li>
-                      <li>{{ $t('CheckupPrivacyAgree.text26') }}</li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <th>{{ $t('CheckupPrivacyAgree.text13') }}</th>
-                  <td v-html="$t('CheckupPrivacyAgree.text27')"></td>
-                </tr>
-              </tbody>
-            </table>
-          </transition>
-        </div>
-        <div class="txt--center AnalyzePrivacyAgree--more">
-          <button
-            @click="toggleRule2 = !toggleRule2"
-            type="button"
-            class="btn--txt3"
-            :class="toggleRule2 ? 'up' : ''">{{ $t('Common.more') }}</button>
-        </div>
+        <!-- [e] 2606 label 밑 내용 감싸는 AnalyzePrivacyAgree--box 추가 -->
       </div>
     </div>
 

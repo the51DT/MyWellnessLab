@@ -1024,34 +1024,37 @@ footer{
     @include btnClear;
     background-color: $btn-background-white;
     width: 100%;
-    height: 8rem;
-    border-radius: 1.2rem;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, .1);
-    font-size: $btn-font-size-big;
+    height: 9.4rem;
+    border-radius: 2.4rem;
+    border: .1rem solid #E5E5E5;
     color: $btn-font-color-gray;
     text-align: left;
     padding-left: 1.6rem;
     @include childCenter(lc);
+    @media (min-width:$w-pc) {
+      border-radius: 2.6rem;
+    }
     &:hover{
-      border: 1px solid #7e7e7e;
+      box-shadow: inset 0 0 0 .2rem #1DB196;
+      border: none;
     }
     &--ico{
-      $radius: 5.6rem;
+      $radius: 5.4rem;
       width: $radius;
       height: $radius;
-      background-color: #F9F9F9;
+      background-color: #F5F5F5;
       border-radius: $radius;
       @include childCenter;
-      margin-right: 2rem;
+      margin-right: 1.7rem;
     }
     &--desc{
       display: block;
-      font-size: $btn-font-size-small3;
-      color: $btn-font-color-gray3;
+      @include txtStyle(body, xs, 500);
+      color: #666;
     }
     &--txt{
       @include childCenter;
-      font-family: $font-family-medium;
+      @include txtStyle(body, md, 600);
     }
   }
   &--txt2{
@@ -4773,12 +4776,12 @@ button{
     height: auto;
     text-align: left;
     padding: 0 2rem;
-    margin-top: 2rem;
-    @include min-vh-fallback(100, 6.9rem);
+    margin-top: 2.4rem;
+    @include min-vh-fallback(100, 7.2rem);
     @media (min-width: $w-pc) {
       padding: 0;
-      margin-top: 10rem;
-      min-height: unset;
+      margin-top: 3.2rem;
+      @include min-vh-fallback(100, 11.2rem);
     }
     .Checkup--btn-wrap.btns-2{
       margin-top: 3rem;
@@ -4891,11 +4894,11 @@ button{
   .space--top-default,
   .space--top-big{
     label{
-      font-family: $font-family-light;
-      font-size: 1.5rem;
+      @include txtStyle(body, xs);
       cursor: pointer;
-      @media (min-width: $w-pc) {
-        font-size: 1.6rem;
+      strong{
+        font-weight: 400;
+        color: #1DB196;
       }
     }
   }
@@ -9304,160 +9307,131 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
 }
 .CheckupGuide{
-  padding: 3.2rem 2rem;
-  @media (min-width: $w-pc-small3) {
-    max-width: 60.4rem;
+  padding: 2.4rem 2rem 0;
+  max-width: $w-pc-wrap;
+  margin: 0 auto;
+  @media (min-width: $w-pc) {
     margin: 0 auto;
-    padding: 3rem 0 2rem;
+    padding: 2.8rem 2rem 0;
   }
-  &--tit{    
-    font-size: 1.8rem;
-    font-family: $font-family-medium;
-    width: 30rem;
-    margin: 0 auto;
+  &--tit{
+    @include txtStyle(body, lg);
     text-align: center;
     word-break: keep-all;
-    color: #444;
-    @media (min-width: $w-pc) {
-      width: auto;
-      font-size: 3.2rem;
+    strong{
+      font-weight: 600;
     }
   }
   &--con{
     position: relative;
     color: $txt-font-color-white;
     background: $background-color-green;
-    padding: 3.2rem 2rem 21rem;
-    margin-top: 2.4rem;
+    padding: 2.4rem 1.8rem 15rem 1.6rem;
+    margin-top: 2.8rem;
     border-radius: 2.4rem;
-    box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, 0.2);
-    @media (min-width: $w-pc-small3) {
-      padding: 3.2rem 7rem 9rem 3.6rem;
-      margin-top: 3rem;
+    @media (min-width: $w-pc) {
+      padding: 2.4rem 2.4rem 17rem 2rem;
     }
     ul{
       position: relative;
       @include alignUl;
       li{
-        gap: 0.8rem;
-        margin-top: 4rem;
+        gap: 1rem;
+        margin-top: 2rem;
         @media (min-width: $w-pc) {
-          margin-top: 3rem;
+          gap: 1.2rem;
+          margin-top: 2.4rem;
         }
         &:first-child{
           margin-top: 0;
-        }
-        &:last-child{
-          @media (min-width: $w-pc-small3) {
-            .CheckupGuide--con-text--desc{
-              width: 30rem;
-            }
-          }
         }
       }
       &:before{
         content: "";
         position: absolute;
-        left: 2.3rem;
+        left: 2.1rem;
         top: 0;
         height: calc(100% - 8rem);
-        border: 1px dashed #ffffff;
-        opacity: 0.4;
+        border: 1px dashed #C3E9E4;
+        opacity: 0.8;
       }
     }
     &:after{
       content: "";
       position: absolute;
-      right: -1.4rem;
-      bottom: -2rem;
-      width: 26rem;
-      height: 22rem;
-      background: url("/img/img_doctor3.png") no-repeat center / cover;
+      right: -1.1rem;
+      bottom: -1.6rem;
+      width: 20rem;
+      height: 16.7rem;
+      background: url("/img/img_doctor3.png") no-repeat center / contain;
+      @media (min-width:$w-pc) {
+        right: -2.1rem;
+        bottom: -1.9rem;
+        width: 24rem;
+        height: 20.1rem;
+      }
     }
     &-icon{
-      width: 4.8rem;
-      height: 4.8rem;
+      flex: 0 0 4.4rem;
+      width: 4.4rem;
+      height: 4.4rem;
       background: #fff;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 1;
-      @media (min-width: $w-pc) {
-        width: 5.2rem;
-        height: 5.2rem;
-      }
     }
     &-text{
-      width: calc(100% - 5.6rem);
-      &--step{
-        font-size: 1.2rem;
-        font-family: $font-family-light;
-      }
+      width: 100%;
+      // &--step{
+      //   font-size: 1.2rem;
+      //   font-family: $font-family-light;
+      // }
       &--tit{
-        font-size: 2.6rem;
-        font-family: $font-family-bold;
-        font-weight: normal;
-        letter-spacing: -0.05rem;
-        line-height: 2.4rem;
-        margin-top: 0.6rem;
-        span{
-          font-size: 1.4rem;
-          font-family: $font-family-light;
-          opacity: 0.8;
-          line-height: 1rem;
-        }
+        @include txtStyle(body, lg-1, 600);
+        // span{
+        //   font-size: 1.4rem;
+        //   font-family: $font-family-light;
+        //   opacity: 0.8;
+        //   line-height: 1rem;
+        // }
       }
       &--desc{
-        font-size: 1.5rem;
-        font-family: $font-family-light;
-        opacity: 0.7;
-        margin-top: 1rem;
+        @include txtStyle(body, 2xs-1, 500);
+        color: #DEF7F4;
+        word-break: break-all;
+        margin-top: .2rem;
       }
     }
   }
   &--desc{
-    margin-top: 4rem;
-    @media (min-width: $w-pc-small3) {
-      width: 50rem;
-      margin: 5rem auto 0;
+    margin-top: 3.2rem;
+    @media (min-width:$w-pc) {
+      margin-bottom: 6.5rem;
     }
     &-text{
-      font-size: 1.2rem;
-      font-family: $font-family-light;
-      color: #555;
-      @media (min-width: $w-pc) {
-        font-size: 1.3rem;
-      }
+      @include txtStyle(caption, xl-1, 500);
+      color: #808080;
       &.red{
         color: $txt-font-color-red;
-        text-align: center;
-        font-size: 1.6rem;
-        font-family: $font-family-medium;
-        margin: 3rem 0 0;
-        @media (min-width: $w-pc) {
-          font-size: 1.8rem;
-          width: calc(100% + 10rem);
-          margin: 4rem -5rem 0;
-        }
+        @include txtStyle(body, xl-1, 400);
+        margin: 2.4rem 0 0;
+        word-break: break-all;
       }
     }
   }
   &--btn{
-    margin-top: 2rem;
-    text-align: center;
+    padding: 2rem 0 2.4rem;
+    width: 100%;
+    max-width: $w-pc-wrap;
+    background-color: #F5F5F5;
     @media (min-width: $w-pc) {
-      margin-top: 2.8rem;
+      padding: 2.4rem 0 2.8rem;
     }
     button{
       @include btnBig;
-      width: $w-full;
-      max-width: 40rem;
-      @media (min-width: $w-pc-small3) {
-        width: 50rem;
-        max-width: none;
-        font-size: 1.8rem;
-      }
+      width: 100%;
     }
   }
 }
@@ -12794,67 +12768,69 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
 }
 .analyze{
-  @include spaceRLSDefault;
-  @media (min-width: $w-pc) {
-    margin-right: 0;
-    margin-left: 0;
-  }
+  @include checkupRLSpace;
+  max-width: $w-pc-wrap;
+  margin: 0 auto;
   &--ul{
     @include alignUl;
-    margin-top: 2.4rem;
-    font-family: $font-family-light;
+    margin-top: 2rem;
     padding-bottom: 4rem;
+    @media (min-width:$w-pc) {
+      margin-top: 2.4rem;
+    }
+    li{
+      &::before{
+        content: '※';
+      }
+      span{
+        word-break: break-all;
+      }
+    }
     li + li{
-      margin-top: 2rem;
+      margin-top: .8rem;
     }
   }
   &--info{
-    @include mainMsg2;
-    font-size: 2.2rem;
+    @include txtStyle(body, lg, 600);
+    margin-top: 2.4rem;
     .gray{
-      font-family: $font-family-medium;
+      font-weight: 400;
     }
-    @media (min-width: $w-pc) {
-      font-size: 2.4rem;
+    @media (min-width:$w-pc) {
+      margin-top: 14rem;
     }
   }
   &--btn-wrap{
-    margin-top: $marginTop-big2;
+    margin-top: 2.8rem;
     @media (min-width: $w-pc) {
       @include alignBetween;
-      margin-top: 4rem;
+      max-width: 39.2rem;
+      margin: 3.6rem auto 0;
       .btn--big4--txt{
         display: block;
         margin: auto;
       }
       .btn--big4{
         text-align: center;
-        min-height: 21.4rem;
+        min-height: 21.1rem;
         padding-left: 0;
       }
       .btn--big4--ico{
-        width: 8rem;
-        height: 8rem;
-        margin: 1.5rem auto;
+        width: 7.2rem;
+        height: 7.2rem;
+        margin: .4rem auto 1.8rem;
         img{
           width: 58%;
         }
       }
-      .checkup--import{
-        font-size: 2rem;
-      }
-      .btn--big4--desc{
-        font-size: 1.6rem;
-      }
       .checkup--direct{
         display: block;
-        height: 5rem;
-        font-size: 2rem;
+        height: 5.4rem;
       }
     }
     & > a{
       @media (min-width: $w-pc) {
-        width: calc((100% - 2rem) / 2);
+        width: calc((100% - 1.2rem) / 2);
       }
       &:last-child{
         margin-top: 1.6rem;
@@ -12878,10 +12854,11 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     }
   }
   &--txt{
-    font-size: $txt-font-size-small2;
-    color: $txt-font-color-gray4;
-    @media (min-width: $w-pc) {
-      font-size: 1.5rem;
+    @include txtStyle(body, 2xs);
+    color: #808080;
+    @media (min-width:$w-pc) {
+      max-width: 39.2rem;
+      margin: 0 auto;
     }
   }
   &-box{
@@ -12902,19 +12879,19 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     margin-top: $marginTop-default;
   }
 }
-.checkupSide{
-  @media (min-width: $w-pc) {
-    .analyze--info{
-      margin-top: 10rem;
-    }
-    .analyze--ul{
-      margin-top: 2rem;
-    }
-    .analyze--ul li + li {
-      margin-top: 1rem;
-    }
-  }
-}
+// .checkupSide{
+//   @media (min-width: $w-pc) {
+//     .analyze--info{
+//       margin-top: 10rem;
+//     }
+//     .analyze--ul{
+//       margin-top: 2rem;
+//     }
+//     .analyze--ul li + li {
+//       margin-top: 1rem;
+//     }
+//   }
+// }
 .AnalyzeList { /*분석*/
   @include spaceRLSDefault;
   @media (min-width: $w-pc) {

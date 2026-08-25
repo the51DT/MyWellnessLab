@@ -7,7 +7,8 @@ const router = useRouter()
 
 const startCheckup = () => {
   // 가이드 페이지에서 시작하기 버튼 클릭 시 CheckupSideSelect로 이동
-  router.push({ name: 'CheckupSideSelect' })
+  router.push('/publishing/checkup') // 2606 퍼블 확인용 아래 주석이 원본 내용
+  // router.push({ name: 'CheckupSideSelect' })
 }
 </script>
 

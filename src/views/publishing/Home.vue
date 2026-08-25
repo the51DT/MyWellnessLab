@@ -94,19 +94,51 @@ const isEmptyAnalysisComplete = computed(() => {
 })
 
 const hasCoupon = async () => {
-  const params = {
-    pageNo: 0,
-    perPageNum: 500
-  }
+  return true // 퍼블 확인용 아래 주석이 원본
 
-  const response = await couponApi.getCouponList(params)
+  // const params = {
+  //   pageNo: 0,
+  //   perPageNum: 500
+  // }
 
-  return response.data.coupons && response.data.coupons.length > 0
+  // const response = await couponApi.getCouponList(params)
+
+  // return response.data.coupons && response.data.coupons.length > 0
 }
 
 const openPopNoCoupon = ref(false) /* 240118 쿠폰을 사야한다는 팝업 오프너 */
 const openPopContinue = ref(false) /* 240119 기존에 하다 말았던 설문을 이어받아서 하겠냐는 팝업 오프너 */
 const isContinue = ref(null) /* 240118 하다 말았던 설문을 이어하려면 true, 새로 하려면 false */
+
+/* [s] 퍼블 확인용 - 검진 진입 임시 데이터 */
+const publishingCheckupCommonInfo = {
+  id: 1,
+  basicsId: 1,
+  analysisId: 1,
+  analysisType: 'normal',
+  currentStep: 'basics',
+  status: 'TEMP'
+}
+
+const publishingNhisData = {
+  checkDate: '2026.10.25',
+  ht: 175,
+  wt: 78,
+  wc: 88,
+  bmi: 25.5,
+  sbp: 132,
+  dbp: 86,
+  glu: 104,
+  tc: 205,
+  ldl: 135,
+  hdl: 46,
+  tg: 165,
+  got: 32,
+  gpt: 41,
+  crea: 1.0,
+  hb: 15.1
+}
+/* [e] 퍼블 확인용 - 검진 진입 임시 데이터 */
 
 const confirmContinue = () => { /* 240119 설문을 이어갈지 말지 판단하는 함수 */
   openPopContinue.value = true
@@ -130,52 +162,61 @@ const getNhisInfo = async (id) => {
 
 const moveCheckUpPage = async () => {
   try {
-    if (!await hasCoupon()) {
-      openPopNoCoupon.value = true
-      return
-    }
+    // 퍼블 확인용 아래 주석이 원본
+    store.dispatch('checkup/init')
+    store.dispatch('checkup/setAnalysisType', 'normal')
+    store.dispatch('checkup/setHealthDataType', 'direct')
+    store.dispatch('checkup/setBasicsId', publishingCheckupCommonInfo.basicsId)
+    store.dispatch('checkup/setNhisData', publishingNhisData)
 
-    const checkupCommonInfo = await getCommonInfo('normal')
+    router.push('/publishing/checkup/guide')
 
-    if (checkupCommonInfo) {
-      if (await confirmContinue()) {
-        const nhisInfo = await getNhisInfo(checkupCommonInfo.id)
+    // if (!await hasCoupon()) {
+    //   openPopNoCoupon.value = true
+    //   return
+    // }
 
-        if (nhisInfo) {
-          const data = {
-            checkDate: dateConvert(nhisInfo.resCheckupYear.concat(nhisInfo.resCheckupDate), '.'),
-            ht: nhisInfo.resHeight,
-            wt: nhisInfo.resWeight,
-            wc: nhisInfo.resWaist,
-            bmi: nhisInfo.resBMI,
-            sbp: nhisInfo.resBloodPressure.split('/')[0],
-            dbp: nhisInfo.resBloodPressure.split('/')[1],
-            glu: nhisInfo.resFastingBloodSuger,
-            tc: nhisInfo.resTotalCholesterol,
-            ldl: nhisInfo.resLDLCholesterol,
-            hdl: nhisInfo.resHDLCholesterol,
-            tg: nhisInfo.resTriglyceride,
-            got: nhisInfo.resAST,
-            gpt: nhisInfo.resALT,
-            crea: nhisInfo.resSerumCreatinine,
-            hb: nhisInfo.resHemoglobin
-          }
+    // const checkupCommonInfo = await getCommonInfo('normal')
 
-          store.dispatch('checkup/setNhisData', data)
-          store.dispatch('checkup/setHealthDataType', 'formal')
-        } else {
-          store.dispatch('checkup/setHealthDataType', 'direct')
-        }
-        store.dispatch('checkup/setBasicsId', checkupCommonInfo.basicsId)
+    // if (checkupCommonInfo) {
+    //   if (await confirmContinue()) {
+    //     const nhisInfo = await getNhisInfo(checkupCommonInfo.id)
 
-        moveStep(checkupCommonInfo)
-      } else {
-        await checkupApi.deleteCheckup(checkupCommonInfo.id)
-        router.push({ name: 'CheckupGuide' })
-      }
-    } else {
-      router.push({ name: 'CheckupGuide' })
-    }
+    //     if (nhisInfo) {
+    //       const data = {
+    //         checkDate: dateConvert(nhisInfo.resCheckupYear.concat(nhisInfo.resCheckupDate), '.'),
+    //         ht: nhisInfo.resHeight,
+    //         wt: nhisInfo.resWeight,
+    //         wc: nhisInfo.resWaist,
+    //         bmi: nhisInfo.resBMI,
+    //         sbp: nhisInfo.resBloodPressure.split('/')[0],
+    //         dbp: nhisInfo.resBloodPressure.split('/')[1],
+    //         glu: nhisInfo.resFastingBloodSuger,
+    //         tc: nhisInfo.resTotalCholesterol,
+    //         ldl: nhisInfo.resLDLCholesterol,
+    //         hdl: nhisInfo.resHDLCholesterol,
+    //         tg: nhisInfo.resTriglyceride,
+    //         got: nhisInfo.resAST,
+    //         gpt: nhisInfo.resALT,
+    //         crea: nhisInfo.resSerumCreatinine,
+    //         hb: nhisInfo.resHemoglobin
+    //       }
+
+    //       store.dispatch('checkup/setNhisData', data)
+    //       store.dispatch('checkup/setHealthDataType', 'formal')
+    //     } else {
+    //       store.dispatch('checkup/setHealthDataType', 'direct')
+    //     }
+    //     store.dispatch('checkup/setBasicsId', checkupCommonInfo.basicsId)
+
+    //     moveStep(checkupCommonInfo)
+    //   } else {
+    //     await checkupApi.deleteCheckup(checkupCommonInfo.id)
+    //     router.push({ name: 'CheckupGuide' })
+    //   }
+    // } else {
+    //   router.push({ name: 'CheckupGuide' })
+    // }
   } catch (e) {
     console.error(e)
   }
@@ -209,7 +250,8 @@ const moveOneTimeAnalysis = async () => {
     store.dispatch('checkup/setAnalysisType', 'onetime')
     store.dispatch('checkup/setHealthDataType', 'direct')
 
-    router.push({ name: 'CheckupSideTerms' })
+    router.push('/publishing/checkup/checkup-privacy-agree') //퍼블 확인용 아래 주석이 원본
+    // router.push({ name: 'CheckupSideTerms' })
   }
   return false
 }

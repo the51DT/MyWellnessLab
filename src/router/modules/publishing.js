@@ -164,19 +164,27 @@ const publishingRouter = {
         {
           path: "",
           name: "pubCheckup",
-          component: () => import("@/views/publishing/Checkup.vue"),
+          component: () => import("@/views/checkupSide/Checkup.vue"),
           meta: {
             title: "건강데이터 등록방법 선택",
             class: "short",
           },
         },
         {
+          path: "guide",
+          name: "pubCheckupGuide",
+          component: () => import("@/views/checkupSide/CheckupGuide.vue"),
+          meta: {
+            title: "분석 시작",
+          },
+        },
+        {
           path: "checkup-privacy-agree",
           name: "pubCheckupPrivacyAgree",
           component: () =>
-            import("@/views/publishing/checkup/CheckupPrivacyAgree.vue"),
+            import("@/views/checkupSide/CheckupPrivacyAgree.vue"),
           meta: {
-            title: "민감정보수집 이용동의 (필수)",
+            title: "민감정보 수집 및 이용",
             class: "wide",
           },
         },

@@ -119,72 +119,77 @@ router.beforeEach((to, from, next) => {
 // })
 
 router.beforeEach(async (to, from, next) => {
-  const isLogin = store.getters.isLogin
+  const isLogin = store.getters.isLogin;
 
   const nextWithTitle = (route) => {
     //setPageTitle(route || to)
-    return next(route)
-  }
+    return next(route);
+  };
 
   if (isLogin) {
-    requestHeapAnalytics(to, store.getters.getUser)
+    requestHeapAnalytics(to, store.getters.getUser);
   }
 
-  if (to.name === 'Home') {
-    const accessControl = useAccessControl()
-    await accessControl()
+  if (to.name === "Home") {
+    const accessControl = useAccessControl();
+    await accessControl();
   }
 
+  // 2606 퍼블 확인을 위해 라우터 checkup 페이지 접근 id 확인 주석처리
   // checkup 페이지 접근 시 basicsId 확인
-  if (to.path.includes('/checkup/') && to.name !== 'CheckupBasics') {
-    const basicsId = store.getters['checkup/getBasicsId']
-    // null 또는 undefined 검증
-    if (!basicsId) {
-      console.log('Checkup 페이지 접근 시 basicsId 없음 - Home으로 리다이렉트')
-      alert(i18n.global.t('Common.invalidAccess'))
-      return nextWithTitle({ name: 'Home' })
-    }
+  // if (to.path.includes('/checkup/') && to.name !== 'CheckupBasics') {
+  //   const basicsId = store.getters['checkup/getBasicsId']
+  //   // null 또는 undefined 검증
+  //   if (!basicsId) {
+  //     console.log('Checkup 페이지 접근 시 basicsId 없음 - Home으로 리다이렉트')
+  //     alert(i18n.global.t('Common.invalidAccess'))
+  //     return nextWithTitle({ name: 'Home' })
+  //   }
 
-    // 양의 정수 검증
-    const basicsIdNum = Number(basicsId)
-    if (isNaN(basicsIdNum) || !Number.isInteger(basicsIdNum)) {
-      console.log('Checkup 페이지 접근 시 basicsId 정수가 아님 - Home으로 리다이렉트')
-      alert(i18n.global.t('Common.invalidAccess'))
-      return nextWithTitle({ name: 'Home' })
-    }
-  }
+  //   // 양의 정수 검증
+  //   const basicsIdNum = Number(basicsId)
+  //   if (isNaN(basicsIdNum) || !Number.isInteger(basicsIdNum)) {
+  //     console.log('Checkup 페이지 접근 시 basicsId 정수가 아님 - Home으로 리다이렉트')
+  //     alert(i18n.global.t('Common.invalidAccess'))
+  //     return nextWithTitle({ name: 'Home' })
+  //   }
+  // }
 
   // console.log('to.path', to.path)
-  if (to.path.includes('/publishing') || to.path.includes('/info') || to.path === '/construction' ) {
-    return nextWithTitle()
+  if (
+    to.path.includes("/publishing") ||
+    to.path.includes("/info") ||
+    to.path === "/construction"
+  ) {
+    return nextWithTitle();
   }
 
   try {
-    const accessControlType = await store.dispatch('getAccessControlType')
+    const accessControlType = await store.dispatch("getAccessControlType");
 
-    if (to.name === 'Intro') {
+    if (to.name === "Intro") {
       if (isLogin) {
-        return nextWithTitle({ name: 'Home' })
+        return nextWithTitle({ name: "Home" });
       } else {
         if (accessControlType === ACCESS_CONTROL_TYPE.ENTRY) {
-          return nextWithTitle({ name: 'Reload' })
+          return nextWithTitle({ name: "Reload" });
         }
       }
 
-      return next()
+      return next();
     }
 
     if (accessControlType === ACCESS_CONTROL_TYPE.NO_ENTRY) {
-      store.dispatch('initUser')
-      return nextWithTitle({ name: 'Intro' })
+      store.dispatch("initUser");
+      return nextWithTitle({ name: "Intro" });
     } else if (accessControlType === ACCESS_CONTROL_TYPE.RELOAD) {
-      store.dispatch('initUser')
-      return nextWithTitle({ name: 'Reload' })
+      store.dispatch("initUser");
+      return nextWithTitle({ name: "Reload" });
     }
-    return nextWithTitle()
+    return nextWithTitle();
   } catch (e) {
-    store.dispatch('initUser')
-    return nextWithTitle({ name: 'Intro' })
+    store.dispatch("initUser");
+    return nextWithTitle({ name: "Intro" });
   }
 })
 

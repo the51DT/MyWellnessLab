@@ -251,12 +251,14 @@ const drawChart = (x, y, z) => {
   y: [0, draw_my_location_ring.y[0], 0],
   z: [0, 0, draw_my_location_ring.z[0]],
 
+  // [s] 2606 차트 내부 마커 스타일 수정
   marker: {
     symbol: 'circle',
-    size: 8,  // 
-    color: '#222222',
+    size: 7,  // 
+    color: '#1A1818',
     opacity: 1
   },
+  // [e] 2606 차트 내부 마커 스타일 수정
   hoverinfo: 'skip',
   showlegend: false
 };
@@ -270,6 +272,10 @@ const drawChart = (x, y, z) => {
   //data_list.push(data_marker3_list) // 나의 위치 마커 다이아몬드 (핀 끝)
   //data_list.push(data_line) // 나의 위치 마커와 실제 나의 위치를 잇는 세로 선
   var data = data_list;
+  // [s] 2606 차트 내부 스타일 수정용 변수
+  const isPc = window.innerWidth >= 960
+  const titleFontSize = isPc ? 13 : 11
+  // [e] 2606 차트 내부 스타일 수정용 변수
   var layout = {
     // width, height 제거 - responsive로 자동 조정
     margin: {
@@ -301,11 +307,14 @@ const drawChart = (x, y, z) => {
         showspikes: false, // 스파이크 라인 완전 비활성화
         spikedistance: -1, // 스파이크 거리 비활성화
         hoverinfo: 'skip', // 호버 정보 완전 비활성화
+      // [s] 2606 차트 내부 폰트 수정
       xaxis: {
         // scaleratio: 2,
         title: {
           font: {
-            size: 9
+            family: 'Pretendard, sans-serif',
+            size: titleFontSize,
+            color: '#555'
           },
           text: t('Bubble3DChart.agingSuppressionIndex'),
           position: 0.2,
@@ -320,7 +329,9 @@ const drawChart = (x, y, z) => {
         scaleratio: 2,
         title: {
           font: {
-            size: 9
+            family: 'Pretendard, sans-serif',
+            size: titleFontSize,
+            color: '#555'
           },
           text: t('Bubble3DChart.chronicDiseaseSuppressionIndex')
         },
@@ -333,7 +344,9 @@ const drawChart = (x, y, z) => {
         scaleratio: 2,
         title: {
           font: {
-            size: 9
+            family: 'Pretendard, sans-serif',
+            size: titleFontSize,
+            color: '#555'
           },
           text: t('Bubble3DChart.muscleBalanceIndex')
         },
@@ -350,8 +363,10 @@ const drawChart = (x, y, z) => {
           text: data_x,
           showarrow: false,
           font: {
-            size: 10,
+            family: 'Pretendard, sans-serif',
+            size: titleFontSize,
             color: "white",
+            weight: 700
           },
           bgcolor: "transparent", // ✅ 배경색
           borderwidth: 0,                   // ✅ 테두리 두께
@@ -364,10 +379,12 @@ const drawChart = (x, y, z) => {
            z: 0,
            text: data_y,
            showarrow: false,
-           font: {
-             size: 10,
-             color: "white",
-           },
+          font: {
+            family: 'Pretendard, sans-serif',
+            size: titleFontSize,
+            color: "white",
+            weight: 700
+          },
            bgcolor: "transparent", // ✅ 배경색
            borderwidth: 0,                   // ✅ 테두리 두께
            opacity: 1,
@@ -379,16 +396,19 @@ const drawChart = (x, y, z) => {
            z: draw_my_location_ring.z[0],
            text: data_z,
            showarrow: false,
-           font: {
-             size: 10,
-             color: "white",
-           },
+          font: {
+            family: 'Pretendard, sans-serif',
+            size: titleFontSize,
+            color: "white",
+            weight: 700
+          },
            bgcolor: "transparent", // ✅ 배경색
            borderwidth: 0,                   // ✅ 테두리 두께
            opacity: 1,
            borderpad: 1
          }
        ]
+      // [e] 2606 차트 내부 폰트 수정
     },
     showlegend: false,
   };
@@ -613,7 +633,7 @@ const resetChart = () => {
   </div>
 </template>
 
-<style>
+<style lang="scss"> /* 2606 스타일 태그 내용 수정 */
 #Wellness3DChart .Wellness3DChart-container {
     position: relative;
     margin: 0px auto 1.875rem;
@@ -625,28 +645,27 @@ const resetChart = () => {
   top: 0;
   right: 0;
   cursor: pointer;
-  width: 8.4rem;
-  height: 2.6rem;
-  padding: 0.5rem 0;
-  border-radius: 1.3rem;
+  height: 2.8rem;
+  padding: 0 1.2rem;
+  border-radius: 9rem;
   transition: background-color 0.2s ease;
   border: 1px solid #1DB196;
   font-size: 1.2rem;
+  line-height: 1.5;
   color: #1DB196;
   background: #fff;
-  font-family: "RixSinHead_Medium", sans-serif;
+  font-family: "Pretendard", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
+  gap: 0.4rem;
   @media (min-width: 960px) {
-    top: -5rem;
+    top: -2.5rem;
     right: auto;
     left: 50%;
-    transform: translateX(-50%);
-  }
-  span{
-    line-height: 1.2rem;
+    height: 3.2rem;
+    transform: translate(-50%, -100%);
+    font-size: 1.3rem;
   }
   img{
     width: 1.6rem;
@@ -735,14 +754,14 @@ const resetChart = () => {
 
 #Wellness3DChart .chart {
     width: 100%;
-    height: 300px; /* 높이를 줄여서 왼쪽 글자가 보이도록 */
+    height: 30rem; /* 높이를 줄여서 왼쪽 글자가 보이도록 */
     -webkit-user-select: none; /* 웹킷 선택 방지 */
     -moz-user-select: none; /* 파이어폭스 선택 방지 */
     -ms-user-select: none; /* IE 선택 방지 */
     user-select: none; /* 텍스트 선택 방지 */
     pointer-events: auto; /* 마우스 이벤트 허용하되 호버 효과만 차단 */
     @media (min-width: 960px) {
-      transform: scale(1.6);
+      transform: scale(1.3);
       transform-origin: center center;
       padding-top: 1rem;
     }

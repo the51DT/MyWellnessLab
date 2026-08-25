@@ -346,7 +346,12 @@ function calculateTooltipPosition () {
   // 컨테이너 기준으로 물음표 버튼 중앙 위치 계산
   const buttonCenterX = buttonRect.left + buttonRect.width / 2 - containerRect.left
   
-  tooltipEdge.value = buttonCenterX - 10
+  // 2606 커스텀 툴팁 꼬리 위치 수정
+  if (window.innerWidth > 960) {
+    tooltipEdge.value = buttonCenterX - 21
+  } else {
+    tooltipEdge.value = buttonCenterX - 12
+  }
 }
 
 /**
@@ -800,7 +805,7 @@ const setChartCursor = () => {
                 </div>
 
                 <!-- 600 이하일 때 'Who 권장 600' 표시 -->
-                <span v-if="props.compId === 'AnalyzeExerciseIndex' && (chartData?.score || 0) < 600" :class="componentClass + '--who'">
+                <span v-if="props.compId === 'AnalyzeExerciseIndex' && (chartData?.score || 0) < 600" :class="componentClass + '--who'" :style="{'--line-color': color}"> <!-- 2606 --who 스타일 컬러 변수 추가 -->
                   <span>600</span> {{ $t('AnalyzeScorecomAnalyzeIndex.whoRecommended') }}
                 </span>
                
@@ -856,7 +861,7 @@ const setChartCursor = () => {
   </div>
 </template>
 
-<style scoped>
+<style scoped> /* 2606 스타일 태그 내용 수정 */
 /* 커스텀 포인터 */
 .custom-pointer-border {
   border: 8px solid v-bind(color);
@@ -870,12 +875,8 @@ const setChartCursor = () => {
 .echart.scoreCom {
   /* 변경필요 */
   margin: 1rem auto 0;
-  width: 26.8rem;
-  height: 26.8rem;
-  @media (max-width: 350px) {
-    width: 26rem;
-    height: 26rem;
-  }
+  width: 26.7rem;
+  height: 26.7rem;
   @media (min-width: 960px) {
     margin-top: 1.6rem;
   }

@@ -118,7 +118,10 @@
       }
     }
     .AnalyzeDownload{
-      padding-bottom: 8rem;
+      padding-bottom: 4rem;
+      @media (min-width: $w-pc) {
+        padding-bottom: 6rem;
+      }
     }
   }
   &--normal{
@@ -2899,20 +2902,20 @@ footer{
   }
   &--wrap{
     position: absolute;
-    top: 3.8rem;
+    top: 4.4rem;
     left: 0;
     border: solid 1px $tooltip-line-color;
-    border-radius: .8rem;
-    padding: 1.2rem;
+    border-radius: 1.2rem;
+    padding: .8rem .8rem 1rem 1.2rem;
     background: $tooltip-background-color;
-    font-size: 1.2rem;
+    @include txtStyle(caption, xl-1);
     z-index: 1;
-    margin-right: -1rem;
-    margin-left: -1rem;
     text-align: left;
     @include alignBetween;
     @media (min-width: $w-pc) {
-      top: 46px;
+      top: 4.8rem;
+      max-width: 48rem;
+      padding: 1.2rem 1.2rem 1.5rem 1.6rem;
     }
     & > *{
       &:first-child{
@@ -2926,31 +2929,49 @@ footer{
   }
   &--close{
     //text-align: right;
-    width: 3rem;
-    float: right;
+    width: 2rem;
+    margin-left: .4rem;
     position: relative;
     z-index: 1;
+    @media (min-width:$w-pc) {
+      width: 2.4rem;
+    }
     button{
       @include btnClear;
-      background: url("/img/ico_tooltip_close.svg") center no-repeat;
-      width: 2.4rem;
-      height: 2.4rem;
-      margin-left: 1rem;
-      margin-bottom: 1rem;
-      margin-top: -4px;
-      margin-right: -5px;
+      background: url("/img/ico_tooltip_close.svg") no-repeat center / contain;
+      width: 2rem;
+      height: 2rem;
+      @media (min-width:$w-pc) {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
     }
   }
   &--contents{
     position: relative;
-    font-size: 1.3rem;
-    font-family: $font-family-light;
-    color: #555;
-    @media (min-width: $w-pc) {
-      font-size: 1.5rem;
+    @include txtStyle(caption, xl-1);
+    color: #666;
+    ul{
+      list-style: none;
+      padding: 0;
+    }
+    li{
+      position: relative;
+      padding-left: .7rem;
+      &::before{
+        content: '';
+        position: absolute;
+        top: .85rem;
+        left: 0;
+        display: block;
+        width: .3rem;
+        height: .3rem;
+        border-radius: 99rem;
+        background-color: #666;
+      }
     }
     li + li{
-      margin-top: 0.6rem;
+      margin-top: 0.4rem;
     }
     p, li{
       word-break: break-all;
@@ -2959,11 +2980,14 @@ footer{
   }
   &--edge{
     width: 1.6rem;
-    height: 1rem;
-    top: -2.2rem;
+    height: 1.1rem;
+    top: -1.9rem;
     left: 1rem;
     background: url("/img/edge_tooltip.svg") top no-repeat;
     position: absolute;
+    @media (min-width:$w-pc) {
+      top: -2.3rem;
+    }
   }
 }
 //transition
@@ -13228,21 +13252,19 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
 
   &--HealthLight{
-    min-height: 59.6rem;
-    margin-top: 5.2rem;
-    padding-top: 4rem;
-    padding-bottom: 1rem;
+    margin-top: 4rem;
+    padding-top: 3.6rem;
+    padding-bottom: 5.2rem;
     background: $background-color-green;
-    
     @media (min-width: $w-pc) {
-      padding-top: 3.6rem;
-      padding-bottom: 5.4rem;
+      padding-top: 3.2rem;
+      padding-bottom: 6.4rem;
       left: 50%;
       right: 50%;
       transform: translateX(-50%);
       position: relative;
       width: calc(99vw - 1.6em);
-      margin-top: 6rem;
+      margin-top: 5.2rem;
     }
     &--tit-wrap{
       position: relative;
@@ -13258,37 +13280,31 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       }
     }
     &--tit{
-      @include titleBig2;
-      font-family: $font-family-bold;
-      font-weight: normal;
+      @include titleTooltip;
       color: $txt-font-color-white;
       &:before {
         background-color: rgba(255, 255, 255, .2);
       }
     }
     &--tip-btn{
-      background-color: $box-font-color-white;
-      border: none;
-      @media (min-width: $w-pc) {
-        background-position-y: 60%;
-      }
+      background-image: url('/img/ico_q_white.svg');
     }
     &--tip-dom{
-      margin-left: 1rem;
-      margin-right: 1rem;
+      margin-left: 2rem;
+      margin-right: 2rem;
       z-index: 2;
       .tooltip--edge{
-        left: 11.4rem;
+        left: 9.5rem;
         @media (min-width: $w-pc) { 
-          left: 13.6rem;
+          left: 10.2rem;
         }
       }
     }
     &--swiper{
-      height: 50rem;
+      height: 50.2rem;
       @media (min-width: $w-pc) {
         height: auto;
-        max-width: 1050px;
+        max-width: 92.1rem;
       }
 
       .swiper-wrapper {
@@ -13306,19 +13322,22 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
         .swiper-slide {
           background: $box-font-color-white;
           border-radius: 2rem;
-          min-height: 45rem;
+          min-height: 47.4rem;
           height: fit-content;
           text-align: center;
           box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
           @media (min-width: $w-pc){
             width: 100% !important;
             margin-right: 0 !important;
-            min-height: 48rem;
+            min-height: 48.4rem;
           }
           &-con{
             margin-top: 1.8rem;
+            @media (min-width:$w-pc) {
+              margin: 2rem 1.6rem;
+            }
             .tooltip--tit{
-              font-size: 2rem;
+              @include txtStyle(body, lg, 600);
               &:before{
                 display: none;
               }
@@ -13326,14 +13345,11 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
                 font-size: 2.2rem;
               }
             }
-            .btn--tooltip{
-              margin-left: 1rem;
-            }
             .analyze-box {
               position: relative;
               box-shadow: none;
               padding: 0;
-              margin-top: 1.6rem;
+              margin-top: 1.2rem;
 
               &--no-data{
                 position: relative; 
@@ -13426,10 +13442,18 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
               }
             }
           }
+          .tooltip--wrap{
+            top: 4.1rem;
+            margin: 0 -.8rem;
+            @media (min-width:$w-pc) {
+              top: 4.4rem;
+              margin: 0 -.4rem;
+            }
+          }
         }
       }
       .swiper-pagination{
-        bottom: 2rem !important;
+        bottom: 0 !important;
         @media (min-width: $w-pc){
           display: none;
         }
@@ -13448,11 +13472,9 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
 
   &--desc{
-    font-size: 1.2rem;
-    font-family: $font-family-light;
-    line-height: 2rem;
-    color: #646464;
-    margin: 4.2rem 2rem 0;
+    @include txtStyle(caption, xl-1);
+    color: #666;
+    margin: 2rem 2rem 0;
     word-break: normal;
     br{
       display: none;
@@ -13461,35 +13483,34 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       }
     }
     @media (min-width: $w-pc) {
-      margin: 6rem auto 0;
-      text-align: center;
-      font-size: 1.6rem;
-      line-height: 2.2rem;
+      margin: 2.4rem auto 0;
     }
   }
   /* S : 20260306 ASB-13674 - 마이웰니스랩 과학적 표현 강화 */
   &--medicationPopup{
     position: fixed;
     right: 2rem;
-    bottom: 3.5rem;
+    bottom: 2.8rem;
     display: flex;
     align-items: center;
-    width: 11.9rem;
-    min-height: 4.1rem;
+    width: 11.4rem;
+    min-height: 3.6rem;
     background-color: #fff;
-    border-radius: 4rem;
-    box-shadow: 0 .3rem .8rem rgba(0, 0, 0, .25);
-    padding: 1.2rem 3.6rem 1.2rem 1.6rem;
+    border-radius: 2rem;
+    box-shadow: 0 .4rem 2rem rgba(0, 0, 0, .12);
+    padding: .8rem 3.4rem .8rem 1.2rem;
     z-index:3; //20260319 ASB-13674 - 수정
     cursor: pointer;
     @media (min-width: $w-pc) {
       left: 50%;
       right: auto;
-      bottom: 4.9rem;
+      bottom: 4.8rem;
       transform: translateX(0);
-      width: 13.6rem;
-      min-height: 4.4rem;
+      width: 13.7rem;
+      min-height: 4.8rem;
       margin-left: 32.4rem;
+      border-radius: 2.8rem;
+      padding: 1.2rem 4.2rem 1.3rem 1.6rem;
     }
     /* S : 20260323 ASB-13674 - 추가 */
     .popup--wrap & {
@@ -13509,77 +13530,79 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       }
     }
     /* E : 20260323 ASB-13674 - 추가 */
-    &::before,
-    &::after{
+    &::before{
       content: "";
       position:absolute;
-      right:1.5rem;
+      right: 1.2rem;
       top: 50%;
       transform: translateY(-50%);
       display: block;
-      width: 1.4rem;
-      height: 0.15rem;
-      background-color: #555;
-      border-radius: 0.08rem;
-    }
-    &::after{
-      right: 1.57rem;
-      rotate: 90deg;
-      height: 0.14rem;
-      margin-top: -0.1rem;
+      width: 1.6rem;
+      height: 1.6rem;
+      background: url('/img/ico_plus.svg') no-repeat center / contain;
+      @media (min-width:$w-pc) {
+        right: 1.4rem;
+        width: 2rem;
+        height: 2rem;
+      }
     }
     &-detail{
+      @include txtStyle(caption, xl-1, 500);
       color: #555;
-      font-size: 1.3rem;
-      font-family: "RixSinHead_Medium", sans-serif;
       word-break: break-all;
-      line-height: 1;
-      padding-left: 1.6rem;
-      background: url("/img/ic_medic_grey.svg") no-repeat left center;
-      background-size: 1rem auto;
-      letter-spacing: -0.03rem;
+      padding-left: 2rem;
+      background: url("/img/ico_check_circle_gray.svg") no-repeat left center / 1.6rem;
       @media (min-width: $w-pc) {
-        font-size: 1.5rem;
-        line-height: 1.35;
         padding-left: 2.4rem;
-        background-size: 1.6rem auto;
+        background-size: 2rem;
       }
       .open & {
-        line-height: 1.35;
         background-position: left 0.2rem;
+      }
+      span{
+        @include txtStyle(caption, lg-1);
+        color: #1DB196;
+        display: flex;
+        gap: .2rem;
+        margin-top: .4rem;
+        &::before {
+          content: '*';
+          @include txtStyle(caption, xl);
+        }
       }
     }
     &.open{
-      bottom: 1.7rem;
       width: calc(100% - 4rem);
+      padding: 1.2rem 4.8rem 1.2rem 1.2rem;
       @media (min-width: $w-pc) {
-        bottom: 3.9rem;
         width: 100%;
-        max-width: 37rem;
-        margin-left: 9rem;
+        max-width: 36.7rem;
+        margin-left: 9.4rem;
+        padding: 1.4rem 5rem 1.4rem 1.6rem;
         &::before{
           right: 1rem;
         }
       }
       &::before{
-        top: 2.2rem;
-        width: 2.4rem;
-        height: 2.4rem;
-        background: url("/img/ico_tooltip_close.svg") no-repeat center center;
+        top: 1.4rem;
+        transform: none;
+        width: 1.6rem;
+        height: 1.6rem;
+        background: url("/img/ico_x_gray.svg") no-repeat center / contain;
+        @media (min-width:$w-pc) {
+          top: 1.6rem;
+          width: 2rem;
+          height: 2rem;
+        }
       }
       &::after{
         content: none;
       }
-      & + .btn--top{
-        @media (min-width: $w-pc) {
-          bottom: 4rem;
-        }
-      }
     }
     & + .btn--top{
-      bottom: 8.6rem;
+      bottom: 14rem;
       @media (min-width: $w-pc) {
-        bottom: 4rem;
+        bottom: 18rem;
       }
     }
   }
@@ -13587,22 +13610,23 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
 }
 .AnalyzeDetail--HumanNetwork--tip-dom{
   .tooltip--edge{
-    left: 177px;
+    left: 15.7rem;
     @media (min-width: $w-pc) { 
-      left: 202px;
+      left: 17rem;
     }
   }
   ul{
     li{
       &.img{
-        list-style: none;
-        width: calc(100% + 1rem);
-        margin-top: 1.6rem;
+        width: 100%;
+        padding: 0;
         text-align: center;
+        &::before{
+          content: none;
+        }
         img{
           @media (min-width: $w-pc) {
-            max-width: 60rem;
-            margin: 2rem 0;
+            max-width: 42rem;
           }
         }
       }
@@ -13722,19 +13746,16 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
 }
 .AnalyzeHealthLocation{
   @include spaceRLSDefault;
-  margin-top: 5.2rem;
+  margin-top: 4rem;
   @media (min-width: $w-pc) {
-    margin: 6rem 0 0;
+    margin: 4.8rem 0 0;
   }
   &--tip{
     display: flex;
     align-items: center;
   }
   &--tit{
-    @include titleBig2;
-    @media (min-width: $w-pc) {
-      font-size: 2.6rem;
-    }
+    @include titleTooltip;
   }
   &--tip-btn{
     vertical-align: text-top;
@@ -13744,14 +13765,19 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
   &--txt{
     @include txtAnalyze;
-    margin-bottom: 1rem;
-    @media (min-width: $w-pc) {
-      font-size: 2rem;
+    text-align: center;
+    strong{
+      display: inline-block;
     }
   }
   .analyze-box{
-    padding: 2.4rem;
+    padding: 1.6rem 1.6rem 2.4rem;
     margin-top: 1.2rem;
+    box-shadow: none;
+    border: .1rem solid #E5E5E5;
+    @media (min-width:$w-pc) {
+      padding: 2rem 2rem 2.8rem;
+    }
     &:after{
       clear: both;
       display: block;
@@ -13806,25 +13832,19 @@ $agingIndex: 431px;
     justify-content: center;
   }
   &--tip-tit{
-    @include titleBig2;
+    @include titleTooltip;
   }
   &--tip-btn{
     vertical-align: text-top;
     @media (min-width: $w-pc) {
       vertical-align: -9%;
-      background-position-x: 54%;
     }
   }
   &--info{
     @include lightTxtAnalyze;
-    @media (min-width: $w-pc) {
-      font-size: 1.8rem;
-      padding: 1.6rem;
-      border-radius: 4rem;
-    }
   }
   &--graph{
-    margin-top: $marginTop-small;
+    margin-top: 2.2rem;
     position: relative;
   }
   &--circle{
@@ -13852,7 +13872,6 @@ $agingIndex: 431px;
     }
   }
   &--rank-wrap{
-    height: 13.3rem;    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13864,7 +13883,6 @@ $agingIndex: 431px;
   &--state{
     display: block;
     @include titleBig7;
-    font-family: $font-family-bold;
   }
   &--who{
     display: block;
@@ -13902,16 +13920,16 @@ $agingIndex: 431px;
     }
   }
   &--more-btn{
-    @include btnSmall2;
+    @include btnClear;
+    border: .1rem solid #ccc;
+    border-radius: 9rem;
+    height: 2.8rem;
+    padding: 0 1rem;
     margin-top: 0.8rem;
-    margin-bottom: -0.6rem;
   }
   &--guide-btn{
     @include btnGuide;
-    bottom: -3rem;
-    @media (min-width: $w-pc) {
-      bottom: -3.2rem;
-    }
+    bottom: -4rem;
   }
 }
 .vue3-circular-progressbar{
@@ -13920,22 +13938,22 @@ $agingIndex: 431px;
 .AnalyzeChronicDiseaseControlAnalyzeIndex{
   margin-top: $marginTop-big3;
   @include spaceRLSDefault;
+  &--tooltip{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   &--tip-tit{
-    @include titleBig2;
+    @include titleTooltip;
   }
   &--tip-btn{
-    vertical-align: -6%;
+    vertical-align: text-top;
     @media (min-width: $w-pc) {
-      vertical-align: -14%;
+      vertical-align: -9%;
     }
   }
   &--info{
     @include lightTxtAnalyze;
-    @media (min-width: $w-pc) {
-      font-size: 1.8rem;
-      padding: 1.6rem;
-      border-radius: 4rem;
-    }
   }
   &:has(.analyze-box--no-data){
     .AnalyzeChronicDiseaseControlAnalyzeIndex--info{
@@ -13945,6 +13963,7 @@ $agingIndex: 431px;
   }
   &--graph{
     position: relative;
+    margin-top: 2.2rem;
   }
   &--summary{
     position: absolute;
@@ -13968,7 +13987,6 @@ $agingIndex: 431px;
     }
   }
   &--rank-wrap{
-    height: 13.3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13980,28 +13998,32 @@ $agingIndex: 431px;
   &--who{
     display: block;
     position: absolute;
-    top: -10px;
+    top: -.2rem;
     left: 50%;
-    font-size: 0.9rem;
-    color: #646464;
-    background: #fff;
-    text-align: left;
-    padding-left: 0.6rem;
-    border-radius: 0 3rem 0 0;
+    transform: translate(-100%, -100%);
+    background-color: white;
+    @include txtStyle(caption, lg, 500);
+    color: #808080;
+    text-align: right;
+    padding-right: 0.6rem;
+    @media (min-width:$w-pc) {
+      top: .4rem;
+      background-color: transparent;
+    }
     span{
       display: block;
-      font-size: 1.6rem;
-      font-family: "RixSinHead_Bold", sans-serif;
-      line-height: 2.4rem;
+      margin-top: -.4rem;
+      @include txtStyle(body, xs, 600);
+      color: #333;
     }
     &::before{
       content: "";
       position: absolute;
-      left: 0;
-      top: 1px;
+      right: -.3rem;
+      top: 0;
       width: 0.1rem;
-      height: 3.2rem;
-      background: #707070;
+      height: 3.8rem;
+      background: var(--line-color);
       margin-right: 3px;
     }
   }
@@ -14022,7 +14044,6 @@ $agingIndex: 431px;
   &--state{
     display: block;
     @include titleBig7;
-    font-family: $font-family-bold;
   }
   &--sum-score{
     @include titleBig8;
@@ -14044,9 +14065,12 @@ $agingIndex: 431px;
     }
   }
   &--more-btn{
-    @include btnSmall2;
+    @include btnClear;
+    border: .1rem solid #ccc;
+    border-radius: 9rem;
+    height: 2.8rem;
+    padding: 0 1rem;
     margin-top: 0.8rem;
-    margin-bottom: -0.6rem;
   }
   &--guide-btn{
     @include btnGuide;
@@ -14059,26 +14083,12 @@ $agingIndex: 431px;
   margin-top: 3rem;
   @include spaceRLSDefault;
   &--tip-tit{
-    @include txtStyle(body, xl, 600);
-    color: #222;
-    position: relative;
-    z-index: 1;
-    &::before{
-      content: "";
-      display: block;
-      height: 1rem;
-      border-radius: 5rem;
-      background-color: #C3E9E4;
-      position: absolute;
-      width: 100%;
-      top: 1.7rem;
-      z-index: -1;
-    }
+    @include titleTooltip;
   }
   &--tip-btn{
-    vertical-align: -16%;
+    vertical-align: -20%;
     @media (min-width: $w-pc) {
-      vertical-align: -24%;
+      vertical-align: -28%;
     }
   }
   &--info{
@@ -14266,7 +14276,15 @@ $agingIndex: 431px;
     text-align: center;
   }
   &--btn{
-    @include btnSmall2;
+    @include btnClear;
+    @include txtStyle(caption, lg, 500);
+    height: 2.8rem;
+    padding: 0 1.2rem;
+    border-radius: 99rem;
+    border: .1rem solid #ccc;
+    @media (min-width: $w-pc) {
+      height: 3.2rem;
+    }
   }
   &.home{
     margin: 0;
@@ -14382,26 +14400,29 @@ $agingIndex: 431px;
 }
 .AnalyzeHealthLight{
   @include spaceRLSDefault;
-  margin-top: 5.2rem;
+  margin-top: 4rem;
   @media (min-width: $w-pc) {
-    margin: 6rem 0 0;
+    margin: 3.6rem 0 0;
   }
   &--tooltip{
     display: flex;
     align-items: center;
   }
   &--tip-tit{
-    @include titleBig2;
+    @include titleTooltip;
   }
   &--tip-btn{
     vertical-align: text-top;
     @media (min-width: $w-pc) {
-      vertical-align: -10%;
+      vertical-align: -9%;
     }
   }
   .analyze-box{
-    min-height: 66rem;
     padding: 0;
+    margin-top: 1.2rem;
+    box-shadow: none;
+    border-radius: 2.4rem;
+    border: .1rem solid #E5E5E5;
     @media (min-width: $w-pc) {
       margin-top: 1.2rem;
       min-height: auto;
@@ -14412,7 +14433,7 @@ $agingIndex: 431px;
       position: absolute;
       background-image: url("/img/bg_AnalyzeHealthLight.png");
       background-size: 64rem;
-      background-position: -5.6rem -26rem;
+      background-position: -6rem -20.5rem;
       background-repeat: no-repeat;
       border: 0.3rem solid #fff;
       border-radius: 2rem;
@@ -14429,7 +14450,7 @@ $agingIndex: 431px;
         z-index: 1;
         border-radius: 2rem;
         @media (min-width: $w-pc) {
-          background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.8) 42%, rgba(255, 255, 255, 0.98) 48%);
+          background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 42%, rgba(255, 255, 255, 0.98) 48%);
         }
       }
       &:after{
@@ -14445,9 +14466,11 @@ $agingIndex: 431px;
         border-radius: 2rem;
       }
       @media (min-width: $w-pc-small3) {
+        width: 100%;
         height: 63rem;
-        background-size: 122%;
-        background-position: 43% -33rem;
+        background-size: 170%;
+        background-position: 50% -93rem;
+        border: none;
       }
     }
   }
@@ -14462,11 +14485,11 @@ $agingIndex: 431px;
   }
   &--light{
     position: relative;
-    padding-top: 22rem;
+    padding-top: 20.8rem;
     padding-right: 2rem;
     padding-left: 2rem;
     @media (min-width: $w-pc) {
-      padding: 30rem 4rem 0;
+      padding: 32rem 2rem 0;
     }
     &-label{
       width: 2.8rem;
@@ -14493,9 +14516,12 @@ $agingIndex: 431px;
       } 
     }
     &-unit{
-      @include titleBig3;
-      font-size: 2rem;
-      margin-top: 1.5rem;
+      @include txtStyle(body, lg, 600);
+      color: $txt-font-color-danger;
+      margin-top: 2rem;
+      @media (min-width:$w-pc) {
+        margin-top: 0;
+      }
       &.caution{
         color: $txt-font-color-caution;
       }
@@ -14509,23 +14535,16 @@ $agingIndex: 431px;
       &-wrap{
         display: flex;
         flex-direction: column;
-        font-family: $font-family-bold;
         @media (min-width: $w-pc) {
           flex-direction: row;
-          gap: 2.4rem;
+          gap: 2rem;
         }
       }
     }
     &-p{
-      @include txtSmall3(#646464);
-      margin-top: 1rem;
-      letter-spacing: -0.02rem;
-      @media (min-width: $w-pc-small) {
-        margin-left: 0;
-      }
-      @media (min-width: $w-pc) {
-        font-size: 1.6rem;
-      }
+      @include txtStyle(body, xs);
+      color: #666;
+      margin-top: .4rem;
     }
     &-item{
       &:after{
@@ -14539,10 +14558,18 @@ $agingIndex: 431px;
     }
     &-btn-wrap{
       text-align: center;
-      margin-top: 2.4rem;
+      margin-top: 1.6rem;
     }
     &-btn{
-      @include btnSmall2;
+      @include btnClear;
+      @include txtStyle(caption, lg, 500);
+      height: 2.8rem;
+      padding: 0 1.2rem;
+      border-radius: 99rem;
+      border: .1rem solid #ccc;
+      @media (min-width: $w-pc) {
+        height: 3.2rem;
+      }
     }
   }
   &--network{
@@ -14550,16 +14577,15 @@ $agingIndex: 431px;
     margin-top: $marginTop-default;
   }
   &--more-btn{
-    @include btnSmall2;
-    margin-top: $marginTop-small3;
-    @media (min-width: $w-pc) {
-      margin-top: 0;
-    }
-  }
-  .analyze-box{
-    @media (min-width: $w-pc-small) {
-      text-align: center;
-    }
+      @include btnClear;
+      @include txtStyle(caption, lg, 500);
+      height: 2.8rem;
+      padding: 0 1.2rem;
+      border-radius: 99rem;
+      border: .1rem solid #ccc;
+      @media (min-width: $w-pc) {
+        height: 3.2rem;
+      }
   }
   &--net{
     &-txt{
@@ -14583,43 +14609,25 @@ $agingIndex: 431px;
   }
   &--reason{    
     position: relative;
-    padding-top: 1.6rem;
-    padding-bottom: 2.7rem;
-    margin: 2.4rem 2rem 0;
-    border-top: dashed 0.2rem #dadada;
-    @media (min-width: $w-pc-small) {
-      //margin-top: 3rem;
-      margin-bottom: 2rem;
-    }
-    @media (min-width: $w-pc-small2) {
-      text-align: center;    
-    }
+    padding-top: 2rem;
+    padding-bottom: 2.4rem;
+    margin: 2rem 2rem 0;
+    border-top: solid 0.1rem #E5E5E5;
+    text-align: left;
     @media (min-width: $w-pc) {
-      padding: 2.4rem 0;
-      margin: 2.4rem 2.4rem 0;
+      text-align: center;
     }
     &-tit{
-      @include titleSmall2;
-      font-size: 1.8rem;
-      @media (min-width: $w-pc) {
-        font-size: 2rem;
-      }
+      @include txtStyle(body, md, 600);
     }
     &-txt{
-      font-family: "RixSinHead_Light", sans-serif;
-      font-size: 1.4rem;
-      color: #555555;
-      margin-top: 0.8rem;
-      @media (min-width: $w-pc) {
-        font-size: 1.6rem;
-      }
+      @include txtStyle(body, xs);
+      color: #666;
+      margin-top: 0.4rem;
     }
     &--btn-wrap{
       text-align: center;
-      margin-top: 1.2rem;
-      @media (min-width: $w-pc) {
-        margin-top: 2.4rem;
-      }
+      margin-top: 1.6rem;
     }
     &--more-btn{
       @include btnSmall2;
@@ -15466,8 +15474,8 @@ $agingIndex: 431px;
   }
 }
 .AnalyzeDownload{
-  margin-left: 4rem;
-  margin-right: 4rem;
+  margin-left: 2rem;
+  margin-right: 2.8rem;
   margin-top: 4rem;
   &--btn-div{
     display: block;
@@ -15475,11 +15483,15 @@ $agingIndex: 431px;
     padding-left: 0 !important;
     &.btn--bottom button{
       @include btnBig(white);
+      border-radius: 99rem;
+      @media (min-width:$w-pc) {
+        height: 6rem;
+      }
       &.AnalyzeDownload--kakao{
         background-color: $background-color-kakao;
+        border: none;
         &:hover{
           background-color: #eec407;
-          border-color: #B9B9B9;
         }
         &.dimed{
           color: #999;
@@ -15498,17 +15510,13 @@ $agingIndex: 431px;
   &--view{
     @include btnBig(white);
     width: $w-full;
-    @media (min-width: $w-pc) {
-      font-size: 1.8rem;
-    }
   }
   &--kakao{
     @include btnBig(white);
     width: $w-full;
     background-color: $background-color-kakao;
-    margin-top: $marginTop-small;
+    margin-top: .8rem;
     @media (min-width: $w-pc) {
-      font-size: 1.8rem;
       margin-top: 1.2rem;
     }
   }
@@ -15520,9 +15528,10 @@ $agingIndex: 431px;
       font-size: 1.8rem;
     }
     &-txt{
-      @include validationTxt;
+      @include txtStyle(caption, xl-1, 500);
+      color: #FF4646;
       text-align: center;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.6rem;
     }
     &-pop{
       &--aos-txt{
@@ -15574,8 +15583,9 @@ $agingIndex: 431px;
   &--other{
     @include btnBig;
     width: $w-full;
-    @media (min-width: $w-pc) {
-      font-size: 1.8rem;
+    border-radius: 99rem;
+    @media (min-width:$w-pc) {
+      height: 6rem;
     }
     &-wrap{
       margin-top: 1rem;
@@ -15584,23 +15594,49 @@ $agingIndex: 431px;
       }
     }
   }
-  &--delete{
-    @include btnTxt2;
-    @media (min-width: $w-pc) {
-      font-size: 1.8rem;
+  &--mission{
+    @include btnBig;
+    width: $w-full;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .6rem;
+    margin-top: 2.8rem;
+    background-color: #1DB196 !important;
+    color: white !important;
+    border-color: #1DB196;
+    &:hover{
+      background-color: #18957e !important;
+      border-color: #18957e;
     }
-    &-wrap{
-      text-align: center;
-      margin-top: $marginTop-big3;
-      padding-bottom: $paddingBottom-big;
+    @media (min-width: $w-pc) {
+      margin-top: 3.6rem;
+    }
+    &::after{
+      content: '';
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      background: url('/img/ic_arrow_right_white.svg') no-repeat center / .7rem;
       @media (min-width: $w-pc) {
-        padding-bottom: 2rem;
+        width: 2.4rem;
+        height: 2.4rem;
+        background-size: .9rem;
       }
     }
   }
+  &--delete{
+    @include btnClear;
+    @include txtStyle(caption, xl, 600);
+    color: #666;
+    text-decoration: underline;
+    &-wrap{
+      text-align: right;
+      margin-top: 2.4rem;
+    }
+  }
   @media (min-width: $w-pc) {
-    margin-top: 6rem;
-    width: 40rem;
+    margin-top: 3.2rem;
     @include alignCenter3;
   }
 }
@@ -20123,17 +20159,17 @@ span.legend-dot-interest{
 //툴팁 화살표 관련
 .AnalyzeHealthLocation--tip-dom{
   .tooltip--edge{
-    left: 95px;
+    left: 7.5rem;
     @media (min-width: $w-pc) {
-      left: 109px;
+      left: 8.1rem;
     }
   }
 }
 .AnalyzeAgingSpeed--tip-dom{
   .tooltip--edge{
-    left: 95px;
+    left: 7.5rem;
     @media (min-width: $w-pc) {
-      left: 108px;
+      left: 8.1rem;
     }
   }
 }

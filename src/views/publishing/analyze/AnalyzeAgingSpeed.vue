@@ -132,8 +132,7 @@ function openTooltip ($event) {
 /**
  * 자세히 보기 이동
  */
-function detailView () {
-  // 퍼블 확인용
+function detailView () { // 퍼블 확인용
   const data = viewData.value
   const sectionToSave = props.currentSection !== undefined ? props.currentSection : 0
   store.dispatch('analyze/setCurrentSection', sectionToSave)
@@ -159,9 +158,37 @@ function detailView () {
   store.dispatch('analyze/setDetail', essentialData)
   
   router.push({
-    path: '/analyze/aging-speed'
+    path: '/publishing/analyze/analyze-aging-speed-detail'
   })
 }
+// function detailView () {
+//   const sectionToSave = props.currentSection !== undefined ? props.currentSection : 0
+//   store.dispatch('analyze/setCurrentSection', sectionToSave)
+  
+//   // AnalyzeAgingSpeedDetail에서 실제로 사용하는 데이터만 추출
+//   const essentialData = {
+//     hqData: {
+//       AgingRate: mwlRoundAgingRate(props.sendData.hqAr?.aging_rate),  // hqAr에서 aging_rate 사용
+//       ReAge: props.sendData.hqReage?.reage         // hqReage에서 reage 사용
+//     },
+//     hqReference: props.sendData.hqReference,
+//     analyzeAge: props.sendData.analyzeAge,
+//     commonInfo: {
+//       analysisType: props.sendData.commonInfo?.analysisType
+//     },
+//     hqAr: props.sendData.hqAr,                    // hqAr 전체 데이터
+//     hqReage: props.sendData.hqReage,              // 건강나이 데이터
+//     ariRisk: props.sendData.ariRisk,              // 위험 요인 데이터
+//     hqDataList: props.sendData.hqDataList,        // 차트 데이터용 hqDataList 추가
+//     basics: props.sendData.basics                  // 성별 등 기본 정보 추가
+//   }
+  
+//   store.dispatch('analyze/setDetail', essentialData)
+  
+//   router.push({
+//     path: '/analyze/aging-speed'
+//   })
+// }
 
 /**
  * 노화 속도 요인 팝업

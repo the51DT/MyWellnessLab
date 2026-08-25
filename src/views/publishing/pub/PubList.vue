@@ -148,7 +148,7 @@ const data = ref([
     loca: '@/views/Home.vue<br>@/views/publishing/Home.vue -> 퍼블 확인용 경로',
     go: '/publishing/home',
     msg: '코드 수정 사항<br>2606 라이브 버전에 맞춰 복약 부분 미노출 - 0818 기획 요청<br>2606 하단 플로팅 버튼 텍스트 수정 - Home.text14, 16 수정으로 인해<br>2606 스타일 수정 - 하단 scoped style 태그 내부 수정<br>2606 swiper 옵션 수정 - .home--my-result<br>2606 분석권 없음 팝업 캡션 클래스 수정 - Home.text18, 19 텍스트 변경 <br>2606 이어하기 확인 팝업 x 버튼 삭제<br><br>AnalyzeAgingSpeed.vue 수정<br>2606 바늘 디자인 수정<br>2606 막대기 디자인 변경으로 인한 공유 팝업 렌더러 변경<br>2606 공유 이미지 캡처 시 배경 화질 보정<br>2606 건강수명분석, 공유팝업 그래프 디자인 수정<br><br>AnalysisSharePopup.vue 수정<br>2606 .AnalysisSummary--desc-user br 추가 / 퍼블 확인용 name 임의 설정<br>2606 그래프 텍스트 삭제<br>2606 .AnalysisSummary--list-num 숫자 띄어쓰기 삭제<br>2606 프리뷰 닫기 버튼 이미지 변경',
-    confirm: '2026.08.21 퍼블 완료'
+    confirm: '수정 작업중'
   },
   {
     div: '설문입력',
@@ -345,8 +345,8 @@ const data = ref([
     div3: '',
     loca: '@/views/analyze/detail/AnalyzeDetail.vue<br>@/views/publishing/analyze/AnalyzeDetail.vue -> 퍼블 확인용',
     go: '/publishing/analyze/analyze-detail',
-    msg: "코드 수정<br>라우터 wide 클래스 삭제<br><br>LayoutAnalyze.vue<br>2026 퍼블 확인용 헤더 홈 버튼 아래 주석 원본<br><br>AnalyzeCheckupData.vue<br>2606 라이브 버전에 맞춰서 안내 문구 삭제<br>2606 분석일 ':' 삭제",
-    confirm: ''
+    msg: "코드 수정<br>2606 스타일 태그 내용 수정<br>2606 나의 추천 미션 보기 버튼 추가 - 신규 버튼<br>2606 분석번호 버튼 비활성화<br> 2606 복약 정보 있는 경우 텍스트 변경<br><br>LayoutAnalyze.vue<br>2026 퍼블 확인용 헤더 홈 버튼 아래 주석 원본 - 개발 삭제 필요<br><br>AnalyzeCheckupData.vue<br>2606 라이브 버전에 맞춰서 안내 문구 삭제<br>2606 분석일 ':' 삭제<br><br>Wellness3DChart.vue<br>2606 스타일 태그 내용 수정<br>2606 차트 내부 스타일 수정용 변수<br>2606 차트 내부 마커 스타일 수정<br><br>AnalyzeScorecomAnalyzeIndex.vue<br>2606 스타일 태그 내용 수정<br>2606 --who 스타일 컬러 변수 추가<br>2606 커스텀 툴팁 꼬리 위치 수정",
+    confirm: '2026.08.25 상세 팝업 제외 퍼블 완료'
   },
   {
     div: '',

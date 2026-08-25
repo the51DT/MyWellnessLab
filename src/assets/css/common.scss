@@ -71,7 +71,7 @@ $background-color-gray: #F1F1F1;
 $background-color-gray2: #F9F9F9;
 $background-color-gray3: #F2F2F2;
 $background-color-main: #FAFAFA;
-$background-color-kakao: #FAE100;
+$background-color-kakao: #FDE500;
 $background-color-biolet: #7E7EFF;
 $background-color-danger: #F4DAE4;
 $background-color-caution: #FCECDE;
@@ -233,7 +233,7 @@ $tit-font-size-small3: 1.3rem;
 $tit-font-color-blue: #567bf3;
 $tit-font-color-gray: #222;
 
-$tooltip-line-color: #BEBEBE;
+$tooltip-line-color: #ccc;
 $tooltip-background-color: white;
 
 $txt-font-size-default: 1.6rem;
@@ -293,8 +293,8 @@ $txt-size-pc:(
     sm: 3.2rem,
     md: 3.6rem,
     lg: 4.8rem,
-    xl: 5.6rem,
-    2xl: 7.2rem,
+    xl: 5.2rem,
+    2xl: 5.6rem,
   ),
   body: (
     2xs: 1.5rem,
@@ -654,34 +654,25 @@ $w-pc-wrap: 520px;
 }
 @mixin btnGuide{
   @include btnClear;
-  font-size: 1.3rem;
-  font-family: "RixSinHead_Light", sans-serif;
+  @include txtStyle(caption, lg, 500);
   color: #fff;
-  background: #222;
+  background: #000;
   border-radius: 1.5rem;
-  padding: 0.4rem 0.8rem 0.4rem 2.8rem;
+  padding: 0 1rem 0 3rem;
+  height: 2.8rem;
   position: relative;
   bottom: -1.5rem;
   left: 50%;
   transform: translateX(-50%);
-  &:before{
-    content: url("../../../public/img/ico_check.svg");
-    filter: grayscale(100%) brightness(0%);
-    transform: scale(0.8);
-    width: 1.1rem;
-    position: absolute;
-    left: 0.5rem;
-    top: 0.6rem;
-    z-index: 1;
-  }
   &:after{
     content: "";
-    width: 2rem;
-    height: 2rem;
+    width: 1.6rem;
+    height: 1.6rem;
     background: #fff;
     border-radius: 50%;
+    background: url('/img/ico_check_circle_white.svg') no-repeat center / contain;
     position: absolute;
-    left: 0.3rem;
+    left: 1rem;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -938,17 +929,13 @@ $w-pc-wrap: 520px;
   }
 }
 @mixin titleBig8{
-  font-family: $font-family-bold;
-  font-weight: normal;
-  font-size: 5rem;
+  @include txtStyle(head, 2xl, 700);
 }
 @mixin titleBig7{
-  font-size: 3rem;
-  line-height: 3rem;
+  @include txtStyle(head, sm, 700);
 }
 @mixin titleBig6{
-  font-size: 3.3rem;
-  font-family: $font-family-medium;
+  @include txtStyle(head, sm, 500);
   color: #555;
 }
 @mixin titleBig5{
@@ -1041,6 +1028,22 @@ $w-pc-wrap: 520px;
   color: $tit-font-color-gray; /*#222*/
   @media (min-width: $w-pc) {
     font-size: 1.6rem;
+  }
+}
+@mixin titleTooltip{
+  @include txtStyle(body, xl, 600);
+  position: relative;
+  z-index: 1;
+  &::before{
+    content: "";
+    display: block;
+    height: 1rem;
+    border-radius: 5rem;
+    background-color: #C3E9E4;
+    position: absolute;
+    width: 100%;
+    top: 1.7rem;
+    z-index: -1;
   }
 }
 @mixin txtBig12{
@@ -1478,17 +1481,11 @@ $w-pc-wrap: 520px;
 }
 
 @mixin lightTxtAnalyze{
-  font-size: 1.6rem;
-  font-family: $font-family-medium;
-  color: #646464;
-  line-height: 2.2rem;
+  @include txtStyle(body, xs-1);
+  color: #333;
   background: #ebebeb;
-  border-radius: 2.8rem;
-  padding: 0.6rem;
-  letter-spacing: -0.096rem;
-  @media (min-width: $w-pc) {
-    font-size: 1.8rem;
-  }
+  border-radius: 1.6rem;
+  padding: 1.2rem 1.6rem;
 }
 
 @mixin legendWrap{
@@ -1820,10 +1817,11 @@ input[type=number] {
   }
   &.wide{
     main{
-      @media (min-width: $w-pc-small) {
+      padding-bottom: 4rem;
+      @media (min-width: $w-pc) {
         width: 92rem;
         @include alignCenter3;
-        padding-bottom: 4rem;
+        padding-bottom: 6rem;
       }
     }
   }

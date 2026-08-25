@@ -1,111 +1,135 @@
-<script>
-import BaseTooltip from '../BaseTooltip.vue'
+<script setup>
+import BaseTooltip from '@/components/BaseTooltip.vue'
+import { mwlRound, getColor } from '@/assets/js/common'
+import { ref, defineProps, computed, onMounted } from 'vue'
 import { funcIsPc } from '@/assets/js/common'
-import { computed } from 'vue'
+import Wellness3DChart from '@/views/analyze/components/Wellness3DChart.vue'
+import { useI18n } from 'vue-i18n'
 
-export default {
-  name: 'AnalyzeHealthLocation',
-  components: { BaseTooltip },
-  props: {
-    sendData: Object
-  },
-  data () {
-    return {
-      tooltip: false, /* 건강 위치 툴팁 */
-      tooltipEdge: 0, /* 231204 툴팁 꼬다리 위치 */
-      healthLocation: '보통', /* 건강 위치 요약, 건강한/보통의/위험한 */
-      isPc: false, /* 231228 pc인지? */
-      yIndicatorSpace: 75
-    }
-  },
-  methods: {
-    tooltipClose () { /* 툴팁 닫기 */
-      this.tooltip = false
-    },
-    openTooltip ($event) { /* 툴팁 열기 */
-      this.tooltipEdge = $event.x
-      this.tooltip = true
-    },
-    lowXIndicator () {
-      return this.chartData.OXI_X < 15
-    },
-    lowYIndicator () {
-      return this.chartData.MET_Y < 15
-    },
-    getGrade (val) {
-      let rtnTxt = ''
+const { t, locale } = useI18n()
+// props
+const props = defineProps({
+  sendData: Object
+})
 
-      switch (val) {
-        case 1 :
-          rtnTxt = '좋은'
-          break
-        case 2 :
-          rtnTxt = '보통'
-          break
-        case 3 :
-          rtnTxt = '나쁨'
-          break
-      }
-      return rtnTxt
-    }
-  },
-  computed: {
-    chartData () {
-      const obj = {
-        OXI: 0, // 0, //TODO TEMP
-        MET: 0, // 0, //TODO TEMP
-        OXI_X: 0,
-        MET_Y: 0,
-        AgingRateStatus: 0,
-        Health_Status: '-'
-      }
-
-      if (this.sendData) {
-        obj.OXI = this.sendData.hqData.OXI
-        obj.MET = this.sendData.hqData.MET
-        obj.AgingRateStatus = this.sendData.hqData.AgingRateStatus
-        obj.Health_Status = this.getGrade(this.sendData.hqData.Health_Status)
-        obj.OXI_X = (((this.sendData.hqData.OXI / 10) * this.sendData.hqData.OXI) / 10).toFixed(0)
-        obj.MET_Y = ((this.sendData.hqData.MET / 10) * this.sendData.hqData.MET / 10).toFixed(0)
-      }
-
-      return obj
-    },
-    yIndicatorTop () {
-      let topValue = 0
-      if (this.chartData.MET_Y > this.yIndicatorSpace) {
-        topValue = (this.chartData.MET_Y - this.yIndicatorSpace) * 1.5
-      }
-      return 'top:' + topValue + 'px'
-    },
-    yIndicator () {
-      let topValue = -17
-      if (this.chartData.MET_Y > this.yIndicatorSpace) {
-        topValue = topValue - ((this.chartData.MET_Y - this.yIndicatorSpace) * 1.7)
-      }
-      return 'top: ' + topValue + 'px'
-    },
-    xIndicatorLabel () {
-      let bottom = false
-      if (this.lowYIndicator && this.chartData.OXI_X > 55) {
-        bottom = true
-      }
-      return bottom
-    }
-  },
-  mounted () {
-    this.isPc = funcIsPc()
-    window.addEventListener('resize', () => {
-      this.isPc = funcIsPc()
-    })
+const chartData = computed(() => {
+  const obj = {
+    OXI: 0, // 0, //TODO TEMP
+    MET: 0, // 0, //TODO TEMP
+    MUSCLE: 0,
+    OXI_X: 0,
+    MET_Y: 0,
+    AgingRateStatus: 0,
+    Health_Status: 0
   }
+  
+  obj.OXI = Number(mwlRound(props.sendData.hqOxi?.score || 0, 0))  || 0 
+  obj.MET = Number(mwlRound(props.sendData.hqMet?.score || 0, 0)) || 0 
+  obj.AgingRateStatus = props.sendData.hqData?.AgingRateStatus || 0
+  obj.Health_Status = props.sendData.hqHtype?.status || 0
+  
+  obj.OXI_X = (((obj.OXI / 10) * obj.OXI) / 10).toFixed(0)
+  obj.MET_Y = ((obj.MET / 10) * obj.MET / 10).toFixed(0)
+  obj.MUSCLE = props.sendData.hqMusBal ? Math.round(props.sendData.hqMusBal.score) : undefined
+  return obj
+})
+
+// 상태에 따른 색상 계산
+const color = computed(() => {
+  const healthStatus = props.sendData.hqHtype?.status || 0
+  return getColor(healthStatus)
+})/* ref({
+  OXI: 75, //0, //TODO TEMP
+  MET: 61, //0, //TODO TEMP
+  grade: '-',
+  Health_Status: '-'
+});//API를 통해 가져올 데이터 */
+
+const tooltip = ref(false) /* 툴팁 오프너 */
+const tooltipEdge = ref(0) /* 툴팁 꼬다리 위치 */
+const isPc = ref(false) /* 231228 pc인지? */
+
+/**
+ * 등급을 문자로 변환
+ * @param {number} val - 등급
+ * @return {string} - 문자열로 변환된 등급
+ */
+function getGrade (val) {
+  let rtnTxt = ''
+
+  switch (val) {
+    case 1 :
+      rtnTxt = t('AnalyzeHealthLocation.good')
+      break
+    case 2 :
+      rtnTxt = t('AnalyzeHealthLocation.normal')
+      break
+    case 3 :
+      rtnTxt = t('AnalyzeHealthLocation.attention')
+      break
+  }
+  return rtnTxt
 }
+
+/**
+ * 툴팁 닫기
+ */
+function tooltipClose () {
+  tooltip.value = false
+}
+
+/**
+ * 툴팁 열기
+ * @param {*} $event
+ */
+function openTooltip ($event) {
+  tooltip.value = true
+  tooltipEdge.value = $event.x
+}
+
+const lowXIndicator = computed(() => {
+  return chartData.value.OXI_X < 15
+})
+const lowYIndicator = computed(() => {
+  return chartData.value.MET_Y < 15
+})
+
+const yIndicatorSpace = 75
+const yIndicatorTop = computed(() => {
+  let topValue = 0
+  if (chartData.value.MET_Y > yIndicatorSpace) {
+    topValue = (chartData.value.MET_Y - yIndicatorSpace) * 1.5
+  }
+  return 'top:' + topValue + 'px'
+})
+const yIndicator = computed(() => {
+  let topValue = -17
+  if (chartData.value.MET_Y > yIndicatorSpace) {
+    topValue = topValue - ((chartData.value.MET_Y - yIndicatorSpace) * 1.7)
+  }
+  return 'top: ' + topValue + 'px'
+})
+
+const xIndicatorLabel = computed(() => {
+  let bottom = false
+  if (lowYIndicator.value && chartData.value.OXI_X > 55) {
+    bottom = true
+  }
+  return bottom
+})
+
+onMounted(() => {
+  isPc.value = funcIsPc()
+  window.addEventListener('resize', () => {
+    isPc.value = funcIsPc()
+  })
+})
 </script>
 
 <template>
   <div class="AnalyzeHealthLocation"> <!--건강 위치-->
     <div class="tooltip AnalyzeHealthLocation--tip">
-      <h2 class="tooltip--tit AnalyzeHealthLocation--tit">건강 위치</h2>
+      <h2 class="tooltip--tit AnalyzeHealthLocation--tit">{{ $t('AnalyzeHealthLocation.text2') }}</h2>
       <button
         @click="openTooltip($event)"
         class="btn--tooltip AnalyzeHealthLocation--tip-btn"
@@ -118,47 +142,55 @@ export default {
         @tooltipClose="tooltipClose"
         class="AnalyzeHealthLocation--tip-dom">
         <template v-slot:contents>
-          <ul class="AnalyzeHealthLocation--tip-ul">
-            <li>나의 건강 위치는 만 19세 이상 한국인 3만명의 실제 빅데이터 분포 중 노화와 만성질환으로부터 나의 건강을 얼마나 잘 지킬 수 있는 지를 분석하여 이차원 상 위치로 표현한 것입니다</li>
-            <li>나의 건강 위치가 초록색 영역에 있다면 건강이 좋은 편에 속하고 빨간색 영역에 있다면 건강에 더 주의해야 한다는 것을 의미합니다</li>
-            <li>현재의 건강 상태와 건강 위치 변화를 주기적으로 확인하여 건강 관리 습관을 갖는 것이 중요합니다</li>
-          </ul>
+          <!-- 2차원 그래프일 때 -->
+          <p class="tooltip--contents" v-if="chartData.MUSCLE === null || chartData.MUSCLE === undefined">
+            {{ $t('AnalyzeHealthLocation.tooltip2D') }}
+          </p>
+          <!-- 3차원 그래프일 때 -->
+          <p class="tooltip--contents" v-else>
+            {{ $t('AnalyzeHealthLocation.tooltip3D') }}
+          </p>
         </template>
       </base-tooltip>
 
     </div>
     <div class="analyze-box"> <!--만성질환 억제 분석지수, 노화 억제 분석 지수 그래프-->
-      <p class="AnalyzeHealthLocation--txt">한국 성인 표본 집단과 비교한 건강상태는 <!--<br v-if="!isPc" />-->
-        <strong class="AnalyzeHealthLocation--grade">{{healthLocation}} 수준</strong>입니다
+      <p class="AnalyzeHealthLocation--txt">
+        {{ $t('AnalyzeAgingSpeed.text42') }}
+        {{ $t('AnalyzeHealthLocation.text7') }}
+        <strong class="AnalyzeHealthLocation--grade" :style="{color: color}">{{getGrade(chartData.Health_Status)}}
+        {{ $t('AnalyzeHealthLocation.text8') }}</strong>
+        {{ $t('AnalyzeAgingSpeed.text46') }}
       </p>
-      <div class="chart-wrap" ref="target" :style="yIndicatorTop">
+      <!-- <BubbleChart
+        :oxi="89"
+        :met="80"
+        :mus="100"
+      /> -->
+
+      <!-- MUSCLE 값이 null이거나 undefined이면 기존 차트, 값이 있으면 3D 차트 -->
+      <div v-if="chartData.MUSCLE === null || chartData.MUSCLE === undefined" class="chart-wrap" ref="target" :style="yIndicatorTop">
         <div class="graph-wrap">
-          <!--          <div class="echart">-->
-          <!--            <img class="position-scatter" src="/img/graph-scatter.png" alt="" />-->
-          <!--            <img class="position-back" src="/img/graph-position.png" alt="" />-->
-          <!--          </div>-->
           <div class="over-wrap">
-            <!-- 내 점수에 따른 위치 설정 -->
             <div
               class="my-point"
               :style="{
-                width: '100px',
-                height: '150px',
+                width: `${chartData.OXI_X}%`,
+                height: `${chartData.MET_Y}%`,
               }">
               <div class="x-indicator" :class="lowXIndicator ? 'left' : ''">{{ chartData.MET }}</div>
               <div class="y-indicator" :class="lowYIndicator ? 'bottom' : ''">{{ chartData.OXI }}</div>
-              <!--              <img class="my-point-img" src="@/assets/images/age-graph-icon.png" alt="" />-->
               <img class="my-point-img" src="/img/ico_me.svg" alt="나의 위치" />
               <div class="my-point-pointer">
                 <div class="point" />
               </div>
             </div>
-            <span class="label-y" :style="yIndicator">만성질환 억제 분석 지수</span>
-            <span class="label-x" :class="xIndicatorLabel ? 'bottom' : ''">노화억제 분석 지수</span>
+            <span class="label-y" :style="yIndicator">{{ $t('Page5.text17') }}</span>
+            <span class="label-x" :class="xIndicatorLabel ? 'bottom' : ''">{{ $t('Page5.text16') }}</span>
           </div>
-          <!-- <h3 class="none">[한국 성인 표본집단 대비 나의 건강 위치]</h3> -->
         </div>
       </div>
+      <Wellness3DChart v-else :oxi="chartData.OXI" :met="chartData.MET" :mus="chartData.MUSCLE" />
     </div>
   </div>
 </template>
@@ -274,12 +306,12 @@ export default {
     position: absolute;
     font-size: 1.3rem;
     color: #727171 !important;
-    //    @include flex(center, center);
-    //TODO LYH START 참조 scss 파일이 없어서 위 include를 처리할 수 없어 유추하여 스타일선언 처리함.
+//    @include flex(center, center);
+//TODO LYH START 참조 scss 파일이 없어서 위 include를 처리할 수 없어 유추하여 스타일선언 처리함.
     display:flex;
     justify-content: center;
     align-content:center;
-    //TODO END
+//TODO END
     gap: 6px;
     img {
       width: 11px;

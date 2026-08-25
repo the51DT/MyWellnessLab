@@ -1,11 +1,10 @@
 <script>
 /*
     사용 예시
-    <AniBadge type="pin" frontImg="pin--ruby.svg" backImg="back/pin--ruby.svg"> $명칭$ </AniBadge>  
+    <BasePopupBadge type="pin" frontImg="pin--ruby.svg"> $명칭$ </BasePopupBadge>  
     
     - type : pin/badge 선택 
     - frontImg : 이미지 네임만 작성
-    - backImg : back/이미지네임 작성
     - $명칭$ : 핀/배지 명칭 작성
 */
 import { bodyScroll } from '@/assets/js/common'
@@ -16,6 +15,7 @@ export default {
   data() {
     return {
       lottieAnimations: [], /* 260824 로티 추가 */
+      isPc: false, /* 260825 브라우저 사이즈 체크 추가 */
     };
   },
   props: {
@@ -231,10 +231,13 @@ export default {
           })
       )
     },
+    winWidth () { /* 260825 브라우저 사이즈 체크 추가 */
+      this.isPc = window.innerWidth > 960
+    },
   },
   mounted() {
     this.startLottie() /* 260824 로티 추가 */
-    // this.startAnimation();
+    winWidth() /* 브라우저 가로 사이즈 체크 */
     bodyScroll(false) /* 팝업 노출 시 body 스크롤 정지 */
   },
   unmounted() {
@@ -257,9 +260,16 @@ export default {
       </div>
     </div>
     <div class="popup--wrap">
-      <div ref="moTextLevelup" class="animation-text"></div>
-      <div ref="moParticle" class="animation-bg"></div>
-      <div ref="moBadge" class="animation-motion"></div>
+      <!-- [s] 260825 로티 조건문 추가 -->
+      <div v-if="!isPc && type === 'pin'" ref="moTextLevelup" class="animation-text"></div>
+      <div v-if="isPc && type === 'pin'" ref="pcTextLevelup" class="animation-text"></div>
+      <div v-if="!isPc && type === 'badge'" ref="moTextNewBadge" class="animation-text"></div>
+      <div v-if="isPc && type === 'badge'" ref="pcTextNewBadge" class="animation-text"></div>
+      <div v-if="!isPc" ref="moParticle" class="animation-bg"></div>
+      <div v-if="isPc" ref="pcParticle" class="animation-bg"></div>
+      <div v-if="!isPc" ref="moBadge" class="animation-motion"></div>
+      <div v-if="isPc" ref="pcBadge" class="animation-motion"></div>
+      <!-- [e] 260825 로티 조건문 추가 -->
       <span class="badge-name">
         <slot />
       </span>

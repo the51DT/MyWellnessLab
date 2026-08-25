@@ -803,7 +803,7 @@ export default {
   <!-- 핀/배지 달성 팝업 -->
   <!-- 260727 핀/배지 팝업 상단 x 버튼 추가 -->
   <BasePopupBadge v-if="badgePopup" @popupClose="badgePopupClose = true" type="pin" frontImg="/img/pin_ruby.svg">$마웰랩 핀 명칭$</BasePopupBadge>
-  <!-- <BasePopupBadge v-if="badgePopup" @popupClose="badgePopupClose = true" type="badge" frontImg="/img/badge_happy-birthday.svg" backImg="/img/badge_happy-birthday-back.svg">$배지 명칭$</BasePopupBadge> -->
+  <!-- <BasePopupBadge v-if="badgePopup" @popupClose="badgePopupClose = true" type="badge" frontImg="/img/badge_happy-birthday.svg">$배지 명칭$</BasePopupBadge> -->
 
   <AddBtnHomeRound /> <!-- 260818 홈 추가 버튼 수정 -->
 </template>

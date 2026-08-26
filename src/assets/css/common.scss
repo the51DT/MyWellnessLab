@@ -429,12 +429,12 @@ $w-pc-wrap: 520px;
   $btnBasicWhite-height: 3.8rem;
   @include btnClear;
   min-height: $btnBasicWhite-height;
-  border: solid .1rem $btn-line-color-gray;
+  border: solid .1rem #ccc;
   border-radius: $btnBasicWhite-height;
   font-size: $btn-font-size-small2;
-  font-family: $font-family-medium;
+  font-weight: 600;
   background-color: $btn-background-white;
-  color: $btn-font-color-gray;
+  color: #1A1818;
   padding: 0.8rem 0;
   cursor: pointer;
   @media (min-width: $w-pc) {
@@ -502,12 +502,11 @@ $w-pc-wrap: 520px;
   background-color: #1DB196;
   color: white;
   display: block;
+  @include txtStyle(body, sm, 600);
   @media (min-width: $w-pc) {
-    height: 5.2rem;
-    font-size: 1.8rem;
+    height: 6rem;
   }
   @if $height == small{
-    font-size: 1.5rem;
     min-height: 4rem;
     @media (min-width: $w-pc) {
       min-height: 4.4rem;

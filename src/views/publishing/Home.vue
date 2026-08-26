@@ -27,6 +27,7 @@ const moveStep = useMoveStep()
 // PWA는 AddBtnHome 컴포넌트에서 처리
 
 // useBodyComposition composable 사용
+// 퍼블 확인용 아래 주석이 원본
 const {
   openPopBodyComposition,
   showBodyKeyLogin,
@@ -48,9 +49,33 @@ const {
   analyzeSelectedBodyKeyData,
   closeBodyKeyDetail,
   handleDirectInput,
-  openBodyCompositionPopup,
   closeResultPopup
 } = useBodyComposition()
+
+// const {
+//   openPopBodyComposition,
+//   showBodyKeyLogin,
+//   showBodyKeyResult,
+//   showBodyKeyDetail,
+//   showResultPopup,
+//   resultMessage,
+//   resultType,
+//   bodyKeyDataList,
+//   bodyCompositionDataList,
+//   isLoading,
+//   selectedBodyKeyData,
+//   selectedDataType,
+//   formatDatetime,
+//   handleBodyKeyLogin,
+//   selectBodyKeyData,
+//   selectExistingBodyComposition,
+//   confirmBodyKeyData,
+//   analyzeSelectedBodyKeyData,
+//   closeBodyKeyDetail,
+//   handleDirectInput,
+//   openBodyCompositionPopup,
+//   closeResultPopup
+// } = useBodyComposition()
 
 // 로그인 실패 상태 관리
 const bodyKeyLoginFailed = ref(false)
@@ -58,7 +83,18 @@ const bodyKeyLoginFailed = ref(false)
 // 바디키 로그인 처리 함수 래핑
 const handleBodyKeyLoginWrapper = async (loginData) => {
   bodyKeyLoginFailed.value = false // 로그인 시도 시 실패 상태 초기화
-  
+
+  // 2606 퍼블 확인용 - 4번 카드: 로그인 후 바디키 조회 결과 있음 화면
+  if (selectedBodyCompositionAnalysisId.value === 4) {
+    bodyKeyDataList.value = selectedAnalysisItem.value?.bodyKeyDataList || []
+    showBodyKeyLogin.value = false
+    showBodyKeyResult.value = true
+    showBodyKeyDetail.value = false
+    selectedBodyKeyData.value = null
+    selectedDataType.value = null
+    return
+  }
+
   const result = await handleBodyKeyLogin(loginData)
   
   if (!result.success) {
@@ -68,19 +104,19 @@ const handleBodyKeyLoginWrapper = async (loginData) => {
 }
 
 /* 퍼블 확인용 임시 하단 주석이 기존 */
-const user =  {
+const user = {
   name: '이하늘'
 }
+
 const isLogin = computed(() => {
   return route.meta.isLogin === true || store.getters.isLogin
-}) 
+})
 // const user = store.getters.getUser
 // const isLogin = store.getters.isLogin
 
-
 const isBefore = computed(() => { /* 퍼블 확인용 분석전 */
   return route.meta.isBefore === true
-}) 
+})
 
 const activeFab = ref(false)
 const isBottomFab = ref(false)
@@ -226,6 +262,7 @@ const openPopOneTime = ref(false) /* 240119 일회성을 하겠냐?는 팝업 �
 const isOneTime = ref(false) /* 240119 일회성을 할거면 true, 안할거면 false */
 const openSharePopup = ref(false) /* 분석 결과 요약 공유 팝업 오프너 */
 const selectedAnalysisItem = ref(null) /* 선택된 분석 결과 아이템 */
+const selectedBodyCompositionAnalysisId = ref(null) /* 2026 퍼블 확인용 */
 
 const confirmOneTime = () => { /* 240119 일회성할지 말지 판단하는 함수 */
   openPopOneTime.value = true
@@ -240,7 +277,7 @@ const confirmOneTime = () => { /* 240119 일회성할지 말지 판단하는 함
 
 const moveOneTimeAnalysis = async () => {
   const hasValidCoupon = await hasCoupon()
-  
+
   if (!hasValidCoupon) {
     openPopNoCoupon.value = true
     return
@@ -262,6 +299,32 @@ const moveDetailPage = (id) => {
   store.dispatch('checkup/setResultId', id)
 }
 
+/* 2606 퍼블 확인용 - 스와이퍼 체성분 추가 버튼 클릭 시 측정 결과 데이터 세팅 */
+const openBodyCompositionPopup = (analysisId, basicsId) => {
+  const target = myAnalysisCompleteList.value.find((item) => {
+    return item.id === analysisId
+  })
+
+  selectedBodyCompositionAnalysisId.value = analysisId
+
+  bodyCompositionDataList.value = target?.bodyCompositionDataList || []
+  bodyKeyDataList.value = target?.bodyKeyDataList || []
+
+  selectedAnalysisItem.value = target || null
+  openPopBodyComposition.value = true
+  showBodyKeyLogin.value = false
+  showBodyKeyResult.value = false
+  showBodyKeyDetail.value = false
+  selectedBodyKeyData.value = null
+  selectedDataType.value = null
+
+  console.log('analysisId:', analysisId)
+  console.log('basicsId:', basicsId)
+  console.log('target:', target)
+  console.log('bodyCompositionDataList:', bodyCompositionDataList.value)
+  console.log('bodyKeyDataList:', bodyKeyDataList.value)
+}
+
 // 체성분 분석 처리 및 새로고침
 const handleAnalyzeSelectedBodyKeyData = async () => {
   try {
@@ -271,7 +334,7 @@ const handleAnalyzeSelectedBodyKeyData = async () => {
       // BodyCompositionPopup에 closePopup 이벤트 전송
       // 이는 openPopBodyComposition을 false로 설정하는 것과 동일
       openPopBodyComposition.value = false
-      showBodyKeyDetail.value = false  
+      showBodyKeyDetail.value = false
       await getMyAnalysisCompleteDetail()
     }
   } catch (error) {
@@ -375,6 +438,9 @@ const getMyAnalysisCompleteDetail = async () => {
         hcrReference: [],
         showMuscleBalanceTooltip: true,
 
+        // 2606 퍼블 확인용 - 측정 결과 없음
+        bodyCompositionDataList: [],
+
         // [s] 퍼블 확인용 - AnalyzeAgingSpeed 전달 데이터
         hqAr: {
           aging_rate: 1.12,
@@ -444,6 +510,9 @@ const getMyAnalysisCompleteDetail = async () => {
         hcrReference: [],
         showMuscleBalanceTooltip: true,
 
+        // 2606 퍼블 확인용 - 측정 결과 없음
+        bodyCompositionDataList: [],
+
         // [s] 퍼블 확인용 - AnalyzeAgingSpeed 전달 데이터
         hqAr: {
           aging_rate: 1.48,
@@ -504,43 +573,375 @@ const getMyAnalysisCompleteDetail = async () => {
         agingRate: 1.38,
         agingSpeed: 1.38,
         agingSpeedStatus: 'WARNING'
-      }
+      },
+      {
+        id: 4,
+        basicsId: 4,
+        analysedDate: '2026.12.01 10:30:00',
+        reportType: '2D',
+        hcrReference: [],
+        showMuscleBalanceTooltip: true,
+
+        // [s] 2606 퍼블 확인용 - 체성분 측정 결과 있음
+        bodyCompositionDataList: [
+          {
+            id: 401,
+            analysisId: 4,
+            basicsId: 4,
+            surveyDate: '2026.12.01',
+            ht: 175,
+            wt: 78,
+            wbtSmMass: 31.4,
+            wbtBfMass: 19.2,
+            wbtBfPercent: 24.6,
+            ramMass: 3.2,
+            ramPercent: 101,
+            lamMass: 3.1,
+            lamPercent: 99,
+            rlmMass: 9.1,
+            rlmPercent: 100,
+            llmMass: 9.0,
+            llmPercent: 98,
+            trkMass: 24.8,
+            trkPercent: 102
+          },
+          {
+            id: 402,
+            analysisId: 4,
+            basicsId: 4,
+            surveyDate: '2026.11.20',
+            ht: 174.8,
+            wt: 77.2,
+            wbtSmMass: 30.8,
+            wbtBfMass: 18.7,
+            wbtBfPercent: 24.2,
+            ramMass: 3.1,
+            ramPercent: 100,
+            lamMass: 3.0,
+            lamPercent: 98,
+            rlmMass: 9.0,
+            rlmPercent: 99,
+            llmMass: 8.9,
+            llmPercent: 97,
+            trkMass: 24.4,
+            trkPercent: 101
+          }
+        ],
+        // [e] 2606 퍼블 확인용 - 체성분 측정 결과 있음
+
+        // [s] 퍼블 확인용 - AnalyzeAgingSpeed 전달 데이터
+        hqAr: {
+          aging_rate: 0.96,
+          status: 1
+        },
+        hqReage: {
+          reage: 37
+        },
+        ariRisk: {
+          SBP: 1,
+          DBP: 1,
+          WC: 1,
+          BMI: 2,
+          GLU: 1,
+          TG: 1,
+          TC: 1,
+          HDL: 1,
+          LDL: 1,
+          GOT: 1,
+          GPT: 1,
+          HB: 1,
+          CREA: 1,
+          smok_dur: 1,
+          pack_year: 1,
+          sleep_time: 2,
+          drink_amt: 1,
+          MET: 1,
+          EQ5D: 1,
+          per_bodyfat: 1,
+          WASM: 1
+        },
+        hqReference: {},
+        analyzeAge: 37,
+        commonInfo: {
+          analysisType: 'normal'
+        },
+        hqDataList: [],
+        basics: {},
+        // [e] 퍼블 확인용 - AnalyzeAgingSpeed 전달 데이터
+
+        // [s] 2606 퍼블 확인용 - 바디키 조회 결과 있음
+        bodyKeyDataList: [
+          {
+            id: 501,
+            analysisId: 4,
+            basicsId: 4,
+            datetimes: '20261210121200',
+            ht: 175,
+            wt: 78,
+            smm: 31.4,
+            bfm: 19.2,
+            pbf: 24.6,
+            lra: 3.2,
+            pilra: 101,
+            lla: 3.1,
+            pilla: 99,
+            lrl: 9.1,
+            pilrl: 100,
+            lll: 9.0,
+            pilll: 98,
+            lt: 24.8,
+            pilt: 102
+          },
+          {
+            id: 502,
+            analysisId: 4,
+            basicsId: 4,
+            datetimes: '20261209112000',
+            ht: 174.8,
+            wt: 77.6,
+            smm: 31.1,
+            bfm: 18.9,
+            pbf: 24.3,
+            lra: 3.1,
+            pilra: 100,
+            lla: 3.0,
+            pilla: 98,
+            lrl: 9.0,
+            pilrl: 99,
+            lll: 8.9,
+            pilll: 97,
+            lt: 24.4,
+            pilt: 101
+          },
+          {
+            id: 503,
+            analysisId: 4,
+            basicsId: 4,
+            datetimes: '20261208183500',
+            ht: 174.8,
+            wt: 77.2,
+            smm: 30.8,
+            bfm: 18.7,
+            pbf: 24.2,
+            lra: 3.1,
+            pilra: 100,
+            lla: 3.0,
+            pilla: 98,
+            lrl: 9.0,
+            pilrl: 99,
+            lll: 8.9,
+            pilll: 97,
+            lt: 24.4,
+            pilt: 101
+          },
+          {
+            id: 504,
+            analysisId: 4,
+            basicsId: 4,
+            datetimes: '20261207153000',
+            ht: 175,
+            wt: 77.9,
+            smm: 31.2,
+            bfm: 19.0,
+            pbf: 24.4,
+            lra: 3.2,
+            pilra: 101,
+            lla: 3.1,
+            pilla: 99,
+            lrl: 9.1,
+            pilrl: 100,
+            lll: 9.0,
+            pilll: 98,
+            lt: 24.8,
+            pilt: 102
+          },
+          {
+            id: 505,
+            analysisId: 4,
+            basicsId: 4,
+            datetimes: '20261206100500',
+            ht: 175,
+            wt: 78.1,
+            smm: 31.5,
+            bfm: 19.3,
+            pbf: 24.7,
+            lra: 3.2,
+            pilra: 101,
+            lla: 3.1,
+            pilla: 99,
+            lrl: 9.1,
+            pilrl: 100,
+            lll: 9.0,
+            pilll: 98,
+            lt: 24.8,
+            pilt: 102
+          },
+          {
+            id: 506,
+            analysisId: 4,
+            basicsId: 4,
+            datetimes: '20261205194000',
+            ht: 174.9,
+            wt: 77.8,
+            smm: 31.0,
+            bfm: 18.8,
+            pbf: 24.1,
+            lra: 3.1,
+            pilra: 100,
+            lla: 3.0,
+            pilla: 98,
+            lrl: 9.0,
+            pilrl: 99,
+            lll: 8.9,
+            pilll: 97,
+            lt: 24.4,
+            pilt: 101
+          },
+          {
+            id: 507,
+            analysisId: 4,
+            basicsId: 4,
+            datetimes: '20261204142200',
+            ht: 175,
+            wt: 78.4,
+            smm: 31.7,
+            bfm: 19.5,
+            pbf: 24.9,
+            lra: 3.2,
+            pilra: 101,
+            lla: 3.1,
+            pilla: 99,
+            lrl: 9.1,
+            pilrl: 100,
+            lll: 9.0,
+            pilll: 98,
+            lt: 24.8,
+            pilt: 102
+          },
+          {
+            id: 508,
+            analysisId: 4,
+            basicsId: 4,
+            datetimes: '20261203110700',
+            ht: 174.7,
+            wt: 77.1,
+            smm: 30.7,
+            bfm: 18.5,
+            pbf: 24.0,
+            lra: 3.1,
+            pilra: 100,
+            lla: 3.0,
+            pilla: 98,
+            lrl: 9.0,
+            pilrl: 99,
+            lll: 8.9,
+            pilll: 97,
+            lt: 24.4,
+            pilt: 101
+          },
+          {
+            id: 509,
+            analysisId: 4,
+            basicsId: 4,
+            datetimes: '20261202165500',
+            ht: 175,
+            wt: 78.6,
+            smm: 31.8,
+            bfm: 19.7,
+            pbf: 25.1,
+            lra: 3.2,
+            pilra: 101,
+            lla: 3.1,
+            pilla: 99,
+            lrl: 9.1,
+            pilrl: 100,
+            lll: 9.0,
+            pilll: 98,
+            lt: 24.8,
+            pilt: 102
+          },
+          {
+            id: 510,
+            analysisId: 4,
+            basicsId: 4,
+            datetimes: '20261201121200',
+            ht: 175,
+            wt: 78,
+            smm: 31.4,
+            bfm: 19.2,
+            pbf: 24.6,
+            lra: 3.2,
+            pilra: 101,
+            lla: 3.1,
+            pilla: 99,
+            lrl: 9.1,
+            pilrl: 100,
+            lll: 9.0,
+            pilll: 98,
+            lt: 24.8,
+            pilt: 102
+          }
+        ],
+        // [e] 2606 퍼블 확인용 - 바디키 조회 결과 있음
+
+        hqOxi: {
+          score: 72,
+          status: 1
+        },
+        hqMet: {
+          score: 64,
+          status: 2
+        },
+        dqData: {
+          RFS_score: 70
+        },
+        metData: {
+          met: 5.2
+        },
+        shData: {
+          sh_score: 76
+        },
+        agingRate: 0.96,
+        agingSpeed: 0.96,
+        agingSpeedStatus: 'GOOD'
+      },
     ]
-    if(isBefore.value === false) { /* 퍼블 확인용 */
+
+    if (isBefore.value === false) { /* 퍼블 확인용 */
       myAnalysisCompleteList.value = swiperData
     }
 
-    const response = await analysisApi.getMyAnalysisCompleteDetail()
-    
-        const data = response.data?.logmeCompleteAnalysisMySimple || []
+    // 퍼블 확인용: 실제 API 호출 막음
+    // const response = await analysisApi.getMyAnalysisCompleteDetail()
+    // const data = response.data?.logmeCompleteAnalysisMySimple || []
 
-    if (data && data.length > 0) {
-      myAnalysisCompleteList.value = data.map((item) => {
-        return {
-          ...item,
-          hcrReference: [],
-          // 체성분 입력 툴팁 제어
-          showMuscleBalanceTooltip: true
-        }
-      })
+    // if (data && data.length > 0) {
+    //   myAnalysisCompleteList.value = data.map((item) => {
+    //     return {
+    //       ...item,
+    //       hcrReference: [],
+    //       // 체성분 입력 툴팁 제어
+    //       showMuscleBalanceTooltip: true
+    //     }
+    //   })
 
-      // 현재 일자
-      const today = new Date()
-      // 첫 번째 분석 일자
-      const aDate = new Date(dateConvert(myAnalysisCompleteList.value[0].analysedDate, '-'))
-      // 분석일에서 6개월 더한 일자
-      const addSixMonth = new Date(new Date(aDate).setMonth(aDate.getMonth() + 6))
-      // 분석일에서 12개월 더한 일자
-      const addOneYear = new Date(new Date(aDate).setMonth(aDate.getMonth() + 12))
-      
-      if (today >= addSixMonth && today < addOneYear) {
-        // 6개월 경과시
-        motivationMessage.value = ref(t('Home.text2'))//'건강한 생활습관을 꾸준히 관리해주세요'
-      } else if (today >= addOneYear) {
-        // 12개월 경과시
-         motivationMessage.value = ref(t('Home.text3')) //'새로운 웰니스 분석을 통해 변화되는 결과를 확인해보세요'
-      }
-    }
+    //   // 현재 일자
+    //   const today = new Date()
+    //   // 첫 번째 분석 일자
+    //   const aDate = new Date(dateConvert(myAnalysisCompleteList.value[0].analysedDate, '-'))
+    //   // 분석일에서 6개월 더한 일자
+    //   const addSixMonth = new Date(new Date(aDate).setMonth(aDate.getMonth() + 6))
+    //   // 분석일에서 12개월 더한 일자
+    //   const addOneYear = new Date(new Date(aDate).setMonth(aDate.getMonth() + 12))
+
+    //   if (today >= addSixMonth && today < addOneYear) {
+    //     // 6개월 경과시
+    //     motivationMessage.value = ref(t('Home.text2'))//'건강한 생활습관을 꾸준히 관리해주세요'
+    //   } else if (today >= addOneYear) {
+    //     // 12개월 경과시
+    //     motivationMessage.value = ref(t('Home.text3')) //'새로운 웰니스 분석을 통해 변화되는 결과를 확인해보세요'
+    //   }
+    // }
   } catch (e) {
     console.error(e)
   } finally {
@@ -591,45 +992,50 @@ const closeSharePopup = () => {
 
 const closeBodyCompositionPopup = () => {
   openPopBodyComposition.value = false
+  showBodyKeyLogin.value = false
+  showBodyKeyResult.value = false
+  showBodyKeyDetail.value = false
+  selectedBodyKeyData.value = null
+  selectedDataType.value = null
   selectedAnalysisItem.value = null
 }
 
 // 분석일로부터 60일 뒤 날짜 계산
 const getUpgradeDate = (analysedDate) => {
   if (!analysedDate) return ''
-  
+
   // "2025.07.22 13:40:05" 형식에서 날짜 부분만 추출 (YYYY.MM.DD)
   const dateStr = analysedDate.substring(0, 10)
-  
+
   // Date 객체로 변환
   const date = new Date(dateStr.replace(/\./g, '-'))
-  
+
   // 60일 뒤 계산
   const upgradeDate = new Date(date.setDate(date.getDate() + 60))
-  
+
   const year = upgradeDate.getFullYear()
   const month = String(upgradeDate.getMonth() + 1).padStart(2, '0')
   const day = String(upgradeDate.getDate()).padStart(2, '0')
-  
+
   return `${year}.${month}.${day}`
 }
 
 // 업그레이드 기한이 만료되었는지 확인
 const isUpgradeExpired = (analysedDate) => {
   if (!analysedDate) return false
-  
+
   // "2025.07.22 13:40:05" 형식에서 날짜 부분만 추출 (YYYY.MM.DD)
   const dateStr = analysedDate.substring(0, 10)
-  
+
   // 분석일을 Date 객체로 변환
   const date = new Date(dateStr.replace(/\./g, '-'))
-  
+
   // 60일 뒤 계산
   const upgradeDate = new Date(date.setDate(date.getDate() + 60))
-  
+
   // 오늘 날짜
   const today = new Date()
-  
+
   // 오늘 날짜가 업그레이드 날짜보다 이후면 만료
   return today > upgradeDate
 }
@@ -641,21 +1047,21 @@ const isUpgradeExpired = (analysedDate) => {
  */
 const handleScroll = () => {
   const currentScrollY = window.scrollY
-  
+
   // 100px 스크롤했을 때 버튼 활성화
   const triggerPoint = 100
-  
+
   if (currentScrollY > triggerPoint) {
     activeFab.value = true
   } else {
     activeFab.value = false
   }
-  
+
   // 맨 하단에서 80px 위치 도달 시 isBottomFab 활성화
   const documentHeight = document.documentElement.scrollHeight
   const windowHeight = window.innerHeight
   const scrollBottom = currentScrollY + windowHeight
-  
+
   // 맨 하단에서 80px 이내에 도달하면 isBottomFab 활성화
   if (documentHeight - scrollBottom <= 80) {
     isBottomFab.value = true
@@ -764,7 +1170,7 @@ const getHealthTrafficLight = (item) => {
                         src="/img/ico_share.svg"
                         alt="공유하기" />
                     </button>
-                  </div> 
+                  </div>
                 </div>
 
                 <!-- [s] 2606 라이브 버전에 맞춰 복약 부분 미노출 -->
@@ -774,7 +1180,7 @@ const getHealthTrafficLight = (item) => {
                   <!-- <span class="home--medication-detail"> -->
                     <!-- to 개발 | 복약정보가 없을 경우 -->
                     <!-- {{ $t('CheckupMedication.text4') }} -->
-                    
+
                     <!-- to 개발 | 복약정보가 있을 경우 -->
                     <!-- {{ $t('CheckupMedication.text9') }}, {{ $t('CheckupMedication.text10') }}, {{ $t('CheckupMedication.text14') }}, {{ $t('CheckupMedication.text7') }}, {{ $t('CheckupMedication.text12') }}, {{ $t('CheckupMedication.text8') }} -->
                   <!-- </span> -->

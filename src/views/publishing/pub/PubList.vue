@@ -147,8 +147,8 @@ const data = ref([
     div3: '',
     loca: '@/views/Home.vue<br>@/views/publishing/Home.vue -> 퍼블 확인용 경로',
     go: '/publishing/home',
-    msg: '코드 수정 사항<br>2606 라이브 버전에 맞춰 복약 부분 미노출 - 0818 기획 요청<br>2606 하단 플로팅 버튼 텍스트 수정 - Home.text14, 16 수정으로 인해<br>2606 스타일 수정 - 하단 scoped style 태그 내부 수정<br>2606 swiper 옵션 수정 - .home--my-result<br>2606 분석권 없음 팝업 캡션 클래스 수정 - Home.text18, 19 텍스트 변경 <br>2606 이어하기 확인 팝업 x 버튼 삭제<br><br>AnalyzeAgingSpeed.vue 수정<br>2606 바늘 디자인 수정<br>2606 막대기 디자인 변경으로 인한 공유 팝업 렌더러 변경<br>2606 공유 이미지 캡처 시 배경 화질 보정<br>2606 건강수명분석, 공유팝업 그래프 디자인 수정<br><br>AnalysisSharePopup.vue 수정<br>2606 .AnalysisSummary--desc-user br 추가 / 퍼블 확인용 name 임의 설정<br>2606 그래프 텍스트 삭제<br>2606 .AnalysisSummary--list-num 숫자 띄어쓰기 삭제<br>2606 프리뷰 닫기 버튼 이미지 변경<br><br>src\router\index.js<br>2606 퍼블 확인을 위해 라우터 checkup 페이지 접근 id 확인 주석처리',
-    confirm: '수정 작업중'
+    msg: '스와이퍼 체성분 입력 팝업 2-데이터없음, 4-myWellness LAB, 5-바디키<br><br>코드 수정 사항<br>2606 라이브 버전에 맞춰 복약 부분 미노출 - 0818 기획 요청<br>2606 하단 플로팅 버튼 텍스트 수정 - Home.text14, 16 수정으로 인해<br>2606 스타일 수정 - 하단 scoped style 태그 내부 수정<br>2606 swiper 옵션 수정 - .home--my-result<br>2606 분석권 없음 팝업 캡션 클래스 수정 - Home.text18, 19 텍스트 변경 <br>2606 이어하기 확인 팝업 x 버튼 삭제<br><br>AnalyzeAgingSpeed.vue 수정<br>2606 바늘 디자인 수정<br>2606 막대기 디자인 변경으로 인한 공유 팝업 렌더러 변경<br>2606 공유 이미지 캡처 시 배경 화질 보정<br>2606 건강수명분석, 공유팝업 그래프 디자인 수정<br><br>AnalysisSharePopup.vue 수정<br>2606 .AnalysisSummary--desc-user br 추가 / 퍼블 확인용 name 임의 설정<br>2606 그래프 텍스트 삭제<br>2606 .AnalysisSummary--list-num 숫자 띄어쓰기 삭제<br>2606 프리뷰 닫기 버튼 이미지 변경<br><br>src\router\index.js<br>2606 퍼블 확인을 위해 라우터 checkup 페이지 접근 id 확인 주석처리<br><br>BodyCompositionPopup.vue<br>2606 퍼블 확인용 아래 주석이 원본',
+    confirm: '2026.08.26 퍼블 완료'
   },
   {
     div: '설문입력',
@@ -192,7 +192,7 @@ const data = ref([
     div3: '',
     loca: '@/views/checkup/basics/CheckupBasics.vue',
     go: '/publishing/checkup-input/checkup-basics',
-    msg: '',
+    msg: '2606 퍼블 확인용 바로 진입 시 데이터 아래 주석이 원본',
     confirm: '작업중'
   },
   {

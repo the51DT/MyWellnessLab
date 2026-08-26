@@ -23,12 +23,52 @@ const moveNext = useMoveNext()
 const movePrev = useMovePrev()
 const router = useRouter()
 
+// 2606 퍼블 확인용 바로 진입 시 데이터 아래 주석이 원본
+const publishingUser = {
+  name: '홍길동',
+  gender: 'MALE',
+  dateOfBirth: '1990.01.01'
+}
 
-const user = store.getters.getUser
-const nhisData = store.getters['checkup/getNhisData']
-const healthDataType = store.getters['checkup/getHealthDataType']
-const analysisType = store.getters['checkup/getAnalysisType']
-const basicsId = store.getters['checkup/getBasicsId']
+const publishingNhisData = {
+  id: null,
+  commonId: null,
+  name: '홍길동',
+  age: 36,
+  bmi: 25.5,
+  dbp: 86,
+  ht: 175,
+  sbp: 132,
+  sex: 1,
+  wc: 88,
+  wt: 78,
+  healthDataName: '',
+  healthDataType: 'direct',
+  birthDate: '1990.01.01',
+  checkDate: '2026.10.25',
+  createdDate: '',
+  modifiedDate: ''
+}
+
+const storeUser = store.getters.getUser
+const storeNhisData = store.getters['checkup/getNhisData']
+
+const user = storeUser && storeUser.name && storeUser.dateOfBirth
+  ? storeUser
+  : publishingUser
+
+const nhisData = storeNhisData && Object.keys(storeNhisData).length > 0 && storeNhisData.checkDate
+  ? storeNhisData
+  : publishingNhisData
+
+const healthDataType = store.getters['checkup/getHealthDataType'] || publishingNhisData.healthDataType
+const analysisType = store.getters['checkup/getAnalysisType'] || 'normal'
+const basicsId = store.getters['checkup/getBasicsId'] || null
+// const user = store.getters.getUser
+// const nhisData = store.getters['checkup/getNhisData']
+// const healthDataType = store.getters['checkup/getHealthDataType']
+// const analysisType = store.getters['checkup/getAnalysisType']
+// const basicsId = store.getters['checkup/getBasicsId']
 
 const validMsg = ref('')
 const popup = ref(false)

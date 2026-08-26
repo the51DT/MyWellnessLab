@@ -1652,7 +1652,7 @@ body::before {
 
 a {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  color: #1a1818;
   transition: 0.4s;
 }
 
@@ -1660,6 +1660,7 @@ button{
   cursor: pointer;
   font-family: "Pretendard", sans-serif;
   font-weight: 600;
+  color: #1a1818;
   &:hover{
     transition: background-color .5s;
   }
@@ -1822,6 +1823,9 @@ input[type=number] {
         width: 92rem;
         @include alignCenter3;
         padding-bottom: 6rem;
+      }
+      &:has(.AnalyzePrivacyAgree-wrap){
+        padding: 0;
       }
     }
   }

@@ -848,7 +848,7 @@ $w-pc-wrap: 520px;
     }
   }
   &:after{
-    content: url("../../../public/img/ic_arrow_down_black.svg");
+    content: url("/img/ic_arrow_down_black.svg");
     position: absolute;
     right: 1rem;
     pointer-events: none;
@@ -1777,6 +1777,11 @@ input[type="password"]{
 input::placeholder, textarea::placeholder{
   color: $txt-font-color-gray;
   font-family: "Pretendard", sans-serif;
+}
+
+input:disabled{
+  background-color: #f0f0f0;
+  border-color: #ccc;
 }
 
 /* Chrome, Safari, Edge, Opera */

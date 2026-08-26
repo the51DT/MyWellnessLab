@@ -18,7 +18,7 @@ import { isAndroidDevice, isPwaInstalled, getCookie, showInstallPrompt, checkPwa
 
 defineOptions({ name: 'AddBtnHome' })
 
-const shouldShowAddBtn = ref(false)
+const shouldShowAddBtn = ref(true) /* 260826 기본값 노출로 수정 */
 const deferredPrompt = ref(null)
 
 // PWA 설치 프롬프트 표시
@@ -97,6 +97,7 @@ onMounted(() => {
   font-size: 11px;
   line-height: 1.5;
   color: #092F28;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.65); /* 260826 버튼 음영 추가 */
 }
 .home--addBtn-close {
   width: 12px;
@@ -104,6 +105,8 @@ onMounted(() => {
   background: transparent;
   img{
     width: 100%;
+    display: block; /* 260826 버튼 음영 추가 */
+    filter: drop-shadow(0 2px 10px rgba(255, 255, 255, 0.65)); /* 260826 버튼 음영 추가 */
   }
 }
 </style>

@@ -32,7 +32,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Main.vue',
     go: '/publishing/main',
-    msg: "**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>퍼블 확인용 라우터 케이스 적용<br>260721 / mission-select 내부 구조 수정<br>260721 / 플로팅 탭 전환 핸들러 추가<br>260727 인증방법 선택 사진 찍기 디바이스 체크 후 노출되게 수정<br>260727 미션 주의사항 추가<br>260818 홈 추가 버튼 수정<br>260819 tit 내부 버튼 추가<br>260820 문구 수정<br>260821 문구 수정",
+    msg: "**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>퍼블 확인용 라우터 케이스 적용<br>260721 / mission-select 내부 구조 수정<br>260721 / 플로팅 탭 전환 핸들러 추가<br>260727 인증방법 선택 사진 찍기 디바이스 체크 후 노출되게 수정<br>260727 미션 주의사항 추가<br>260818 홈 추가 버튼 수정<br>260819 tit 내부 버튼 추가<br>260820 문구 수정<br>260821 문구 수정<br>AddBtnHomeRound.vue 260826 기본값 노출로 수정, 260826 버튼 음영 추가",
     confirm: '2026.08.21 퍼블 수정'
   },
   {
@@ -174,7 +174,7 @@ const data = ref([
     div3: '',
     loca: '@/views/checkupSide/CheckupPrivacyAgree.vue',
     go: '/publishing/checkup/checkup-privacy-agree',
-    msg: '2606 hr 태그 삭제<br>2606 label 밑 내용 감싸는 AnalyzePrivacyAgree--box 추가<br>2606 CheckupPrivacyAgree.text1, 16 (필수/선택) 분리 필요',
+    msg: '2606 hr 태그 삭제<br>2606 label 밑 내용 감싸는 AnalyzePrivacyAgree--box 추가<br>2606 CheckupPrivacyAgree.text1, 16 (필수/선택) strong 태그 필요<br>2606 개인정보 표 리포트 항목 삭제',
     confirm: '작업중'
   },
   {
@@ -476,8 +476,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/team/CreateTeam.vue',
     go: '/publishing/my-team/create',
-    msg: "'팀 구분 - 챌린지 인풋', '완료' 버튼 클릭 시 퍼블 확인용으로 팝업 노출<br>260727 회차 진행 안내로 변경<br>260727 회차 기간 수정<br>팀 구분 미선택 시 툴팁 & 팝업 추가 / 팀 관리 진입 시 팀 구분 변경 막기 개발 필요<br>260727 팝업 추가<br>260820 문구 수정 / 챌린지 자율 미션 케이스 추가",
-    confirm: '2026.08.20 퍼블 수정'
+    msg: "'팀 구분 - 챌린지 인풋', '완료' 버튼 클릭 시 퍼블 확인용으로 팝업 노출<br>260727 회차 진행 안내로 변경<br>260727 회차 기간 수정<br>팀 구분 미선택 시 툴팁 & 팝업 추가 / 팀 관리 진입 시 팀 구분 변경 막기 개발 필요<br>260727 팝업 추가<br>260820 문구 수정 / 챌린지 자율 미션 케이스 추가<br>260826 팀 유형 팀 관리 진입 시 비활성화",
+    confirm: '2026.08.26 퍼블 수정'
   },
   {
     div: '',

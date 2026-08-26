@@ -2,14 +2,18 @@
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
-import CheckupPrivacyAgreePopup from './components/CheckupPrivacyAgreePopup.vue'
+import CheckupPrivacyAgreePopup from '@/views/publishing/checkup/CheckupPrivacyAgreePopup.vue' // 2606 퍼블 확인용 아래 주석이 원본
+// import CheckupPrivacyAgreePopup from './components/CheckupPrivacyAgreePopup.vue'
 import BasePopup from '@/components/BasePopup.vue'
 
 const store = useStore()
 const router = useRouter()
 
-const analysisType = store.getters['checkup/getAnalysisType']
-const healthDataType = store.getters['checkup/getHealthDataType']
+/* 퍼블 확인용 */
+const analysisType = 'normal'
+const healthDataType = 'formal'
+// const analysisType = store.getters['checkup/getAnalysisType']
+// const healthDataType = store.getters['checkup/getHealthDataType']
 
 const popupCertification = ref(false)
 
@@ -38,6 +42,11 @@ const handleProceed = (value) => {
       return
     }
     if (analysisType === 'normal' && healthDataType === 'formal') {
+      store.dispatch('setUser', {
+        name: '홍길동',
+        dateOfBirth: '1990.01.01',
+        mobile: '010-1234-5678'
+      })
       popupCertification.value = true
     } else {
       router.push({ name: 'CheckupDateSelect' })
@@ -59,7 +68,8 @@ const handleClose = () => {
 const handleSuccess = () => {
   handleClose()
 
-  router.push({ name: 'CheckupBasics' })
+  router.push('/publishing/checkup-input/checkup-basics') // 2606 퍼블 확인용 아래 주석이 원본
+  // router.push({ name: 'CheckupBasics' })
 }
 
 </script>
@@ -77,7 +87,7 @@ const handleSuccess = () => {
             name="AnalyzePrivacyAgree-check"
             class="custom input-focus" />
           <span />
-          민감정보 수집 이용동의 <strong>(필수)</strong> <!-- 2606 CheckupPrivacyAgree.text1, 16 (필수/선택) 분리 필요 -->
+          민감정보 수집 이용동의 <strong>(필수)</strong> <!-- 2606 CheckupPrivacyAgree.text1, 16 (필수/선택) strong 태그 필요 -->
         </label>
         <!-- [s] 2606 label 밑 내용 감싸는 AnalyzePrivacyAgree--box 추가 -->
         <div class="AnalyzePrivacyAgree--box">
@@ -95,7 +105,8 @@ const handleSuccess = () => {
                     <th>{{ $t('CheckupPrivacyAgree.text4') }}</th>
                     <th>{{ $t('CheckupPrivacyAgree.text5') }}</th>
                     <th>{{ $t('CheckupPrivacyAgree.text6') }}</th>
-                    <th>{{ $t('CheckupPrivacyAgree.text32') }}</th>
+                    <!-- 2606 개인정보 표 리포트 항목 삭제 -->
+                    <!-- <th>{{ $t('CheckupPrivacyAgree.text32') }}</th> -->
                   </tr>
                 </thead>
                 <tbody>
@@ -103,7 +114,8 @@ const handleSuccess = () => {
                     <th>{{ $t('CheckupPrivacyAgree.text7') }}</th>
                     <td class="light">{{ $t('CheckupPrivacyAgree.text8') }}</td>
                     <td class="light">{{ $t('CheckupPrivacyAgree.text9') }}</td>
-                    <td class="light">{{ $t('CheckupPrivacyAgree.text33') }}</td>
+                    <!-- 2606 개인정보 표 리포트 항목 삭제 -->
+                    <!-- <td class="light">{{ $t('CheckupPrivacyAgree.text33') }}</td> -->
                   </tr>
                   <tr>
                     <th>{{ $t('CheckupPrivacyAgree.text10') }}</th>
@@ -113,21 +125,24 @@ const handleSuccess = () => {
                     <td>
                       {{ $t('CheckupPrivacyAgree.text12') }}
                     </td>
-                    <td>
+                    <!-- 2606 개인정보 표 리포트 항목 삭제 -->
+                    <!-- <td>
                       {{ $t('CheckupPrivacyAgree.text34') }}
-                    </td>
+                    </td> -->
                   </tr>
                   <tr v-if="isShowSelectedAgree">
                     <th>{{ $t('CheckupPrivacyAgree.text13') }}</th>
                     <td>{{ $t('CheckupPrivacyAgree.text14') }}</td>
                     <td>{{ $t('CheckupPrivacyAgree.text14') }}</td>
-                    <td>{{ $t('CheckupPrivacyAgree.text14') }}</td>
+                    <!-- 2606 개인정보 표 리포트 항목 삭제 -->
+                    <!-- <td>{{ $t('CheckupPrivacyAgree.text14') }}</td> -->
                   </tr>
                   <tr v-else>
                     <th>{{ $t('CheckupPrivacyAgree.text13') }}</th>
                     <td>{{ $t('CheckupPrivacyAgree.text35') }}</td>
                     <td>{{ $t('CheckupPrivacyAgree.text35') }}</td>
-                    <td>{{ $t('CheckupPrivacyAgree.text35') }}</td>
+                    <!-- 2606 개인정보 표 리포트 항목 삭제 -->
+                    <!-- <td>{{ $t('CheckupPrivacyAgree.text35') }}</td> -->
                   </tr>
                 </tbody>
               </table>
@@ -152,7 +167,7 @@ const handleSuccess = () => {
             name="AnalyzePrivacyAgree-check"
             class="custom" />
           <span />
-          민감정보(건강정보) 제3자 제공 동의 <strong>(선택)</strong> <!-- 2606 CheckupPrivacyAgree.text1, 16 (필수/선택) 분리 필요 -->
+          민감정보(건강정보) 제3자 제공 동의 <strong>(선택)</strong> <!-- 2606 CheckupPrivacyAgree.text1, 16 (필수/선택) strong 태그 필요 -->
         </label>
         <!-- [s] 2606 label 밑 내용 감싸는 AnalyzePrivacyAgree--box 추가 -->
         <div class="AnalyzePrivacyAgree--box">

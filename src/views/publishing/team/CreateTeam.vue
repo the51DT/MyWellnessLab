@@ -99,14 +99,14 @@ onMounted(() => {
             <h5 class="title">팀 유형</h5> <!-- 260820 문구 수정 -->
             <div class="radio-wrap">
               <div class="inputField--input--radio--wrap">
-                <input type="radio" class="inputField--input inputField--input--radio" id="teamTypeChallenge" name="teamType" value="challenge" v-model="teamClassification" @change="teamClassification === 'challenge' && (changeMissionPopup = true)"/>
+                <input type="radio" class="inputField--input inputField--input--radio" id="teamTypeChallenge" name="teamType" value="challenge" v-model="teamClassification" @change="teamClassification === 'challenge' && (changeMissionPopup = true)" :disabled="challengeManage || regularManage"/> <!-- 260826 팀 유형 팀 관리 진입 시 비활성화 -->
                 <label for="teamTypeChallenge" class="inputField--input--radio--label">
                   <span>챌린지(본사)</span>
                 </label>
               </div>
 
               <div class="inputField--input--radio--wrap">
-                <input type="radio" class="inputField--input inputField--input--radio" id="teamTypeRegular" name="teamType" value="regular" v-model="teamClassification"/>
+                <input type="radio" class="inputField--input inputField--input--radio" id="teamTypeRegular" name="teamType" value="regular" v-model="teamClassification" :disabled="challengeManage || regularManage"/> <!-- 260826 팀 유형 팀 관리 진입 시 비활성화 -->
                 <label for="teamTypeRegular" class="inputField--input--radio--label">
                   <span>상시</span>
                 </label>

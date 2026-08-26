@@ -4785,50 +4785,67 @@ button{
     }
     .Checkup--btn-wrap.btns-2{
       margin-top: 3rem;
+      padding-bottom: 2.4rem;
       @media (min-width: $w-pc) {
-        margin-top: 2rem;
+        margin-top: 6rem;
+        padding-bottom: 2.8rem;
         justify-content: center;
-        gap: 1.6rem;
-        .btn--bottom{
+        gap: 1.2rem;
+      }
+      .btn--bottom{
+        @media (min-width:$w-pc) {
           width: 20rem;
+        }
+        button{
+          @include txtStyle(body, sm, 600);
+          font-family: inherit;
+          &:not(:hover){
+            border: none;
+          }
         }
       }
     }
   }
-  &--info{
-    margin-top: $marginTop-small;
-    font-size: 1.4rem;
-    font-family: $font-family-light;
+  &--box{
     margin-top: 1.2rem;
+    padding: 1.6rem;
+    border-radius: 1.2rem;
+    border: .1rem solid #E5E5E5;
+    background-color: #fff;
     @media (min-width: $w-pc) {
-      font-size: 1.6rem;
-      margin-top: 2rem;
+      padding: 2rem;
     }
   }
+  &--info{
+    @include txtStyle(body, 2xs-1);
+    color: #333 !important;
+    font-family: inherit;
+  }
   &--info2{
-    margin-top: $marginTop-small;
+    margin-top: 1.2rem;
     text-decoration: underline;
-    text-underline-offset: 4px;
-    font-family: $font-family-bold;
-    font-size: 1.4rem;
-    @media (min-width: $w-pc) {
-      margin-top: 1rem;
-      font-size: 1.6rem;
-    }
+    text-underline-offset: .4rem;
+    font-family: inherit;
+    color: #1A1818 !important;
+    @include txtStyle(body, 2xs-1, 600);
   }
   &--tb{
     @include tableStyle;
-    margin-top: 1.2rem;
-    border-top: solid 0.1rem #a7a7a7;
+    margin-top: 1.6rem;
+    border-top: solid 0.1rem #999;
+    border-bottom: solid 0.1rem #999;
     @media (min-width: $w-pc) {
       margin-top: 2rem;
     }
     tr{
       th{
+        border-color: #ccc;
+        background-color: #F0F0F0;
         @media (min-width: $w-pc) {
           width: 44%;
         }
         &:first-child{
+          width: 20%;
           @media (min-width: $w-pc) {
             width: 12%;
             vertical-align: middle;
@@ -4845,12 +4862,22 @@ button{
       }
     }
     td{
-      font-family: $font-family-bold;
+      font-weight: 600;
       &.light{
-        font-family: $font-family-light;
+        font-weight: 400;
+      }
+      ul{
+        list-style: none;
+        padding: 0;
+        li {
+          &::before{
+            content: '-';
+          }
+        }
       }
     }
     th, td{
+      font-family: inherit;
       @media (min-width: $w-pc) {
         font-size: 1.5rem;
         padding: 1.6rem;
@@ -4884,16 +4911,33 @@ button{
     max-width: 20rem;
   }
   &--more{
-    margin-top: 2rem;
-    margin-bottom: 3.2rem;
+    margin-top: 1.6rem;
     @media (min-width: $w-pc) {
-      margin-top: 3.2rem;
-      margin-bottom: 5rem;
+    }
+    .btn--txt3{
+      font-family: inherit;
+      @include txtStyle(body, xs-1, 600);
+      color: #808080;
+      &.up{
+        &::after{
+          vertical-align: text-top;
+        }
+      }
+      &::after{
+        vertical-align: text-bottom; 
+        @media (min-width:$w-pc) {
+          width: 1.3rem;
+          height: 1.8rem;
+        }
+      }
     }
   }
   .space--top-default,
   .space--top-big{
     label{
+      display: flex;
+      align-items: center;
+      gap: .2rem;
       @include txtStyle(body, xs);
       cursor: pointer;
       strong{
@@ -4906,16 +4950,26 @@ button{
     display: none;
   }
   .space--top-big{
+    margin-top: 2.8rem;
+    @media (min-width: $w-pc) {
+      margin-top: 3.6rem;
+    }
     .AnalyzePrivacyAgree--tb tr:first-child th:first-child{
       @media (min-width: $w-pc) {
         padding: 0 15px;
       }
     }
     .downUp4--wrap .AnalyzePrivacyAgree--tb tr th{
-      width: 25%;
+      width: 30%;
+      @media (min-width:$w-pc) {
+        width: 15%;
+      }
     }
     .downUp4--wrap .AnalyzePrivacyAgree--tb tr td{
-      width: 75%;
+      width: 70%;
+      @media (min-width:$w-pc) {
+        width: 85%;
+      }
     }
   }
   .AnalyzePrivacyAgree--tb {
@@ -4925,7 +4979,7 @@ button{
   }
   .downUp4--wrap{
     span.light{
-      font-family: $font-family-light;
+      font-weight: 400;
     }
   }
 }
@@ -9444,13 +9498,16 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   .popup--space{
     height: auto;
     @include max-vh-fallback(100, 4.9rem);
-    @media (min-width: $w-pc) {
+    padding-bottom: 0 !important;
+    @media (min-width: $w-pc-small3) {
+      @include max-vh-fallback(90, 7rem);
       background: #f9f9f9;
+      padding: 0;
     }
   }
   @media (min-width: $w-pc-small3){
     .popup--wrap.tit {
-      max-width: 48rem;
+      max-width: 88rem;
     }
     .popup--space{
       padding-right: 6rem;
@@ -9459,16 +9516,16 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
   &--pop-wrap{
     @include spaceRLSDefault;
+    max-width: $w-pc-wrap;
     @media (min-width: $w-pc-small3) {
-      margin-right: 0;
-      margin-left: 0;
+      margin: 0 auto;
     }
     &-min{
-      & + .CheckupPrivacyAgreePopup--finish{
-        .CheckupPrivacyAgreePopup--finish-btn{
-          margin-top: 6rem;
-        }
-      }
+      // & + .CheckupPrivacyAgreePopup--finish{
+      //   .CheckupPrivacyAgreePopup--finish-btn{
+      //     margin-top: 6rem;
+      //   }
+      // }
     }
     &-min2{
       @include min-vh-fallback(100, 15rem);
@@ -9484,15 +9541,14 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     }
   }
   &--tit-wrap{
-    margin-top: 1.6rem;
-    margin-bottom: 2.4rem;
+    margin-top: 2.4rem;
+    margin-bottom: 2rem;
+    @media (min-width: $w-pc-small3) {
+      margin-top: 0;
+    }
     text-align: left;
     .tit--big{
-      font-weight: normal;
-      font-family: $font-family-bold;
-      @media (min-width: $w-pc) {
-        font-size: 2rem;
-      }
+      @include txtStyle(body, md, 600);
     }
   }
   &--channel{
@@ -9506,7 +9562,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   &--ch{
     &-in-wrap{
       text-align: center;
-      width: calc(25% - 2rem);
+      width: 6rem;
     }
     &-span{
       font-size: $txt-font-size-big;
@@ -9551,8 +9607,8 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       }
       .txt--desc3{
         display: block;
-        margin-top: 0.5rem;
-        font-family: $font-family-light;
+        margin-top: .8rem;
+        @include txtStyle(body, 2xs-1, 500);
       }
       &.kakao{
         &:before{
@@ -9624,47 +9680,56 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
   &--input{
     &-tit{
-      @include titleDefault;
-      font-weight: normal;
+      @include txtStyle(body, md, 600);
       .CheckupPrivacyAgreePopup--input-con-wrap &{
-        @include titleItem;
+        @include txtStyle(body, 2xs-1, 500);
       }
     }
     &-wrap{
-      margin-top: $marginTop-big2;
+      margin-top: 2.8rem;
       text-align: left;
+      @media (min-width:$w-pc-small3) {
+        margin-top: 4rem;
+      }
       .CheckupPrivacyAgreePopup--input-con-wrap &{
-        margin-top: 1.6rem;
+        margin-top: 2rem;
         &:first-child{
-          margin-top: 2.4rem;
+          @media (min-width:$w-pc-small3) {
+            margin-top: 2.4rem;
+          }
         }
       }
     }
     &-input{
-      margin-top: $marginTop-small3;
+      margin-top: .8rem;
+      @media (min-width:$w-pc-small3) {
+        margin-top: 1rem;
+      }
       &--com{
         margin-top: $marginTop-small3;
       }
     }
     &-con-wrap{
-      .CheckupPrivacyAgreePopup--input-tit{
-        font-family: $font-family-light;
-      }
     }
   }
   &--terms{
-    margin-top: $marginTop-big2;
+    margin-top: 2.8rem;
     text-align: left;
+    @media (min-width:$w-pc-small3) {
+      margin-top: 4rem;
+    }
     &-h2{
-      @include titleDefault;
-      font-weight: normal;
+      @include txtStyle(body, md, 600);
     }
     .space--top-small{
-      margin-top: 3rem;
+      margin-top: 2rem;
+      @media (min-width:$w-pc-small3) {
+        margin-top: 2.8rem;
+      }
       .JoinTermsAgree--all-txt,
       .JoinTermsAgree--tit,
       .JoinTermsAgree--privacy-tit{
-        font-family: $font-family-light;
+        font-weight: 600;
         cursor: pointer;
       }
       .JoinTermsAgree--all,
@@ -9672,22 +9737,20 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       .JoinTermsAgree--privacy-check-wrap{
         cursor: pointer;
       }
+      .JoinTermsAgree--texts{
+        height: auto;
+      }
     }
   }
   &--finish{
     &-btn{
-      margin-top: $marginTop-big;
-      margin-bottom: $marginBottom-default;
+      margin: 2.4rem auto;
       width: 100%;
       @include btnBig();
       @media (min-width: $w-pc-small3) {
         margin: 4rem auto;
         display: block;
-        font-size: 1.8rem;
         height: 5.2rem;
-      }
-      @media (min-width: $w-pc) {
-        margin-bottom: 2rem;
       }
     }
   }
@@ -9709,26 +9772,49 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
   &--phone{
     @include alignBetween;
-    margin-top: .5rem;
+    gap: .6rem;
+    margin-top: .8rem;
+    @media (min-width:$w-pc-small3) {
+      margin-top: 1rem;
+    }
     & > *{
-      $size: 40%;
-      select{
-        width: 100%;
-      }
-      &:first-child{
-        width: $size;
-      }
       &:last-child{
-        width: calc(100% - $size - .6rem);
+        width: 100%;
       }
     }
   }
   &--company{
-    @include selectCustom;
+    position: relative;
+    select{
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      border-radius: 9rem;
+      border-color: #d6d6d6;
+      width: 13.4rem;
+      padding-right: 3rem;
+      padding-left: 1.6rem;
+      @include txtStyle(body, 2xs-1);
+      @media (min-width:$w-pc-small3) {
+        width: 14.9rem;
+      }
+    }
+    &:after{
+      content: url("/img/ic_arrow_down_black.svg");
+      position: absolute;
+      right: 1rem;
+      pointer-events: none;
+      top: 50%;
+      transform: translateY(-64%);
+      height: 2rem;
+    }
   }
   &--vali{
     @include validationTxt;
-    margin-top: .5rem;
+    margin-top: .6rem;
+    @media (min-width:$w-pc-small3) {
+      margin-top: .8rem;
+    }
   }
   &--p-num{
     width: 60%;
@@ -20123,7 +20209,7 @@ span.legend-dot-interest{
     td{
       color: #222;
       &.light{
-        font-family: $font-family-light;
+        font-weight: 400;
       }
     }
   }

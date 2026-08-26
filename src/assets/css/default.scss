@@ -9496,9 +9496,9 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   $size: 6rem;
   $sizePc: 7rem;
   .popup--space{
-    height: auto;
+    height: 100%;
     @include max-vh-fallback(100, 4.9rem);
-    padding-bottom: 0 !important;
+    padding: 0 !important;
     @media (min-width: $w-pc-small3) {
       @include max-vh-fallback(90, 7rem);
       background: #f9f9f9;
@@ -9531,7 +9531,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       @include min-vh-fallback(100, 15rem);
       @include childCenter;
       text-align: center;
-      padding: 3rem 0;
+      padding: 4rem 0 7rem;
       @media (min-width: $w-pc-small3) {
         min-height: auto;
       }
@@ -9748,26 +9748,23 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       width: 100%;
       @include btnBig();
       @media (min-width: $w-pc-small3) {
-        margin: 4rem auto;
         display: block;
-        height: 5.2rem;
+        height: 4.8rem;
       }
     }
   }
   &--wait{
     @include spaceRLSDefault;
     &-txt{
-      @include titleBig;
+      @include txtStyle(body, lg, 600);
+      word-break: break-all;
       span{
-        font-family: $font-family-light;
-      }
-      @media (min-width: $w-pc) {
-        font-size: 2.4rem;
+        font-weight: 400;
       }
     }
     &-txt2{
       @include txtSmall2;
-      margin-top: $marginTop-small;
+      margin-top: .8rem;
     }
   }
   &--phone{
@@ -9831,15 +9828,15 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
   &-wrap{
     @include btnBottomFixLayout;
+    @media (min-width:$w-pc) {
+      @include min-vh-fallback(100, 8.1rem);
+    }
     .Checkup--btn-wrap{
-      @media (min-width: $w-pc-small3) {
-        width: 42rem;
-        margin: 3.4rem auto 0;
-      }
+      margin-top: 2.4rem;
+      padding-bottom: 2.4rem;
       @media (min-width: $w-pc-small) {
-        width: 34rem;
-        margin: 4rem auto 0;
-        padding-bottom: 0;
+        width: 48rem;
+        padding-bottom: 2.8rem;
       }
     }
   }
@@ -9848,27 +9845,25 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
   &--msg{
     text-align: center;
-    @include titleBig;
-    margin-top: $marginTop-big3;
+    @include txtStyle(body, lg, 500);
+    margin-top: 2.4rem;
     @media (min-width: $w-pc) {
-      font-size: 2.4rem;
-      margin-top: 6rem;
+      margin-top: 2.8rem;
     }
   }
   &--cal{
-    margin: 2rem auto auto;
+    margin: 2.4rem auto auto;
     @media (min-width: $w-pc) {
-      margin-top: 3rem;
+      margin-top: 2.8rem;
     }
   }
   .vc-container {
     @include alignCenter2;
     width: 100%;
-    max-width: 42rem;
-    box-shadow: $box-shadow-soft;
+    max-width: 48rem;
     &.vc-bordered{
-      border-color: $line-color-gray3;
-      border-radius: 1.2rem;
+      border-color: #E5E5E5;
+      border-radius: 2.4rem;
     }
     .vc-arrow{
       background-color: $box-background-trans;
@@ -9880,11 +9875,8 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     .vc-title{
       background-color: $box-background-trans;
       span{
-        @include titleDefault;
-        font-family: $font-family-medium;
+        @include txtStyle(body, xl, 600);
         @media (min-width: $w-pc) {
-          font-size: 2.2rem;
-          font-family: $font-family-light;
         }
       }
     }
@@ -9896,73 +9888,116 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       }
     }
     .vc-weekdays{
+      margin-bottom: .4rem;
       @media (min-width: $w-pc) {
-        margin-bottom: 2rem;
+        margin-bottom: 1.2rem;
       }
     }
     .vc-weekday{
-      font-family: "RixSinHead_Bold", sans-serif;
-      @include txtSmall(#7E7E7E);
-      @media (min-width: $w-pc) {
-        font-size: 2rem;
-        font-family: $font-family-light;
-      }
+      @include txtStyle(body, xs);
+      color: #666;
+      padding: 0;
+      height: 3.6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .vc-day-content{
-      @include txtSmall;
+      @include txtStyle(body, xs);
+      color: #333;
       width: 3.6rem;
       height: 3.6rem;
       @media (min-width: $w-pc) {
-        font-size: 1.8rem;
-        width: 4.8rem;
-        height: 4.8rem;
+        width: 4rem;
+        height: 4rem;
       }
       &.vc-highlight-content-solid{
         color: white;
+        font-weight: 700;
       }
     }
     .vc-day{
       min-height: 3.6rem;
       &.is-today{
         .vc-day-content{
-          background-color: $background-color-gray;
+          background-color: white;
           border-radius: 3rem;
+          border: .4rem solid #146B5B;
+          color: #146B5B;
+          font-weight: 700;
           &.vc-highlight-content-solid{
             background-color: $background-color-green;
             color: white;
+          }
+          &::after{
+            content: '오늘';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 100%);
+            @include txtStyle(caption, md);
+            color: #333;
           }
         }
       }
       .vc-highlight{
         width: 3.6rem;
         height: 3.6rem;
-        background-color: $background-color-green;
+        background-color: #146B5B;
         color: white;
         @media (min-width: 1000px) {
-          width: 4.8rem;
-          height: 4.8rem;
+          width: 4rem;
+          height: 4rem;
         }
       }
     }
     .vc-header{
-      padding-right: 1.8rem;
-      padding-left: 1.8rem;
-      margin-bottom: 1rem;
-      margin-top: 2rem;
+      padding-right: 1.9rem;
+      padding-left: 1.9rem;
+      margin-bottom: 1.2rem;
+      margin-top: 1.8rem;
+      height: 3.3rem;
       @media (min-width: $w-pc) {
-        height: 4rem;
-        margin: 3rem 0 2rem;
+        height: 3.6rem;
+        margin: 2rem 0 1.2rem;
+        padding-right: 1.6rem;
+        padding-left: 1.6rem;
+      }
+      .vc-arrow{
+        width: 3.6rem;
+        height: 100%;
+        @media (min-width:$w-pc) {
+          width: 6.2rem;
+          height: 3.6rem;
+        }
       }
     }
     .vc-weeks{
-      padding: 1.6rem;
+      padding: 0 1.9rem 1.8rem;
+      @media (min-width:$w-pc) {
+        padding: 0 1.6rem 2rem;
+      }
+    }
+    .vc-week{
+      margin-bottom: 2.1rem;
+      &:last-child{
+        margin-bottom: 1.7rem;
+      }
+      &:last-child:has(.vc-day.is-not-in-month:first-child){
+        display: none;
+      }
     }
     .vc-day-content:hover{
-      background-color: $background-color-green;
+      background-color: #146B5B;
       color: $txt-font-color-white;
+      font-weight: 700;
       //&.vc-highlight-content-solid{
       //  color: #222;
       //}
+    }
+    .is-not-in-month *{
+      color: #999;
+      opacity: 1;
     }
   }
   & + .btn--bottom button{
@@ -20436,27 +20471,43 @@ span.legend-dot-interest{
 .checkupGuidePop{
   background-color: rgba(0,0,0,0.8);
   .popup--header{
-    background-color: transparent;
+    background-color: transparent !important;
+    align-items: flex-start;
     .move-prev{
+      position: relative;
       display: flex;    
       align-items: center;
       gap: 1rem;
-      padding-top: 1.2rem;
-      padding-left: 1.2rem;
+      padding-top: .6rem;
+      padding-left: 1.6rem;
       @media (min-width: $w-pc) {
         padding-top: 1rem;
         padding-left: 1.1rem;
       }
       p{
-        font-size: 1.8rem;
-        font-family: $font-family-light;
+        position: absolute;
+        bottom: -.7rem;
+        transform: translateY(100%);
+        padding-left: 5.7rem;
+        padding-top: .3rem;
+        @include txtStyle(body, lg-1, 500);
         color: #fff;
         margin: 0;
+        &::before{
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 1.6rem;
+          display: block;
+          width: 3.9rem;
+          height: 2.1rem;
+          background: url('/img/img_checkup_guide_line.svg') no-repeat center / contain;
+        }
       }
     }
   }
   .popup--space{
-    background-color: transparent;
+    background-color: transparent !important;
     @media (min-width: $w-pc) {
       padding-top: 2.7rem;
     }
@@ -20465,48 +20516,53 @@ span.legend-dot-interest{
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 0.7rem;
+        margin-top: 11rem;
         img{
-          width: 74%;
+          width: 100%;
           max-width: 32rem;
           @media (min-width: $w-pc) {
-            max-width: 25.6rem;
+            max-width: 45.6rem;
           }
         }
       }
       &--con{
-        font-size: 1.8rem;
-        font-family: $font-family-light;
+        @include txtStyle(body, sm, 600);
         color: #fff;
-        margin: 1rem 0 0 20%;
+        margin: .8rem 0 0 20%;
         @media (min-width: $w-pc) {
           margin-left: 9rem;
+          margin-top: 1.2rem;
         }
       }
     }
   }
   .base-pop--btn-wrap{
-    width: 26rem;
+    width: 100%;
     position: absolute;
-    top: calc(50% + 4rem);
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: calc(50% - 4rem);
+    left: 0;
     text-align: center;
     @media (min-width: $w-pc) {
-      top: calc(50% + 2rem);
+      top: calc(50% - 2rem);
     }
     .btn--big6{
-      width: 16rem;
-      margin-top: 2rem;
-      font-family: $font-family-bold;
-      color: #222;
-      background: #fff;
-      border: none;
+      position: fixed;
+      bottom: 2.4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 4rem);
+      @media (min-width: $w-pc) {
+        width: 48rem;
+        bottom: 2.8rem;
+      }
+    }
+    p{
+      @include txtStyle(body, lg-1, 600);
     }
   }
   &--desc{
-    font-size: 2.4rem !important;
-    font-family: $font-family-light;
+    width: 24.7rem;
+    margin: 0 auto;
     color: #fff;
     margin-bottom: 2rem;
   }

@@ -1819,6 +1819,9 @@ input[type=number] {
         padding-bottom: 6rem;
         @include alignCenter3;
       }
+      &:has(.AnalyzeCheckDateSelect){
+        padding: 0;
+      }
     }
   }
   &.wide{

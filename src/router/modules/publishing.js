@@ -218,7 +218,7 @@ const publishingRouter = {
           path: "checkup-basics",
           name: "pubCheckupBasics",
           component: () =>
-            import("@/views/publishing/checkup/CheckupBasics.vue"),
+            import("@/views/checkup/basics/CheckupBasics.vue"),
           meta: {
             title: "기본검사",
             class: "middle",

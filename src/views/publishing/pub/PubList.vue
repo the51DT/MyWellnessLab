@@ -174,8 +174,8 @@ const data = ref([
     div3: '',
     loca: '@/views/checkupSide/CheckupPrivacyAgree.vue',
     go: '/publishing/checkup/checkup-privacy-agree',
-    msg: '2606 hr 태그 삭제<br>2606 label 밑 내용 감싸는 AnalyzePrivacyAgree--box 추가<br>2606 CheckupPrivacyAgree.text1, 16 (필수/선택) strong 태그 필요<br>2606 개인정보 표 리포트 항목 삭제',
-    confirm: '작업중'
+    msg: '[PASS] 수단 선택 시 진행가능<br><br>2606 hr 태그 삭제<br>2606 label 밑 내용 감싸는 AnalyzePrivacyAgree--box 추가<br>2606 CheckupPrivacyAgree.text1, 16 (필수/선택) strong 태그 필요<br>2606 개인정보 표 리포트 항목 삭제',
+    confirm: '2026.08.26 퍼블 완료'
   },
   {
     div: '',
@@ -183,17 +183,17 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/checkup/CheckupDateSelect.vue',
     go: '/publishing/checkup-input',
-    msg: "",
-    confirm: ''
+    msg: "2606 퍼블 확인위해 api 주석처리<br>2606 퍼블 확인용 아래 주석이 원본<br>2606 하단 버튼 문구 변경<br>2606 이전 버튼 퍼블 확인용 주석처리",
+    confirm: '2026.08.26 퍼블 완료'
   },
   {
     div: '',
     div2: '기본검사',
     div3: '',
-    loca: '@/views/publishing/checkup/CheckupBasics.vue',
+    loca: '@/views/checkup/basics/CheckupBasics.vue',
     go: '/publishing/checkup-input/checkup-basics',
     msg: '',
-    confirm: ''
+    confirm: '작업중'
   },
   {
     div: '',
@@ -1112,5 +1112,8 @@ td {
   background-color: #f7f7f7;
   padding: 0;
   font-size: 1.4rem;
+}
+a{
+  color: #1DB196;
 }
 </style>

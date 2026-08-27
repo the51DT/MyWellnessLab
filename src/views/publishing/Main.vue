@@ -138,7 +138,7 @@ export default {
             {
               id: 'all-nutrition-1',
               title: '혈압조절',
-              desc: '혈압조절 제품 (코엔자임Q10, 마그네슘, 오메가 3) 챙겨 먹기'
+              desc: '혈압조절 제품 (코엔자임Q10, 마그네슘, 오메가-3) 챙겨 먹기'
             },
             {
               id: 'all-nutrition-2',
@@ -454,7 +454,7 @@ export default {
         <a @click="popup.surveyContinuePopup = true" href="javascript:void(0)" class="main--analyze--link">맞춤 미션을<br>추천 받아보세요</a> <!-- 260821 문구 수정 -->
       </div>
       <div v-else class="main--analyze--after"> <!-- 건강수명분석 후 -->
-        <p>나의 건강수명분석과 미션</p>
+        <p>나의 건강수명 분석과 미션</p> <!-- 260827 문구 수정 -->
         <div class="main--analyze--total">
           <div class="main--analyze--graph">
             <img src="/img/bg_main_agingspeed.png">
@@ -591,16 +591,17 @@ export default {
         <div v-if="tab === 0" class="tab-content tab-content-1">
           <div class="tab-content--active"><span>챌린지</span></div>
           <!-- 챌린지 없는 경우 -->
+          <!-- 260827 문구 수정 -->
           <!-- <div class="main--team--no">
             <img src="/img/img_home_error.png">
-            <p>참여중인 챌린지가 없습니다.</p>
+            <p>참여 중인 챌린지가 없습니다.</p>
           </div> -->
           <div>
             <div class="challenge--box-tit"><span>6월 건강수면 챌린지팀 6월 건강수면 챌린지팀 6월 건강수면 챌린지팀 6월 건강수면 챌린지팀</span><button type="button" @click=""></button></div> <!-- 260819 tit 내부 버튼 추가 / 팀상세 이동 필요 -->
             <div class="challenge--box-tag">진행중</div>
             <div class="challenge--box-info">
               <p>
-                <span>성공조건</span>
+                <span>성공 조건</span> <!-- 260827 문구 수정 -->
                 <span><em>팀 인증률</em><strong>80%</strong><em>이상</em></span>
               </p>
               <p>
@@ -620,15 +621,16 @@ export default {
           <div class="tab-content--active"><span>상시</span></div>
           <div class="main--team--no">
             <img src="/img/img_home_error.png">
-            <p>참여중인 상시 팀이 없습니다.</p>
+            <p>참여 중인 상시 팀이 없습니다.</p> <!-- 260827 문구 수정 -->
           </div>
           <!-- 260819 tit 내부 버튼 추가 / 팀상세 이동 필요 -->
+          <!-- 260827 문구 수정 -->
           <!-- <div>
             <div class="challenge--box-tit"><span>6월 건강수면 챌린지팀</span><button type="button" @click=""></button></div> 
             <div class="challenge--box-tag">진행중</div>
             <div class="challenge--box-info">
               <p>
-                <span>성공조건</span>
+                <span>성공 조건</span>
                 <span><em>팀 인증률</em><strong>80%</strong><em>이상</em></span>
               </p>
               <p>
@@ -666,7 +668,7 @@ export default {
   <!-- 설문 이어하기 팝업  -->
   <BasePopup v-if="popup.surveyContinuePopup"> 
     <template v-slot:contents>
-      <p class="pop-text-light">입력중인 건강 설문이 있습니다.</p>
+      <p class="pop-text-light">입력 중인 건강 설문이 있습니다.</p> <!-- 260827 문구 수정 -->
       <p class="pop-text-bold">이어서 진행하시겠습니까?</p>
       <div class="pop-btn-wrap"> <!-- 건강분석설문 이동 필요 -->
         <button type="button" @click="popup.surveyContinuePopup = false, popup.noCouponPopup = true" class="pop-btn pop-btn--gray">새로하기</button> 
@@ -679,7 +681,7 @@ export default {
   <BasePopup v-if="popup.noCouponPopup"> 
     <template v-slot:contents>
       <p class="pop-text-bold">사용 가능한 분석권이 없어<br>분석을 시작할 수 없습니다.</p>
-      <p class="pop-text-caption center">※ 쿠폰은 암웨이 홈페이지에서 구매 하신 후 사용해 주세요</p>
+      <p class="pop-text-caption center">※ 쿠폰은 암웨이 홈페이지에서 구매하신 후 사용해 주세요</p> <!-- 260827 문구 수정 -->
       <div class="pop-btn-wrap">
         <button type="button" @click="popup.noCouponPopup = false, isAnalyze = true" class="pop-btn pop-btn--green">확인</button> <!-- 퍼블 확인을 위해 isAnalyze true 설정 -->
       </div>
@@ -707,6 +709,18 @@ export default {
       <button type="button" @click="popup.dailyCompPopup = false" class="pop-btn pop-btn--green">확인</button>
     </template>
   </BasePopupClose>
+
+  <!-- 260827 지정 미션 챌린지 변경 불가 팝업 추가 / 주석 풀고 사용  -->
+  <!-- <BasePopupClose v-if="" :close-btn="false">
+    <template v-slot:title>챌린지 지정 미션입니다.</template>
+    <template v-slot:contents>
+      <p class="pop-text-light">지정 미션 챌린지 진행 중에는 미션을 변경할 수 없습니다.</p>
+    </template>
+    <template v-slot:button>
+      <button type="button" @click="" class="pop-btn pop-btn--green">확인</button>
+    </template>
+  </BasePopupClose> -->
+  <!-- 260827 지정 미션 챌린지 변경 불가 팝업 추가 / 주석 풀고 사용  -->
 
   <!-- 인증방법 선택 팝업  -->
   <BasePopupClose v-if="popup.dailyMethodPopup" @popupClose="popupClose('dailyMethodPopup')">
@@ -761,7 +775,7 @@ export default {
               </div>
             </div>
           </div>
-          <p class="mission-select__note">미션은 마이웰니스랩 리포트의 결과와 별도로 제공되는 서비스입니다.<br>미션 수행은 건강 개선을 보장하지 않으며, 질병의 치료와 무관합니다.</p> <!-- 260727 미션 주의사항 추가 -->
+          <p class="mission-select__note">미션은 마이웰니스 랩 리포트 결과와 별도로 제공되는 서비스입니다.<br>미션 수행은 건강 개선을 보장하지 않으며, 질병의 치료와 무관합니다.</p> <!-- 260727 미션 주의사항 추가 --> <!-- 260827 문구 수정 -->
         </template>
 
         <template #tab-1>
@@ -786,7 +800,7 @@ export default {
               </div>
             </div>
           </div>
-          <p class="mission-select__note">미션은 마이웰니스랩 리포트의 결과와 별도로 제공되는 서비스입니다.<br>미션 수행은 건강 개선을 보장하지 않으며, 질병의 치료와 무관합니다.</p> <!-- 260727 미션 주의사항 추가 -->
+          <p class="mission-select__note">미션은 마이웰니스 랩 리포트 결과와 별도로 제공되는 서비스입니다.<br>미션 수행은 건강 개선을 보장하지 않으며, 질병의 치료와 무관합니다.</p> <!-- 260727 미션 주의사항 추가 --> <!-- 260827 문구 수정 -->
         </template>
       </TabRound>
     </template>

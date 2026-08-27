@@ -88,7 +88,7 @@ function imagePopupClose () {
         </dl>
         <dl>
           <dt>인증 횟수</dt> <!-- 챌린지/상시 구분 퍼블 임의 -->
-          <dd v-if="challengeTeam"><span class="color">223</span> / {{ 1000 }}회</dd>
+          <dd v-if="challengeTeam"><span class="color">{{223}}회</span> / {{ 1000 }}회</dd> <!-- 260827 문구 수정 -->
           <dd v-else><span class="session">9월 22회</span><span class="color">223</span>회</dd> <!-- 260820 문구 수정 -->
         </dl>
       </div>

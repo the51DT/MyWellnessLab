@@ -39,7 +39,7 @@ const isNoChallenge = computed(() => {
             </div>
             <div>
               <p>진행 미션</p>
-              <p>혈당조절 1회 이상 식후 15분 가볍게 걷기</p>
+              <p><span class="cate">혈당조절</span>1회 이상 식후 15분 가볍게 걷기</p> <!-- 260827 문구 수정 -->
             </div>
           </div>
           <div class="challenge-history--box">
@@ -56,7 +56,7 @@ const isNoChallenge = computed(() => {
             </div>
             <div>
               <p>진행 미션</p>
-              <p>혈당조절 1회 이상 식후 15분 가볍게 걷기</p>
+              <p><span class="cate">혈당조절</span>1회 이상 식후 15분 가볍게 걷기</p> <!-- 260827 문구 수정 -->
             </div>
           </div>
           <div class="challenge-history--box fail">
@@ -85,7 +85,7 @@ const isNoChallenge = computed(() => {
             </div>
             <div>
               <p>진행 미션</p>
-              <p>혈당조절 1회 이상 식후 15분 가볍게 걷기</p>
+              <p><span class="cate">혈당조절</span>1회 이상 식후 15분 가볍게 걷기</p> <!-- 260827 문구 수정 -->
             </div>
           </div>
           <div class="challenge-history--box">

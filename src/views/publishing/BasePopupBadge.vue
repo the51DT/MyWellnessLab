@@ -275,8 +275,8 @@ export default {
       </span>
       <div class="popup-message">
         <p>축하합니다!</p>
-        <p v-if="type === 'badge'">새로운 배지를 달성했습니다!</p>
-        <p v-else>새로운 마웰랩 핀을 달성했습니다!</p>
+        <p v-if="type === 'badge'">새로운 배지를 획득했습니다!</p> <!-- 260827 문구 수정 -->
+        <p v-else>새로운 마이웰니스 랩 핀을 달성했습니다!</p> <!-- 260827 문구 수정 -->
       </div>
       <div class="pop-btn-wrap">
         <button type="button" class="pop-btn pop-btn--green">보러가기</button>

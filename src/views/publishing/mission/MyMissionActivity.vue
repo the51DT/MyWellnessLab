@@ -417,7 +417,7 @@ export default {
           list: this.badgeCate1,
         },
         {
-          title: '챌린지(본사)',
+          title: '챌린지', /* 260827 문구 수정 */
           sectionClass: '',
           list: this.badgeCate2,
         },
@@ -427,7 +427,7 @@ export default {
           list: this.badgeCate3,
         },
         {
-          title: '이벤트 뱃지',
+          title: '이벤트 배지', /* 260827 문구 수정 */
           sectionClass: '',
           list: this.badgeCate4,
         },
@@ -556,7 +556,7 @@ export default {
               <div class="badges_reward_btn">
                 <div class="badges_reward_btn__pop" :class="{ on: isRewardTooltipOpen }">
                   
-                  <span class="badges_reward_btn-txt"> 총 인증 횟수에 따라<br/>것모닝핀이 올라갑니다. </span>
+                  <span class="badges_reward_btn-txt"> 총 인증 횟수에 따라<br/>마이웰니스 랩 핀이 올라갑니다. </span> <!-- 260827 문구 수정 -->
                   <button class="badges_reward_btn__pop__close" @click="closeRewardTooltip"></button>
                   <div class="activity__area_badge-section">
                     <div class="badge-box-wrap">
@@ -594,11 +594,11 @@ export default {
             </div>
             <div>
               <p> 누적 </p>
-              <p class="val"> 21개 </p>
+              <p class="val">21 개</p> <!-- 260827 문구 수정 -->
             </div>
             <div>
               <p>최대 연속 </p>
-              <p class="val"> 10개 </p>
+              <p class="val">10 개</p> <!-- 260827 문구 수정 -->
             </div>
           </div>
           <div class="record-box">
@@ -610,11 +610,11 @@ export default {
             </div>
             <div>
               <p> 참여 수 </p>
-              <p class="val"> 5회 </p>
+              <p class="val">5 회</p> <!-- 260827 문구 수정 -->
             </div>
             <div>
               <p>성공 </p>
-              <p class="val"> 4회 </p>
+              <p class="val">4 회</p> <!-- 260827 문구 수정 -->
             </div>
           </div>
           <div class="record-box">
@@ -626,11 +626,11 @@ export default {
             </div>
             <div>
               <p> 상시 </p>
-              <p class="val"> 80% </p>
+              <p class="val">80 %</p> <!-- 260827 문구 수정 -->
             </div>
             <div>
               <p> 챌린지 </p>
-              <p class="val"> 80% </p>
+              <p class="val">80 %</p> <!-- 260827 문구 수정 -->
             </div>
           </div>
           <div class="record-box">
@@ -642,11 +642,11 @@ export default {
             </div>
             <div>
               <p> 상시 </p>
-              <p class="val"> 1개 </p>
+              <p class="val">1 위</p> <!-- 260827 문구 수정 -->
             </div>
             <div>
               <p> 챌린지 </p>
-              <p class="val"> 3위 </p>
+              <p class="val">3 위</p> <!-- 260827 문구 수정 -->
             </div>
           </div>
         </div>
@@ -673,7 +673,7 @@ export default {
         <!-- 대표 배지없을 시 -->
         <template v-else>
           <div class="represent__badge no-represent">
-            <p class="represent__badge-txt">획득한 배지에서 대표배지를<br/> 설정해주세요</p>
+            <p class="represent__badge-txt">획득한 배지 중에서 대표배지를<br/> 설정해 주세요.</p> <!-- 260827 문구 수정 -->
             <button class="btn" type="button" title="대표 배지 설정" @click="noBadgePopup = true">
               <div class="btn-text">대표 배지 설정</div>
               <div class="btn-modify">

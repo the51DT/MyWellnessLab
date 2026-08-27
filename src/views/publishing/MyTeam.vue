@@ -75,7 +75,7 @@ onBeforeUnmount(() => {
     </div>
     <div class="team--tit">
       <strong><span>김마웨</span>님은</strong>
-      <p><span>{{ isNoTeam ? 0 : 4 }}</span>개 팀에 참여중입니다.</p>
+      <p><span>{{ isNoTeam ? 0 : 4 }}</span>개 팀에 참여 중입니다.</p> <!-- 260827 문구 수정 -->
     </div>
     <TabRound v-model="activeTeamTab" :tabs="[{title:'진행중'}, {title:'진행종료'}, {title:'팀 초대', count: isNoTeam ? 0 : 2, new:isNoTeam ? false : true}]"> <!-- ?문 퍼블 확인용 챌린지 없을 때 -->
       <template #tab-0>
@@ -437,7 +437,7 @@ onBeforeUnmount(() => {
   <BasePopupClose v-if="unableJoinPopup" :close-btn="false">
     <template v-slot:title>팀 가입 불가</template>
     <template v-slot:contents>
-      <p class="pop-text-light">이미 챌린지 팀에 참여중입니다.</p>
+      <p class="pop-text-light">이미 챌린지 팀에 참여 중입니다.</p> <!-- 260827 문구 수정 -->
     </template>
     <template v-slot:button>
       <button type="button" @click="unableJoinPopup = false" class="pop-btn pop-btn--green">확인</button>
@@ -448,7 +448,7 @@ onBeforeUnmount(() => {
   <BasePopup v-if="changeMissionPopup">
     <template v-slot:contents>
       <!-- [s] 260820 문구 수정 -->
-      <p class="pop-text-light">챌린지에 참여하시면 진행중인 미션이</p>
+      <p class="pop-text-light">챌린지에 참여하시면 진행 중인 미션이</p> <!-- 260827 문구 수정 -->
       <p>
         <span class="pop-text-bold green">혈압조절 - 혈압조절 제품(코엔자임 Q10, 마그네슘, 오메가3) 챙겨먹기</span>
         <span class="pop-text-light">로 변경됩니다.</span>

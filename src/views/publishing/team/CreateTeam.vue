@@ -290,8 +290,8 @@ onMounted(() => {
   <!-- 미션 변경 알림 팝업 -->
   <BasePopup v-if="changeMissionPopup">
     <template v-slot:contents>
-      <p class="pop-text-light">챌린지 팀 만들기 시 진행중인 미션이</p>
-      <p class="pop-text-bold">혈압조절 - 혈압조절 제품(코엔자임 Q10, 마그네슘, 오메가 3) 챙겨먹기</p>
+      <p class="pop-text-light">지정 미션으로 진행되는 챌린지 팀을 만드시면 현재 진행 중인 미션이</p> <!-- 260827 문구 수정 -->
+      <p class="pop-text-bold">혈압조절 - 혈압조절 제품(코엔자임 Q10, 마그네슘, 오메가-3) 챙겨먹기</p> <!-- 260827 문구 수정 -->
       <p class="pop-text-light">미션으로 변경됩니다.<br>챌린지 팀을 만드시겠습니까?</p>
       <div class="pop-btn-wrap">
         <button type="button" @click="changeMissionPopup = false" class="pop-btn pop-btn--gray">취소</button>

@@ -116,7 +116,7 @@ export default {
       <dd>{{ data.gender }}</dd>
       <dt>생년월일</dt>
       <dd>{{ data.birth }}</dd>
-      <dt>휴대폰번호</dt>
+      <dt>휴대폰 번호</dt> <!-- 260827 문구 수정 -->
       <dd>
         <span>{{ data.phone }}</span>
         <button @click="popupPhoneOpen" type="button" class="btn--small2 btn">변경</button>
@@ -177,7 +177,7 @@ export default {
     <a @click="popupQuit" href="javascript: void(0);" class="btn--txt2 break">서비스 탈퇴</a> <!--탈퇴 이동 요망-->
     <!--231212 함수 추가-->
 
-    <MyPagePhoneChangePopup :isPopupPhone="isPopupPhone" @popupClose="popupPhoneClose(), showSuccess('휴대폰번호가 변경되었습니다.')" /> <!--231212 닫기 함수명 변경--> <!-- 202606 토스트팝업 퍼블 확인용 임의 파일 내부에서 message.alert 수정 필요 -->
+    <MyPagePhoneChangePopup :isPopupPhone="isPopupPhone" @popupClose="popupPhoneClose(), showSuccess('휴대폰 번호가 변경되었습니다.')" /> <!--231212 닫기 함수명 변경--> <!-- 202606 토스트팝업 퍼블 확인용 임의 파일 내부에서 message.alert 수정 필요 --> <!-- 260827 문구 수정 -->
     <MyPagePinChangePopup :isPopupPin="isPopupPin" @popupClose="popupPinClose" /> <!--231212 핀번호 팝업 추가-->
     <MyPageServiceQuitPopup :isQuit="isQuit" @popupClose="popupQuitClose" /> <!--231212 탈퇴 팝업 추가-->
 

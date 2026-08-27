@@ -32,17 +32,17 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Main.vue',
     go: '/publishing/main',
-    msg: "**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>퍼블 확인용 라우터 케이스 적용<br>260721 / mission-select 내부 구조 수정<br>260721 / 플로팅 탭 전환 핸들러 추가<br>260727 인증방법 선택 사진 찍기 디바이스 체크 후 노출되게 수정<br>260727 미션 주의사항 추가<br>260818 홈 추가 버튼 수정<br>260819 tit 내부 버튼 추가<br>260820 문구 수정<br>260821 문구 수정<br>AddBtnHomeRound.vue 260826 기본값 노출로 수정, 260826 버튼 음영 추가",
-    confirm: '2026.08.21 퍼블 수정'
+    msg: "**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>퍼블 확인용 라우터 케이스 적용<br>260721 / mission-select 내부 구조 수정<br>260721 / 플로팅 탭 전환 핸들러 추가<br>260727 인증방법 선택 사진 찍기 디바이스 체크 후 노출되게 수정<br>260727 미션 주의사항 추가<br>260818 홈 추가 버튼 수정<br>260819 tit 내부 버튼 추가<br>260820 문구 수정<br>260821 문구 수정<br>AddBtnHomeRound.vue 260826 기본값 노출로 수정, 260826 버튼 음영 추가<br>260827 문구 수정<br>260827 지정 미션 챌린지 변경 불가 팝업 추가 / 주석 풀고 사용",
+    confirm: '2026.08.27 퍼블 수정'
   },
   {
     div: '',
     div2: '핀/배지 달성',
     div3: '',
-    loca: '@/views/publishing/Main.vue',
+    loca: '@/views/publishing/BasePopupBadge.vue',
     go: '/publishing/main/badge',
-    msg: "퍼블 확인용 라우터 케이스 적용<br>2026.07.21 퍼블 확인 불가능해 따로 페이지 추가<br>260727 핀/배지 팝업 상단 x 버튼 추가 - src/views/publishing/BasePopupBadge.vue<br>260824 로티 추가<br>260825 로티 조건문 추가",
-    confirm: '2026.08.25 퍼블 수정'
+    msg: "퍼블 확인용 라우터 케이스 적용<br>2026.07.21 퍼블 확인 불가능해 따로 페이지 추가<br>260727 핀/배지 팝업 상단 x 버튼 추가 - src/views/publishing/BasePopupBadge.vue<br>260824 로티 추가<br>260825 로티 조건문 추가<br>260827 문구 수정",
+    confirm: '2026.08.27 퍼블 수정'
   },
   {
     div: '분석권 보유 현황',
@@ -419,8 +419,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Challenge.vue',
     go: '/publishing/challenge',
-    msg: "(PU) 인증사진 보기, (PU) 챌린지 인증 공유하기 퍼블 확인용으로 넣어둠<br>260820 문구 수정",
-    confirm: '2026.08.20 퍼블 수정'
+    msg: "(PU) 인증사진 보기, (PU) 챌린지 인증 공유하기 퍼블 확인용으로 넣어둠<br>260820 문구 수정<br>260827 문구 수정",
+    confirm: '2026.08.27 퍼블 수정'
   },
   {
     div: '챌린지(미진행)',
@@ -437,8 +437,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/challenge/ChallengeHistory.vue',
     go: '/publishing/challenge-history',
-    msg: "260807 이미지 변경<br>260824 문구 수정",
-    confirm: '2026.08.24 퍼블 수정'
+    msg: "260807 이미지 변경<br>260824 문구 수정<br>260827 문구 수정",
+    confirm: '2026.08.27 퍼블 수정'
   },
   {
     div: '챌린지 이력보기 (진행중 없음)',
@@ -457,8 +457,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/MyTeam.vue',
     go: '/publishing/my-team',
-    msg: "260807 이미지 변경<br>260820 문구 수정<br>260820 .team--card-info 내부구조 수정",
-    confirm: '2026.08.20 퍼블 수정'
+    msg: "260807 이미지 변경<br>260820 문구 수정<br>260820 .team--card-info 내부구조 수정<br>260827 문구 수정",
+    confirm: '2026.08.27 퍼블 수정'
   },
   {
     cate: '',
@@ -476,7 +476,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/team/CreateTeam.vue',
     go: '/publishing/my-team/create',
-    msg: "'팀 구분 - 챌린지 인풋', '완료' 버튼 클릭 시 퍼블 확인용으로 팝업 노출<br>260727 회차 진행 안내로 변경<br>260727 회차 기간 수정<br>팀 구분 미선택 시 툴팁 & 팝업 추가 / 팀 관리 진입 시 팀 구분 변경 막기 개발 필요<br>260727 팝업 추가<br>260820 문구 수정 / 챌린지 자율 미션 케이스 추가<br>260826 팀 유형 팀 관리 진입 시 비활성화",
+    msg: "'팀 구분 - 챌린지 인풋', '완료' 버튼 클릭 시 퍼블 확인용으로 팝업 노출<br>260727 회차 진행 안내로 변경<br>260727 회차 기간 수정<br>팀 구분 미선택 시 툴팁 & 팝업 추가 / 팀 관리 진입 시 팀 구분 변경 막기 개발 필요<br>260727 팝업 추가<br>260820 문구 수정 / 챌린지 자율 미션 케이스 추가<br>260826 팀 유형 팀 관리 진입 시 비활성화<br>260827 문구 수정",
     confirm: '2026.08.26 퍼블 수정'
   },
   {
@@ -575,8 +575,8 @@ const data = ref([
     div3: '팀장',
     loca: '@/views/publishing/team/TeamDetail.vue',
     go: '/publishing/my-team/detail/challenge/leader',
-    msg: "퍼블 확인용 라우터 케이스 적용<br>배지 이미지 퍼블 확인용 임의<br>260820 문구 수정<br>260820 퍼블 확인용 프로필 이미지 경로 수정",
-    confirm: '2026.08.20 퍼블 수정'
+    msg: "퍼블 확인용 라우터 케이스 적용<br>배지 이미지 퍼블 확인용 임의<br>260820 문구 수정<br>260820 퍼블 확인용 프로필 이미지 경로 수정<br>260827 문구 수정",
+    confirm: '2026.08.27 퍼블 수정'
   },
   {
     div: '',
@@ -694,8 +694,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/mission/MyMissionActivity.vue',
     go: '/publishing/my-mission/MyMissionActivity',
-    msg: "핀/배지 이미지 확정X - 확정 시 수정",
-    confirm: '2026.08.20 퍼블 수정'
+    msg: "핀/배지 이미지 확정X - 확정 시 수정<br>260827 문구 수정",
+    confirm: '2026.08.27 퍼블 수정'
   },
   {
     cate: '',
@@ -833,8 +833,8 @@ const data = ref([
     div3: '',
     loca: '@/views/mypage/MyPage.vue<br>@/views/publishing/MyPage.vue -> 퍼블 확인용 경로',
     go: '/publishing/my-page',
-    msg: "0728 팝업 완료 목록<br>- 휴대폰번호 변경 팝업 = @/views/mypage/MyPagePhoneChangePopup.vue<br>- PIN번호 변경 팝업 = @/views/mypage/MyPagePinChangePopup.vue<br>- 서비스 탈퇴 팝업 (챌린지 팀 팝업 추가) = @/views/mypage/MyPageServiceQuitPopup.vue<br>MyPageServiceQuitPopup.vue / 260820 문구 수정",
-    confirm: '2026.07.28 퍼블 완료'
+    msg: "0728 팝업 완료 목록<br>- 휴대폰번호 변경 팝업 = @/views/mypage/MyPagePhoneChangePopup.vue<br>- PIN번호 변경 팝업 = @/views/mypage/MyPagePinChangePopup.vue<br>- 서비스 탈퇴 팝업 (챌린지 팀 팝업 추가) = @/views/mypage/MyPageServiceQuitPopup.vue<br>MyPageServiceQuitPopup.vue / 260820 문구 수정<br>260827 문구 수정",
+    confirm: '2026.08.27 퍼블 수정'
   },
   {
     div: '건강수명 분석 결과 이력',

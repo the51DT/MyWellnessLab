@@ -72,12 +72,12 @@ onMounted(() => {
       <template #tab-0>
         <div v-if="isNoChallenge" class="challenge--not"> <!-- v-if = 퍼블 확인용 챌린지 없을 때 -->
           <img src="/img/visual_alert_pink.png">
-          <p>지금은 진행중인 <br v-if="!isPc"> 챌린지가 없습니다.</p>
+          <p>지금은 진행 중인 <br v-if="!isPc"> 챌린지가 없습니다.</p>
         </div>
         <div v-else>
           <div class="challenge--tit">
             <strong>자두자두 졸리다 챌린지</strong>
-            <p><span>50</span>일째 참여중입니다.</p>
+            <p><span>50</span>일째 참여 중입니다.</p> <!-- 260827 문구 수정 -->
           </div>
           <div class="challenge--box">
             <div class="challenge--box-tit">

@@ -386,9 +386,24 @@ const sendData = ref({
   metData: publishingScore.metData,
   shData: publishingScore.shData,
 
+  hqMusMass: {
+    exerciseData: [
+      {
+        exCode: 'UPPER_001',
+        target: 1,
+        exName: '밴트오버 로우',
+        reps: 15,
+        sets: 3,
+        exEffect: '대표적인 등 운동으로 굽은 어깨를 개선하고 약해진 등 근육을 강화하고 코어 안정성을 높혀 허리통증 예방 및 완화에 도움을 줍니다. 수건을 활용하면 더욱 효과적으로 수행할 수 있습니다.',
+        qrURL: 'https://www.youtube.com/embed/EQibcTZgfEs',
+        msg: '@@@님은 체성분 입력 결과를 기준으로 상체와 하체 근육 밸런스 관리가 필요합니다.'
+      },
+    ]
+  },
+
   healthTrafficLight: publishingScore.healthTrafficLight,
 
-  examinationData: publishingExaminationData
+  examinationData: publishingExaminationData,
 })
 /* [e] 퍼블 확인용 - AnalyzeCheckupData / AnalyzeAgingSpeed / AnalyzeHealthLocation / 건강 신호등 전달 데이터 */
 
@@ -541,7 +556,7 @@ function dragEnd() {
 }
 
 function winWidth() { /* 231211 브라우저 가로 사이즈 체크 */
-  isPc.value = window.innerWidth > 920
+  isPc.value = window.innerWidth > 960 /* 2606 ispc 기준점 수정 */
 }
 
 function move(event, tg) {
@@ -1358,17 +1373,20 @@ onBeforeUnmount(() => {
 }
 
 .text-link-wrap {
-  margin-top: 20px;
+  margin-top: 1.6rem;
   text-align: center;
 }
 
 .text-link {
   color: #666;
-  font-size: 14px;
+  font-size: 1.3rem;
+  line-height: 1.5;
   text-decoration: underline;
   cursor: pointer;
   display: inline-block;
-  
+  @media (min-width:960px) {
+    font-size: 1.4rem;
+  }
   &:hover {
     color: #333;
   }

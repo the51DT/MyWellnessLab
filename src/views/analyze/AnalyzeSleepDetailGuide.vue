@@ -26,9 +26,26 @@ const detail = computed(() => {
   return store.getters['analyze/getInhibitionAnalysisDetail']
 })
 
+// 2606 퍼블 확인용 아래 주석이 원본
 const sendData = computed(() => {
-  return detail.value
+  const data = detail.value || {}
+
+  return {
+    ...data,
+    shStatus: {
+      PSQIK_T01: data.shStatus?.PSQIK_T01 ?? 1,
+      PSQIK_T02: data.shStatus?.PSQIK_T02 ?? 3,
+      PSQIK_T03: data.shStatus?.PSQIK_T03 ?? 3,
+      PSQIK_T04: data.shStatus?.PSQIK_T04 ?? 3,
+      PSQIK_T05: data.shStatus?.PSQIK_T05 ?? 2,
+      PSQIK_T06: data.shStatus?.PSQIK_T06 ?? 1,
+      PSQIK_T07: data.shStatus?.PSQIK_T07 ?? 2
+    }
+  }
 })
+// const sendData = computed(() => {
+//   return detail.value
+// })
 
 const compId = computed(() => {
   return detail.value?.compId || ''

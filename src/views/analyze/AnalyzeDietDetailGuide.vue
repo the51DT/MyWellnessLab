@@ -26,9 +26,31 @@ const detail = computed(() => {
   return store.getters['analyze/getInhibitionAnalysisDetail']
 })
 
+// 2606 퍼블 확인용 아래 주석이 원본
 const sendData = computed(() => {
-  return detail.value
+  const data = detail.value || {}
+
+  return {
+    ...data,
+    dqData: {
+      ...(data.dqData || {}),
+      RFS_score: data.dqData?.RFS_score || 34
+    },
+    dqStatus: {
+      Multigrain: data.dqStatus?.Multigrain ?? 1,
+      Legumes: data.dqStatus?.Legumes ?? 3,
+      Vegetable: data.dqStatus?.Vegetable ?? 3,
+      Seafood: data.dqStatus?.Seafood ?? 2,
+      Dairyproducts: data.dqStatus?.Dairyproducts ?? 2,
+      Nuts: data.dqStatus?.Nuts ?? 2,
+      Tea: data.dqStatus?.Tea ?? 1,
+      Fruit: data.dqStatus?.Fruit ?? 2
+    }
+  }
 })
+// const sendData = computed(() => {
+//   return detail.value
+// })
 
 const compId = computed(() => {
   return detail.value?.compId || ''

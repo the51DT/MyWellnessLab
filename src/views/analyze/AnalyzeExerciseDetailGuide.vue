@@ -20,10 +20,69 @@ const emit = defineEmits(['close'])
 const detail = computed(() => {
   return store.getters['analyze/getInhibitionAnalysisDetail']
 })
-
+// 2606 퍼블 확인용 데이터
+const publishingExerciseSendData = {
+  hqMusMass: {
+    exerciseData: [
+      {
+        exCode: 'UPPER_001',
+        target: 1,
+        exName: '밴트오버 로우',
+        reps: 15,
+        sets: 3,
+        exEffect: '대표적인 등 운동으로 굽은 어깨를 개선하고 약해진 등 근육을 강화하고 코어 안정성을 높혀 허리통증 예방 및 완화에 도움을 줍니다. 수건을 활용하면 더욱 효과적으로 수행할 수 있습니다.',
+        qrURL: 'https://www.youtube.com/embed/EQibcTZgfEs',
+        msg: '@@@님께서는 하체와 전신 근육을 함께 강화하는 운동을 권장합니다.'
+      },
+      {
+        exCode: 'UPPER_002',
+        target: 1,
+        exName: '맨손 플로어 T',
+        reps: 15,
+        sets: 3,
+        exEffect: '플랭크 응용 동작으로, 한쪽 다리를 번갈아 들어서 한쪽 다리로만 몸을 지탱함으로서 균형감각을 비롯한 복근과 허리 근육을 강화하는 운동입니다. 하체 근육의 안정성을 증가시키면서 복부 지방 감소 및 후면 코어 근육 강화에 탁월하지만, 허리 통증 및 부상이 있으셨던 분들은 표준 플랭크 자세로 운동하는 것을 권합니다.',
+        qrURL: 'https://www.youtube.com/embed/EQibcTZgfEs'
+      },
+      {
+        exCode: 'LOWER_001',
+        target: 2,
+        exName: '싱글 레그 스퀘드',
+        reps: 15,
+        sets: 3,
+        exEffect: '플랭크 응용 동작으로, 한쪽 다리를 번갈아 들어서 한쪽 다리로만 몸을 지탱함으로서 균형감각을 비롯한 복근과 허리 근육을 강화하는 운동입니다. 하체 근육의 안정성을 증가시키면서 복부 지방 감소 및 후면 코어 근육 강화에 탁월하지만, 허리 통증 및 부상이 있으셨던 분들은 표준 플랭크 자세로 운동하는 것을 권합니다.',
+        qrURL: 'https://www.youtube.com/embed/EQibcTZgfEs'
+      },
+      {
+        exCode: 'LOWER_002',
+        target: 2,
+        exName: '원 레그 데드리프트',
+        reps: 15,
+        sets: 3,
+        exEffect: '플랭크 응용 동작으로, 한쪽 다리를 번갈아 들어서 한쪽 다리로만 몸을 지탱함으로서 균형감각을 비롯한 복근과 허리 근육을 강화하는 운동입니다. 하체 근육의 안정성을 증가시키면서 복부 지방 감소 및 후면 코어 근육 강화에 탁월하지만, 허리 통증 및 부상이 있으셨던 분들은 표준 플랭크 자세로 운동하는 것을 권합니다.',
+        qrURL: 'https://www.youtube.com/embed/EQibcTZgfEs'
+      }
+    ]
+  }
+}
+// 2606 퍼블 확인용 아래 주석이 원본
 const sendData = computed(() => {
-  return detail.value
+  const detailData = detail.value || {}
+
+  return {
+    ...publishingExerciseSendData,
+    ...detailData,
+    hqMusMass: {
+      ...publishingExerciseSendData.hqMusMass,
+      ...(detailData.hqMusMass || {}),
+      exerciseData: detailData.hqMusMass?.exerciseData?.length
+        ? detailData.hqMusMass.exerciseData
+        : publishingExerciseSendData.hqMusMass.exerciseData
+    }
+  }
 })
+// const sendData = computed(() => {
+//   return detail.value
+// })
 
 // 운동 가이드 메시지 computed
 const exerciseGuideMessage = computed(() => {
@@ -83,6 +142,7 @@ onMounted(() => {
         <div class="AnalyzeExerciseDetailGuide-con">
           <p class="AnalyzeExerciseDetailGuide-con-desc">
             {{ exerciseGuideMessage }}
+            <span>다리 근육 강화를 최우선으로 하면서 몸통과 팔 근육까지 함께 단련 할수있는 운동을 통해 전신을 균영있게 관리 해보세요.</span> <!-- 2606 .AnalyzeExerciseDetailGuide-con-desc 내부 span 태그 텍스트 추가 -->
           </p>
 
           <div class="AnalyzeExerciseDetailGuide-con-exercise">

@@ -1317,6 +1317,10 @@ footer{
       width: 100%;
       @include height-vh-fallback(100, 0rem);
       border-radius: 0;
+      @media (max-width:599px) {
+        top: 0;
+        transform: translateX(-50%);
+      }
       @media (min-width: $w-pc-small3) {
         height: auto;        
         width: calc(100% - 4rem);
@@ -1991,9 +1995,6 @@ footer{
   // 맞춤 식사, 운동, 수면 가이드 팝업
   // 인체 생리 네트워크 > 영향을 준 요인 팝업
   &.AnalyzeAgingSpeed--popup,
-  &.AnalyzeDietDetailGuide,
-  &.AnalyzeExerciseDetailGuidePop,
-  &.AnalyzeSleepDetailGuidePop,
   &.AnalyzeMajorHealthRisk--popup{
     .popup--wrap.tit{
       @media (min-width: $w-pc){
@@ -2004,6 +2005,24 @@ footer{
           padding: 2.4rem 0 0;
           background: #f9f9f9;
         }
+      }
+    } 
+  }
+
+  &.AnalyzeExerciseDetailGuidePop,
+  &.AnalyzeSleepDetailGuidePop,
+  &.AnalyzeDietDetailGuide{
+    .popup--wrap.tit{
+      max-width: 88rem;
+      display: flex;
+      flex-direction: column;
+      .popup--header{
+        flex: 0 0 auto;
+        width: 100%;
+      }
+      .popup--space{
+        flex: 1 1 auto;
+        padding: 0;
       }
     } 
   }
@@ -2731,10 +2750,10 @@ footer{
       font-size: 1.8rem;
     }
     &.AnalyzeDownload--down-txt{
-      font-size: 1.2rem;
-      margin-top: 2rem;
+      @include txtStyle(caption, lg);
+      margin-top: .8rem;
       @media (min-width: $w-pc) {
-        font-size: 1.3rem;
+        margin-top: 1.2rem;
       }
     }
   }
@@ -14629,7 +14648,7 @@ $agingIndex: 431px;
         z-index: 1;
         border-radius: 2rem;
       }
-      @media (min-width: $w-pc-small3) {
+      @media (min-width: $w-pc) {
         width: 100%;
         height: 63rem;
         background-size: 170%;
@@ -14640,9 +14659,6 @@ $agingIndex: 431px;
   }
   &--info{
     @include txtAnalyze;
-    @media (min-width: $w-pc-small) {
-      text-align: left;
-    }
     @media (min-width: $w-pc) {
       font-size: 2rem;
     }
@@ -17074,77 +17090,69 @@ span.legend-dot-interest{
     }
   }
 }
-.AnalyzeSleepDetailGuidePop{
-  .AnalyzeDetailGuide--con{
-    min-height: calc(100dvh - 20.5rem);
-  }
-}
+// .AnalyzeSleepDetailGuidePop{
+//   .AnalyzeDetailGuide--con{
+//     min-height: calc(100dvh - 20.5rem);
+//   }
+// }
 .AnalyzeDetailGuide{
   &-desc{
-    text-align: center;
-    font-size: 1.6rem;
-    font-family: $font-family-bold;
-    color: #222;
-    padding: 0.6rem 2rem 0;
+    @include txtStyle(body, sm);
+    padding: 1.6rem 2rem 0;
     @media (min-width: $w-pc) {
-      max-width: 80rem;
-      margin: 0 auto 3.2rem;
-      padding: 0;
-      font-size: 1.8rem;
+      text-align: center;
+      max-width: 76rem;
+      margin: 0 auto;
     }
     span{
       color: #1db196;
     }
   }
   &--tab{
-    margin-top: 1.6rem;
     @include spaceRLSDefault;
     @include alignBetween;
     background-color: white;
     border: solid .1rem #E5E5E5;
     border-radius: 3rem;
     padding: .4rem;
-    @media (min-width: $w-pc-small3) {
-      max-width: 324px;
-      margin: 2rem auto;
-    }
-    @media (min-width: $w-pc) {
-      max-width: 324px;
-      margin: auto;
-      padding: 0.6rem;
+    margin: 1.6rem 2rem 0;
+    @media (min-width:$w-pc-small3) {
+      max-width: 48rem;
+      margin: 1.6rem auto 0;
     }
     & > * {
       width: calc(100% / 2);
     }
     &-btn{
       @include btnClear;
-      @include txtSmall2(#7e7e7e);
+      @include txtStyle(body, 2xs-1);
+      min-height: 3.6rem;
+      border-radius: 9rem;
+      color: #808080;
       @media (min-width: $w-pc) {
         min-height: 4.4rem;
       }
       &.active{
-        @include btnGreen;
-        @media (min-width: $w-pc) {
-          font-size: 1.6rem;
-          font-family: $font-family-bold;
-        }
+        background-color: #1DB196;
+        color: white;
+        font-weight: 600;
       }
     }
   }
   &--con{
-    @include boxStyle;
-    margin-top: 2rem;
+    margin-top: 2.4rem;
     @include min-vh-fallback(100, 13.5rem);
-    padding: 3.2rem 2rem;
+    padding: 2.4rem 2rem 4rem;
+    background-color: white;
+    border-radius: 3.2rem 3.2rem 0 0;
     @media (min-width: $w-pc) {
-      @include min-vh-fallback(100, 31.2rem);
-      padding: 3.6rem 12rem 8rem;
-      border-radius: 0;
+      min-height: unset;
+      padding: 2.4rem 6rem 5.2rem;
     }
     &-ul{
       @include alignUl;
       @media (min-width: $w-pc) {
-        max-width: 80rem;
+        max-width: 76rem;
         margin: 0 auto;
       }
       > li{
@@ -17153,24 +17161,17 @@ span.legend-dot-interest{
         margin-top: 2.4rem;
         border-bottom: 1px solid #e5e5e5;
         text-align: left;
+        @media (min-width:$w-pc) {
+          padding-bottom: 2.8rem;
+          margin-top: 2.8rem;
+        }
         h5{
-          font-size: 2rem;
-          font-family: $font-family-bold;
-          font-weight: normal;
-          color: #222;
-          @media (min-width: $w-pc) {
-            font-size: 2.2rem;
-          }
+          @include txtStyle(body, lg, 700);
         }
         p{
-          font-size: 1.4rem;
-          font-family: $font-family-medium;
-          color: #555;
-          margin-top: 0.8rem;
-          @media (min-width: $w-pc) {
-            font-size: 1.6rem;
-            margin-top: 1.2rem;
-          }
+          @include txtStyle(body, xs);
+          color: #666;
+          margin-top: 0.6rem;
         }
         &:first-child{
           margin-top: 0
@@ -17183,23 +17184,16 @@ span.legend-dot-interest{
         }
         &.Needs{
           h5, p, li{
-            color: #e95371;
+            color: #DA2B4E;
           }
         }
         ul{
-          @include alignUl;
-          margin-top: 0.8rem;
-          @media (min-width: $w-pc) {
-            margin-top: 1.4rem;
-          }
+          margin-top: 0.6rem;
+          list-style: initial;
           li{
-            font-size: 1.4rem;
-            font-family: $font-family-medium;
-            color: #555;
+            display: list-item;
+            @include txtStyle(body, xs);
             word-break: break-all;
-            @media (min-width: $w-pc) {
-              font-size: 1.6rem;
-            }
             & + li{
               margin-top: 1.2rem;
             }
@@ -17443,55 +17437,49 @@ span.legend-dot-interest{
 }
 .AnalyzeExerciseDetailGuide{
   &-con{
-    @include boxStyle;
-    margin-top: 1.6rem;
-    padding: 3.2rem 2.4rem 6rem;
+    margin-top: 2.4rem;
+    @include min-vh-fallback(100, 13.5rem);
+    padding: 2.4rem 2rem 4rem;
+    background-color: white;
+    border-radius: 3.2rem 3.2rem 0 0;
     @media (min-width: $w-pc) {
-      margin: 3.2rem 0 0;
-      padding: 3.2rem 0 5.6rem;
-      @include min-vh-fallback(100, 25.6rem);
-      border-radius: 0;
+      min-height: unset;
+      padding: 2.4rem 6rem 5.2rem;
+      margin-top: 2.8rem;
     }
     &-desc{
-      text-align: center;
-      font-size: 1.8rem;
-      font-family: $font-family-bold;
-      line-height: 2.4rem;
-      color: #222;    
+      @include txtStyle(body, sm, 600);
+      color: #1db196;    
       border-bottom: 1px solid #e5e5e5;
       padding-bottom: 2.4rem;
+      text-align: left;
+      word-break: break-all;
       @media (min-width: $w-pc) {
-        max-width: 80rem;
+        max-width: 76rem;
         margin: 0 auto;
-        padding-bottom: 3.2rem;
-        font-size: 2rem;
+        text-align: center;
       }
       span{
-        color: #1db196;
+        color: #666;
         display: block;
       }
     }
     &-exercise{
-      margin-top: 4rem;
+      margin-top: 2.4rem;
       @media (min-width: $w-pc) {
-        max-width: 80rem;
+        max-width: 76rem;
         margin-left: auto;
         margin-right: auto;
       }
       h2{
         display: flex;
         align-items: center;
-        gap: 0.8rem;
-        font-size: 2rem;
-        font-family: $font-family-medium;
+        gap: 0.6rem;
+        @include txtStyle(head, sm, 700);
         color: #1db196;
-        @media (min-width: $w-pc) {
-          font-size: 2.4rem;
-        }
         img{
-          @media (min-width: $w-pc) {
-            width: 4rem;
-          }
+          margin: .2rem;
+          width: 3.6rem;
         }
       }
       &-detail{
@@ -17502,9 +17490,6 @@ span.legend-dot-interest{
         }
         & + &{
           margin-top: 3.2rem;
-          @media (min-width: $w-pc) {
-            margin-top: 4rem;
-          }
         }
         video{
           width: 100%;
@@ -17512,56 +17497,43 @@ span.legend-dot-interest{
           border-radius: 1.2rem;
         }
         h3{
-          font-size: 1.6rem;
-          font-family: $font-family-bold;
-          font-weight: normal;
-          color: #222;
-          margin-top: 1.2rem;
-          @media (min-width: $w-pc) {
-            font-size: 2rem;
-          }
+          @include txtStyle(body, md, 600);
+          color: #333;
+          margin-top: 1.6rem;
           .line{
-            font-family: $font-family-light;
+            font-weight: 400;
+            color: #666;
             margin: 0 0.8rem;
             @media (min-width: $w-pc) {
               margin: 0 0.4rem;
             }
           }
           .sets{
-            font-size: 1.4rem;
-            font-family: $font-family-medium;
-            @media (min-width: $w-pc) {
-              font-size: 2rem;
-              font-family: $font-family-bold;
-            }
           }
         }
         p{
-          margin-top: 1rem;
-          font-size: 1.4rem;
-          font-family: $font-family-medium;
-          color: #555;
+          margin-top: .8rem;
+          @include txtStyle(body, xs);
+          color: #666;
           word-break: break-all;
-          @media (min-width: $w-pc) {
-            font-size: 1.8rem;
-            margin-top: 1.2rem;
-          }
         }
 
         & + h2{
-          margin-top: 4rem;
+          margin-top: 2.4rem;
+          padding-top: 2.4rem;
+          border-top: .1rem solid #E5E5E5;
         }
       }
     }
   }
 }
-.AnalyzeDietDetailGuide{
-  .AnalyzeDetailGuide--con{
-    @media (min-width: $w-pc) {
-      @include min-vh-fallback(100, 33.6rem);
-    }
-  }
-}
+// .AnalyzeDietDetailGuide{
+//   .AnalyzeDetailGuide--con{
+//     @media (min-width: $w-pc) {
+//       @include min-vh-fallback(100, 33.6rem);
+//     }
+//   }
+// }
 .AnalyzeSleepDetail{
   .AnalyzePagesDetail--section-tit{
     text-align: center;

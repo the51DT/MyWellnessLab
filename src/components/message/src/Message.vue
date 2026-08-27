@@ -58,7 +58,7 @@ onBeforeMount(() => {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped> /* 2606 스타일 내용 수정 */
 .message-container {
   position: fixed;
   left: 0;
@@ -78,19 +78,29 @@ onBeforeMount(() => {
   transform: translate(-50%, -50%);
   text-align: center;
   background-color: #fff;
-  border-radius: .6rem;
-  padding: 3.2rem 2rem 2rem;
+  border-radius: 2rem;
+  padding: 2.4rem 2rem 2rem;
   width: 50%;
-  min-width: 300px;
-  max-width: 328px;
+  min-width: 32rem;
+  max-width: 38.8rem;
 }
 
 .message-content {
   white-space: break-spaces;
   margin-bottom: 20px;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  @media (min-width:960px) {
+    font-size: 1.8rem;
+  }
 }
 .btn{
-  margin-right: 4px;
-  margin-left: 4px;
+  height: 4rem;
+  font-size: 1.5rem;
+  border-radius: 9rem;
+  @media (min-width:960px) {
+    height: 4.8rem;
+    font-size: 1.8rem;
+  }
 }
 </style>

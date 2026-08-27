@@ -752,7 +752,7 @@
     "CheckupBasics.text19" : "허리둘레",
     "CheckupBasics.text20" : "수축기 혈압",
     "CheckupBasics.text21" : "이완기 혈압",
-    "CheckupBasics.text22" : "* 국민건강보험공단에서 가져온 데이터 중 가장 최근 건강 검진 데이터입니다.",
+    "CheckupBasics.text22" : "국민건강보험공단에서 가져온 데이터 중 가장 최근 건강 검진 데이터입니다",
     "CheckupBasics.text23" : "그래도 입력 하시겠습니까?",
     "CheckupBasicsBasic.text1" : "기본 정보",
     "CheckupBasicsBasic.text2" : "이름",

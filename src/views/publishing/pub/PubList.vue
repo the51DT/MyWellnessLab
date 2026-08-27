@@ -192,17 +192,17 @@ const data = ref([
     div3: '',
     loca: '@/views/checkup/basics/CheckupBasics.vue',
     go: '/publishing/checkup-input/checkup-basics',
-    msg: '2606 퍼블 확인용 바로 진입 시 데이터 아래 주석이 원본',
-    confirm: '작업중'
+    msg: '민감정보 수집 및 이용 페이지에서 진입 시 국민건강보험공단 케이스<br>home 분석 후에서 일회성으로 진입 시 일회성 케이스<br>"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
+    confirm: '2606.08.27 퍼블 완료'
   },
   {
     div: '',
     div2: '혈액검사',
     div3: '',
-    loca: '@/views/publishing/checkup/CheckupBlood.vue',
+    loca: '@/views/checkup/blood/CheckupBlood.vue',
     go: '/publishing/checkup-input/checkup-blood',
     msg: '',
-    confirm: ''
+    confirm: '작업중'
   },
   {
     div: '',

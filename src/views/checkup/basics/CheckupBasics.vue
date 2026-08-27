@@ -19,7 +19,10 @@ import message from '@/components/message'
 
 const { t, locale } = useI18n()
 const store = useStore()
-const moveNext = useMoveNext()
+const moveNext = () => { // 퍼블 확인용 아래 주석이 원본
+  router.push({ name: 'pubCheckupBlood' })
+}
+// const moveNext = useMoveNext()
 const movePrev = useMovePrev()
 const router = useRouter()
 
@@ -35,13 +38,7 @@ const publishingNhisData = {
   commonId: null,
   name: '홍길동',
   age: 36,
-  bmi: 25.5,
-  dbp: 86,
-  ht: 175,
-  sbp: 132,
   sex: 1,
-  wc: 88,
-  wt: 78,
   healthDataName: '',
   healthDataType: 'direct',
   birthDate: '1990.01.01',
@@ -61,8 +58,13 @@ const nhisData = storeNhisData && Object.keys(storeNhisData).length > 0 && store
   ? storeNhisData
   : publishingNhisData
 
-const healthDataType = store.getters['checkup/getHealthDataType'] || publishingNhisData.healthDataType
+// 2606 퍼블 확인용 아래 주석이 원본
 const analysisType = store.getters['checkup/getAnalysisType'] || 'normal'
+const healthDataType = analysisType === 'onetime'
+  ? 'direct'
+  : store.getters['checkup/getHealthDataType'] || publishingNhisData.healthDataType
+// const healthDataType = store.getters['checkup/getHealthDataType'] || publishingNhisData.healthDataType
+// const analysisType = store.getters['checkup/getAnalysisType'] || 'normal'
 const basicsId = store.getters['checkup/getBasicsId'] || null
 // const user = store.getters.getUser
 // const nhisData = store.getters['checkup/getNhisData']
@@ -455,13 +457,40 @@ const handleSave = async () => {
     }
 
     if (response && !isStop.value) {
-      store.dispatch('checkup/setBasicsId', response.data.basics.id)
+      // 2606 퍼블 확인용 - API 응답에 basics가 없을 경우 임시 basicsId 사용
+      store.dispatch('checkup/setBasicsId', response.data?.basics?.id || basicsId || formData.value.id || 1)
+
+      // 2606 퍼블 확인용 - 다음 혈액검사 페이지에서 건강검진일 사용
+      store.dispatch('checkup/setNhisData', {
+        ...nhisData,
+        ...formData.value,
+        checkDate: formData.value.checkDate
+      })
+
+      // 2606 퍼블 확인용 - 일회성 분석은 다음 페이지에서도 direct 유지
+      if (analysisType === 'onetime') {
+        store.dispatch('checkup/setAnalysisType', 'onetime')
+        store.dispatch('checkup/setHealthDataType', 'direct')
+      }
 
       await moveNext()
       // 성공 시 다음 페이지로 이동하므로 isProcessing 상태 유지 (버튼 비활성화 유지)
     } else {
+      // 2606 퍼블 확인용 - API 응답 없을 때 임시 basicsId 세팅 후 다음 페이지 이동
+      store.dispatch('checkup/setBasicsId', basicsId || formData.value.id || 1)
+
+      // 2606 퍼블 확인용 - 다음 혈액검사 페이지에서 건강검진일 사용
+      store.dispatch('checkup/setNhisData', {
+        ...nhisData,
+        ...formData.value,
+        checkDate: formData.value.checkDate
+      })
+
+      await moveNext()
+      // 성공 시 다음 페이지로 이동하므로 isProcessing 상태 유지 (버튼 비활성화 유지)
+
       // 응답이 없거나 중지 상태일 때 버튼 재활성화
-      isProcessing.value = false
+      // isProcessing.value = false
     }
   } catch (e) {
     console.error(e)

@@ -217,18 +217,16 @@ const publishingRouter = {
         {
           path: "checkup-basics",
           name: "pubCheckupBasics",
-          component: () =>
-            import("@/views/checkup/basics/CheckupBasics.vue"),
+          component: () => import("@/views/checkup/basics/CheckupBasics.vue"),
           meta: {
-            title: "기본검사",
+            title: "건강검진 (1/4)",
             class: "middle",
           },
         },
         {
           path: "checkup-blood",
           name: "pubCheckupBlood",
-          component: () =>
-            import("@/views/publishing/checkup/CheckupBlood.vue"),
+          component: () => import("@/views/checkup/blood/CheckupBlood.vue"),
           meta: {
             title: "혈액검사",
             class: "middle",

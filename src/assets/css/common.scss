@@ -161,7 +161,7 @@ $line-color-gray4: #d6d6d6; /*설문 > 그룹 하단 선*/
 $line-color-gray5: #E5E5E5;
 $line-color-green: #1DB196; /*설문 > 단계 중앙 선 > active*/
 
-$step-color-done: #7e7e7e;
+$step-color-done: #666;
 $step-color-yet: #d8d8d8;
 $step-color-bg: #fff;
 $step-color-now: #1DB196;
@@ -843,7 +843,7 @@ $w-pc-wrap: 520px;
     padding-right: 3rem;
     color: #222;
     @media (min-width: $w-pc) {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
     }
   }
   &:after{
@@ -1223,17 +1223,16 @@ $w-pc-wrap: 520px;
 }
 @mixin checkupGroupStyle{
   margin: 0 2rem;
-  border-bottom: 1px solid #e2e2e2;
-  padding-bottom: 0;
+  padding: 1.6rem;
+  border-radius: 1.6rem;
+  background-color: #F5F5F5;
   @media (min-width: $w-pc) {
-    max-width: 50rem;
     margin: 0 auto;
+    width: 100%;
   }
 }
 @mixin checkupTit{ /*설문 > 기본검사, 접히는 그룹 타이틀*/
-  font-size: 2.2rem;
-  font-family: $font-family-medium;
-  color: #222222;
+  @include txtStyle(body, xs, 600);
 }
 
 // iOS Safari vh 문제 해결을 위한 범용 mixin들
@@ -1288,11 +1287,69 @@ $w-pc-wrap: 520px;
 }
 @mixin transitionContents{
   overflow: hidden;
-  &>:last-child{
-    margin-bottom: 4rem;
-    @media (min-width: $w-pc) {
-      margin-bottom: 2.4rem;
+  margin-top: 1.6rem;
+  .BaseInput{
+    margin-top: 0;
+    &:has(.validation:not(:empty)){
+      align-items: flex-start;
+      .BaseInput--dt{
+        margin-top: 1.1rem;
+      }
     }
+    & + .BaseInput {
+      margin-top: 1.4rem;
+    }
+    &--dt{
+      @include txtStyle(body, 2xs);
+      width: 100%;
+    }
+    &--dd{
+      width: 15.5rem;
+      flex: 0 0 auto;
+      @media (min-width:$w-pc) {
+        width: 20rem;
+      }
+      &-div{
+        &.disabled{
+          background-color: #f0f0f0;
+          border-color: #ccc;
+          input{
+            color: #1A1818;
+          }
+        }
+      }
+    }
+    &--suf{
+      padding-right: 1.6rem;
+    }
+    &--suf-in{
+      span{
+        color: #808080;
+      }
+    }
+    .validation{
+      margin-top: .8rem;
+      @include txtStyle(caption, lg);
+      display: flex;
+      &:empty{
+        margin: 0;
+        &::before{
+          content: none;
+        }
+      }
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-right: .4rem;
+        background: url("/img/ico_caption_red.svg") no-repeat center / contain;
+        vertical-align: middle;
+      }
+    }
+  }
+  &>:last-child{
+    margin-bottom: .4rem;
   }
 }
 @mixin itemTit($color: #1A1818){
@@ -1819,6 +1876,9 @@ input[type=number] {
         @include alignCenter3;
       }
       &:has(.AnalyzeCheckDateSelect){
+        padding: 0;
+      }
+      &:has(.CheckupBasics){
         padding: 0;
       }
     }

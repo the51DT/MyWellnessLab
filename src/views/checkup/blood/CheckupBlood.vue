@@ -11,16 +11,22 @@ import {useMoveNext, useMovePrev} from '@/composables/checkup'
 import * as checkupApi from '@/apis/checkup'
 import { useI18n } from 'vue-i18n'
 import BaseStep from "@/components/BaseStep.vue";
+import { useRouter } from 'vue-router' // 2606 퍼블 확인용 라우터 추가
 
 const { t, locale } = useI18n()
 const store = useStore()
-const moveNext = useMoveNext()
+// 2606 퍼블 확인용 moveNext 주석 처리, 라우터 추가
+const router = useRouter()
+// const moveNext = useMoveNext()
 const movePrev = useMovePrev()
 
 const nhisData = store.getters['checkup/getNhisData']
 const analysisType = store.getters['checkup/getAnalysisType']
 const healthDataType = store.getters['checkup/getHealthDataType']
 const basicsId = store.getters['checkup/getBasicsId']
+const moveNext = () => { // 2606 퍼블 확인용 moveNext
+  router.push({ name: 'pubCheckupBodyGuide' })
+}
 
 const validateData = {
   AGERange: {
@@ -511,12 +517,21 @@ const getCommonInfo = async () => {
 }
 
 const progressbar = ref([])
+// 2606 퍼블 확인용 - defaultProgressbar
+const defaultProgressbar = [
+  { ptype: 'default', inputYn: 'Y' }, // 1번: 기본 정보
+  { ptype: 'blood', inputYn: 'N' } // 2번: 혈액 정보
+]
 
 const getBloodTemporary = async () => {
   try {
     const response = await checkupApi.getBloodTemporary(basicsId)
 
-    progressbar.value = response.data.progressbar || []
+    // 2606 퍼블 확인용 아래 주석이 원본
+    progressbar.value = response.data.progressbar?.length
+      ? response.data.progressbar
+      : defaultProgressbar
+    // progressbar.value = response.data.progressbar || []
     
     // API에서 bloodOptional 내 isNhisDataEditYn 값 가져오기
     savedIsNhisDataEditYn.value = response.data.bloodOptional?.isNhisDataEditYn || 'N'
@@ -545,6 +560,28 @@ const getBloodTemporary = async () => {
     }
   } catch (e) {
     console.error(e)
+    // 2606 퍼블 확인용 - API 조회 실패 시 기본 progressbar 및 혈액 데이터 세팅
+    progressbar.value = defaultProgressbar
+
+    formData.value = {
+      blood: {
+        ...formData.value.blood,
+        basicsId,
+        hb: nhisData.hb || 15.1,
+        glu: nhisData.glu || 104,
+        crea: nhisData.crea || 1.0,
+        got: nhisData.got || 32,
+        gpt: nhisData.gpt || 41
+      },
+      bloodOptional: {
+        ...formData.value.bloodOptional,
+        basicsId,
+        tc: nhisData.tc || 205,
+        hdl: nhisData.hdl || 46,
+        tg: nhisData.tg || 165,
+        ldl: nhisData.ldl || 135
+      }
+    }
   }
 }
 
@@ -587,6 +624,10 @@ const handleSave = async (isAutoMove = true) => {
     }
 
     let response = null
+
+    // 2606 퍼블 확인용 - API 저장 없이 체성분 가이드 페이지 이동
+    await moveNext()
+    return
 
     // createdDate, modifiedDate 전송하면 서버 에러 발생
     delete params.blood.createdDate

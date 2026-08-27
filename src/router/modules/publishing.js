@@ -220,7 +220,7 @@ const publishingRouter = {
           component: () => import("@/views/checkup/basics/CheckupBasics.vue"),
           meta: {
             title: "건강검진 (1/4)",
-            class: "middle",
+            class: "middle checkup-arrow",
           },
         },
         {
@@ -229,7 +229,16 @@ const publishingRouter = {
           component: () => import("@/views/checkup/blood/CheckupBlood.vue"),
           meta: {
             title: "혈액검사",
-            class: "middle",
+            class: "middle checkup-arrow",
+          },
+        },
+        {
+          path: "checkup-body-guide",
+          name: "pubCheckupBodyGuide",
+          component: () => import("@/views/checkup/body/CheckupBodyGuide.vue"),
+          meta: {
+            title: "체성분 (2/4)",
+            class: "middle checkup-arrow",
           },
         },
         {

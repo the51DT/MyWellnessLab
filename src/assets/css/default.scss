@@ -5014,8 +5014,8 @@ button{
     padding-top: 5.5rem;
     @media (min-width: $w-pc) {
       width: 48rem;
-      margin: 0 auto !important;
-      padding: 6rem 0 2rem !important;
+      margin: 0 auto;
+      padding: 6rem 0 2rem;
     }
   }
   &--contents-tit-wrap{
@@ -9061,7 +9061,7 @@ button{
   width: calc(100% - 3.6rem * 2);
   max-width: 39.2rem;
   @media (min-width: $w-pc) {
-    width: 25.6rem;
+    width: 39.2rem;
     margin: 2.8rem auto 3.6rem;
   }
 
@@ -9090,7 +9090,7 @@ button{
 
     &.is-completed-line,
     &.is-current-line {
-      border-bottom: solid 0.5rem $step-color-done;
+      border-bottom: solid 0.3rem $step-color-done;
     }
 
     // 각 단계의 동그라미 버튼
@@ -10055,12 +10055,12 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     margin-top: auto;
   }
   .Checkup--contents-wrapT {
-    padding-top: 2.8rem !important;
+    padding-top: 2.8rem;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
     @media (min-width:$w-pc) {
-      padding-top: 3.2rem !important;
+      padding-top: 3.2rem;
       gap: 1.6rem;
     }
   }
@@ -10206,6 +10206,16 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   .Checkup--btn-wrap{
     margin-top: auto;
   }
+  .Checkup--contents-wrapT {
+    padding-top: 2.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    @media (min-width:$w-pc) {
+      padding-top: 3.2rem;
+      gap: 1.6rem;
+    }
+  }
   &--p{
     @include popupTxt;
   }
@@ -10231,9 +10241,6 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
 }
 .CheckupBloodRequire{
   @include checkupGroupStyle;
-  &--tit{
-    margin-bottom: 2rem;
-  }
   &--tit-txt{
     @include checkupTit;
   }
@@ -10243,19 +10250,14 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
 }
 .CheckupBloodNonRequire{
   @include checkupGroupStyle;
-  border-bottom: none;
-  &--tit{
-    padding-top: 2.4rem;
-    margin-bottom: 2rem;
-  }
   &--tit-txt{
     @include checkupTit;
-
   }
   &--cole{
-    margin-top: $marginTop-default;
+    margin-top: 2.4rem;
     &-tit{
-      @include itemTit;
+      @include txtStyle(body, 2xs-1);
+      color: #333;
     }
   }
   &--input-div{
@@ -10263,33 +10265,35 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     & > :last-child{
       margin-bottom: 0;
     }
+    &:has(.CheckupBloodNonRequire--msg){
+      margin-top: .8rem;
+    }
   }
   &--msg{
-    @include validationTxt;
+    color: #FF4646;
+    @include txtStyle(caption, xl);
+    margin-bottom: 1.6rem;
   }
   &--txt{
-    font-size: $txt-font-size-small2;
-    font-family: $font-family-light;
-    color: $txt-font-color-gray2;
-    margin-top: 0.8rem;
-    @media (min-width: $w-pc) {
-      font-size: 1.4rem;
-    }
+    @include txtStyle(caption, xl);
+    color: #808080;
+    margin-top: 0.4rem;
   }
   &--radio{
     margin-top: 1.2rem;
     &-label{
-      @include radioBtn("white", 4rem);
+      @include radioBtn(white, 4rem);
       @include childCenter;
+      @include txtStyle(body, 2xs-1);
       min-width: 10rem;
-      font-size: 1.4rem;
+      border-color: #E5E5E5;
       color: $radio-txt-color-gray;
       padding-right: 1rem;
       padding-left: 1rem;
       cursor: pointer;
       &.active{
         border-color: #1DB196;
-        color: #222222;
+        color: #1A1818;
       }
       input[type=text], input[type=password], input[type=number]{
         height: 3.8rem;
@@ -10302,6 +10306,10 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
         margin-right: 1rem;
       }
       @include radioCustom;
+      &:has(input:disabled){
+        border-color: #ccc;
+        background-color: #f0f0f0;
+      }
     }
     &-radio{
       width: 3rem;
@@ -10313,17 +10321,16 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     }
     &-txt{
       width: 4rem;
-      margin-top: .3rem;
     }
     &-r{
-      width: 50%;
+      width: 15.5rem;
       @media (min-width: $w-pc) {
-        width: 16rem;
+        width: 20rem;
       }
     }
   }
   &----radio-txt{
-    font-family: $font-family-light;
+    color: #808080;
   }
 }
 .CheckupBodyGuide{
@@ -20518,7 +20525,6 @@ span.legend-dot-interest{
   }
 }
 .checkupGuidePop{
-  cursor: pointer;
   .popup--header{
     background-color: transparent !important;
     align-items: flex-start;

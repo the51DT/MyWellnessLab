@@ -1178,9 +1178,6 @@ $w-pc-wrap: 520px;
   color: #FF4646;
   @include txtStyle(caption, lg);
   font-weight: $fw;
-  @media (min-width: $w-pc) {
-    font-size: 1.5rem;
-  }
   @if $ok == ok {
     color: $txt-font-color-green2;
   }

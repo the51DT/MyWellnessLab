@@ -201,6 +201,15 @@ const data = ref([
     div3: '',
     loca: '@/views/checkup/blood/CheckupBlood.vue',
     go: '/publishing/checkup-input/checkup-blood',
+    msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
+    confirm: '2606.08.27 퍼블 완료'
+  },
+  {
+    div: '',
+    div2: '체성분 (2/4)',
+    div3: '',
+    loca: '@/views/checkup/body/CheckupBodyGuide.vue',
+    go: '/publishing/checkup-input/checkup-body-guide',
     msg: '',
     confirm: '작업중'
   },

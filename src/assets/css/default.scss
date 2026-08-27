@@ -20546,7 +20546,7 @@ span.legend-dot-interest{
   }
 }
 .checkupGuidePop{
-    cursor: pointer;
+  cursor: pointer;
   .popup--header{
     background-color: transparent !important;
     align-items: flex-start;
@@ -20633,9 +20633,10 @@ span.legend-dot-interest{
         bottom: 2.8rem;
         img{
           width: 100%;
+        }
       }
     }
-    p{
+    > p{
       @include txtStyle(body, lg-1, 600);
     }
   }
@@ -20644,9 +20645,9 @@ span.legend-dot-interest{
     margin: 0 auto;
     color: #fff;
     margin-bottom: 2rem;
-          margin-left: 9rem;
-          margin-top: 1.2rem;
-        }
+    @media (min-width:$w-pc) {
+      width: 29.6rem;
+    }
   }
   .popup--wrap{
     background-color: transparent;

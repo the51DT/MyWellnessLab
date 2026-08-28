@@ -83,7 +83,11 @@
   }
 }
 .container{
-  @include min-vh-fallback(100, calc($header-height + $btn-bottom-height));
+  @include min-vh-fallback(100, $header-height);
+  @media (min-width:$w-pc) {
+    @include min-vh-fallback(100, 8rem);
+  }
+  // @include min-vh-fallback(100, calc($header-height + $btn-bottom-height));
 }
 .layout{
   &--checkup{
@@ -2129,26 +2133,45 @@ footer{
 
   &.DirectInputGuidePop{
     .popup--wrap.tit{
-      width: 92%;
+      width: 90%;
       @include height-vh-fallback(100, 16rem);
       overflow: hidden;
       border-radius: 2rem;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      @media (min-width:$w-pc) {
+        height: auto;
+      }
+    }
+    .popup--header{
+      background-color: white;
+      height: 5.5rem;
+      @media (min-width:$w-pc) {
+        background-color: #F5F5F5;
+        height: 6.6rem;
+      }
+      > *:first-child{
+        flex: 0 0 2rem;
+        @media (min-width:$w-pc) {
+          flex: 1;
+        }
+      }
+      .popup--tit-wrap{
+        text-align: left;
+        @media (min-width:$w-pc) {
+          text-align: center;
+        }
+      }
     }
     .popup--space{
       height: calc(100dvh - 16rem);
       @include height-vh-fallback(100, 20.6rem);
+      max-height: fit-content;
       background: #fff;
-    }
-    .DirectInputGuidePop--con{
-      @media (min-width: $w-pc) {
-        padding: 2rem 0;
-      }
+      padding: 0;
     }
     .DirectInputGuidePop--img-wrap{
       padding: 0;
-      @media (min-width: $w-pc) {
-        padding: 0 0 4rem;
-      }
       img{
         width: 100%;
         max-width: 48rem;
@@ -5024,9 +5047,6 @@ button{
     margin: 0 2rem;
     @media (min-width: $w-pc) {
       padding: 2.8rem 0 0;
-      &:has(.Checkup--info-box){
-        padding-bottom: 3rem;
-      }
     }
   }
   &--contents-tit{
@@ -5087,6 +5107,12 @@ button{
       color: #222;
       margin: 1.6rem 0 0;
       word-break: break-all;
+    }
+    span{
+      @include txtStyle(body, lg);
+      strong{
+        font-weight: 600;
+      }
     }
     .sub-desc{
       font-size: 1.3rem;
@@ -9067,18 +9093,21 @@ button{
 
   // 첫 번째 원
   &__start-circle {
-    $size: 2.2rem;
+    $size: 2rem;
     width: $size;
     height: $size;
-    max-width: $size;
-    max-height: $size;
     border-radius: 50%;
     border: solid 0.5rem $step-color-done;
     background-color: $step-color-bg;
     position: relative;
     z-index: 2;
+    padding: 0;
     &.is-current {
       border-color: $step-color-now; 
+    }
+    @media (min-width:$w-pc) {
+      width: 2.4rem;
+      height: 2.4rem;
     }
   }
 
@@ -9108,12 +9137,19 @@ button{
       z-index: 2;
       padding: 0;
       cursor: default;
-
+      @media (min-width:$w-pc) {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
       &.is-current,
       &.is-completed {
         $size: 2rem;
         width: $size;
         height: $size;
+        @media (min-width:$w-pc) {
+          width: 2.4rem;
+          height: 2.4rem;
+        }
       }
       &.is-current.is-completed {
         border-color: $step-color-now !important; // 현재단계가 최우선
@@ -9230,7 +9266,7 @@ button{
       border: none;
       padding-left: 0;
       @media (min-width: $w-pc) {
-        height: 4rem;
+        height: 4.8rem;
         line-height: 4rem;
       }
       &:focus, &:active{
@@ -9372,10 +9408,9 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     }
   }
   &--txt{
-    font-size: $txt-font-size-small3;
-    font-family: $font-family-medium;
-    color: $txt-font-color-gray5;
-    padding-right: 1rem;
+    @include txtStyle(body, 2xs-1);
+    color: #808080;
+    padding-right: 1.6rem;
     padding-left: 1rem;
     text-align: right;
     min-width: 5rem;
@@ -10285,12 +10320,17 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       @include radioBtn(white, 4rem);
       @include childCenter;
       @include txtStyle(body, 2xs-1);
-      min-width: 10rem;
+      min-width: 10.8rem;
+      height: 3.8rem;
+      border-radius: 9rem;
       border-color: #E5E5E5;
-      color: $radio-txt-color-gray;
-      padding-right: 1rem;
-      padding-left: 1rem;
+      padding-right: 1.6rem;
+      padding-left: 1.2rem;
       cursor: pointer;
+      @media (min-width:$w-pc) {
+        min-width: 12.1rem;
+        height: 4.8rem;
+      }
       &.active{
         border-color: #1DB196;
         color: #1A1818;
@@ -10300,13 +10340,16 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
         border: none;
         background-color: transparent;
         width: calc(100% - 7rem);
+        @media (min-width:$w-pc) {
+          height: 4.8rem;
+        }
       }
       .CheckupBloodNonRequire--radio-l &{
         justify-content: initial;
         margin-right: 1rem;
       }
       @include radioCustom;
-      &:has(input:disabled){
+      &:has(input[type="radio"]:disabled){
         border-color: #ccc;
         background-color: #f0f0f0;
       }
@@ -10341,47 +10384,57 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     @media (min-width: $w-pc) {    
       height: auto;
       justify-content: space-between;
-      @include min-vh-fallback(100, 14rem);
+      @include min-vh-fallback(100, 8.1rem);
     }
   }
   &-con{
     height: 100%;
     text-align: center;
-    padding: 3rem 2rem;
+    padding: 2.4rem 2rem 0;
     @media (min-width: $w-pc) {
-      max-width: 50rem;
+      max-width: 52rem;
       margin: 0 auto;
-      padding: 3rem 0;
+      padding-top: 2.8rem;
     }
   }
   &-tit{
-    font-size: 3.2rem;
-    font-family: $font-family-bold;
-    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .6rem;
+    @include txtStyle(head, sm, 700);
     color: $txt-font-color-green;
+    @media (min-width:$w-pc) {
+      gap: .8rem;
+    }
+    &::before{
+      content: '';
+      display: block;
+      width: 4rem;
+      height: 4rem;
+      margin: .2rem;
+      border: .1rem solid #9AE0D3;
+      border-radius: 50%;
+      background: url('/img/ic_step2_n.png') no-repeat center / 56%;
+      @media (min-width:$w-pc) {
+        width: 4.4rem;
+        height: 4.4rem;
+      }
+    }
   }
   &-desc{
-    margin-top: 2.4rem;
-    font-size: 2.2rem;
-    font-family: $font-family-bold;
-    @media (min-width: $w-pc) {
-      font-size: 2.4rem;
-    }
+    margin-top: 1.2rem;
+    @include txtStyle(body, lg, 600);
     &-sub{
-      margin-top: 2.4rem;
-      font-size: 1.3rem;
-      line-height: 2rem;
-      font-family: $font-family-light;
-      color: #7e7e7e;
-      @media (min-width: $w-pc) {
-        font-size: 1.5rem;
-      }
+      margin-top: 1.2rem;
+      @include txtStyle(body, 2xs, 500);
+      color: #666;
     }
   }
   .Checkup--btn-wrap{
     @media (min-width: $w-pc) {
-      width: 50rem;
-      padding: 0;
+      width: 52rem;
+      gap: 1.2rem;
     }
   }
 }
@@ -10389,45 +10442,40 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   @include btnBottomFixLayout;
   &-header{
     text-align: center;
-    padding: 0.6rem 2rem 0;
+    padding: 2.4rem 0;
+    margin: 0 2rem;
+    border-bottom: .1rem solid #D9D9D9;
     @media (min-width: $w-pc) {
-      padding: 3rem 0 0;
+      padding: 2.8rem 0;
     }
     &-part-tit{
-      font-size: 2.8rem;
-      font-family: $font-family-bold;
-      font-weight: normal;
+      @include txtStyle(head, sm, 700);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.8rem;
+      gap: .6rem;
       color: $txt-font-color-green;
       @media (min-width: $w-pc) {
-        font-size: 3.2rem;
+        gap: .8rem;
       }
       &-ic{
         @include iconCircle;
         img{
           max-width: 56%;
         }
-        @media (min-width: $w-pc) {
-          display: none;
-        }
       }
       &-sub{
-        margin-top: 2.4rem;    
-        font-size: 2.2rem;
-        font-family: $font-family-bold;
-        font-weight: normal;
-        @media (min-width: $w-pc) {
-          font-size: 2.4rem;
-        }
+        margin-top: 1.2rem;    
+        @include txtStyle(body, lg-1, 600);
       }
     }
     &-desc{
-      font-size: 2.2rem;
-      font-family: $font-family-light;
-      margin-top: 2.4rem;
+      @include txtStyle(body, md, 600);
+      color: #333;
+      margin-top: 1.2rem;
+      @media (min-width:$w-pc) {
+        margin-top: 1.6rem;
+      }
     }
   }
 }
@@ -10658,10 +10706,10 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     }
     &--con{
       flex-grow: 1;
-      padding: 3.2rem 2rem;
+      padding: 2.8rem 2rem 0;
       text-align: left;
       @media (min-width: $w-pc) {
-        padding: 4.8rem 0 0;
+        padding: 3.6rem 2rem 0;
         min-height: 26rem;
       }
       &--input{
@@ -10863,36 +10911,33 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
         }
       }
       &--data{
-        padding-top: 0.6rem;
         overflow: hidden;
         @media (min-width: $w-pc-small3) {
           overflow: visible;
         }
         @media (min-width: $w-pc) {
-          max-width: 50rem;
+          max-width: 52rem;
           margin: 0 auto;
+          @include min-vh-fallback(100, 8.1rem);
         }
         .BodyCompositionPop-con--text{
-          margin-top: 2.4rem;
+          padding-top: 2rem;
           @media (min-width: $w-pc) {
-            margin-top: 2rem;
+            padding-top: 2.4rem;
           }
         }
       }
       &--list{
         @include height-vh-fallback(100, 49.9rem);
-        margin-top: 6rem;
-        margin-bottom: 0;
         @media (min-width: $w-pc) {    
           @include height-vh-fallback(100, 64rem);
-          margin-bottom: 4rem;
         }
       }
       &--no-data{
         @media (min-width: $w-pc) {
           max-height: unset;
           min-height: unset;
-          @include height-vh-fallback(100, 14rem);
+          @include height-vh-fallback(100, 8.1rem);
         }
         &-wrap{
           @media (min-width: $w-pc) {
@@ -10904,9 +10949,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
           background: transparent;
           box-shadow: none;
           @media (min-width: $w-pc) {
-            width: 50rem;
             margin: 0 auto;
-            padding: 0;
           }
         }
       }
@@ -10930,8 +10973,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
         }
       }
       @media (min-width: $w-pc) {
-        width: 50rem;
-        padding: 0;
+        width: 92rem;
         .btn--bottom{
           padding: 0;
         }
@@ -10941,40 +10983,40 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
 }
 .CheckupBodyDateSelect{
   @include btnBottomFixLayout;
-  .AnalyzeCheckDateSelect--msg{
-    margin-top: 2.4rem;
-    font-family: $font-family-light;
+  @media (min-width:$w-pc) {
+    @include min-vh-fallback(100, 8.1rem);
   }
-  .Checkup--btn-wrap{
-    @media (min-width: $w-pc) {
-      padding: 0;
+  .AnalyzeCheckDateSelect--msg{
+    margin-top: 2rem;
+    @include txtStyle(body, lg, 500);
+    @media (min-width:$w-pc) {
+      margin-top: 2.4rem;
     }
   }
 }
 .CheckupBodyDirectInput{
-  @include boxStyle;
-  margin-top: 2.4rem;
+  margin-top: 1.6rem;
   padding: 0;
-  .checkupBody-header{
-    padding-top: 3.2rem;
+  background-color: white;
+  border-radius: 3.2rem 3.2rem 0 0;
+  @media (min-width:$w-pc) {
+    margin-top: 2.8rem;
+  }
+  &-form{
+    margin: 2.4rem 2rem;
     @media (min-width: $w-pc) {
-      padding-top: 6rem;
-      &-part-tit-ic{
-        display: flex;
-        img{
-          width: 58%;
-        }
-      }
+      max-width: 48rem;
+      margin: 3.2rem auto 6rem;
     }
   }
-  .CheckupBodyDirectInput-form{
-    padding-top: 2.4rem;
-    margin: 2.4rem 2rem 0;
-    border-top: 1px solid #e2e2e2;
-    @media (min-width: $w-pc) {
-      max-width: 50rem;
-      margin-left: auto;
-      margin-right: auto;
+  &-input{
+    .BaseInput {
+      &--dd{
+        width: 15.5rem;
+        @media (min-width:$w-pc) {
+          width: 20rem;
+        }
+      }
     }
   }
 }
@@ -10983,19 +11025,14 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
 .CheckupBodyKeyLogin{
   @media (min-width: $w-pc) {        
     height: 100%;
-    .BodyCompositionPop-BodykeyLogin--con{
-      padding-top: 3rem;
-    }
-    .Checkup--btn-wrap{
-      padding-bottom: 0;
-    }
   }
   .checkupBody-header{
-    padding-top: 3.2rem;
+    border: none; 
   }
   .BodyCompositionPop-BodykeyLogin{
     @include height-vh-fallback(100, 37rem);
     min-height: 20rem;
+    flex: 1 1 auto;
   }
   
   // 비밀번호 토글 관련 스타일
@@ -11130,13 +11167,29 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
 .CheckupInterestHealth{ /*관심건강분야*/
   .Checkup--contents-wrap{
     @include noBox;
+    display: flex;
+    flex-direction: column;
+    @include min-vh-fallback(100, 4.9rem);
+    @media (min-width:$w-pc) {
+      @include min-vh-fallback(100, 8.1rem);
+    }
   }
   .Checkup--contents-wrapT{
     @include checkupRLSpace;
-    padding-top: 0;
+    flex: 1 1 auto;
+    padding: 2.8rem 2rem 2.4rem;
     @media (min-width: $w-pc) {
       max-width: 50rem;
-      padding: 0;
+      padding: 3.2rem 2rem 3.6rem;
+    }
+  }
+  .Checkup--contents-date{
+    span{
+      @include txtStyle(body, lg);
+      margin: 1.2rem 2rem 0;
+      strong{
+        font-weight: 600
+      }
     }
   }
   &--info{
@@ -11151,39 +11204,38 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
   .Checkup--contents-tit-wrap{
     border-bottom: none;
-    @media (min-width: $w-pc) {
-      padding-top: 3rem;
-      padding-bottom: 4rem;
-    }
   }
   &--label{
     margin-right: 1rem;
     display: inline-block;
-    @include btnBasicWhite;
-    @media (min-width: $w-pc) {
-      font-size: 1.5rem;
-      min-height: 4.4rem;
-    }
+    @include childCenter;
+    @include btnClear;
+    min-height: 4rem;
+    border: solid .1rem #ccc;
+    border-radius: 9rem;
+    background-color: white;
+    padding: 0.8rem 0;
+    @include txtStyle(body, 2xs);
     &.active{
       border-color: $btn-line-color-green;
-      border-width: 0.1rem;
+      border-width: .2rem;
       color: $btn-font-color-green;
-      box-shadow: 0 0 0 1px #1DB196 inset, 0 .3rem .5rem rgba(0, 0, 0, .1);
+      box-shadow: 0 .2rem .6rem rgba(29, 177, 150, 0.12);
       background-image: none;
+      font-weight: 700;
       @media (min-width: $w-pc) {
         min-height: 4.4rem;
       }
       &.disabled{
-        background-color: $btn-background-greenSoft;
-        border-color: $btn-line-color-greenSoft;
-      }
-      span{
-        font-family: $font-family-bold;
+        background-color: #F5F5F5;
+        border-color: #ccc;
+        color: #999;
       }
     }
     &.disabled{
-      border-color: $btn-line-color-gray2;
-      color: $btn-font-color-gray2;
+      background-color: #F5F5F5;
+      border-color: #ccc;
+      color: #999;
     }
   }
   &--item{
@@ -11191,59 +11243,34 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
-      gap: 1rem;
+      gap: .8rem;
       padding-bottom: 2.4rem;
       @media (min-width: $w-pc) {
-        gap: 1.6rem;
-        padding-bottom: 4rem;
+        gap: 1.2rem 1rem;
+        padding-bottom: 2.8rem;
       }
       & > *{
-        width: calc(100% / 3 - 0.7rem);
+        width: calc(100% / 3 - 0.6rem);
         margin: 0;
         display: inline-flex;
         cursor: pointer;
         @media (min-width: $w-pc) {
-          width: calc((100% - 3.2rem) / 3);
+          width: calc(100% / 3 - .7rem);
         }
       }
     }
   }
   &--noSelect{
-    margin-top: $marginTop-default;
-    @include radioBtn($interest: interest);
-    @include childCenter;
-    border-radius: 3rem;
-    font-size: 1.5rem;
-    font-family: $font-family-bold;
-    margin-top: 3rem;
-    cursor: pointer;
-    @media (min-width: $w-pc) {
-      min-height: 4.4rem;
-      font-family: $font-family-light;
-    }
-    &.active{
-      @include radioActive;
-      color: $btn-font-color-green;
-      @media (min-width: $w-pc) {
-        font-family: $font-family-bold;
-      }
-    }
+    margin-top: 2.4rem;
+    @include checkupAnswerBtn;
   }
   &--msg{
-    font-size: $txt-font-size-small2;
-    font-family: $font-family-medium;
-    color: $txt-font-color-gray4;
+    @include txtStyle(body, 2xs);
+    color: #808080;
     text-align: center;
-    margin-top: $marginTop-small;
-    margin-bottom: $marginBottom-default;
+    margin-top: .8rem;
     @media (min-width: $w-pc) {
-      font-size: 1.4rem;
       margin-top: 1.2rem;
-    }
-  }
-  .Checkup--btn-wrap{
-    @media (min-width: $w-pc) {
-      padding: 0 0 2rem;
     }
   }
 }
@@ -11256,16 +11283,15 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
 }
 .CheckupMemory{
   @media (min-width: $w-pc) {
-    padding-bottom: 4rem;
     .Checkup--contents-icon img {
-      width: 1.8rem;
+      width: 1.4rem;
     }
   }
   &--div{
     @include checkupAnswerSpace;
   }
   .Checkup--contents-wrapT{
-    @include checkupRLSpace;
+    @include checkupContentWrap;
   }
   &--info{
     position: relative;
@@ -11278,24 +11304,11 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     @include checkupAnswer2;
   }
   &--label{
-    @include btnBasicWhite;
+    @include checkupAnswerBtn;
     margin-bottom: 0;
-  }
-  &--btn-div{
-    margin-top: $marginTop-default2;
-    //@media (min-width: $w-pc) {
-    //  padding-right: 6rem;
-    //  padding-left: 6rem;
-    //}
   }
 }
 .CheckupEye{ /*눈*/
-  @media (min-width: $w-pc) {
-    padding-bottom: 4rem;
-    .Checkup--contents-icon img {
-      width: 3rem;
-    }
-  }
   &--q{
     @include checkupQuestion;
   }
@@ -11306,8 +11319,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     display: block;
   }
   .Checkup--contents-wrapT{
-    @include checkupRLSpace;
-    margin-bottom: $marginBottom-default;
+    @include checkupContentWrap;
   }
   &--info{
     position: relative;
@@ -11320,21 +11332,12 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     @include checkupAnswerSpace;
   }
   &--a-div{
-    margin-top: 1.6rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
-  &--btn-div{
-    margin-top: $marginTop-default2;
+    @include checkupRadioWrap;
   }
 }
 .CheckupNoseHypersensitivity{
-  @media (min-width: $w-pc) {
-    padding-bottom: 4rem;
-  }
   .Checkup--contents-wrapT{
-    @include checkupRLSpace;
-    margin-bottom: $marginBottom-default;
+    @include checkupContentWrap;
   }
   &--div{
     @include checkupAnswerSpace;
@@ -11350,22 +11353,12 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     @include checkupAnswer2;
   }
   &--label{
-    @include btnBasicWhite;
-    margin-bottom: 0;
-  }
-  &--btn-div{
-    margin-top: $marginTop-default2;
+    @include checkupAnswerBtn;
   }
 }
 .CheckupStomach{ /*위*/
-  @media (min-width: $w-pc) {
-    padding-bottom: 4rem;
-    .Checkup--contents-icon img {
-      width: 2.6rem;
-    }
-  }
   .Checkup--contents-wrapT{
-    @include checkupRLSpace;
+    @include checkupContentWrap;
   }
   &--info{
     position: relative;
@@ -11378,12 +11371,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     @include checkupQuestion;
   }
   &--a-div{
-    margin-top: 1.6rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    @media (min-width: $w-pc) {
-      margin: 1.6rem 1.6rem 0;
-    }
+    @include checkupRadioWrap;
   }
   &--div{
     @include checkupAnswerSpace;
@@ -11393,14 +11381,8 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
 }
 .CheckupIntestine{ /*장*/
-  @media (min-width: $w-pc) {
-    padding-bottom: 4rem;
-    .Checkup--contents-icon img {
-      width: 3rem;
-    }
-  }
   .Checkup--contents-wrapT{
-    @include checkupRLSpace;
+    @include checkupContentWrap;
   }
   &--info{
     position: relative;
@@ -11420,7 +11402,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     }
   }
   &--label{
-    @include btnBasicWhite;
+    @include checkupAnswerBtn;
   }
   &--div{
     @include checkupAnswerSpace;
@@ -11429,11 +11411,10 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     &--div{
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.6rem 2rem;
-      margin-top: 1.6rem;
+      gap: 1.2rem;
+      margin-top: 2rem;
       @media (min-width: $w-pc) {
         grid-template-columns: repeat(3, 1fr);
-        gap: 1.6rem;
       }
     }
     &--q{
@@ -11444,14 +11425,13 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     $pooqMinHeight: 15rem;
     &--label{
       @include btnBasicWhite;
-      border-radius: 1.2rem;
+      border-radius: 2rem;
       display: block;
-      padding: 0;
-      height: 14rem;
+      padding: 1.2rem 1.2rem 1.6rem 1.2rem;
+      height: 18.5rem;
       @media (min-width: $w-pc) {
-        min-height: 14.6rem;        
+        min-height: 19rem;
         margin: 0;
-        border-radius: 2.2rem;
       }
       span[class$="--span"]{
         height: calc(100% - 7.7rem);
@@ -11470,39 +11450,34 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       }
       &.active{
         position: relative;
-        background-color: #FCFFFE;
+        background-color: #F5FFFD;
         background-image: none;
         border: solid .2rem #1DB196;
-        box-shadow: 0 .3rem .5rem rgba(0, 0, 0, .1);
+        box-shadow: none;
         color: $btn-font-color-green;
-        padding: 0;
+        padding: 1.2rem 1.2rem 1.6rem 1.2rem;
         span[class$="--span"]{
-          font-family: $font-family-medium;
+          font-weight: 700;
         }
         @media (min-width: $w-pc) {
-          min-height: 14.6rem;
-          border-radius: 2.2rem;
+          min-height: 19rem;
         }
         &:before{
           content: "";
-          $radius: 2.4rem;
+          $radius: 2rem;
           width: $radius;
           height: $radius;
           border-radius: $radius;
-          background: $radio-background-color-green url("/img/ico_check_white.svg") no-repeat center;
+          background: #146B5B url("/img/ico_check_white.svg") no-repeat center;
           display: block;
           position: absolute;
-          right: .5rem;
-          top: .5rem;
-          @media (min-width: $w-pc) {
-            right: 0.6rem;
-            top: 0.6rem;
-          }
+          right: 1rem;
+          top: 1rem;
         }
       }
     }
     &--img-wrap{
-      height: 7.7rem;
+      height: 8.2rem;
       display: flex;
       padding-top: 2rem;
       padding-bottom: 1.6rem;
@@ -11510,30 +11485,28 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       justify-content: center;
     }
     &--span{
-      font-size: $txt-font-size-small3;
-      color: $txt-font-color-gray3;
       display: block;
-      line-height: $txt-line-height-small;
       padding: 0rem 2rem;
+      @include txtStyle(body, 2xs, 500);
+      font-family: 'Pretendard', sans-serif !important;
     }
-  }
-  &--btn-div{
-    margin-top: $marginTop-default;
   }
 }
 .CheckupJointAndBone{ /*관절, 뼈*/
-  @media (min-width: $w-pc) {
-    padding-bottom: 4rem;
-    .Checkup--contents-icon img{
-      width: 1.8rem;
-    }
+  display: flex;
+  flex-direction: column;
+  .Checkup--contents-wrap{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
   }
   .Checkup--contents-wrapT{
-    padding-top: 0 !important;
+    @include checkupContentWrap;
+    flex: 1 1 auto;
   }
   &--q{
     @include checkupQuestion;
-    font-size: 2rem;
+    font-weight: 500;
   }
   &--info{
     position: relative;
@@ -11542,77 +11515,49 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     @include spaceRLSDefault(m);
   }
   &--p2{
-    font-size: 2.2rem;
-    line-height: 2.8rem;
-    width: calc(100% - 5.8rem);
+    width: calc(100% - 3.2rem);
     display: flex;
     gap: 0.5rem;
-    padding: 5.4rem 0;
+    @include txtStyle(body, md, 600);
     word-break: break-all;
     @media (min-width: $w-pc) {
-      width: calc(100% - 8rem);
-      padding: 6.8rem 0;
-      font-size: 2.4rem;
+      width: calc(100% - 3.6rem);
       gap: 0;
     }
   }
   &--div{
     @include checkupAnswerSpace;
+    @media (min-width: $w-pc) {
+      padding-top: 4rem;
+    }
     &-wrap{
       @include transitionContents;
-      & > :last-child{
-        margin-bottom: 6rem;
-        @media (min-width: $w-pc) {
-          margin-bottom: 8rem;
-        }
-      }
-    }
-  }
-  &--for{
-    &:last-child{
-      .CheckupJointAndBone--label{
-        margin-bottom: 0
-      }
     }
   }
   &--label{
-    @include btnBasicWhite;
-    @media (min-width: $w-pc) {
-      min-height: 3.8rem;
-    }
+    @include checkupAnswerBtn;
   }
   &--a-div{
     margin-top: 1.6rem;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+    @media (min-width:$w-pc) {
+      margin-top: 2rem;
+    }
   }
   &--con{
-    border-bottom: $border-style;
-    @include spaceRLSDefault(p);
-    @media (min-width: $w-pc) {
-      padding: 0;
-    }
-    &:last-child{
-      margin-bottom: 3.2rem;
-      @media (min-width: $w-pc) {
-        margin-bottom: 0;
-      }
-    }
-    .align--between{
-      gap: 3.8rem;
+    background-color: #F5F5F5;
+    border-radius: 1.6rem;
+    padding: 1.6rem 1.4rem 1.8rem 1.6rem;
+    & + & {
+      margin-top: 1.2rem;
     }
   }
 }
 .CheckupImmunity{ /*면역*/
-  @media (min-width: $w-pc) {
-    padding-bottom: 4rem;
-    .Checkup--contents-icon img{
-      width: 3rem;
-    }
-  }
   .Checkup--contents-wrapT{
-    @include spaceRLSDefault;
+    @include checkupContentWrap;
   }
   &--div{
     @include checkupAnswerSpace;
@@ -11628,22 +11573,19 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     @include checkupAnswer2;
   }
   &--label{
-    @include btnBasicWhite;
+    @include checkupAnswerBtn;
     margin-bottom: 0;
-  }
-  &--btn-div{
-    margin-top: $marginTop-default2;
   }
 }
 .CheckupMenopause{/* 갱년기 */
-  @media (min-width: $w-pc) {
-    padding-bottom: 4rem;
-    .Checkup--contents-icon img{
-      width: 1.6rem;
+  .Checkup--contents-icon img{
+    height: 2rem;
+    @media (min-width:$w-pc) {
+      height: 2.4rem;
     }
   }
   .Checkup--contents-wrapT{
-    @include spaceRLSDefault;
+    @include checkupContentWrap;
   }
   &--info{
     position: relative;
@@ -11656,27 +11598,21 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     @include checkupQuestion;
   }
   &--a-div{
-    margin-top: 1.6rem;
-    justify-content: space-between;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    @include checkupRadioWrap;
   }
   &--label{
     @include checkupRadio;
   }
-  &--btn-div{
-    margin-top: $marginTop-default2;
-  }
 }
 .CheckupProstate{ /*전립선*/
-  @media (min-width: $w-pc) {
-    padding-bottom: 4rem;
-    .Checkup--contents-icon img{
-      width: 1.6rem;
+  .Checkup--contents-icon img{
+    height: 2rem;
+    @media (min-width:$w-pc) {
+      height: 2.4rem;
     }
   }
   .Checkup--contents-wrapT{
-    @include spaceRLSDefault;
+    @include checkupContentWrap;
   }
   &--info{
     position: relative;
@@ -11697,7 +11633,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     }
   }
   &--label{
-    @include btnBasicWhite;
+    @include checkupAnswerBtn;
     @media (min-width: $w-pc) {
       min-height: 3.8rem;
     }
@@ -11708,38 +11644,25 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     flex-direction: column;
     gap: 1.2rem;
   }
-  &--btn-div{
-    margin-top: $marginTop-default2;
-  }
 }
 .CheckupMenstrual{
-  @media (min-width: $w-pc) {
-    padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  .Checkup--contents-wrap{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
   }
   .Checkup--contents-wrapT{
-    @include spaceRLSDefault;
-    @include min-vh-fallback(100, 41.4rem);
-    @media (min-width: 414px) {
-      @include min-vh-fallback(100, 38.2rem);
-    }
-    @media (min-width: $w-pc) {
-      @include min-vh-fallback(100, 39rem);
-    }
+    @include checkupContentWrap;
+    flex: 1 1 auto;
   }
   &--info{
     position: relative;
     @include checkupMainTxt(menstrual);
   }
   &--label{
-    @include btnBasicWhite;    
-    padding-left: 3rem;
-    padding-right: 3rem;
-    span[class$="--span"]{
-      font-size: 1.5rem;
-    }
-  }
-  &--btn-div{
-    margin-top: $marginTop-default;
+    @include checkupAnswerBtn;
   }
   &--a-div{
     display: flex;
@@ -11748,84 +11671,51 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
 }
 .CheckupMedication{
+  display: flex;
+  flex-direction: column;
   .Checkup--contents-wrap{
-    @include boxStyle;
-    padding: 0;
+    background-color: white;
+    border-radius: 3.2rem 3.2rem 0 0;
+    min-height: unset;
+    flex: 1 1 auto;
   }
   @media (min-width: $w-pc) {
-    .Checkup--contents-tit-wrap{
-      padding: 5rem 0 0;
-    }
     .Checkup--contents-icon img {
       width: 2.6rem;
     }
-    .Checkup--contents-date span{
-      font-family: $font-family-bold;
-      strong{
-        font-weight: 500;
+  }
+  .CheckupInterestHealth--label{
+    @include checkupAnswerBtn;
+    width: 100%;
+    flex-direction: column;
+    padding: 0;
+    &.active{
+      &::after{
+        content: none;
       }
-      .sub-desc{
-        font-family: $font-family-light;
-        font-size: 1.5rem;
-        margin-top: 2.4rem;
-        @media (min-width: $w-pc) {
-          &.bold{
-            font-family: $font-family-bold;
-          }
-        }
+      .CheckupMedication--label-sub{
+        font-weight: 600;
       }
     }
   }
-  .CheckupInterestHealth--label{
-    flex-direction: column;
-    min-height: 3.8rem;
-    text-align: center;
-    padding: 0.4rem 0 0.5rem;
-    @media (min-width: $w-pc) {
-      min-height: 4.4rem;
-    }
-    > *{
-      font-family: $font-family-medium;
-    }
-    .CheckupMedication--label{
-      font-size: 1.4rem;
-      line-height: 1.4rem;
-      @media (min-width: $w-pc) {
-        font-size: 1.5rem;
-        gap: 0.4rem;
-      }
-      &-sub{
-        font-size: 1.0rem;
-        @media (min-width: $w-pc) {
-          font-size: 1.3rem;
-          line-height: 1.3rem;
-        }
-      }
-      &-sm{
-        font-size: 1.2rem;
-        @media (min-width: $w-pc-small2) {
-          font-size: 1.4rem;
-        }
-        @media (min-width: $w-pc) {
-          font-size: 1.5rem;
-        }
-      }
-    }
+  &--label-sub{
+    @include txtStyle(caption, sm);
+    display: block;
+    margin-top: -.4rem;
   }
   .CheckupInterestHealth--item-div{
     padding-bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem 1rem;
+    @media (min-width:$w-pc) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem 1.2rem;
+    }
   }
   .Checkup--contents-wrapT{
-    margin-top: 1.6rem;
-    @media (min-width: $w-pc) {
-      margin-top: 0;
-      padding-top: 4rem !important;
-    }
-  }
-  .Checkup--btn-wrap{
-    @media (min-width: $w-pc) {
-      padding: 0 0 5rem;
-    }
+    padding: 0;
+    @include checkupContentWrap;
   }
 }
 .CheckupEq5d{ /*삶의 질*/
@@ -11891,14 +11781,8 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
 }
 .CheckupPhysicalActivity{ /*운동습관*/
-  @media (min-width: $w-pc) {
-    padding-bottom: 4rem;
-    .Checkup--contents-icon img {
-      width: 2.8rem;
-    }
-  }
   .Checkup--contents-wrapT{
-    @include spaceRLSDefault;
+    @include checkupContentWrap;
   }
   &--info{
     position: relative;
@@ -11909,50 +11793,86 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       @include checkupQuestion;
       &-span{
         span{
-          font-size: 1.6rem;
-          font-family: $font-family-light;
-          color: #666;
+          display: block;
+          margin-top: .4rem;
+          @include txtStyle(body, xs, 500);
+          color: #1DB196;
         }
       }
     }
-    &-desc{
-      font-size: 1.3rem;
-      font-family: $font-family-medium;
-      color: #555555;
-      padding-left: 2.3rem;
-      margin-top: 0.5rem;
-      display: block;
-    }
+    // &-desc{
+    //   font-size: 1.3rem;
+    //   font-family: $font-family-medium;
+    //   color: #555555;
+    //   padding-left: 2.3rem;
+    //   margin-top: 0.5rem;
+    //   display: block;
+    // }
   }
   &--select{
     &-wrap{
-      margin-top: 2.4rem;
-      margin-bottom: 6rem;
+      margin-top: 1.6rem;
+      margin-bottom: 3.6rem;
       @media (min-width: $w-pc) {
-        margin-bottom: 8rem;
+        margin-top: 2rem;
+        margin-bottom: 4.4rem;
       }
       &:after{
         top: 58%;
+      }
+      .BaseSelect{
+        &--control{
+          justify-content: flex-start;
+        }
+        &--value{
+          @include txtStyle(body, 2xs-1);
+          &.placeholder{
+            font-family: 'Pretendard', sans-serif;
+            color: $txt-font-color-gray;
+          }
+        }
+        &--option{
+          @include txtStyle(body, 2xs-1);
+          font-family: 'Pretendard', sans-serif;
+          &.selected{
+            font-family: 'Pretendard', sans-serif;
+            font-weight: 600;
+          }
+        }
       }
     }
     &-desc{
       @include validationTxt;
       margin-top: 0.8rem;
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-right: .4rem;
+        background: url("/img/ico_caption_red.svg") no-repeat center / contain;
+        vertical-align: middle;
+      }
     }
   }
   .BaseTimeMinute{
-    margin-top: 2.4rem;
+    margin-top: 1.6rem;
+    @media (min-width:$w-pc) {
+      margin-top: 2rem;
+    }
   }
   &--q2{
     &-wrap{
-      margin-bottom: 6rem;
+      margin-bottom: 3.6rem;
       @media (min-width: $w-pc) {
-        margin-bottom: 8rem;
+        margin-bottom: 4.4rem;
+      }
+      &:last-child{
+        margin-bottom: 0;
       }
     }
     &-tit{
       @include checkupQuestion;
-      margin-bottom: $marginBottom-small;
     }
     &--desc{
       @include alignUl;
@@ -11961,29 +11881,25 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     }
   }
   &--for-wrap{
-    &:last-child{
-      .CheckupPhysicalActivity--q2-wrap{
-        margin-bottom: 2.2rem;
+    .validation:not(:empty){
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-right: .4rem;
+        background: url("/img/ico_caption_red.svg") no-repeat center / contain;
+        vertical-align: middle;
       }
     }
-  }
-  &--btn-div{
-    margin-top: $marginTop-default;
   }
 }
 .CheckupDrinkSmokeSleep{ /*음주, 흡연, 수면*/
   .align--between.info-msg{
     flex-direction: column;
   }
-  @media (min-width: $w-pc) {
-    padding-bottom: 4rem;
-    .Checkup--contents-icon img {
-      width: 2.6rem;
-    }
-  }
   .Checkup--contents-wrapT{
-    @include spaceRLSDefault;
-    padding-top: 0;
+    @include checkupContentWrap;
   }
   &--info{
     position: relative;
@@ -12008,26 +11924,32 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     }
   }
   &--unit{
-    &:first-child{
-      margin-top: 6.4rem;
-      @media (min-width: $w-pc) {
-        margin-top: 0;
-      }
-    }
     &-tit{
       @include checkupQuestion;
     }
     &-label{
-      @include btnBasicWhite;
+      @include checkupAnswerBtn;
     }
     &-input{
       @include checkupAnswer2;
     }
   }
+  .inputBox--txt{
+    @include txtStyle(body, 2xs-1);
+    color: #808080;
+    font-family: 'Pretendard', sans-serif;
+    padding-right: 1.6rem;
+  }
+  .txt--desc,
+  .txt--desc2{
+    @include txtStyle(caption, lg);
+    color: #808080;
+    font-family: 'Pretendard', sans-serif;
+  }
   &--dink-group{
-    margin-top: 6rem;
+    margin-top: 3.6rem;
     @media (min-width: $w-pc) {
-      margin-top: 8rem;
+      margin-top: 4.4rem;
     }
   }
   &--drink-fre{
@@ -12038,26 +11960,41 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
         background-color: $background-color-gray3;
         border-radius: 3rem;
       }
+      select{
+        text-align: left;
+        text-align-last: left;
+        padding-left: 1.6rem;
+        @media (min-width:$w-pc) {
+          padding-left:1.8rem;
+        }
+      }
+      &::after{
+        right: 1.4rem;
+      }
     }
     &--con-wrap{
       margin-top: 1.6rem;
-      @media (min-width: $w-pc) {
-        gap: 2.8rem;
-      }
       & > *{
         width: calc((100% - 1rem)/2);
-        @media (min-width: $w-pc) {
-          width: calc((100% - 2.8rem)/2);
-        }
       }
     }
     &--desc{
-      margin-top: 0.8rem;
+      margin-top: 0.6rem;
       @media (min-width: $w-pc) {
-        margin-top: 1.6rem;
+        margin-top: .8rem;
       }
       &.txt--red{
         @include validationTxt;
+        font-family: 'Pretendard', sans-serif;
+        &::before{
+          content: '';
+          display: inline-block;
+          width: 1.6rem;
+          height: 1.6rem;
+          margin-right: .4rem;
+          background: url("/img/ico_caption_red.svg") no-repeat center / contain;
+          vertical-align: middle;
+        }
       }
       & + &{
         margin-top: 0.2rem;
@@ -12079,16 +12016,22 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   &--drink-size{
     &--con-wrap{
       margin-top: 1.6rem;
+      @media (min-width: $w-pc) {
+        margin-top: 2rem;
+      }
     }
     &--wrap{
-      margin-top: 6rem;
+      margin-top: 3.6rem;
       @media (min-width: $w-pc) {
-        margin-top: 8rem;
+        margin-top: 4.4rem;
       }
     }
     &--desc{
-      margin-top: 1.6rem;
+      margin-top: .6rem;
       color: #7e7e7e;
+      @media (min-width:$w-pc) {
+        margin-top: .8rem;
+      }
     }
     &--label{
       &.active{
@@ -12108,48 +12051,42 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       display: flex;
       flex-direction: column;
       gap: 1.2rem;
+      @media (min-width:$w-pc) {
+        margin-top: 2rem;
+      }
     }
     &--wrap{
-      margin-top: 2.8rem;
       @media (min-width: $w-pc) {
-        margin-top: 0;
         .Checkup--contents-icon img {
           width: 3rem;
         }
       }
       .Checkup--contents-tit-wrap{
+        padding-top: 5.2rem;
         margin: 0;
-        @media (min-width: $w-pc) {
-          padding-top: 8rem;
-        }
       }
     }
     &--label{
-      @include btnBasicWhite;
-      @media (min-width: $w-pc) {
-        min-height: 3.8rem;
-      }
-      span[class$="--span"]{
-        font-size: 1.5rem;
-      }
+      @include checkupAnswerBtn;
     }
     &--q{
       @include checkupQuestion;
     }
     &--con-wrap{
-      margin-top: 6.4rem;
-      @media (min-width: $w-pc) {
-        margin-top: 6rem;
-      }
+      @include checkupContentWrap;
+      margin-inline: 0;
     }
   }
   &--smoke-fre{
-    margin-top: 6rem;
+    margin-top: 3.6rem;
     @media (min-width: $w-pc) {
-      margin-top: 8rem;
+      margin-top: 4.4rem;
     }
     &--con-wrap{
       margin-top: 1.6rem;
+      @media (min-width: $w-pc) {
+        margin-top: 2rem;
+      }
     }
     &--label{
       &.active{
@@ -12165,13 +12102,16 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
   &--smoke-quan{
     &--wrap{
-      margin-top: 6rem;
+      margin-top: 3.6rem;
       @media (min-width: $w-pc) {
-        margin-top: 8rem;
+        margin-top: 4.4rem;
       }
     }
     &--label{
-      margin-top: $marginTop-small;
+      margin-top: 1.6rem;
+      @media (min-width:$w-pc) {
+        margin-top: 2rem;
+      }
       &.active{
         border-color: $line-color-green;
       }
@@ -12184,11 +12124,9 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       &-span{
         span{
           display: block;
-          font-size: 1.6rem;
-          font-family: "RixSinHead_Light", sans-serif;
+          @include txtStyle(body, xs, 500);
           margin-top: 0.4rem;
           color: #666;
-          margin-bottom: 0.6rem;
         }
       }
     }
@@ -12206,21 +12144,20 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     }
   }
   &--moi{
-    margin-top: 2.8rem;
     @media (min-width: $w-pc) {
-      margin-top: 0;
       .Checkup--contents-icon img {
         width: 2.2rem;
       }
     }
     .Checkup--contents-tit-wrap{
+      padding-top: 5.2rem;
       margin: 0;
-      @media (min-width: $w-pc) {
-        padding-top: 8rem;
-      }
     }
     &--con-wrap{
       margin-top: 1.6rem;
+      @media (min-width:$w-pc) {
+        margin-top: 2rem;
+      }
     }
     &--label{
       &.active{
@@ -12229,31 +12166,21 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     }
     &--q{
       @include checkupQuestion;
-      margin-top: 6.4rem;
-      @media (min-width: $w-pc) {
-        margin-top: 6rem;
-      }
+      @include checkupContentWrap;
+      margin-inline: 0;
+      margin-bottom: 0;
     }
     &--desc{
-      font-size: 1.3rem;
-      font-family: $font-family-medium;
-      color: #7e7e7e;
-      margin-top: 1.6rem;
-      line-height: 1.8rem;
-      @media (min-width: $w-pc) {
-        font-size: 1.5rem;
-        font-family: $font-family-light;
+      margin-top: .6rem;
+      @media (min-width:$w-pc) {
+        margin-top: .8rem;
       }
     }
-  }
-  &--btn-div{
-    margin-top: $marginTop-default2;
   }
 }
 
 .CheckupSleep{ /*수면*/
   @media (min-width: $w-pc) {
-    padding-bottom: 4rem;
     .Checkup--contents-icon img {
       width: 2.6rem;
     }
@@ -12262,11 +12189,25 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     @include checkupQuestion;
   }
   &--q2-wrap{
-    margin-top: 1rem;
+    margin-top: 1.6rem;
+    @media (min-width:$w-pc) {
+      margin-top: 2rem;
+    }
     &--desc{
       @include alignUl;
       @include validationTxt;
       margin-top: 0.8rem;
+    }
+    .validation{
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-right: .4rem;
+        background: url("/img/ico_caption_red.svg") no-repeat center / contain;
+        vertical-align: middle;
+      }
     }
   }
   &--label{
@@ -12276,28 +12217,21 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     display: block;
   }
   .Checkup--contents-wrapT{
-    @include checkupRLSpace;
-    margin-bottom: $marginBottom-default;
-    & + .btn--bottom{
-      margin-top: $marginTop-default2;
-    }
+    @include checkupContentWrap;
   }
   &--info{
     position: relative;
     @include checkupMainTxt(eye);
   }
   &--span{
-    width: 6rem;
+    max-width: 3.3rem;
   }
   &--div{
     @include checkupAnswerSpace;
   }
   &--a-div{
-    margin-top: 1.6rem;
-    @media (min-width: $w-pc) {
-      margin-left: 1.6rem;
-      margin-right: 1.6rem;
-    }
+    @include checkupRadioWrap;
+    justify-content: space-between;
   }
 }
 
@@ -12305,14 +12239,8 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   .Checkup--contents-icon img{
     max-width: 50%;
   }
-  @media (min-width: $w-pc) {
-    padding-bottom: 4rem;
-  }
   .Checkup--contents-wrapT{
-    @include spaceRLSDefault;
-    & + .btn--bottom{
-      margin-top: 3.2rem;
-    }
+    @include checkupContentWrap;
   }
   &--info{
     position: relative;
@@ -12323,64 +12251,51 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       @include checkupQuestion;
       &-span{
         span{
-          font-size: 1.6rem;
-          font-family: "RixSinHead_Light", sans-serif;
           color: #666;
         }
       }
     }
     &-label{
-      @include btnBasicWhite;
+      @include checkupAnswerBtn;
     }
     &-input{
       @include checkupAnswer2;
     }
     & + & {
-      margin-top: 6rem;
+      margin-top: 3.6rem;
       @media (min-width: $w-pc) {
-        margin-top: 8rem;
+        margin-top: 4.4rem;
       }
     }
   }
   &--item-div{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-right: -.5rem;
-    margin-left: -.5rem;
-    margin-top: $space-default;
+    gap: .8rem;
+    margin-top: 2rem;
+    @media (min-width:$w-pc) {
+      gap: 1.4rem 1.2rem;
+    }
   }
   &--label{
-    @include btnBasicWhite;
+    @include checkupAnswerBtn;
+    padding: 1.2rem 1rem 1.6rem;
+    border-radius: 2rem;
     flex-direction: column;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    border-radius: 2.2rem;
-    gap: 0.8rem;
-    margin: 0;
-    padding: 1.4rem 1rem 1rem;
+    gap: 1rem;
+    text-align: center;
     &.active{
-      background-image: none;
-      padding: 1.4rem 1rem 1rem;
-      min-height: auto;
-      box-sizing: border-box;
-      border-width: 0.1rem;
-      box-shadow: 0 0 0 1px #1DB196 inset;
-      font-family: $font-family-medium;
-      @media (min-width: $w-pc) {
-        border-radius: 2.2rem;
+      .CheckupDiet--span{
+        color: #1DB196;
+        font-weight: 700;
+        span{
+          color: #1DB196;
+          font-weight: 500;
+        }
       }
-      span[class$="--span"]{
-        font-family: $font-family-medium;
+      &::after{
+        content: none;
       }
-      span{
-        font-family: $font-family-light;
-        color: $txt-font-color-green;
-      }
-    }
-    &.disabled{
-      border-color: $btn-line-color-gray2;
-      color: $btn-font-color-gray2;
     }
   }
   &--image{
@@ -12393,11 +12308,13 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   &--span {
     display: flex;
     flex-direction: column;
-    font-size: 1.3rem !important;
+    gap: .2rem;
     word-break: break-all;
+    @include txtStyle(body, 2xs, 500);
+    color: #333;
     span{
-      font-size: 1.1rem;
-      color: #646464;
+      @include txtStyle(caption, lg);
+      color: #808080;
       word-break: break-all;
     }
   }
@@ -20749,41 +20666,59 @@ span.legend-dot-interest{
 // 공통 정보 박스 스타일
 .Checkup--info{
   &-box {
-    padding: 1.4rem 0.9rem;
-    border-radius: 1.6rem;
-    border: solid 1px rgb(29 177 150 / 50%);
-    background-color: #f9f9f9;
-    margin: 2.4rem auto 0;
-    @media (min-width: $w-pc) {
-      padding: 2.6rem 3.6rem;
-    }
+    padding: 1.2rem 1.6rem 2rem;
+    border-radius: 2rem;
+    border: .1rem solid #1DB196;
+    background-color: white;
+    margin: 2rem auto 0;
   }
   &-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.2rem;
-    gap: 0.8rem;
+    margin-bottom: .8rem;
+    gap: 0.4rem;
+    &:has(.Checkup--info-icon){
+      height: 4rem;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      gap: 1.4rem;
+      position: relative;
+      z-index: 1;
+      @media (min-width:$w-pc) {
+        gap: 1.6rem;
+      }
+      &::before{
+        content: "";
+        position: absolute;
+        left: -1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: -1;
+        display: block;
+        width: 4rem;
+        height: 4rem;
+        background-color: #F5F5F5;
+        border-radius: 9rem;
+      }
+    }
   }
   &-icon {
-    width: 20px;
-    height: 20px;
+    width: 2rem;
+    height: 2rem;
   }
   &-title {
     color: #1db196;
-    font-family: $font-family-bold;
-    @media (min-width: $w-pc) {
-      font-size: 1.8rem;
-    }
+    @include txtStyle(body, xs, 600);
   }
   &-description {
-    font-size: 12px;
-    letter-spacing: -0.72px;
-    text-align: center;
-    color: #555;
+    @include txtStyle(caption, xl-1, 600);
+    text-align: left;
+    color: #666;
     word-break: break-all;
-    @media (min-width: $w-pc) {
-      font-size: 1.3rem;
+    @media (min-width:$w-pc) {
+      text-align: center;
     }
   }
 }

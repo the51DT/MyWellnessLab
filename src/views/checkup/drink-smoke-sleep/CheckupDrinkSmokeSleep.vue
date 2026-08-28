@@ -453,19 +453,29 @@ const handleChangeDrinkFreqType = () => {
 }
 
 onBeforeMount(async () => {
-  const fourPowersTemporary = await getFourPowersTemporary()
+  // 2606 퍼블 확인용 아래 주석이 원본
+  const fourPowersTemporary = await getFourPowersTemporary() || {
+    drinking: null,
+    progressbar: defaultProgressbar
+  }
+  // const fourPowersTemporary = await getFourPowersTemporary()
 
   if (fourPowersTemporary.drinking) {
     formData.value = fourPowersTemporary
   }
 
-  progressbar.value = fourPowersTemporary.progressbar || []
+  // 2606 퍼블 확인용 아래 주석이 원본
+  progressbar.value = fourPowersTemporary?.progressbar?.length
+  ? fourPowersTemporary.progressbar
+  : defaultProgressbar
+  current.value = 5
+  // progressbar.value = fourPowersTemporary.progressbar || []
 
-  const idx = progressbar.value.findIndex(
-      item => healthLifeStepRoutes[item.pType] === route.name
-  )
+  // const idx = progressbar.value.findIndex(
+  //     item => healthLifeStepRoutes[item.pType] === route.name
+  // )
 
-  current.value = idx === -1 ? 1 : idx + 1
+  // current.value = idx === -1 ? 1 : idx + 1
 
   // 다음 틱에서 컴포넌트가 완전히 준비되었음을 표시
   await nextTick()
@@ -476,6 +486,15 @@ const current = ref(0)
 const progressbar = ref([])
 const { handleStepClick } = healthLifeStepNavigation(progressbar)
 const { onStepClick } = useSurveyStepCommon(handleSave, handleStepClick, current, isDisabled)
+// 2606 퍼블 확인용
+const defaultProgressbar = [
+  { pType: '0', inputYn: 'Y' },
+  { pType: '1', inputYn: 'Y' },
+  { pType: '2', inputYn: 'Y' },
+  { pType: '3', inputYn: 'Y' },
+  { pType: '4', inputYn: 'Y' },
+  { pType: '5', inputYn: 'N' }
+]
 </script>
 
 <template>

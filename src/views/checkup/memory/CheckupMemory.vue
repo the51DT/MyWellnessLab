@@ -242,15 +242,26 @@ const handleSave = async ( shouldMoveNext = true ) => {
   }
 }
 
-const current = ref(0)
+// 2606 퍼블 확인용 - BaseStep 2단계 표시
+const current = ref(2)
+// const current = ref(0)
 const healthInterest = computed(() => store.getters['checkup/getHealthInterest'])
 
 onBeforeMount(async () => {
-  const memoryTemporary = await getMemoryTemporary()
+  // 2606 퍼블 확인용 아래 주석이 원본
+  const memoryTemporary = await getMemoryTemporary() || {
+    memory: null,
+    progressbar: defaultProgressbar
+  }
 
-  if (memoryTemporary.memory) {
+  if (memoryTemporary?.memory) {
     formData.value = memoryTemporary.memory
   }
+  // const memoryTemporary = await getMemoryTemporary()
+
+  // if (memoryTemporary.memory) {
+  //   formData.value = memoryTemporary.memory
+  // }
 
   let healthInterest = store.getters['checkup/getHealthInterest']
 
@@ -263,23 +274,31 @@ onBeforeMount(async () => {
     }
   }
 
-  if (!healthInterest) {
-    openPopError.value = true
-    return
-  }
+  // 2606 퍼블 확인용 주석처리
+  // if (!healthInterest) {
+  //   openPopError.value = true
+  //   return
+  // }
 
+  // 2606 퍼블 확인용 주석처리
   // 3. dynamicRouterMap 기준으로 선택된 key만 추출
-  const detailSurveyKeys = Object.keys(dynamicRouterMap)
-  const selectedKeys = detailSurveyKeys.filter(key => healthInterest[key] === 1)
+  // const detailSurveyKeys = Object.keys(dynamicRouterMap)
+  // const selectedKeys = detailSurveyKeys.filter(key => healthInterest[key] === 1)
 
-  progressbar.value = memoryTemporary.progressbar || []
+  // 2606 퍼블 확인용 아래 주석이 원본
+  progressbar.value = memoryTemporary.progressbar?.length
+    ? memoryTemporary.progressbar
+    : defaultProgressbar
+  // progressbar.value = memoryTemporary.progressbar || []
 
-  // 5. current 계산
-  const currentIndex = selectedKeys.findIndex(
-      key => dynamicRouterMap[key] === route.name
-  )
-
-  current.value = currentIndex + 1
+  // 2606 퍼블 확인용 아래 주석이 원본 - BaseStep 2단계 표시
+  current.value = 2
+  // // 5. current 계산
+  // const currentIndex = selectedKeys.findIndex(
+  //     key => dynamicRouterMap[key] === route.name
+  // )
+  //
+  // current.value = currentIndex + 1
 
   // 다음 틱에서 컴포넌트가 완전히 준비되었음을 표시
   await nextTick()
@@ -287,6 +306,13 @@ onBeforeMount(async () => {
 })
 
 const progressbar = ref([])
+// 2606 퍼블 확인용 - 상세 설문 progressbar 기본값
+const defaultProgressbar = [
+  { ptype: '1', inputYn: 'Y' },
+  { ptype: '2', inputYn: 'Y' },
+  { ptype: '3', inputYn: 'N' },
+  { ptype: '4', inputYn: 'N' },
+]
 
 const { handleStepClick } = useStepNavigation({
   current,

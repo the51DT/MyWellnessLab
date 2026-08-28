@@ -242,20 +242,91 @@ const publishingRouter = {
           },
         },
         {
+          path: "checkup-body",
+          name: "pubCheckupBody",
+          component: () => import("@/views/checkup/body/CheckupBody.vue"),
+          meta: {
+            title: "Router.checkup.text18",
+            class: "middle checkup-arrow",
+            hasPublishingBodyCompositionData: true, // 퍼블 확인용
+          },
+        },
+        {
+          path: "checkup-body-not",
+          name: "pubCheckupBodyNot",
+          component: () => import("@/views/checkup/body/CheckupBody.vue"),
+          meta: {
+            title: "Router.checkup.text18",
+            class: "middle checkup-arrow",
+            hasPublishingBodyCompositionData: false, // 퍼블 확인용
+          },
+        },
+        {
+          path: "checkup-body-direct-input",
+          name: "pubCheckupBodyDirectInput",
+          component: () =>
+            import("@/views/checkup/body/CheckupBodyDirectInput.vue"),
+          meta: {
+            title: "Router.checkup.text18",
+            class: "middle checkup-arrow",
+          },
+        },
+        {
+          path: "checkup-body-key-login",
+          name: "pubCheckupBodyKeyLogin",
+          component: () =>
+            import("@/views/checkup/body/CheckupBodyKeyLogin.vue"),
+          meta: {
+            title: "Router.checkup.text18",
+            class: "middle checkup-arrow",
+          },
+        },
+        {
+          path: "checkup-body-key-data-list",
+          name: "pubCheckupBodyKeyDataList",
+          component: () =>
+            import("@/views/checkup/body/CheckupBodyKeyDataList.vue"),
+          meta: {
+            title: "Router.checkup.text18",
+            class: "middle checkup-arrow",
+            pageType: "data", // 퍼블 확인용
+          },
+        },
+        {
+          path: "checkup-body-key-data-list-not",
+          name: "pubCheckupBodyKeyDataListNot",
+          component: () =>
+            import("@/views/checkup/body/CheckupBodyKeyDataList.vue"),
+          meta: {
+            title: "Router.checkup.text18",
+            class: "middle checkup-arrow",
+            pageType: "none", // 퍼블 확인용
+          },
+        },
+        {
+          path: "checkup-body-date-select",
+          name: "pubCheckupBodyDateSelect",
+          component: () =>
+            import("@/views/checkup/body/CheckupBodyDateSelect.vue"),
+          meta: {
+            title: "Router.checkup.text18",
+            class: "middle checkup-arrow",
+          },
+        },
+        {
           path: "checkup-interest-health",
           name: "pubCheckupInterestHealth",
           component: () =>
-            import("@/views/publishing/checkup/CheckupHealthInterest.vue"),
+            import("@/views/checkup/interests/CheckupInterestHealth.vue"),
           meta: {
-            title: "관심 건강분야",
-            class: "middle",
+            title: "관심 건강 설문 (3/4)",
+            class: "middle checkup-arrow",
           },
         },
         {
           path: "checkup-memory",
           name: "pubCheckupMemory",
-          component: () =>
-            import("@/views/publishing/checkup/CheckupMemory.vue"),
+          component: () => import("@/views/checkup/memory/CheckupMemory.vue"),
           meta: {
             title: "기억력",
             class: "middle",
@@ -264,7 +335,7 @@ const publishingRouter = {
         {
           path: "checkup-eye",
           name: "pubCheckupEye",
-          component: () => import("@/views/publishing/checkup/CheckupEye.vue"),
+          component: () => import("@/views/checkup/eye/CheckupEye.vue"),
           meta: {
             title: "눈",
             class: "middle",
@@ -274,7 +345,7 @@ const publishingRouter = {
           path: "checkup-nose-hypersensitivity",
           name: "pubCheckupNoseHypersensitivity",
           component: () =>
-            import("@/views/publishing/checkup/CheckupNoseHypersensitivity.vue"),
+            import("@/views/checkup/nose/CheckupNoseHypersensitivity.vue"),
           meta: {
             title: "코 과민반응",
             class: "middle",
@@ -283,8 +354,7 @@ const publishingRouter = {
         {
           path: "checkup-stomach",
           name: "pubCheckupStomach",
-          component: () =>
-            import("@/views/publishing/checkup/CheckupStomach.vue"),
+          component: () => import("@/views/checkup/stomach/CheckupStomach.vue"),
           meta: {
             title: "위",
             class: "middle",
@@ -294,7 +364,7 @@ const publishingRouter = {
           path: "checkup-intestine",
           name: "pubCheckupIntestine",
           component: () =>
-            import("@/views/publishing/checkup/CheckupIntestine.vue"),
+            import("@/views/checkup/intestine/CheckupIntestine.vue"),
           meta: {
             title: "장",
             class: "middle",
@@ -304,7 +374,7 @@ const publishingRouter = {
           path: "checkup-joint-and-bone",
           name: "pubCheckupJointAndBone",
           component: () =>
-            import("@/views/publishing/checkup/CheckupJointAndBone.vue"),
+            import("@/views/checkup/joint-bone/CheckupJointAndBone.vue"),
           meta: {
             title: "관절, 뼈",
             class: "middle",
@@ -314,7 +384,7 @@ const publishingRouter = {
           path: "checkup-immunity",
           name: "pubCheckupImmunity",
           component: () =>
-            import("@/views/publishing/checkup/CheckupImmunity.vue"),
+            import("@/views/checkup/immunity/CheckupImmunity.vue"),
           meta: {
             title: "면역",
             class: "middle",
@@ -324,7 +394,7 @@ const publishingRouter = {
           path: "checkup-menopause",
           name: "pubCheckupMenopause",
           component: () =>
-            import("@/views/publishing/checkup/CheckupMenopause.vue"),
+            import("@/views/checkup/menopause/CheckupMenopause.vue"),
           meta: {
             title: "갱년기",
             class: "middle",
@@ -334,7 +404,7 @@ const publishingRouter = {
           path: "checkup-prostate",
           name: "pubCheckupProstate",
           component: () =>
-            import("@/views/publishing/checkup/CheckupProstate.vue"),
+            import("@/views/checkup/prostate/CheckupProstate.vue"),
           meta: {
             title: "전립선",
             class: "middle",
@@ -344,39 +414,67 @@ const publishingRouter = {
           path: "checkup-menstrual",
           name: "pubCheckupMenstrual",
           component: () =>
-            import("@/views/publishing/checkup/CheckupMenstrual.vue"),
+            import("@/views/checkup/menstrual/CheckupMenstrual.vue"),
           meta: {
             title: "월경",
             class: "middle",
           },
         },
         {
-          path: "checkup-eq5d",
-          name: "pubCheckupEq5d",
-          component: () => import("@/views/publishing/checkup/CheckupEq5d.vue"),
+          path: "checkup-medication",
+          name: "pubCheckupMedication",
+          component: () =>
+            import("@/views/checkup/medication/CheckupMedication.vue"),
           meta: {
-            title: "삶의 질",
-            class: "middle",
+            title: "Router.checkup.text20",
+            class: "middle checkup-arrow",
           },
         },
         {
-          path: "checkup-physical-activity",
+          path: "checkup-diet",
+          name: "pubCheckupDiet",
+          component: () => import("@/views/checkup/diet/CheckupDiet.vue"),
+          meta: {
+            title: "Router.checkup.text20",
+            class: "middle checkup-arrow",
+          },
+        },
+        {
+          path: "checkup-sleep",
+          name: "pubCheckupSleep",
+          component: () => import("@/views/checkup/sleep/CheckupSleep.vue"),
+          meta: {
+            title: "Router.checkup.text20",
+            class: "middle checkup-arrow",
+          },
+        },
+        {
+          path: "checkup-physical",
           name: "pubCheckupPhysicalActivity",
           component: () =>
-            import("@/views/publishing/checkup/CheckupPhysicalActivity.vue"),
+            import("@/views/checkup/physical/CheckupPhysicalActivity.vue"),
           meta: {
-            title: "운동 습관",
-            class: "middle",
+            title: "Router.checkup.text20",
+            class: "middle checkup-arrow",
           },
         },
         {
           path: "checkup-drink-smoke-sleep",
           name: "pubCheckupDrinkSmokeSleep",
           component: () =>
-            import("@/views/publishing/checkup/CheckupDrinkSmokeSleep.vue"),
+            import("@/views/checkup/drink-smoke-sleep/CheckupDrinkSmokeSleep.vue"),
           meta: {
-            title: "음주, 흡연, 수면",
-            class: "middle",
+            title: "Router.checkup.text20",
+            class: "middle checkup-arrow",
+          },
+        },
+        {
+          path: "checkup-life",
+          name: "pubCheckupEq5d",
+          component: () => import("@/views/checkup/life/CheckupEq5d.vue"),
+          meta: {
+            title: "Router.checkup.text20",
+            class: "middle checkup-arrow",
           },
         },
       ],

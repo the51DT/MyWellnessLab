@@ -55,7 +55,8 @@ const handleProceed = () => {
   store.commit('checkup/SET_CHECK_DATE', selectDate.value)
   
   // 직접 입력 페이지로 이동
-  router.push({ name: 'CheckupBodyDirectInput' })
+  router.push({ name: 'pubCheckupBodyDirectInput' }) // 2606 퍼블 확인용 아래 주석이 원본
+  // router.push({ name: 'CheckupBodyDirectInput' })
 }
 </script>
 

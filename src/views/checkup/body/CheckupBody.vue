@@ -18,6 +18,97 @@ const emit = defineEmits([
 // 로컬 상태 관리
 const isLoading = ref(false)
 const BodyCompositionDataList = ref([])
+// 2606 퍼블 확인용 - route meta로 체성분 데이터 유무 제어
+const hasPublishingBodyCompositionData = computed(() => {
+  return router.currentRoute.value.meta.hasPublishingBodyCompositionData !== false
+})
+// 2606 퍼블 확인용 - 기존 체성분 데이터
+const publishingBodyCompositionDataList = [
+  {
+    id: 1,
+    basicsId: basicsId || 1,
+    surveyDate: '2026.10.25',
+    datetimes: '20261025103000',
+    height: 175,
+    weight: 78,
+    bodyFatMass: 18.5,
+    percentBodyFat: 23.7,
+    skeletalMuscleMass: 31.8,
+    bmi: 25.5,
+    waist: 88,
+    dataType: 'existing'
+  },
+  {
+    id: 2,
+    basicsId: basicsId || 1,
+    surveyDate: '2026.09.25',
+    datetimes: '20260925103000',
+    height: 175,
+    weight: 79,
+    bodyFatMass: 19.2,
+    percentBodyFat: 24.3,
+    skeletalMuscleMass: 31.2,
+    bmi: 25.8,
+    waist: 89,
+    dataType: 'existing'
+  },
+  {
+    id: 3,
+    basicsId: basicsId || 1,
+    surveyDate: '2026.08.25',
+    datetimes: '20260825103000',
+    height: 175,
+    weight: 80,
+    bodyFatMass: 20.1,
+    percentBodyFat: 25.1,
+    skeletalMuscleMass: 30.9,
+    bmi: 26.1,
+    waist: 90,
+    dataType: 'existing'
+  },
+  {
+    id: 4,
+    basicsId: basicsId || 1,
+    surveyDate: '2026.10.25',
+    datetimes: '20261025103000',
+    height: 175,
+    weight: 78,
+    bodyFatMass: 18.5,
+    percentBodyFat: 23.7,
+    skeletalMuscleMass: 31.8,
+    bmi: 25.5,
+    waist: 88,
+    dataType: 'existing'
+  },
+  {
+    id: 5,
+    basicsId: basicsId || 1,
+    surveyDate: '2026.09.25',
+    datetimes: '20260925103000',
+    height: 175,
+    weight: 79,
+    bodyFatMass: 19.2,
+    percentBodyFat: 24.3,
+    skeletalMuscleMass: 31.2,
+    bmi: 25.8,
+    waist: 89,
+    dataType: 'existing'
+  },
+  {
+    id: 6,
+    basicsId: basicsId || 1,
+    surveyDate: '2026.08.25',
+    datetimes: '20260825103000',
+    height: 175,
+    weight: 80,
+    bodyFatMass: 20.1,
+    percentBodyFat: 25.1,
+    skeletalMuscleMass: 30.9,
+    bmi: 26.1,
+    waist: 90,
+    dataType: 'existing'
+  }
+]
 
 // 기존 데이터 선택 시
 const selectExistingBodyComposition = (item) => {
@@ -26,7 +117,8 @@ const selectExistingBodyComposition = (item) => {
   
   // 체성분 상세 페이지로 이동 (읽기 전용 모드)
   router.push({ 
-    name: 'CheckupBodyDirectInput',
+    name: 'pubCheckupBodyDirectInput', // 2606 퍼블 확인용 아래 주석이 원본
+    // name: 'CheckupBodyDirectInput',
     query: { 
       mode: 'view',  // 읽기 전용 모드
       dataType: 'existing'  // 기존 데이터 타입
@@ -36,16 +128,22 @@ const selectExistingBodyComposition = (item) => {
 
 // 직접 입력 프로세스 시작
 const startDirectInputProcess = () => {
-  router.push({ name: 'CheckupBodyDateSelect' })
+  // 2606 퍼블 확인용 아래 주석이 원본
+  router.push({ name: 'pubCheckupBodyDateSelect' })
+  // router.push({ name: 'CheckupBodyDateSelect' })
 }
 
 // 바디키 로그인 페이지로 이동
 const goToBodyKeyLogin = () => {
-  router.push({ name: 'CheckupBodyKeyLogin' })
+  // 2606 퍼블 확인용 아래 주석이 원본
+  router.push({ name: 'pubCheckupBodyKeyLogin' })
+  // router.push({ name: 'CheckupBodyKeyLogin' })
 }
 
 const handleBack = async () => {
-  router.push({ name: 'CheckupBodyGuide' })
+  // 2606 퍼블 확인용 아래 주석이 원본
+  router.push({ name: 'pubCheckupBodyGuide' })
+  // router.push({ name: 'CheckupBodyGuide' })
 }
 
 // 체성분 데이터 조회 (기존 완료된 데이터)
@@ -74,9 +172,15 @@ const isOneTimeAnalysis = computed(() => {
 
 // 컴포넌트 마운트 시 데이터 조회 (일회성 분석이 아닐 때만)
 onBeforeMount(async () => {
-  if (!isOneTimeAnalysis.value) {
-    await getBodyCompositionData()
+  // 2606 퍼블 확인용 아래 주석이 원본
+  if (hasPublishingBodyCompositionData.value) {
+    BodyCompositionDataList.value = publishingBodyCompositionDataList
+    return
   }
+  BodyCompositionDataList.value = []
+  // if (!isOneTimeAnalysis.value) {
+  //   await getBodyCompositionData()
+  // }
 })
 </script>
 

@@ -365,19 +365,30 @@ const getPhysicalTemporary = async () => {
 }
 
 onBeforeMount(async () => {
-  const physicalTemporary = await getPhysicalTemporary()
+  // 2606 퍼블 확인용 아래 주석이 원본
+  const physicalTemporary = await getPhysicalTemporary() || {
+    physicalActivity: null,
+    progressbar: defaultProgressbar
+  }
+  // const physicalTemporary = await getPhysicalTemporary()
 
   if (physicalTemporary.physicalActivity) {
     formData.value = physicalTemporary.physicalActivity
   }
 
-  progressbar.value = physicalTemporary.progressbar || []
+  // 2606 퍼블 확인용 아래 주석이 원본
+  progressbar.value = physicalTemporary?.progressbar?.length
+    ? physicalTemporary.progressbar
+    : defaultProgressbar
 
-  const idx = progressbar.value.findIndex(
-      item => healthLifeStepRoutes[item.pType] === route.name
-  )
+  current.value = 4
+  // progressbar.value = physicalTemporary.progressbar || []
 
-  current.value = idx === -1 ? 1 : idx + 1
+  // const idx = progressbar.value.findIndex(
+  //     item => healthLifeStepRoutes[item.pType] === route.name
+  // )
+
+  // current.value = idx === -1 ? 1 : idx + 1
 
   await nextTick()
   disableAction()
@@ -433,6 +444,15 @@ const isDisabled = computed(() => {
 const progressbar = ref([])
 const { handleStepClick } = healthLifeStepNavigation(progressbar)
 const { onStepClick } = useSurveyStepCommon(handleSave, handleStepClick, current, isDisabled)
+// 2606 퍼블 확인용
+const defaultProgressbar = [
+  { pType: '1', inputYn: 'Y' },
+  { pType: '2', inputYn: 'Y' },
+  { pType: '3', inputYn: 'Y' },
+  { pType: '4', inputYn: 'Y' },
+  { pType: '5', inputYn: 'N' },
+  { pType: '6', inputYn: 'N' }
+]
 </script>
 
 <template>

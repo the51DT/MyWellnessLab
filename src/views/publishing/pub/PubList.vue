@@ -188,8 +188,8 @@ const data = ref([
   },
   {
     div: '',
-    div2: '기본검사',
-    div3: '',
+    div2: '건강검진 (1/4)',
+    div3: '기본검사',
     loca: '@/views/checkup/basics/CheckupBasics.vue',
     go: '/publishing/checkup-input/checkup-basics',
     msg: '민감정보 수집 및 이용 페이지에서 진입 시 국민건강보험공단 케이스<br>home 분석 후에서 일회성으로 진입 시 일회성 케이스<br>"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요<br><br>Message.vue 2606 스타일 내용 수정',
@@ -197,8 +197,8 @@ const data = ref([
   },
   {
     div: '',
-    div2: '혈액검사',
-    div3: '',
+    div2: '',
+    div3: '혈액검사',
     loca: '@/views/checkup/blood/CheckupBlood.vue',
     go: '/publishing/checkup-input/checkup-blood',
     msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
@@ -210,134 +210,224 @@ const data = ref([
     div3: '',
     loca: '@/views/checkup/body/CheckupBodyGuide.vue',
     go: '/publishing/checkup-input/checkup-body-guide',
-    msg: '',
-    confirm: '작업중'
+    msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
+    confirm: '2026.08.28 퍼블 완료'
   },
   {
     div: '',
-    div2: '관심 건강분야',
-    div3: '',
-    loca: '@/views/publishing/checkup/CheckupInterestHealth.vue',
+    div2: '',
+    div3: '체성분 데이터 입력',
+    loca: '@/views/checkup/body/CheckupBody.vue',
+    go: '/publishing/checkup-input/checkup-body',
+    msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
+    confirm: '2026.08.28 퍼블 완료'
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '체성분 데이터 입력(목록 없음)',
+    loca: '@/views/checkup/body/CheckupBody.vue',
+    go: '/publishing/checkup-input/checkup-body-not',
+    msg: '퍼블 확인용 라우터 적용',
+    confirm: '"'
+  },
+  {
+    div: '',
+    div2: '',
+    div3: 'myWellness LAB 측정 결과 상세',
+    loca: '@/views/checkup/body/CheckupBodyDirectInput.vue',
+    go: '/publishing/checkup-input/checkup-body-direct-input',
+    msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
+    confirm: '2026.08.28 퍼블 완료'
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '바디키에서 가져오기',
+    loca: '@/views/checkup/body/CheckupBodyKeyLogin.vue',
+    go: '/publishing/checkup-input/checkup-body-key-login',
+    msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
+    confirm: '2026.08.28 퍼블 완료'
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '바디키에서 가져오기 결과',
+    loca: '@/views/checkup/body/CheckupBodyKeyDataList.vue',
+    go: '/publishing/checkup-input/checkup-body-key-data-list',
+    msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
+    confirm: '2026.08.28 퍼블 완료'
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '바디키에서 가져오기 결과 없음',
+    loca: '@/views/checkup/body/CheckupBodyKeyDataList.vue',
+    go: '/publishing/checkup-input/checkup-body-key-data-list-not',
+    msg: '퍼블 확인용 라우터 적용',
+    confirm: '"'
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '직접입력',
+    loca: '@/views/checkup/body/CheckupBodyDateSelect.vue',
+    go: '/publishing/checkup-input/checkup-body-date-select',
+    msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
+    confirm: '2026.08.28 퍼블 완료'
+  },
+  {
+    div: '',
+    div2: '관심 건강 설문 (3/4)',
+    div3: '관심 건강분야',
+    loca: '@/views/checkup/interests/CheckupInterestHealth.vue',
     go: '/publishing/checkup-input/checkup-interest-health',
     msg: '',
-    confirm: ''
+    confirm: '2026.08.28 퍼블 완료'
   },
   {
     div: '',
     div2: '',
     div3: '기억력',
-    loca: '@/views/publishing/checkup/CheckupMemory.vue',
+    loca: '@/views/checkup/memory/CheckupMemory.vue',
     go: '/publishing/checkup-input/checkup-memory',
-    msg: "",
-    confirm: ''
+    msg: "'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요",
+    confirm: '2026.08.28 퍼블 완료'
   },
   {
     div: '',
     div2: '',
     div3: '눈',
-    loca: '@/views/publishing/checkup/CheckupEye.vue',
+    loca: '@/views/checkup/eye/CheckupEye.vue',
     go: '/publishing/checkup-input/checkup-eye',
     msg: '',
-    confirm: ''
+    confirm: '2026.08.28 퍼블 완료'
   },
   {
     div: '',
     div2: '',
     div3: '코 과민반응',
-    loca: '@/views/publishing/checkup/CheckupNoseHypersensitivity.vue',
+    loca: '@/views/checkup/nose/CheckupNoseHypersensitivity.vue',
     go: '/publishing/checkup-input/checkup-nose-hypersensitivity',
     msg: '',
-    confirm: ''
+    confirm: '2026.08.28 퍼블 완료'
   },
   {
     div: '',
     div2: '',
     div3: '위',
-    loca: '@/views/publishing/checkup/CheckupStomach.vue',
+    loca: '@/views/checkup/stomach/CheckupStomach.vue',
     go: '/publishing/checkup-input/checkup-stomach',
     msg: '',
-    confirm: ''
+    confirm: '2026.08.28 퍼블 완료'
   },
   {
     div: '',
     div2: '',
     div3: '장',
-    loca: '@/views/publishing/checkup/CheckupIntestine.vue',
+    loca: '@/views/checkup/intestine/CheckupIntestine.vue',
     go: '/publishing/checkup-input/checkup-intestine',
     msg: '',
-    confirm: ''
+    confirm: '2026.08.28 퍼블 완료'
   },
   {
     div: '',
     div2: '',
     div3: '관절, 뼈',
-    loca: '@/views/publishing/checkup/CheckupJointAndBone.vue',
+    loca: '@/views/checkup/joint-bone/CheckupJointAndBone.vue',
     go: '/publishing/checkup-input/checkup-joint-and-bone',
     msg: '',
-    confirm: ''
+    confirm: '2026.08.28 퍼블 완료'
   },
   {
     div: '',
     div2: '',
     div3: '면역',
-    loca: '@/views/publishing/checkup/CheckupImmunity.vue',
+    loca: '@/views/checkup/immunity/CheckupImmunity.vue',
     go: '/publishing/checkup-input/checkup-immunity',
     msg: '',
-    confirm: ''
+    confirm: '2026.08.28 퍼블 완료'
   },
   {
     div: '',
     div2: '',
     div3: '갱년기',
-    loca: '@/views/publishing/checkup/CheckupMenopause.vue',
+    loca: '@/views/checkup/menopause/CheckupMenopause.vue',
     go: '/publishing/checkup-input/checkup-menopause',
     msg: '',
-    confirm: ''
+    confirm: '2026.08.28 퍼블 완료'
   },
   {
     div: '',
     div2: '',
     div3: '전립선',
-    loca: '@/views/publishing/checkup/CheckupProstate.vue',
+    loca: '@/views/checkup/prostate/CheckupProstate.vue',
     go: '/publishing/checkup-input/checkup-prostate',
     msg: '',
-    confirm: ''
+    confirm: '2026.08.28 퍼블 완료'
   },
   {
     div: '',
     div2: '',
     div3: '월경',
-    loca: '@/views/publishing/checkup/CheckupMenstrual.vue',
+    loca: '@/views/checkup/menstrual/CheckupMenstrual.vue',
     go: '/publishing/checkup-input/checkup-menstrual',
     msg: '',
-    confirm: ''
+    confirm: '2026.08.28 퍼블 완료'
   },
   {
     div: '',
-    div2: '삶의 질',
-    div3: '',
-    loca: '@/views/publishing/checkup/CheckupEq5d.vue',
-    go: '/publishing/checkup-input/checkup-eq5d',
-    msg: '',
-    confirm: ''
+    div2: '관심 건강 설문 (4/4)',
+    div3: '복약',
+    loca: '@/views/checkup/medication/CheckupMedication.vue',
+    go: '/publishing/checkup-input/checkup-medication',
+    msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
+    confirm: '2026.08.28 퍼블 완료'
   },
   {
     div: '',
-    div2: '운동 습관',
-    div3: '',
-    loca: '@/views/publishing/checkup/CheckupPhysicalActivity.vue',
-    go: '/publishing/checkup-input/checkup-physical-activity',
-    msg: '',
-    confirm: ''
+    div2: '',
+    div3: '식사',
+    loca: '@/views/checkup/diet/CheckupDiet.vue',
+    go: '/publishing/checkup-input/checkup-diet',
+    msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
+    confirm: '2026.08.28 퍼블 완료'
   },
   {
     div: '',
-    div2: '음주, 흡연, 수면',
-    div3: '',
-    loca: '@/views/publishing/checkup/CheckupDrinkSmokeSleep.vue',
+    div2: '',
+    div3: '수면',
+    loca: '@/views/checkup/sleep/CheckupSleep.vue',
+    go: '/publishing/checkup-input/checkup-sleep',
+    msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
+    confirm: '2026.08.28 퍼블 완료'
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '운동',
+    loca: '@/views/checkup/physical/CheckupPhysicalActivity.vue',
+    go: '/publishing/checkup-input/checkup-physical',
+    msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
+    confirm: '2026.08.28 퍼블 완료'
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '음주, 흡연, 물 섭취',
+    loca: '@/views/checkup/drink-smoke-sleep/CheckupDrinkSmokeSleep.vue',
     go: '/publishing/checkup-input/checkup-drink-smoke-sleep',
-    msg: "",
-    confirm: ''
+    msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
+    confirm: '2026.08.28 퍼블 완료'
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '삶의 질',
+    loca: '@/views/checkup/life/CheckupEq5d.vue',
+    go: '/publishing/checkup-input/checkup-life',
+    msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
+    confirm: '2026.08.28 퍼블 완료'
   },
   {
     div: '',

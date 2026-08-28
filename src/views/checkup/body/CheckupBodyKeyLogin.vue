@@ -41,6 +41,9 @@ const togglePasswordVisibility = () => {
 
 // 바디키 로그인 처리
 const handleBodyKeyLogin = async () => {
+  // 2606 퍼블 확인용 - 입력값 확인/API 조회 없이 바디키 데이터 리스트 페이지 이동
+  router.push({ name: 'pubCheckupBodyKeyDataList' })
+  return
   
   // 입력값 검증
   if (!bodyKeyId.value || !bodyKeyPassword.value) {

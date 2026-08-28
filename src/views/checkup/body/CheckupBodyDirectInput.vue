@@ -248,13 +248,14 @@ const isDisabled = computed(() => {
   if (isProcessing.value) {
     return true
   }
-  
-  // 읽기 전용 모드가 아닌 경우 폼 유효성 검사
-  if (!isViewMode.value) {
-    return !isFormValid.value
-  }
-  
+  // 2606 퍼블 확인용 아래 주석이 원본
   return false
+  // // 읽기 전용 모드가 아닌 경우 폼 유효성 검사
+  // if (!isViewMode.value) {
+  //   return !isFormValid.value
+  // }
+  
+  // return false
 })
 
 // 입력 필드 업데이트
@@ -378,6 +379,11 @@ const handleSave = async (shouldMoveNext = true) => {
   
   try {
     const basicsId = store.getters['checkup/getBasicsId']
+
+    
+    // 2606 퍼블 확인용 - 체성분 데이터 없어도 API 저장 없이 관심 건강 페이지 이동
+    await router.push({ name: 'pubCheckupInterestHealth' })
+    return
 
     let dataToSave
     

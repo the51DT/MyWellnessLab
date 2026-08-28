@@ -1,12 +1,16 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+// 2606 퍼블 확인용 아래 주석이 원본
+import { ref, computed, onMounted } from 'vue'
+import { useRouter, useRoute } from 'vue-router' 
+// import { ref, onMounted } from 'vue'
+// import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import { useMovePrev } from '@/composables/checkup'
 import { formatDatetime } from '@/assets/js/common'
 import { useBodyCompositionAPI } from '@/composables/useBodyCompositionAPI'
 
 const router = useRouter()
+const route = useRoute() // 2606 퍼블 확인용 추가
 const store = useStore()
 const movePrev = useMovePrev()
 
@@ -17,6 +21,35 @@ const { parseBodyKeyDataToInbody } = useBodyCompositionAPI()
 const bodyKeyDataList = ref([])
 const selectedBodyKeyData = ref(null)
 const isLoading = ref(false)
+
+// 2606 퍼블 확인용 - 현재 페이지가 데이터 없음 페이지인지 확인
+const isPublishingNonePage = computed(() => {
+  return route.meta.pageType === 'none'
+})
+
+// 2606 퍼블 확인용 - 바디키 데이터 리스트
+const publishingBodyKeyDataList = [
+  {
+    datetimes: '20261025103000',
+    height: 175,
+    weight: 78,
+    bodyFatMass: 18.5,
+    percentBodyFat: 23.7,
+    skeletalMuscleMass: 31.8,
+    bmi: 25.5,
+    waist: 88
+  },
+  {
+    datetimes: '20260925103000',
+    height: 175,
+    weight: 79,
+    bodyFatMass: 19.2,
+    percentBodyFat: 24.3,
+    skeletalMuscleMass: 31.2,
+    bmi: 25.8,
+    waist: 89
+  }
+]
 
 // 바디키 데이터 선택
 const selectBodyKeyData = (item) => {
@@ -31,7 +64,8 @@ const selectBodyKeyData = (item) => {
   
   // 체성분 상세 페이지로 이동 (읽기 전용 모드)
   router.push({ 
-    name: 'CheckupBodyDirectInput',
+    name: 'pubCheckupBodyDirectInput', // 2606 퍼블 확인용 아래 주석이 원본
+    // name: 'CheckupBodyDirectInput',
     query: { 
       mode: 'view',  // 읽기 전용 모드
       dataType: 'existing',  // 기존 데이터 타입
@@ -73,13 +107,21 @@ const handleBack = () => {
 
 // 직접 입력으로 이동
 const goToDirectInput = () => {
-  router.push({ name: 'CheckupBodyDateSelect' })
+  router.push({ name: 'pubCheckupBodyDateSelect' }) // 2606 퍼블 확인용 아래 주석이 원본
+  // router.push({ name: 'CheckupBodyDateSelect' })
 }
 
 // 컴포넌트 마운트 시 store에서 바디키 데이터 가져오기
 onMounted(() => {
-  // store에서 바디키 데이터 가져오기
-  bodyKeyDataList.value = store.getters['checkup/getBodyKeyDataList'] || []
+  // 2606 퍼블 확인용 아래 주석이 원본
+  if (isPublishingNonePage.value) {
+    bodyKeyDataList.value = []
+    return
+  }
+  bodyKeyDataList.value = publishingBodyKeyDataList
+  store.commit('checkup/SET_BODY_KEY_DATA_LIST', publishingBodyKeyDataList)
+  // // store에서 바디키 데이터 가져오기
+  // bodyKeyDataList.value = store.getters['checkup/getBodyKeyDataList'] || []
 })
 </script>
 

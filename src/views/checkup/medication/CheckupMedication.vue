@@ -354,7 +354,12 @@ const changeGenderOption = async () => {
 onBeforeMount(async () => {
   await changeGenderOption()
 
-  const drugTemporary = await getDrugTemporary()
+  // 2606 퍼블 확인용 아래 주석이 원본
+  const drugTemporary = await getDrugTemporary() || {
+    drug: null,
+    progressbar: defaultProgressbar
+  }
+  // const drugTemporary = await getDrugTemporary()
 
   if (drugTemporary.drug) {
     formData.value = drugTemporary.drug
@@ -390,13 +395,19 @@ onBeforeMount(async () => {
     }
 
   }
+  // 2606 퍼블 확인용 아래 주석이 원본
   progressbar.value = drugTemporary.progressbar || []
-
   const idx = progressbar.value.findIndex(
       item => healthLifeStepRoutes[item.pType] === route.name
   )
-
   current.value = idx === -1 ? 1 : idx + 1
+  // progressbar.value = drugTemporary.progressbar || []
+
+  // const idx = progressbar.value.findIndex(
+  //     item => healthLifeStepRoutes[item.pType] === route.name
+  // )
+
+  // current.value = idx === -1 ? 1 : idx + 1
 
   // 다음 틱에서 컴포넌트가 완전히 준비되었음을 표시
   await nextTick()
@@ -417,6 +428,15 @@ const isDisabled = computed(() => {
 const progressbar = ref([])
 const { handleStepClick } = healthLifeStepNavigation(progressbar)
 const { onStepClick } = useSurveyStepCommon(handleSave, handleStepClick, current, isDisabled)
+// 2606 퍼블 확인용 - BaseStep 6개 중 1번째 표시
+const defaultProgressbar = [
+  { pType: '1', inputYn: 'Y' },
+  { pType: '2', inputYn: 'N' },
+  { pType: '3', inputYn: 'N' },
+  { pType: '4', inputYn: 'N' },
+  { pType: '5', inputYn: 'N' },
+  { pType: '6', inputYn: 'N' },
+]
 </script>
 
 <template>

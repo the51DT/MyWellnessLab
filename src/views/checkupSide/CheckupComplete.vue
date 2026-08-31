@@ -1,7 +1,8 @@
 <script setup>
 import { onBeforeMount, ref, computed } from 'vue'
 import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router' // 2606 퍼블 확인용 아래 주석이 원본
+// import { useRouter } from 'vue-router'
 import BasePopup from '@/components/BasePopup.vue'
 import * as couponApi from '@/apis/coupon'
 import * as checkupApi from '@/apis/checkup'
@@ -14,6 +15,7 @@ import { useI18n } from 'vue-i18n'
 const { t, locale } = useI18n()
 const store = useStore()
 const router = useRouter()
+const route = useRoute() // 2606 퍼블 확인용
 
 const analysisType = store.getters['checkup/getAnalysisType']
 
@@ -21,6 +23,36 @@ const commonInfo = ref(null)
 const couponList = ref([])
 const selectedCoupon = ref(null)
 const isDataLoading = ref(true) // 데이터 로딩 상태 추가
+
+// 2606 퍼블 확인용 - 분석권 데이터
+const publishingCouponList = [
+  {
+    couponId: 1,
+    couponCode: 'PUB-COUPON-001',
+    name: '두줄 처리 케이스 두줄 처리 케이스 두줄 처리 케이스 두줄 처리 케이스 ',
+    description: '마이웰니스 랩 분석권(구매) 쿠폰 안내 문구입니다.',
+    availableRedemptions: 1,
+    startDate: '20260101',
+    endDate: '20261231',
+    creationTime: '20261025',
+    reason: {
+      label: '구매'
+    }
+  },
+  {
+    couponId: 2,
+    couponCode: 'PUB-COUPON-002',
+    name: '마이웰니스 랩 분석권',
+    description: '마이웰니스 랩 분석권(구매) 쿠폰 안내 문구입니다.',
+    availableRedemptions: 1,
+    startDate: '20260101',
+    endDate: '20260912',
+    creationTime: '20261026',
+    reason: {
+      label: '양수'
+    }
+  }
+]
 
 const popupExit = ref(false)
 const isPc = computed(() => store.getters.getIsPc)
@@ -38,7 +70,8 @@ const totalCouponCount = computed(() => {
 })
 
 const isEmptyCouponList = computed(() => {
-  return list.value.length <= 0
+  return couponList.value.length <= 0 // 2606 퍼블 확인용 아래 주석이 원본
+  // return list.value.length <= 0
 })
 
 const isShowMoreBtn = computed(() => {
@@ -69,15 +102,23 @@ const isConfirmAnalysisPopup = ref(false) /* 분석 결과 확인 팝업 */
 
 const getCouponList = async () => {
   try {
-    const params = {
-      pageNo: 0,
-      perPageNum: 1000
+    // 2606 퍼블 확인용 아래 주석이 원본
+    if (route.meta.isEmptyCouponList === true) {
+      couponList.value = []
+    } else {
+      couponList.value = publishingCouponList
     }
 
-    const response = await couponApi.getCouponList(params)
+    totalPage.value = Math.ceil(couponList.value.length / listItemCount.value)
+    // const params = {
+    //   pageNo: 0,
+    //   perPageNum: 1000
+    // }
 
-    couponList.value = response.data.coupons
-    totalPage.value = Math.ceil(response.data.coupons.length / listItemCount.value)
+    // const response = await couponApi.getCouponList(params)
+
+    // couponList.value = response.data.coupons
+    // totalPage.value = Math.ceil(response.data.coupons.length / listItemCount.value)
   } catch (e) {
     console.error(e)
   }

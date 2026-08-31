@@ -433,10 +433,19 @@ const data = ref([
     div: '',
     div2: '건강설문 완료',
     div3: '',
-    loca: '@/views/publishing/checkup/CheckupComplete.vue',
+    loca: '@/views/checkupSide/CheckupComplete.vue',
     go: '/publishing/checkup/checkup-complete',
-    msg: '',
-    confirm: ''
+    msg: '2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
+    confirm: '2026.08.31 퍼블 완료'
+  },
+  {
+    div: '',
+    div2: '',
+    div3: '분석권 없음',
+    loca: '@/views/checkupSide/CheckupComplete.vue',
+    go: '/publishing/checkup/checkup-complete-not',
+    msg: '퍼블 확인용 라우터 케이스 적용',
+    confirm: '"'
   },
   {
     div: '건강수명 분석 결과 이력',

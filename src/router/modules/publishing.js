@@ -191,11 +191,19 @@ const publishingRouter = {
         {
           path: "checkup-complete",
           name: "pubCheckupComplete",
-          component: () =>
-            import("@/views/publishing/checkup/CheckupComplete.vue"),
+          component: () => import("@/views/checkupSide/CheckupComplete.vue"),
           meta: {
             title: "건강설문 완료",
-            // class: "short"
+            isEmptyCouponList: true, // 퍼블 확인용
+          },
+        },
+        {
+          path: "checkup-complete-not",
+          name: "pubCheckupCompleteNot",
+          component: () => import("@/views/checkupSide/CheckupComplete.vue"),
+          meta: {
+            title: "건강설문 완료",
+            isEmptyCouponList: false, // 퍼블 확인용
           },
         },
       ],

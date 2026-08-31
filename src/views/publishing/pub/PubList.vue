@@ -463,7 +463,7 @@ const data = ref([
     loca: '@/views/analyze/detail/AnalyzeDetail.vue<br>@/views/publishing/analyze/AnalyzeDetail.vue -> 퍼블 확인용',
     go: '/publishing/analyze/analyze-detail',
     msg: "코드 수정<br>2606 ispc 기준점 수정<br>2606 스타일 태그 내용 수정<br>2606 나의 추천 미션 보기 버튼 추가 - 신규 버튼<br> 2606 복약 정보 있는 경우 텍스트 변경<br>**노화속도 [자세히 보기], 인체 생리 네트워크 [자세히 보기, 영향을 준 요인] 클릭 시 나오는 페이지 아래 리스트에서 확인 필요**<br><br>LayoutAnalyze.vue<br>2026 퍼블 확인용 헤더 홈 버튼 아래 주석 원본 - 개발 삭제 필요<br><br>AnalyzeCheckupData.vue<br>2606 라이브 버전에 맞춰서 안내 문구 삭제<br>2606 분석일 ':' 삭제<br><br>Wellness3DChart.vue<br>2606 스타일 태그 내용 수정<br>2606 차트 내부 스타일 수정용 변수<br>2606 차트 내부 마커 스타일 수정<br><br>AnalyzeScorecomAnalyzeIndex.vue<br>2606 스타일 태그 내용 수정<br>2606 --who 스타일 컬러 변수 추가<br>2606 커스텀 툴팁 꼬리 위치 수정<br><br>AnalyzeDietDetailGuide.vue, AnalyzeExerciseDetailGuide.vue, AnalyzeSleepDetailGuide.vue<br>'2606 퍼블 확인용' 들어간 주석 내용 개발 시 삭제 필요<br>2606 .AnalyzeExerciseDetailGuide-con-desc 내부 span 태그 텍스트 추가<br><br>AnalyzeScorecomAnalyzeIndex.vue<br>'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요<br><br>AnalyzeAgingSpeedPopGraph.vue<br>2606 라이브 버전에 맞춰 복약 부분 미노출",
-    confirm: '2026.08.25 상세 팝업 제외 퍼블 완료'
+    confirm: '2026.08.31 퍼블 완료'
   },
   {
     div: '',

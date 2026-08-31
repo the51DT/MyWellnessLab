@@ -11,6 +11,75 @@ const props = defineProps({
   sendData: Object,
   ageArea: null
 })
+// 2606 퍼블 확인용 데이터 [s]
+const publishingSendData = {
+  basics: {
+    sex: 1
+  },
+  hqDataList: [
+    {
+      analysedDate: '2026.10.25',
+      musYn: 'Y',
+      MUSBAL: 72,
+      MUSBAL_MEAN: 55
+    },
+    {
+      analysedDate: '2026.09.25',
+      musYn: 'Y',
+      MUSBAL: 68,
+      MUSBAL_MEAN: 54
+    },
+    {
+      analysedDate: '2026.08.25',
+      musYn: 'Y',
+      MUSBAL: 61,
+      MUSBAL_MEAN: 53
+    },
+    {
+      analysedDate: '2026.07.25',
+      musYn: 'Y',
+      MUSBAL: 58,
+      MUSBAL_MEAN: 52
+    },
+    {
+      analysedDate: '2026.06.25',
+      musYn: 'Y',
+      MUSBAL: 63,
+      MUSBAL_MEAN: 53
+    },
+    {
+      analysedDate: '2026.05.25',
+      musYn: 'Y',
+      MUSBAL: 57,
+      MUSBAL_MEAN: 51
+    }
+  ]
+}
+
+const sendData = computed(() => {
+  if (!props.sendData?.hqDataList?.length) {
+    return {
+      ...publishingSendData,
+      ...props.sendData,
+      hqDataList: publishingSendData.hqDataList
+    }
+  }
+
+  return props.sendData
+})
+
+const compId = computed(() => {
+  if (props.compId === 'AnalyzeMuscleBalanceDetail') {
+    return 'AnalyzeMuscleBalanceAnalyzeIndex'
+  }
+
+  return props.compId || 'AnalyzeMuscleBalanceAnalyzeIndex'
+})
+
+const ageArea = computed(() => {
+  return props.ageArea || 30
+})
+// 2606 퍼블 확인용 데이터 [e]
 
 const instance = getCurrentInstance()
 
@@ -21,9 +90,13 @@ const myChart = ref(null)
 const dataSize = computed(() => {
   let size = 0
 
-  if (props.sendData.hqDataList !== undefined) {
-    size = props.sendData.hqDataList.length
+  // 2606 퍼블 확인용 아래 주석이 원본
+  if (sendData.value?.hqDataList !== undefined) {
+    size = sendData.value.hqDataList.length
   }
+  // if (props.sendData.hqDataList !== undefined) {
+  //   size = props.sendData.hqDataList.length
+  // }
 
   return size
 })
@@ -46,15 +119,25 @@ const totalPaging = computed(() => {
 
 const defData = computed(() => {
   let data = null
-  if (props.sendData.hqDataList !== undefined) {
+  // 2606 퍼블 확인용 아래 주석이 원본
+  if (sendData.value?.hqDataList !== undefined) {
     data = _.orderBy(
-      props.sendData.hqDataList.filter(item => item.musYn === 'Y'), 
-      ['analysedDate'], 
+      sendData.value.hqDataList.filter(item => item.musYn === 'Y'),
+      ['analysedDate'],
       ['desc']
     )
   }
-  dataSize.value = data.length
-  return data
+
+  return data || []
+  // if (props.sendData.hqDataList !== undefined) {
+  //   data = _.orderBy(
+  //     props.sendData.hqDataList.filter(item => item.musYn === 'Y'), 
+  //     ['analysedDate'], 
+  //     ['desc']
+  //   )
+  // }
+  // dataSize.value = data.length
+  // return data
 })
 
 const dateData = computed(() => {
@@ -94,7 +177,8 @@ const myData = computed(() => {
   if (defData.value != null) {
     defData.value.forEach((item, index) => {
       if ((index >= ((dataPaging.value - 1) * chartMaxSize)) && (index < (dataPaging.value * chartMaxSize))) {
-        switch (props.compId) {
+        switch (compId.value) { // 2606 퍼블 확인용 아래 주석이 원본
+        // switch (props.compId) {
           case 'AnalyzeAgingInhibitionAnalyzeIndex':
             arr.push(item.OXI.toFixed(0))
             break
@@ -137,7 +221,8 @@ const averageData = computed(() => {
   if (defData.value != null) {
     defData.value.forEach((item, index) => {
       if ((index >= ((dataPaging.value - 1) * chartMaxSize)) && (index < (dataPaging.value * chartMaxSize))) {
-        switch (props.compId) {
+        switch (compId.value) { // 2606 퍼블 확인용 아래 주석이 원본
+        // switch (props.compId) {
           case 'AnalyzeAgingInhibitionAnalyzeIndex':
             arr.push(item.OXI_MEAN.toFixed(0))
             break
@@ -175,7 +260,8 @@ const averageData = computed(() => {
 })
 
 const gender = computed(() => {
-  return props.sendData.basics.sex === 1 ? t('Common.male') : t('Common.female')
+  return sendData.value?.basics?.sex === 1 ? t('Common.male') : t('Common.female') // 2606 퍼블 확인용 아래 주석이 원본
+  // return props.sendData.basics.sex === 1 ? t('Common.male') : t('Common.female')
 })
 
 function prev () {
@@ -358,7 +444,7 @@ onUnmounted(() => {
 <template>
   <!-- 체성분 나의 변화 개발 요망 -->
   <div class="popup AnalyzeAgingInhibitionAnalyzeIndexDetailPopup">
-    <div class="popup--wrap tit AnalyzeAgingInhibitionAnalyzeIndexDetailPopup--popup-wrap">
+    <div class="popup--wrap close AnalyzeAgingInhibitionAnalyzeIndexDetailPopup--popup-wrap">  <!-- 2606 popup--wrap 이중 클래스 tit -> close 로 변경 -->
       <div class="align--between popup--header AnalyzeAgingInhibitionAnalyzeIndexDetailPopup--header">
         <div />
         <div class="popup--tit-wrap AnalyzeAgingInhibitionAnalyzeIndexDetailPopup--tit-wrap">
@@ -400,7 +486,7 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped lang="scss"> /* 2606 스타일 태그 내용 수정 */
 .echart.smoothLine { /* 변경필요 */
   /*margin-top:20px;
   width: 100%;
@@ -426,9 +512,9 @@ onUnmounted(() => {
     margin-left: -18px;
 
     font-size: 1.4rem;
-    color: #777;
+    color: #333;
     text-align: left;
-    font-family: "RixSinHead_Medium", sans-serif;
+    // font-family: "RixSinHead_Medium", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;

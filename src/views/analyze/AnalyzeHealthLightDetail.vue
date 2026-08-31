@@ -30,8 +30,194 @@ const pdfScale = ref(4)
 const isNetworkTab = ref(true) // true: 인체생리네트워크, false: 건강영역별 원료가이드
 
 // param
-const detailId = ref(store.getters['analyze/getHealthLightParams'].detailId)
-const sendData = store.getters['analyze/getAnalysisSendData']
+// 2606 퍼블 확인용 아래 주석이 원본
+const publishingAnalyzeData = {
+  id: 1,
+  checkDate: '2026.10.25',
+  basics: {
+    id: 1,
+    sex: 1
+  },
+  hqData: {
+    SBP: { status: 2 },
+    DBP: { status: 2 },
+    TG: { status: 3 },
+    LDL: { status: 3 },
+    GLU: { status: 2 },
+    BMI: { status: 2 },
+    WASM: { status: 3 }
+  },
+  clusterList: [
+    {
+      Cluster_ID: 'CL_020',
+      Cluster_NAME: '혈압 조절',
+      Cluster_State: 42
+    },
+    {
+      Cluster_ID: 'CL_021',
+      Cluster_NAME: '혈중 지질 개선',
+      Cluster_State: 43
+    },
+    {
+      Cluster_ID: 'CL_019',
+      Cluster_NAME: '혈당 조절',
+      Cluster_State: 2
+    },
+    {
+      Cluster_ID: 'CL_015',
+      Cluster_NAME: '체지방 조절',
+      Cluster_State: 3
+    },
+    {
+      Cluster_ID: 'CL_004',
+      Cluster_NAME: '근육',
+      Cluster_State: 3
+    },
+    {
+      Cluster_ID: 'CL_022',
+      Cluster_NAME: '혈행 개선',
+      Cluster_State: 4
+    }
+  ],
+  nodeList: [
+    {
+      Node_ID: 'NODE_001',
+      Node_Name: '수축기 혈압',
+      Node_State: 2,
+      Node_Category: 'Core',
+      X: 60,
+      Y: 120
+    },
+    {
+      Node_ID: 'NODE_002',
+      Node_Name: '이완기 혈압',
+      Node_State: 2,
+      Node_Category: 'Core',
+      X: 120,
+      Y: 150
+    },
+    {
+      Node_ID: 'NODE_003',
+      Node_Name: '중성지방',
+      Node_State: 3,
+      Node_Category: 'Core',
+      X: 180,
+      Y: 220
+    },
+    {
+      Node_ID: 'NODE_004',
+      Node_Name: 'LDL 콜레스테롤',
+      Node_State: 3,
+      Node_Category: 'Core',
+      X: 250,
+      Y: 260
+    },
+    {
+      Node_ID: 'NODE_005',
+      Node_Name: '공복혈당',
+      Node_State: 2,
+      Node_Category: 'Core',
+      X: 320,
+      Y: 190
+    },
+    {
+      Node_ID: 'NODE_006',
+      Node_Name: '체지방률',
+      Node_State: 3,
+      Node_Category: 'Core',
+      X: 260,
+      Y: 90
+    },
+    {
+      Node_ID: 'NODE_007',
+      Node_Name: '골격근량',
+      Node_State: 3,
+      Node_Category: 'Core',
+      X: 180,
+      Y: 70
+    }
+  ],
+  edgeList: [
+    {
+      Edge_ID: 'EDGE_001',
+      S_Node_ID: 'NODE_001',
+      E_Node_ID: 'NODE_002'
+    },
+    {
+      Edge_ID: 'EDGE_002',
+      S_Node_ID: 'NODE_002',
+      E_Node_ID: 'NODE_003'
+    },
+    {
+      Edge_ID: 'EDGE_003',
+      S_Node_ID: 'NODE_003',
+      E_Node_ID: 'NODE_004'
+    },
+    {
+      Edge_ID: 'EDGE_004',
+      S_Node_ID: 'NODE_004',
+      E_Node_ID: 'NODE_005'
+    },
+    {
+      Edge_ID: 'EDGE_005',
+      S_Node_ID: 'NODE_005',
+      E_Node_ID: 'NODE_006'
+    },
+    {
+      Edge_ID: 'EDGE_006',
+      S_Node_ID: 'NODE_006',
+      E_Node_ID: 'NODE_007'
+    }
+  ],
+  ncList: [
+    {
+      Node_ID: 'NODE_001',
+      CL_020: 1
+    },
+    {
+      Node_ID: 'NODE_002',
+      CL_020: 1
+    },
+    {
+      Node_ID: 'NODE_003',
+      CL_021: 1
+    },
+    {
+      Node_ID: 'NODE_004',
+      CL_021: 1
+    },
+    {
+      Node_ID: 'NODE_005',
+      CL_019: 1
+    },
+    {
+      Node_ID: 'NODE_006',
+      CL_015: 1
+    },
+    {
+      Node_ID: 'NODE_007',
+      CL_004: 1
+    }
+  ]
+}
+
+const publishingSendData = {
+  basics: {
+    id: 1,
+    sex: 1
+  },
+  clusterList: publishingAnalyzeData.clusterList,
+  nodeList: publishingAnalyzeData.nodeList,
+  edgeList: publishingAnalyzeData.edgeList,
+  ncList: publishingAnalyzeData.ncList
+}
+
+const healthLightParams = store.getters['analyze/getHealthLightParams'] || {}
+
+const detailId = ref(healthLightParams.detailId || 1)
+const sendData = store.getters['analyze/getAnalysisSendData'] || publishingSendData
+// const detailId = ref(store.getters['analyze/getHealthLightParams'].detailId)
+// const sendData = store.getters['analyze/getAnalysisSendData']
 // ref var
 const article = ref(null) /* 240102 전체 싸고 있는 div */
 const graphChartRef = ref(null) /* GraphChart 컴포넌트 참조 */
@@ -50,12 +236,17 @@ const showAnimation = ref(false)
 const showZoomMode = ref(false)
 
 // 실제 데이터
-const analyzeData = ref({
-  hqData: {}
-})
+const analyzeData = ref(publishingAnalyzeData) // 2606 퍼블 확인용 아래 주석이 원본
+// const analyzeData = ref({
+//   hqData: {}
+// })
 
 const tooltip = ref(false) /* 툴팁 오프너 */
 const tooltipEdge = ref(0) /* 툴팁 꼬다리 위치 */
+
+const isPublishingPage = computed(() => { // 2606 퍼블 확인용
+  return window.location.pathname.includes('/publishing')
+})
 
 /**
  * 툴팁 닫기
@@ -150,7 +341,8 @@ const medicationMapping = [
 // 건강 영역별 원료 가이드 데이터
 const healthGuideData = computed(() => {
   const clusterList = analyzeData.value.clusterList || []
-  const sendDataClusterList = sendData.clusterList || []
+  const sendDataClusterList = sendData?.clusterList || [] // 2606 퍼블 확인용 아래 주석이 원본
+  // const sendDataClusterList = sendData.clusterList || []
   console.log(sendDataClusterList)
   
   // Cluster_ID와 다국어 키 매핑
@@ -360,14 +552,77 @@ function setNetworkData() {
     Cluster_ID: clusterIdMapping[item.index]
   }))
   
-  network_datas.value = {
-    clusterList: sendData.clusterList,
-    nodeList: sendData.nodeList,
-    edgeList: sendData.edgeList,
-    ncList: sendData.ncList,
+  network_datas.value = { // 2606 퍼블 확인용 아래 주석이 원본
+    clusterList: [
+      {
+        Cluster_ID: 'CL_023',
+        Cluster_NAME: '수면 건강',
+        Cluster_State: 3
+      }
+    ],
+    nodeList: [
+      {
+        Node_ID: 'NODE_001',
+        Node_Name: '수면-각성 프로파일',
+        Node_State: 3,
+        Node_Category: 'Core',
+        X: 70,
+        Y: 70
+      },
+      {
+        Node_ID: 'NODE_002',
+        Node_Name: '수면',
+        Node_State: 3,
+        Node_Category: 'Sub',
+        X: 110,
+        Y: 90
+      },
+      {
+        Node_ID: 'NODE_003',
+        Node_Name: '수면 임상적 평가',
+        Node_State: 2,
+        Node_Category: 'Sub',
+        X: 90,
+        Y: 130
+      }
+    ],
+    edgeList: [
+      {
+        Edge_ID: 'EDGE_001',
+        S_Node_ID: 'NODE_001',
+        E_Node_ID: 'NODE_002'
+      },
+      {
+        Edge_ID: 'EDGE_002',
+        S_Node_ID: 'NODE_002',
+        E_Node_ID: 'NODE_003'
+      }
+    ],
+    ncList: [
+      {
+        Node_ID: 'NODE_001',
+        CL_023: 1
+      },
+      {
+        Node_ID: 'NODE_002',
+        CL_023: 1
+      },
+      {
+        Node_ID: 'NODE_003',
+        CL_023: 1
+      }
+    ],
     cluster_left_list: leftListWithMedication,
     cluster_right_list: rightListWithMedication
   }
+  // network_datas.value = {
+  //   clusterList: sendData.clusterList,
+  //   nodeList: sendData.nodeList,
+  //   edgeList: sendData.edgeList,
+  //   ncList: sendData.ncList,
+  //   cluster_left_list: leftListWithMedication,
+  //   cluster_right_list: rightListWithMedication
+  // }
 }
 
 /**
@@ -409,6 +664,16 @@ async function getDetailAnalyzeData (basicsId) {
  * 복약데이터 조회
  */
 async function getDrugTemporary() {
+  // 2606 퍼블 확인용 - 복약 API 호출 방지
+  if (isPublishingPage.value) {
+    medicationList.value = [
+      t('CheckupMedication.text9'),
+      t('CheckupMedication.text10')
+    ]
+    return
+  }
+  // 2606 퍼블 확인용 - 복약 API 호출 방지 [e]
+
   isLoadingMedication.value = true
   try {
     const response = await checkupApi.getDrugTemporary(sendData.basics.id, 'DONE')
@@ -1403,6 +1668,31 @@ function switchTab (val) {
 onMounted(async () => {
   // body 스크롤 초기화 (혹시 이전에 막혀있던 경우 복원)
   document.body.style.overflow = ''
+
+  // 2606 퍼블 확인용 [s]
+  if (isPublishingPage.value) {
+    analyzeData.value = publishingAnalyzeData
+
+    MHN_CL.value = publishingAnalyzeData.clusterList
+    MHN_NL.value = publishingAnalyzeData.nodeList
+    MHN_EL.value = publishingAnalyzeData.edgeList
+    MHN_NCL.value = publishingAnalyzeData.ncList
+
+    medicationList.value = [
+      t('CheckupMedication.text9'),
+      t('CheckupMedication.text10')
+    ]
+
+    setAnimationData()
+    setNetworkData()
+
+    setMhnElList()
+    setMhnClList()
+
+    document.addEventListener('touchmove', listener, { passive: false })
+    return
+  }
+  // 2606 퍼블 확인용 [e]
   
   await getDetailAnalyzeData(detailId.value)
   

@@ -7,45 +7,122 @@ import { mwlRound, getColor } from '@/assets/js/common'
 
 const { t, locale } = useI18n()
 const store = useStore()
-const detail = store.getters['analyze/getInhibitionAnalysisDetail']
-const compId = detail.compId // TODO 아무 의미 없는 동적 클래스를 이걸로 분기하는거 제거하기 - 김현수
+// 2606 퍼블 확인용 아래 주석이 원본
+const publishingDetail = {
+  compId: 'AnalyzeAgingInhibitionAnalyzeIndex',
+  name: '차동희',
+  analyzeAge: 45,
+  basics: {
+    sex: 1
+  },
+  commonInfo: {
+    analysisType: 'normal'
+  },
+  hqOxi: {
+    score: 75,
+    percent: 28,
+    t_mean: 60,
+    status: 1
+  },
+  hqMet: {
+    score: 46,
+    percent: 64,
+    t_mean: 55,
+    status: 3
+  },
+  hqDataList: [
+    {
+      analysedDate: '2026.10.25',
+      OXI: 75,
+      OXI_MEAN: 60,
+      MET: 46,
+      MET_MEAN: 55
+    },
+    {
+      analysedDate: '2026.09.25',
+      OXI: 70,
+      OXI_MEAN: 59,
+      MET: 50,
+      MET_MEAN: 54
+    },
+    {
+      analysedDate: '2026.08.25',
+      OXI: 66,
+      OXI_MEAN: 58,
+      MET: 54,
+      MET_MEAN: 53
+    }
+  ]
+}
+const detail = computed(() => {
+  const storeData = store.getters['analyze/getInhibitionAnalysisDetail']
+  if (storeData && Object.keys(storeData).length > 0) {
+    return storeData
+  }
+  return publishingDetail
+})
+const compId = computed(() => {
+  return detail.value.compId
+}) // TODO 아무 의미 없는 동적 클래스를 이걸로 분기하는거 제거하기 - 김현수
+// const detail = store.getters['analyze/getInhibitionAnalysisDetail']
+// const compId = detail.compId // TODO 아무 의미 없는 동적 클래스를 이걸로 분기하는거 제거하기 - 김현수
 
 const score = computed(() => {
-  if (detail.compId === 'AnalyzeAgingInhibitionAnalyzeIndex') {
-    return mwlRound(detail.hqOxi?.score || 0, 0)
-  } else if (detail.compId === 'AnalyzeChronicDiseaseControlAnalyzeIndex') {
-    return mwlRound(detail.hqMet?.score || 0, 0)
+  // 2606 퍼블 확인용 아래 주석이 원본
+  if (detail.value.compId === 'AnalyzeAgingInhibitionAnalyzeIndex') {
+    return mwlRound(detail.value.hqOxi?.score || 0, 0)
+  } else if (detail.value.compId === 'AnalyzeChronicDiseaseControlAnalyzeIndex') {
+    return mwlRound(detail.value.hqMet?.score || 0, 0)
   }
+  // if (detail.compId === 'AnalyzeAgingInhibitionAnalyzeIndex') {
+  //   return mwlRound(detail.hqOxi?.score || 0, 0)
+  // } else if (detail.compId === 'AnalyzeChronicDiseaseControlAnalyzeIndex') {
+  //   return mwlRound(detail.hqMet?.score || 0, 0)
+  // }
 
   return 0
 })
 
 const rank = computed(() => {
-  if (detail.compId === 'AnalyzeAgingInhibitionAnalyzeIndex') {
-    return detail.hqOxi?.percent || 0
-  } else if (detail.compId === 'AnalyzeChronicDiseaseControlAnalyzeIndex') {
-    return detail.hqMet?.percent || 0
+  // 2606 퍼블 확인용 아래 주석이 원본
+  if (detail.value.compId === 'AnalyzeAgingInhibitionAnalyzeIndex') {
+    return detail.value.hqOxi?.percent || 0
+  } else if (detail.value.compId === 'AnalyzeChronicDiseaseControlAnalyzeIndex') {
+    return detail.value.hqMet?.percent || 0
   }
+  // if (detail.compId === 'AnalyzeAgingInhibitionAnalyzeIndex') {
+  //   return detail.hqOxi?.percent || 0
+  // } else if (detail.compId === 'AnalyzeChronicDiseaseControlAnalyzeIndex') {
+  //   return detail.hqMet?.percent || 0
+  // }
 
   return 0
 })
 
 const meanScore = computed(() => {
-  if (detail.compId === 'AnalyzeAgingInhibitionAnalyzeIndex') {
-    return detail.hqOxi?.t_mean
-  } else if (detail.compId === 'AnalyzeChronicDiseaseControlAnalyzeIndex') {
-    return detail.hqMet?.t_mean
+  // 2606 퍼블 확인용 아래 주석이 원본
+  if (detail.value.compId === 'AnalyzeAgingInhibitionAnalyzeIndex') {
+    return detail.value.hqOxi?.t_mean
+  } else if (detail.value.compId === 'AnalyzeChronicDiseaseControlAnalyzeIndex') {
+    return detail.value.hqMet?.t_mean
   }
+  // if (detail.compId === 'AnalyzeAgingInhibitionAnalyzeIndex') {
+  //   return detail.hqOxi?.t_mean
+  // } else if (detail.compId === 'AnalyzeChronicDiseaseControlAnalyzeIndex') {
+  //   return detail.hqMet?.t_mean
+  // }
 
   return 0
 })
 
 const isOnceTime = computed(() => {
-  return detail.commonInfo.analysisType === 'onetime'
+  return detail.value.commonInfo.analysisType === 'onetime' // 2606 퍼블 확인용 아래 주석이 원본
+  // return detail.commonInfo.analysisType === 'onetime'
 })
 
 const ageArea = computed(() => {
-  let age = parseInt(detail.analyzeAge / 10) * 10
+  let age = parseInt(detail.value.analyzeAge / 10) * 10 // 2606 퍼블 확인용 아래 주석이 원본
+  // let age = parseInt(detail.analyzeAge / 10) * 10
   if (age < 20) age = 20
   if (age > 80) age = 80
   if (isNaN(age)) age = 20
@@ -54,7 +131,8 @@ const ageArea = computed(() => {
 })
 
 const gender = computed(() => {
-  return detail.basics.sex === 1 ? t('Common.male') : t('Common.female')
+  return detail.value.basics.sex === 1 ? t('Common.male') : t('Common.female') // 2606 퍼블 확인용 아래 주석이 원본
+  // return detail.basics.sex === 1 ? t('Common.male') : t('Common.female')
 })
 
 const displayAgeArea = computed(() => ageArea.value)
@@ -62,15 +140,22 @@ const displayGender = computed(() => gender.value)
 const displayAgeText = computed(() => t('Common.age'))
 
 const genderImg = computed(() => {
-  return detail.basics.sex === 1 ? 'm' : 'f'
+  return detail.value.basics.sex === 1 ? 'm' : 'f' // 2606 퍼블 확인용 아래 주석이 원본
+  // return detail.basics.sex === 1 ? 'm' : 'f'
 })
 
 const oxiOrMet = computed(() => {
-  if (detail.compId === 'AnalyzeAgingInhibitionAnalyzeIndex') {
+  // 2606 퍼블 확인용 아래 주석이 원본
+  if (detail.value.compId === 'AnalyzeAgingInhibitionAnalyzeIndex') {
     return 'oxi'
-  } else if (detail.compId === 'AnalyzeChronicDiseaseControlAnalyzeIndex') {
+  } else if (detail.value.compId === 'AnalyzeChronicDiseaseControlAnalyzeIndex') {
     return 'met'
   }
+  // if (detail.compId === 'AnalyzeAgingInhibitionAnalyzeIndex') {
+  //   return 'oxi'
+  // } else if (detail.compId === 'AnalyzeChronicDiseaseControlAnalyzeIndex') {
+  //   return 'met'
+  // }
 })
 
 const violinImg = computed(() => { // 연령대에 해당하는 이미지 명
@@ -83,13 +168,21 @@ const violinImg = computed(() => { // 연령대에 해당하는 이미지 명
 
 const color = computed(() => {
   let status = 0
-  if (detail.compId === 'AnalyzeAgingInhibitionAnalyzeIndex') {
+  // 2606 퍼블 확인용 아래 주석이 원본
+  if (detail.value.compId === 'AnalyzeAgingInhibitionAnalyzeIndex') {
     // 노화 억제 분석지수
-    status = detail.hqOxi?.status || 0
-  } else if (detail.compId === 'AnalyzeChronicDiseaseControlAnalyzeIndex') {
+    status = detail.value.hqOxi?.status || 0
+  } else if (detail.value.compId === 'AnalyzeChronicDiseaseControlAnalyzeIndex') {
     // 만성질환 억제 분석지수
-    status = detail.hqMet?.status || 0
+    status = detail.value.hqMet?.status || 0
   }
+  // if (detail.compId === 'AnalyzeAgingInhibitionAnalyzeIndex') {
+  //   // 노화 억제 분석지수
+  //   status = detail.hqOxi?.status || 0
+  // } else if (detail.compId === 'AnalyzeChronicDiseaseControlAnalyzeIndex') {
+  //   // 만성질환 억제 분석지수
+  //   status = detail.hqMet?.status || 0
+  // }
 
   return getColor(status)
 })
@@ -193,7 +286,7 @@ onUnmounted(() => {
   <!-- E : 20260319 ASB-13674 - 마이웰니스랩 과학적 표현 강화 -->
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped> /* 2606 스타일 태그 내부 수정 */
 .violin-title {
   width: 100%;
 
@@ -345,7 +438,6 @@ onUnmounted(() => {
     span {
       margin: 0;
       margin-left: 5px;
-      font-family: 'RixSinHead_Medium', sans-serif;
     }
 
     .position {

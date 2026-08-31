@@ -7,7 +7,7 @@ import BaseTooltip from '../BaseTooltip.vue'
 import BaseToast from '@/components/BaseToast.vue'
 import AnalyzeCheckupData from './AnalyzeCheckupData.vue'
 import AnalyzeHealthLocation from './AnalyzeHealthLocation.vue'
-import AnalyzeAgingSpeed from '@/views/publishing/analyze/AnalyzeAgingSpeed.vue'
+import AnalyzeAgingSpeed from '@/views/analyze/components/analyzeAgingSpeed'
 import AnalyzeHealthLight from '@/views/publishing/analyze/AnalyzeHealthLight.vue'
 import AnalyzeScorecomAnalyzeIndex from '@/views/analyze/components/AnalyzeScorecomAnalyzeIndex.vue'
 import AnalyzeDietDetailGuide from '@/views/analyze/AnalyzeDietDetailGuide.vue'
@@ -502,7 +502,7 @@ const completePdfPageCount = ref(0)
 
 /* [s] 퍼블 확인용 - BodyCompositionPopup 상태 */
 const openPopBodyComposition = ref(false)
-const showBodyKeyLogin = ref(true)
+const showBodyKeyLogin = ref(false)
 const showBodyKeyResult = ref(false)
 const showBodyKeyDetail = ref(false)
 const showResultPopup = ref(false)
@@ -514,6 +514,89 @@ const isLoading = ref(false)
 const selectedBodyKeyData = ref(null)
 const selectedDataType = ref('')
 const bodyKeyLoginFailed = ref(false)
+// 2606 퍼블 확인용 - 기존 체성분 데이터
+bodyCompositionDataList.value = [
+  {
+    id: 1,
+    surveyDate: '2026.10.25',
+    datetimes: '20261025103000',
+    ht: 175,
+    wt: 78,
+    wbtSmMass: 31.8,
+    wbtBfMass: 18.5,
+    wbtBfPercent: 23.7,
+    ramMass: 2.9,
+    ramPercent: 81.5,
+    lamMass: 2.7,
+    lamPercent: 74.2,
+    rlmMass: 8.6,
+    rlmPercent: 91.1,
+    llmMass: 8.4,
+    llmPercent: 88.3,
+    trkMass: 24.8,
+    trkPercent: 92.5
+  },
+  {
+    id: 2,
+    surveyDate: '2026.09.25',
+    datetimes: '20260925103000',
+    ht: 175,
+    wt: 79,
+    wbtSmMass: 31.2,
+    wbtBfMass: 19.2,
+    wbtBfPercent: 24.3,
+    ramMass: 2.8,
+    ramPercent: 80.2,
+    lamMass: 2.6,
+    lamPercent: 73.1,
+    rlmMass: 8.5,
+    rlmPercent: 90.4,
+    llmMass: 8.3,
+    llmPercent: 87.9,
+    trkMass: 24.5,
+    trkPercent: 91.8
+  }
+]
+
+// 2606 퍼블 확인용 - 바디키 데이터
+bodyKeyDataList.value = [
+  {
+    datetimes: '20261025103000',
+    ht: 175,
+    wt: 78,
+    smm: 31.8,
+    bfm: 18.5,
+    pbf: 23.7,
+    lra: 2.9,
+    pilra: 81.5,
+    lla: 2.7,
+    pilla: 74.2,
+    lrl: 8.6,
+    pilrl: 91.1,
+    lll: 8.4,
+    pilll: 88.3,
+    lt: 24.8,
+    pilt: 92.5
+  },
+  {
+    datetimes: '20260925103000',
+    ht: 175,
+    wt: 79,
+    smm: 31.2,
+    bfm: 19.2,
+    pbf: 24.3,
+    lra: 2.8,
+    pilra: 80.2,
+    lla: 2.6,
+    pilla: 73.1,
+    lrl: 8.5,
+    pilrl: 90.4,
+    lll: 8.3,
+    pilll: 87.9,
+    lt: 24.5,
+    pilt: 91.8
+  }
+]
 /* [e] 퍼블 확인용 - BodyCompositionPopup 상태 */
 
 const isIos = computed(() => {
@@ -624,26 +707,47 @@ function handleShowNoDataPopup() {
 }
 
 function handleOpenBodyCompositionPopup() {
+  // 2606 퍼블 확인용 아래 주석이 원본
   openPopBodyComposition.value = true
-  showBodyKeyLogin.value = true
+  showBodyKeyLogin.value = false
   showBodyKeyResult.value = false
   showBodyKeyDetail.value = false
+  selectedBodyKeyData.value = null
+  selectedDataType.value = ''
+  // openPopBodyComposition.value = true
+  // showBodyKeyLogin.value = true
+  // showBodyKeyResult.value = false
+  // showBodyKeyDetail.value = false
 }
 
 function formatDatetime(value) {
-  return value
+  // 2606 퍼블 확인용 아래 주석이 원본
+  if (!value) return '-'
+  const str = String(value)
+  return `${str.slice(0, 4)}.${str.slice(4, 6)}.${str.slice(6, 8)}`
+  // return value
 }
 
 function handleBodyKeyLoginWrapper() {
   bodyKeyLoginFailed.value = false
+  // 2606 퍼블 확인용 3줄
+  showBodyKeyLogin.value = false
+  showBodyKeyResult.value = true
+  showBodyKeyDetail.value = false
 }
 
 function selectBodyKeyData(data) {
   selectedBodyKeyData.value = data
+  // 2606 퍼블 확인용 2줄
+  selectedDataType.value = 'bodykey'
+  showBodyKeyDetail.value = true
 }
 
 function selectExistingBodyComposition(data) {
   selectedBodyKeyData.value = data
+  // 2606 퍼블 확인용 2줄
+  selectedDataType.value = 'custom'
+  showBodyKeyDetail.value = true
 }
 
 function confirmBodyKeyData() {
@@ -651,10 +755,21 @@ function confirmBodyKeyData() {
 }
 
 function handleAnalyzeSelectedBodyKeyData() {
+  // 2606 퍼블 확인용 아래 주석이 원본
   openPopBodyComposition.value = false
+  showBodyKeyLogin.value = false
+  showBodyKeyResult.value = false
   showBodyKeyDetail.value = false
   muscleBalanceRefreshTrigger.value += 1
   muscleBalanceKey.value += 1
+  return {
+    success: true,
+    action: 'closePopup'
+  }
+  // openPopBodyComposition.value = false
+  // showBodyKeyDetail.value = false
+  // muscleBalanceRefreshTrigger.value += 1
+  // muscleBalanceKey.value += 1
 }
 
 function closeBodyKeyDetail() {
@@ -662,7 +777,31 @@ function closeBodyKeyDetail() {
 }
 
 function handleDirectInput() {
-  openPopBodyComposition.value = false
+  // 2606 퍼블 확인용 아래 주석이 원본
+  selectedDataType.value = 'custom'
+  selectedBodyKeyData.value = {
+    surveyDate: '2026.10.25',
+    datetimes: '20261025103000',
+    ht: 175,
+    wt: 78,
+    wbtSmMass: 31.8,
+    wbtBfMass: 18.5,
+    wbtBfPercent: 23.7,
+    ramMass: 2.9,
+    ramPercent: 81.5,
+    lamMass: 2.7,
+    lamPercent: 74.2,
+    rlmMass: 8.6,
+    rlmPercent: 91.1,
+    llmMass: 8.4,
+    llmPercent: 88.3,
+    trkMass: 24.8,
+    trkPercent: 92.5
+  }
+  showBodyKeyLogin.value = false
+  showBodyKeyResult.value = false
+  showBodyKeyDetail.value = true
+  // openPopBodyComposition.value = false
 }
 
 function closeResultPopup() {
@@ -938,8 +1077,7 @@ onBeforeUnmount(() => {
             {{ $t('AnalyzeDetail.text11') }}
           </button>-->
         </div>
-        <!-- [s] 2606 분석번호 버튼 비활성화 -->
-        <!-- <button
+        <button
           v-if="!isOneTime"
           type="button"
           @click="copyAnalysisNumber"
@@ -947,8 +1085,7 @@ onBeforeUnmount(() => {
           :title="$t('AnalyzeDetail.clickToCopy')">
           <span>{{ $t('AnalyzeDetail.analysisNumber') }}: {{ surveyData?.commonInfo?.aCode || checkupResultId }}</span>
           <img src="@/assets/images/icons/i-copy.png" alt="copy" />
-        </button> -->
-        <!-- [e] 2606 분석번호 버튼 비활성화 -->
+        </button>
         <!-- [s] 2606 나의 추천 미션 보기 버튼 추가 -->
         <button type="button" class="AnalyzeDownload--mission">
           나의 추천 미션 보기

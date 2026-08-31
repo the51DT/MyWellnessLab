@@ -2002,15 +2002,23 @@ footer{
   &.AnalyzeMajorHealthRisk--popup{
     .popup--wrap.tit{
       @media (min-width: $w-pc){
-        background: #f9f9f9;
+        background: #F5F5F5;
       }
       .popup--space{
         @media (min-width: $w-pc){
-          padding: 2.4rem 0 0;
-          background: #f9f9f9;
+          padding: 0;
+          background: #F5F5F5;
         }
       }
     } 
+  }
+  &.AnalyzeMajorHealthRisk--popup{
+    .popup--space{
+      padding: 0;
+    }
+    .popup--wrap{
+      border-radius: 2rem;
+    }
   }
 
   &.AnalyzeExerciseDetailGuidePop,
@@ -2020,6 +2028,7 @@ footer{
       max-width: 88rem;
       display: flex;
       flex-direction: column;
+      border-radius: 2rem;
       .popup--header{
         flex: 0 0 auto;
         width: 100%;
@@ -2041,11 +2050,14 @@ footer{
       transform: none;
 
       .analyze-box {
-        padding-bottom: 10rem;
+        padding-bottom: 14rem;
         @media (min-width: $w-pc){
-          padding-bottom: 12rem;
+          padding-bottom: 4.8rem;
         }
       }
+    }
+    .popup--space{
+      padding-bottom: 0;
     }
   }
   /* E : 20260323 ASB-13674 - 추가 */
@@ -14461,25 +14473,23 @@ $agingIndex: 431px;
   &--danger,
   &--all{
     .analyze-box{
-      @include boxStyle;
-      margin-top: $marginTop-default;
+      background-color: white;
+      border-radius: 3.2rem 3.2rem 0 0;
+      margin-top: 2.4rem;
       @include min-vh-fallback(100, 13.5rem);
-      padding-top: 2rem;
-      padding-bottom: 6rem;
-      @media (min-width: $w-pc-small3) {
-        padding-bottom: 6rem;
+      padding: 2.4rem 2rem 4rem;
+      border: none;
+      .tooltip--wrap .tooltip--contents .tooltip--edge{
+        transform: translateX(-1.1rem);
       }
       @media (min-width: 960px) {
-        @include min-vh-fallback(100, 25.6rem);
-        padding: 3.6rem 12rem 12rem;
-        border-radius: 0;
+        @include min-vh-fallback(100, 36.6rem);
+        padding: 3.6rem 2rem 12rem;
         .tooltip--wrap{
-          margin-left: -5rem;
-          margin-right: -6rem;
           .tooltip--contents{
             font-size: 1.4rem;
             .tooltip--edge{
-              transform: translateX(4rem);
+              transform: translateX(-1.4rem);
             }
           }
         }
@@ -14722,94 +14732,73 @@ $agingIndex: 431px;
 }
 
 .nutrilite-logo{
-  padding: 1rem 1.6rem 0.8rem 1.2rem;
-  border-radius: 1.2rem;
-  color: #222;
-  background-color: rgba(233, 249, 247, 0.8);
-  font-size: 1.4rem;
-  font-family: $font-family-light;
+  padding: 1.2rem 1.6rem 1.2rem 1.2rem;
+  border-radius: 2rem;
+  background-color: #E9FCF9;
+  @include txtStyle(body, 2xs, 500);
   text-align: center;
-  letter-spacing: -0.35px;
-  @media (min-width: $w-pc) {
-    font-size: 1.6rem;
-    letter-spacing: -0.4px;
-    padding: 0.8rem 1.6rem;
-    br{
-      display: none;
-    }
-  }
   img{
-    height: 1.4rem;
-    margin-bottom: -0.2rem;
+    height: 1.2rem;
+    margin-right: .2rem;
   }
 }
 
 .AnalyzeHealthLightDetail{
-  @media (min-width: $w-pc) {
-    padding-bottom: 4rem;
-  }
-  
   .AnalyzeDetailGuide--tab{
     &-btn{
-      letter-spacing: -0.5px;
       &.active{
         padding: 0;
       }
     }
     @media (min-width: $w-pc) {
-      max-width: 46.8rem;
-      margin-top: 2.4rem;
+      max-width: 48rem;
+      margin-top: 2.8rem;
       margin-bottom: 3.2rem;
     }
   }
   
   &--p{
-    @include spaceRLSDefault;
-    @include txtSmall;
-    margin-top: 3.2rem;
+    @include txtStyle(body, 2xs);
+    color: #666;
     @media (min-width: $w-pc) {
-      max-width: 92rem;
-      margin: 0;
+      max-width: 88rem;
+      margin: 0 auto;
     }
   }
   &--desc{
-    font-size: 1.4rem;
-    font-family: $font-family-medium;
-    margin-top: 1.2rem;
-    @include spaceRLSDefault;
-    color: #555;
-    @media (min-width: $w-pc) {
-      font-size: 1.5rem;
-      margin: 1.2rem 0 0;
-    }
+    margin-top: .8rem;
+    @include txtStyle(body, xs-1, 500);
+    color: #333;
   }
   &--div{
     @include min-vh-fallback(100, 0rem);
-    @include boxStyle(small);
+    border-radius: 3.2rem 3.2rem 0 0;
+    background-color: white;
     margin-top: $marginTop-default;
+    padding: 2.4rem 2rem 4rem;
     position: relative;
     @media (min-width: $w-pc) {
+      border-radius: 3.2rem;
       position: unset;
       min-height: auto;
-      @include noBox;
-      padding: 0;
+      padding: 2.8rem 2rem 3.6rem;
     }
   }
   &--chart{
     &-top{
-      margin: 2.4rem 2rem 0;
-      padding-top: 1.6rem;
+      margin: 2.4rem 0 0;
+      padding-top: 2.4rem;
       border-top: 1px solid #e5e5e5;
       position: relative;
       z-index: 1;
       @media (min-width: $w-pc) {
-        width: 92rem;
+        width: 88rem;
         margin: 0 auto;
         padding: 0;
         border: none;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-end;
         .legend-wrap{
           margin: 0;
         }
@@ -14818,17 +14807,26 @@ $agingIndex: 431px;
         margin-bottom: 1rem;
         display: none;
         @media (min-width: $w-pc) {
-          margin-bottom: 0;
-          display: block;
+          // margin-bottom: 0;
+          // display: block;
         }
       }
       .legend-wrap{
-        margin-top: 1rem;
-        @media (min-width: $w-pc) {
-          margin: 0;
+        padding-right: 1rem;
+        span{
+          @include txtStyle(caption, xl);
+          color: #333;
+          padding-left: 1.4rem;
+          &::before{
+            width: 1rem;
+            height: 1rem;
+            background-size: 1rem;
+          }
         }
         .AnalyzeHealthLightDetail--tip-btn{
-          margin: -0.1rem 0 0;
+          width: 2rem;
+          height: 2rem;
+          margin-left: -.2rem;
         }
       }
       .AnalyzeHealthLightDetail--tip-dom{
@@ -14838,13 +14836,12 @@ $agingIndex: 431px;
         width: 100%;
         max-width: 42rem;
         margin-left: 1rem;
-        @media (min-width: $w-pc) {
-          top: 4.4rem;
-          padding-left: 1.6rem;
-        }
         .tooltip--edge{
           left: auto;
-          right: -3.2rem;
+          right: -2.7rem;
+          @media (min-width:$w-pc) {
+            right: -3.1rem;
+          }
         }
         .tooltip--contents{
           list-style: none;
@@ -14864,41 +14861,47 @@ $agingIndex: 431px;
           & + li{
             margin-top: 1rem;
           }
+          &::before{
+            content: none;
+          }
         }
       }
     }
     &-wrap{
       @media (min-width: $w-pc) {
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
-        background-color: #fff;
-        margin-top: 3.2rem;
-        margin-bottom: -8rem;
-        padding-top: 3.2rem;
+        // width: 100vw;
+        // position: relative;
+        // left: 50%;
+        // transform: translateX(-50%);
+        // box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+        // background-color: #fff;
+        // margin-top: 3.2rem;
+        // margin-bottom: -8rem;
+        // padding-top: 3.2rem;
       }
     }
   }
   .AnalyzeCheckupDataRecord--map{
     z-index: 0;
+    margin-inline: -2rem;
+    width: calc(100% + 4rem);
   }
   &--m-parent{
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 4rem);
     height: 90%;
     @media (min-width: $w-pc) {
       position: unset;
+      transform: unset;
     }
   }
   &--expand{
     &-wrap{
       width: 100%;
       padding: 0 2rem;
-      margin-top: -1.5rem;
       @media (min-width: 620px) {
         display: none;
         //right: 50%;
@@ -14921,8 +14924,7 @@ $agingIndex: 431px;
     justify-content: center;
     gap: 1.2rem;
     color: #fff;
-    font-size: 1.6rem;
-    font-family: $font-family-light;
+    @include txtStyle(body, sm, 600);
     background: $btn-background-green;
     img{
       filter: brightness(2);
@@ -14952,36 +14954,36 @@ $agingIndex: 431px;
     }
   }
   .acdr--txt{
-    font-size: 1.3rem;
-    font-family: $font-family-light;
     color: #555;
-    margin-top: 1.6rem;
-    padding: 0 2rem 4rem;
+    margin-top: 2rem;
+    padding: 0 2rem;
     word-break: break-all;
+    @include txtStyle(body, 2xs);
+    color: #808080;
     @media (min-width: $w-pc) {
-      font-size: 1.8rem;
       max-width: 92rem;
-      margin: 3rem auto 0;
-      padding-bottom: 10rem;
+      margin: 2.4rem auto 0;
     }
   }
 
   .health-guide-list{
     @media (min-width: $w-pc) {
-      @include boxStyle;
+      border-radius: 3.2rem;
+      padding: 2.8rem 2rem 3.6rem;
+      min-height: 82.4rem;
     }
     &-con{
       @media (min-width: $w-pc) {
-        max-width: 62rem;
-        margin: 4.4rem auto 6rem;
+        max-width: 48rem;
+        margin: 0 auto 4.8rem;
       }
     }
     .legend-wrap{
-      margin: 1.6rem 0 1.2rem;
+      margin: 2rem 0 1.6rem;
       padding-top: 0;
       border-top: none;
-      @media (min-width: $w-pc) {
-        margin-bottom: 2.4rem;
+      span{
+        @include txtStyle(caption, xl);
       }
     }
     &-ul{
@@ -15002,20 +15004,21 @@ $agingIndex: 431px;
 }
 .AnalyzeMajorHealthRisk{
   /* S : 20260323 ASB-13674 - 수정 */ 
-  padding-bottom: 0;
-  margin-top: 2.4rem;
+  margin-top: 1.6rem;
   @media (min-width: $w-pc) {
-    padding-bottom: 9rem;
+    margin-top: 2.8rem;
+    padding-bottom: 6rem;
   }
   .analyze-box{
-    padding-bottom: 10rem;
+    padding: 2.4rem 2rem 4rem;
+    box-shadow: none;
   /* E : 20260323 ASB-13674 - 수정 */ 
-    @include min-vh-fallback(100, 7.2rem);
-    border-radius: 2rem 2rem 0 0;
+    @include min-vh-fallback(100, 6.4rem);
+    border-radius: 3.2rem 3.2rem 0 0;
     @media (min-width: $w-pc) {
-      padding: 3.2rem 0 3.2rem;
+      padding: 2.8rem 2rem 3.6rem;
       min-height: unset;
-      border-radius: 3rem;
+      border-radius: 3.2rem;
     }
   }
   &--tip-tit{
@@ -15029,27 +15032,24 @@ $agingIndex: 431px;
     }
   }
   &--info{
-    @include txtAnalyze;
+    @include txtStyle(body, lg);
     text-align: center;
-    @media (min-width: $w-pc) {
-      font-size: 2.2rem;
-    }
   }
   &--danger{
     color: #1DB196;
+    font-weight: 600;
   }
   $space-mo: .6rem;
   &--wrap{
     @include alignBetween(flex-start);
-    margin-top: $marginTop-default;
+    margin-top: 2rem;
     flex-wrap: wrap;
     text-align: center;
-    gap: 1rem 1.2rem;
+    gap: 1.2rem;
     //justify-content: start;
     @media (min-width: $w-pc) {
-      max-width: 62rem;
-      margin: 2.4rem auto;
-      gap: 1.2rem;
+      max-width: 48rem;
+      margin: 2rem auto;
     }
     & > *{
       width: calc((100% - $space-mo * 4) / 2);
@@ -15058,49 +15058,26 @@ $agingIndex: 431px;
       }
     }
     &-tit{
-      @include txtSmall(#555);
+      @include txtStyle(caption, xl, 600);
+      color: #333;
       @include childCenter;
-      font-weight: normal;
-      min-height: 3.5rem;
+      min-height: 3.8rem;
       @media (min-width: $w-pc) {
-        font-size: 1.8rem;
-        justify-content: flex-start;
+        min-height: 4rem;
       }
     }
     &-con{
       @media (min-width: $w-pc) {
         display: flex;
-        align-items: flex-start;
-        gap: 1.6rem;
+        align-items: center;
+        justify-content: center;
+        gap: .8rem;
       }
     }
     &-grade{
-      font-size: $txt-font-size-big4;
-      font-family: $font-family-bold;
+      @include txtStyle(head, sm, 700);
       position: relative;
-      height: 3.8rem;
-      @media (min-width: $w-pc) {
-        width: 6.4rem;
-        font-size: 3.6rem;
-      }
-      &:after{
-        content: "";
-        display: block;
-        width: 1.6rem;
-        height: .8rem;
-        background: url("/img/ic_arrow_down_black.svg") no-repeat center;
-        background-size: contain;
-        transform: rotate(-90deg) translateX(-30%);
-        position: absolute;
-        right: 1.6rem;
-        top: 26%;
-        @media (min-width: $w-pc) {
-          width: 2rem;
-          height: 3rem;
-          top: 0.2rem;
-          right: -17rem;
-        }
-      }
+      height: 3.4rem;
       &.danger{
         color: $txt-font-color-danger;
       }
@@ -15113,57 +15090,71 @@ $agingIndex: 431px;
     }
     &-num-wrap{
       @media (min-width: $w-pc) {
-        padding-top: 0.8rem;
         text-align: left;
       }
     }
     &-num{
-      @include txtBig;
-      font-family: $font-family-medium;
-      @media (min-width: $w-pc) {
-        font-size: 2.4rem;
-      }
+      @include txtStyle(body, lg, 500);
+      color: #1db196;
     }
     &-unit{
-      @include txtSmall5(#999);
-      letter-spacing: -.2px;
-      font-family: $font-family-medium;
-      @media (min-width: $w-pc) {
-        font-size: 1.4rem;
+      @include txtStyle(caption, md);
+      color: #808080;
+      @media (min-width:$w-pc) {
+        margin-top: -.4rem;
       }
     }
   }
   &--in{
+    position: relative;
     width: calc(50% - 0.6rem);
     height: 16.6rem;
-    padding: 1.6rem;
-    border: solid .1rem $box-line-color-gray;
-    border-radius: 1.6rem;
+    padding: 1.6rem 0 2rem;
+    border: solid .1rem #e5e5e5;
+    border-radius: 1.2rem;
     min-height: 14rem;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    gap: .8rem;
     &:hover{
       border-color: #7e7e7e;
     }
+    &:after{
+      content: "";
+      display: block;
+      width: 1.6rem;
+      height: .8rem;
+      background: url("/img/ic_arrow_down_black.svg") no-repeat center;
+      background-size: contain;
+      transform: rotate(-90deg) translateX(50%);
+      position: absolute;
+      right: 1.6rem;
+      top: 50%;
+      @media (min-width: $w-pc) {
+        width: 2rem;
+        height: 3rem;
+        right: 1.7rem;
+        transform: rotate(-90deg) translateX(100%);
+      }
+    }
     @media (min-width: $w-pc) {
       height: 16.2rem;
-      padding: 2.2rem 4rem;
+      padding: 1.2rem 0 .8rem;
     }
     a{
       color: $txt-font-color-gray3;
     }
   }
   .AnalyzeAgingSpeed--reason-txt{
-    font-size: 1.2rem;
-    margin-top: 1.2rem;
+    margin-top: 2rem;
     word-break: break-word;
+    @include txtStyle(body, 2xs);
+    color: #808080;
     @media (min-width: $w-pc) {
-      max-width: 62rem;
-      margin: 0 auto;
-      font-size: 1.6rem;
-      text-align: center;
+      max-width: 48rem;
+      margin: 2rem auto 0;
       word-break: auto-phrase;
     }
   }
@@ -15178,10 +15169,9 @@ $agingIndex: 431px;
   &--tit{
     width: 50%;
     text-align: center;
-    @include titleDefault;
-    line-height: $txt-line-height-small;
+    @include txtStyle(body, xl, 600);
+    color: #333;
     @media (min-width: $w-pc) {
-      font-size: 2.4rem;
       width: 36%;
     }
   }
@@ -15234,23 +15224,17 @@ $agingIndex: 431px;
     }
   }
   &--con{
-    @include boxStyle;
-    margin-top: $marginTop-default;
+    background-color: white;
+    border-radius: 3.2rem 3.2rem 0 0;
+    padding: 2.4rem 2rem;
+    margin-top: 2.4rem;
     @include min-vh-fallback(100, 12.6rem);
-    padding-top: 3.2rem;
-    padding-bottom: 4rem;
-    @media (min-width: $w-pc-small3) {
-      @include min-vh-fallback(100, 21.6rem);
-      border-bottom-left-radius: 14px;
-      border-bottom-right-radius: 14px;
-    }
     @media (min-width: $w-pc) {
       @include min-vh-fallback(100, 38.2rem);
       padding: 3.6rem 0 8rem;
-      margin-top: 4rem;
-      border-radius: 0;
+      margin-top: 2.8rem;
       &-wrap{
-        max-width: 56rem;
+        max-width: 76rem;
         margin: 0 auto;
       }
       .bar--bg{
@@ -15271,33 +15255,23 @@ $agingIndex: 431px;
   $dt: 60%;
   &--dt{
     width: $dt;
-    @include titleSmall3;
-    font-size: 1.6rem;
-    font-family: $font-family-medium;
+    @include txtStyle(body, sm, 600);
+    color: #222;
     text-align: left;
     display: inline-flex;
     justify-content: flex-start;
     flex-direction: column;
-    @media (min-width: $w-pc) {
-      font-size: 2rem;
-    }
     span{
-      @include txtSmall5;
-      @media (min-width: $w-pc) {
-        font-size: 1.6rem;
-      }
+      @include txtStyle(body, 2xs);
+      color: #808080;
     }
   }
   &--dd{
     width: calc(100% - $dt);
     display: inline-block;
     text-align: right;
-    @include titleSmall3;
     &.a1{
-      @include txtBig10;
-      @media (min-width: $w-pc) {
-        font-size: 3.2rem;
-      }
+      @include txtStyle(head, sm, 600);
       &.danger{
         color: $txt-font-color-danger;
       }
@@ -15310,11 +15284,8 @@ $agingIndex: 431px;
     }
   }
   &--hr{
-    margin-top: 3.2rem;
-    margin-bottom: 3.2rem;
-    @media (min-width: $w-pc) {
-      margin-bottom: 4rem;
-    }
+    margin-top: 2.4rem;
+    margin-bottom: 2.4rem;
   }
   &--txt{
     @include txtSmall2;
@@ -15327,30 +15298,27 @@ $agingIndex: 431px;
   }
   &--list{
     @include alignUl;
-    @include txtSmall2;
-    font-family: $font-family-light;
     text-align: left;
     &-item{
       word-break: break-all;
       align-items: flex-start;
-      gap: 4px;
-      font-size: 1.6rem;
-      @media (min-width: $w-pc) {
-        font-size: 1.8rem;
-        font-family: $font-family-medium;
-        color: #222;
-      }
+      gap: .6rem;
+      @include txtStyle(body, xs);
+      color: #333;
       & + &{
-        margin-top: 2.4rem;
+        margin-top: 1.6rem;
       }
       &::before{
         content: "";
         display: block;
         width: 3px;
         height: 3px;
-        background-color: #707070;
-        margin-top: 7px;
+        background-color: #333;
+        margin-top: .9rem;
         border-radius: 50%;
+        @media (min-width:$w-pc) {
+          margin-top: 1.1rem;
+        }
       }
       span{
         width: calc(100% - 7px);
@@ -15638,10 +15606,10 @@ $agingIndex: 431px;
     justify-content: center;
     align-items: center;
     gap: 0.6rem;
-    margin-top: 3.2rem;
+    margin-top: 2.8rem;
     @media (min-width: $w-pc) {
       gap: 1.2rem;
-      margin-top: 4rem;
+      margin-top: 3.6rem;
     }
     span{
       font-size: 1.5rem;
@@ -15687,16 +15655,16 @@ $agingIndex: 431px;
     justify-content: center;
     align-items: center;
     gap: .6rem;
-    margin-top: 2.8rem;
+    margin-top: .8rem;
     background-color: #1DB196 !important;
     color: white !important;
-    border-color: #1DB196;
+    border-color: #1DB196 !important;
     &:hover{
       background-color: #18957e !important;
-      border-color: #18957e;
+      border-color: #18957e !important;
     }
     @media (min-width: $w-pc) {
-      margin-top: 3.6rem;
+      margin-top: 1.2rem;
     }
     &::after{
       content: '';
@@ -15728,12 +15696,11 @@ $agingIndex: 431px;
 }
 .AnalyzeCheckupDataRecord{
   &--info{
-    margin: 2rem 2rem 1.6rem;
-    @include txtSmall2(#222);
+    margin: 1.6rem 2rem 2rem;
+    @include txtStyle(body, 2xs, 500);
     text-align: left;
     @media (min-width: $w-pc) {
-      font-size: 1.5rem;
-      margin: 0 0 3.2rem;
+      margin: 2.8rem 2rem 2.8rem;
     }
   }
   &--label{
@@ -15741,21 +15708,18 @@ $agingIndex: 431px;
       margin-top: 1.5rem;
     }
     &-wrap{
-      @include txtSmall3(#222);
+      @include txtStyle(caption, xl);
+      color: #333;
     }
     &-rect{
-      $size: 0.8rem;
+      $size: 1rem;
       width: $size;
       height: $size;
       border-radius: 0.2rem;
       display: inline-block;
-      vertical-align: -10%;
+      vertical-align: middle;
       margin-left: 1.2rem;
-      margin-right: 0.2rem;
-      @media (min-width: $w-pc) {
-        width: 1.2rem;
-        height: 1.2rem;
-      }
+      margin-right: 0.4rem;
       &.r1{
         background-color: $background-color-danger-soft;
       }
@@ -15818,7 +15782,7 @@ $agingIndex: 431px;
       height: 100%;
       .chart{
         *{
-          font-family: $font-family-medium !important;
+          font-family: 'Pretendard', sans-serif !important;
           @media (min-width: 960px) {
             margin: auto;
           }
@@ -15826,14 +15790,15 @@ $agingIndex: 431px;
       }
     }
     &-tit{
-      @include titleSmall2;
-      font-weight: normal;
+      @include txtStyle(body, md, 600);
       text-align: left;
     }
     &-wrap{
       @media (min-width: $w-pc-small4) {
         @include alignBetween;
         flex-wrap: wrap;
+        max-width: 77.2rem;
+        margin: 0 auto;
       }
     }
     &-unit{
@@ -15851,15 +15816,25 @@ $agingIndex: 431px;
     }
   }
   .analyze-box{
-    @include boxStyle;
-    padding-top: 2rem;
-    padding-bottom: 12rem; //20260319 ASB-13674 - 수정
-      @media (min-width: $w-pc) {
-        padding: 3.2rem 8rem 8rem;
+    box-shadow: none;
+    border-radius: 3.2rem 3.2rem 0 0;
+    padding: 2.4rem 2rem 4rem;
+    @media (min-width: $w-pc) {
+      padding: 2.8rem 2rem 6rem;
+      border-radius: 3.2rem;
+    }
+  }
+  .legend-wrap{
+    span{
+      @include txtStyle(caption, xl);
+      &::before{
+        width: 1rem;
+        height: 1rem;
+        border-radius: .2rem;
+      }
     }
   }
   &--map{
-    font-family: $font-family-medium;
     width: 100%;
     //height: calc(100% - 6rem);
     height: 100%;
@@ -15953,20 +15928,79 @@ $agingIndex: 431px;
     }
   }
   &--bodyComposition{
+    border-radius: 3.2rem 3.2rem 0 0;
+    background-color: white;
+    margin-top: 2.8rem;
+    @media (min-width:$w-pc) {
+      border-radius: 3.2rem;
+      margin-top: 3.2rem;
+    }
+    .MyPageBodyCompositionDataRecordDetail{
+      padding: 2.4rem 2rem 4rem;
+      @media (min-width:$w-pc) {
+        padding: 2.8rem 2rem 3.6rem;
+      }
+      &--input-list{
+        border: none;
+        padding: 0;
+      }
+      &--input{
+        margin-top: 1.8rem;
+      }
+      .BaseInput{
+        &--dd{
+          width: 15.5rem;
+          @media (min-width:$w-pc) {
+            width: 20rem;
+          }
+        }
+        &--dd-div{
+          &.disabled{
+            border: .1rem solid #ccc;
+            background: #f0f0f0;
+            justify-content: space-between;
+            input:disabled{
+              text-align: center;
+              width: 100%;
+              padding: 0;
+              @include txtStyle(body, 2xs-1);
+            }
+          }
+        }
+        &--suf{
+          width: 20%;
+          padding-right: 1.6rem;
+          color: #808080;
+        }
+      }
+    }
     .no-data{
       .analyze-box{
-        border-radius: 3rem 3rem 0 0;
+        border-radius: 3.2rem 3.2rem 0 0;
+        box-shadow: none;
         @include height-vh-fallback(100, 13rem);
         text-align: center;
-        font-size: 2rem;
-        font-family: $font-family-bold;
+        @include txtStyle(body, md, 600);
         padding-top: 34vh;
-        color: #222;
+        &::before{
+          content: '';
+          display: block;
+          width: 6rem;
+          height: 6rem;
+          margin: 0 auto 1.2rem;
+          background: url('/img/visual_alert_green.png') no-repeat center / contain;
+          @media (min-width:$w-pc) {
+            width: 8rem;
+            height: 8rem;
+            margin-bottom: 2rem;
+          }
+        }
         @media (min-width: $w-pc) {
           @include height-vh-fallback(100, 26rem);
           min-height: 36rem;
           padding-top: 32vh;
           border-radius: 3rem;
+          background-color: transparent;
         }
       }
     }
@@ -15984,50 +16018,41 @@ $agingIndex: 431px;
 }
 .AnalyzeAgingInhibitionAnalyzeIndexDetail{
   &--tit{
-    @include txtSmall7;
+    @include txtStyle(body, sm, 500);
+    color: #333;
+    text-align: center;
+    margin-top: 1.6rem;
+    @media (min-width:$w-pc) {
+      margin-top: 2.8rem;
+    }
   }
   &--index{
-    @include txtBig9;
-    @media (min-width: $w-pc) {
-      font-size: 8rem;
-    }
+    @include txtStyle(head, 2xl, 700);
     &.good{
       color: $txt-font-color-interest;
-      @media (min-width: $w-pc) {
-        font-size: 8rem;
-      }
     }
     &.normal{
       color: $txt-font-color-caution;
-      @media (min-width: $w-pc) {
-        font-size: 8rem;
-      }
     }
     &.bad{
       color: $txt-font-color-danger;
-      @media (min-width: $w-pc) {
-        font-size: 8rem;
-      }
     }
     &-wrap{
       text-align: center;
-      @include txtBig8;
+      @include txtStyle(head, sm, 500);
+      color: #666;
     }
   }
   &--btn{
-    font-family: $font-family-light;
-    width: 14rem;
-    @media (min-width: $w-pc) {
-      width: 16rem;
-    }
+    width: 12.9rem;
     &-wrap{
       text-align: center;
-      margin-top: 0.8rem;
+      margin-top: 2rem;
     }
     @include btnGreen;
+    @include txtStyle(caption, xl, 600);
     @media (min-width: $w-pc) {
-      font-size: 1.6rem;
-      min-width: 16rem;
+      min-width: 12.6rem;
       min-height: 4rem;
     }
   }
@@ -16044,23 +16069,24 @@ $agingIndex: 431px;
       }
     }
     &-wrap{
-      @include boxStyle;
-      margin-top: $marginTop-big3;
-      @include min-vh-fallback(100, 15rem); //20260319 ASB-13674 - 수정
+      background-color: white;
+      border-radius: 3.2rem 3.2rem 0 0;
+      padding: 2.4rem 2rem 1.2rem;
+      margin-top: 3.2rem;
+      @include min-vh-fallback(100, 23.4rem); //20260319 ASB-13674 - 수정
       @media (min-width: $w-pc) {
         min-height: 50rem;
-        padding: 4rem 0 6rem;
+        padding: 2.8rem 2rem 3.6rem;
+        border-radius: 3.2rem;
       }
     }
   }
   &--age{
     &-wrap{
-      @include txtBig(#222);
+      @include txtStyle(body, lg, 700);
       text-align: center;
-      @media (min-width: $w-pc) {
-        font-size: 2.4rem;
-      }
     }
+    font-weight: 700;
     color: $txt-font-color-green;
   }
   @media (min-width: $w-pc) {
@@ -16195,11 +16221,12 @@ $agingIndex: 431px;
     background: url("/img/ic_arrow.png") no-repeat center;
     background-size: 26%;
     border: solid .1rem #E5E5E5;
-    border-radius: .4rem;
+    border-radius: .8rem;
     margin-right: .4rem;
     margin-left: .4rem;
     isolation: isolate;
     position: relative;
+    overflow: hidden;
     &-wrap{
       text-align: center;
     }
@@ -16236,22 +16263,30 @@ $agingIndex: 431px;
       }
     }
   }
+  @include analyzeDetailPopClose;
+}
+.AnalyzeAgingInhibitionAnalyzeIndexDetailPopup{
+  @include analyzeDetailPopClose;
 }
 .AnalyzeAgingInhibitionAnalyzeIndexDetailPopup--space{
   position: relative;
+  padding-bottom: 2.4rem !important;
 }
 .AnalyzeAgingSpeedDetail{
   @media (min-width: $w-pc) {
     padding-bottom: 6rem;
   }
   &--tit{
-    @include txtSmall7;
+    @include txtStyle(body, sm, 500);
+    color: #333;
+    text-align: center;
+    margin-top: 1.6rem;
+    @media (min-width:$w-pc) {
+      margin-top: 2.8rem;
+    }
   }
   &--index{
-    @include txtBig9;
-    @media (min-width: $w-pc) {
-      font-size: 8rem;
-    }
+    @include txtStyle(head, 2xl, 700);
     &.good{
       color: $txt-font-color-interest;
     }
@@ -16263,20 +16298,19 @@ $agingIndex: 431px;
     }
     &-wrap{
       text-align: center;
-      @include txtBig8;
+      @include txtStyle(head, sm, 500);
+      color: #666;
     }
   }
   &--btn{
-    font-family: $font-family-light;
-    width: 14rem;
+    width: 12.9rem;
     &-wrap{
       text-align: center;
-      margin-top: 0.8rem;
+      margin-top: 2rem; 
     }
     @include btnGreen;
     @media (min-width: $w-pc) {
-      font-size: 1.6rem;
-      min-width: 16rem;
+      min-width: 12.6rem;
       min-height: 4rem;
     }
   }
@@ -16284,7 +16318,7 @@ $agingIndex: 431px;
     padding-bottom: 59.5%;
     position: relative;
     @media (min-width: 460px) {
-      padding-bottom: 236px;
+      padding-bottom: 40rem;
     }
     .chart-wrap{
       position: absolute;
@@ -16294,25 +16328,24 @@ $agingIndex: 431px;
       height: 100%;
     }
     &-wrap{
-      @include boxStyle;
-      margin-top: $marginTop-big3;
-      @include min-vh-fallback(100, 19rem); //20260319 ASB-13674 - 수정
-      padding-top: 3.2rem;
-      padding-bottom: 6rem;
+      background-color: white;
+      border-radius: 3.2rem 3.2rem 0 0;
+      padding: 2.4rem 2rem 1.2rem;
+      margin-top: 3.2rem;
+      @include min-vh-fallback(100, 23.4rem); //20260319 ASB-13674 - 수정
       @media (min-width: $w-pc) {
-        min-height: 58rem;
-        padding: 4rem 0 6rem;
+        min-height: 46rem;
+        border-radius: 3.2rem;
+        padding: 2.8rem 2rem 3.6rem 2rem;
       }
     }
   }
   &--age{
     &-wrap{
-      @include txtBig(#222);
+      @include txtStyle(body, lg, 700);
       text-align: center;
-      @media (min-width: $w-pc) {
-        font-size: 2.4rem;
-      }
       strong{
+        font-weight: 700;
         display: block;
       }
     }
@@ -16321,13 +16354,16 @@ $agingIndex: 431px;
 }
 .AnalyzePagesDetail{
   &--tit{
-    @include txtSmall7;
+    @include txtStyle(body, sm, 500);
+    text-align: center;
+    color: #333;
+    margin-top: 1.6rem;
+    @media (min-width:$w-pc) {
+      margin-top: 2.8rem;
+    }
   }
   &--index{
-    @include txtBig9;
-    @media (min-width: $w-pc) {
-      font-size: 8rem;
-    }
+    @include txtStyle(head, 2xl, 700);
     &.good{
       color: $txt-font-color-interest;
     }
@@ -16339,23 +16375,23 @@ $agingIndex: 431px;
     }
     &-wrap{
       text-align: center;
-      @include txtBig8;
+      @include txtStyle(head, sm, 500);
+      color: #666;
     }
   }
   &--btn{
     @include btnGreen;
-    font-family: $font-family-light;
-    min-width: 14rem;
-    padding: 0 2rem;
+    @include txtStyle(caption, xl, 600);
+    min-width: 12.9rem;
+    padding: 0 2.8rem;
     @media (min-width: $w-pc) {
-      font-size: 1.6rem;
-      min-width: 16rem;
+      min-width: 12.6rem;
       min-height: 4rem;
-      padding: 0 3.4rem;
+      padding: 0 2.4rem;
     }
     &-wrap{
       text-align: center;
-      margin-top: 0.8rem;
+      margin-top: 2rem;
     }
   }
   &--graph{
@@ -16371,37 +16407,27 @@ $agingIndex: 431px;
       }
     }
     &-wrap{
-      @include boxStyle;
-      margin-top: $marginTop-big3;
       @include min-vh-fallback(100, 23.9rem);
-      padding-top: 3.2rem;
-      padding-bottom: 7rem; //20260319 ASB-13674 - 수정
+      padding: 3.2rem 2rem 4rem;
+      // padding-bottom: 7rem; //20260319 ASB-13674 - 수정
       @media (min-width: $w-pc) {
-        border-bottom-right-radius: 2rem;
-        border-bottom-left-radius: 2rem;
         min-height: auto;
-        padding-bottom: 4rem; //20260319 ASB-13674 - 추가
+        padding: 3.2rem 0 9rem;
+        // padding-bottom: 4rem; //20260319 ASB-13674 - 추가
       }
     }
   }
   &--age{
     &-wrap{
-      @include txtBig(#222);
+      @include txtStyle(body, lg, 700);
       text-align: center;
-      @media (min-width: $w-pc) {
-        font-size: 2.4rem;
-      }
     }
     color: $txt-font-color-green;
-  }
-  @media (min-width: $w-pc) {
-    padding-bottom: 4rem;
+    font-weight: 700;
   }
 
   &--section-tit{
-    font-size: 2rem;
-    font-family: $font-family-bold;
-    font-weight: normal;
+    @include txtStyle(body, lg, 700);
     margin-bottom: 1.2rem;
     strong{
       display: block;
@@ -16411,18 +16437,15 @@ $agingIndex: 431px;
     }
   }
   &--date{
-    font-size: 1.4rem;
-    font-family: $font-family-light;
+    @include txtStyle(body, 2xs);
     text-align: left;
-    margin-top: 0.5rem;
-    color: #222;
-    letter-spacing: 0;
+    margin-top: 0.9rem;
+    color: #666;
     &-day{
-      font-family: $font-family-bold;
-      font-size: 1.5rem;
+      @include txtStyle(body, 2xs, 600);
     }
     &-time{
-      color: #646464;
+      @include txtStyle(body, 2xs, 600);
       margin-left: 0.4rem;
     }
   }
@@ -16454,10 +16477,11 @@ $agingIndex: 431px;
         font-size: 1.4rem;
       }
       dt{
+        font-weight: 600;
         color: #444;
       }
       dd{
-        font-family: $font-family-medium;
+        font-weight: 400;
       }
       &.body{
         top: 0;
@@ -16531,9 +16555,8 @@ $agingIndex: 431px;
       margin-top: 3rem;
     }
     &-legend{
-      font-size: 1.4rem;
-      font-family: $font-family-light;
-      color: #555;
+      @include txtStyle(body, 2xs);
+      color: #333;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -16577,20 +16600,13 @@ $agingIndex: 431px;
 
     &-table{
       text-align: center;
-      margin-top: 4.2rem;
-      @media (min-width: $w-pc) {
-        max-width: 62rem;
-        margin: 7rem auto 0;
-      }
+      margin-top: 4.8rem;
+      max-width: 44rem;
+      margin-inline: auto;
       .AnalyzePagesDetail--section-tit{
         margin-bottom: 2.4rem;
         @media (min-width: $w-pc) {
           font-size: 2.4rem;
-        }
-      }
-      .tag-wrap{
-        @media (min-width: $w-pc) {
-          margin-bottom: 1rem;
         }
       }
       .AnalyzePagesDetail--table{
@@ -16601,7 +16617,7 @@ $agingIndex: 431px;
   }
 
   &--table{
-    margin-top: 1.6rem;
+    margin-top: 1.2rem;
     padding-bottom: 2rem;
     position: relative;
     .legend-wrap{
@@ -16615,7 +16631,6 @@ $agingIndex: 431px;
       th, td{
         height: 3.6rem;
         font-size: 1.3rem;
-        font-family: $font-family-medium;
         font-weight: normal;
         border: 1px solid #e1e1e1;
         color: #444444;
@@ -16669,11 +16684,14 @@ $agingIndex: 431px;
     }
   }
   .analyze-box{
-    border-radius: 3rem;
-    padding: 3.2rem 2rem 3.6rem;
+    border-radius: 2.4rem;
+    box-shadow: none;
+    padding: 2.4rem 2rem 2.8rem 2rem;
+    margin-top: 0;
     @media (min-width: $w-pc){
       margin-top: 0;
-      padding: 4rem 0 7.8rem;
+      border-radius: 3.2rem;
+      padding: 2.8rem 2rem 3.6rem 2rem;
     }
     .AnalyzePagesDetail--age-wrap{
       max-width: 24rem;
@@ -16686,14 +16704,11 @@ $agingIndex: 431px;
   .violin-container{
     .legend{
       bottom: -5rem;  
-      font-family: $font-family-light;  
+      // font-family: $font-family-light;  
     }
   }
   .AnalyzePagesDetail--my-body-wrap{
     padding-top: 5.2rem;
-    @media (min-width: $w-pc) {
-      padding-top: 6rem;
-    }
     .small-tit{
       @include txtSmall7;
       color: #555;
@@ -16709,12 +16724,12 @@ $agingIndex: 431px;
       }
     }
     .AnalyzePagesDetail--tit{
-      font-size: 2rem;
+      @include txtStyle(head, xs, 700);
       margin-top: 0;
-      color: #222;
+      color: #1A1818;
     }
     .AnalyzePagesDetail--btn-wrap{
-      margin: 0.8rem 0 4rem;
+      margin: 1.6rem 0 2.8rem;
     }
     .AnalyzePagesDetail--my-body-desc{
       margin-top: 0;
@@ -16739,15 +16754,11 @@ $agingIndex: 431px;
     }
     span{
       position: relative;
-      font-size: 1.3rem;
-      font-family: "RixSinHead_Light", sans-serif;
       text-align: right;
-      color: #222;
-      padding-left: 1.4rem;
+      color: #333;
+      padding-left: 1.8rem;
+      @include txtStyle(body, 2xs);
       @media (min-width: $w-pc) {
-        font-size: 1.5rem;
-        padding-left: 1.6rem;
-        font-family: $font-family-medium;
       }
       &::before{
         content: "";
@@ -16755,12 +16766,10 @@ $agingIndex: 431px;
         top: 50%;
         left: 0;
         transform: translateY(-50%);
-        width: 1rem;
-        height: 1rem;
+        width: 1.2rem;
+        height: 1.2rem;
         border-radius: 50%;
         @media (min-width: $w-pc) {
-          width: 1.2rem;
-          height: 1.2rem;
         }
       }
     }
@@ -16890,21 +16899,24 @@ span.legend-dot-interest{
   }
 }
 .AnalyzeDietDetail{
+  @media (min-width:$w-pc) {
+    padding-bottom: 6rem;
+  }
+  .AnalyzePagesDetail--graph-wrap{
+    margin-top: 3.2rem;
+    background-color: white;
+    border-radius: 3.2rem 3.2rem 0 0;
+    @media (min-width:$w-pc) {
+      border-radius: 3.2rem;
+    }
+  }
   .AnalyzePagesDetail--section-tit{
     text-align: center;
-    color: #222;
-    margin-bottom: 2.4rem;
-    @media (min-width: $w-pc) {
-      font-size: 2.4rem;
-      margin-bottom: 0.8rem;
-    }
+    margin-bottom: 0.8rem;
     &-sub{
-      font-size: 1.4rem;
-      font-family: $font-family-medium;
-      color: #555;   
-      letter-spacing: -0.02rem;
+      @include txtStyle(body, xs);
+      color: #333;
       @media (min-width: $w-pc) {
-        font-size: 1.6rem;
         text-align: center;
       }
     }
@@ -16914,9 +16926,8 @@ span.legend-dot-interest{
     padding-top: 2.4rem;
     border-top: 1px solid #e5e5e5;
     @media (min-width: $w-pc) {
-      margin: 3.2rem auto 0;
-      padding-top: 3.2rem;
-      max-width: 62rem;
+      margin: 2.4rem auto 0;
+      max-width: 48rem;
     }
   }
   .bar--bg{
@@ -16960,22 +16971,17 @@ span.legend-dot-interest{
         top: 1.8rem;
         left: 50%;
         transform: translateX(-50%);
-        font-size: 1.3rem;
-        font-family: $font-family-bold;
         color: #555;
+        @include txtStyle(caption, xl);
         @media (min-width: $w-pc) {
-          font-size: 1.6rem;
           top: 2.4rem;
         }
         .bar--name{
           width: max-content;
           position: absolute;
           top: 1.8rem;
-          font-size: 1.2rem;
-          font-family: $font-family-medium;
           text-align: right;
           @media (min-width: $w-pc) {
-            font-size: 1.4rem;
             top: 2.2rem;
           }
         }
@@ -17110,17 +17116,24 @@ span.legend-dot-interest{
   }
 }
 .AnalyzeExerciseDetail{
+  @media (min-width:$w-pc) {
+    padding-bottom: 6rem;
+  }
   .AnalyzePagesDetail--graph-wrap{
     /* S : 20260319 ASB-13674 - 수정 */
-    padding-bottom: 9rem;
+    margin-top: 3.2rem;
+    padding: 2.4rem 2rem 4rem;
+    background-color: white;
+    border-radius: 3.2rem 3.2rem 0 0;
     @media (min-width: $w-pc) {
-      padding-bottom: 5.2rem;
+      padding: 2.8rem 2rem 3.6rem;
+      border-radius: 3.2rem;
     }
     /* E : 20260319 ASB-13674 - 수정 */
   }
   .AnalyzePagesDetail--my-diet-wrap{
     @media (min-width: $w-pc) {
-      max-width: 62rem;
+      max-width: 48rem;
       margin: 0 auto;
     }
   }
@@ -17184,7 +17197,6 @@ span.legend-dot-interest{
     .who-text {
       display: block;
       font-size: 0.8rem;
-      font-family: $font-family-light;
       color: #222;
       margin-top: 3.4rem;
       text-align: center;
@@ -17195,7 +17207,7 @@ span.legend-dot-interest{
       span{
         display: block;
         font-size: 1.2rem;
-        font-family: $font-family-bold;
+        font-weight: 700;
         color: #1db196;
         @media (min-width: $w-pc) {
           font-size: 1.4rem;
@@ -17217,14 +17229,16 @@ span.legend-dot-interest{
     bottom: 3.2rem;
     text-align: right;
     font-size: 1.6rem;
+    font-weight: 700;
     span{
       display: block;
       font-size: 0.8rem;
       color: #222;
-      font-family: $font-family-light;
+      font-weight: 500;
     }
   }
   .AnalyzePagesDetail--table{
+    padding:0;
     .icon{
       display: inline-block;
       width: 1rem;
@@ -17249,78 +17263,42 @@ span.legend-dot-interest{
         }
       }
       td{
-        font-family: $font-family-bold;
+        font-weight: 700;
         background: #f1f1f1;
       }
     }
   }
   .met-info{
-    margin-top: 1.2rem;
-    @media (min-width: $w-pc) {
-      margin-top: 3.2rem;
-      text-align: center;
-    }
+    margin-top: 4rem;
     &-tit{
-      font-size: 1.6rem;
-      font-family: $font-family-bold;
-      font-weight: normal;
-      letter-spacing: -0.04rem;
-      @media (min-width: $w-pc) {
-        font-size: 2rem;
-      }
+      @include txtStyle(body, md, 600);
     }
     &-desc{
-      margin-top: 1.2rem;
-      font-size: 1.5rem;
-      font-family: $font-family-medium;
-      color: #555;
-      @media (min-width: $w-pc) {
-        font-size: 1.6rem;
+      margin-top: .8rem;
+      @include txtStyle(body, 2xs);
+      &:last-child{
+        color: #808080;
       }
     }
     &-box{
-      padding: 1.2rem 1.2rem 1.2rem;
+      padding: .8rem;
       border: 1px solid #1db196;
       border-radius: 0.8rem;
       margin-top: 0.8rem;
-      margin-bottom: 2.4rem;
-      @media (min-width: $w-pc) {
-        width: 62.5rem;
-        margin-left: -0.25rem;
-        margin-top: 1.2rem;
-        margin-bottom: 3.2rem;
-      }
+      margin-bottom: 2rem;
       ul{
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        column-gap: .6rem;
         @media (min-width: $w-pc) {
-          flex-direction: row;
-          justify-content: center;
-          gap: 2rem;
-          padding: 0;
+          column-gap: .8rem;
         }
         li{
-          width: 50%;
-          font-size: 1.3rem;
-          font-family: $font-family-medium;
-          color: #646464;
+          @include txtStyle(body, 2xs);
+          color: #666;
           @media (min-width: $w-pc) {
             position: relative;
             width: auto;
-            font-size: 1.5rem;
-            list-style: none;
-            padding-left: 1rem;
-            &::before{
-              content: "";
-              position: absolute;
-              left: 0;
-              top: 50%;
-              transform: translateY(-50%);
-              width: 0.3rem;
-              height: 0.3rem;
-              background: #707070;
-              border-radius: 50%;
-            }
           }
         }
       }
@@ -17441,26 +17419,28 @@ span.legend-dot-interest{
 //   }
 // }
 .AnalyzeSleepDetail{
+  @media (min-width:$w-pc) {
+    padding-bottom: 6rem;
+  }
   .AnalyzePagesDetail--section-tit{
     text-align: center;
-    color: #222;
-    margin-bottom: 5.2rem;
-    @media (min-width: $w-pc) {
-      font-size: 2.4rem;
-    }
+    margin-bottom: 4.4rem;
   }
   .AnalyzePagesDetail--wrap{
-    @include boxStyle;
-    margin-top: 3.6rem;
-    padding: 3.2rem 2rem 7rem; //20260319 ASB-13674 - 수정
+    background-color: white;
+    border-radius: 3.2rem 3.2rem 0 0;
+    margin-top: 3.2rem;
+    padding: 2.4rem 2rem 4rem;
+    @include min-vh-fallback(100, 23.4rem);
     @media (min-width: $w-pc) {
-      margin-top: 4rem;
-      padding-bottom: 3.2rem; //20260319 ASB-13674 - 추가
+      min-height: unset;
+      border-radius: 3.2rem;
+      padding: 2.8rem 2rem 3.6rem;
     }
   } 
   .AnalyzePagesDetail--table{
     @media (min-width: $w-pc) {
-      max-width: 62rem;
+      max-width: 48rem;
       margin: 0 auto;
     }
     table{
@@ -17478,10 +17458,9 @@ span.legend-dot-interest{
 .AnalyzeAgingSpeedPop{
   &--my{
     text-align: left;
-    font-size: 1.3rem;
-    font-family: 'RixSinHead_Medium';
     color: #1db196;
-    margin-top: 0.4rem;
+    margin-top: 0.2rem;
+    @include txtStyle(body, 2xs, 500);
   }
   &--tooltip{
     height: 2.2rem;
@@ -17492,12 +17471,13 @@ span.legend-dot-interest{
       top: 3.4rem;
     }
     .btn--tooltip{
-      margin-left: 1rem;
+      margin-left: .4rem;
+      width: 2rem;
+      height: 2rem;
     }
   }
   &--tit{
-    @include titleSmall2;
-    font-weight: normal;
+    @include txtStyle(body, md, 600);
     text-align: left;
   }
   &--unit{
@@ -17523,15 +17503,13 @@ span.legend-dot-interest{
     }
   }
   &--no-data{
-    height: 3.2rem;
-    line-height: 3.2rem;
-    font-size: 1.3rem;
-    font-family: $font-family-light;
+    @include txtStyle(body, 2xs, 500);
     text-align: center;
-    color: #646464;
-    background: #f3f3f3;
+    color: #333;
+    background: #F5F5F5;
     border-radius: 1.6rem;
-    margin-top: 0.6rem;
+    margin-top: 1.2rem;
+    padding: 1.2rem;
   }
 }
 .MyPage{
@@ -18153,12 +18131,11 @@ span.legend-dot-interest{
 }
 .analyze-checkup-data-record-page{
   @media (min-width: $w-pc-small4) {
-    margin-bottom: 6rem;
+    padding-bottom: 6rem;
   }
   .AnalyzeDetailGuide--tab{
     @media (min-width: $w-pc-small4) {
-      max-width: 32.4rem;
-      margin-bottom: 1.6rem;
+      max-width: 48rem;
     }
   }
 }
@@ -20788,7 +20765,8 @@ span.legend-dot-interest{
 }
 
 .my-point-score{
-  font-family: $font-family-bold;
+  font-weight: 700;
+  // font-family: $font-family-bold;
 }
 
 .blind {

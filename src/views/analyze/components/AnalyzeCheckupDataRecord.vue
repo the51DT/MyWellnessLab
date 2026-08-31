@@ -16,9 +16,105 @@ const props = defineProps({
   sendData: Object
 })
 
+// 2606 퍼블 확인용 - 검진 데이터 기본값
+const publishingSendData = {
+  sex: 1,
+  basics: {
+    id: 1,
+    sex: 1
+  },
+  examinationData: [
+    {
+      checkDate: '2026.10.25',
+      sbp: 132,
+      dbp: 86,
+      wc: 88,
+      bmi: 25.5,
+      glu: 104,
+      tg: 165,
+      tc: 205,
+      hdl: 46,
+      ldl: 135,
+      got: 32,
+      gpt: 41,
+      hb: 15.1,
+      crea: 1.0,
+      ht: 175,
+      wt: 78
+    },
+    {
+      checkDate: '2025.10.25',
+      sbp: 126,
+      dbp: 82,
+      wc: 86,
+      bmi: 24.8,
+      glu: 98,
+      tg: 145,
+      tc: 198,
+      hdl: 48,
+      ldl: 126,
+      got: 28,
+      gpt: 35,
+      hb: 15.4,
+      crea: 0.9,
+      ht: 175,
+      wt: 76
+    },
+    {
+      checkDate: '2024.10.25',
+      sbp: 121,
+      dbp: 79,
+      wc: 84,
+      bmi: 24.2,
+      glu: 94,
+      tg: 130,
+      tc: 190,
+      hdl: 51,
+      ldl: 118,
+      got: 25,
+      gpt: 31,
+      hb: 15.2,
+      crea: 0.9,
+      ht: 175,
+      wt: 74
+    }
+  ],
+  hcrReference: []
+}
+// 2606 퍼블 확인용 - 체성분 데이터 기본값
+const publishingBodyCompositionData = {
+  ht: 175,
+  wt: 78,
+  wbtBfMass: 18.5,
+  wbtBfPercent: 23.7,
+  wbtSmMass: 31.8,
+  ramMass: 2.9,
+  ramPercent: 81.5,
+  lamMass: 2.7,
+  lamPercent: 74.2,
+  rlmMass: 8.6,
+  rlmPercent: 91.1,
+  llmMass: 8.4,
+  llmPercent: 88.3,
+  trkMass: 24.8,
+  trkPercent: 92.5,
+  connectType: 'CUSTOM',
+  surveyDate: '2026.10.25'
+}
+
 const instance = getCurrentInstance()
 
-const sendData = computed(() => props.sendData || store.getters['analyze/getAnalysisSendData'])
+const sendData = computed(() => { // 2606 퍼블 확인용 아래 주석이 원본
+  const storeData = store.getters['analyze/getAnalysisSendData']
+  if (props.sendData && Object.keys(props.sendData).length > 0) {
+    return props.sendData
+  }
+  if (storeData && Object.keys(storeData).length > 0) {
+    return storeData
+  }
+  return publishingSendData
+})
+// const sendData = computed(() => props.sendData || store.getters['analyze/getAnalysisSendData'])
 
 // use sendData.hcrData, sendData.hcrReference
 const hcrData = computed(() => { // 240109 hcrData -> examinationData 로 변경
@@ -142,6 +238,13 @@ async function switchTab(tab) {
   // 체성분 데이터 탭을 클릭했을 때 데이터 설정
   if (tab === 'bodyComposition') {
     try {
+      // 2606 퍼블 확인용 - API 호출 없이 체성분 데이터 세팅
+      if (isPublishingPage.value) {
+        bodyCompositionData.value = publishingBodyCompositionData
+        return
+      }
+
+
       // basicsId 가져오기
       const basicsId = sendData.value?.basics?.id
       
@@ -200,6 +303,9 @@ async function switchTab(tab) {
 const isPoup = ref(false)
 const activeTab = ref('checkup') // 'checkup' 또는 'bodyComposition'
 const bodyCompositionData = ref(null)
+const isPublishingPage = computed(() => { // 2606 퍼블 확인용
+  return window.location.pathname.includes('/publishing')
+})
 
 const isPc = ref(false) /* 231228 pc에서 텍스트 줄 바꿈 처리, 추가 */
 onMounted(() => { /* 231228 pc에서 텍스트 줄 바꿈 처리, 추가 */
@@ -249,7 +355,8 @@ onMounted(() => { /* 231228 pc에서 텍스트 줄 바꿈 처리, 추가 */
 
           <div class="AnalyzeCheckupDataRecord--graph-wrap">
 
-            <div v-for="(item) in dataList" class="AnalyzeCheckupDataRecord--graph-unit" v-bind:key="item">
+            <div v-for="(item) in dataList" class="AnalyzeCheckupDataRecord--graph-unit" :key="item.variable"> <!-- 2606 퍼블 확인용 아래 주석이 원본 -->
+            <!-- <div v-for="(item) in dataList" class="AnalyzeCheckupDataRecord--graph-unit" v-bind:key="item"> -->
               <h2 class="AnalyzeCheckupDataRecord--graph-tit">{{ item.name }}<!-- 수축기혈압 (mmHg) --></h2>
               <div class="AnalyzeCheckupDataRecord--graph">
                 <!-- 그래프 컴퍼넌트 추가 -->
@@ -273,22 +380,21 @@ onMounted(() => { /* 231228 pc에서 텍스트 줄 바꿈 처리, 추가 */
     </div>
   </div>
 
+  <!-- [s] 2606 라이브 버전에 맞춰 복약 부분 미노출 -->
   <!-- S : 20260319 ASB-13674 - 마이웰니스랩 과학적 표현 강화 -->
   <!-- to 개발 | 복약정보가 없을 경우 미노출, 복약정보가 있을 경우 팝업이 열려있는 상태가 default -->
-  <div class="AnalyzeDetail--medicationPopup open"><!-- to 개발 | 복약정보 팝업을 열었을 경우에 open 클래스 추가 -->
+  <!-- <div class="AnalyzeDetail--medicationPopup open"> --><!-- to 개발 | 복약정보 팝업을 열었을 경우에 open 클래스 추가 -->
     <!-- to 개발 | 복약정보를 닫은 경우(open 클래스 삭제) -->
     <!-- <p class="AnalyzeDetail--medicationPopup-detail">{{ $t('Router.checkup.text21') }} {{ $t('AnalyzeDetail.text47') }}</p> -->
 
     <!-- to 개발 | 복약정보가 있을 경우 -->
-    <p class="AnalyzeDetail--medicationPopup-detail">
+    <!-- <p class="AnalyzeDetail--medicationPopup-detail">
       <span>{{ $t('CheckupMedication.text9') }}, {{ $t('CheckupMedication.text10') }}</span> {{ $t('AnalyzeDetail.text48') }}
     </p>
-  </div>
+  </div> -->
   <!-- E : 20260319 ASB-13674 - 마이웰니스랩 과학적 표현 강화 -->
+  <!-- [e] 2606 라이브 버전에 맞춰 복약 부분 미노출 -->
 </template>
 
-<style lang="scss" scoped>
-.AnalyzeCheckupDataRecord--bodyComposition {
-  margin-top: 20px;
-}
+<style lang="scss" scoped> /* 2606 스타일 내용 삭제 */
 </style>

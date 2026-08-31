@@ -131,16 +131,18 @@ function getUnit(item) {
     </div>
   </div>
 
+  <!-- [s] 2606 라이브 버전에 맞춰 복약 부분 미노출 -->
   <!-- S : 20260323 ASB-13674 - 마이웰니스랩 과학적 표현 강화 -->
   <!-- to 개발 | 복약정보가 없을 경우 미노출, 복약정보가 있을 경우 팝업이 열려있는 상태가 default -->
-  <div class="AnalyzeDetail--medicationPopup open"><!-- to 개발 | 복약정보 팝업을 열었을 경우에 open 클래스 추가 -->
+  <!-- <div class="AnalyzeDetail--medicationPopup open"> --><!-- to 개발 | 복약정보 팝업을 열었을 경우에 open 클래스 추가 -->
     <!-- to 개발 | 복약정보를 닫은 경우(open 클래스 삭제) -->
     <!-- <p class="AnalyzeDetail--medicationPopup-detail">{{ $t('Router.checkup.text21') }} {{ $t('AnalyzeDetail.text47') }}</p> -->
 
     <!-- to 개발 | 복약정보가 있을 경우 -->
-    <p class="AnalyzeDetail--medicationPopup-detail">
+    <!-- <p class="AnalyzeDetail--medicationPopup-detail">
       <span>{{ $t('CheckupMedication.text9') }}, {{ $t('CheckupMedication.text10') }}</span> {{ $t('AnalyzeDetail.text48') }}
     </p>
-  </div>
+  </div> -->
   <!-- E : 20260323 ASB-13674 - 마이웰니스랩 과학적 표현 강화 -->
+  <!-- [e] 2606 라이브 버전에 맞춰 복약 부분 미노출 -->
 </template>

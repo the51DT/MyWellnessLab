@@ -14,6 +14,39 @@ const isPc = ref(false)
 const data = reactive({ target: [] })
 const totalCount = ref(0)
 const { getBodyCompositionData } = useBodyCompositionAPI()
+// 2606 퍼블 확인용 - 체성분 측정 이력 기본 데이터
+const publishingBodyCompositionList = [
+  {
+    id: 1,
+    connectType: 'INBODY',
+    surveyDate: '2026-10-25T16:35:32',
+    weight: 72.4,
+    muscleMass: 30.8,
+    bodyFatMass: 13.4,
+    bodyFatPercentage: 18.5,
+    bmi: 23.1
+  },
+  {
+    id: 2,
+    connectType: 'BODYKEY',
+    surveyDate: '2026-09-20T09:12:00',
+    weight: 73.1,
+    muscleMass: 30.1,
+    bodyFatMass: 14.2,
+    bodyFatPercentage: 19.4,
+    bmi: 23.4
+  },
+  {
+    id: 3,
+    connectType: 'CUSTOM',
+    surveyDate: '2026.08.15 오후 05:32',
+    weight: 74.0,
+    muscleMass: 29.7,
+    bodyFatMass: 15.0,
+    bodyFatPercentage: 20.3,
+    bmi: 23.7
+  }
+]
 
 /**
  * connectType에 따라 적절한 텍스트를 반환하는 함수입니다.
@@ -172,6 +205,13 @@ const formatTimeOnly = (dateString) => {
  * 예외 발생 시 콘솔에 로그를 출력합니다.
  */
 const getList = async () => {
+  // 2606 퍼블 확인용
+  if (window.location.pathname.includes('/publishing')) {
+    data.target = publishingBodyCompositionList
+    totalCount.value = publishingBodyCompositionList.length
+    return
+  }
+
   try {
     // 배열로 전달하는 것이 더 명확하고 안전함
     const types = ['INBODY', 'CUSTOM','BODYKEY']

@@ -7,7 +7,7 @@ import MyPageBodyCompositionDataRecord from '@/views/mypage/MyPageBodyCompositio
 import { useI18n } from 'vue-i18n'
 import { mwlRound, getScoreStatus, getScoreColor, getStatusColor, getColor } from '@/assets/js/common'
 import BtnBottom from '@/components/BtnBottom.vue'
-import BasePopupTit from '@/components/BasePopupTit.vue'
+import BasePopupClose from '@/views/publishing/BasePopupClose.vue' // 2606 popup 컴포넌트 close 로 변경
 
 const { t } = useI18n()
 const store = useStore()
@@ -16,9 +16,63 @@ const user = store.getters.getUser
 const popup = ref(false)
 const historyPopup = ref(false)
 const activeFab = ref(true)
+// 2606 퍼블 확인용 - 근육 밸런스 상세 기본 데이터
+const publishingDetail = {
+  compId: 'AnalyzeMuscleBalanceDetail',
+  name: '홍길동',
+  analyzeAge: 36,
+  surveyDate: '2026.10.25 16:35:32',
+  connectType: 'CUSTOM',
+  basics: {
+    sex: 1
+  },
+  commonInfo: {
+    analysisType: 'normal'
+  },
+  hqMusBal: {
+    ages: 30,
+    score: 72,
+    percent: 28,
+    t_mean: 55,
+    status: 1
+  },
+  hqMusMass: {
+    status: 2,
+    t_mean: 80,
+    bodypartData: {
+      bb_status: 2,
+
+      TRK: 24.8,
+      TRK_percent: 92.5,
+      TRK_status: 1,
+
+      LRM: 2.7,
+      LRM_percent: 74.2,
+      LRM_status: 3,
+
+      RRM: 2.9,
+      RRM_percent: 81.5,
+      RRM_status: 1,
+
+      LLG: 8.4,
+      LLG_percent: 88.3,
+      LLG_status: 1,
+
+      RLG: 8.6,
+      RLG_percent: 91.1,
+      RLG_status: 1
+    },
+    fatData: {
+      bf: 18.5,
+      bf_percent: 23.7,
+      bf_percent_status: 1
+    }
+  }
+}
 
 const detail = computed(() => {
-  return store.getters['analyze/getInhibitionAnalysisDetail']
+  return store.getters['analyze/getInhibitionAnalysisDetail'] || publishingDetail // 2606 퍼블 확인용 아래 주석이 원본
+  // return store.getters['analyze/getInhibitionAnalysisDetail']
 })
 
 const sendData = computed(() => {
@@ -88,7 +142,8 @@ function getMuscleStatusClass(status) {
   return '';                       // 기본값
 }
 const isOnceTime = computed(() => {
-  return sendData.value.commonInfo.analysisType === 'onetime'
+  return sendData.value?.commonInfo?.analysisType === 'onetime' // 2606 퍼블 확인용 아래 주석이 원본
+  // return sendData.value.commonInfo.analysisType === 'onetime'
 })
 // 근육량 부위별 상태 텍스트 반환
 function getMuscleStatusText(status) {
@@ -160,7 +215,7 @@ function calculatePentagonPoints() {
 // 사용자 데이터 오각형 좌표 계산 함수
 function calculateUserPentagonPoints() {
   const bodypartData = sendData.value?.hqMusMass?.bodypartData
-  
+  if (!bodypartData) return '50,10 88,38 74,85 26,85 12,38' // 2606 퍼블 확인용
   
   // 각 부위별 percent 값을 100%로 제한
   const centerValue = bodypartData.TRK_percent      // 몸통 (중앙)
@@ -238,7 +293,8 @@ const formattedTime = computed(() => {
   }
 })
 const genderImg = computed(() => {
-  return sendData.value.basics.sex === 1 ? 'm' : 'f'
+  return sendData.value?.basics?.sex === 1 ? 'm' : 'f' // 2606 퍼블 확인용 아래 주석이 원본
+  // return sendData.value.basics.sex === 1 ? 'm' : 'f'
 })
 const violinImg = computed(() => { // 연령대에 해당하는 이미지 명
   let age = 20
@@ -626,7 +682,7 @@ onBeforeUnmount(() => {
       :ageArea="ageArea"
       :sendData="detail" />
 
-    <BasePopupTit v-if="historyPopup" @popupClose="closeHistoryPopup">
+    <BasePopupClose v-if="historyPopup" @popupClose="closeHistoryPopup">
       <template #title>
         {{ t('Router.checkup.text23') }}
       </template>
@@ -634,26 +690,28 @@ onBeforeUnmount(() => {
       <template #contents>
         <MyPageBodyCompositionDataRecord />
       </template>
-    </BasePopupTit>
+    </BasePopupClose>
     
     <BtnBottom :show="activeFab" />
   </div>
 
+  <!-- [s] 2606 라이브 버전에 맞춰 복약 부분 미노출  -->
   <!-- S : 20260319 ASB-13674 - 마이웰니스랩 과학적 표현 강화 -->
   <!-- to 개발 | 복약정보가 없을 경우 미노출, 복약정보가 있을 경우 팝업이 열려있는 상태가 default -->
-  <div class="AnalyzeDetail--medicationPopup open"><!-- to 개발 | 복약정보 팝업을 열었을 경우에 open 클래스 추가 -->
+  <!-- <div class="AnalyzeDetail--medicationPopup open"> --><!-- to 개발 | 복약정보 팝업을 열었을 경우에 open 클래스 추가 -->
     <!-- to 개발 | 복약정보를 닫은 경우(open 클래스 삭제) -->
     <!-- <p class="AnalyzeDetail--medicationPopup-detail">{{ $t('Router.checkup.text21') }} {{ $t('AnalyzeDetail.text47') }}</p> -->
 
     <!-- to 개발 | 복약정보가 있을 경우 -->
-    <p class="AnalyzeDetail--medicationPopup-detail">
+    <!-- <p class="AnalyzeDetail--medicationPopup-detail">
       <span>{{ $t('CheckupMedication.text9') }}, {{ $t('CheckupMedication.text10') }}</span> {{ $t('AnalyzeDetail.text48') }}
-    </p>
-  </div>
+    </p> -->
+  <!-- </div> -->
   <!-- E : 20260319 ASB-13674 - 마이웰니스랩 과학적 표현 강화 -->
+  <!-- [e] 2606 라이브 버전에 맞춰 복약 부분 미노출  -->
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped> /* 2606 스타일 태그 내용 수정 */
 .AnalyzePagesDetail--graph{
   margin-bottom: 4rem;
 }
@@ -808,7 +866,8 @@ onBeforeUnmount(() => {
     span {
       margin: 0;
       margin-left: 5px;
-      font-family: 'RixSinHead_Medium', sans-serif;
+      font-weight: 500;
+      // font-family: 'RixSinHead_Medium', sans-serif;
     }
 
     .position {

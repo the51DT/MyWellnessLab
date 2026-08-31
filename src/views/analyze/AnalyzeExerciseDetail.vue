@@ -12,10 +12,46 @@ const store = useStore()
 const popup = ref(false)
 const exerciseGuidePopup = ref(false)
 const showNoDataPopup = ref(false) // 체성분 데이터 없음 팝업
+// 2606 퍼블 확인용 - 운동 상세 기본 데이터
+const publishingDetail = {
+  compId: 'AnalyzeExerciseIndex',
+  name: '홍길동',
+  metData: {
+    met: 820,
+    activ_walk_met: 240,
+    activ_mod_met: 360,
+    activ_ints_met: 220
+  },
+  hqMusMass: {
+    exerciseData: [
+      {
+        exerciseName: '스쿼트',
+        exerciseDesc: '하체 근력 향상 운동',
+        exerciseUrl: 'https://www.youtube.com/embed/EQibcTZgfEs'
+      },
+      {
+        exerciseName: '런지',
+        exerciseDesc: '하체 균형 및 근력 운동',
+        exerciseUrl: 'https://www.youtube.com/embed/EQibcTZgfEs'
+      },
+      {
+        exerciseName: '플랭크',
+        exerciseDesc: '코어 안정화 운동',
+        exerciseUrl: 'https://www.youtube.com/embed/EQibcTZgfEs'
+      }
+    ]
+  }
+}
 
 // Vuex store에서 데이터 가져오기
 const detail = computed(() => {
-  return store.getters['analyze/getInhibitionAnalysisDetail']
+  // 2606 퍼블 확인용 아래 주석이 원본
+  const storeData = store.getters['analyze/getInhibitionAnalysisDetail']
+  if (storeData && Object.keys(storeData).length > 0) {
+    return storeData
+  }
+  return publishingDetail
+  // return store.getters['analyze/getInhibitionAnalysisDetail']
 })
 
 const sendData = computed(() => {

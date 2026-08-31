@@ -13,21 +13,91 @@ const route = useRoute()
 
 // Router state 데이터를 안정적으로 저장
 const routerData = ref(null)
+// 2606 퍼블 확인용
+const publishingAnalyzeDetail = {
+  id: 1,
+  analysisId: 1,
+  basicsId: 1,
+  name: '차동희',
+  analyzeAge: 45,
+  analysedDate: '2026.10.25',
+
+  commonInfo: {
+    analysisType: 'normal',
+    analysedDate: '2026-10-25'
+  },
+
+  basics: {
+    age: 45,
+    sex: 1,
+    ht: 175,
+    wt: 78,
+    wc: 88,
+    bmi: 25.5
+  },
+
+  hqAr: {
+    aging_rate: 1.18,
+    status: 2
+  },
+
+  hqData: {
+    AgingRate: 1.18,
+    ReAge: 49
+  },
+
+  hqReference: {
+    min: 20,
+    max: 80
+  },
+
+  hqDataList: [
+    {
+      analysedDate: '2026.10.25',
+      AgingRate: 1.18,
+      ReAge: 49,
+      musYn: 'Y'
+    },
+    {
+      analysedDate: '2026.09.25',
+      AgingRate: 1.12,
+      ReAge: 48,
+      musYn: 'Y'
+    },
+    {
+      analysedDate: '2026.08.25',
+      AgingRate: 1.06,
+      ReAge: 47,
+      musYn: 'Y'
+    }
+  ]
+}
 
 // 데이터 로딩 상태를 computed로 변경하여 즉시 반응하도록 함
 const isDataLoaded = computed(() => {
-  return !!(routerData.value || store.getters['analyze/getDetail'])
+  // 2606 퍼블 확인용 아래 주석이 원본
+  return !!(routerData.value || store.getters['analyze/getDetail'] || publishingAnalyzeDetail)
+  // return !!(routerData.value || store.getters['analyze/getDetail'])
 })
 
 // Router state에서 데이터를 가져오거나 Store에서 가져오기
 const analyzeDetail = computed(() => {
-  // Router state 데이터가 있으면 우선 사용
+  // 2606 퍼블 확인용 아래 주석이 원본
   if (routerData.value) {
     return routerData.value
   }
-  // 없으면 Store에서 가져오기
   const storeData = store.getters['analyze/getDetail']
-  return storeData
+  if (storeData && Object.keys(storeData).length > 0) {
+    return storeData
+  }
+  return publishingAnalyzeDetail
+  // // Router state 데이터가 있으면 우선 사용
+  // if (routerData.value) {
+  //   return routerData.value
+  // }
+  // // 없으면 Store에서 가져오기
+  // const storeData = store.getters['analyze/getDetail']
+  // return storeData
 })
 
 const agingSpeed = computed(() => {
@@ -39,7 +109,8 @@ const agingSpeed = computed(() => {
 
 const agingSpeedGrade = computed(() => {
   let txt = 'normal'
-  const status = analyzeDetail.value.hqAr.status
+  const status = analyzeDetail.value?.hqAr?.status || 2 // 2606 퍼블 확인용 아래 주석이 원본
+  // const status = analyzeDetail.value.hqAr.status
   if (status === 1) txt = 'good'
   else if (status === 2) txt = 'normal'
   else if (status === 3) txt = 'bad'
@@ -83,7 +154,11 @@ function popupClose () {
 }
 
 const agingRate = computed(() => {
-  const ageData = analyzeDetail.value?.hqReference
+  const ageData = analyzeDetail.value?.hqReference || { // 2606 퍼블 확인용 아래 주석이 원본
+    min: 20,
+    max: 80
+  }
+  // const ageData = analyzeDetail.value?.hqReference
 
   if (!ageData) return '0'
 
@@ -231,19 +306,32 @@ const getAgeGraphX = computed(() => {
 
 })
 onMounted(async () => {
-  // Store에서 데이터를 우선적으로 가져오기
+  // 2606 퍼블 확인용 아래 주석이 원본
   const storeData = store.getters['analyze/getDetail']
   if (storeData && Object.keys(storeData).length > 0) {
     routerData.value = storeData
   }
-  
-  // Store에 데이터가 없고 Router state에만 있는 경우
   if (!routerData.value && route.state?.sendData) {
     routerData.value = route.state.sendData
   }
-  
-  // 데이터가 로드될 때까지 대기
+  if (!routerData.value) {
+    routerData.value = publishingAnalyzeDetail
+  }
   await nextTick()
+
+  // // Store에서 데이터를 우선적으로 가져오기
+  // const storeData = store.getters['analyze/getDetail']
+  // if (storeData && Object.keys(storeData).length > 0) {
+  //   routerData.value = storeData
+  // }
+  
+  // // Store에 데이터가 없고 Router state에만 있는 경우
+  // if (!routerData.value && route.state?.sendData) {
+  //   routerData.value = route.state.sendData
+  // }
+  
+  // // 데이터가 로드될 때까지 대기
+  // await nextTick()
 })
 </script>
 
@@ -326,21 +414,23 @@ onMounted(async () => {
 
   </div>
 
+  <!-- [s] 2606 라이브 버전에 맞춰 복약 부분 미노출 -->
   <!-- S : 20260319 ASB-13674 - 마이웰니스랩 과학적 표현 강화 -->
   <!-- to 개발 | 복약정보가 없을 경우 미노출, 복약정보가 있을 경우 팝업이 열려있는 상태가 default -->
-  <div class="AnalyzeDetail--medicationPopup open"><!-- to 개발 | 복약정보 팝업을 열었을 경우에 open 클래스 추가 -->
+  <!-- <div class="AnalyzeDetail--medicationPopup open"> --><!-- to 개발 | 복약정보 팝업을 열었을 경우에 open 클래스 추가 -->
     <!-- to 개발 | 복약정보를 닫은 경우(open 클래스 삭제) -->
     <!-- <p class="AnalyzeDetail--medicationPopup-detail">{{ $t('Router.checkup.text21') }} {{ $t('AnalyzeDetail.text47') }}</p> -->
 
     <!-- to 개발 | 복약정보가 있을 경우 -->
-    <p class="AnalyzeDetail--medicationPopup-detail">
+    <!-- <p class="AnalyzeDetail--medicationPopup-detail">
       <span>{{ $t('CheckupMedication.text9') }}, {{ $t('CheckupMedication.text10') }}</span> {{ $t('AnalyzeDetail.text48') }}
-    </p>
-  </div>
+    </p> -->
+  <!-- </div> -->
   <!-- E : 20260319 ASB-13674 - 마이웰니스랩 과학적 표현 강화 -->
+  <!-- [e] 2606 라이브 버전에 맞춰 복약 부분 미노출 -->
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped> /* 2606 스타일 태그 내용 수정 */
 .graph {
   //position: relative;
   overflow: visible !important;
@@ -409,11 +499,11 @@ onMounted(async () => {
 }
 
 .legend {
-  bottom: -70px;
+  bottom: -9rem;
   width: 100%;
   font-size: 1.4rem;
   color: #555;
-  font-family: "RixSinHead_Medium", sans-serif;
+  font-weight: 500;
   text-align: left;
   margin-bottom: 5px;
   //@include flex(flex-end, center);
@@ -422,7 +512,7 @@ onMounted(async () => {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-
+  padding-bottom: 2rem;
   .name {
     margin-left: 0px;
   }
@@ -475,7 +565,7 @@ onMounted(async () => {
 .label-x {
   position: absolute;
   font-size: 1.2rem;
-  font-family: "RixSinHead_Medium", sans-serif;
+  font-weight: 300;
   color: #555;
   right: -45px;
   bottom: -25px;
@@ -494,7 +584,7 @@ onMounted(async () => {
   left: 0;
   top: -20px;
   font-size: 1.3rem;
-  font-family: "RixSinHead_Medium", sans-serif;
+  font-weight: 300;
   color: #555;
 }
 
@@ -504,13 +594,13 @@ onMounted(async () => {
   right: -50px;
   font-size: 1.3rem;
   color: #7E7EFF;
-  font-family: "RixSinHead_Medium", sans-serif;
+  font-weight: 500;
 }
 
 .label-0 {
   font-size: 1.3rem;
   color: #555;
-  font-family: "RixSinHead_Medium", sans-serif;
+  font-weight: 500;
   bottom: -25px;
 }
 
@@ -561,7 +651,7 @@ img.my-point-img {
     transform: translateX(-50%);
     color: #555;
     text-align: center;
-    font-family: "RixSinHead_Medium", sans-serif;
+    font-weight: 300;
     font-size: 1.2rem;
     font-style: normal;
     font-weight: 300;
@@ -572,8 +662,7 @@ img.my-point-img {
   }
 
   font-size: 1.2rem;
-  font-family: "RixSinHead_Medium",
-  sans-serif;
+  font-weight: 300;
   color: #1DB196;
   margin-bottom: -11px;
   z-index: 1;

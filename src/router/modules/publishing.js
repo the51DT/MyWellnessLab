@@ -515,17 +515,28 @@ const publishingRouter = {
           path: "analyze-checkup-data-record",
           name: "pubAnalyzeCheckupDataRecord",
           component: () =>
-            import("@/views/publishing/analyze/AnalyzeCheckupDataRecord.vue"),
+            import("@/views/analyze/components/AnalyzeCheckupDataRecord.vue"),
           meta: {
             title: "검진 데이터 이력",
             class: "wide",
           },
         },
         {
-          path: "analyze-aging-inhibition-analyze-index-detail",
-          name: "pubAnalyzeAgingInhibitionAnalyzeIndexDetail",
+          // 근육 밸런스 분석 지수
+          path: "analyze-muscle-balance",
+          name: "pubAnalyzeMuscleBalance",
           component: () =>
-            import("@/views/publishing/analyze/AnalyzeAgingInhibitionAnalyzeIndexDetail.vue"),
+            import("@/views/analyze/AnalyzeMuscleBalanceDetail.vue"),
+          meta: {
+            title: "Router.checkup.text22",
+            class: "wide",
+          },
+        },
+        {
+          path: "analyze-aging-inhibition-analyze-index-detail",
+          name: "pubAnalyzeAging",
+          component: () =>
+            import("@/views/analyze/AnalyzeScorecomAnalyzeIndexDetail.vue"),
           meta: {
             title: "노화 억제 분석 지수",
             class: "wide",
@@ -533,11 +544,41 @@ const publishingRouter = {
         },
         {
           path: "analyze-chronic-disease-control-analyze-index-detail",
-          name: "pubAnalyzeChronicDiseaseControlAnalyzeIndexDetail",
+          name: "pubAnalyzeChronicDisease",
           component: () =>
-            import("@/views/publishing/analyze/AnalyzeChronicDiseaseControlAnalyzeIndexDetail.vue"),
+            import("@/views/analyze/AnalyzeScorecomAnalyzeIndexDetail.vue"),
           meta: {
             title: "만성질환 억제 분석 지수",
+            class: "wide",
+          },
+        },
+        {
+          // 식사
+          path: "analyze-diet",
+          name: "pubAnalyzeDiet",
+          component: () => import("@/views/analyze/AnalyzeDietDetail.vue"),
+          meta: {
+            title: "Router.checkup.text25",
+            class: "wide",
+          },
+        },
+        {
+          // 운동
+          path: "analyze-exercise",
+          name: "pubAnalyzeExercise",
+          component: () => import("@/views/analyze/AnalyzeExerciseDetail.vue"),
+          meta: {
+            title: "Router.checkup.text27",
+            class: "wide",
+          },
+        },
+        {
+          // 수면
+          path: "analyze-sleep",
+          name: "pubAnalyzeSleep",
+          component: () => import("@/views/analyze/AnalyzeSleepDetail.vue"),
+          meta: {
+            title: "Router.checkup.text29",
             class: "wide",
           },
         },
@@ -545,9 +586,29 @@ const publishingRouter = {
           path: "analyze-aging-speed-detail",
           name: "pubAnalyzeAgingSpeedDetail",
           component: () =>
-            import("@/views/publishing/analyze/AnalyzeAgingSpeedDetail.vue"),
+            import("@/views/analyze/AnalyzeAgingSpeedDetail.vue"),
           meta: {
             title: "노화 속도",
+            class: "wide",
+          },
+        },
+        {
+          path: "analyze-health-light",
+          name: "pubAnalyzeHealthLight",
+          component: () =>
+            import("@/views/analyze/AnalyzeHealthLightDetail.vue"),
+          meta: {
+            title: "Router.analyze.text6",
+            class: "wide",
+          },
+        },
+        {
+          path: "major-health-risk",
+          name: "pubAnalyzeMajorHealthRisk",
+          component: () =>
+            import("@/views/analyze/components/analyzeMajorHealthRisk/AnalyzeMajorHealthRisk.vue"),
+          meta: {
+            title: "Router.analyze.text9",
             class: "wide",
           },
         },

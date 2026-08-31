@@ -20,6 +20,42 @@ const sendData = store.getters['analyze/getAnalysisSendData']
 const hriData = ref({})
 const hriStatus = ref({})
 const sex = ref(0) // 0: 남자, 1: 여자
+// 2606 퍼블 확인용
+const publishingHriData = {
+  BMI: 26.8,
+  BP_SYS: 138,
+  BP_DIA: 88,
+  GLU0: 112,
+  TC: 224,
+  TG: 178,
+  HDL: 42,
+  LDL: 146,
+  CK_drink: 1,
+  drink_amt: 3,
+  CK_sleep_time: 1,
+  sleep_time: 5.5,
+  CK_MH_stress: 1,
+  CK_water_amt: 1,
+  CK_smok: 1,
+  RFS_score: 48
+}
+// 2606 퍼블 확인용
+const publishingHriStatus = {
+  BMI: 2,
+  BP_SYS: 3,
+  BP_DIA: 3,
+  GLU0: 3,
+  TC: 2,
+  TG: 3,
+  HDL: 3,
+  LDL: 3,
+  CK_drink: 3,
+  CK_sleep_time: 2,
+  CK_MH_stress: 3,
+  CK_water_amt: 3,
+  CK_smok: 2,
+  RFS: 3
+}
 
 const isPop = ref(false)
 const tooltip = ref(false)
@@ -120,25 +156,55 @@ const getStatusText = (status) => {
 /**
  * 분석 결과 상세 조회
  */
+// 2606 퍼블 확인용 아래 주석이 원본
 async function getDetailAnalyzeData() {
-  const detailId = route.params.detailId
-  if (!detailId) {
+  if (window.location.pathname.includes('/publishing')) {
+    hriData.value = publishingHriData
+    hriStatus.value = publishingHriStatus
+    sex.value = 0
     return
   }
-  
+  const detailId = route.params.detailId
+  if (!detailId) {
+    hriData.value = publishingHriData
+    hriStatus.value = publishingHriStatus
+    sex.value = 0
+    return
+  }
   try {
     const res = await analysisApi.getAnalysisHeathLightDetail(detailId)
     if (res.data.logmeCompleteAnalysisDetail) {
       const analyzeData = res.data.logmeCompleteAnalysisDetail
-      // API 응답에서 hriData와 hriStatus를 직접 가져와서 ref에 할당
       hriData.value = analyzeData.hriData || {}
       hriStatus.value = analyzeData.hriStatus || {}
-      sex.value = analyzeData.sex ? analyzeData.sex - 1 : 0 // 1: 남자, 2: 여자 -> 0: 남자, 1: 여자로 변환
+      sex.value = analyzeData.sex ? analyzeData.sex - 1 : 0
     }
   } catch (error) {
     console.error('API 호출 오류:', error)
+    hriData.value = publishingHriData
+    hriStatus.value = publishingHriStatus
+    sex.value = 0
   }
 }
+// async function getDetailAnalyzeData() {
+//   const detailId = route.params.detailId
+//   if (!detailId) {
+//     return
+//   }
+  
+//   try {
+//     const res = await analysisApi.getAnalysisHeathLightDetail(detailId)
+//     if (res.data.logmeCompleteAnalysisDetail) {
+//       const analyzeData = res.data.logmeCompleteAnalysisDetail
+//       // API 응답에서 hriData와 hriStatus를 직접 가져와서 ref에 할당
+//       hriData.value = analyzeData.hriData || {}
+//       hriStatus.value = analyzeData.hriStatus || {}
+//       sex.value = analyzeData.sex ? analyzeData.sex - 1 : 0 // 1: 남자, 2: 여자 -> 0: 남자, 1: 여자로 변환
+//     }
+//   } catch (error) {
+//     console.error('API 호출 오류:', error)
+//   }
+// }
 
 onMounted(() => {
   getDetailAnalyzeData()

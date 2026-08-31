@@ -341,7 +341,7 @@ onUnmounted(() => {
 
 <template>
   <div class="popup AnalyzeChronicDiseaseControlAnalyzeIndexDetailPopup">
-    <div class="popup--wrap tit AnalyzeChronicDiseaseControlAnalyzeIndexDetailPopup--popup-wrap">
+    <div class="popup--wrap close AnalyzeChronicDiseaseControlAnalyzeIndexDetailPopup--popup-wrap"> <!-- 2606 popup--wrap 이중 클래스 tit -> close 로 변경 -->
       <div class="align--between popup--header AnalyzeChronicDiseaseControlAnalyzeIndexDetailPopup--header">
         <div />
         <div class="popup--tit-wrap AnalyzeChronicDiseaseControlAnalyzeIndexDetailPopup--tit-wrap">
@@ -384,7 +384,7 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped lang="scss"> /* 2606 스타일 태그 내부 수정 */
 .echart.smoothLine { /* 변경필요 */
   margin: 4rem auto 0;
   width: calc(100% - 4rem);
@@ -408,7 +408,7 @@ onUnmounted(() => {
     font-size: 1.4rem;
     color: #777;
     text-align: left;
-    font-family: "RixSinHead_Medium", sans-serif;
+    font-weight: 500;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -459,6 +459,6 @@ onUnmounted(() => {
   margin-left: 20px;
 }
 .AnalyzeChronicDiseaseControlAnalyzeIndexDetailPopup--btn-wrap{
-  margin-top: 30px;
+  margin: 3rem auto;
 }
 </style>

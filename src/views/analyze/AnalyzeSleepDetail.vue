@@ -10,10 +10,33 @@ const store = useStore()
 
 const popup = ref(false)
 const sleepGuidePopup = ref(false)
+// 2606 퍼블 확인용 - 수면 상세 기본 데이터
+const publishingDetail = {
+  compId: 'AnalyzeSleepIndex',
+  name: '홍길동',
+  shData: {
+    sh_score: 68
+  },
+  shStatus: {
+    PSQIK_T01: 1,
+    PSQIK_T02: 3,
+    PSQIK_T03: 1,
+    PSQIK_T04: 1,
+    PSQIK_T05: 3,
+    PSQIK_T06: 1,
+    PSQIK_T07: 3
+  }
+}
 
 // Vuex store에서 데이터 가져오기
 const detail = computed(() => {
-  return store.getters['analyze/getInhibitionAnalysisDetail']
+  // 2606 퍼블 확인용 아래 주석이 원본
+  const storeData = store.getters['analyze/getInhibitionAnalysisDetail']
+  if (storeData && Object.keys(storeData).length > 0) {
+    return storeData
+  }
+  return publishingDetail
+  // return store.getters['analyze/getInhibitionAnalysisDetail']
 })
 
 const sendData = computed(() => {

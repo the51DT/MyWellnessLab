@@ -15,6 +15,29 @@ const props = defineProps({
 
 const echart = ref(null)
 const myChart = ref(null)
+// 2606 퍼블 확인용 - 차트 기본 데이터
+const publishingChartData = {
+  name: '수축기혈압',
+  unit: 'mmHg',
+  tempData: '121, 126, 132',
+  valueList: [121, 126, 132],
+  dateList: ['20241025', '20251025', '20261025'],
+  variable: 'SBP',
+  range_min: 80,
+  range_max: 180,
+  normal_range_min: 90,
+  normal_range_max: 120,
+  warning_range_min: 120,
+  warning_range_max: 140,
+  danger_range_min: 140,
+  danger_range_max: 180,
+  normal_inequlity_min: 'lte',
+  normal_inequlity_max: 'lt',
+  warning_inequlit_min: 'lte',
+  warning_inequlit_max: 'lt',
+  danger_inequlit_min: 'lte',
+  danger_inequlit_max: 'lte'
+}
 
 // Chart Design var
 const colorDanger = '#FBC0BE66'
@@ -30,12 +53,17 @@ const topDanger = ref(true)
 const isReverse = ref(false)
 
 const chartData = computed(() => {
-  let data = {}
-
-  if (props.chartData !== undefined) {
-    data = props.chartData
+  // 2606 퍼블 확인용 아래 주석이 원본
+  if (props.chartData && Object.keys(props.chartData).length > 0) {
+    return props.chartData
   }
-  return data
+  return publishingChartData
+  // let data = {}
+
+  // if (props.chartData !== undefined) {
+  //   data = props.chartData
+  // }
+  // return data
 })
 
 const markArea = computed(() => {
@@ -44,7 +72,8 @@ const markArea = computed(() => {
     data: []
   }
 
-  if (chartData.value !== undefined) {
+  if (chartData.value && Object.keys(chartData.value).length > 0) { // 2606 퍼블 확인용 아래 주석이 원본 조건
+  // if (chartData.value !== undefined) {
     console.log(chartData.value)
     
     // HDL 전용 처리 (높을수록 좋음)
@@ -277,6 +306,11 @@ const markArea = computed(() => {
 })
 
 onMounted(() => {
+  // 2606 퍼블 확인용 - 차트 데이터 없으면 기본 데이터로 렌더
+  if (!chartData.value?.valueList?.length || !chartData.value?.dateList?.length) {
+    return
+  }
+
   const dataArr = []
   const dateArr = []
 
@@ -288,21 +322,24 @@ onMounted(() => {
   let val
 
   // 데이터가 하나일 경우 좌우로 더미데이터가 존재해야 그래프가 제대로 노출됨
-  if (chartData.value.dateList.length <= 1) {
+  if ((chartData.value.dateList || []).length <= 1) { // 2606 퍼블 확인용 아래 주석이 원본 조건
+  // if (chartData.value.dateList.length <= 1) {
     needDummy = true
     dateArr.push('')
   }
 
   dateCount = dateArr.length
 
-  chartData.value.valueList.forEach((item) => {
+  ;(chartData.value.valueList || []).forEach((item) => { // 2606 퍼블 확인용 아래 주석이 원본 조건
+  // chartData.value.valueList.forEach((item) => {
     if (item < min && item !== 0) {
       min = item
     }
     if (item > max) max = item
   })
 
-  chartData.value.valueList.forEach((item) => {
+  ;(chartData.value.valueList || []).forEach((item) => { // 2606 퍼블 확인용 아래 주석이 원본 조건
+  // chartData.value.valueList.forEach((item) => {
     val = Number(parseFloat(item).toFixed(1))
 
     if (needDummy) {

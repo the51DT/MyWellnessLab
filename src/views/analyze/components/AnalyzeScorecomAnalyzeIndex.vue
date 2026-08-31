@@ -437,22 +437,28 @@ const moveDetail = () => {
 
   switch (props.compId) {
     case 'AnalyzeAgingInhibitionAnalyzeIndex':
-      routerName = 'AnalyzeAging'
+      routerName = 'pubAnalyzeAging' // 2606 퍼블 확인용 아래 주석이 원본
+      // routerName = 'AnalyzeAging'
       break
     case 'AnalyzeChronicDiseaseControlAnalyzeIndex':
-      routerName = 'AnalyzeChronicDisease'
+      routerName = 'pubAnalyzeChronicDisease' // 2606 퍼블 확인용 아래 주석이 원본
+      // routerName = 'AnalyzeChronicDisease'
       break
     case 'AnalyzeMuscleBalanceAnalyzeIndex':
-      routerName = 'AnalyzeMuscleBalance'
+      routerName = 'pubAnalyzeMuscleBalance' // 2606 퍼블 확인용 아래 주석이 원본
+      // routerName = 'AnalyzeMuscleBalance'
       break
     case 'AnalyzeDietIndex':
-      routerName = 'AnalyzeDiet'
+      routerName = 'pubAnalyzeDiet' // 2606 퍼블 확인용 아래 주석이 원본
+      // routerName = 'AnalyzeDiet'
       break
     case 'AnalyzeExerciseIndex':
-      routerName = 'AnalyzeExercise'
+      routerName = 'pubAnalyzeExercise' // 2606 퍼블 확인용 아래 주석이 원본
+      // routerName = 'AnalyzeExercise'
       break
     case 'AnalyzeSleepIndex':
-      routerName = 'AnalyzeSleep'
+      routerName = 'pubAnalyzeSleep' // 2606 퍼블 확인용 아래 주석이 원본
+      // routerName = 'AnalyzeSleep'
       break
   }
 

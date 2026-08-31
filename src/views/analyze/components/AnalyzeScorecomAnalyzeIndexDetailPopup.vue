@@ -361,7 +361,7 @@ onUnmounted(() => {
 
 <template>
   <div class="popup AnalyzeAgingInhibitionAnalyzeIndexDetailPopup">
-    <div class="popup--wrap tit AnalyzeAgingInhibitionAnalyzeIndexDetailPopup--popup-wrap">
+    <div class="popup--wrap close AnalyzeAgingInhibitionAnalyzeIndexDetailPopup--popup-wrap"> <!-- 2606 popup--wrap 이중 클래스 tit -> close 로 변경 -->
       <div class="align--between popup--header AnalyzeAgingInhibitionAnalyzeIndexDetailPopup--header">
         <div />
         <div class="popup--tit-wrap AnalyzeAgingInhibitionAnalyzeIndexDetailPopup--tit-wrap">
@@ -403,16 +403,19 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped lang="scss"> /* 2606 스타일 태그 내부 수정 */
 .echart.smoothLine { /* 변경필요 */
   /*margin-top:20px;
   width: 100%;
   height: 70%;*/
   /*margin: 3rem 20px 3rem 20px;*/
-  margin: 4rem auto 0;
+  margin: 0 auto;
   width: calc(100% - 4rem);
   max-width: 41rem;
   height: 45rem;
+  @media (min-width:960px) {
+    margin-top: 2.4rem;
+  }
 }
 .graph-back {
   width: 100%;
@@ -431,7 +434,6 @@ onUnmounted(() => {
     font-size: 1.4rem;
     color: #777;
     text-align: left;
-    font-family: "RixSinHead_Medium", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;

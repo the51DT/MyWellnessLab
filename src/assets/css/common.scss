@@ -1581,6 +1581,29 @@ $w-pc-wrap: 520px;
   padding: 1.2rem 1.6rem;
 }
 
+@mixin analyzeDetailPopClose{
+  .popup--wrap.close{
+    max-width: 88rem;
+    .popup--header{
+      height: 5.5rem;
+      @media (min-width:$w-pc) {
+        height: 6.6rem;
+        background-color: #F5F5F5;
+        > *:first-child{
+          width: 2.4rem;
+        }
+      }
+    }
+    .popup--tit-wrap{
+      @include txtStyle(body, md, 700);
+      text-align: left;
+      @media (min-width:$w-pc) {
+        text-align: center;
+      }
+    }
+  }
+}
+
 @mixin legendWrap{
   @include alignBetween($verti: verti);
   gap: .8rem;
@@ -1948,7 +1971,15 @@ input[type=number] {
         @include alignCenter3;
         padding-bottom: 6rem;
       }
-      &:has(.AnalyzePrivacyAgree-wrap){
+      &:has(.AnalyzePrivacyAgree-wrap),
+      &:has(.AnalyzeAgingSpeedDetail),
+      &:has(.analyze-checkup-data-record-page),
+      &:has(.AnalyzeHealthLightDetail),
+      &:has(.AnalyzeAgingInhibitionAnalyzeIndexDetail),
+      &:has(.AnalyzeDietDetail),
+      &:has(.AnalyzeExerciseDetail),
+      &:has(.AnalyzeSleepDetail),
+      &:has(.AnalyzeMajorHealthRisk){
         padding: 0;
       }
     }

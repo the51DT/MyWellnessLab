@@ -13,9 +13,36 @@ const router = useRouter()
 const popup = ref(false)
 const dietGuidePopup = ref(false)
 const ageArea = ref('')
+// 2606 퍼블 확인용 - 식사 상세 기본 데이터
+const publishingDetail = {
+  compId: 'AnalyzeDietIndex',
+  hqMusBal: {
+    ages: 40
+  },
+  dqData: {
+    RFS_score: 72
+  },
+  dqStatus: {
+    Multigrain: 1,
+    Legumes: 3,
+    Vegetable: 1,
+    Seafood: 3,
+    Dairyproducts: 1,
+    Nuts: 1,
+    Tea: 3,
+    Fruit: 1,
+    Regularmeal: 3
+  }
+}
 
 const detail = computed(() => {
-  return store.getters['analyze/getInhibitionAnalysisDetail']
+  // 2606 퍼블 확인용 아래 주석이 원본
+  const storeData = store.getters['analyze/getInhibitionAnalysisDetail']
+  if (storeData && Object.keys(storeData).length > 0) {
+    return storeData
+  }
+  return publishingDetail
+  // return store.getters['analyze/getInhibitionAnalysisDetail']
 })
 
 const sendData = computed(() => {

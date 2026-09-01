@@ -499,7 +499,7 @@ const data = ref([
     loca: '@/views/analyze/AnalyzeMuscleBalanceDetail.vue',
     go: '/publishing/analyze/analyze-muscle-balance',
     msg: "'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요<br>2606 라이브 버전에 맞춰 복약 부분 미노출<br>2606 스타일 태그 내용 수정<br><br>AnalyzeMuscleBalanceDetailPopup.vue<br>'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요<br>2606 스타일 태그 내용 수정<br>",
-    confirm: '2606.08.31 완료'
+    confirm: '2606.08.31 퍼블 완료'
   },
   {
     div: '',
@@ -508,7 +508,7 @@ const data = ref([
     loca: '@/views/analyze/AnalyzeDietDetail.vue',
     go: '/publishing/analyze/analyze-diet',
     msg: "'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요",
-    confirm: '2606.08.31 완료'
+    confirm: '2606.08.31 퍼블 완료'
   },
   {
     div: '',
@@ -517,7 +517,7 @@ const data = ref([
     loca: '@/views/analyze/AnalyzeExerciseDetail.vue',
     go: '/publishing/analyze/analyze-exercise',
     msg: "'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요",
-    confirm: '2606.08.31 완료'
+    confirm: '2606.08.31 퍼블 완료'
   },
   {
     div: '',
@@ -526,7 +526,7 @@ const data = ref([
     loca: '@/views/analyze/AnalyzeSleepDetail.vue',
     go: '/publishing/analyze/analyze-sleep',
     msg: "'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요",
-    confirm: '2606.08.31 완료'
+    confirm: '2606.08.31 퍼블 완료'
   },
   {
     div: '',
@@ -535,7 +535,7 @@ const data = ref([
     loca: '@/views/analyze/AnalyzeHealthLightDetail.vue',
     go: '/publishing/analyze/analyze-health-light',
     msg: "'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요<br><br>graphChart.vue<br>'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요<br>2606 스타일 태그 내부 수정<br>2606 이미지 src 수정",
-    confirm: 'graphChart.vue 작업중'
+    confirm: '2606.09.01 퍼블 완료'
   },
   {
     div: '',
@@ -544,7 +544,7 @@ const data = ref([
     loca: '@/views/analyze/components/analyzeMajorHealthRisk/AnalyzeMajorHealthRisk.vue',
     go: '/publishing/analyze/major-health-risk',
     msg: "'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요",
-    confirm: '2606.08.31 완료'
+    confirm: '2606.08.31 퍼블 완료'
   },
   {
     div: '',

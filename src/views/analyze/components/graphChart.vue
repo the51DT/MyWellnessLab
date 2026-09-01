@@ -4,7 +4,9 @@ import { useStore } from 'vuex'
 import { convexHull } from '@/assets/js/chart/hull';
 import { isMobile, centroid, getVector } from "@/utils/common.js";
 import { clustering } from '@/assets/js/chart/clustering';
-import { onMounted, ref, onUnmounted, watch } from "vue";
+import { onMounted, ref, onUnmounted, watch, computed } from "vue"; // 2606 퍼블 확인용 아래 주석이 원본
+// import { onMounted, ref, onUnmounted, watch } from "vue";
+import { sendData as tempSendData } from '@/views/publishing/tempData' // 2606 퍼블 확인용
 import { useI18n } from 'vue-i18n';
 // BaseTooltip import 제거 - 커스텀 툴팁 사용
 const store = useStore()
@@ -88,46 +90,96 @@ const healthGuideData = {
   'CL_014': 'prostate_health',
   'CL_002': 'menopause_women_health'
 };
+// 2606 퍼블 확인용
+const isPublishingPage = computed(() => {
+  return window.location.pathname.includes('/publishing')
+})
+
+const getPublishingNetworkData = (data = {}) => {
+  const tempData = tempSendData || {}
+
+  return {
+    ...data,
+    clusterList: tempData.clusterList || data.clusterList || [],
+    nodeList: tempData.nodeList || data.nodeList || [],
+    edgeList: tempData.edgeList || data.edgeList || [],
+    ncList: tempData.ncList || data.ncList || [],
+    cluster_left_list: tempData.cluster_left_list || data.cluster_left_list || [],
+    cluster_right_list: tempData.cluster_right_list || data.cluster_right_list || []
+  }
+}
 
 onUnmounted(() => {
   window.removeEventListener("resize", resizeChart, { passive: false });
 });
 
 // props.datas가 변경될 때마다 healthNetworkData 업데이트
-watch(() => props.datas, (newData) => {
-  if (!newData) return;
-  
-  // 데이터를 복사하여 직접 수정하지 않음
-  const processedData = { ...newData };
-  
-  // cluster_left_list와 cluster_right_list의 name을 i18n 처리
-  if (newData.cluster_left_list) {
-    processedData.cluster_left_list = newData.cluster_left_list.map(item => {
-      const clusterIdKey = `ClusterName.${item.Cluster_ID}`;
-      const translatedName = t(clusterIdKey);
+watch(() => props.datas, (newData) => { // 2606 퍼블 확인용 아래 주석 watch가 원본
+  if (!newData) return
+  const sourceData = isPublishingPage.value
+    ? getPublishingNetworkData(newData)
+    : newData
+  const processedData = { ...sourceData }
+  if (sourceData.cluster_left_list) {
+    processedData.cluster_left_list = sourceData.cluster_left_list.map(item => {
+      const clusterIdKey = `ClusterName.${item.Cluster_ID}`
+      const translatedName = t(clusterIdKey)
       return {
         ...item,
         name: translatedName === clusterIdKey ? item.name : translatedName
-      };
-    });
+      }
+    })
   }
-  
-  if (newData.cluster_right_list) {
-    processedData.cluster_right_list = newData.cluster_right_list.map(item => {
-      const clusterIdKey = `ClusterName.${item.Cluster_ID}`;
-      const translatedName = t(clusterIdKey);
+  if (sourceData.cluster_right_list) {
+    processedData.cluster_right_list = sourceData.cluster_right_list.map(item => {
+      const clusterIdKey = `ClusterName.${item.Cluster_ID}`
+      const translatedName = t(clusterIdKey)
       return {
         ...item,
         name: translatedName === clusterIdKey ? item.name : translatedName
-      };
-    });
+      }
+    })
   }
+  healthNetworkData.value = processedData
+}, { immediate: true, deep: true })
+// watch(() => props.datas, (newData) => {
+//   if (!newData) return;
   
-  healthNetworkData.value = processedData;
-}, { immediate: true, deep: true });
+//   // 데이터를 복사하여 직접 수정하지 않음
+//   const processedData = { ...newData };
+  
+//   // cluster_left_list와 cluster_right_list의 name을 i18n 처리
+//   if (newData.cluster_left_list) {
+//     processedData.cluster_left_list = newData.cluster_left_list.map(item => {
+//       const clusterIdKey = `ClusterName.${item.Cluster_ID}`;
+//       const translatedName = t(clusterIdKey);
+//       return {
+//         ...item,
+//         name: translatedName === clusterIdKey ? item.name : translatedName
+//       };
+//     });
+//   }
+  
+//   if (newData.cluster_right_list) {
+//     processedData.cluster_right_list = newData.cluster_right_list.map(item => {
+//       const clusterIdKey = `ClusterName.${item.Cluster_ID}`;
+//       const translatedName = t(clusterIdKey);
+//       return {
+//         ...item,
+//         name: translatedName === clusterIdKey ? item.name : translatedName
+//       };
+//     });
+//   }
+  
+//   healthNetworkData.value = processedData;
+// }, { immediate: true, deep: true });
 onMounted(async () => {
   init.value = 0;
-  healthNetworkData.value = props.datas;
+  // 2606 퍼블 확인용 아래 주석이 원본
+  healthNetworkData.value = isPublishingPage.value 
+    ? getPublishingNetworkData(props.datas)
+    : props.datas
+  // healthNetworkData.value = props.datas;
 
 
 
@@ -622,22 +674,40 @@ const getClusterStatus = (clusterIndex) => {
   return state;
 }
 
-const getClusterColor = (clusterIndex) => {
-  const status = getClusterStatus(clusterIndex);
-  
+const getClusterColor = (clusterIndex) => { // 2606 퍼블 확인용 아래 주석이 원본
+  const clusterList = healthNetworkData.value?.clusterList || []
+  const cluster = clusterList.find(item => item.index === clusterIndex) || clusterList[clusterIndex]
+  const state = cluster?.Cluster_State || 1
+  const status = state >= 40 ? state - 40 : state
   switch (status) {
-    case 0: case 1:
-      return 'safe'
-    case 2: case 42:
+    case 2:
       return 'warn'
-    case 3: case 43:
+    case 3:
       return 'danger'
     case 4:
       return 'interest'
+    case 0:
+    case 1:
     default:
       return 'safe'
   }
 }
+// const getClusterColor = (clusterIndex) => {
+//   const status = getClusterStatus(clusterIndex);
+  
+//   switch (status) {
+//     case 0: case 1:
+//       return 'safe'
+//     case 2: case 42:
+//       return 'warn'
+//     case 3: case 43:
+//       return 'danger'
+//     case 4:
+//       return 'interest'
+//     default:
+//       return 'safe'
+//   }
+// }
 const getOption = (zoom = 1) => {
   // 매번 새로 계산하되, isZoomMode일 때는 애니메이션만 비활성화
   let convexHullData = getClusterData();
@@ -1021,18 +1091,26 @@ const getClusterData = () => {
       }
 
       let includeSex = true;
-      healthNetworkData.value.cluster_left_list.forEach((element2) => {
-        if (element2.index === index) {
-          if (element2.sex && element2.sex !== userInfo.sex)
-            includeSex = false;
-        }
-      });
-      healthNetworkData.value.cluster_right_list.forEach((element2) => {
-        if (element2.index === index) {
-          if (element2.sex && element2.sex !== userInfo.sex)
-            includeSex = false;
-        }
-      });
+      // 2606 퍼블 확인용 아래 주석이 원본
+      const currentClusterMeta = [
+        ...(healthNetworkData.value.cluster_left_list || []),
+        ...(healthNetworkData.value.cluster_right_list || [])
+      ].find(item => item.Cluster_ID === element.Cluster_ID)
+      if (currentClusterMeta?.sex && currentClusterMeta.sex !== 1) {
+        includeSex = false
+      }
+      // healthNetworkData.value.cluster_left_list.forEach((element2) => {
+      //   if (element2.index === index) {
+      //     if (element2.sex && element2.sex !== userInfo.sex)
+      //       includeSex = false;
+      //   }
+      // });
+      // healthNetworkData.value.cluster_right_list.forEach((element2) => {
+      //   if (element2.index === index) {
+      //     if (element2.sex && element2.sex !== userInfo.sex)
+      //       includeSex = false;
+      //   }
+      // });
 
       // 하이라이트된 클러스터인지 확인
       const isHighlighted = highlightedClusterIndex.value === index;
@@ -1474,10 +1552,10 @@ window.addEventListener('resize', () => {
               </span>
               <img 
                 v-if="list.hasMedication" 
-                src="/img/ic_medic_grey.svg" 
+                src="/img/ic_medic.svg" 
                 alt="복약중" 
                 class="medication-icon"
-              />
+              />  <!-- 2606 이미지 src 수정 -->
             </div>
           </template>
         </div>
@@ -1497,11 +1575,11 @@ window.addEventListener('resize', () => {
               </span>
               <img 
                 v-if="list.hasMedication" 
-                src="/img/ic_medic_grey.svg" 
+                src="/img/ic_medic.svg" 
                 alt="복약중" 
                 class="medication-icon"
                 @click.stop
-              />
+              />  <!-- 2606 이미지 src 수정 -->
             </div>
           </template>
         </div>
@@ -1554,7 +1632,7 @@ window.addEventListener('resize', () => {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped> /* 2606 스타일 태그 내부 수정 */
 .health-network-container {
   position: relative;
   width: 100%;
@@ -1563,7 +1641,6 @@ window.addEventListener('resize', () => {
   margin: -2rem auto 0;
   
   @media (min-width: 960px) {
-    border-bottom: 1px solid #e5e5e5;
     .tooltip--wrap {
       width: max-content;
       min-width: 20rem;

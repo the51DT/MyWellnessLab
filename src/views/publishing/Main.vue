@@ -75,7 +75,7 @@ export default {
       ],
       selectedMissionId: null, /* 퍼블 확인용 선택된 미션 id 데이터 */
       selectedMissionOpen: null, /* 퍼블 확인용 미션 선택 후 버튼 오프너 */
-      recommendMissionGroups: [ /* 퍼블 확인용 미션 데이터1 */
+      recommendMissionGroups: [ /* 퍼블 확인용 미션 데이터1 */ /* 260901 미션 데이터 수정 */
         {
           key: 'nutrition',
           title: '영양',
@@ -83,10 +83,14 @@ export default {
           items: [
             {
               id: 'recommend-nutrition-1',
-              title: '기억력 개선',
-              desc: '견과류 섭취하기',
-              recommend: true
-            }
+              title: '기본',
+              desc: '것모닝+ 하기(아침에 물, 식이섬유, 유산균, 단백질 섭취)',
+            },
+            {
+              id: 'recommend-nutrition-2',
+              title: '기본',
+              desc: '것나잇하기 (저녁에 식이섬유와 체중조절조제식품 섭취)',
+            },
           ]
         },
         {
@@ -96,10 +100,14 @@ export default {
           items: [
             {
               id: 'recommend-exercise-1',
-              title: '체지방 조절',
-              desc: '중강도 이상 유산소 운동 20~30분 (빠르게 걷기, 수영, 자전거)',
-              recommend: true
-            }
+              title: '기본',
+              desc: '20~30분 유산소 운동(빠른 걷기, 실내 자전거, 수영, 가벼운 조깅)',
+            },
+            {
+              id: 'recommend-exercise-2',
+              title: '기본',
+              desc: '10분 이상 CORE 운동(상체 하체 격일)',
+            },
           ]
         },
         {
@@ -110,113 +118,422 @@ export default {
             {
               id: 'recommend-sleep-1',
               title: '수면건강',
-              desc: '7~8시간 이상 수면하기',
-              recommend: true
+              desc: '7시간 이상 수면',
             },
           ]
         },
-        {
-          key: 'life',
-          title: '생활습관',
-          open: true,
-          items: [
-            {
-              id: 'recommend-life-1',
-              title: '위건강',
-              desc: '식후 3시간 이내 눕지 않기',
-              recommend: true
-            },
-          ]
-        }
       ],
-      allMissionGroups: [ /* 퍼블 확인용 미션 데이터2 */
-        {
-          key: 'nutrition-all',
-          title: '영양',
-          open: false,
-          items: [
-            {
-              id: 'all-nutrition-1',
-              title: '혈압조절',
-              desc: '혈압조절 제품 (코엔자임Q10, 마그네슘, 오메가-3) 챙겨 먹기'
-            },
-            {
-              id: 'all-nutrition-2',
-              title: '혈당조절',
-              desc: '혈당 건강 제품(바나바잎 추출물) 챙겨먹기'
-            },
-            {
-              id: 'all-nutrition-3',
-              title: '운동수행능력/지구력 향상',
-              desc: '매끼니 단백질 (콩, 두부, 달걀, 생선, 우유, 요거트, 살코기) 챙겨먹기'
-            },
-            {
-              id: 'all-nutrition-4',
-              title: '갱년기 여성건강',
-              desc: '당/튀김음식/초가공식품 (달달한 음료, 튀김, 디저트, 빵/면 중심 식사) 줄이기'
-            },
-            {
-              id: 'all-nutrition-5',
-              title: '전립선건강',
-              desc: '전립선 건강제품(쏘팔메토) 챙겨먹기'
-            },
-            {
-              id: 'all-nutrition-6',
-              title: '관절/뼈 건강',
-              desc: '관절/뼈 건강 제품(칼슘/비타민 D, 글루코사민, MSM, 비타민 C, 오미자추출물) 챙겨먹기'
-            }
-          ]
-        },
-        {
-          key: 'exercise-all',
-          title: '운동',
-          open: false,
-          items: [
-            {
-              id: 'all-exercise-1',
-              title: '운동',
-              desc: '계단 이용하기'
-            }
-          ]
-        },
+      allMissionGroups: [ /* 퍼블 확인용 미션 데이터2 */ /* 260901 미션 데이터 수정 */
         {
           key: 'sleep-all',
-          title: '수면',
+          title: '수면건강',
           open: false,
           items: [
             {
               id: 'all-sleep-1',
-              title: '수면건강',
-              desc: '7~8시간 이상 수면하기'
+              title: '수면',
+              desc: '7시간 이상 수면'
             },
             {
               id: 'all-sleep-2',
-              title: '수면건강',
+              title: '생활습관',
               desc: '취침 1시간 전 TV, 스마트폰 등 전자기기 미사용'
             },
             {
               id: 'all-sleep-3',
-              title: '수면건강',
-              desc: '취침 5분 전 명상, 요가, 심호흡하기'
+              title: '생활습관',
+              desc: '취침 5분 전 명상, 요가, 심호흡'
             },
             {
               id: 'all-sleep-4',
-              title: '수면건강',
-              desc: '식후 2시간 이후 취침'
+              title: '생활습관',
+              desc: '점심 이후에 카페인 섭취 금지'
+            },
+            {
+              id: 'all-sleep-5',
+              title: '영양',
+              desc: '수면건강성분(미강주정추출물) 섭취'
             }
           ]
         },
         {
-          key: 'life-all',
-          title: '생활습관',
-          open: true,
+          key: 'eye-all',
+          title: '눈건강',
+          open: false,
           items: [
             {
-              id: 'all-life-1',
+              id: 'all-eye-1',
               title: '생활습관',
-              desc: '취침 1시간 전 TV, 스마트폰등 전자기기 미사용',
-              recommend: true
+              desc: '20-20-20 습관 (20분마다 20초 동안 6m 이상 먼 곳 보기)'
             },
+            {
+              id: 'all-eye-2',
+              title: '생활습관',
+              desc: '눈 스트레칭(좌우, 대각선으로 눈동자 크게 돌리기)'
+            },
+            {
+              id: 'all-eye-3',
+              title: '영양',
+              desc: '눈 건강 성분(루테인지아잔틴추출복합물, 마리골드꽃추출물, EPA 및 DHA 함유 유지(오메가-3)) 섭취'
+            },
+            {
+              id: 'all-eye-4',
+              title: '영양',
+              desc: '녹황색채소, 당근, 블루베리, 토마토 섭취'
+            }
+          ]
+        },
+        {
+          key: 'liver-all',
+          title: '간건강',
+          open: false,
+          items: [
+            {
+              id: 'all-liver-1',
+              title: '수면',
+              desc: '7시간 이상 수면'
+            },
+            {
+              id: 'all-liver-2',
+              title: '영양',
+              desc: '간 건강 성분(밀크씨슬추출물) 섭취'
+            },
+            {
+              id: 'all-liver-3',
+              title: '생활습관',
+              desc: '200mL 컵 기준 5~6잔 물 또는 무가당 차 섭취'
+            }
+          ]
+        },
+        {
+          key: 'antioxidant-all',
+          title: '항산화',
+          open: false,
+          items: [
+            {
+              id: 'all-antioxidant-1',
+              title: '영양',
+              desc: '항산화 건강 성분(코엔자임Q10, 비타민C, 비타민E, 셀레늄) 섭취'
+            },
+            {
+              id: 'all-antioxidant-2',
+              title: '영양',
+              desc: '매일 5가지 이상 채소/과일 섭취'
+            }
+          ]
+        },
+        {
+          key: 'stomach-all',
+          title: '위건강',
+          open: false,
+          items: [
+            {
+              id: 'all-stomach-1',
+              title: '생활습관',
+              desc: '천천히 먹기 (식사시간 최소 15분 이상)'
+            },
+            {
+              id: 'all-stomach-2',
+              title: '생활습관',
+              desc: '식후 3시간 이내 눕지 않기'
+            },
+            {
+              id: 'all-stomach-3',
+              title: '운동',
+              desc: '식후 15분 동안 가벼운 산책'
+            },
+            {
+              id: 'all-stomach-4',
+              title: '영양',
+              desc: '익힌 양배추 또는 브로콜리 번갈아 섭취'
+            }
+          ]
+        },
+        {
+          key: 'gut-all',
+          title: '장건강',
+          open: false,
+          items: [
+            {
+              id: 'all-gut-1',
+              title: '영양',
+              desc: '장 건강 성분 (프로바이오틱스, 식이섬유) 섭취'
+            },
+            {
+              id: 'all-gut-2',
+              title: '영양',
+              desc: '1끼 이상 채소/과일/잡곡 섭취'
+            },
+            {
+              id: 'all-gut-3',
+              title: '생활습관',
+              desc: '200mL 컵 기준 5~6잔 물 마시기'
+            }
+          ]
+        },
+        {
+          key: 'joint-all',
+          title: '관절/뼈 건강',
+          open: false,
+          items: [
+            {
+              id: 'all-joint-1',
+              title: '운동',
+              desc: '20분 이상 평지 걷기, 수영, 실내자전거 운동'
+            },
+            {
+              id: 'all-joint-2',
+              title: '영양',
+              desc: '관절/뼈 건강 성분(글루코사민, MSM, 칼슘, 마그네슘, 비타민D, 비타민K, 망간) 섭취'
+            }
+          ]
+        },
+        {
+          key: 'memory-all',
+          title: '기억력개선',
+          open: false,
+          items: [
+            {
+              id: 'all-memory-1',
+              title: '운동',
+              desc: '20분 이상 유산소 운동 (빠르게 걷기, 수영, 달리기 등)'
+            },
+            {
+              id: 'all-memory-2',
+              title: '생활습관',
+              desc: '20분 이상 뇌 자극 활동 (독서, 글쓰기, 악기, 퍼즐)'
+            },
+            {
+              id: 'all-memory-3',
+              title: '영양',
+              desc: '기억력 건강 성분 (은행잎 추출물, EPA 및 DHA 함유 유지(오메가-3)) 섭취'
+            },
+            {
+              id: 'all-memory-4',
+              title: '영양',
+              desc: '견과류 섭취(호두의 경우 약 5알)'
+            }
+          ]
+        },
+        {
+          key: 'circulation-all',
+          title: '혈행개선',
+          open: false,
+          items: [
+            {
+              id: 'all-circulation-1',
+              title: '운동',
+              desc: '10분 이상 스트레칭'
+            },
+            {
+              id: 'all-circulation-2',
+              title: '생활습관',
+              desc: '10분 이상 종아리 마사지(하지순환, 림프순환 촉진)'
+            },
+            {
+              id: 'all-circulation-3',
+              title: '생활습관',
+              desc: '200mL 컵 기준 5~6잔 물 또는 무가당 차 섭취'
+            },
+            {
+              id: 'all-circulation-4',
+              title: '영양',
+              desc: '혈행개선 성분(EPA 및 DHA 함유 유지(오메가-3), 감마리놀렌산 함유 유지, 은행잎 추출물) 섭취'
+            }
+          ]
+        },
+        {
+          key: 'pressure-all',
+          title: '혈압조절',
+          open: false,
+          items: [
+            {
+              id: 'all-pressure-1',
+              title: '운동',
+              desc: '1회 이상 1000보 이상 숨 가쁘게 한 번에 걷기'
+            },
+            {
+              id: 'all-pressure-2',
+              title: '영양',
+              desc: '혈압조절 성분(코엔자임Q10) 섭취'
+            },
+            {
+              id: 'all-pressure-3',
+              title: '영양',
+              desc: '1끼 이상 국,탕,찌개 없는 채소 반찬 위주 식사'
+            },
+            {
+              id: 'all-pressure-4',
+              title: '영양',
+              desc: '1끼 이상 칼륨 식품 (칼륨 제품, 감자, 고구마 등) 섭취'
+            }
+          ]
+        },
+        {
+          key: 'lipid-all',
+          title: '혈중지질 개선',
+          open: false,
+          items: [
+            {
+              id: 'all-lipid-1',
+              title: '운동',
+              desc: '20분 이상 하체 위주 유산소 운동 (빠르게 걷기, 수영, 계단오르기, 실내 자전거 등)'
+            },
+            {
+              id: 'all-lipid-2',
+              title: '영양',
+              desc: '혈중지질 성분(EPA 및 DHA 함유 유지(오메가-3), 감마리놀렌산 함유 유지, 키토산, 귀리식이섬유) 섭취'
+            },
+            {
+              id: 'all-lipid-3',
+              title: '영양',
+              desc: '견과류 한주먹 섭취'
+            }
+          ]
+        },
+        {
+          key: 'fat-all',
+          title: '체지방 조절',
+          open: false,
+          items: [
+            {
+              id: 'all-fat-1',
+              title: '운동',
+              desc: '20~30분 중강도 이상 유산소 운동 (스텝퍼, 수영, 가벼운 등산, 배드민턴, 탁구, 골프 등)'
+            },
+            {
+              id: 'all-fat-2',
+              title: '운동',
+              desc: '10분 이상 코어 중심 근력운동 (상체 하체 격일)'
+            },
+            {
+              id: 'all-fat-3',
+              title: '영양',
+              desc: '체지방 조절 성분(가르시니아캄보지아 추출물, 공액리놀레산(씨엘에이)) 섭취'
+            },
+            {
+              id: 'all-fat-4',
+              title: '생활습관',
+              desc: '하루 한끼 체중조절용 조제식품으로 대체하여 관리하기'
+            }
+          ]
+        },
+        {
+          key: 'glucose-all',
+          title: '혈당조절',
+          open: false,
+          items: [
+            {
+              id: 'all-glucose-1',
+              title: '운동',
+              desc: '1회 이상 식후 15분 가볍게 걷기'
+            },
+            {
+              id: 'all-glucose-2',
+              title: '운동',
+              desc: '10분 이상 코어 중심 근력운동 (상체 하체 격일)'
+            },
+            {
+              id: 'all-glucose-3',
+              title: '영양',
+              desc: '혈당 건강 성분(바나바잎추출물, 귀리식이섬유) 섭취'
+            },
+            {
+              id: 'all-glucose-4',
+              title: '영양',
+              desc: '1끼 이상 단백질 및 불포화지방산 (두류/두유 식품 등) 섭취'
+            },
+            {
+              id: 'all-glucose-5',
+              title: '영양',
+              desc: '1끼 이상 식이섬유가 풍부한 식품 (채소, 잡곡류) 섭취'
+            },
+            {
+              id: 'all-glucose-6',
+              title: '생활습관',
+              desc: '1끼 이상 식사 순서 개선: 채소>단백질>탄수화물'
+            }
+          ]
+        },
+        {
+          key: 'muscle-all',
+          title: '근육(근력) 근건강',
+          open: false,
+          items: [
+            {
+              id: 'all-muscle-1',
+              title: '운동',
+              desc: '10분 이상 코어 중심 근력운동(상체 하체 격일)'
+            },
+            {
+              id: 'all-muscle-2',
+              title: '영양',
+              desc: '근육(근력)건강 성분(단백질, 오미자추출물, 칼슘, 마그네슘, 비타민D)섭취'
+            },
+            {
+              id: 'all-muscle-3',
+              title: '영양',
+              desc: '매 끼니 단백질 (생선, 두부, 콩 달걀, 우유, 요거트, 살코기 중 선택) 섭취'
+            }
+          ]
+        },
+        {
+          key: 'prostate-all',
+          title: '전립선건강',
+          open: false,
+          items: [
+            {
+              id: 'all-prostate-1',
+              title: '운동',
+              desc: '30~60분 빠르게 걷기 + 주2~3회 근력운동 + 골반저근 운동'
+            },
+            {
+              id: 'all-prostate-2',
+              title: '영양',
+              desc: '전립선 건강성분(쏘팔메토열매/네틀루트추출물) 섭취'
+            },
+            {
+              id: 'all-prostate-3',
+              title: '영양',
+              desc: '토마토, 브로콜리, 양배추, 베리류. 등푸른생선, 단백질 섭취'
+            }
+          ]
+        },
+        {
+          key: 'menopause-all',
+          title: '갱년기 여성건강',
+          open: false,
+          items: [
+            {
+              id: 'all-menopause-1',
+              title: '운동',
+              desc: '20~30분 유산소 운동 (빠른 걷기, 실내 자전거, 수영, 가벼운 조깅)'
+            },
+            {
+              id: 'all-menopause-2',
+              title: '운동',
+              desc: '주2-3회 근력운동 (스쿼트, 런지, 밴드 운동, 계단오르기)'
+            },
+            {
+              id: 'all-menopause-3',
+              title: '영양',
+              desc: '갱년기 건강 성분(루바브뿌리추출물) 섭취'
+            },
+            {
+              id: 'all-menopause-4',
+              title: '영양',
+              desc: '매 끼니 단백질 (생선, 두부, 콩 달걀, 우유, 요거트, 살코기 중 선택) 섭취'
+            },
+            {
+              id: 'all-menopause-5',
+              title: '영양',
+              desc: '당/튀김음식/초가공식품 (단 음료, 튀김, 디저트, 빵/면 중심 식사) 줄이기'
+            },
+            {
+              id: 'all-menopause-6',
+              title: '영양',
+              desc: '견과류 한주먹 섭취 (호두 경우 약 5알)'
+            }
           ]
         }
       ],
@@ -605,8 +922,8 @@ export default {
                 <span><em>팀 인증률</em><strong>80%</strong><em>이상</em></span>
               </p>
               <p>
-                <span>전체기간</span>
-                <span>2026.06.11~2025.08.20 /<em>70일</em></span>
+                <span>전체 기간</span> <!-- 260901 문구 수정 -->
+                <span>2026.06.11~2025.08.20<em>70일</em></span> <!-- 260901 문구 수정 -->
               </p>
             </div>
             <div class="challenge--box-rate">
@@ -625,6 +942,7 @@ export default {
           </div>
           <!-- 260819 tit 내부 버튼 추가 / 팀상세 이동 필요 -->
           <!-- 260827 문구 수정 -->
+          <!-- 260901 문구 수정 -->
           <!-- <div>
             <div class="challenge--box-tit"><span>6월 건강수면 챌린지팀</span><button type="button" @click=""></button></div> 
             <div class="challenge--box-tag">진행중</div>
@@ -634,8 +952,8 @@ export default {
                 <span><em>팀 인증률</em><strong>80%</strong><em>이상</em></span>
               </p>
               <p>
-                <span>전체기간</span>
-                <span>2026.06.11~2025.08.20 /<em>70일</em></span>
+                <span>전체 기간</span>
+                <span>2026.06.11~2025.08.20<em>70일</em></span>
               </p>
             </div>
             <div class="challenge--box-rate">

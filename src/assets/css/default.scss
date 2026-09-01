@@ -362,7 +362,7 @@
       margin-left: auto;
       @include min-vh-fallback(100, 43.1rem);
       @media (min-width:$w-pc) {
-        @include min-vh-fallback(100, 47.5rem);
+        @include min-vh-fallback(100, 48.6rem);
       }
     }
     .footer--wrap{
@@ -418,7 +418,7 @@
   border-radius: 1.2rem;
   display: flex;
   @media (min-width: $w-pc) {
-    top: 2.35rem;
+    top: 1.38rem;
     left: -1.6rem;
     padding: 1.5rem 1.2rem 1.2rem 1.6rem;
     z-index: 1;
@@ -1385,7 +1385,7 @@ footer{
         top: 0;
         z-index: 1;
         height: fit-content;
-        min-height: 5.1rem;
+        min-height: 5.5rem;
         padding: 1.6rem 2rem .8rem;
         align-items: flex-start;
         &:has(div:only-child){
@@ -2268,7 +2268,7 @@ footer{
         color: #1A1818;
         @include txtStyle(body, 2xs-1, 600);
         @media (min-width:$w-pc) {
-          padding: 1.4rem 1.2rem 1.4rem 1.8rem;
+          padding: 1.4rem 1.2rem 1.4rem 1.4rem;
         }
         &.open{
           .mission-select__arrow {
@@ -2387,13 +2387,6 @@ footer{
         padding-bottom: 28rem;
       }
     }
-    .animation-bg {
-      width: 100%;
-      position: absolute;
-      top: 0;
-      pointer-events: none;
-      z-index: 1;
-    }
     .animation-text {
       width: 27.2rem;
       position: relative;
@@ -2405,7 +2398,8 @@ footer{
     .animation-bg {
       width: 36rem;
       position: absolute;
-      top: 0;
+      top: 50%;
+      transform: translateY(-50%);
       pointer-events: none;
       z-index: 1;
       @media (min-width:$w-pc) {
@@ -4099,7 +4093,7 @@ footer{
     background-size: 56rem;
     padding-bottom: 50.6rem;
     @media (min-width: $w-pc) {
-      background-position: 47% 0%;
+      background-position: 50% 0%;
       padding-bottom: 57.2rem;
       background-size: 65rem;
       margin-top: 6.8rem;
@@ -4111,7 +4105,7 @@ footer{
       background-size: 56rem;
       padding-bottom: 48.3rem;
       @media (min-width: $w-pc) {
-        background-position-x: 51%;
+        background-position-x: 50%;
         background-size: 78rem;
         background-position-y: -2rem;
         padding-bottom: 54.2rem;
@@ -4124,7 +4118,7 @@ footer{
       background-size: 68rem;
       padding-bottom: 54rem;
       @media (min-width: $w-pc) {
-        background-position-x: 49%;
+        background-position-x: 50%;
         background-position-y: -2rem;
         background-size: 78rem;
       }
@@ -5177,8 +5171,15 @@ button{
   margin-right: auto;
   margin-left: auto;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  @include min-vh-fallback(100, 40.6rem);
+  @media (min-width:$w-pc) {
+    @include min-vh-fallback(100, 48.6rem);
+  }
   &--analyze{
     padding: 1.6rem 2rem 1.2rem;
+    width: 100%;
     max-width: $w-pc-wrap;
     margin: 0 auto;
     @media (min-width:$w-pc) {
@@ -5398,6 +5399,7 @@ button{
   &--daily{
     position: relative;
     z-index: 1;
+    width: 100%;
     max-width: $w-pc-wrap;
     margin: 0 auto;
     padding: 0 2rem 2.4rem;
@@ -5624,6 +5626,7 @@ button{
     background: #1DB196;
     z-index: 0;
     padding-bottom: 3.8rem;
+    flex-grow: 1;
     @media (min-width:$w-pc){
       padding-bottom: 5.2rem;
     }
@@ -5688,8 +5691,10 @@ button{
         margin-top: .4rem;
         border-radius: 2.4rem;
         padding: 1.6rem 2rem 2.2rem;
+        min-height: 22.5rem;
         @media (min-width: $w-pc) {
           margin-top: .6rem;
+          min-height: 25.3rem;
         }
         &--active{
           position: absolute;
@@ -5843,6 +5848,7 @@ button{
         align-items: center;
         &:first-child{
           width: fit-content;
+          @include txtStyle(body, 2xs);
         }
       }
       strong{

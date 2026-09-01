@@ -216,6 +216,7 @@ const healthLightParams = store.getters['analyze/getHealthLightParams'] || {}
 
 const detailId = ref(healthLightParams.detailId || 1)
 const sendData = store.getters['analyze/getAnalysisSendData'] || publishingSendData
+// 2606 퍼블 확인용 [e]
 // const detailId = ref(store.getters['analyze/getHealthLightParams'].detailId)
 // const sendData = store.getters['analyze/getAnalysisSendData']
 // ref var

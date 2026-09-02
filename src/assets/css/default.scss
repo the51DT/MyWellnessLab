@@ -11795,6 +11795,9 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     @include txtStyle(caption, sm);
     display: block;
     margin-top: -.4rem;
+    &:empty{
+      margin-top: 0;
+    }
   }
   .CheckupInterestHealth--item-div{
     padding-bottom: 0;
@@ -11814,6 +11817,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     padding-inline: 2rem;
     @media (min-width:$w-pc) {
       max-width: 48rem;
+      margin-inline: auto;
     }
   }
 }
@@ -12244,6 +12248,10 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       .Checkup--contents-icon img {
         width: 2.2rem;
       }
+    }
+    .inputBox--txt{
+      min-width: unset !important;
+      padding-left: 0;
     }
     .Checkup--contents-tit-wrap{
       padding-top: 5.2rem;

@@ -1934,7 +1934,7 @@ input[type=number] {
         padding-bottom: 6rem;
         @include alignCenter3;
       }
-      &:has(.AnalyzeCheckDateSelect)
+      &:has(.AnalyzeCheckDateSelect),
       &:has(.CheckupBasics),
       &:has(.CheckupBlood),
       &:has(.CheckupBodyGuide),

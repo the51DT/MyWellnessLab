@@ -3859,7 +3859,10 @@ footer{
       visibility: visible;
     }
     &.bottom{
-      bottom: 16rem;
+      bottom: 11.1rem;
+      @media (min-width:$w-pc) {
+        bottom: 4rem;
+      }
     }
   }
   &--dock{
@@ -3936,8 +3939,9 @@ footer{
 .home:has(.home-swiper.small){
   overflow: hidden;
   .home--start{
+    padding: 2.4rem;
     @media (min-width: $w-pc) {
-      padding: 4rem 3.6rem;
+      padding: 2.4rem 2.8rem;
     }
   }
   .home--hi{
@@ -4838,7 +4842,7 @@ button{
     }
     .Checkup--btn-wrap.btns-2{
       margin-top: 3rem;
-      padding-bottom: 2.4rem;
+      padding: 2rem 0 2.4rem;
       @media (min-width: $w-pc) {
         margin-top: 6rem;
         padding-bottom: 2.8rem;
@@ -4847,7 +4851,7 @@ button{
       }
       .btn--bottom{
         @media (min-width:$w-pc) {
-          width: 20rem;
+          width: 23.4rem;
         }
         button{
           @include txtStyle(body, sm, 600);
@@ -9982,7 +9986,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       margin-top: 2.4rem;
       padding-bottom: 2.4rem;
       @media (min-width: $w-pc-small) {
-        width: 48rem;
+        width: $w-pc-wrap;
         padding-bottom: 2.8rem;
       }
     }
@@ -10812,6 +10816,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
           margin-top: 0.8rem;
           @media (min-width:$w-pc) {
             margin-top: 1rem;
+            height: 4.8rem !important;
           }
           &#bodyKeyId{
           }
@@ -11267,7 +11272,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     flex: 1 1 auto;
     padding: 2.8rem 2rem 2.4rem;
     @media (min-width: $w-pc) {
-      max-width: 50rem;
+      width: $w-pc-wrap;
       padding: 3.2rem 2rem 3.6rem;
     }
   }
@@ -11513,7 +11518,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     $pooqMinHeight: 15rem;
     &--label{
       @include btnBasicWhite;
-      border-radius: 2rem;
+      border-radius: 2rem !important;
       display: block;
       padding: 1.2rem 1.2rem 1.6rem 1.2rem;
       height: 18.5rem;
@@ -11804,6 +11809,12 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   .Checkup--contents-wrapT{
     padding: 0;
     @include checkupContentWrap;
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: 2rem;
+    @media (min-width:$w-pc) {
+      max-width: 48rem;
+    }
   }
 }
 .CheckupEq5d{ /*삶의 질*/
@@ -11969,6 +11980,12 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     }
   }
   &--for-wrap{
+    &:has(.BaseTimeMinute){
+      margin-bottom: 3.6rem;
+      @media (min-width:$w-pc) {
+        margin-bottom: 4.4rem;
+      }
+    }
     .validation:not(:empty){
       &::before{
         content: '';
@@ -11977,7 +11994,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
         height: 1.6rem;
         margin-right: .4rem;
         background: url("/img/ico_caption_red.svg") no-repeat center / contain;
-        vertical-align: middle;
+        vertical-align: sub;
       }
     }
   }
@@ -12288,18 +12305,25 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     }
     .validation{
       &::before{
-        content: '';
         display: inline-block;
         width: 1.6rem;
         height: 1.6rem;
         margin-right: .4rem;
         background: url("/img/ico_caption_red.svg") no-repeat center / contain;
-        vertical-align: middle;
+        vertical-align: sub;
+      }
+      &:not(:empty){
+        &::before{
+          content: '';
+        }
       }
     }
   }
   &--label{
     @include checkupRadio;
+    span[class$="--span"]{
+      text-align: center;
+    }
   }
   &--input{
     display: block;
@@ -12312,7 +12336,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     @include checkupMainTxt(eye);
   }
   &--span{
-    max-width: 3.3rem;
+    // max-width: 3.3rem;
   }
   &--div{
     @include checkupAnswerSpace;
@@ -13036,7 +13060,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
         width: calc((100% - 1.2rem) / 2);
       }
       &:last-child{
-        margin-top: 1.6rem;
+        margin-top: 1.2rem;
         @media (min-width: $w-pc) {
           margin-top: 0;
         }

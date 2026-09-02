@@ -638,7 +638,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/team/CreateTeam.vue',
     go: '/publishing/my-team/create/challenge',
-    msg: "퍼블 확인용 라우터 케이스 적용",
+    msg: "퍼블 확인용 라우터 케이스 적용<br>지정 미션, 자율 미션, 성공 조건 케이스 전체 노출",
     confirm: '"'
   },
   {

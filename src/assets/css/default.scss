@@ -4132,11 +4132,14 @@ footer{
 .login{
   &--txt{
     @include mainMsg2;
-    @media (min-width: $w-pc) {
-      margin-top: 25rem;
-    }
   }
   &--wrap{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 52rem;
     padding-right: 2.5rem;
     padding-left: 2.5rem;
   }
@@ -4390,7 +4393,7 @@ footer{
     text-align: center;
     padding: 2.4rem 2rem;
     @media (min-width: $w-pc) {
-      padding: 2.8rem 0 0;
+      padding: 2.8rem 2rem 0;
       @include min-vh-fallback(100, 19.2rem);
     }
     .btn--bottom{
@@ -4466,9 +4469,9 @@ footer{
       display: flex;
       flex-direction: column;
       flex-grow: 1;
-      margin-top: $marginTop-default;
+      margin-top: 2rem;
       @media (min-width: $w-pc) {
-        margin-top: 3rem;
+        margin-top: 2.8rem;
       }
     }
     &-tit{
@@ -5877,6 +5880,13 @@ button{
     background-color: white;
     overflow: hidden;
     position: relative;
+    @media (min-width:$w-pc) {
+      border-radius: 2.8rem;
+      transition: border-radius .5s ease;
+      &:has(.main--mission__head.open){
+        border-radius: 2.4rem;
+      }
+    }
     &__head{
       position: relative;
       display: flex;
@@ -5931,10 +5941,10 @@ button{
       flex: 0 0 auto;
       display: inline-block;
       color: white;
-      padding: 0 .8rem;
+      padding: .1rem .8rem;
       border-radius: 2rem;
       background-color: #1db196;
-      vertical-align: middle;
+      vertical-align: baseline;
       margin-right: .8rem;
       @include txtStyle(caption, lg-1, 600);
     }
@@ -6048,11 +6058,22 @@ button{
   max-width: $w-pc-wrap;
   margin: 0 auto;
   padding: 1.2rem 2rem 13.6rem;
+  @include min-vh-fallback(100, 4.9rem);
+  display: flex;
+  flex-direction: column;
+  @media (min-width:$w-pc) {
+    @include min-vh-fallback(100, 12.9rem);
+  }
+  .tab-round--content{
+    flex: 1;
+    position: relative;
+  }
   &--link {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: .2rem;
+    width: 100%;
     margin: 2rem auto .8rem;
     @include txtStyle(body, 2xs);
     color: #666666;
@@ -6070,16 +6091,18 @@ button{
   &--not{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 1.2rem;
-    padding-top: 10.8rem;
     text-align: center;
+    position: sticky;
+    top: 50%;
+    left: 50%;
     @include txtStyle(body, md, 600);
     > img{
       width: 6rem;
     }
     @media (min-width: $w-pc){
-      padding-top: 24.6rem;
       > img {
         width: 8rem;
       }
@@ -6451,6 +6474,7 @@ button{
       }
       &:has(.cate){
         display: block;
+        line-height: 1.7;
       }
     }
   }
@@ -6536,13 +6560,25 @@ button{
   max-width: $w-pc-wrap;
   margin: 0 auto;
   padding: 1.2rem 2rem 11.8rem;
+  @include min-vh-fallback(100, 4.9rem);
+  display: flex;
+  flex-direction: column;
   @media (min-width:$w-pc){
     padding-bottom: 4.8rem;
+    @include min-vh-fallback(100, 12.9rem);
+  }
+  .tab-round--content{
+    flex: 1;
+    position: relative;
   }
   &--tit{
     @include txtStyle(body, md);
     padding-left: .6rem;
     margin: 2.4rem auto 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    width: 100%;
     @media (min-width: $w-pc) {
       margin: 2.8rem auto 2rem;
     }
@@ -6797,9 +6833,9 @@ button{
       font-style: normal;
       display: flex;
       justify-content: space-between;
-      width: 5.5rem;
+      width: 5.6rem;
       @media (min-width:$w-pc) {
-        width: 6.4rem;
+        width: 6.7rem;
       }
       span{
         font-weight: 600;
@@ -6917,6 +6953,18 @@ button{
   max-width: $w-pc-wrap;
   margin: 0 auto;
   padding: 1.6rem 1.6rem .1rem;
+  @include min-vh-fallback(100, 4.9rem);
+  display: flex;
+  flex-direction: column;
+  @media (min-width:$w-pc) {
+    @include min-vh-fallback(100, 8.1rem);
+  }
+  &-wrap{
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
   &-box{
     margin-top: 2.4rem;
     background-color: #fff;
@@ -6974,6 +7022,7 @@ button{
     // background-color: #F5F5F5;
     padding: 2.4rem 0 2.8rem;
     z-index: 1;
+    margin-top: auto;
     &.is-bottom {
       .sticky-btn {
         box-shadow: none;
@@ -7075,6 +7124,18 @@ button{
       margin-top: .6rem;
       @media (min-width:$w-pc) {
         margin-top: .8rem;
+      }
+    }
+    .inputField--input--checkbox{
+      width: 1.6rem;
+      height: 1.6rem;
+      @media (min-width:$w-pc) {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+      &--label{
+        @include txtStyle(caption, xl);
+        color: #333;
       }
     }
   }
@@ -7585,6 +7646,9 @@ button{
     right: 2rem;
     text-align: right;
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     @include txtStyle(head, 2xs);
     @media (min-width: $w-pc) {
       bottom: 2.4rem;
@@ -7620,6 +7684,7 @@ button{
       align-self: center;
       padding: 0 .8rem;
       z-index: 0;
+      margin-right: .2rem;
       &::after{
         content: '';
         position: absolute;
@@ -8911,6 +8976,10 @@ button{
       }
     }
   }
+  .challenge--not{
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
 }
 .team-detail{
   margin: 0 auto;
@@ -9322,6 +9391,7 @@ button{
   padding-right: .6rem;
   @include alignBetween($verti: verti);
   @media (min-width: $w-pc) {
+    padding-right: .8rem;
     border-radius: 4rem;
   }
   input[type=text], input[type=password], input[type=number]{
@@ -12838,7 +12908,10 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       }
       &-img{
         img{
-          height: 18rem;
+          height: 8rem;
+          @media (min-width:$w-pc) {
+            height: 10rem;
+          }
         }
       }
     }
@@ -17882,7 +17955,8 @@ span.legend-dot-interest{
     height: 2rem;
     margin-bottom: .1rem;
     @media (min-width: $w-pc) {
-      background-size: 84%;
+      width: 2.4rem;
+      height: 2.4rem;
     }
   }
   &--btn{
@@ -21442,6 +21516,9 @@ span.legend-dot-interest{
             .badge__wrap {
               img {
                 width: 8rem;
+                @media (min-width:$w-pc) {
+                  width: 10rem;
+                }
               }
             }
 

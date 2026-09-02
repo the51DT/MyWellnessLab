@@ -11825,15 +11825,10 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     }
   }
   .Checkup--contents-wrapT{
-    @include spaceRLSDefault;
-    padding-top: 0;
+    @include checkupContentWrap;
   }
   &--div-wrap{
     overflow: hidden;
-    padding-top: 5.5rem;
-    @media (min-width: $w-pc) {
-      padding-top: 0;
-    }
   }
   &--info{
     position: relative;
@@ -11856,11 +11851,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     font-size: 2rem;
   }
   &--label{
-    @include btnBasicWhite;
-    font-size: 1.5rem;
-    @media (min-width: $w-pc) {
-      min-height: 3.8rem;
-    }
+    @include checkupAnswerBtn;
   }
   &--for{
     &:last-child{
@@ -11875,8 +11866,8 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     flex-direction: column;
     gap: 1.2rem;
   }
-  &--btn-div{
-    margin-top: $marginTop-default2;
+  &--span{
+    text-align: center;
   }
 }
 .CheckupPhysicalActivity{ /*운동습관*/

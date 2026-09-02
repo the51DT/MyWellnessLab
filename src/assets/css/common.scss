@@ -1957,6 +1957,7 @@ input[type=number] {
       &:has(.CheckupDiet),
       &:has(.CheckupSleep),
       &:has(.CheckupPhysicalActivity),
+      &:has(.CheckupEq5d),
       &:has(.CheckupDrinkSmokeSleep){
         padding: 0;
       }

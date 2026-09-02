@@ -26,6 +26,9 @@ const basicsId = store.getters['checkup/getBasicsId']
 const isProcessing = ref(false)
 const isReady = ref(false)
 let debounceTimeout = null
+const isPublishingPage = computed(() => { // 2606 퍼블 확인용
+  return window.location.pathname.includes('/publishing')
+})
 
 // 답변 목록
 const answer1 = [
@@ -123,6 +126,14 @@ const questionList = [
     question: t('CheckupEq5d.text13'),
     answer: answer4
   }
+]
+const publishingProgressbar = [ // 2606 퍼블 확인용
+  { pType: '1', inputYn: 'Y' },
+  { pType: '2', inputYn: 'Y' },
+  { pType: '3', inputYn: 'Y' },
+  { pType: '4', inputYn: 'Y' },
+  { pType: '5', inputYn: 'Y' },
+  { pType: '6', inputYn: 'Y' }
 ]
 
 const isOpen = ref([true])
@@ -282,6 +293,15 @@ const handleSave = async (shouldMoveNext = true) => {
 }
 
 onBeforeMount(async () => {
+  if (isPublishingPage.value) {  // 2606 퍼블 확인용
+    progressbar.value = publishingProgressbar
+    current.value = 6
+
+    await nextTick()
+    isReady.value = true
+    return
+  }
+
   const lifeTemporary = await getLifeTemporary()
 
   if (lifeTemporary.eq5D) {

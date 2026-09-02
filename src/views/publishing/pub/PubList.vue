@@ -426,8 +426,8 @@ const data = ref([
     div3: '삶의 질',
     loca: '@/views/checkup/life/CheckupEq5d.vue',
     go: '/publishing/checkup-input/checkup-life',
-    msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
-    confirm: '2026.08.28 퍼블 완료'
+    msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요<br>260902 수정 사항 커밋 안되어 다시 커밋',
+    confirm: '2026.09.02 퍼블 완료'
   },
   {
     div: '',

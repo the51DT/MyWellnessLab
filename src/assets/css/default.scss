@@ -12249,9 +12249,15 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
         width: 2.2rem;
       }
     }
-    .inputBox--txt{
-      min-width: unset !important;
-      padding-left: 0;
+    .inputBox.long-txt{
+      input{
+        width: 100%;
+      }
+      .inputBox--txt{
+        min-width: unset !important;
+        padding-left: 0;
+        flex-shrink: 0;
+      }
     }
     .Checkup--contents-tit-wrap{
       padding-top: 5.2rem;

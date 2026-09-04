@@ -19,21 +19,21 @@ const teamKickPopup = ref(false) /* 팀 내보내기 팝업 */
 const missionCertImagePopup = ref(false) /* 인증사진 보기 팝업 */
 const allBadgePopup = ref(false) /* 획득한 배지 전체보기 팝업 */
 
-const badgeList = [ /* 퍼블 확인용 획득한 배지 목록 */
+const badgeList = [ /* 퍼블 확인용 획득한 배지 목록 */ /* 260904 배지 컨펌 버전으로 변경 */
   {
-    img: '/img/badge_happy-birthday.svg',
+    img: '/img/badgeImg/badge--happy_birthday.svg',
     name: '30일<br>연속 인증',
   },
   {
-    img: '/img/badge_happy-birthday.svg',
+    img: '/img/badgeImg/badge--happy_birthday.svg',
     name: '10일<br>연속 인증',
   },
   {
-    img: '/img/badge_happy-birthday.svg',
+    img: '/img/badgeImg/badge--happy_birthday.svg',
     name: '챌린지 러버',
   },
   {
-    img: '/img/badge_happy-birthday.svg',
+    img: '/img/badgeImg/badge--happy_birthday.svg',
     name: '나의 생일',
   },
   {
@@ -73,7 +73,7 @@ function imagePopupClose () {
         </div>
         <div v-if="isLeader" class="team-detail--badge-wrap"> <!-- v-if 퍼블 확인용 / 팀장 케이스만 대표 배지 노출 -->
           <p>대표 배지</p>
-          <img src="/img/badge_happy-birthday.svg">
+          <img src="/img/badgeImg/badge--happy_birthday.svg"> <!-- 260904 배지 컨펌 버전으로 변경 -->
           <span>나의 생일</span>
         </div>
       </div>

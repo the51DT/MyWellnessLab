@@ -28,6 +28,7 @@ export default {
       },
 
       /* 퍼블 확인용 이전 기록 데이터 */
+      /* 260904 배지 컨펌 버전으로 수정 */
       historyList: [
         {
           period: '26년 9월 - 27년 8월',
@@ -70,32 +71,15 @@ export default {
               { img: 'flawless_leader', name: '가혹한 팀장' },
             ],
             event: [
-              { img: 'event_figure_richDevos', name: '리치 디보스 탄생일' },
-              { img: 'event_figure_jayVanAndel', name: '제이 벤 엔델 탄생일' },
               { img: 'amway_korea', name: '한국암웨이 창립기념일' },
               { img: 'amway_global', name: '파운더스데이' },
               { img: 'happy_new_year', name: '새해 첫날' },
-              { img: 'happy_chuseok', name: '추석' },
               { img: 'mission_start', name: '첫 인증' },
-              { img: 'family_duo', name: '2대 것모너' },
-              { img: 'big_family', name: '다둥이' },
-              { img: 'family_day', name: '패밀리데이' },
-              { img: 'childrens_day', name: '어린이날' },
               { img: 'octopus_mode', name: '문어발' },
-              { img: 'happy_birthday', name: '나의 생일' },
-              { img: 'returning_hero', name: '복귀왕' },
-              { img: 'early_bird', name: '얼리 것모너' },
-              { img: 'brunch_lover', name: '브런치 것모너' },
-              { img: 'womens_day', name: '세계 여성의날' },
-              { img: 'earth_day', name: '지구의 날' },
-              { img: 'halloween_hustler', name: '고스트 것모닝' },
-              { img: 'valentines_day', name: '스윗 것모닝' },
               { img: 'liberation_day', name: '광복절' },
               { img: 'summer_gutmoring', name: '썸머 것모닝' },
               { img: 'winter_gutmoring', name: '윈터 것모닝' },
               { img: 'merry_christmas', name: '메리 크리스마스' },
-              { img: 'best_teammate', name: '베스트 팀메이트' },
-              { img: 'family_power', name: '가족의 힘' },
             ],
           },
         },
@@ -130,7 +114,6 @@ export default {
             event: [
               { img: 'mission_start', name: '첫 인증' },
               { img: 'happy_birthday', name: '나의 생일' },
-              { img: 'returning_hero', name: '복귀왕' },
             ],
           },
         },

@@ -126,62 +126,88 @@ export default {
           pinCount: '361',
         },
       ],
-      /* 퍼블 확인용 배지 리스트 */
+      /* [s] 260904 배지 리스트 수정 */
+      /* 배지 lockShape 종류
+          1 : 이벤트
+          2 : 팀장, 이벤트
+          3 : (월별)챌린지, 이벤트
+          4 : 이벤트
+          5 : 이벤트 
+          6 : 연속인증, 이벤트
+          7 : 챌린지 성공, 이벤트
+          8 : 이벤트 */
       badgeCate1: [
         {
           badgeImg: 'mission_streak_10',
           badgeName: '10일 연속 인증',
           badgeHint: '$10일 연속 미션 인증$',
+          lockShape: '6',
         },
         {
           badgeImg: 'mission_streak_20',
           badgeName: '20일 연속 인증',
           badgeHint: '$20일 연속 미션 인증$',
+          lockShape: '6',
         },
         {
           badgeImg: 'mission_streak_30',
           badgeName: '30일 연속 인증',
           badgeHint: '$30일 연속 미션 인증$',
+          lockShape: '6',
         },
         {
           badgeImg: 'mission_streak_60',
           badgeName: '60일 연속 인증',
           badgeHint: '$60일 연속 미션 인증$',
+          lockShape: '6',
         },
         {
           badgeImg: 'mission_streak_90',
           badgeName: '90일 연속 인증',
           badgeHint: '$90일 연속 미션 인증$',
+          lockShape: '6',
         },
         {
           badgeImg: 'mission_streak_100',
           badgeName: '100일 연속 인증',
           badgeHint: '$100일 연속 미션 인증$',
+          lockShape: '6',
+          disabled: true,
         },
         {
           badgeImg: 'mission_streak_180',
           badgeName: '180일 연속 인증',
           badgeHint: '$180일 연속 미션 인증$',
+          lockShape: '6',
+          disabled: true,
         },
         {
           badgeImg: 'mission_streak_200',
           badgeName: '200일 연속 인증',
           badgeHint: '$200일 연속 미션 인증$',
+          lockShape: '6',
+          disabled: true,
         },
         {
           badgeImg: 'mission_streak_240',
           badgeName: '240일 연속 인증',
           badgeHint: '$240일 연속 미션 인증$',
+          lockShape: '6',
+          disabled: true,
         },
         {
           badgeImg: 'mission_streak_300',
           badgeName: '300일 연속 인증',
           badgeHint: '$300일 연속 미션 인증$',
+          lockShape: '6',
+          disabled: true,
         },
         {
           badgeImg: 'mission_streak_365',
           badgeName: '365일 연속 인증',
           badgeHint: '$365일 연속 미션 인증$',
+          lockShape: '6',
+          disabled: true,
         },
       ],
       badgeCate2: [
@@ -189,32 +215,40 @@ export default {
           badgeImg: 'challenge_complete_1',
           badgeName: '것모닝코리아 챌린지 1회 성공',
           badgeHint: '$것모닝코리아 챌린지 1회 성공 배지 획득 방법$',
+          lockShape: '7',
         },
         {
           badgeImg: 'challenge_complete_2',
           badgeName: '것모닝코리아 챌린지 2회 성공',
           badgeHint: '$것모닝코리아 챌린지 2회 성공 배지 획득 방법$',
+          lockShape: '7',
         },
         {
-          badgeImg: 'challenge_beginner',
-          badgeName: '챌린지 비기너',
-          badgeHint: '$챌린지 비기너 배지 획득 방법$',
+          badgeImg: 'challenge_mania',
+          badgeName: '챌린지 마니아',
+          badgeHint: '$챌린지 마니아 배지 획득 방법$',
+          lockShape: '7',
+          disabled: true,
+        },
+        {
+          badgeImg: 'challenge_starter',
+          badgeName: '챌린지 스타터',
+          badgeHint: '$챌린지 스타터 배지 획득 방법$',
           configured: true, /* 대표 배지 임의 설정 */
+          lockShape: '3',
         },
         {
-          badgeImg: 'challenge_perfect',
-          badgeName: '챌린지 퍼펙트',
-          badgeHint: '$챌린지 퍼펙트 배지 획득 방법$',
+          badgeImg: 'challenge_builder',
+          badgeName: '챌린지 빌더',
+          badgeHint: '$챌린지 빌더 배지 획득 방법$',
+          lockShape: '3',
         },
         {
-          badgeImg: 'challenge_final_sprint',
-          badgeName: '챌린지 막판스퍼트',
-          badgeHint: '$챌린지 막판스퍼트 배지 획득 방법$',
-        },
-        {
-          badgeImg: 'challenge_slow_aging',
-          badgeName: '저속노화 성공',
-          badgeHint: '$저속노화 성공 배지 획득 방법$',
+          badgeImg: 'challenge_master',
+          badgeName: '챌린지 마스터',
+          badgeHint: '$챌린지 마스터 배지 획득 방법$',
+          lockShape: '3',
+          disabled: true,
         },
       ],
       badgeCate3: [
@@ -222,190 +256,234 @@ export default {
           badgeImg: 'self_starter',
           badgeName: '솔플 축하',
           badgeHint: '$솔플 축하 배지 획득 방법$',
+          lockShape: '2',
         },
         {
           badgeImg: 'new_leader',
           badgeName: '팀장',
           badgeHint: '$팀장 배지 획득 방법$',
+          lockShape: '2',
         },
         {
           badgeImg: 'proven_leader',
           badgeName: '팀장의 자질',
           badgeHint: '$팀장의 자질 배지 획득 방법$',
+          lockShape: '2',
         },
         {
           badgeImg: 'inspiring_leader',
           badgeName: '팀장의 정석',
           badgeHint: '$팀장의 정석 배지 획득 방법$',
+          lockShape: '2',
         },
         {
           badgeImg: 'elite_leader',
           badgeName: '우수 팀장',
           badgeHint: '$우수 팀장 배지 획득 방법$',
+          lockShape: '2',
         },
         {
           badgeImg: 'ultimate_leader',
           badgeName: '혹독한 팀장',
           badgeHint: '$혹독한 팀장 배지 획득 방법$',
+          lockShape: '2',
+          disabled: true,
         },
         {
           badgeImg: 'flawless_leader',
           badgeName: '가혹한 팀장',
           badgeHint: '$가혹한 팀장 배지 획득 방법$',
+          lockShape: '2',
+          disabled: true,
         },
       ],
       badgeCate4: [
         {
-          badgeImg: 'event_figure_richDevos',
-          badgeName: '리치 디보스 탄생일',
-          badgeHint: '$리치 디보스 탄생일 배지 획득 방법$',
+          badgeImg: 'rich_devos',
+          badgeName: '리치 디보스 데이',
+          badgeHint: '$리치 디보스 데이 배지 획득 방법$',
+          lockShape: '3',
         },
         {
-          badgeImg: 'event_figure_jayVanAndel',
-          badgeName: '제이 벤 엔델 탄생일',
-          badgeHint: '$제이 벤 엔델 탄생일 배지 획득 방법$',
+          badgeImg: 'jay_van_andel',
+          badgeName: '제이 벤 엔델 데이',
+          badgeHint: '$제이 벤 엔델 데이 배지 획득 방법$',
+          lockShape: '3',
         },
         {
           badgeImg: 'amway_korea',
           badgeName: '한국암웨이 창립기념일',
           badgeHint: '$한국암웨이 창립기념일 배지 획득 방법$',
+          lockShape: '3',
         },
         {
           badgeImg: 'amway_global',
           badgeName: '파운더스데이',
           badgeHint: '$파운더스데이 배지 획득 방법$',
-        },
-        {
-          badgeImg: 'happy_new_year',
-          badgeName: '새해 첫날',
-          badgeHint: '$새해 첫날 배지 획득 방법$',
-        },
-        {
-          badgeImg: 'happy_chuseok',
-          badgeName: '추석',
-          badgeHint: '$추석 배지 획득 방법$',
+          lockShape: '3',
         },
         {
           badgeImg: 'mission_start',
           badgeName: '첫 인증',
           badgeHint: '$첫 인증 배지 획득 방법$',
-        },
-        {
-          badgeImg: 'family_duo',
-          badgeName: '2대 것모너',
-          badgeHint: '$2대 것모너 배지 획득 방법$',
-        },
-        {
-          badgeImg: 'big_family',
-          badgeName: '다둥이',
-          badgeHint: '$다둥이 배지 획득 방법$',
-        },
-        {
-          badgeImg: 'family_day',
-          badgeName: '패밀리데이',
-          badgeHint: '$패밀리데이 배지 획득 방법$',
-        },
-        {
-          badgeImg: 'childrens_day',
-          badgeName: '어린이날',
-          badgeHint: '$어린이날 배지 획득 방법$',
+          lockShape: '8',
         },
         {
           badgeImg: 'octopus_mode',
           badgeName: '문어발',
           badgeHint: '$문어발 배지 획득 방법$',
+          lockShape: '4',
         },
         {
           badgeImg: 'happy_birthday',
           badgeName: '나의 생일',
           badgeHint: '$나의 생일 배지 획득 방법$',
+          lockShape: '3',
         },
         {
-          badgeImg: 'returning_hero',
+          badgeImg: 'welcome_back',
           badgeName: '복귀왕',
           badgeHint: '$복귀왕 배지 획득 방법$',
+          lockShape: '1',
         },
         {
-          badgeImg: 'early_bird',
-          badgeName: '얼리 것모너',
-          badgeHint: '$얼리 것모너 배지 획득 방법$',
+          badgeImg: 'early_habitter',
+          badgeName: '얼리 해비터',
+          badgeHint: '$얼리 해비터 배지 획득 방법$',
+          lockShape: '2',
         },
         {
-          badgeImg: 'brunch_lover',
-          badgeName: '브런치 것모너',
-          badgeHint: '$브런치 것모너 배지 획득 방법$',
-        },
-        {
-          badgeImg: 'womens_day',
-          badgeName: '세계 여성의날',
-          badgeHint: '$세계 여성의날 배지 획득 방법$',
-        },
-        {
-          badgeImg: 'earth_day',
-          badgeName: '지구의 날',
-          badgeHint: '$지구의 날 배지 획득 방법$',
-        },
-        {
-          badgeImg: 'halloween_hustler',
-          badgeName: '고스트 것모닝',
-          badgeHint: '$고스트 것모닝 배지 획득 방법$',
-        },
-        {
-          badgeImg: 'valentines_day',
-          badgeName: '스윗 것모닝',
-          badgeHint: '$스윗 것모닝 배지 획득 방법$',
-        },
-        {
-          badgeImg: 'liberation_day',
-          badgeName: '광복절',
-          badgeHint: '$광복절 배지 획득 방법$',
-        },
-        {
-          badgeImg: 'summer_gutmoring',
-          badgeName: '썸머 것모닝',
-          badgeHint: '$썸머 것모닝 배지 획득 방법$',
-        },
-        {
-          badgeImg: 'winter_gutmoring',
-          badgeName: '윈터 것모닝',
-          badgeHint: '$윈터 것모닝 배지 획득 방법$',
+          badgeImg: 'brunch_habitter',
+          badgeName: '브런치 해비터',
+          badgeHint: '$브런치 해비터 배지 획득 방법$',
+          lockShape: '2',
         },
         {
           badgeImg: 'merry_christmas',
           badgeName: '메리 크리스마스',
           badgeHint: '$메리 크리스마스 배지 획득 방법$',
+          lockShape: '3',
         },
         {
-          badgeImg: 'best_teammate',
-          badgeName: '베스트 팀메이트',
-          badgeHint: '$베스트 팀메이트 배지 획득 방법$',
+          badgeImg: 'summer_gutmoring',
+          badgeName: '썸머 것모닝',
+          badgeHint: '$썸머 것모닝 배지 획득 방법$',
+          lockShape: '5',
         },
         {
-          badgeImg: 'family_power',
-          badgeName: '가족의 힘',
-          badgeHint: '$가족의 힘 배지 획득 방법$',
+          badgeImg: 'winter_gutmoring',
+          badgeName: '윈터 것모닝',
+          badgeHint: '$윈터 것모닝 배지 획득 방법$',
+          lockShape: '5',
+        },
+        {
+          badgeImg: 'slow_aging_achiever',
+          badgeName: '저속노화 성공',
+          badgeHint: '$저속노화 성공 배지 획득 방법$',
+          lockShape: '2',
+        },
+        {
+          badgeImg: 'healthy_aging_achiever',
+          badgeName: '습관성형 모범생',
+          badgeHint: '$습관성형 모범생 배지 획득 방법$',
+          lockShape: '6',
+        },
+        /* 시즌형 */
+        {
+          badgeImg: 'happy_new_year',
+          badgeName: '새해건강씨앗',
+          badgeHint: '$새해건강씨앗 배지 획득 방법$',
+          lockShape: '5',
+        },
+        {
+          badgeImg: 'spring_begins',
+          badgeName: '겨울잠 탈출',
+          badgeHint: '$겨울잠 탈출 배지 획득 방법$',
+          lockShape: '5',
+        },
+        {
+          badgeImg: 'body_reset',
+          badgeName: '내 몸 리셋',
+          badgeHint: '$내 몸 리셋 배지 획득 방법$',
+          lockShape: '5',
+        },
+        {
+          badgeImg: 'earth_day',
+          badgeName: '그린루틴',
+          badgeHint: '$그린루틴 배지 획득 방법$',
+          lockShape: '1',
+        },
+        {
+          badgeImg: 'family_day',
+          badgeName: '가족의 날',
+          badgeHint: '$가족의 날 배지 획득 방법$',
+          lockShape: '7',
+        },
+        {
+          badgeImg: 'summer_high',
+          badgeName: '햇살충전',
+          badgeHint: '$햇살충전 배지 획득 방법$',
+          lockShape: '5',
+        },
+        {
+          badgeImg: 'hot_summer',
+          badgeName: '여름아부탁해',
+          badgeHint: '$여름아부탁해 배지 획득 방법$',
+          lockShape: '4',
+        },
+        {
+          badgeImg: 'liberation_day',
+          badgeName: '저속노화만세!',
+          badgeHint: '$저속노화만세! 배지 획득 방법$',
+          lockShape: '8',
+        },
+        {
+          badgeImg: 'health_harvest',
+          badgeName: '건강풍년',
+          badgeHint: '$건강풍년 배지 획득 방법$',
+          lockShape: '6',
+        },
+        {
+          badgeImg: 'walkers_day',
+          badgeName: '루틴워커',
+          badgeHint: '$루틴워커 배지 획득 방법$',
+          lockShape: '7',
+        },
+        {
+          badgeImg: 'glucose_care',
+          badgeName: '혈당지킴이',
+          badgeHint: '$혈당지킴이 배지 획득 방법$',
+          lockShape: '7',
+        },
+        {
+          badgeImg: 'full_year_finisher',
+          badgeName: '한해완주!',
+          badgeHint: '$한해완주! 배지 획득 방법$',
+          lockShape: '6',
         },
       ],
       badgeCate5: [
         {
-          badgeImg: 'lock',
+          badgeImg: 'slow_aging_starter',
           badgeName: '저속노화 스타트 분석 1회',
           badgeHint: '$저속노화 스타트 분석 1회 획득 방법$',
-          disabled: true, /* 미획득 배지 */
+          lockShape: '3',
         },
         {
-          badgeImg: 'lock',
-          badgeName: '저속노화 스타트 분석 2회',
-          badgeHint: '$저속노화 스타트 분석 2회 획득 방법$',
-          disabled: true, /* 미획득 배지 */
+          badgeImg: 'slow_aging_builder',
+          badgeName: '저속노화 진행중 분석 2회',
+          badgeHint: '$저속노화 진행중 분석 2회 획득 방법$',
+          lockShape: '3',
         },
         {
-          badgeImg: 'lock',
-          badgeName: '저속노화 스타트 분석 3회',
-          badgeHint: '$저속노화 스타트 분석 3회 획득 방법$',
+          badgeImg: 'slow_aging_master',
+          badgeName: '저속노화 완성중 분석 3회',
+          badgeHint: '$저속노화 완성중 분석 3회 획득 방법$',
           disabled: true, /* 미획득 배지 */
+          lockShape: '3',
         },
       ],
+      /* [s] 260904 배지 리스트 수정 */
     }
   },
   computed: {
@@ -469,7 +547,7 @@ export default {
 
       this.selectedBadge = {
         title: badge.badgeName,
-        img: isDisabled ? 'badge--lock.svg' : `badge--${badge.badgeImg}.svg`,
+        img: isDisabled ? `badge--lock-${badge.lockShape}.svg` : `badge--${badge.badgeImg}.svg`,
         hint: badge.badgeHint,
         disabled: isDisabled,
         configured: badge.configured === true,
@@ -710,7 +788,7 @@ export default {
             :class="{ 'is-disabled': badge.disabled }"
             @click="handleBadgeClick(badge)"
           >
-            <BadgeDefault :img="badge.disabled ? 'badge--lock.svg' : `badge--${badge.badgeImg}.svg`">
+            <BadgeDefault :img="badge.disabled ? `badge--lock-${badge.lockShape}.svg` : `badge--${badge.badgeImg}.svg`">
               {{ badge.badgeName }}
             </BadgeDefault>
           </div>

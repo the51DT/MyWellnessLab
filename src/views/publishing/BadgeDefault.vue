@@ -1,7 +1,7 @@
 <template>
   <div class="badge">
     <div class="badge__wrap" :class="width">
-      <img :src="imageSrc" alt="badge" :style="imgStyle" />
+      <img :src="imageSrc" alt="badge"/><!-- 260904 :style="imgStyle" 삭제 -->
     </div>
     <div class="badge__name">
       <p>

@@ -91,7 +91,7 @@ export function nextStep (event, tg, data, name) {
  */
 export function nextStep2 (tg, data, name) {
   const isPc = window.innerWidth > 1200
-  let topMargin = isPc ? 50 : 0
+  let topMargin = isPc ? 50 : 20 /* 260908 20으로 값 수정 */
   let tgQ = null
   const parent = document.querySelectorAll(tg)
   const first = parent[0]
@@ -146,10 +146,14 @@ export function nextStep2 (tg, data, name) {
     tgQ = last
   }
 
-  window.scrollBy({
-    top: tgQ.getBoundingClientRect().top - topMargin,
-    behavior: 'smooth'
-  })
+   /* 260908 scrollTo 내부 수정 */
+  const targetTop =
+    window.scrollY + tgQ.getBoundingClientRect().top - topMargin;
+
+  window.scrollTo({
+    top: targetTop,
+    behavior: "smooth",
+  });
 }
 
 export function go (url) { /* 링크 */

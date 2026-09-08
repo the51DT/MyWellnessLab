@@ -5884,6 +5884,7 @@ button{
     background-color: white;
     overflow: hidden;
     position: relative;
+    padding: 1.4rem 1.6rem;
     @media (min-width:$w-pc) {
       border-radius: 2.8rem;
       transition: border-radius .5s ease;
@@ -5892,11 +5893,10 @@ button{
       }
     }
     &__head{
-      position: relative;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.4rem 4rem 1.4rem 1.6rem;
+      padding-right: 2.4rem;
       button{
         position: absolute;
         top: 1.4rem;
@@ -5916,7 +5916,6 @@ button{
       }
       &.open{
         display: block;
-        padding: 1.4rem 4rem .6rem 1.6rem;
         button{
           transform: rotate(-180deg);
         }
@@ -5928,16 +5927,13 @@ button{
         }
       }
       @media (min-width: $w-pc) {
-        padding: 1.6rem 4rem 1.6rem 2rem;
+        padding-right: 2.8rem;
         button{
           top: 1.6rem;
           right: 2rem;
           width: 2.4rem;
           height: 2.4rem;
           background-size: 1.6rem;
-        }
-        &.open{
-          padding: 1.6rem 4rem .6rem 2rem;
         }
       }
     }
@@ -5949,7 +5945,7 @@ button{
       border-radius: 2rem;
       background-color: #1db196;
       vertical-align: baseline;
-      margin-right: .8rem;
+      margin-right: .4rem;
       @include txtStyle(caption, lg-1, 600);
     }
     &__title{
@@ -5961,10 +5957,7 @@ button{
     }
     &__body{
       @include txtStyle(caption, xl);
-      padding: 0 1.6rem 1.6rem 1.6rem;
-      @media (min-width: $w-pc) {
-        padding: 0 2rem 1.6rem 2rem;
-      }
+      margin-top: .6rem;
       span{
         margin-right: .8rem;
       }

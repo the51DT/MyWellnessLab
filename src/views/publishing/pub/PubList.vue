@@ -79,8 +79,8 @@ const data = ref([
     div3: '',
     loca: '@/views/auth/Profile.vue<br>@/views/publishing/Join.vue -> 퍼블 확인용 경로',
     go: '/publishing/join/pub-join',
-    msg: '로그인 사용자 선택과 동일<br>퍼블 확인용으로 팝업 진입 시 노출, 가입하기 선택 시 페이지 확인가능',
-    confirm: '2026.07.06 퍼블 완료'
+    msg: '로그인 사용자 선택과 동일<br>퍼블 확인용으로 팝업 진입 시 노출, 가입하기 선택 시 페이지 확인가능<br>260908 팝업 위치 변경 - 퍼블 확인용 파일',
+    confirm: '2026.09.08 퍼블 수정'
   },
   {
     div: '약관 동의',

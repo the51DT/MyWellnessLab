@@ -63,22 +63,24 @@ onMounted(async () => {
 
     </div>
 
-    <!-- 퍼블확인용 / MWL_00002 = src\views\auth\TermsAgree.vue 참고 -->
-    <!-- 가입 확인 팝업 -->
-    <BasePopup v-if="isShowJoinConfirmPopup" class="TermsAgree--join-confirm">
-      <template v-slot:contents>
-        <div class="join-confirm-content">
-          <p class="pop-text-light">829055<br>안지희</p>
-          <p class="pop-text-bold">마이웰니스 랩에 가입 하시겠습니까?</p>
-        </div>
-        <div class="pop-btn-wrap">
-          <button type="button" @click="handleJoinCancel" class="pop-btn pop-btn--gray">취소</button>
-          <button type="button" @click="handleJoinConfirm" class="pop-btn pop-btn--green">가입하기</button>
-        </div>
-      </template>
-    </BasePopup>
-
   </div>
+
+  <!-- [s] 260908 팝업 위치 변경 -->
+  <!-- 퍼블확인용 / MWL_00002 = src\views\auth\TermsAgree.vue 참고 -->
+  <!-- 가입 확인 팝업 -->
+  <BasePopup v-if="isShowJoinConfirmPopup" class="TermsAgree--join-confirm">
+    <template v-slot:contents>
+      <div class="join-confirm-content">
+        <p class="pop-text-light">829055<br>안지희</p>
+        <p class="pop-text-bold">마이웰니스 랩에 가입 하시겠습니까?</p>
+      </div>
+      <div class="pop-btn-wrap">
+        <button type="button" @click="handleJoinCancel" class="pop-btn pop-btn--gray">취소</button>
+        <button type="button" @click="handleJoinConfirm" class="pop-btn pop-btn--green">가입하기</button>
+      </div>
+    </template>
+  </BasePopup>
+  <!-- [e] 260908 팝업 위치 변경 -->
 </template>
 
 <style lang="scss"></style>

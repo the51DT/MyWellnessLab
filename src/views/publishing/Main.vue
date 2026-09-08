@@ -766,7 +766,13 @@ export default {
   <section class="main">
     <div class="main--analyze">
       <div v-if="!isAnalyze" class="main--analyze--before"> <!-- 건강수명분석 전 -->
-        <video class="main--analyze--video" :src="'/img/video_main_graph.mp4'" autoplay muted playsinline></video>
+        <!-- [s] 260908 비디오 태그 구조 수정 -->
+        <div class="main--analyze--video">
+          <video autoplay muted playsinline preload="auto">
+            <source src="/img/video_main_graph.mp4" type="video/mp4">
+          </video>
+        </div>
+        <!-- [e] 260908 비디오 태그 구조 수정 -->
         <p>건강수명 분석을 하고</p>
         <a @click="popup.surveyContinuePopup = true" href="javascript:void(0)" class="main--analyze--link">맞춤 미션을<br>추천 받아보세요</a> <!-- 260821 문구 수정 -->
       </div>

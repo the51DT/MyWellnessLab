@@ -5436,13 +5436,34 @@ button{
     &--video{
       position: absolute;
       z-index: -1;
-      top: -.0rem;
+      top: 0;
       right: -1rem;
-      width: 14.3rem;
-      transform: rotate(-3.84deg);
+      display: block;
+      width: 14rem;
+      aspect-ratio: 143 / 108;
+      overflow: hidden;
+      background-color: #F5F5F5;
+      line-height: 0;
       @media (min-width:$w-pc) {
-        width: 19.2rem;
+        width: 18.8rem;
         top: -.8rem;
+      }
+      &::after{
+        content: '';
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+        pointer-events: none;
+        box-shadow: inset 0 0 0 .1rem #F5F5F5;
+      }
+      video{
+        position: absolute;
+        display: block;
+        width: calc(100% + 1rem);
+        height: calc(100% + 1rem);
+        max-width: none;
+        object-fit: cover;
+        object-position: center;
       }
     }
     &--btm{

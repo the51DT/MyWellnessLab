@@ -45,6 +45,15 @@ const data = ref([
     confirm: '2026.08.27 퍼블 수정'
   },
   {
+    div: '',
+    div2: '(PU) 오늘 하루 열지 않기',
+    div3: '',
+    loca: '@/views/publishing/BasePopupDismiss.vue',
+    go: '/publishing/main/dismiss',
+    msg: "",
+    confirm: '2026.09.08 퍼블 완료'
+  },
+  {
     div: '분석권 보유 현황',
     div2: '분석권 없는 경우',
     div3: '',

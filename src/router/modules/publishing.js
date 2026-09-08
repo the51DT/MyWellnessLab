@@ -940,6 +940,11 @@ const publishingRouter = {
             badgePopup: true /* 퍼블 확인용 */,
           },
         },
+        {
+          path: "dismiss",
+          name: "pubPopupDismiss",
+          component: () => import("@/views/publishing/BasePopupDismiss.vue"),
+        },
       ],
     },
     {

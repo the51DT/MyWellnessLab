@@ -859,23 +859,16 @@ export default {
               </div>
               <div v-else class="upload-before">
                 <button v-if="selectMission === false" @click="popup.noMissionPopup = true"></button>
-                <!-- 것모닝 구조 -->
-                <!-- <input type="file" id="uploadIcon" class="upload-icon" @change="onFileChange" hidden />
-                <label for="uploadIcon" class="upload-label" :class="imageUrl ? 'slide-img--upload' : ''">
-                  <img src="/img/img_home_daily_add.png" @click="openCamera" />
-                  <div>
-                    <p class="upload-date">2026년 7월 16일</p>
-                    <p class="upload-text">미션 인증하기</p>
-                  </div>
-                </label> -->
+                <!-- [s] 260908 미션 인증하기 클릭 영역 수정 -->
                 <!-- 퍼블 팝업 확인용 -->
-                <label for="" class="upload-label" :class="imageUrl ? 'slide-img--upload' : ''">
-                  <img src="/img/img_home_daily_add.png" @click="popup.dailyMethodPopup = true" />
+                <div class="upload-label" :class="imageUrl ? 'slide-img--upload' : ''"  @click="popup.dailyMethodPopup = true" >
+                  <img src="/img/img_home_daily_add.png"/>
                   <div>
                     <p class="upload-date">2026년 7월 16일</p>
                     <p class="upload-text">미션 인증하기</p>
                   </div>
-                </label>
+                </div>
+                <!-- [e] 260908 미션 인증하기 클릭 영역 수정 -->
               </div>
             </swiper-slide>
             <swiper-slide v-for="item in dailyData" :key="item.day" :data-day="item.day">

@@ -18557,20 +18557,22 @@ span.legend-dot-interest{
   margin-top: 1.6rem;
   @include height-vh-fallback(100, 6.6rem);
   text-align: left;
-  @media (min-width: $w-pc-small3) {
-    height: 100%;
-  }
   @media (min-width: $w-pc) {
-    height: auto;
+    @include height-vh-fallback(100, 11.6rem);
     margin: 0 auto;
   }
   &-wrap{
     overflow: hidden;
+    background-color: #f5f5f5 !important;
+    .popup--wrap{
+      background-color: #f5f5f5 !important;
+    }
     .popup--space{
       height: auto !important;
       @include max-vh-fallback(100, 4.9rem);
       -webkit-overflow-scrolling: touch;
       padding: 0;
+      background-color: #f5f5f5 !important;
       &::-webkit-scrollbar{
         display: none;
       }
@@ -18578,12 +18580,12 @@ span.legend-dot-interest{
         padding: 2.8rem 2rem;
       }
     }
+    .popup--header{
+      background-color: #f5f5f5 !important;
+    }
   }
   &-con--wrap{
     flex-grow: 1;
-    @media (min-width: $w-pc) {
-      flex-grow: unset;
-    }
   }
   &--tit{
     @include txtStyle(body, xl, 600);
@@ -18669,24 +18671,16 @@ span.legend-dot-interest{
     &-wrap{
       @include alignBetween;
       padding: 2rem 0 2.4rem;
+      background-color: #F5F5F5;
       @media (min-width: $w-pc) {
         justify-content: center;
         gap: 1.6rem;
-        margin-top: 4rem;
       }
       & > *{
         width: calc((100% - .8rem) / 2);
         @media (min-width: $w-pc) {
           width: auto;
         }
-      }
-      @media (min-width:$w-pc) {
-        position: fixed;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        background-color: #fafafa;
       }
     }
     @include btnBig;

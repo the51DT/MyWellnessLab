@@ -3872,6 +3872,7 @@ footer{
   }
   &--instant{
     text-align: center;
+    margin-bottom: 8rem;
     &-btn{
       @include txtStyle(body, xs-1, 600);
       color: #808080;
@@ -4164,7 +4165,7 @@ footer{
   &--desc{
     width: 28rem;
     @include txtStyle(body, xs-2);
-    color: #555;
+    color: #666;
     margin: 1.2rem auto 0;
     @media (min-width: $w-pc) {
       width: 38rem;

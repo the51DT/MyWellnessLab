@@ -17,7 +17,7 @@ const publishingRouter = {
     },
     {
       path: "home" /* 홈 */,
-      component: LayoutHome /* 홈, 인트로, 설문 제외한 레이아웃 */,
+      component: LayoutHomeNoFooter /* 홈, 인트로, 설문 제외한 레이아웃 */,
       children: [
         {
           path: "",
@@ -36,16 +36,6 @@ const publishingRouter = {
             title: "홈",
             isLogin: true /* 퍼블 확인용 */,
             isBefore: true /* 퍼블 확인용 */,
-          },
-        },
-        {
-          path: "intro",
-          name: "pubIntro",
-          component: () => import("@/views/Intro.vue"),
-          meta: {
-            title: "인트로",
-            class: "whiteHeader",
-            isLogin: false /* 퍼블 확인용 */,
           },
         },
       ],
@@ -944,6 +934,16 @@ const publishingRouter = {
           path: "dismiss",
           name: "pubPopupDismiss",
           component: () => import("@/views/publishing/BasePopupDismiss.vue"),
+        },
+        {
+          path: "intro",
+          name: "pubIntro",
+          component: () => import("@/views/Intro.vue"),
+          meta: {
+            title: "인트로",
+            class: "whiteHeader",
+            isLogin: false /* 퍼블 확인용 */,
+          },
         },
       ],
     },

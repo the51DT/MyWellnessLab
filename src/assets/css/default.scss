@@ -3872,7 +3872,10 @@ footer{
   }
   &--instant{
     text-align: center;
-    margin-bottom: 8rem;
+    padding-bottom: 16rem;
+    @media (min-width:$w-pc) {
+      padding-bottom: 12rem;
+    }
     &-btn{
       @include txtStyle(body, xs-1, 600);
       color: #808080;
@@ -3939,7 +3942,7 @@ footer{
       visibility: visible;
     }
     &.bottom{
-      bottom: 11.1rem;
+      bottom: 10rem;
       @media (min-width:$w-pc) {
         bottom: 4rem;
       }

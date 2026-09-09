@@ -74,7 +74,12 @@ export default {
         },
       ],
       selectedMissionId: null, /* 퍼블 확인용 선택된 미션 id 데이터 */
-      selectedMissionOpen: null, /* 퍼블 확인용 미션 선택 후 버튼 오프너 */
+      /* [s] 260909 미션 변경하기 모션 수정 */
+      selectedMissionOpen: false,
+      selectedMissionHeadOpen: false,
+      selectedMissionEllipsis: true,
+      selectedMissionOpenTimer: null,
+      /* [e] 260909 미션 변경하기 모션 수정 */
       recommendMissionGroups: [ /* 퍼블 확인용 미션 데이터1 */ /* 260901 미션 데이터 수정 */
         {
           key: 'nutrition',
@@ -708,6 +713,35 @@ export default {
       this.selectMission = true
       this.popup.missionPopup = false
     },
+    /* [s] 260909 미션 변경하기 모션 수정 */
+    toggleSelectedMission () {
+      if (this.selectedMissionOpenTimer) {
+        clearTimeout(this.selectedMissionOpenTimer)
+        this.selectedMissionOpenTimer = null
+      }
+      // 열 때
+      if (!this.selectedMissionOpen && !this.selectedMissionHeadOpen) {
+        this.selectedMissionEllipsis = false
+        this.selectedMissionHeadOpen = true
+        // title 펼쳐진 뒤 body 열기
+        this.selectedMissionOpenTimer = setTimeout(() => {
+          this.selectedMissionOpen = true
+          this.selectedMissionOpenTimer = null
+        }, 100)
+        return
+      }
+      // 닫을 때: body 먼저 닫기
+      this.selectedMissionOpen = false
+      this.selectedMissionOpenTimer = setTimeout(() => {
+        // body .5s 닫힌 뒤 title 줄이기
+        this.selectedMissionHeadOpen = false
+        this.selectedMissionOpenTimer = setTimeout(() => {
+          this.selectedMissionEllipsis = true
+          this.selectedMissionOpenTimer = null
+        }, 200)
+      }, 500)
+    },
+    /* [e] 260909 미션 변경하기 모션 수정 */
   },
   mounted () {
     this.winWidth()
@@ -733,6 +767,14 @@ export default {
       window.removeEventListener('scroll', this.stickyScrollHandler)
     }
     /* [end] 260721 / 플로팅 탭 전환 핸들러 추가 */
+    /* [s] 260909 미션 변경하기 모션 수정 */
+    if (this.stickyScrollHandler) {
+      window.removeEventListener('scroll', this.stickyScrollHandler)
+    }
+    if (this.selectedMissionOpenTimer) {
+      clearTimeout(this.selectedMissionOpenTimer)
+    }
+    /* [e] 260909 미션 변경하기 모션 수정 */
   },
   computed: {
     selectedMission () {
@@ -816,12 +858,12 @@ export default {
           <span v-else>나의 맞춤 미션으로 선택하기</span> <!-- 건강수명분석 후 -->
         </button>
         <div v-else class="main--mission">
-          <div class="main--mission__head" :class="{ open: selectedMissionOpen }">
+          <div class="main--mission__head" :class="{open: selectedMissionHeadOpen, ellipsis: selectedMissionEllipsis}"> <!-- 260909 미션 변경하기 모션 수정 -->
             <div class="main--mission__title">
               <span class="main--mission__badge">{{ selectedMission.groupTitle }}</span>
               {{ selectedMission.desc }}
             </div>
-            <button type="button" @click="selectedMissionOpen = !selectedMissionOpen"></button>
+            <button type="button" @click="toggleSelectedMission"></button> <!-- 260909 미션 변경하기 모션 수정 -->
           </div>
           <transition name="downUp">
             <div v-show="selectedMissionOpen" class="main--mission__body">

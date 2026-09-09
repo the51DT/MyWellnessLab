@@ -6027,10 +6027,22 @@ button{
           transform: rotate(-180deg);
         }
         .main--mission__title{
+          height: 4.5rem;
           white-space: inherit;
-          overflow: auto;
+          overflow: hidden;
           text-overflow: inherit;
           word-break: break-all;
+          @media (min-width: $w-pc) {
+            height: 4.8rem;
+          }
+        }
+      }
+      &.ellipsis{
+        .main--mission__title{
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          word-break: normal;
         }
       }
       @media (min-width: $w-pc) {
@@ -6058,9 +6070,15 @@ button{
     &__title{
       @include txtStyle(body, 2xs-1, 600);
       flex: 1 1 auto;
-      white-space: nowrap;
+      height: 2.1rem;
       overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: inherit;
+      text-overflow: inherit;
+      word-break: break-all;
+      transition: height .2s ease-out;
+      @media (min-width: $w-pc) {
+        height: 2.4rem;
+      }
     }
     &__body{
       @include txtStyle(caption, xl);

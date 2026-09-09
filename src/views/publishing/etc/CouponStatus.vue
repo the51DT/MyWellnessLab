@@ -156,6 +156,7 @@ export default {
       <span class="CouponStatus--total-digit">총
         <strong class="CouponStatus--t-digit">{{coupon.length}}</strong>개
       </span>
+      <button type="button">분석권 사용 이력보기<div class="img-wrap"><img src="" alt=""></div></button> <!-- 페이지 이동 개발 필요 --> <!-- 260909 분석권 사용 이력보기 이동 버튼 추가 -->
     </div>
 
     <div class="CouponStatus--list">

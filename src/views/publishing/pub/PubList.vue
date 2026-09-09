@@ -59,8 +59,8 @@ const data = ref([
     div3: '',
     loca: '@/views/coupon/CouponList.vue',
     go: '/publishing/coupon-status/none',
-    msg: '메뉴 구조 변경으로 홈에서 제외 필요',
-    confirm: '2026.07.10 퍼블 완료'
+    msg: '아래 퍼블 확인용 파일 참고하여 수정 필요<br>260909 분석권 사용 이력보기 이동 버튼 추가',
+    confirm: '2026.09.09 퍼블 수정'
   },
   {
     div: '',
@@ -69,7 +69,7 @@ const data = ref([
     loca: '@/views/coupon/CouponList.vue<br>@/views/publishing/etc/CouponStatus.vue -> 퍼블 확인용 경로',
     go: '/publishing/coupon-status',
     msg: '',
-    confirm: '2026.07.10 퍼블 완료'
+    confirm: '"'
   },
   { cate: 'blank'},
   {
@@ -995,8 +995,8 @@ const data = ref([
     div3: '',
     loca: '@/views/mypage/MyPage.vue<br>@/views/publishing/MyPage.vue -> 퍼블 확인용 경로',
     go: '/publishing/my-page',
-    msg: "0728 팝업 완료 목록<br>- 휴대폰번호 변경 팝업 = @/views/mypage/MyPagePhoneChangePopup.vue<br>- PIN번호 변경 팝업 = @/views/mypage/MyPagePinChangePopup.vue<br>- 서비스 탈퇴 팝업 (챌린지 팀 팝업 추가) = @/views/mypage/MyPageServiceQuitPopup.vue<br>MyPageServiceQuitPopup.vue / 260820 문구 수정<br>260827 문구 수정",
-    confirm: '2026.08.27 퍼블 수정'
+    msg: "0728 팝업 완료 목록<br>- 휴대폰번호 변경 팝업 = @/views/mypage/MyPagePhoneChangePopup.vue<br>- PIN번호 변경 팝업 = @/views/mypage/MyPagePinChangePopup.vue<br>- 서비스 탈퇴 팝업 (챌린지 팀 팝업 추가) = @/views/mypage/MyPageServiceQuitPopup.vue<br>MyPageServiceQuitPopup.vue / 260820 문구 수정<br>260827 문구 수정<br>260909 분석권 사용 이력 메뉴 제외",
+    confirm: '2026.09.09 퍼블 수정'
   },
   {
     div: '건강수명 분석 결과 이력',

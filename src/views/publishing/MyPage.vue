@@ -142,7 +142,7 @@ export default {
       <div class="box-wrap-cont">
         <a @click="go('my-page/pub-my-anlyze')" href="javascript: void(0);" class="box-link">건강수명 분석 결과 이력</a>
         <a @click="go('my-page/pub-my-challenge-reward')" href="javascript: void(0);" class="box-link">챌린지 성공 보상 지급 이력</a>
-        <a @click="go('')" href="javascript: void(0);" class="box-link">분석권 사용 이력</a>
+        <!-- <a @click="go('')" href="javascript: void(0);" class="box-link">분석권 사용 이력</a> --> <!-- 260909 분석권 사용 이력 메뉴 제외 -->
         <a @click="go('my-page/pub-my-page-checkup-data-record')" href="javascript: void(0);" class="box-link">검진 데이터 이력</a>
         <a @click="go('my-page/pub-my-body')" href="javascript: void(0);" class="box-link">체성분 데이터 이력</a>
       </div>

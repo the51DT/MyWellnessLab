@@ -12920,6 +12920,24 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       align-items: center;
       gap: 0.1rem;
     }
+    button{
+      @include btnClear;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      @include txtStyle(caption, lg, 500);
+      color: #666;
+      gap: 0.2rem;
+      padding: 0;
+      margin-left: auto;
+      &::after{
+        content: '';
+        display: block;
+        width: 1.6rem;
+        height: 1.6rem;
+        background: url('/img/ico_arrow_right_black.svg') no-repeat center / 0.6rem;
+      }
+    }
   }
   &--t-digit{
     @include txtStyle(body, md, 600);

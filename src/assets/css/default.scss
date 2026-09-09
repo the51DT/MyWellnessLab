@@ -5485,7 +5485,9 @@ button{
         padding: 0 1.6rem;
         border-radius: 99rem;
         color: #fff;
-        @include txtStyle(body, xs, 500);
+        &:not(.main--mission__change){
+          @include txtStyle(body, xs, 500);
+        }
         @media (min-width: $w-pc) {
           min-height: 5.6rem;
           padding: 0 2.4rem;

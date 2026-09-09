@@ -87,7 +87,7 @@ export default {
         <input type="file" id="uploadIcon" class="upload-icon" @change="onFileChange" hidden />
         <label for="uploadIcon" class="upload-label">
           <img v-if="imageUrl" class="uploaded-img" :src="imageUrl" alt="업로드된 이미지" />
-          <img v-else class="ico-logo" src="/img/age_20f.png" alt="파일 업로드 등록 아이콘" />
+          <img v-else class="ico-logo" src="/img/team_profile_exam.png" alt="파일 업로드 등록 아이콘" /> <!-- 260909 이미지 src 변경 -->
         </label>
         <div class="upload-ico">
           <img src="/img/ico_camera-white.svg">

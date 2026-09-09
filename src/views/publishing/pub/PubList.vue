@@ -995,7 +995,7 @@ const data = ref([
     div3: '',
     loca: '@/views/mypage/MyPage.vue<br>@/views/publishing/MyPage.vue -> 퍼블 확인용 경로',
     go: '/publishing/my-page',
-    msg: "0728 팝업 완료 목록<br>- 휴대폰번호 변경 팝업 = @/views/mypage/MyPagePhoneChangePopup.vue<br>- PIN번호 변경 팝업 = @/views/mypage/MyPagePinChangePopup.vue<br>- 서비스 탈퇴 팝업 (챌린지 팀 팝업 추가) = @/views/mypage/MyPageServiceQuitPopup.vue<br>MyPageServiceQuitPopup.vue / 260820 문구 수정<br>260827 문구 수정<br>260909 분석권 사용 이력 메뉴 제외",
+    msg: "0728 팝업 완료 목록<br>- 휴대폰번호 변경 팝업 = @/views/mypage/MyPagePhoneChangePopup.vue<br>- PIN번호 변경 팝업 = @/views/mypage/MyPagePinChangePopup.vue<br>- 서비스 탈퇴 팝업 (챌린지 팀 팝업 추가) = @/views/mypage/MyPageServiceQuitPopup.vue<br>MyPageServiceQuitPopup.vue / 260820 문구 수정<br>260827 문구 수정<br>260909 분석권 사용 이력 메뉴 제외<br>260909 이미지 src 변경",
     confirm: '2026.09.09 퍼블 수정'
   },
   {

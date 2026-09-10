@@ -1051,7 +1051,7 @@ export default {
   <BasePopupClose v-if="popup.noMissionPopup" :close-btn="false">
     <template v-slot:title>선택된 미션이 없습니다.</template>
     <template v-slot:contents>
-      <p class="pop-text-light">미션을 선택해 인증을 진행해 주세요.</p>
+      <p class="pop-text-light">미션을 선택하여 인증을 진행해 주세요.</p> <!-- 260910 문구 수정 -->
     </template>
     <template v-slot:button>
       <button type="button" @click="popup.noMissionPopup = false" class="pop-btn pop-btn--green">확인</button>

@@ -3,6 +3,7 @@ import TextDatePicker from '@/components/TextDatePicker.vue'
 import BasePopupImage from '@/views/publishing/BasePopupImage.vue'
 import ChallengeSharePop from '@/views/publishing/challenge/ChallengeSharePop.vue'
 import { bodyScroll } from '@/assets/js/common'
+import BasePopupClose from '@/views/publishing/BasePopupClose.vue' /* 260910 기록 없음 팝업 추가 */
 
 export default {
   name: "MainCalenderPop",
@@ -10,11 +11,13 @@ export default {
     TextDatePicker,
     BasePopupImage,
     ChallengeSharePop,
+    BasePopupClose, /* 260910 기록 없음 팝업 추가 */
   },
   data () {
     return {
       missionCertImagePopup: false, /* 인증사진 보기 팝업 */
-      sharePopup: false /* 공유하기 팝업 */
+      sharePopup: false, /* 공유하기 팝업 */
+      noDataPopup: true, /* 260910 기록 없음 팝업 추가 */
     }
   },
   props: {
@@ -76,6 +79,17 @@ export default {
 
   <!-- 공유하기 팝업 -->
   <ChallengeSharePop v-if="sharePopup" @popupClose="sharePopupClose"></ChallengeSharePop>
+
+  <!-- 260910 기록 없음 팝업 추가 -->
+  <BasePopupClose v-if="noDataPopup" :close-btn="false">
+    <template v-slot:title>미션 인증 기록이 없습니다.</template>
+    <template v-slot:contents>
+      <p class="pop-text-light">미션 인증하기를 진행해 주세요.</p>
+    </template>
+    <template v-slot:button>
+      <button type="button" @click="noDataPopup = false" class="pop-btn pop-btn--green">확인</button>
+    </template>
+  </BasePopupClose>
 </template>
 
 

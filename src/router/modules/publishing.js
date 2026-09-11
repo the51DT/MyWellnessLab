@@ -827,7 +827,7 @@ const publishingRouter = {
           name: "pubCouponStatus",
           component: () => import("@/views/publishing/etc/CouponStatus.vue"),
           meta: {
-            title: "분석권 보유 현황",
+            title: "나의 분석권",
             class: "short",
           },
         },
@@ -836,7 +836,7 @@ const publishingRouter = {
           name: "pubCouponStatusNone",
           component: () => import("@/views/coupon/CouponList.vue"),
           meta: {
-            title: "분석권 보유 현황",
+            title: "나의 분석권",
             class: "short",
           },
         },

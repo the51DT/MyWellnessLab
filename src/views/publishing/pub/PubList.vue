@@ -53,24 +53,6 @@ const data = ref([
     msg: "",
     confirm: '2026.09.08 퍼블 완료'
   },
-  {
-    div: '분석권 보유 현황',
-    div2: '분석권 없는 경우',
-    div3: '',
-    loca: '@/views/coupon/CouponList.vue',
-    go: '/publishing/coupon-status/none',
-    msg: '아래 퍼블 확인용 파일 참고하여 수정 필요<br>260909 분석권 사용 이력보기 이동 버튼 추가',
-    confirm: '2026.09.09 퍼블 수정'
-  },
-  {
-    div: '',
-    div2: '분석권 보유 시(퍼블 확인용)',
-    div3: '',
-    loca: '@/views/coupon/CouponList.vue<br>@/views/publishing/etc/CouponStatus.vue -> 퍼블 확인용 경로',
-    go: '/publishing/coupon-status',
-    msg: '',
-    confirm: '"'
-  },
   { cate: 'blank'},
   {
     cate: '서비스 가입',
@@ -999,6 +981,24 @@ const data = ref([
     confirm: '2026.09.09 퍼블 수정'
   },
   {
+    div: '나의 분석권',
+    div2: '분석권 없는 경우',
+    div3: '',
+    loca: '@/views/coupon/CouponList.vue',
+    go: '/publishing/coupon-status/none',
+    msg: '아래 퍼블 확인용 파일 참고하여 수정 필요<br>260909 분석권 사용 이력보기 이동 버튼 추가<br>260911 화면 타이틀명 수정 - 라우터',
+    confirm: '2026.09.09 퍼블 수정'
+  },
+  {
+    div: '',
+    div2: '분석권 보유 시(퍼블 확인용)',
+    div3: '',
+    loca: '@/views/coupon/CouponList.vue<br>@/views/publishing/etc/CouponStatus.vue -> 퍼블 확인용 경로',
+    go: '/publishing/coupon-status',
+    msg: '',
+    confirm: '"'
+  },
+  {
     div: '건강수명 분석 결과 이력',
     div2: '',
     div3: '',
@@ -1031,24 +1031,6 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/mypage/MyPageChallengeReward.vue',
     go: '/publishing/my-page/pub-my-challenge-reward/not',
-    msg: '퍼블 확인용 라우터 케이스 적용',
-    confirm: '2026.07.29 퍼블 완료'
-  },
-  {
-    div: '분석권 사용 이력',
-    div2: '',
-    div3: '',
-    loca: '@/views/publishing/mypage/MyPageCouponHistory.vue',
-    go: '/publishing/my-page/pub-my-coupon-history',
-    msg: '',
-    confirm: '2026.07.31 퍼블 완료'
-  },
-  {
-    div: '',
-    div2: '데이터 없는 경우',
-    div3: '',
-    loca: '@/views/publishing/mypage/MyPageCouponHistory.vue',
-    go: '/publishing/my-page/pub-my-coupon-history/not',
     msg: '퍼블 확인용 라우터 케이스 적용',
     confirm: '2026.07.29 퍼블 완료'
   },
@@ -1132,6 +1114,24 @@ const data = ref([
     go: '/publishing/my-page/pub-my-page-pin-reset',
     msg: 'PIN 번호 분실에 포함 - 내용 확인용 퍼블 페이지(헤더 다름)',
     confirm: '2026.07.24 퍼블 완료'
+  },
+  {
+    div: '분석권 사용 이력',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/mypage/MyPageCouponHistory.vue',
+    go: '/publishing/my-page/pub-my-coupon-history',
+    msg: '분석권 사용 이력 메뉴 제외 - 260909 기획',
+    confirm: '2026.07.31 퍼블 완료'
+  },
+  {
+    div: '',
+    div2: '데이터 없는 경우',
+    div3: '',
+    loca: '@/views/publishing/mypage/MyPageCouponHistory.vue',
+    go: '/publishing/my-page/pub-my-coupon-history/not',
+    msg: '퍼블 확인용 라우터 케이스 적용',
+    confirm: '2026.07.29 퍼블 완료'
   },
   {
     div: '리포트 인쇄신청 이력',

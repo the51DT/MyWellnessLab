@@ -59,7 +59,7 @@ export default {
             <p class="num"><span>2</span>회</p>
           </div>
           <div class="info-wrap">
-            <img src="/img/pin_ruby.svg"> <!-- 퍼블 확인용 임시 -->
+            <img src="/img/badgeImg/pin--ruby.svg"> <!-- 260911 핀 컨펌 버전으로 수정 -->
             <p><span>$닉네임$</span>님의</p>
             <p><span class="cate">운동</span>미션 인증</p>
           </div>

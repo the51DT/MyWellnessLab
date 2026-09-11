@@ -19,7 +19,7 @@ const teamKickPopup = ref(false) /* 팀 내보내기 팝업 */
 const missionCertImagePopup = ref(false) /* 인증사진 보기 팝업 */
 const allBadgePopup = ref(false) /* 획득한 배지 전체보기 팝업 */
 
-const badgeList = [ /* 퍼블 확인용 획득한 배지 목록 */ /* 260904 배지 컨펌 버전으로 변경 */
+const badgeList = [ /* 퍼블 확인용 획득한 배지 목록 */ /* 260904 배지 컨펌 버전으로 변경 */ /* 260911 핀 컨펌 버전으로 수정 */
   {
     img: '/img/badgeImg/badge--happy_birthday.svg',
     name: '30일<br>연속 인증',
@@ -37,11 +37,11 @@ const badgeList = [ /* 퍼블 확인용 획득한 배지 목록 */ /* 260904 배
     name: '나의 생일',
   },
   {
-    img: '/img/pin_ruby.svg',
+    img: '/img/badgeImg/pin--ruby.svg',
     name: '루비',
   },
   {
-    img: '/img/pin_ruby.svg',
+    img: '/img/badgeImg/pin--ruby.svg',
     name: '두줄<br>텍스트',
   },
 ] 
@@ -68,7 +68,7 @@ function imagePopupClose () {
       <div class="team-detail--box">
         <div class="team-detail--badge-wrap">
           <p>마이웰니스 랩 핀</p>
-          <img src="/img/pin_ruby.svg">
+          <img src="/img/badgeImg/pin--ruby.svg"> <!-- 260911 핀 컨펌 버전으로 수정 -->
           <span>루비</span>
         </div>
         <div v-if="isLeader" class="team-detail--badge-wrap"> <!-- v-if 퍼블 확인용 / 팀장 케이스만 대표 배지 노출 -->

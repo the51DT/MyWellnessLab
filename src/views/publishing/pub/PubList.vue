@@ -183,8 +183,8 @@ const data = ref([
     div3: '기본검사',
     loca: '@/views/checkup/basics/CheckupBasics.vue',
     go: '/publishing/checkup-input/checkup-basics',
-    msg: '민감정보 수집 및 이용 페이지에서 진입 시 국민건강보험공단 케이스<br>home 분석 후에서 일회성으로 진입 시 일회성 케이스<br>"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요<br><br>Message.vue 2606 스타일 내용 수정',
-    confirm: '2606.08.27 퍼블 완료'
+    msg: '민감정보 수집 및 이용 페이지에서 진입 시 국민건강보험공단 케이스<br>home 분석 후에서 일회성으로 진입 시 일회성 케이스<br>"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요<br><br>Message.vue 2606 스타일 내용 수정<br>260914 onMounted 추가<br>260914 가이드 버튼 위치 수정<br>260914 가이드 버튼 이미지 pc/mo 분리',
+    confirm: '2606.09.14 퍼블 수정'
   },
   {
     div: '',

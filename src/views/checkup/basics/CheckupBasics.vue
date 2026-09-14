@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onBeforeMount, inject, watch } from 'vue'
+import { ref, computed, onBeforeMount, inject, watch, onMounted } from 'vue' // 260914 onMounted 추가
 import { useStore } from 'vuex'
 
 import BaseStep from '@/components/BaseStep.vue'
@@ -23,6 +23,17 @@ const movePrev = useMovePrev()
 const router = useRouter()
 // 2606 퍼블 확인용 주석처리
 // const moveNext = useMoveNext()
+
+// [s] 260914 가이드 버튼 위치 수정
+const isPc = ref(false) 
+function winWidth () {
+  isPc.value = window.innerWidth > 960
+}
+onMounted(() => {
+  winWidth()
+  window.addEventListener('resize', winWidth)
+});
+// [e] 260914 가이드 버튼 위치 수정
 
 // 2606 퍼블 확인용 바로 진입 시 데이터 아래 주석이 원본
 const publishingUser = {
@@ -743,7 +754,10 @@ const computedProgressbar = computed(() => {
         </div>
         <div class="popup--space space">
           <p class="CheckupGuidePop--img-wrap">
-            <img src="/img/img_checkup_guide2.svg" alt="설문 프로그레스바">
+            <!-- [s] 260914 가이드 버튼 이미지 pc/mo 분리 -->
+            <img v-if="isPc" src="/img/img_checkup_guide2_pc.svg" alt="설문 프로그레스바">
+            <img v-else src="/img/img_checkup_guide2.svg" alt="설문 프로그레스바">
+            <!-- [e] 260914 가이드 버튼 이미지 pc/mo 분리 -->
             <span class="CheckupGuidePop--con">{{ $t('CheckupGuidePop.text2') }}</span>
           </p>
           <div class="base-pop--btn-wrap">

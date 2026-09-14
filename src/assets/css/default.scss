@@ -9297,9 +9297,9 @@ button{
   align-items: center;
   justify-content: center;
   width: calc(100% - 3.6rem * 2);
-  max-width: 39.2rem;
+  max-width: 28.8rem;
   @media (min-width: $w-pc) {
-    width: 39.2rem;
+    max-width: 39.2rem;
     margin: 2.8rem auto 3.6rem;
   }
 
@@ -20660,51 +20660,39 @@ span.legend-dot-interest{
       position: relative;
       display: flex;    
       align-items: center;
-      gap: 1rem;
+      gap: .8rem;
       padding-top: .6rem;
       padding-left: 1.6rem;
       @media (min-width: $w-pc) {
-        padding-top: 1rem;
-        padding-left: 1.1rem;
+        padding-top: 1.8rem;
+        padding-left: 1.4rem;
       }
       p{
-        position: absolute;
-        bottom: -.7rem;
-        transform: translateY(100%);
-        padding-left: 5.7rem;
-        padding-top: .3rem;
         @include txtStyle(body, lg-1, 500);
         color: #fff;
         margin: 0;
-        &::before{
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 1.6rem;
-          display: block;
-          width: 3.9rem;
-          height: 2.1rem;
-          background: url('/img/img_checkup_guide_line.svg') no-repeat center / contain;
-        }
       }
     }
   }
   .popup--space{
     background-color: transparent !important;
     @media (min-width: $w-pc) {
-      padding-top: 2.7rem;
+      padding-top: 0;
     }
     .CheckupGuidePop{
       &--img-wrap{
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 11rem;
+        margin-top: 1rem;
+        @media (min-width:$w-pc) {
+          margin-top: 1.6rem;
+        }
         img{
           width: 100%;
-          max-width: 32rem;
+          max-width: 36rem;
           @media (min-width: $w-pc) {
-            max-width: 45.6rem;
+            max-width: 46.4rem;
           }
         }
       }

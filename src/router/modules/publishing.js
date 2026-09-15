@@ -843,7 +843,7 @@ const publishingRouter = {
         {
           path: "service-use-guide",
           name: "pubServiceUseGuide",
-          component: () => import("@/views/publishing/etc/ServiceUseGuide.vue"),
+          component: () => import("@/views/info/ServiceUseGuide.vue"),
           meta: {
             title: "서비스 이용안내",
             class: "whiteHeader wide",
@@ -861,10 +861,10 @@ const publishingRouter = {
         {
           path: "introduce",
           name: "pubIntroduce",
-          component: () => import("@/views/publishing/etc/Introduce.vue"),
+          component: () => import("@/views/info/Introduce.vue"),
           meta: {
             title: "myWellness LAB 소개",
-            class: "wide",
+            class: "whiteHeader wide",
           },
         },
         {
@@ -881,6 +881,15 @@ const publishingRouter = {
           component: () => import("@/views/publishing/etc/NoticeDetail.vue"),
           meta: {
             title: "공지사항",
+          },
+        },
+        {
+          path: "overview",
+          name: "pubOverview",
+          component: () => import("@/views/publishing/etc/ServiceOverview.vue"),
+          meta: {
+            title: "서비스 소개",
+            class: "whiteHeader",
           },
         },
       ],

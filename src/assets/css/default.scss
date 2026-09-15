@@ -4147,7 +4147,10 @@ footer{
   }
   &--copy{
     @include txtStyle(head, lg, 700);
-    margin-top: .6rem;
+    margin-top: .2rem;
+    @media (min-width:$w-pc) {
+      margin-top: .6rem;
+    }
     // &:after{
     //   content: "";
     //   // background: url("/img/img_exc.svg") no-repeat center;
@@ -19150,6 +19153,103 @@ span.legend-dot-interest{
     border-radius: 1.6rem;
     background-color: #fff;
     @include txtStyle(body, 2xs, 500);
+  }
+}
+.ServiceOverview{
+  background-color: #fff;
+  &--video{
+    &-area{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: linear-gradient(180deg, #D2F1E7 0%, #DEF1D2 78%, #FFFFFF 100%);
+      padding: 3.6rem 2rem 2.4rem;
+      text-align: center;
+      @media (min-width:$w-pc) {
+        background: linear-gradient(180deg, #D2F1E7 6%, #DEF1D2 74%, #FFFFFF 100%);
+        padding: 8rem 2rem 4rem;
+      }
+    }
+    &-tit{
+      @include txtStyle(body, xs-2);
+      color: #666;
+      margin-bottom: 2rem;
+      @media (min-width:$w-pc) {
+        margin-bottom: 4rem;
+        br{
+          display: none;
+        }
+      }
+      strong{
+        display: block;
+        @include txtStyle(body, lg-2, 700);
+        color:#1A1818;
+        margin-bottom: .2rem;
+        @media (min-width:$w-pc) {
+          margin-bottom: 1.2rem;
+        }
+      }
+    }
+    &-wrap{
+      position: relative;
+      width: 100%;
+      max-width: 92rem;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      iframe{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      + .ServiceOverview--video-tit{
+        margin-top: 2.6rem;
+        @media (min-width:$w-pc) {
+          margin-top: 7.2rem;
+        }
+      }
+    }
+    &-text{
+      margin-top: 7.2rem;
+      @media (min-width:$w-pc) {
+        margin-top: 12rem;
+      }
+      strong{
+        @include txtStyle(body, md, 500);
+      }
+      img{
+        display: block;
+        height: 4rem;
+        width: auto;
+        margin: 1.2rem auto 2rem;
+        @media (min-width:$w-pc) {
+          margin: 1.6rem auto 2.4rem;
+        }
+      }
+      p{
+        @include txtStyle(body, xs-2);
+        color: #666;
+        max-width: 63rem;
+        word-break: break-all;
+        br{
+          display: none;
+          @media (min-width:$w-pc) {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  .intro--unit{
+    text-align: center;
+    &:not(.unit2, .unit3){
+      margin-top: 3.6rem;
+      @media (min-width:$w-pc) {
+        margin-top: 6.8rem;
+      }
+    }
   }
 }
 .ServiceUseGuide{

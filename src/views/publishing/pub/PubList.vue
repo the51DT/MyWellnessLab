@@ -913,10 +913,19 @@ const data = ref([
     confirm: '2026.07.31 퍼블 완료'
   },
   {
+    div: '서비스 소개',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/etc/ServiceOverview.vue',
+    go: '/publishing/coupon-status/overview',
+    msg: '',
+    confirm: '2026.09.15 퍼블 완료'
+  },
+  {
     div: '서비스 이용안내',
     div2: '',
     div3: '',
-    loca: '@/views/publishing/etc/ServiceUseGuide.vue',
+    loca: '@/views/info/ServiceUseGuide.vue',
     go: '/publishing/coupon-status/service-use-guide',
     msg: '수급대기',
     confirm: ''
@@ -934,7 +943,7 @@ const data = ref([
     div: 'myWellness LAB 소개',
     div2: '',
     div3: '',
-    loca: '@/views/publishing/etc/Introduce.vue',
+    loca: '@/views/info/Introduce.vue',
     go: '/publishing/coupon-status/introduce',
     msg: '수급대기',
     confirm: ''

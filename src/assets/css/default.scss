@@ -7923,6 +7923,9 @@ button{
       height: 3.2rem;
       background-color: #1DB196;
       z-index: -1;
+      @media (min-width:520px) {
+        content: none;
+      }
     }
     &::after{
       content: '';
@@ -7935,6 +7938,9 @@ button{
       background-color: #F5F5F5;
       border-radius: 3.2rem 3.2rem 0 0;
       z-index: -1;
+      @media (min-width:520px) {
+        content: none;
+      }
     }
     @media (min-width:$w-pc) {
       padding-top: 2.4rem;

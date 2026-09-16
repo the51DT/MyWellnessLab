@@ -6198,12 +6198,13 @@ button{
     justify-content: flex-end;
     align-items: center;
     gap: .2rem;
-    width: 100%;
-    margin: 2rem auto .8rem;
+    width: fit-content;
+    margin: 2rem 0 .8rem auto;
     @include txtStyle(body, 2xs);
     color: #666666;
+    cursor: pointer;
     @media (min-width: $w-pc) {
-      margin: 2.4rem auto .8rem;
+      margin: 2.4rem 0 .8rem auto;
     }
     &::after {
       content: '';

@@ -16,6 +16,11 @@ const isNoTeam = computed(() => {
 
 const isPc = ref(false) /* 231217 pc인지? */
 const selectedMissionOpen = ref(false); /* 퍼블 확인용 미션 선택 후 버튼 오프너 */
+/* [s] 260916 미션 변경하기 모션 수정 */
+const selectedMissionHeadOpen = ref(false)
+const selectedMissionEllipsis = ref(true)
+const selectedMissionOpenTimer = ref(null)
+/* [e] 260916 미션 변경하기 모션 수정 */
 const selectedMission = {
   groupTitle: '혈압조절',
   desc: '혈압조절 제품 (코엔자임Q10, 마그네슘, 오메가 3) 챙겨 먹기',
@@ -39,6 +44,41 @@ const handleScroll = () => {
     createBtn.value = true  // 맨 위에 가까우면 버튼 표시
   }
 }
+/* [s] 260916 미션 변경하기 모션 수정 */
+function toggleSelectedMission () {
+  if (selectedMissionOpenTimer.value) {
+    clearTimeout(selectedMissionOpenTimer.value)
+    selectedMissionOpenTimer.value = null
+  }
+
+  // 열 때
+  if (!selectedMissionOpen.value && !selectedMissionHeadOpen.value) {
+    selectedMissionEllipsis.value = false
+    selectedMissionHeadOpen.value = true
+
+    // title 펼쳐진 뒤 body 열기
+    selectedMissionOpenTimer.value = setTimeout(() => {
+      selectedMissionOpen.value = true
+      selectedMissionOpenTimer.value = null
+    }, 100)
+
+    return
+  }
+
+  // 닫을 때: body 먼저 닫기
+  selectedMissionOpen.value = false
+
+  selectedMissionOpenTimer.value = setTimeout(() => {
+    // body .5s 닫힌 뒤 title 줄이기
+    selectedMissionHeadOpen.value = false
+
+    selectedMissionOpenTimer.value = setTimeout(() => {
+      selectedMissionEllipsis.value = true
+      selectedMissionOpenTimer.value = null
+    }, 200)
+  }, 500)
+}
+/* [e] 260916 미션 변경하기 모션 수정 */
 
 onMounted(() => {
   isPc.value = funcIsPc()
@@ -51,18 +91,26 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll)
+  /* [s] 260916 미션 변경하기 모션 수정 */
+  if (this.stickyScrollHandler) {
+    window.removeEventListener('scroll', this.stickyScrollHandler)
+  }
+  if (this.selectedMissionOpenTimer) {
+    clearTimeout(this.selectedMissionOpenTimer)
+  }
+  /* [e] 260916 미션 변경하기 모션 수정 */
 })
 </script>
 
 <template>
   <section class="team">
     <div class="main--mission">
-      <div class="main--mission__head" :class="{ open: selectedMissionOpen }">
+      <div class="main--mission__head" :class="{open: selectedMissionHeadOpen, ellipsis: selectedMissionEllipsis}"> <!-- 260916 미션 변경하기 모션 수정 -->
         <div class="main--mission__title">
           <span class="main--mission__badge">{{ selectedMission.groupTitle }}</span>
           {{ selectedMission.desc }}
         </div>
-        <button type="button" @click="selectedMissionOpen = !selectedMissionOpen"></button>
+        <button type="button" @click="toggleSelectedMission"></button> <!-- 260916 미션 변경하기 모션 수정 -->
       </div>
       <transition name="downUp">
         <div v-show="selectedMissionOpen" class="main--mission__body">

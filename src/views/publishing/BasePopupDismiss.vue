@@ -76,7 +76,12 @@ export default {
             <!-- <slot name="contents"></slot> -->
             <!-- Lorem 텍스트 퍼블 확인용 위쪽 주석으로 사용 필요 -->
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi consequatur, atque error id dolore quae fuga nesciunt est exercitationem distinctio, repellat architecto itaque? Beatae reprehenderit non libero magni ipsam provident.<br>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. In reprehenderit molestiae quia aliquid ut voluptatem blanditiis hic repellendus ab possimus, totam obcaecati sequi, repudiandae error sint, dolor dolore consectetur nemo!
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. In reprehenderit molestiae quia aliquid ut voluptatem blanditiis hic repellendus ab possimus, totam obcaecati sequi, repudiandae error sint, dolor dolore consectetur nemo!<br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa saepe alias minus voluptate a perferendis aliquam cupiditate magni earum totam! Quaerat alias, vero architecto temporibus perspiciatis laboriosam nostrum officiis magnam?<br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, delectus asperiores. Quo sed optio, in assumenda minima magnam voluptas veritatis nam doloribus ut vel pariatur obcaecati corporis quaerat magni a.<br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae cumque dolore eligendi aut aliquam saepe iste mollitia accusamus. Neque porro saepe repellat. Totam suscipit excepturi dicta vitae animi ea tenetur.<br>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum inventore totam veniam odit consequuntur facilis illo fugiat repellat quod quos distinctio rem, quia exercitationem natus sint. Tempora voluptatum unde omnis!<br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, eaque dignissimos consequuntur et reiciendis saepe laboriosam doloremque magni commodi accusamus laborum necessitatibus, enim voluptatem quisquam magnam ut exercitationem similique maxime.
           </div>
         </div>
       </div>

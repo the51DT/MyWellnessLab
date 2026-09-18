@@ -2770,27 +2770,40 @@ footer{
   &.dismissPopup{
     .popup--wrap {
       overflow: hidden;
-      @include max-vh-fallback(100, 10rem);
+      @include max-vh-fallback(100, 12rem);
+      display: flex;
+      flex-direction: column;
       @media (min-width:$w-pc) {
         max-width: 41.6rem;
-        @include max-vh-fallback(100, 38rem);
+        @include max-vh-fallback(100, 40rem);
       }
       .pop-btn--green{
         width: fit-content;
         padding: 0 2.4rem;
       }
     }
+    .popup--header {
+      flex: 0 0 auto;
+      width: 100%;
+    }
     .popup--space{
-      height: 56.9rem;
+      flex: 0 1 auto;
+      min-height: 0;
+      max-height: calc(100vh - 12rem - 5.5rem - 7.6rem);
+      height: auto;
       padding: 0;
       margin: 0 2rem;
       border-radius: 1.2rem;
       background-color: #f0f0f0;
       overflow: hidden;
       position: relative;
+      @media (min-width:$w-pc) {
+        max-height: calc(100vh - 40rem - 6.6rem - 8.4rem);
+      }
     }
     .popup--scroll{
       height: 100%;
+      max-height: inherit;
       overflow-y: auto;
       scrollbar-width: none;
       &::-webkit-scrollbar {
@@ -2814,23 +2827,21 @@ footer{
     .popup--fake-scrollbar {
       position: absolute;
       top: 0;
-      right: .8rem;
+      right: 0;
       width: 1.2rem;
       height: 100%;
       pointer-events: none;
     }
     .popup--fake-thumb {
       position: absolute;
-      top: 5.5rem;
+      top: 0;
       right: .4rem;
       width: .4rem;
       border-radius: 9rem;
       background: #999;
-      @media (min-width:$w-pc) {
-        top: 6.6rem;
-      }
     }
     .pop-btn-wrap{
+      flex: 0 0 auto;
       justify-content: space-between;
       padding: 1.6rem 2rem 2rem;
       .inputField--input--checkbox--wrap{

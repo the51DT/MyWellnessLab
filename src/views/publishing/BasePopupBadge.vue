@@ -236,9 +236,9 @@ export default {
     },
   },
   mounted() {
+    bodyScroll(false) /* 팝업 노출 시 body 스크롤 정지 */ /* 260918 bodyScroll mounted 위치 수정 */
     this.startLottie() /* 260824 로티 추가 */
     winWidth() /* 브라우저 가로 사이즈 체크 */
-    bodyScroll(false) /* 팝업 노출 시 body 스크롤 정지 */
   },
   unmounted() {
     bodyScroll(true) /* 팝업 삭제 시 body 스크롤 원복 */

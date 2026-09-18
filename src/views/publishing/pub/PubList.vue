@@ -41,7 +41,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/BasePopupBadge.vue',
     go: '/publishing/main/badge',
-    msg: "퍼블 확인용 라우터 케이스 적용<br>2026.07.21 퍼블 확인 불가능해 따로 페이지 추가<br>260727 핀/배지 팝업 상단 x 버튼 추가 - src/views/publishing/BasePopupBadge.vue<br>260824 로티 추가<br>260825 로티 조건문 추가<br>260827 문구 수정<br>260918 bodyScroll mounted 위치 수정",
+    msg: "퍼블 확인용 라우터 케이스 적용<br>2026.07.21 퍼블 확인 불가능해 따로 페이지 추가<br>260727 핀/배지 팝업 상단 x 버튼 추가 - src/views/publishing/BasePopupBadge.vue<br>260824 로티 추가<br>260825 로티 조건문 추가<br>260827 문구 수정<br>260918 bodyScroll mounted 위치 수정<br>260918 animation-wrap 추가",
     confirm: '2026.09.18 퍼블 수정'
   },
   {

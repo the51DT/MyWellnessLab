@@ -2389,6 +2389,17 @@ footer{
         @include max-vh-fallback(100, 8.1rem);
       }
     }
+    .animation-wrap{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -65%);
+    }
     .animation-text {
       width: 27.2rem;
       position: relative;

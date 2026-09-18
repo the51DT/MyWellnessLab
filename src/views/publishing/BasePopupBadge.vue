@@ -261,22 +261,24 @@ export default {
     </div>
     <div class="popup--wrap">
       <!-- [s] 260825 로티 조건문 추가 -->
-      <div v-if="!isPc && type === 'pin'" ref="moTextLevelup" class="animation-text"></div>
-      <div v-if="isPc && type === 'pin'" ref="pcTextLevelup" class="animation-text"></div>
-      <div v-if="!isPc && type === 'badge'" ref="moTextNewBadge" class="animation-text"></div>
-      <div v-if="isPc && type === 'badge'" ref="pcTextNewBadge" class="animation-text"></div>
-      <div v-if="!isPc" ref="moParticle" class="animation-bg"></div>
-      <div v-if="isPc" ref="pcParticle" class="animation-bg"></div>
-      <div v-if="!isPc" ref="moBadge" class="animation-motion"></div>
-      <div v-if="isPc" ref="pcBadge" class="animation-motion"></div>
-      <!-- [e] 260825 로티 조건문 추가 -->
-      <span class="badge-name">
-        <slot />
-      </span>
-      <div class="popup-message">
-        <p>축하합니다!</p>
-        <p v-if="type === 'badge'">새로운 배지를 획득했습니다!</p> <!-- 260827 문구 수정 -->
-        <p v-else>새로운 마이웰니스 랩 핀을 달성했습니다!</p> <!-- 260827 문구 수정 -->
+      <div class="animation-wrap">
+        <div v-if="!isPc && type === 'pin'" ref="moTextLevelup" class="animation-text"></div>
+        <div v-if="isPc && type === 'pin'" ref="pcTextLevelup" class="animation-text"></div>
+        <div v-if="!isPc && type === 'badge'" ref="moTextNewBadge" class="animation-text"></div>
+        <div v-if="isPc && type === 'badge'" ref="pcTextNewBadge" class="animation-text"></div>
+        <div v-if="!isPc" ref="moParticle" class="animation-bg"></div>
+        <div v-if="isPc" ref="pcParticle" class="animation-bg"></div>
+        <div v-if="!isPc" ref="moBadge" class="animation-motion"></div>
+        <div v-if="isPc" ref="pcBadge" class="animation-motion"></div>
+        <!-- [e] 260825 로티 조건문 추가 -->
+        <span class="badge-name">
+          <slot />
+        </span>
+        <div class="popup-message">
+          <p>축하합니다!</p>
+          <p v-if="type === 'badge'">새로운 배지를 획득했습니다!</p> <!-- 260827 문구 수정 -->
+          <p v-else>새로운 마이웰니스 랩 핀을 달성했습니다!</p> <!-- 260827 문구 수정 -->
+        </div>
       </div>
       <div class="pop-btn-wrap">
         <button type="button" class="pop-btn pop-btn--green">보러가기</button>

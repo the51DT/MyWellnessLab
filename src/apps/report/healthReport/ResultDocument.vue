@@ -1,4 +1,4 @@
-<script setup>
+<script setup scoped> /* 260918 scoped 추가 */
 
 import { computed, ref, onBeforeUnmount, onMounted, watch, nextTick, onBeforeMount, defineExpose, defineProps, defineEmits } from 'vue';
 // import { sessionStore, loadingStore } from '@/store/store'
@@ -1046,7 +1046,7 @@ const pageMove = (path) => {
     </div> -->
   </main>
 </template>
-<style lang="scss">
+<style lang="scss" scoped> /* 260918 scoped 추가 */
 @import '@/assets/scss/_variables.scss';
 @import '@/assets/scss/_mixin.scss';
 @import "@/assets/scss/_font.scss";

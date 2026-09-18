@@ -2381,7 +2381,8 @@ footer{
       position: relative;
       bottom: 0;
       top: auto;
-      transform: translateX(-50%);
+      left: 0;
+      transform: none;
       padding-bottom: 18.8rem;
       @media (min-width:$w-pc) {
         padding-bottom: 28rem;

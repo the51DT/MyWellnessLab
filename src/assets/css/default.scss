@@ -2770,7 +2770,7 @@ footer{
   &.dismissPopup{
     .popup--wrap {
       overflow: hidden;
-      @include max-vh-fallback(100, 12rem);
+      @include max-vh-fallback(100, 9.6rem);
       display: flex;
       flex-direction: column;
       @media (min-width:$w-pc) {
@@ -2789,7 +2789,7 @@ footer{
     .popup--space{
       flex: 0 1 auto;
       min-height: 0;
-      max-height: calc(100vh - 12rem - 5.5rem - 7.6rem);
+      max-height: calc((var(--vh, 1vh) * 100) - 9.6rem - 5.5rem - 7.6rem);
       height: auto;
       padding: 0;
       margin: 0 2rem;
@@ -2798,7 +2798,7 @@ footer{
       overflow: hidden;
       position: relative;
       @media (min-width:$w-pc) {
-        max-height: calc(100vh - 40rem - 6.6rem - 8.4rem);
+        max-height: calc((var(--vh, 1vh) * 100) - 40rem - 6.6rem - 8.4rem);
       }
     }
     .popup--scroll{
@@ -2827,18 +2827,21 @@ footer{
     .popup--fake-scrollbar {
       position: absolute;
       top: 0;
-      right: 0;
+      right: .8rem;
       width: 1.2rem;
       height: 100%;
       pointer-events: none;
     }
     .popup--fake-thumb {
       position: absolute;
-      top: 0;
+      top: 5.5rem;
       right: .4rem;
       width: .4rem;
       border-radius: 9rem;
       background: #999;
+      @media (min-width:$w-pc) {
+        top: 6.6rem;
+      }
     }
     .pop-btn-wrap{
       flex: 0 0 auto;

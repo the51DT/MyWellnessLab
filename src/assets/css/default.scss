@@ -4422,6 +4422,9 @@ footer{
     &-wrap{
       @include btnBottomFixLayout;
       padding: 0 2rem 0;
+      .login--txt{
+          margin-top: 13.3rem;
+      }
       @media (min-width: $w-pc) {
         min-height: auto;
         .login--txt{

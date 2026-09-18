@@ -2371,7 +2371,7 @@ footer{
       background: transparent;
       height: 100%;
       width: 100%;
-      max-height: calc(100% - 4.8rem);
+      @include max-vh-fallback(100, 4.9rem);
       max-width: $w-pc;
       color: #fff;
       display: flex;
@@ -2385,6 +2385,7 @@ footer{
       padding-bottom: 18.8rem;
       @media (min-width:$w-pc) {
         padding-bottom: 28rem;
+        @include max-vh-fallback(100, 8.1rem);
       }
     }
     .animation-text {

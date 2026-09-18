@@ -260,8 +260,9 @@ export default {
       </div>
     </div>
     <div class="popup--wrap">
-      <!-- [s] 260825 로티 조건문 추가 -->
+      <!-- [s] 260918 animation-wrap 추가 -->
       <div class="animation-wrap">
+        <!-- [s] 260825 로티 조건문 추가 -->
         <div v-if="!isPc && type === 'pin'" ref="moTextLevelup" class="animation-text"></div>
         <div v-if="isPc && type === 'pin'" ref="pcTextLevelup" class="animation-text"></div>
         <div v-if="!isPc && type === 'badge'" ref="moTextNewBadge" class="animation-text"></div>
@@ -280,6 +281,7 @@ export default {
           <p v-else>새로운 마이웰니스 랩 핀을 달성했습니다!</p> <!-- 260827 문구 수정 -->
         </div>
       </div>
+      <!-- [e] 260918 animation-wrap 추가 -->
       <div class="pop-btn-wrap">
         <button type="button" class="pop-btn pop-btn--green">보러가기</button>
       </div>

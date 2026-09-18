@@ -178,6 +178,12 @@ export default {
           autoplay: true
         },
         {
+          container: this.$refs.subParticle,
+          path: '/lottie/MOPC_Confetti_motion_1.json',
+          loop: false,
+          autoplay: true
+        },
+        {
           container: this.$refs.moBadge,
           path: '/lottie/MO_Badge_motion.json',
           loop: false,
@@ -271,6 +277,7 @@ export default {
         <div v-if="isPc" ref="pcParticle" class="animation-bg"></div>
         <div v-if="!isPc" ref="moBadge" class="animation-motion"></div>
         <div v-if="isPc" ref="pcBadge" class="animation-motion"></div>
+        <div ref="subParticle" class="animation-bg-sub"></div>
         <!-- [e] 260825 로티 조건문 추가 -->
         <span class="badge-name">
           <slot />

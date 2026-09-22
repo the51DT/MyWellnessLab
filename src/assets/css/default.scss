@@ -2569,9 +2569,6 @@ footer{
       height: auto;
       aspect-ratio: 1/1;
       margin-bottom: 2.4rem;
-      @media (min-width:$w-pc) {
-        aspect-ratio: 480 / 348;
-      }
     }
     &--title{
       margin-bottom: 1.6rem;

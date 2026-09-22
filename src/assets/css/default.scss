@@ -2547,7 +2547,7 @@ footer{
       top: 0;
       max-width: $w-pc;
       background-color: #F5F5F5;
-      z-index: 1;
+      z-index: 3;
       @media (min-width:$w-pc) {
         height: 8rem;
       }

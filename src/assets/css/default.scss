@@ -4247,10 +4247,10 @@ footer{
     }
     &.unit3{
       background-image: url("/img/intro4.png?231213");
-      background-position-x: 47%;
-      background-position-y: .5rem;
-      background-size: 68rem;
-      padding-bottom: 54rem;
+      background-position-x: 50%;
+      background-position-y: -2.5rem;
+      background-size: 65rem;
+      padding-bottom: 44.7rem;
       @media (min-width: $w-pc) {
         background-position-x: 50%;
         background-position-y: -2rem;
@@ -7918,7 +7918,7 @@ button{
     position: relative;
     width: 12rem;
     height: 12rem;
-    border: .15rem solid #1DB196;
+    border: .2rem solid #1DB196;
     border-radius: 4.2rem;
     background-color: #fff;
     @media (min-width:$w-pc) {
@@ -7931,7 +7931,10 @@ button{
       height: 100%;
       object-fit: cover;
       object-position: center;
-      border-radius: 99rem;
+      border-radius: 4rem;
+      @media (min-width:$w-pc) {
+        border-radius: 5.4rem;
+      }
     }
   }
   &--profile-leader{
@@ -19302,6 +19305,12 @@ span.legend-dot-interest{
       margin-top: 3.6rem;
       @media (min-width:$w-pc) {
         margin-top: 6.8rem;
+      }
+    }
+    &.unit3{
+      padding-bottom: 52.7rem;
+      @media (min-width:$w-pc) {
+        padding-bottom: 69.2rem;
       }
     }
   }

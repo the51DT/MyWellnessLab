@@ -918,8 +918,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/etc/ServiceOverview.vue',
     go: '/publishing/coupon-status/overview',
-    msg: '',
-    confirm: '2026.09.15 퍼블 완료'
+    msg: '260922 스크롤탑 버튼 추가',
+    confirm: '2026.09.22 퍼블 수정'
   },
   {
     div: '서비스 이용안내',

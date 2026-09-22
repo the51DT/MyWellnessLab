@@ -1,5 +1,7 @@
 <script setup>
-  const prefix = 'ServiceOverview' /* 클래스 접두어 */
+import BtnTop from '@/views/publishing/BtnTop.vue' /* 260922 스크롤탑 버튼 추가 */
+
+const prefix = 'ServiceOverview' /* 클래스 접두어 */
 </script>
 
 <template>
@@ -42,6 +44,8 @@
       <p class="intro--copy" v-html="$t('Intro.text10')"></p> <!-- 202606 v-html로 변경 -->
       <p class="intro--desc" v-html="$t('Intro.desc3')"></p>
     </div>
+
+    <BtnTop /> <!-- 260922 스크롤탑 버튼 추가 -->
   </section>
 </template>
 

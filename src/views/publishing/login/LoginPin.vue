@@ -102,7 +102,7 @@ onMounted(async () => {
     <BasePopup v-if="isShowSecessionPopup" class="openPopContinue">
       <template v-slot:contents>
         <p class="pop-text-light">탈퇴 진행 중인 회원입니다.</p>
-        <p class="pop-text-bold">변경사항은 관리자에게 문의해 주세요.</p>
+        <p class="pop-text-bold">빠른 서비스 재 이용이 필요한 경우, 고객센터(1588-0080)에 문의해주세요.</p> <!-- 260922 팝업 문구 변경 -->
         <div class="pop-btn-wrap">
           <button type="button" @click="closeWithDrowModal" class="pop-btn pop-btn--green">확인</button>
         </div>

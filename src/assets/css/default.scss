@@ -254,6 +254,8 @@
       // footer{
       //   border-top: solid .1rem #F5F5F5;
       // }
+    }
+    &:has(.header--menu > div:only-child){
       @media (min-width: $w-pc) {
         .header--wrap{
           flex-direction: row;

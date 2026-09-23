@@ -108,8 +108,8 @@ const data = ref([
     div3: '',
     loca: '@/views/auth/Pin.vue<br>@/views/publishing/login/LoginPin.vue -> 퍼블 확인용 경로',
     go: '/publishing/login/login-pin',
-    msg: "'202606' 주석 개발파일 적용 필요<br>퍼블 임시 PIN 1234<br>260922 팝업 문구 변경",
-    confirm: '2026.09.22 퍼블 수정'
+    msg: "'202606' 주석 개발파일 적용 필요<br>퍼블 임시 PIN 1234<br>260922 팝업 문구 변경<br>260923 줄바꿈 추가",
+    confirm: '2026.09.23 퍼블 수정'
   },
   {
     div: '팀가입 URL 접속 팝업',

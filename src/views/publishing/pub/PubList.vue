@@ -117,8 +117,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/login/TeamAgree.vue',
     go: '/publishing/login/team-agree',
-    msg: '퍼블 확인용 라우터 생성<br>사용 시 popupClose emit 필요<br>260820 문구 수정',
-    confirm: '2026.08.20 퍼블 수정'
+    msg: '퍼블 확인용 라우터 생성<br>사용 시 popupClose emit 필요<br>260820 문구 수정<br>260923 미션 선택 팝업 추가',
+    confirm: '2026.09.23 퍼블 수정'
   },
   { cate: 'blank'},
   {

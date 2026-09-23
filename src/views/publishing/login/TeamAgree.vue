@@ -2,10 +2,12 @@
 import { onMounted, ref } from 'vue'
 import router from '@/router'
 import BasePopupClose from '@/views/publishing/BasePopupClose.vue'
+import BasePopup from '@/views/publishing/BasePopup.vue' /* 260923 미션 선택 팝업 추가 */
 
 /* 퍼블확인용 */
 const isShowTeamTermsPopup = ref(false)
 const isShowTeamJoinPopup = ref(false)
+const isShowMissionPopup = ref(false) /* 260923 미션 선택 팝업 추가 */
 
 /* 퍼블확인용 */
 function termsAgree() {
@@ -15,12 +17,22 @@ function termsAgree() {
 
 /* 퍼블확인용 */
 onMounted(async () => {
-  // 페이지 진입 시 개인정보 제3자 제공 이용동의 표시
-  isShowTeamTermsPopup.value = true
+  isShowMissionPopup.value = true // 260923 미션 선택 팝업 추가 - 페이지 진입 시 노출
 })
 </script>
 
 <template>
+  <!-- [s] 260923 미션 선택 팝업 추가 -->
+  <BasePopup v-if="isShowMissionPopup" class="openPopContinue">
+    <template v-slot:contents>
+      <p class="pop-text-light">팀 가입을 위해<br>미션 선택이 필요합니다.</p>
+      <p class="pop-text-bold">홈에서 미션을 선택해주세요.</p>
+      <div class="pop-btn-wrap">
+        <button type="button" @click="isShowMissionPopup = false, isShowTeamTermsPopup = true" class="pop-btn pop-btn--green">선택하러 가기</button> <!-- 클릭 이벤트 퍼블 확인용 개발 수정 필요 -->
+      </div>
+    </template>
+  </BasePopup>
+  <!-- [e] 260923 미션 선택 팝업 추가 -->
   <!-- 개인정보 제3자 제공 이용동의 팝업 -->
   <BasePopupClose v-if="isShowTeamTermsPopup">
     <template v-slot:title>개인정보 제3자 제공 이용동의</template>

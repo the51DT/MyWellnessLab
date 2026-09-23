@@ -902,6 +902,9 @@ const publishingRouter = {
           path: "",
           name: "pubError",
           component: () => import("@/views/publishing/Error.vue"),
+          meta: {
+            isLogin: true /* 퍼블 확인용 */,
+          },
         },
       ],
     },

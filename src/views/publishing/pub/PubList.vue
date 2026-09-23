@@ -965,7 +965,7 @@ const data = ref([
     div3: '', 
     loca: '@/views/NotFound.vue<br>@/views/publishing/etc/Construction.vue -> 퍼블 확인용 경로',
     go: '/publishing/error',
-    msg: '500 error 주석처리',
+    msg: '500 error 주석처리<br>260923 라우터 isLogin 적용',
     confirm: '2026.07.29 퍼블 완료'
   },
   {

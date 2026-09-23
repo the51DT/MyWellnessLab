@@ -97,6 +97,7 @@ export default {
         <div class="text-wrap-default" v-if="nicknameDefault">
           <p>{{ data.nickname }}</p>
           <button @click="onEdit" type="button" class="btn-modify" title="프로필명 변경" ></button>
+          <button @click="" type="button" class="btn-user" title="사용자 선택"></button> <!-- 260923 공동사업자 사용자 선택 버튼 추가 -->
         </div>
         <div class="text-wrap-modify" v-else>
           <div class="BasePhoneInput">

@@ -18001,6 +18001,12 @@ span.legend-dot-interest{
     height: 2.4rem;
     background: url('/img/ico_modify.svg') no-repeat center / contain;
   }
+  .btn-user{
+    @include btnClear;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: url('/img/ic_arrow_down_black.svg') no-repeat center / 1.6rem;
+  }
   .text-wrap{
     margin-top: 1.6rem;
     @media (min-width:$w-pc) {

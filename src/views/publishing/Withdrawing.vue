@@ -13,6 +13,9 @@
       빠른 서비스 재 이용이 필요한 경우,<br>고객센터(1588-0080)에 문의해주세요.
     </p>
   </div>
+  <div class="withdrawing--btn-wrap btn--bottom">
+    <button type="button" @click="">한국암웨이 홈으로 이동</button>
+  </div>
 </template>
 
 <style scoped>

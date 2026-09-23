@@ -19932,6 +19932,19 @@ span.legend-dot-interest{
     }
   }
 }
+.withdrawing{
+  &--btn-wrap{
+    position: fixed;
+    bottom: 2.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    @media (min-width:$w-pc) {
+      bottom: 2.8rem;
+      max-width: 52rem;
+    }
+  }
+}
 .invite-pop{
   text-align: center;
   line-height: 1.4;

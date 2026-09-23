@@ -33,7 +33,7 @@ export default {
         {
           period: '26년 9월 - 27년 8월',
           activePeriod: '2025년 9월 ~ 2026년 8월',
-          pinImg: 'pin--diamond.svg',
+          pinImg: 'pin--diamond.png', /* 260923 핀 png로 변경 */
           pinName: '다이아몬드',
           nickname: '닉네임 영문 최대 20자',
           record: { /* 나의 미션 활동 기록 */
@@ -86,7 +86,7 @@ export default {
         {
           period: '25년 9월 - 26년 8월',
           activePeriod: '2024년 9월 ~ 2025년 8월',
-          pinImg: 'pin--ruby.svg',
+          pinImg: 'pin--ruby.png', /* 260923 핀 png로 변경 */
           pinName: '루비',
           nickname: '닉네임 닉네임 영문',
           record: {

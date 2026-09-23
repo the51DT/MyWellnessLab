@@ -32,8 +32,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Main.vue',
     go: '/publishing/main',
-    msg: "**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>퍼블 확인용 라우터 케이스 적용<br>260721 / mission-select 내부 구조 수정<br>260721 / 플로팅 탭 전환 핸들러 추가<br>260727 인증방법 선택 사진 찍기 디바이스 체크 후 노출되게 수정<br>260727 미션 주의사항 추가<br>260818 홈 추가 버튼 수정<br>260819 tit 내부 버튼 추가<br>260820 문구 수정<br>260821 문구 수정<br>AddBtnHomeRound.vue 260826 기본값 노출로 수정, 260826 버튼 음영 추가<br>260827 문구 수정<br>260827 지정 미션 챌린지 변경 불가 팝업 추가 / 주석 풀고 사용<br>260901 문구 수정<br>260901 미션 데이터 수정<br>260904 배지 컨펌 버전으로 수정<br>260908 미션 인증하기 클릭 영역 수정<br>260908 비디오 태그 구조 수정<br>260909 미션 변경하기 모션 수정<br>260910 문구 수정<br>260910 기록 없음 팝업 추가 - MainCalenderPop.vue<br>260911 핀 컨펌 버전으로 수정",
-    confirm: '2026.09.11 퍼블 수정'
+    msg: "**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>퍼블 확인용 라우터 케이스 적용<br>260721 / mission-select 내부 구조 수정<br>260721 / 플로팅 탭 전환 핸들러 추가<br>260727 인증방법 선택 사진 찍기 디바이스 체크 후 노출되게 수정<br>260727 미션 주의사항 추가<br>260818 홈 추가 버튼 수정<br>260819 tit 내부 버튼 추가<br>260820 문구 수정<br>260821 문구 수정<br>AddBtnHomeRound.vue 260826 기본값 노출로 수정, 260826 버튼 음영 추가<br>260827 문구 수정<br>260827 지정 미션 챌린지 변경 불가 팝업 추가 / 주석 풀고 사용<br>260901 문구 수정<br>260901 미션 데이터 수정<br>260904 배지 컨펌 버전으로 수정<br>260908 미션 인증하기 클릭 영역 수정<br>260908 비디오 태그 구조 수정<br>260909 미션 변경하기 모션 수정<br>260910 문구 수정<br>260910 기록 없음 팝업 추가 - MainCalenderPop.vue<br>260911 핀 컨펌 버전으로 수정<br>260923 핀 png로 변경",
+    confirm: '2026.09.23 퍼블 수정'
   },
   {
     div: '',
@@ -563,8 +563,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Challenge.vue',
     go: '/publishing/challenge',
-    msg: "(PU) 인증사진 보기, (PU) 챌린지 인증 공유하기 퍼블 확인용으로 넣어둠<br>260820 문구 수정<br>260827 문구 수정<br>260911 핀 컨펌 버전으로 수정 - ChallengeSharePop.vue<br>260916 onBeforeUnmount 추가<br>260916 미션 변경하기 모션 수정",
-    confirm: '2026.09.16 퍼블 수정'
+    msg: "(PU) 인증사진 보기, (PU) 챌린지 인증 공유하기 퍼블 확인용으로 넣어둠<br>260820 문구 수정<br>260827 문구 수정<br>260911 핀 컨펌 버전으로 수정 - ChallengeSharePop.vue<br>260916 onBeforeUnmount 추가<br>260916 미션 변경하기 모션 수정<br>260923 핀 png로 변경",
+    confirm: '2026.09.23 퍼블 수정'
   },
   {
     div: '챌린지(미진행)',
@@ -719,8 +719,8 @@ const data = ref([
     div3: '팀장',
     loca: '@/views/publishing/team/TeamDetail.vue',
     go: '/publishing/my-team/detail/challenge/leader',
-    msg: "퍼블 확인용 라우터 케이스 적용<br>배지 이미지 퍼블 확인용 임의<br>260820 문구 수정<br>260820 퍼블 확인용 프로필 이미지 경로 수정<br>260827 문구 수정<br>260904 배지 컨펌 버전으로 변경<br>260911 핀 컨펌 버전으로 수정",
-    confirm: '2026.09.11 퍼블 수정'
+    msg: "퍼블 확인용 라우터 케이스 적용<br>배지 이미지 퍼블 확인용 임의<br>260820 문구 수정<br>260820 퍼블 확인용 프로필 이미지 경로 수정<br>260827 문구 수정<br>260904 배지 컨펌 버전으로 변경<br>260911 핀 컨펌 버전으로 수정<br>260923 핀 png로 변경",
+    confirm: '2026.09.23 퍼블 수정'
   },
   {
     div: '',
@@ -838,8 +838,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/mission/MyMissionActivity.vue',
     go: '/publishing/my-mission/MyMissionActivity',
-    msg: '핀 디자인 컨펌 x 컨펌 후 교체 필요<br>260827 문구 수정<br>260904 배지 리스트 수정<br>BadgeDefault.vue - 260904 :style="imgStyle" 삭제<br>MyBadgeSetting.vue - 260904 배지 컨펌 버전으로 교체',
-    confirm: '2026.09.04 퍼블 수정'
+    msg: '핀 디자인 컨펌 x 컨펌 후 교체 필요<br>260827 문구 수정<br>260904 배지 리스트 수정<br>BadgeDefault.vue - 260904 :style="imgStyle" 삭제<br>MyBadgeSetting.vue - 260904 배지 컨펌 버전으로 교체<br>260923 핀 png로 변경',
+    confirm: '2026.09.23 퍼블 수정'
   },
   {
     cate: '',
@@ -848,8 +848,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/mission/MyMissionPrevious.vue',
     go: '/publishing/my-mission/MyMissionPrevious',
-    msg: "260904 배지 컨펌 버전으로 수정",
-    confirm: '2026.09.04 퍼블 수정'
+    msg: "260904 배지 컨펌 버전으로 수정<br>260923 핀 png로 변경",
+    confirm: '2026.09.23 퍼블 수정'
   },
   {
     cate: '',

@@ -37,11 +37,11 @@ const badgeList = [ /* 퍼블 확인용 획득한 배지 목록 */ /* 260904 배
     name: '나의 생일',
   },
   {
-    img: '/img/badgeImg/pin--ruby.svg',
+    img: '/img/badgeImg/pin--ruby.png', /* 260923 핀 png로 변경 */
     name: '루비',
   },
   {
-    img: '/img/badgeImg/pin--ruby.svg',
+    img: '/img/badgeImg/pin--ruby.png', /* 260923 핀 png로 변경 */
     name: '두줄<br>텍스트',
   },
 ] 

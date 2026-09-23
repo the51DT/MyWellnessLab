@@ -1,7 +1,7 @@
 <script>
 /*
     사용 예시
-    <BasePopupBadge type="pin" frontImg="pin--ruby.svg"> $명칭$ </BasePopupBadge>  
+    <BasePopupBadge type="pin" frontImg="pin--ruby.png"> $명칭$ </BasePopupBadge>  
     
     - type : pin/badge 선택 
     - frontImg : 이미지 네임만 작성

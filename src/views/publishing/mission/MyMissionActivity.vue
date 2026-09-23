@@ -619,7 +619,7 @@ export default {
         <p class="activity__area-profile-date">활동 기준일 : 2025년 9월 ~ 2026년 8월</p>
         
         <div class="badge__container">
-          <BadgeDefault img="pin--diamond.svg" />
+          <BadgeDefault img="pin--diamond.png" /> <!-- 260923 핀 png로 변경 -->
           <div class="badge__desc">
             <div class="badge__desc-info">
               <span class="badge__desc-my"> 다이아몬드 </span>            
@@ -639,7 +639,7 @@ export default {
                   <div class="activity__area_badge-section">
                     <div class="badge-box-wrap">
                       <div v-for="pin in pinList" :key="pin.pinImg" class="badge-box">
-                        <BadgeDefault :img="`pin--${pin.pinImg}.svg`">
+                        <BadgeDefault :img="`pin--${pin.pinImg}.png`"> <!-- 260923 핀 png로 변경 -->
                           {{ pin.pinName }}
                         </BadgeDefault>
                         <span>{{ pin.pinCount }}회</span>

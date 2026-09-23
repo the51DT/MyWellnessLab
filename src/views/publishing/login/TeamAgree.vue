@@ -25,7 +25,7 @@ onMounted(async () => {
   <!-- [s] 260923 미션 선택 팝업 추가 -->
   <BasePopup v-if="isShowMissionPopup">
     <template v-slot:contents>
-      <p class="pop-text-light">팀 가입을 위해<br>미션 선택이 필요합니다.</p>
+      <p class="pop-text-light">팀 가입을 위해 미션 선택이 필요합니다.</p>
       <p class="pop-text-bold">현재 선택된 미션이 없어<br>‘기본 미션’으로 자동으로 설정됩니다.</p>
       <div class="teamJoinBasicMission">
         <span>기본 미션</span>

@@ -1343,9 +1343,10 @@ const getHealthTrafficLight = (item) => {
       </div>
 
       <!-- 260909 home--visual 이미지 제거 -->
-      <!-- <div class="home--visual">
+      <!-- 260923 home--visual 이미지 원복 -->
+      <div class="home--visual">
         <img src="/img/img_intro.svg" alt="" />
-      </div>  -->
+      </div> 
 
       <div class="btn--re-checkup" :class="[activeFab ? 'active' : '', isBottomFab ? 'bottom' : '']" @click="moveCheckUpPage">
         <span>마이웰니스 랩 분석 시작</span> <!-- 2606 하단 플로팅 버튼 텍스트 수정 -->

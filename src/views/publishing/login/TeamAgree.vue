@@ -29,7 +29,7 @@ onMounted(async () => {
       <p class="pop-text-bold">현재 선택된 미션이 없어<br>‘기본 미션’으로 자동으로 설정됩니다.</p>
       <div class="teamJoinBasicMission">
         <span>기본 미션</span>
-        <strong>혈중지질 성분(EPA 및 DHA 함유 유지(오메가-3), 감마리놀렌산 함유 유지, 키토산, 귀리식이섬유) 섭취</strong>
+        <strong>영양 - 것모닝+ 하기(아침에 물, 프락토올리고당, 유산균, 단백질 섭취)</strong>
       </div>
       <div class="pop-text-caption center">*미션은 홈 > 미션 변경하기에서 변경할 수 있습니다.</div>
       <div class="pop-btn-wrap">

@@ -128,8 +128,8 @@ const data = ref([
     div3: '',
     loca: '@/views/Home.vue<br>@/views/publishing/Home.vue -> 퍼블 확인용 경로',
     go: '/publishing/home/before',
-    msg: '**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>퍼블 확인용 라우터 케이스 적용<br>260909 home--visual 이미지 제거<br>260909 건강수명분석 푸터 삭제로 인해 라우터 component: LayoutHomeNoFooter로 변경',
-    confirm: '2026.09.09 퍼블 수정'
+    msg: '**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>퍼블 확인용 라우터 케이스 적용<br>260909 home--visual 이미지 제거<br>260909 건강수명분석 푸터 삭제로 인해 라우터 component: LayoutHomeNoFooter로 변경<br>260923 home--visual 이미지 원복',
+    confirm: '2026.09.23 퍼블 수정'
   },
   {
     cate: '',

@@ -26,7 +26,8 @@ onMounted(async () => {
   <BasePopup v-if="isShowMissionPopup" class="openPopContinue">
     <template v-slot:contents>
       <p class="pop-text-light">팀 가입을 위해<br>미션 선택이 필요합니다.</p>
-      <p class="pop-text-bold">홈에서 미션을 선택해주세요.</p>
+      <p class="pop-text-bold">현재 선택된 미션이 없어<br>‘확인'을 누르면 기본 미션이 자동으로 설정됩니다.</p>
+      <div class="pop-text-caption center">*미션은 홈 > 미션 변경하기에서 변경할 수 있습니다.</div>
       <div class="pop-btn-wrap">
         <button type="button" @click="isShowMissionPopup = false, isShowTeamTermsPopup = true" class="pop-btn pop-btn--green">선택하러 가기</button> <!-- 클릭 이벤트 퍼블 확인용 개발 수정 필요 -->
       </div>

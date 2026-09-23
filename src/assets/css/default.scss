@@ -9159,6 +9159,21 @@ button{
         }
       }
     }
+    &:not(.leaderCase){
+      .liteVersion{
+        .team-status--info {
+          dl{
+            &:nth-child(2){
+              order: unset;
+              grid-column: auto;
+            }
+            &:nth-child(3){
+              order: 3;
+            }
+          }
+        }
+      }
+    }
   }
   .challenge--not{
     position: absolute;

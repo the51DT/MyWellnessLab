@@ -63,7 +63,7 @@ const memberList = ref([ /* 퍼블 확인용 챌린지 팀원 데이터 */
 </script>
 
 <template>
-  <section class="team-status" :class="{ challengeColor : challengeTeam}">
+  <section class="team-status" :class="{ challengeColor : challengeTeam, leaderCase : isLeader}"> <!-- 260923 리더일 경우 클래스 추가 -->
     <div class="team-status--filter-wrap">
       <div v-if="challengeTeam && !noMember" class="select-wrap">
         <select name="statusSession" class="circle" required>

@@ -2246,6 +2246,21 @@ footer{
       gap: 1.2rem;
     }
   }
+  .teamJoinBasicMission{ // 팀 가입 기본 미션
+    margin-top: .8rem;
+    padding: 1.2rem 2rem;
+    border-radius: 2.4rem;
+    border: .1rem solid #1DB196;
+    span{
+      display: block;
+      margin-bottom: .4rem;
+      @include txtStyle(caption, xl-1);
+    }
+    strong{
+      display: block;
+      @include txtStyle(body, 2xs-1, 600);
+    }
+  }
 
   // 메인 미션 선택 팝업
   &.MissionSelectPopup{
@@ -4079,9 +4094,6 @@ footer{
       height: auto;
       min-height: auto;
     }
-    // p:after{
-    //   display: none;
-    // }
   }
   .home--start-wrap{
     max-width: 48rem;

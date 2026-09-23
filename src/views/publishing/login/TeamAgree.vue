@@ -23,13 +23,17 @@ onMounted(async () => {
 
 <template>
   <!-- [s] 260923 미션 선택 팝업 추가 -->
-  <BasePopup v-if="isShowMissionPopup" class="openPopContinue">
+  <BasePopup v-if="isShowMissionPopup">
     <template v-slot:contents>
       <p class="pop-text-light">팀 가입을 위해<br>미션 선택이 필요합니다.</p>
-      <p class="pop-text-bold">현재 선택된 미션이 없어<br>‘확인'을 누르면 기본 미션이 자동으로 설정됩니다.</p>
+      <p class="pop-text-bold">현재 선택된 미션이 없어<br>‘기본 미션’으로 자동으로 설정됩니다.</p>
+      <div class="teamJoinBasicMission">
+        <span>기본 미션</span>
+        <strong>혈중지질 성분(EPA 및 DHA 함유 유지(오메가-3), 감마리놀렌산 함유 유지, 키토산, 귀리식이섬유) 섭취</strong>
+      </div>
       <div class="pop-text-caption center">*미션은 홈 > 미션 변경하기에서 변경할 수 있습니다.</div>
       <div class="pop-btn-wrap">
-        <button type="button" @click="isShowMissionPopup = false, isShowTeamTermsPopup = true" class="pop-btn pop-btn--green">선택하러 가기</button> <!-- 클릭 이벤트 퍼블 확인용 개발 수정 필요 -->
+        <button type="button" @click="isShowMissionPopup = false, isShowTeamTermsPopup = true" class="pop-btn pop-btn--green">확인</button> <!-- 클릭 이벤트 퍼블 확인용 개발 수정 필요 -->
       </div>
     </template>
   </BasePopup>

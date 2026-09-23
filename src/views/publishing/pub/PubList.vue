@@ -1104,8 +1104,8 @@ const data = ref([
     div3: '',
     loca: '@/views/mypage/MyPageBodyCompositionDataRecordDetail.vue<br>@/views/publishing/mypage/MyPageBodyCompositionDataRecordDetail.vue -> 퍼블 확인용',
     go: '/publishing/my-page/pub-my-body/detail',
-    msg: '',
-    confirm: '2026.07.29 퍼블 완료'
+    msg: '260923 버튼 추가 삭제',
+    confirm: '2026.09.23 퍼블 수정'
   },
   {
     div: 'PIN 번호 분실',

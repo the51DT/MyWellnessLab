@@ -18551,11 +18551,13 @@ span.legend-dot-interest{
     }
   }
   &--input-list{
+    margin-top: 1.6rem;
     padding: 1.2rem 2rem 1.6rem;
     background-color: #fff;
     border-radius: 2.4rem;
     border: .1rem solid #e5e5e5;
     @media (min-width: $w-pc) {
+      margin-top: 2rem;
       padding: 1.6rem 2.8rem 2.4rem;
       .validation{
         margin-top: 0;

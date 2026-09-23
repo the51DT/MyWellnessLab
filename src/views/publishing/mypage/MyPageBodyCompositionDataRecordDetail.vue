@@ -172,9 +172,10 @@ const bodyCompositionFields = computed(() => [
       </div>
 
       <!-- 202606 라인 삭제 & 버튼 추가 -->
-      <div class="MyPageBodyCompositionDataRecordDetail--btn-wrap">
+      <!-- 260923 버튼 추가 삭제 -->
+      <!-- <div class="MyPageBodyCompositionDataRecordDetail--btn-wrap">
         <button type="button" class="MyPageBodyCompositionDataRecordDetail--btn">이 검진 데이터로 분석 시작하기</button>
-      </div>
+      </div> -->
 
       <div class="MyPageBodyCompositionDataRecordDetail--input-list">
         <BaseInput

@@ -4072,7 +4072,7 @@ footer{
   }
   .home--hi{
     margin: 0 auto;
-    &:after{
+    p::after{
       display: none;
     }
     @media (min-width: $w-pc) {

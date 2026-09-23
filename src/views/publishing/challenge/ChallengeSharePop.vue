@@ -2,6 +2,7 @@
 import TextDatePicker from '@/components/TextDatePicker.vue'
 import BasePopupImage from '@/views/publishing/BasePopupImage.vue'
 import { bodyScroll } from '@/assets/js/common'
+import pinImg from '@/assets/images/badgeImg/pin--ruby.png' /* 260923 핀 이미지 임포트 */
 
 export default {
   name: "ChallengeSharePop",
@@ -11,6 +12,7 @@ export default {
   },
   data () {
     return {
+      pinImg, /* 260923 핀 이미지 임포트 */
       missionCertImagePopup: false /* 인증사진 보기 팝업 */
     }
   },
@@ -26,6 +28,7 @@ export default {
     },
   },
   mounted() {
+    console.log('pinImg:', pinImg)
     bodyScroll(false) /* 팝업 노출 시 body 스크롤 정지 */
   },
   unmounted() {
@@ -59,7 +62,7 @@ export default {
             <p class="num"><span>2</span>회</p>
           </div>
           <div class="info-wrap">
-            <img src="/img/badgeImg/pin--ruby.png"> <!-- 260911 핀 컨펌 버전으로 수정 --> <!-- 260923 핀 png로 변경 -->
+            <img :src="pinImg"> <!-- 260911 핀 컨펌 버전으로 수정 --> <!-- 260923 핀 png로 변경 --> <!-- 260923 핀 이미지 임포트 -->
             <p><span>$닉네임$</span>님의</p>
             <p><span class="cate">운동</span>미션 인증</p>
           </div>

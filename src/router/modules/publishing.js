@@ -906,6 +906,17 @@ const publishingRouter = {
       ],
     },
     {
+      path: "withdrawing" /* 탈퇴 진행 중인 회원 */,
+      component: LayoutHomeNoFooter,
+      children: [
+        {
+          path: "",
+          name: "pubWithdrawing",
+          component: () => import("@/views/publishing/Withdrawing.vue"),
+        },
+      ],
+    },
+    {
       path: "construction" /* 기타 */,
       name: "pubConstruction",
       component: () => import("@/views/Construction.vue"),

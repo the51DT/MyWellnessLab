@@ -977,6 +977,16 @@ const data = ref([
     go: '/publishing/loading',
     msg: '일반 로딩 주석처리',
     confirm: '2026.07.29 퍼블 완료'
+  },
+  {
+    cate: '',
+    div: '탈퇴 진행 중 회원',
+    div2: '',
+    div3: '',
+    loca: '@/views/publishing/Withdrawing.vue',
+    go: '/publishing/withdrawing',
+    msg: '',
+    confirm: '2026.09.23 퍼블 완료'
   },  
   { cate: 'blank'},
   {

@@ -3936,9 +3936,9 @@ footer{
   }
   &--instant{
     text-align: center;
-    padding-bottom: 16.9rem;
+    padding-bottom: 17rem;
     @media (min-width:$w-pc) {
-      padding-bottom: 12rem;
+      padding-bottom: 19rem;
     }
     &-btn{
       @include txtStyle(body, xs-1, 600);

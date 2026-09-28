@@ -2381,6 +2381,8 @@ footer{
       background: transparent;
       max-width: $w-pc;
       color: #fff;
+      position: relative;
+      z-index: 4;
     }
     .popup--close{
       background-image: url('/img/ico_x_white.svg');

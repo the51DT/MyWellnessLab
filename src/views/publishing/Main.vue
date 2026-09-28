@@ -950,8 +950,9 @@ export default {
           <div class="tab-content--active"><span>챌린지</span></div>
           <!-- 챌린지 없는 경우 -->
           <!-- 260827 문구 수정 -->
+          <!-- 260928 챌린지 없는 경우 이미지 수정 -->
           <!-- <div class="main--team--no">
-            <img src="/img/img_home_error.png">
+            <img src="/img/visual_alert_pink.png">
             <p>참여 중인 챌린지가 없습니다.</p>
           </div> -->
           <div>

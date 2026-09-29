@@ -6258,7 +6258,6 @@ button{
     height: 2rem;
     background-color: #EB608E;
     border-radius: 9rem;
-    border: .1rem solid #EB608E;
     color: #fff;
     @include txtStyle(caption, lg-1, 600);
     @media (min-width:$w-pc) {
@@ -6266,9 +6265,8 @@ button{
       height: 2.4rem;
     }
     &.before{
-      color: #999;
+      color: #808080;
       background-color: #E5E5E5;
-      border-color: #999;
     }
   }
   &-before{
@@ -19053,6 +19051,11 @@ span.legend-dot-interest{
         margin-left: -.2rem;
         background-position-x: right -.2rem;
       }
+    }
+  }
+  .AnalyzeList--no-data{
+    &::before{
+      background-image: url("/img/visual_alert_pink.png");
     }
   }
 }

@@ -3757,10 +3757,11 @@ footer{
   &--info{
     @include txtStyle(body, sm-1);
     margin-top: .8rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #E5E5E5;
+    text-decoration: #D9D9D9 dotted underline;
+    text-underline-position: under;
+    // background: url(/img/img_line.svg) repeat-x bottom left;
     @media (min-width:$w-pc) {
-      padding-bottom: 2.4rem;
+      // background-size: 88%;
     }
     .green{
       color: $txt-font-color-interest;
@@ -3830,11 +3831,6 @@ footer{
   }
   &--aging{
     margin-top: 0.8rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #E5E5E5;
-    @media (min-width:$w-pc) {
-      padding-bottom: 3.6rem;
-    }
   }
   &--index{
     display: grid;

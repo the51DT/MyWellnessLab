@@ -846,7 +846,7 @@ const publishingRouter = {
           component: () => import("@/views/info/ServiceUseGuide.vue"),
           meta: {
             title: "서비스 이용안내",
-            class: "whiteHeader wide",
+            class: "whiteHeader",
           },
         },
         {

@@ -2,10 +2,14 @@
 import { funcIsPc } from '@/assets/js/common'
 import BtnTop from '@/views/publishing/BtnTop.vue'
 import { useI18n } from 'vue-i18n'
+import TabRound from '@/components/TabRound.vue'
 
 export default {
   name: 'ServiceUseGuide',
-  components: { BtnTop },
+  components: { 
+    BtnTop,
+    TabRound,
+  },
   setup() {
     const { t, locale } = useI18n()
     return { t, locale }
@@ -13,16 +17,29 @@ export default {
   data () {
     return {
       prefix: 'ServiceUseGuide', /* 231214 클래스 접두어 */
-      menu: [this.$t('ServiceUseGuide.text1'), this.$t('ServiceUseGuide.text2'), this.$t('ServiceUseGuide.text3'), this.$t('ServiceUseGuide.text4')], /* 231214 메뉴 */
-      group: [], /* 231214 내용 노출, 비노출 변수 */
+      activeGuideTab: 0,
+      activeMenuIndex: {
+        0: 0,
+        1: 0
+      },
+      menu1: [
+        this.$t('ServiceUseGuide.text1'),
+        this.$t('ServiceUseGuide.text2'),
+        this.$t('ServiceUseGuide.text3'),
+        this.$t('ServiceUseGuide.text4'),
+      ],
+      menu2: ['미션 선택 하기', '마이웰니스 랩 인증방법', '팀 만들기&팀원 초대', '팀원인증현황보기', '나의 활동 안내',],
+      group: [],
 
       // 상단 메뉴 드래그 관련
       isDragging: false,
+      dragTarget: null,
       startX: 0,
       startScroll: 0,
       scrollY: 0,
       activeFab: false,
-      sensorWidth: false
+      sensorWidth: false,
+      resizeHandler: null
     }
   },
   methods: {
@@ -30,28 +47,34 @@ export default {
     // 상단 메뉴 드래그 관련
     dragStart (event) {
       this.isDragging = true
+      this.dragTarget = event.currentTarget
       this.startX = event.clientX
-      this.startScroll = this.$refs.scrollContainer.scrollLeft
+      this.startScroll = this.dragTarget.scrollLeft
     },
     drag (event) {
-      if (!this.isDragging) return
+      if (!this.isDragging || !this.dragTarget) return
       const x = event.clientX
-      const delta = (this.startX - x)
-      this.$refs.scrollContainer.scrollLeft = this.startScroll + delta
+      const delta = this.startX - x
+      this.dragTarget.scrollLeft = this.startScroll + delta
     },
     dragEnd () {
       this.isDragging = false
+      this.dragTarget = null
     },
-    move (event, tg) {
-      const btns = document.querySelectorAll('.AnalyzeDetail--menu-btn')
-      for (let i = 0; i < btns.length; i++) {
-        btns[i].classList.remove('active')
-      }
-      event.target.classList.add('active')
-      for (let i = 0; i < this.menu.length; i++) {
-        this.group[i] = false
-      }
-      this.group[tg] = true
+    setGroupByTab (tabIndex, menuIndex) {
+      const globalIndex = tabIndex === 0
+        ? menuIndex
+        : this.menu1.length + menuIndex
+      const group = Array.from(
+        { length: this.menu1.length + this.menu2.length },
+        () => false
+      )
+      group[globalIndex] = true
+      this.group = group
+    },
+    move (index, tabIndex) {
+      this.activeMenuIndex[tabIndex] = index
+      this.setGroupByTab(tabIndex, index)
       window.scrollTo(0, 0)
     },
     handleScroll () {
@@ -75,25 +98,34 @@ export default {
       }
     }
   },
+  watch: {
+    activeGuideTab (value) {
+      const menuIndex = this.activeMenuIndex[value] || 0
+
+      this.$nextTick(() => {
+        this.setGroupByTab(value, menuIndex)
+      })
+    }
+  },
   mounted () {
-    this.group = Array.from({ length: this.menu.length }, () => false) /* 231214 메뉴 수 카테고리 빈 배열 생성 */
+    this.group = Array.from({ length: this.menu1.length + this.menu2.length },() => false) /* 231214 메뉴 수 카테고리 빈 배열 생성 */
 
     // 231214 초기값 세팅
-    document.querySelector('.AnalyzeDetail--menu-btn').classList.add('active')
-    this.group[0] = true
+    this.setGroupByTab(0, 0)
 
     window.addEventListener('scroll', this.handleScroll)
 
     this.sensorWidth = funcIsPc()
-    window.addEventListener('resize', () => {
+    this.resizeHandler = () => {
       this.sensorWidth = funcIsPc()
-    })
+    }
+    window.addEventListener('resize', this.resizeHandler)
   },
   unmounted () {
     window.removeEventListener('scroll', this.handleScroll)
-    window.removeEventListener('resize', () => {
-      this.sensorWidth = funcIsPc()
-    })
+    if (this.resizeHandler) {
+      window.removeEventListener('resize', this.resizeHandler)
+    }
   }
 }
 
@@ -102,20 +134,48 @@ export default {
 <template>
   <section :class="prefix">
     <div class="AnalyzeDetail--menu--cover">
-      <div
-        class="AnalyzeDetail--menu"
-        @mousedown="dragStart"
-        @mousemove="drag"
-        @mouseup="dragEnd"
-        ref="scrollContainer">
-        <button
-          v-for="(item, index) in menu"
-          :key="index"
-          @click="move($event, index)"
-          type="button"
-          class="AnalyzeDetail--menu-btn">{{
-            item }}</button>
-      </div>
+      <TabRound v-model="activeGuideTab" :tabs="[{title:'가입 및 분석'}, {title:'미션 및 챌린지'}]">
+        <template #tab-0>
+          <div
+            class="AnalyzeDetail--menu"
+            @mousedown="dragStart"
+            @mousemove="drag"
+            @mouseup="dragEnd"
+            @mouseleave="dragEnd"
+          >
+            <button
+              v-for="(item, index) in menu1"
+              :key="index"
+              @click="move(index, 0)"
+              type="button"
+              class="AnalyzeDetail--menu-btn"
+              :class="{ active: activeGuideTab === 0 && activeMenuIndex[0] === index }"
+            >
+              {{ item }}
+            </button>
+          </div>
+        </template>
+        <template #tab-1>
+          <div
+            class="AnalyzeDetail--menu"
+            @mousedown="dragStart"
+            @mousemove="drag"
+            @mouseup="dragEnd"
+            @mouseleave="dragEnd"
+          >
+            <button
+              v-for="(item, index) in menu2"
+              :key="index"
+              @click="move(index, 1)"
+              type="button"
+              class="AnalyzeDetail--menu-btn"
+              :class="{ active: activeGuideTab === 1 && activeMenuIndex[1] === index }"
+            >
+              {{ item }}
+            </button>
+          </div>
+        </template>
+      </TabRound>
     </div>
     <div :class="prefix + '--category'" v-if="group[0]" class="c0"> <!--231214 카테고리-->
       <div> <!--231214 가입-->

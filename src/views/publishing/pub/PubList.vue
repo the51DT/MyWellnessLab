@@ -927,8 +927,8 @@ const data = ref([
     div3: '',
     loca: '@/views/info/ServiceUseGuide.vue',
     go: '/publishing/coupon-status/service-use-guide',
-    msg: '수급대기',
-    confirm: ''
+    msg: '기존 마크업과 너무 달라 주석 남기지않고 작업<br>라우터 wide 클래스 제거<br>디자인 컨펌 대기중 / 탭만 작업',
+    confirm: '작업중'
   },
   {
     div: 'FAQ',

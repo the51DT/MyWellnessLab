@@ -27,10 +27,6 @@ export default {
       type: String,
       required: true
     },
-    backImg: {
-      type: String,
-      required: true
-    }
   },
   computed: {
     /* imgStyle() {
@@ -243,8 +239,10 @@ export default {
   },
   mounted() {
     bodyScroll(false) /* 팝업 노출 시 body 스크롤 정지 */ /* 260918 bodyScroll mounted 위치 수정 */
-    this.startLottie() /* 260824 로티 추가 */
     this.winWidth() /* 브라우저 가로 사이즈 체크 */ /* 260928 this. 추가 */
+    this.$nextTick(() => { /* 260929 startLottie 실행 순서 변경 */
+      this.startLottie() /* 260824 로티 추가 */
+    })
   },
   unmounted() {
     bodyScroll(true) /* 팝업 삭제 시 body 스크롤 원복 */

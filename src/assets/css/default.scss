@@ -6256,8 +6256,10 @@ button{
     align-items: center;
     width: 6rem;
     height: 2rem;
+    background-color: #EB608E;
     border-radius: 9rem;
     border: .1rem solid #EB608E;
+    color: #fff;
     @include txtStyle(caption, lg-1, 600);
     @media (min-width:$w-pc) {
       width: 6.7rem;

@@ -158,6 +158,7 @@ onMounted(() => {
               <p class="desc--bold"><span>진행 기간</span>2026.08.01 ~ 2026.08.31</p>
               <p class="desc--bold"><span>성공 조건</span><span class="desc--green">80% 이상</span></p>
               <p class="desc--bold"><span>성공 보상</span>$1회차 보상명 (20자 까지 노출 가능)$</p>
+              <p class="desc--bold"><span>바우처명</span>$1회차 바우처명 (20자 까지 노출 가능)$</p> <!-- 260929 바우처명 케이스 추가 -->
             </div>
 
             <div class="form-item">
@@ -165,6 +166,7 @@ onMounted(() => {
               <p class="desc--bold"><span>진행 기간</span>2026.09.01 ~ 2026.09.30</p>
               <p class="desc--bold"><span>성공 조건</span><span class="desc--green">80% 이상</span></p>
               <p class="desc--bold"><span>성공 보상</span>$2회차 보상명 (20자 까지 노출 가능)$</p>
+              <p class="desc--bold"><span>바우처명</span>$2회차 바우처명 (20자 까지 노출 가능)$</p> <!-- 260929 바우처명 케이스 추가 -->
             </div>
             <!-- [e] 260727 회차 진행 안내로 변경 -->
 

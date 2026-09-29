@@ -8101,6 +8101,7 @@ button{
   &--tit{
     @include txtStyle(body, md, 600);
     margin-bottom: 1.6rem;
+    word-break: break-all;
     span{
       font-weight: 400;
       color: #666;

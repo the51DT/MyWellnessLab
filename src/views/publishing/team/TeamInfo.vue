@@ -294,6 +294,10 @@ onBeforeUnmount(() => {
               <strong class="color">80% 이상</strong>
               <em>성공 보상</em>
               <strong>$1회차 보상명 (20자 까지 노출 가능)$</strong>
+              <!-- [s] 260929 바우처명 케이스 추가 -->
+              <em>바우처명</em>
+              <strong>$1회차 바우처명 (20자 까지 노출 가능)$</strong>
+              <!-- [e] 260929 바우처명 케이스 추가 -->
             </span>
           </li>
           <li>
@@ -305,6 +309,10 @@ onBeforeUnmount(() => {
               <strong class="color">80% 이상</strong>
               <em>성공 보상</em>
               <strong>$2회차 보상명 (20자 까지 노출 가능)$</strong>
+              <!-- [s] 260929 바우처명 케이스 추가 -->
+              <em>바우처명</em>
+              <strong>$2회차 바우처명 (20자 까지 노출 가능)$</strong>
+              <!-- [e] 260929 바우처명 케이스 추가 -->
             </span>
           </li>
           <li>
@@ -315,10 +323,7 @@ onBeforeUnmount(() => {
             <span class="tit">성공 보상</span>
             <span>$보상명 20자까지 노출 가능$</span>
           </li>
-          <li>
-            <span class="tit">바우처명</span>
-            <span>$바우처명 20자까지 노출 가능$</span>
-          </li>
+          <!-- 260929 기존 바우처명 삭제 -->
           <li>
             <span class="tit">보상 수령 방법</span>
             <span>팀원 개별수령</span>

@@ -889,8 +889,8 @@ const data = ref([
     div3: '',
     loca: '@/layouts/LayoutHomeDock.vue',
     go: '/publishing/main',
-    msg: "페이지 확인 => 메인으로 이동",
-    confirm: '2026.07.30 퍼블 완료'
+    msg: "페이지 확인 => 메인으로 이동<br>260929 마이 버튼 추가 - LayoutHomeSideMenu.vue",
+    confirm: '2026.09.29 퍼블 수정'
   },
   {
     cate: '',

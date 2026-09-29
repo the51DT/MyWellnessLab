@@ -147,6 +147,7 @@ watch(isKakao, () => { /* 231214 사이드바가 나오면 사이드메뉴 스�
 
     <!-- 202606 닫기버튼 상단으로 이동 -->
     <div class="header--close txt--right side-bar--close">
+      <button type="button" class="side-bar--my">마이</button> <!-- 260929 마이 버튼 추가 -->
       <button @click="closeSideMenu" type="button" />
     </div>
 

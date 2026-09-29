@@ -774,6 +774,11 @@
       // &::before{
       //   content: '';
       //   flex: 0 0 auto;
+      //   display: block;
+      //   width: 1.6rem;
+      //   height: 1.6rem;
+      //   background: url('/img/side-bar_my.svg') no-repeat center / contain;
+      // }
     }
     @media (min-width:$w-pc) {
       padding-right: 4rem;

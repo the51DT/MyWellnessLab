@@ -1840,34 +1840,35 @@ footer{
       }
       .analyze-box{
         .AnalyzeAgingSpeed{
-          &--rank-wrap{
-            width: 7.5rem;
-            height: 7.5rem;
-            @media (min-width: $w-pc) {
-              width: 8.5rem;
-              height: 8.5rem;
-            }
-          }
+          // &--rank-wrap{
+          //   width: 7.5rem;
+          //   height: 7.5rem;
+          //   @media (min-width: $w-pc) {
+          //     width: 8.5rem;
+          //     height: 8.5rem;
+          //   }
+          // }
           &--speed2{
-            @include txtStyle(head, sm, 600);
+            @include txtStyle(head, sm, 700);
             @media (min-width: $w-pc) {
+              @include txtStyle(head, md, 700);
               margin-top: -0.4rem;
             }
           }
           &--speed3{
-            @include txtStyle(body, 2xs);
+            @include txtStyle(caption, xl-1);
             margin-top: -0.6rem;
             @media (min-width: $w-pc) {
+              @include txtStyle(body, sm);
               margin-top: -0.7rem;
             }
           }
           &--graph{
-            width: 100%;
-            height: 18rem;
+            height: 18.4rem;
             background-image: none;
             background-size: contain;
             @media (min-width: $w-pc) {
-              height: 20.5rem;
+              height: 21.6rem;
             }
             &-bg{
               position: absolute;
@@ -1900,9 +1901,6 @@ footer{
           // &--graph[data-lang=en]{
           //   background-image: url(/img/bg_agingspeed_detail_en.png);
           // }
-          &--summary{
-            bottom: .9rem;
-          }
         }
       }
       .home--index--top{
@@ -3757,11 +3755,10 @@ footer{
   &--info{
     @include txtStyle(body, sm-1);
     margin-top: .8rem;
-    text-decoration: #D9D9D9 dotted underline;
-    text-underline-position: under;
-    // background: url(/img/img_line.svg) repeat-x bottom left;
+    background: url(/img/img_line.svg) repeat-x bottom left;
+    background-size: 115%;
     @media (min-width:$w-pc) {
-      // background-size: 88%;
+      background-size: 100%;
     }
     .green{
       color: $txt-font-color-interest;
@@ -3878,14 +3875,14 @@ footer{
       flex-direction: column;
       justify-content: space-between;
       width: 100%;
-      height: 9.5rem;
+      height: 8.3rem;
       border-width: 1px;
       border-style: solid;
       padding: 0.8rem;
       border-radius: 1.2rem;
       position: relative;
       @media (min-width: $w-pc) {
-        height: 10.3rem;
+        height: 9.6rem;
         padding: 1.2rem 1rem .8rem 1.2rem;
       }
       &-tit{
@@ -3899,15 +3896,34 @@ footer{
           @include txtStyle(head, sm, 500);
         }
         &-unit{
-          @include txtStyle(body, sm);
+          @include txtStyle(caption, xs);
           color: #808080;
           &.is-en{
             position: absolute;
             right: 0;
-            top: -1.8rem;
-            @media (min-width:$w-pc) {
-              top: -2.1rem;
+            bottom: 0;
+            z-index: 1;
+            &::before{
+              content: '';
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              display: block;
+              width: 1.9rem;
+              height: 1.1rem;
+              background-color: #fff;
+              z-index: -1;
+              @media (min-width:$w-pc) {
+                width: 2.3rem;
+              }
             }
+          }
+        }
+        &:has(.is-en){
+          padding-right: 1.4rem;
+          @media (min-width:$w-pc) {
+            padding-right: 1.6rem;
           }
         }
       }
@@ -14763,7 +14779,7 @@ $agingIndex: 431px;
       position: relative;
       background-color: transparent;
       padding-top: 3.5rem;
-      padding-left: 1rem;
+      padding-left: .5rem;
       top: auto;
       bottom: 0;
       margin: 0;
@@ -14774,29 +14790,35 @@ $agingIndex: 431px;
     }
     .AnalyzeAgingSpeed--summary{
       transform: translateX(-50%);
-      bottom: .9rem;
       left: calc(50% + .5rem);
       @media (min-width: $w-pc) {
         bottom: 1rem;
       }
     }
     .AnalyzeAgingSpeed--rank-wrap {
-      width: 7.5rem;
-      height: 7.5rem;
-      border: none;
+      width: 9.9rem;
+      height: 9.9rem;
+      border: .2rem solid #fff;
       @media (min-width: $w-pc) {
-        width: 8.8rem;
-        height: 8.8rem;
+        width: 11.6rem;
+        height: 11.6rem;
         padding-top: 1rem;
       }
     }
     .AnalyzeAgingSpeed--speed2{
-      @include txtStyle(head, sm, 600);
-      letter-spacing: -0.02rem;
+      @include txtStyle(head, sm, 700);
+      @media (min-width:$w-pc) {
+        @include txtStyle(head, md, 700);
+        margin-top: -.5rem;
+      }
     }
     .AnalyzeAgingSpeed--speed3{
-      @include txtStyle(body, 2xs);
-      margin-top: -0.5rem;
+      @include txtStyle(caption, xl-1);
+      margin-top: -0.3rem;
+      @media (min-width:$w-pc) {
+        @include txtStyle(body, sm);
+        margin-top: -0.8rem;
+      }
     }
     .AnalyzeAgingSpeed--responsive{
       display: block;

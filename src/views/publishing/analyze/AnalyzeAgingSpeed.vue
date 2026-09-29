@@ -225,9 +225,10 @@ function chartDraw () {
         type: 'gauge',
         radius: props.isShare? '100%' : '120%', 
         /* 2606 건강수명분석, 공유팝업 그래프 디자인 수정 */
+        /* 260929 그래프 각도 수정 */
         center: props.isShare? ['50%', '70%'] : ['50%', '60%'], 
-        startAngle: props.isMain ? 197 : 180,
-        endAngle: props.isMain ? -17 : 0,
+        startAngle: props.isShare ? 185 : props.isMain ? 190 : 180,
+        endAngle: props.isShare ? -5 : props.isMain ? -10 : 0,
         /* center: props.isShare? ['50%', '75%'] : ['50%', '60%'], 
         startAngle: 180,
         endAngle: 0, */
@@ -250,11 +251,14 @@ function chartDraw () {
           splitNumber: 1,
           length: 124.5
         },
-        pointer: { // 2606 바늘 디자인 수정
-          icon: 'image:///img/img_agingspeed_needle.svg',
-          length: props.isShare ? '110%' : (props.isMain ? '125%' : '85%'),
-          width: props.isShare ? 10 : 12,
-          showAbove: true,
+        pointer: { // 260929 바늘 디자인 원복
+          icon: 'triangle',
+          length: props.isShare ? '125%' : (props.isMain ? '125%' : '85%'),
+          width: 20,
+          showAbobe: true,
+          itemStyle: {
+            color: '#646464'
+          }
         },
         anchor: {
           show: false,

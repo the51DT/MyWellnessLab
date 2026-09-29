@@ -13786,7 +13786,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       right: 50%;
       transform: translateX(-50%);
       position: relative;
-      width: calc(99vw - 1.6em);
+      width: calc(100vw - 1em);
       margin-top: 5.2rem;
     }
     &--tit-wrap{
@@ -16554,13 +16554,16 @@ $agingIndex: 431px;
 }
 .AnalyzeChronicDiseaseControlAnalyzeIndexDetail{
   &--tit{
-    @include txtSmall7;
+    @include txtStyle(body, sm, 500);
+    color: #333;
+    text-align: center;
+    margin-top: 1.6rem;
+    @media (min-width:$w-pc) {
+      margin-top: 2.8rem;
+    }
   }
   &--index{
-    @include txtBig9;
-    @media (min-width: $w-pc) {
-      font-size: 8rem;
-    }
+    @include txtStyle(head, 2xl, 700);
     &.good{
       color: $txt-font-color-interest;
     }
@@ -16572,25 +16575,20 @@ $agingIndex: 431px;
     }
     &-wrap{
       text-align: center;
-      @include txtBig8;
+      @include txtStyle(head, sm, 500);
+      color: #666;
     }
   }
   &--btn{
-    font-family: $font-family-light;
-    width: 14rem;
-    @media (min-width: $w-pc) {
-      font-size: 1.5rem;
-      width: 16rem;
-      height: 4rem;
-    }
+    width: 12.9rem;
     &-wrap{
       text-align: center;
-      margin-top: 0.8rem;
+      margin-top: 2rem;
     }
     @include btnGreen;
+    @include txtStyle(caption, xl, 600);
     @media (min-width: $w-pc) {
-      font-size: 1.6rem;
-      min-width: 16rem;
+      min-width: 12.6rem;
       min-height: 4rem;
     }
   }
@@ -16607,12 +16605,15 @@ $agingIndex: 431px;
       }
     }
     &-wrap{
-      @include boxStyle;
-      margin-top: $marginTop-big3;
-      @include min-vh-fallback(100, 15rem); //20260319 ASB-13674 - 수정
+      background-color: white;
+      border-radius: 3.2rem 3.2rem 0 0;
+      padding: 2.4rem 2rem 1.2rem;
+      margin-top: 3.2rem;
+      @include min-vh-fallback(100, 23.4rem); //20260319 ASB-13674 - 수정
       @media (min-width: $w-pc) {
         min-height: 50rem;
-        padding: 4rem 0 6rem;
+        padding: 2.8rem 2rem 3.6rem;
+        border-radius: 3.2rem;
       }
     }
   }

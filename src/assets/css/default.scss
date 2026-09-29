@@ -14705,8 +14705,8 @@ $agingIndex: 431px;
     }
   }
   &--rank-wrap{
-    width: 7.5rem;
-    height: 7.5rem;
+    width: 9.9rem;
+    height: 9.9rem;
     text-align: center;
     border-radius: 50%;
     display: flex;
@@ -14717,9 +14717,10 @@ $agingIndex: 431px;
     background: #ddd;
     padding-top: .4rem;
     margin-left: .5rem;
+    border: .2rem solid #fff;
     @media (min-width: $w-pc) {
-      width: 8.8rem;
-      height: 8.8rem;
+      width: 11.6rem;
+      height: 11.6rem;
     }
     &.green{
       background: $txt-font-color-interest;
@@ -14750,10 +14751,10 @@ $agingIndex: 431px;
     text-align: center;
   }
   &--speed2{
-    @include txtStyle(head, sm, 600);
+    @include txtStyle(head, sm, 700);
   }
   &--speed3{
-    @include txtStyle(body, 2xs);
+    @include txtStyle(caption, xl-1);
     color: #fff;
     margin-top: -.6rem;
     @media (min-width: $w-pc) {
@@ -14763,14 +14764,14 @@ $agingIndex: 431px;
   &--more-btn{
     @include btnClear;
     @include txtStyle(caption, lg, 500);
-    margin-top: 3.1rem;
+    margin-top: 1.9rem;
     height: 2.8rem;
     padding: 0 1.2rem;
     border-radius: 99rem;
     border: .1rem solid #ccc;
     @media (min-width: $w-pc) {
       height: 3.2rem;
-      margin-top: 3.8rem;
+      margin-top: 2.5rem;
     }
   }
   &--reason{

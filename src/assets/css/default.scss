@@ -766,18 +766,14 @@
       border-radius: 9rem;
       border: .1rem solid #ccc;
       background: #fff;
+      @include txtStyle(body, 2xs-1, 500);
       @media (min-width:$w-pc) {
         height: 3.2rem;
         padding: 0 1.2rem;
       }
-      &::before{
-        content: '';
-        flex: 0 0 auto;
-        display: block;
-        width: 1.6rem;
-        height: 1.6rem;
-        background: url('/img/side-bar_my.svg') no-repeat center / contain;
-      }
+      // &::before{
+      //   content: '';
+      //   flex: 0 0 auto;
     }
     @media (min-width:$w-pc) {
       padding-right: 4rem;

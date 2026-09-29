@@ -6511,21 +6511,39 @@ button{
       width: 7.2rem;
       margin-bottom: 1.5rem;
     }
-    &-box{
+    &-btn{
+      @include btnClear;
+      @include txtStyle(body, xs, 500);
       width: 100%;
       margin-top: 2rem;
       padding: 1.6rem 2rem;
+      border-radius: 2rem;
+      border: .1rem solid #ccc;
+      background-color: #fff;
+      &.active{
+        border-color: #EB608E;
+      }
+      strong{
+        font-weight: 700;
+      }
+      span{
+        color: #DD366E;
+      }
+    }
+    &-box{
+      width: 100%;
+      margin-top: .8rem;
+      padding: 1.6rem 2rem;
       border-radius: 2.4rem;
       background-color: #fff;
-      > p{
-        @include txtStyle(body, xs);
+      @media (min-width:$w-pc) {
+        margin-top: 1.2rem;
       }
     }
     &-info{
       display: flex;
       flex-direction: column;
       gap: .4rem;
-      margin-top: 2rem;
       > div{
         display: flex;
         justify-content: space-between;

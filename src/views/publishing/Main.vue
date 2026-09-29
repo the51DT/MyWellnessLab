@@ -1013,7 +1013,8 @@ export default {
     <div v-if="!isPc" class="main-sticky">
       <!-- 진행 전 -->
       <div v-if="floatingDay" class="main-sticky-before">
-        <strong>챌린지 시작 D-$00$</strong>
+        <strong><span class="main-sticky-badge">팀 참여중</span>챌린지 시작 D-$00$</strong> <!-- 260929 플로팅 팀 참여 플래그 추가 -->
+        <!-- <strong><span class="main-sticky-badge before">팀 미참여</span>챌린지 시작 D-$00$</strong> --> <!-- 팀 미참여 시 .before 이중클래스 -->
         <span>챌린지에 참여하려면 팀에 참여해 주세요.</span> <!-- 260820 문구 수정 -->
         <button @click="floatingDay = false; updateMainSticky()"></button> <!-- 260721 / 플로팅 탭 전환 핸들러 추가 -->
       </div>

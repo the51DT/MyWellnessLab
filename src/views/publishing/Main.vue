@@ -978,15 +978,16 @@ export default {
         </div>
         <div v-else-if="tab === 1" class="tab-content tab-content-2">
           <div class="tab-content--active"><span>상시</span></div>
-          <div class="main--team--no">
+          <!-- 260827 문구 수정 -->
+          <!-- <div class="main--team--no">
             <img src="/img/img_home_error.png">
-            <p>참여 중인 상시 팀이 없습니다.</p> <!-- 260827 문구 수정 -->
-          </div>
+            <p>참여 중인 상시 팀이 없습니다.</p>
+          </div> -->
           <!-- 260819 tit 내부 버튼 추가 / 팀상세 이동 필요 -->
           <!-- 260827 문구 수정 -->
           <!-- 260901 문구 수정 -->
-          <!-- 260930 상시 targetPer 제거 -->
-          <!-- <div>
+          <!-- 260930 260930 상시 성공/목표치 표기 변경 -->
+          <div>
             <div class="challenge--box-tit"><span>6월 건강수면 챌린지팀</span><button type="button" @click=""></button></div> 
             <div class="challenge--box-tag">진행중</div>
             <div class="challenge--box-info">
@@ -1002,10 +1003,10 @@ export default {
             <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">
                 <div class="challenge--box-rate--per"><span>팀 인증률</span><strong><span>40</span>%</strong></div>
-                <TargetGauge :gaugePer="40" :compPer="80" :bgColor="'green'"></TargetGauge>
+                <TargetGauge :gaugePer="40" :compPer="80" :bgColor="'green'" markerMode="reached"></TargetGauge>
               </div>
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
     </div>

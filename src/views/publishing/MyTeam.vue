@@ -169,7 +169,7 @@ onBeforeUnmount(() => {
             <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">
                 <div class="challenge--box-rate--per"><span>챌린지 인증률</span><strong><span>70</span>%</strong></div>
-                <TargetGauge :gaugePer="70" :compPer="68"></TargetGauge>
+                <TargetGauge :gaugePer="70" :targetPer="60" :compPer="68"></TargetGauge> <!-- 260930 상시 성공/목표치 표기 변경 -->
               </div>
             </div>
           </button>
@@ -204,7 +204,7 @@ onBeforeUnmount(() => {
             <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">
                 <div class="challenge--box-rate--per"><span>챌린지 인증률</span><strong><span>0</span>%</strong></div>
-                <TargetGauge :gaugePer="0" :compPer="68"></TargetGauge>
+                <TargetGauge :gaugePer="0" :targetPer="60" :compPer="68"></TargetGauge> <!-- 260930 상시 성공/목표치 표기 변경 -->
               </div>
             </div>
           </button>
@@ -242,7 +242,7 @@ onBeforeUnmount(() => {
             <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">
                 <div class="challenge--box-rate--per"><span>이번달 인증률</span><strong><span>50</span>%</strong></div>
-                <TargetGauge :gaugePer="50" :bgColor="'green'"></TargetGauge>
+                <TargetGauge :gaugePer="50" :compPer="90" markerMode="reached" :bgColor="'green'"></TargetGauge> <!-- 260930 상시 성공/목표치 표기 변경 -->
               </div>
             </div>
           </button>
@@ -279,7 +279,7 @@ onBeforeUnmount(() => {
             <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">
                 <div class="challenge--box-rate--per"><span>이번달 인증률</span><strong><span>0</span>%</strong></div>
-                <TargetGauge :gaugePer="0" :bgColor="'green'"></TargetGauge>
+                <TargetGauge :gaugePer="0" :compPer="75" markerMode="reached" :bgColor="'green'"></TargetGauge> <!-- 260930 상시 성공/목표치 표기 변경 -->
               </div>
             </div>
           </button>

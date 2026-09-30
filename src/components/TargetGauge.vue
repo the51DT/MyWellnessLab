@@ -17,6 +17,10 @@ export default {
     bgColor: {
       type: String,
       default: 'pink'
+    },
+    markerMode: { /* 260930 상시 성공/목표치 표기 변경 */
+      type: String,
+      default: 'always'
     }
   },
   data () {
@@ -94,6 +98,30 @@ export default {
         stickyTarget.style.display = "none"
       }
     },
+  },
+  computed: { /* 260930 상시 성공/목표치 표기 변경 */
+    markerDisplayPer () {
+      return this.markerMode === 'reached' ? 75 : null
+    },
+    currentTargetPer () {
+      return this.markerMode === 'reached' ? this.markerDisplayPer : this.targetPer
+    },
+    currentCompPer () {
+      return this.markerMode === 'reached' ? this.markerDisplayPer : this.compPer
+    },
+    showTargetMarker () {
+      if (this.markerMode === 'reached') {
+        return this.compPer && this.gaugePer >= this.compPer
+      }
+      return !!this.targetPer
+    },
+    showCompMarker () {
+      if (this.gaugePer >= 100) return false
+      if (this.markerMode === 'reached') {
+        return this.compPer && this.gaugePer >= this.compPer
+      }
+      return !!this.compPer
+    }
   }
 }
 </script>
@@ -105,8 +133,10 @@ export default {
       </div>
       <div v-else class="target-gauge--gauge full" :style="`background: linear-gradient(90deg, ${colorObj.gradient1} 0%, ${colorObj.gradient2} 100%);`">100% 달성 완료</div>
     </div>
-    <div v-if="compPer && gaugePer < 100" class="target-gauge--comp" :style="{ width: 100 - compPer + '%' }" :class="gaugePer >= compPer ? 'comp' : ''">성공!</div>
-    <div ref="target" v-if="targetPer" class="target-gauge--target" :class="{ ty02: targetPer >= 80 }" :style="{ left: targetPer + '%' }">목표치</div>
+    <!-- [s] 260930 상시 성공/목표치 표기 변경 -->
+    <div v-if="showCompMarker" class="target-gauge--comp" :style="{ width: 100 - currentCompPer + '%' }" :class="{ comp: gaugePer >= compPer }">성공!</div>
+    <div ref="target" v-if="showTargetMarker" class="target-gauge--target" :class="{ ty02: currentTargetPer >= 80 }" :style="{ left: currentTargetPer + '%' }">목표치</div>
+    <!-- [e] 260930 상시 성공/목표치 표기 변경 -->
   </div>
 </template>
 

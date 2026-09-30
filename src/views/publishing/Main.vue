@@ -89,7 +89,7 @@ export default {
             {
               id: 'recommend-nutrition-1',
               title: '기본',
-              desc: '것모닝+ 하기(아침에 물, 식이섬유, 유산균, 단백질 섭취)',
+              desc: '것모닝+ 하기(아침에 물, 프락토올리고당, 유산균, 단백질 섭취)', /* 260930 기본 영양 미션1 수정 */
             },
             {
               id: 'recommend-nutrition-2',

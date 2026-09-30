@@ -17,6 +17,9 @@ const teamDeletePopup = ref(false) /* 팀 삭제 팝업 */
 const disableDeletePopup = ref(false) /* 팀 삭제 불가 팝업 */
 const teamLeavePopup = ref(false) /* 팀 탈퇴 팝업 */
 
+const regularGaugePer = ref(85); /* 260930 상시 성공/목표치 표기 변경 */
+const regularCompPer = ref(80); /* 260930 상시 성공/목표치 표기 변경 */
+
 function checkHeaderBg () {
   const target = targetSection.value
   const header = document.querySelector('.header')
@@ -63,7 +66,12 @@ onBeforeUnmount(() => {
 
       <!-- 진행중 -->
       <div class="team-info--box">
-        <TargetGauge :gaugePer="85" :compPer="80" :targetPer="75" :bgColor="teamClassification === 'regular' ? 'green' : 'pink'"></TargetGauge>
+        <TargetGauge
+          :gaugePer="teamClassification === 'regular' ? regularGaugePer : 85"
+          :compPer="teamClassification === 'regular' ? regularGaugePer > regularCompPer ? regularCompPer : null : 80"
+          :targetPer="teamClassification === 'regular' ? null : 75"
+          :bgColor="teamClassification === 'regular' ? 'green' : 'pink'"
+        ></TargetGauge> <!-- 260930 상시 성공/목표치 표기 변경 -->
         <div class="team-info--color-box">
           <div>
             <p class="box-tit">팀 인증률</p>
@@ -80,7 +88,12 @@ onBeforeUnmount(() => {
       </div>
       <!-- 진행대기 -->
       <div class="team-info--box">
-        <TargetGauge :gaugePer="0" :compPer="80" :targetPer="75" :bgColor="teamClassification === 'regular' ? 'green' : 'pink'"></TargetGauge>
+        <TargetGauge
+          :gaugePer="0"
+          :compPer="teamClassification === 'regular' ? 0 > regularCompPer ? regularCompPer : null : 80"
+          :targetPer="teamClassification === 'regular' ? null : 75"
+          :bgColor="teamClassification === 'regular' ? 'green' : 'pink'"
+        ></TargetGauge> <!-- 260930 상시 성공/목표치 표기 변경 -->
         <div class="team-info--color-box">
           <div>
             <p class="box-tit">팀 인증률</p>
@@ -97,7 +110,12 @@ onBeforeUnmount(() => {
       </div>
       <!-- 100% 달성 시 -->
       <div class="team-info--box">
-        <TargetGauge :gaugePer="100" :compPer="80" :targetPer="90" :bgColor="teamClassification === 'regular' ? 'green' : 'pink'"></TargetGauge>
+        <TargetGauge
+          :gaugePer="100"
+          :compPer="teamClassification === 'regular' ? regularGaugePer > regularCompPer ? regularCompPer : null : 80"
+          :targetPer="teamClassification === 'regular' ? null : 90"
+          :bgColor="teamClassification === 'regular' ? 'green' : 'pink'"
+        ></TargetGauge> <!-- 260930 상시 성공/목표치 표기 변경 -->
         <div class="team-info--color-box">
           <div>
             <p class="box-tit">팀 인증률</p>

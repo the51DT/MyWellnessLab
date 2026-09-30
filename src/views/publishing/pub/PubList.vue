@@ -665,8 +665,8 @@ const data = ref([
     div3: '팀장',
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/challenge/leader',
-    msg: "퍼블 확인용 라우터 케이스 적용<br>진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출<br>260727 src/layouts/LayoutNormalLeader.vue 수정<br>260820 문구 수정 / + LayoutNormalLeader.vue<br>260824 참여 인원 추가<br>260929 바우처명 케이스 추가<br>260929 기존 바우처명 삭제",
-    confirm: '2026.09.29 퍼블 수정'
+    msg: "퍼블 확인용 라우터 케이스 적용<br>진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출<br>260727 src/layouts/LayoutNormalLeader.vue 수정<br>260820 문구 수정 / + LayoutNormalLeader.vue<br>260824 참여 인원 추가<br>260929 바우처명 케이스 추가<br>260929 기존 바우처명 삭제<br>260930 상시 성공/목표치 표기 변경",
+    confirm: '2026.09.30 퍼블 수정'
   },
   {
     div: '',
@@ -738,7 +738,7 @@ const data = ref([
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/regular/leader',
     msg: "퍼블 확인용 라우터 케이스 적용<br>진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출<br>챌린지 팀 정보 주석 참고",
-    confirm: '2026.08.20 퍼블 수정'
+    confirm: '2026.09.30 퍼블 수정'
   },
   {
     div: '',

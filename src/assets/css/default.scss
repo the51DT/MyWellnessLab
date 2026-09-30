@@ -8052,6 +8052,9 @@ button{
     @include txtStyle(body, lg, 600);
     color: #fff;
     text-align: center;
+    word-break: break-all;
+    width: 100%;
+    padding: 0 2rem;
   }
   &--detail{
     position: relative;
@@ -9080,6 +9083,7 @@ button{
       @include txtStyle(caption, xl-1, 500);
       color: #333;
       text-align: center;
+      word-break: break-all;
       display: -webkit-box;
       overflow: hidden;
       white-space: normal;

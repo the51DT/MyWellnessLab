@@ -985,6 +985,7 @@ export default {
           <!-- 260819 tit 내부 버튼 추가 / 팀상세 이동 필요 -->
           <!-- 260827 문구 수정 -->
           <!-- 260901 문구 수정 -->
+          <!-- 260930 상시 targetPer 제거 -->
           <!-- <div>
             <div class="challenge--box-tit"><span>6월 건강수면 챌린지팀</span><button type="button" @click=""></button></div> 
             <div class="challenge--box-tag">진행중</div>
@@ -1001,7 +1002,7 @@ export default {
             <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">
                 <div class="challenge--box-rate--per"><span>팀 인증률</span><strong><span>40</span>%</strong></div>
-                <TargetGauge :gaugePer="40" :targetPer="60" :compPer="80" :bgColor="'green'"></TargetGauge>
+                <TargetGauge :gaugePer="40" :compPer="80" :bgColor="'green'"></TargetGauge>
               </div>
             </div>
           </div> -->

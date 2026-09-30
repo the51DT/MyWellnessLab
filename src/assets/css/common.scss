@@ -1750,6 +1750,19 @@ body {
   /* Safe area support for all devices */
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
+
+  /* 사파리 주소창 body 배경색 */ 
+  &:has(.layout--checkup),
+  &:has(.layout--normal),
+  &:has(.layout--home) {
+    background-color: #F5F5F5;
+  }
+  &:has(.layout--normal.lightBg) {
+    background-color: #FAFAFA;
+  }
+  &:has(.layout--home.whiteHeader) {
+    background-color: #fff;
+  }
 }
 
 /* Force white status bar/header background for all environments */

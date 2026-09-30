@@ -8808,6 +8808,7 @@ button{
   }
   &--team{
     @include txtStyle(body, 2xs-1, 600);
+    word-break: break-all;
   }
   &--member{
     @include txtStyle(caption, lg, 600);

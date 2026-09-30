@@ -14187,7 +14187,13 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
   &--analyze{
     margin-top: 2rem;
+    background: url('/img/img_analyze.svg') repeat-x top left;
     position: relative;
+    padding-bottom: .1rem;
+    @media (min-width: $w-pc) {
+      background-image: url('/img/img_analyze_pc.svg');
+      background-position-y: bottom;
+    }
     &::after{
       content: "";
       position: absolute;
@@ -14195,7 +14201,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       bottom: -6rem;
       width: 9rem;
       height: 8.5rem;
-      background: url(/img/img_analyze_icon.svg);
+      background: url('/img/img_analyze_icon.svg');
       @media (min-width: $w-pc) {
         bottom: -8.5rem;
       }
@@ -14217,7 +14223,6 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       &.light{
         font-weight: 400;
         color: #666;
-        margin-top: .6rem;
       }
       br{
         @media (min-width: $w-pc) {

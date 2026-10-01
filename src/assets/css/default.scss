@@ -14783,6 +14783,10 @@ $agingIndex: 431px;
   }
   &--speed2{
     @include txtStyle(head, sm, 700);
+    @media (min-width:$w-pc) {
+      @include txtStyle(head, md, 700);
+      margin-top: -.5rem;
+    }
   }
   &--speed3{
     @include txtStyle(caption, xl-1);

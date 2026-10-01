@@ -184,7 +184,6 @@ const publishingRouter = {
           component: () => import("@/views/checkupSide/CheckupComplete.vue"),
           meta: {
             title: "건강설문 완료",
-            isEmptyCouponList: true, // 퍼블 확인용
           },
         },
         {
@@ -193,7 +192,7 @@ const publishingRouter = {
           component: () => import("@/views/checkupSide/CheckupComplete.vue"),
           meta: {
             title: "건강설문 완료",
-            isEmptyCouponList: false, // 퍼블 확인용
+            isEmptyCouponList: true, // 퍼블 확인용
           },
         },
       ],

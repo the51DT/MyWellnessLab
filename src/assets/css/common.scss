@@ -1763,6 +1763,33 @@ body {
   &:has(.layout--home.whiteHeader) {
     background-color: #fff;
   }
+  &:has(.layout--checkup .CheckupBasics),
+  &:has(.layout--checkup .CheckupBlood),
+  &:has(.layout--checkup .CheckupBodyDirectInput),
+  &:has(.layout--checkup .CheckupMemory),
+  &:has(.layout--checkup .CheckupEye),
+  &:has(.layout--checkup .CheckupNoseHypersensitivity),
+  &:has(.layout--checkup .CheckupStomach),
+  &:has(.layout--checkup .CheckupIntestine),
+  &:has(.layout--checkup .CheckupJointAndBone),
+  &:has(.layout--checkup .CheckupImmunity),
+  &:has(.layout--checkup .CheckupMenopause),
+  &:has(.layout--checkup .CheckupProstate),
+  &:has(.layout--checkup .CheckupMenstrual),
+  &:has(.layout--checkup .CheckupMedication),
+  &:has(.layout--checkup .CheckupDiet),
+  &:has(.layout--checkup .CheckupSleep),
+  &:has(.layout--checkup .CheckupPhysicalActivity),
+  &:has(.layout--checkup .CheckupDrinkSmokeSleep),
+  &:has(.layout--checkup .CheckupEq5d),
+  &:has(.layout--checkup .CheckupSleep),
+  &:has(.layout--checkup .CheckupSleep),
+  &:has(.layout--checkup .CheckupBasics){
+    background-color: #fff;
+    @media (min-width:$w-pc) {
+      background-color: #F5F5F5;
+    }
+  }
 }
 
 /* Force white status bar/header background for all environments */

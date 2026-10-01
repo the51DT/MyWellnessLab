@@ -683,8 +683,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/team/TeamRanking.vue',
     go: '/publishing/my-team/ranking/challenge',
-    msg: "퍼블 확인용 라우터 케이스 적용<br>260820 문구 수정<br>260820 퍼블 확인용 프로필 이미지 경로 수정",
-    confirm: '2026.08.20 퍼블 수정'
+    msg: "퍼블 확인용 라우터 케이스 적용<br>260820 문구 수정<br>260820 퍼블 확인용 프로필 이미지 경로 수정<br>261001 챌린지 인증 횟수 표기 변경",
+    confirm: '2026.10.01 퍼블 수정'
   },
   {
     div: '',

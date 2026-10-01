@@ -225,9 +225,11 @@ const rankingList = [  /* 퍼블 확인용 팀 리스트 */
               <div>
                 <div class="team-ranking--member">{{ team.teamMember }}명</div>
                 <div class="team-ranking--rate">
-                  <span>{{ challengeTeam ? '팀 인증률 ' : '팀 인증횟수 ' }}</span>
+                  <!-- [s] 261001 챌린지 인증 횟수 표기 변경 -->
+                  <span>팀 인증횟수</span>
                   <strong>{{ team.teamRate }}</strong>
-                  <span>{{ challengeTeam ? '% ' : '회' }}</span>
+                  <span>회</span>
+                  <!-- [e] 261001 챌린지 인증 횟수 표기 변경 -->
                 </div>
               </div>
             </div>

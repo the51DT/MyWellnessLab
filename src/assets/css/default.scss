@@ -14245,6 +14245,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       &.light{
         font-weight: 400;
         color: #666;
+        padding-right: 2.5rem;
       }
       br{
         @media (min-width: $w-pc) {

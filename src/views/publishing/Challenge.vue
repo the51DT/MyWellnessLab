@@ -145,7 +145,7 @@ onBeforeUnmount(() => {
                 <span>2026.02.01 ~ 2026.03.31<em>60일</em></span>
               </p>
               <p>
-                <span>1회차 진행</span>
+                <span>1회차<span>진행</span></span><!-- 261001 진행종료 2회차 추가 -->
                 <span>2026.02.01 ~ 2026.02.28<em>28일</em></span>
               </p>
             </div>
@@ -222,18 +222,24 @@ onBeforeUnmount(() => {
               <button type="button"></button> <!-- 팀상세로 이동 -->
             </div>
             <div class="challenge--box-info">
+              <!-- [s] 261001 진행종료 2회차 추가 -->
               <p>
                 <span>성공조건</span>
                 <span><em>팀 인증률</em><strong>80%</strong><em>이상</em></span>
               </p>
               <p>
                 <span>전체기간</span>
-                <span>2026.02.01 ~ 2026.03.31<em>60일</em></span>
+                <span>2026.02.01 ~ 2026.03.31<em>59일</em></span>
               </p>
               <p>
-                <span>1회차 진행</span>
+                <span>1회차<span class="success">성공</span></span>
                 <span>2026.02.01 ~ 2026.02.28<em>28일</em></span>
               </p>
+              <p>
+                <span>2회차<span>진행</span></span>
+                <span>2026.03.01 ~ 2026.03.31<em>31일</em></span>
+              </p>
+              <!-- [e] 261001 진행종료 2회차 추가 -->
             </div>
             <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">

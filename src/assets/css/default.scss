@@ -6414,8 +6414,8 @@ button{
       gap: .6rem;
     }
     p{
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: auto 19.5rem;
       align-items: center;
       width: 100%;
       &:nth-child(n + 2) {
@@ -6426,6 +6426,9 @@ button{
           }
         }
       }
+      @media (min-width:$w-pc) {
+        grid-template-columns: auto 21.1rem;
+      }
     }
     span{
       @include txtStyle(body, 2xs, 500);
@@ -6435,11 +6438,30 @@ button{
       &:first-child{
         @include txtStyle(caption, xl, 500);
         color: #666;
-        width: 8.7rem;
         flex: 0 0 auto;
+        gap: 0 !important;
+        justify-content: space-between;
+        width: 5.5rem;
+        @media (min-width:$w-pc) {
+          width: 6rem;
+        }
+        span{
+          width: fit-content;
+          text-align: right;
+          font-weight: 600;
+          &.success{
+            color: #EB608E;
+          }
+          &.fail{
+            color: #808080;
+          }
+        }
       }
       @media (min-width:$w-pc) {
         flex: 0 0 auto;
+        &:has(strong) {
+          justify-content: flex-end;
+        }
       }
     }
     strong{
@@ -7085,13 +7107,13 @@ button{
   }
   &--card-info{
     display: grid;
-    grid-template-columns: 7.6rem auto 4rem;
+    grid-template-columns: auto 16.5rem 3.5rem;
     gap: .4rem 0;
     margin-top: 1.2rem;
     @include txtStyle(body, 2xs);
     color: #333;
     @media (min-width:$w-pc){
-      grid-template-columns: 22.2rem auto 4.2rem;
+      grid-template-columns: 22.2rem auto 4rem;
       margin-top: 1.6rem;
     }
     > div{
@@ -7107,18 +7129,17 @@ button{
       justify-content: space-between;
       width: 5.6rem;
       @media (min-width:$w-pc) {
-        width: 6.7rem;
-      }
-      span{
-        font-weight: 600;
+        width: 6.5rem;
       }
       .success{
         color: var(--team-point-color);
         width: fit-content;
+        font-weight: 600;
       }
       .fail{
         color: #808080;
         width: fit-content;
+        font-weight: 600;
       }
     }
     strong{

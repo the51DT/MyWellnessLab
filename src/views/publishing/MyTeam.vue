@@ -158,10 +158,10 @@ onBeforeUnmount(() => {
               <em>전체 기간</em>
               <span>2026.02.01 ~ 2026.03.31</span>
               <strong>60일</strong>
-              <em>1회차 진행</em>
+              <em>1회차<span>진행</span></em><!-- 261001 나의팀 회차 진행 구조 변경 -->
               <span>2026.02.01 ~ 2026.02.28</span>
               <strong>30일</strong>
-              <em>2회차 진행</em>
+              <em>2회차<span>진행</span></em><!-- 261001 나의팀 회차 진행 구조 변경 -->
               <span>2026.03.01 ~ 2026.03.31</span>
               <strong>30일</strong>
               <!-- [e] 260820 .team--card-info 내부구조 수정 -->

@@ -563,8 +563,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Challenge.vue',
     go: '/publishing/challenge',
-    msg: "(PU) 인증사진 보기, (PU) 챌린지 인증 공유하기 퍼블 확인용으로 넣어둠<br>260820 문구 수정<br>260827 문구 수정<br>260911 핀 컨펌 버전으로 수정 - ChallengeSharePop.vue<br>260916 onBeforeUnmount 추가<br>260916 미션 변경하기 모션 수정<br>260923 핀 png로 변경<br>260923 핀 이미지 임포트 - ChallengeSharePop.vue<br>260929 나의 팀 이동 버튼으로 수정",
-    confirm: '2026.09.29 퍼블 수정'
+    msg: "(PU) 인증사진 보기, (PU) 챌린지 인증 공유하기 퍼블 확인용으로 넣어둠<br>260820 문구 수정<br>260827 문구 수정<br>260911 핀 컨펌 버전으로 수정 - ChallengeSharePop.vue<br>260916 onBeforeUnmount 추가<br>260916 미션 변경하기 모션 수정<br>260923 핀 png로 변경<br>260923 핀 이미지 임포트 - ChallengeSharePop.vue<br>260929 나의 팀 이동 버튼으로 수정<br>261001 진행종료 2회차 추가",
+    confirm: '2026.10.01 퍼블 수정'
   },
   {
     div: '챌린지(미진행)',
@@ -601,8 +601,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/MyTeam.vue',
     go: '/publishing/my-team',
-    msg: "260807 이미지 변경<br>260820 문구 수정<br>260820 .team--card-info 내부구조 수정<br>260827 문구 수정<br>260916 미션 변경하기 모션 수정<br>260930 상시 성공/목표치 표기 변경",
-    confirm: '2026.09.30 퍼블 수정'
+    msg: "260807 이미지 변경<br>260820 문구 수정<br>260820 .team--card-info 내부구조 수정<br>260827 문구 수정<br>260916 미션 변경하기 모션 수정<br>260930 상시 성공/목표치 표기 변경<br>261001 나의팀 회차 진행 구조 변경",
+    confirm: '2026.10.01 퍼블 수정'
   },
   {
     cate: '',

@@ -1760,7 +1760,8 @@ body {
   &:has(.layout--normal.lightBg) {
     background-color: #FAFAFA;
   }
-  &:has(.layout--home.whiteHeader) {
+  &:has(.layout--home.whiteHeader),
+  &:has(.layout--normal .ServiceUseGuide) {
     background-color: #fff;
   }
   &:has(.layout--checkup .CheckupBasics),

@@ -18045,9 +18045,13 @@ span.legend-dot-interest{
       display: inline-block;
       width: calc(100% - 9.6rem);
       height: 2.25rem;
+      word-break: break-all;
       @media (min-width: $w-pc) {
         width: calc(100% - 10.8rem);
         height: 2.4rem;
+      }
+      &:not(:first-of-type) {
+        margin-top: 1.4rem;
       }
     }
     .btn{
@@ -19505,7 +19509,7 @@ span.legend-dot-interest{
       bottom: 1.6rem;
       right: 0;
       background: linear-gradient(270deg, #ffffff, #F5F5F500);
-      width: 4.8rem;
+      width: 2.2rem;
       height: 3.2rem;
       z-index: 1;
       @media (min-width: $w-pc) {
@@ -19540,6 +19544,11 @@ span.legend-dot-interest{
       color: #fff;
       font-weight: 600;
     }
+    &.mo-only{
+      @media (min-width:$w-pc) {
+        display: none;
+      }
+    }
   }
   .AnalyzeHealthLocation--tit{
     font-size: 2.6rem;
@@ -19559,62 +19568,58 @@ span.legend-dot-interest{
   }
   &--category{
     text-align: center;
-    margin: 1.6rem 2rem 8rem;
+    margin: 1.6rem 2rem 10rem;
     @media (min-width:$w-pc) {
-      margin: 1.2rem auto 6rem;
+      margin: 1.2rem auto 14rem;
       max-width: 92rem;
     }
-    &.c0{
+  }
+  &--tit-box{
+    padding: 2rem 0;
+    border-radius: 1.6rem;
+    background-color: #DEF7F4;
+    @media (min-width:$w-pc) {
+      padding: 2.8rem 0;
     }
-    &.c1{
-      .ServiceUseGuide--shadowbox{
-        padding-bottom: 6rem;
-      }
-      .ServiceUseGuide--img img{
-        margin-top: -0.4rem;
-        margin-bottom: -2rem;
-        @media (min-width: $w-pc) {
-          margin-top: 0.8rem;
-        }
+    + .ServiceUseGuide--txt2 {
+      margin-top: 3.2rem;
+      @media (min-width:$w-pc) {
+        margin-top: 4rem;
       }
     }
   }
-  &--tit2{
-    font-size: 2.2rem;
-    color: $txt-font-color-green;
-    font-family: $font-family-eBold;
-    @media (min-width: $w-pc) {
-      font-size: 2.6rem;
+  &--tit{
+    @include txtStyle(body, lg-1, 600);
+    > span{
+      color: #199982;
     }
   }
   &--txt{
-    font-size: 1.6rem;
-    font-family: $font-family-light;
-    color: #555;
-    max-width: 34rem;
-    margin-top: .8rem;
-    margin-left: auto;
-    margin-right: auto;
+    @include txtStyle(body, xs);
+    color: #000;
+    margin-top: .6rem;
+    text-align: center;
     @media (min-width: $w-pc) {
-      max-width: none;
-      font-size: 2rem;
-      margin-top: 1.2rem;
+      margin-top: .8rem;
       br{
         display: none;
       }
     }
+    &:only-child{
+      margin-top: 0;
+    }
   }
   &--txt2{
-    max-width: 36rem;
-    font-size: 1.4rem;
-    font-family: $font-family-light;
-    color: #555;
+    @include txtStyle(body, sm);
     margin: 0.4rem auto 0;
-    letter-spacing: -0.35px;
     @media (min-width: $w-pc) {
-      max-width: none;
-      font-size: 1.8rem;
       margin-top: 0.8rem;
+    }
+    a{
+      font-weight: 600;
+      color: #199982;
+      text-decoration: underline;
+      text-underline-position: under;
     }
   }
   &--txt3{
@@ -19631,21 +19636,18 @@ span.legend-dot-interest{
     }
   }
   &--txt4{
-    font-size: 1.4rem;
-    font-family: $font-family-bold;
+    @include txtStyle(body, sm);
     color: #222;
-    @media (min-width: $w-pc) {
-      font-size: 1.5rem;
-    }
-    & + .ServiceUseGuide--img{
-      margin-top: 0.8rem;
-    }
   }
   &--txt5{
-    font-size: 1.3rem;
-    color: #222;
+    @include txtStyle(body, xs-1);
+    color: #666;
+    text-align: center;
+    margin-top: .4rem;
+    margin-left: auto;
+    margin-right: auto;
     @media (min-width: $w-pc) {
-      font-size: 1.5rem;
+      margin-top: .8rem;
     }
   }
   &--shadowbox{
@@ -19660,21 +19662,79 @@ span.legend-dot-interest{
       padding: 3.2rem 3.4rem 4rem;
     }
   }
+  &--step-wrap{
+    margin-top: 3.2rem;
+    @media (min-width:$w-pc) {
+      margin-top: 4rem;
+    }
+  }
   &--step{
-    font-size: 1.6rem;
+    @include txtStyle(body, lg-1, 600);
     color: $txt-font-color-green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
     @media (min-width: $w-pc) {
-      font-size: 2.4rem;
+      gap: .8rem;
+    }
+    span{
+      @include txtStyle(caption, xl, 600);
+      line-height: 0;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 9rem;
+      background-color: #1a1818;
+      @media (min-width: $w-pc) {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+    }
+    em{
+      color: #1A1818;
+      font-style: normal;
     }
   }
   &--img{
-    margin-top: 2rem;
-    margin-left: -1rem;
-    margin-right: -1rem;
+    position: relative;
+    margin-top: 1.6rem;
+    border-radius: 2rem;
+    background-color: #F5F5F5;
     @media (min-width: $w-pc) {
       margin-top: 2.4rem;
-      margin-left: 0;
-      margin-right: 0;
+    }
+    .ServiceUseGuide--txt4 {
+      color: #199982;
+      position: absolute;
+      top: 1.6rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      width: 100%;
+      @media (min-width:$w-pc) {
+        top: 2rem;
+      }
+    }
+    .ServiceUseGuide--caution{
+      @include txtStyle(body, 2xs);
+      color: #808080;
+      position: absolute;
+      top: 4.4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      width: 100%;
+      margin: 0;
+      @media (min-width:$w-pc) {
+        top: 5.1rem;
+        br{
+          display: none;
+        }
+      }
     }
     &.mt{
       p + img{
@@ -19685,146 +19745,23 @@ span.legend-dot-interest{
       }
     }
     img{
+      display: block;
       width: 100%;
       max-width: 35rem;
-      margin-bottom: -1rem;
+      margin: 0 auto;
       @media (min-width: $w-pc) {
         max-width: none !important;
-        margin-bottom: 0 !important;
         vertical-align: middle;
       }
     }
-    .img01{
-      max-width: 32.7rem;
-      margin-top: -0.4rem;
-      margin-bottom: -2rem;
-      @media (min-width: $w-pc) {
-        border: 1px solid #E5E5E5;
-        border-radius: 3.2rem;
+    + .ServiceUseGuide--txt2 {
+      margin-top: 2.4rem;
+      @media (min-width:$w-pc) {
+        margin-top: 3.2rem;
       }
     }
-    .img02{
-      margin-bottom: -1.8rem;
-    }
-    .img03{
-      margin-top: -0.4rem;
-    }
-    .img04{
-      max-width: 37rem;
-      margin-right: -2rem;
-      margin-bottom: -2rem;
-      @media (min-width: $w-pc) {
-        margin-right: 0;
-      }
-    }
-    .img05{
-      max-width: 28rem;
-      margin-top: -1rem;
-      margin-bottom: -2rem;
-    }
-    .img06{
-      max-width: 29rem;
-      margin-right: -1rem;
-      @media (min-width: $w-pc) {
-        margin-right: 0;
-      }
-    }
-    .img07{
-      max-width: 30rem;
-      margin-right: -1.6rem;
-      @media (min-width: $w-pc) {
-        margin-right: 0;
-        margin-bottom: -1rem !important;
-      }
-    }
-    .img08{    
-      max-width: 29rem;
-    }
-    .img09{
-      max-width: 35rem;
-    }
-    .img10{
-      max-width: 30rem;
-    }
-    .img11{
-      max-width: 36rem;
-    }
-    .img12,
-    .img13,
-    .img14{
-      max-width: 30rem;
-    }
-    .img15,
-    .img16,
-    .img17{
-      max-width: 42rem;
-    }
-    .img15{
-      margin-top: -1.4rem;
-      @media (min-width: $w-pc) {
-        margin-top: 0;
-      }
-    }
-    .img18{
-      max-width: 31rem;
-    }
-    .img19{
-      max-width: 29rem;
-      margin-right: -1.5rem;
-      @media (min-width: $w-pc) {
-        margin-right: 0;
-      }
-    }
-    .img20{
-      max-width: 28rem;
-    }
-    .img21{
-      max-width: 31rem;
-      margin-right: -1rem;
-      @media (min-width: $w-pc) {
-        margin-right: 0;
-      }
-    }
-    .img22{
-      max-width: 33rem;
-      margin-right: -2rem;
-      @media (min-width: $w-pc) {
-        margin-right: 0;
-      }
-    }
-    .img23{
-      max-width: 32rem;
-    }
-    .img24,
-    .img25{
-      max-width: 34rem;
-    }
-    .img25{
-      margin-top: -1rem;
-    }
-    &.i26{
-      margin-left: -2rem;
-      margin-right: -2rem;
-      @media (min-width: $w-pc) {
-        margin-left: 0;
-        margin-right: 0;
-      }
-    }
-    .img26{
-      max-width: 42rem;
-    }
-    .img27,
-    .img28{
-      max-width: 39rem;
-    }
-    .img30{
-      max-width: 38rem;
-    }
-    .img32{
-      max-width: 38rem;
-    }
-    .img35{
-      max-width: 29rem;
+    + .ServiceUseGuide--tit-box {
+      margin-top: 6rem;
     }
   }
   hr.dot{
@@ -19842,15 +19779,14 @@ span.legend-dot-interest{
     margin-top: 6rem;
   }
   &--caution{
-    @include validationTxt($font-family-light);
-    margin-top: .8rem;
-    max-width: 34rem;
+    @include txtStyle(body, xs-1);
+    color: #FF4646;
+    text-align: center;
+    margin-top: .4rem;
     margin-left: auto;
     margin-right: auto;
     @media (min-width: $w-pc) {
-      max-width: none;
-      text-align: center;
-      font-size: 1.5rem;
+      margin-top: .8rem;
     }
     & + .ServiceUseGuide--img{
       &.mt{
@@ -19861,13 +19797,7 @@ span.legend-dot-interest{
     }
   }
   &--invite{
-    margin-top: 8.2rem;
-    .ServiceUseGuide--txt{
-      font-size: 1.8rem;
-    }
-    .ServiceUseGuide--shadowbox{
-      padding-top: 5.2rem;
-    }
+    margin-top: 6rem;
   }
   .right{
     text-align: right;
@@ -19941,6 +19871,18 @@ span.legend-dot-interest{
   &--3hr{
     margin-bottom: 2rem;
     margin-top: 2rem;
+  }
+  .pc-br{
+    display: none;
+    @media (min-width:$w-pc) {
+      display: block;
+    }
+  }
+  .mo-br{
+    display: block;
+    @media (min-width:$w-pc) {
+      display: none;
+    }
   }
 }
 .Faq{

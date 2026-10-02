@@ -6588,7 +6588,7 @@ button{
         overflow: hidden;
         text-overflow: ellipsis;
       }
-      p{
+      p:has(span){
         display: flex;
         justify-content: center;
       }

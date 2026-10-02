@@ -563,8 +563,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Challenge.vue',
     go: '/publishing/challenge',
-    msg: "(PU) 인증사진 보기, (PU) 챌린지 인증 공유하기 퍼블 확인용으로 넣어둠<br>260820 문구 수정<br>260827 문구 수정<br>260911 핀 컨펌 버전으로 수정 - ChallengeSharePop.vue<br>260916 onBeforeUnmount 추가<br>260916 미션 변경하기 모션 수정<br>260923 핀 png로 변경<br>260923 핀 이미지 임포트 - ChallengeSharePop.vue<br>260929 나의 팀 이동 버튼으로 수정<br>261001 진행종료 2회차 추가<br>261001 문구 수정",
-    confirm: '2026.10.01 퍼블 수정'
+    msg: "(PU) 인증사진 보기, (PU) 챌린지 인증 공유하기 퍼블 확인용으로 넣어둠<br>260820 문구 수정<br>260827 문구 수정<br>260911 핀 컨펌 버전으로 수정 - ChallengeSharePop.vue<br>260916 onBeforeUnmount 추가<br>260916 미션 변경하기 모션 수정<br>260923 핀 png로 변경<br>260923 핀 이미지 임포트 - ChallengeSharePop.vue<br>260929 나의 팀 이동 버튼으로 수정<br>261001 진행종료 2회차 추가<br>261001 문구 수정<br>261002 br 제거<br>261002 팀명 줄바꿈",
+    confirm: '2026.10.02 퍼블 수정'
   },
   {
     div: '챌린지(미진행)',

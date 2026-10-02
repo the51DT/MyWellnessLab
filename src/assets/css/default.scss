@@ -131,6 +131,9 @@
   &--normal{
     background-color: #f5f5f5;
     @include min-vh-fallback(100, 0rem);
+    &:has(.ServiceUseGuide) {
+      background-color: white;
+    }
     .header{
       background-color: #f5f5f5;
     }
@@ -3423,6 +3426,7 @@ footer{
       position: relative;
       z-index: 1;
       @include txtStyle(body, lg);
+      word-break: break-all;
       &:after{
         content: "";
         display: block;
@@ -3430,9 +3434,12 @@ footer{
         height: 15.8rem;
         position: absolute;
         right: -2rem;
-        top: -2rem;
+        bottom: -7rem;
         z-index: -1;
         background: url(/img/img_doctor_home.png) no-repeat top right / contain;
+        @media (min-width:$w-pc) {
+          bottom: -6.6rem;
+        }
       }
     }
     span{
@@ -4380,7 +4387,13 @@ footer{
     @include txtStyle(body, xs);
     color: $txt-font-color-gray3;
     margin-top: 1.2rem;
-    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
     @media (min-width: $w-pc) {
       margin-top: 1.6rem;
     }
@@ -6375,6 +6388,13 @@ button{
     }
     strong{
       @include txtStyle(head, 2xs, 700);
+      display: -webkit-box;
+      overflow: hidden;
+      white-space: normal;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      word-break: break-all;
     }
   }
   &--box{
@@ -6390,12 +6410,24 @@ button{
   }
   &--box-tit{
     @include txtStyle(body, lg, 600);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: relative;
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
     margin-bottom: 1.2rem;
+    padding-right: 2.4rem;
+    @media (min-width:$w-pc) {
+      padding-right: 2.8rem;
+    }
     button{
-      flex-shrink: 0;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
       @include btnClear;
       width: 2rem;
       height: 2rem;
@@ -6551,6 +6583,18 @@ button{
       }
       span{
         color: #DD366E;
+        word-break: break-all;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      p{
+        display: flex;
+        justify-content: center;
+      }
+      em{
+        flex-shrink: 0;
+        font-style: normal;
       }
     }
     &-box{
@@ -6611,6 +6655,13 @@ button{
       span{
         font-weight: 600;
         color: #DD366E;
+        display: -webkit-box;
+        overflow: hidden;
+        white-space: normal;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        word-break: break-all;
       }
     }
   }
@@ -6878,6 +6929,17 @@ button{
     }
     strong{
       @include txtStyle(head, 2xs, 700);
+      display: flex;
+      align-items: flex-end;
+      width: 100%;
+      span{
+        display: -webkit-box;
+        overflow: hidden;
+        word-break: break-all;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
     }
     span{
       color: #1DB196;
@@ -7961,7 +8023,7 @@ button{
     p{
       display: flex;
       justify-content: flex-end;
-      align-items: center;
+      align-items: flex-end;
       gap: .4rem;
       + p {
         margin-top: .4rem;
@@ -7969,6 +8031,14 @@ button{
       span{
         font-weight: 600;
         color: #33C7AC;
+        display: -webkit-box;
+        overflow: hidden;
+        white-space: normal;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        word-break: break-all;
+        padding-left: 2rem;
       }
     }
     .cate{
@@ -7981,6 +8051,7 @@ button{
       padding: 0 .8rem;
       z-index: 0;
       margin-right: .2rem;
+      overflow: visible;
       &::after{
         content: '';
         position: absolute;
@@ -8353,6 +8424,15 @@ button{
       &:has(.select-wrap) {
         align-items: center;
       }
+      span:not(:has(em)){
+        display: -webkit-box;
+        overflow: hidden;
+        white-space: normal;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        word-break: break-all;
+      }
     }
     .tit{
       font-weight: 500;
@@ -8374,7 +8454,13 @@ button{
       color: #1DB196;
     }
     strong{
-      display: block;
+      display: -webkit-box;
+      overflow: hidden;
+      white-space: normal;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      word-break: break-all;
       font-weight: 600;
       &:not(:first-child){
         margin-bottom: .8rem;
@@ -14194,6 +14280,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     .AnalyzePreface--name{
       color: $txt-font-color-green;
       font-weight: 700;
+      word-break: break-all;
     }
   }
   &--one{
@@ -18029,29 +18116,34 @@ span.legend-dot-interest{
     border: .1rem solid #E5E5E5;
     @include txtStyle(body, xs-1);
     color: #333;  
+    display: grid;
+    grid-template-columns: 9rem auto;
+    row-gap: 1rem;
+    @media (min-width:$w-pc) {
+      grid-template-columns: 10rem auto;
+    }
     dt{
       display: inline-block;
-      width: 9rem;
       margin-right: .6rem;
-      &:not(:first-child) {
-        margin-top: 1.4rem;
-      }
       @media (min-width: $w-pc) {
-        width: 10rem;
         margin-right: .8rem;
       }
     }
     dd{
-      display: inline-block;
-      width: calc(100% - 9.6rem);
-      height: 2.25rem;
-      word-break: break-all;
-      @media (min-width: $w-pc) {
-        width: calc(100% - 10.8rem);
-        height: 2.4rem;
+      &:has(.btn){
+        margin-top: -.3rem;
+        @media (min-width:$w-pc) {
+          margin-top: -.4rem;
+        }
       }
-      &:not(:first-of-type) {
-        margin-top: 1.4rem;
+      &:not(:has(.btn)){
+        display: -webkit-box;
+        overflow: hidden;
+        white-space: normal;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        word-break: break-all;
       }
     }
     .btn{

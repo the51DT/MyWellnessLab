@@ -186,13 +186,13 @@ onBeforeUnmount(() => {
         <div class="challenge--recruit">
           <img src="/img/img_challenge_recruit.png">
           <p class="challenge--start-day">챌린지 시작 <span>D-{{3}}</span></p>
-          <p class="challenge--start-text"><span>바른수면 챌린지</span><br>2026년 7월 3일에 시작됩니다.</p> <!-- 261001 문구 수정 -->
+          <p class="challenge--start-text"><span>바른수면 챌린지</span>2026년 7월 3일에 시작됩니다.</p> <!-- 261001 문구 수정 --> <!-- 261002 br 제거 -->
           <!-- [s] 260929 나의 팀 이동 버튼으로 수정 -->
           <button class="challenge--recruit-btn" type="button"> <!-- 팀 가입 전 -->
             <p>챌린지에 참여하려면<br>챌린지 시작 전 <strong>팀에 참여해 주세요.</strong></p>
           </button>
           <button class="challenge--recruit-btn active" type="button"> <!-- 팀 가입 후 .active 이중클래스 -->
-            <p><span>7월 건강수면 팀</span>에 참여가 완료되었습니다.</p>
+            <p><span>7월 건강수면 팀</span><em>에 참여가 완료되었습니다.</em></p> <!-- 261002 팀명 줄바꿈 -->
           </button>
           <!-- [e] 260929 나의 팀 이동 버튼으로 수정 -->
           <div class="challenge--recruit-box">

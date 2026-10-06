@@ -1637,7 +1637,7 @@ window.addEventListener('resize', () => {
   position: relative;
   width: 100%;
   height: 100%;
-  max-width: 1500px;
+  max-width: 140rem; /* 261006 스타일 수정 */
   margin: -2rem auto 0;
   
   @media (min-width: 960px) {

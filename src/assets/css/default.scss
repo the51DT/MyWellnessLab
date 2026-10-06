@@ -15316,7 +15316,7 @@ $agingIndex: 431px;
     padding-inline: 2rem;
     @media (min-width: $w-pc) {
       max-width: 88rem;
-      margin: 0;
+      margin: 0 auto;
       padding-inline: 0;
     }
   }
@@ -15329,8 +15329,9 @@ $agingIndex: 431px;
     @media (min-width:$w-pc) {
       padding-inline: 0;
       padding-bottom: 2.4rem;
-      margin-bottom: 2.4rem;
       border-bottom: .1rem solid #e5e5e5;
+      max-width: 88rem;
+      margin: 0 auto 2.4rem;
     }
   }
   &--div{
@@ -15457,7 +15458,6 @@ $agingIndex: 431px;
     height: 90%;
     @media (min-width: $w-pc) {
       position: unset;
-      max-width: 88rem;
       margin: 0 auto;
     }
   }

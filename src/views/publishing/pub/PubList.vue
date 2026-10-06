@@ -525,7 +525,7 @@ const data = ref([
     div3: '나의 인체 생리 네트워크(자세히 보기)',
     loca: '@/views/analyze/AnalyzeHealthLightDetail.vue',
     go: '/publishing/analyze/analyze-health-light',
-    msg: "'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요<br><br>graphChart.vue<br>'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요<br>2606 스타일 태그 내부 수정<br>2606 이미지 src 수정<br>261006 라우터 wide 클래스 삭제",
+    msg: "'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요<br>261006 라우터 wide 클래스 삭제<br><br>graphChart.vue<br>'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요<br>2606 스타일 태그 내부 수정<br>2606 이미지 src 수정<br>261006 스타일 수정",
     confirm: '2606.10.06 퍼블 수정'
   },
   {

@@ -752,7 +752,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3.2rem 2.4rem 1.6rem;
+    padding: 3.2rem 2.4rem 1.6rem 2rem;
     background-color: #fff;
     button:not(.side-bar--my){
       width: 2.4rem;
@@ -765,14 +765,13 @@
       gap: .4rem;
       width: fit-content;
       height: 2.8rem;
-      padding: 0 .8rem;
+      padding: 0 1.2rem;
       border-radius: 9rem;
       border: .1rem solid #ccc;
       background: #fff;
       @include txtStyle(body, 2xs-1, 500);
       @media (min-width:$w-pc) {
         height: 3.2rem;
-        padding: 0 1.2rem;
       }
       // &::before{
       //   content: '';
@@ -785,6 +784,7 @@
     }
     @media (min-width:$w-pc) {
       padding-right: 4rem;
+      padding-left: 3.2rem;
     }
   }
   &--login{
@@ -15335,23 +15335,22 @@ $agingIndex: 431px;
   }
   &--div{
     @include min-vh-fallback(100, 0rem);
-    border-radius: 3.2rem 3.2rem 0 0;
+    border-radius: 0;
     background-color: white;
     margin-top: 2.4rem;
     padding: 2.4rem 2rem 4rem;
     position: relative;
     @media (min-width: $w-pc) {
-      border-radius: 3.2rem;
+      border-radius: 0;
       position: unset;
       min-height: auto;
-      padding: 2.8rem 2rem 3.6rem;
+      padding: 2.8rem 2rem 8rem;
       margin-top: 3.2rem;
-      margin-bottom: 6rem;
     }
   }
   &--chart{
     &-top{
-      margin: 2.4rem 0 0;
+      margin: 2.4rem 2rem 0;
       padding-top: 2.4rem;
       border-top: 1px solid #e5e5e5;
       position: relative;
@@ -15433,6 +15432,7 @@ $agingIndex: 431px;
       }
     }
     &-wrap{
+      background-color: #fff;
       @media (min-width: $w-pc) {
         // width: 100vw;
         // position: relative;
@@ -15457,6 +15457,8 @@ $agingIndex: 431px;
     height: 90%;
     @media (min-width: $w-pc) {
       position: unset;
+      max-width: 88rem;
+      margin: 0 auto;
     }
   }
   &--expand{
@@ -15523,8 +15525,9 @@ $agingIndex: 431px;
     color: #808080;
     @media (min-width: $w-pc) {
       max-width: 92rem;
-      margin: 2.4rem auto 0;
-      padding: 0;
+      margin: 0 auto 0;
+      padding: 2.4rem 0 0;
+      border-top: .1rem solid #E5E5E5;
     }
   }
 
@@ -15533,6 +15536,9 @@ $agingIndex: 431px;
       border-radius: 3.2rem;
       padding: 2.8rem 2rem 3.6rem;
       min-height: 82.4rem;
+      max-width: 92rem;
+      margin-left: auto;
+      margin-right: auto;
     }
     &-con{
       @media (min-width: $w-pc) {

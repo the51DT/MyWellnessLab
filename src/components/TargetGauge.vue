@@ -135,7 +135,7 @@ export default {
     </div>
     <!-- [s] 260930 상시 성공/목표치 표기 변경 -->
     <div v-if="showCompMarker" class="target-gauge--comp" :style="{ width: 100 - currentCompPer + '%' }" :class="{ comp: gaugePer >= compPer }">성공!</div>
-    <div ref="target" v-if="showTargetMarker" class="target-gauge--target" :class="{ ty02: currentTargetPer >= 80 }" :style="{ left: currentTargetPer + '%' }">목표치</div>
+    <div ref="target" v-if="showTargetMarker" class="target-gauge--target" :class="{ ty02: currentTargetPer >= 80 }" :style="{ left: currentTargetPer + '%' }">{{ markerMode === 'reached' ? '성공기준' : '목표치' }}</div> <!-- 261006 상시 성공기준으로 텍스트 변경 -->
     <!-- [e] 260930 상시 성공/목표치 표기 변경 -->
   </div>
 </template>

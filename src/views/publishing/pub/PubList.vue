@@ -525,8 +525,8 @@ const data = ref([
     div3: '나의 인체 생리 네트워크(자세히 보기)',
     loca: '@/views/analyze/AnalyzeHealthLightDetail.vue',
     go: '/publishing/analyze/analyze-health-light',
-    msg: "'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요<br><br>graphChart.vue<br>'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요<br>2606 스타일 태그 내부 수정<br>2606 이미지 src 수정",
-    confirm: '2606.09.01 퍼블 완료'
+    msg: "'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요<br><br>graphChart.vue<br>'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요<br>2606 스타일 태그 내부 수정<br>2606 이미지 src 수정<br>261006 라우터 wide 클래스 삭제",
+    confirm: '2606.10.06 퍼블 수정'
   },
   {
     div: '',
@@ -620,8 +620,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/team/CreateTeam.vue',
     go: '/publishing/my-team/create',
-    msg: "'팀 구분 - 챌린지 인풋', '완료' 버튼 클릭 시 퍼블 확인용으로 팝업 노출<br>260727 회차 진행 안내로 변경<br>260727 회차 기간 수정<br>팀 구분 미선택 시 툴팁 & 팝업 추가 / 팀 관리 진입 시 팀 구분 변경 막기 개발 필요<br>260727 팝업 추가<br>260820 문구 수정 / 챌린지 자율 미션 케이스 추가<br>260826 팀 유형 팀 관리 진입 시 비활성화<br>260827 문구 수정<br>260929 바우처명 케이스 추가",
-    confirm: '2026.09.29 퍼블 수정'
+    msg: "'팀 구분 - 챌린지 인풋', '완료' 버튼 클릭 시 퍼블 확인용으로 팝업 노출<br>260727 회차 진행 안내로 변경<br>260727 회차 기간 수정<br>팀 구분 미선택 시 툴팁 & 팝업 추가 / 팀 관리 진입 시 팀 구분 변경 막기 개발 필요<br>260727 팝업 추가<br>260820 문구 수정 / 챌린지 자율 미션 케이스 추가<br>260826 팀 유형 팀 관리 진입 시 비활성화<br>260827 문구 수정<br>260929 바우처명 케이스 추가<br>261006 상시 목표 인증률 변경",
+    confirm: '2026.10.06 퍼블 수정'
   },
   {
     div: '',
@@ -665,8 +665,8 @@ const data = ref([
     div3: '팀장',
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/challenge/leader',
-    msg: "퍼블 확인용 라우터 케이스 적용<br>진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출<br>260727 src/layouts/LayoutNormalLeader.vue 수정<br>260820 문구 수정 / + LayoutNormalLeader.vue<br>260824 참여 인원 추가<br>260929 바우처명 케이스 추가<br>260929 기존 바우처명 삭제<br>260930 상시 성공/목표치 표기 변경",
-    confirm: '2026.09.30 퍼블 수정'
+    msg: "퍼블 확인용 라우터 케이스 적용<br>진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출<br>260727 src/layouts/LayoutNormalLeader.vue 수정<br>260820 문구 수정 / + LayoutNormalLeader.vue<br>260824 참여 인원 추가<br>260929 바우처명 케이스 추가<br>260929 기존 바우처명 삭제<br>260930 상시 성공/목표치 표기 변경<br>261006 상시 성공기준으로 텍스트 변경 - TargetGauge.vue",
+    confirm: '2026.10.06 퍼블 수정'
   },
   {
     div: '',
@@ -738,7 +738,7 @@ const data = ref([
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/regular/leader',
     msg: "퍼블 확인용 라우터 케이스 적용<br>진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출<br>챌린지 팀 정보 주석 참고",
-    confirm: '2026.09.30 퍼블 수정'
+    confirm: '2026.10.06 퍼블 수정'
   },
   {
     div: '',

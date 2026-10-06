@@ -588,7 +588,6 @@ const publishingRouter = {
             import("@/views/analyze/AnalyzeHealthLightDetail.vue"),
           meta: {
             title: "Router.analyze.text6",
-            class: "wide",
           },
         },
         {

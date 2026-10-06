@@ -232,11 +232,11 @@ onMounted(() => {
                 <ul>
                   <li>
                     <input type="radio" name="targetRate" value="70" id="radio-select01" v-model="targetRate" />
-                    <label for="radio-select01">70%</label>
+                    <label for="radio-select01">60%</label> <!-- 261006 상시 목표 인증률 변경 -->
                   </li>
                   <li>
                     <input type="radio" name="targetRate" value="75" id="radio-select02" v-model="targetRate" />
-                    <label for="radio-select02">75%</label>
+                    <label for="radio-select02">70%</label> <!-- 261006 상시 목표 인증률 변경 -->
                   </li>
                   <li>
                     <input type="radio" name="targetRate" value="80" id="radio-select03" v-model="targetRate" />

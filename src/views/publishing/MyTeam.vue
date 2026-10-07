@@ -33,16 +33,13 @@ const changeMissionPopup = ref(false); /* 미션 변경 알림 팝업 */
 const porductStatusPopup = ref(false); /* 제품 구매 여부 알림 팝업 */
 const createBtn = ref(true);
 
-function winWidth () { /* 브라우저 가로 사이즈 체크 */
-  isPc.value = window.innerWidth > 920
-}
-const handleScroll = () => {
-  const currentScrollY = window.scrollY
-  if (currentScrollY > 100) {
-    createBtn.value = false   // 스크롤이 100px 이상이면 버튼 숨김
-  } else {
-    createBtn.value = true  // 맨 위에 가까우면 버튼 표시
-  }
+const handleScroll = () => { /* 261007 handleScroll 조건 수정 */
+  const scrollY = window.scrollY
+  const winHeight = window.innerHeight
+  const docHeight = document.documentElement.scrollHeight
+  const canScroll = docHeight > winHeight
+  const distanceToBottom = docHeight - (scrollY + winHeight)
+  createBtn.value = !canScroll || distanceToBottom > 100
 }
 /* [s] 260916 미션 변경하기 모션 수정 */
 function toggleSelectedMission () {

@@ -601,8 +601,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/MyTeam.vue',
     go: '/publishing/my-team',
-    msg: "260807 이미지 변경<br>260820 문구 수정<br>260820 .team--card-info 내부구조 수정<br>260827 문구 수정<br>260916 미션 변경하기 모션 수정<br>260930 상시 성공/목표치 표기 변경<br>261001 나의팀 회차 진행 구조 변경",
-    confirm: '2026.10.01 퍼블 수정'
+    msg: "260807 이미지 변경<br>260820 문구 수정<br>260820 .team--card-info 내부구조 수정<br>260827 문구 수정<br>260916 미션 변경하기 모션 수정<br>260930 상시 성공/목표치 표기 변경<br>261001 나의팀 회차 진행 구조 변경<br>261007 handleScroll 조건 수정",
+    confirm: '2026.10.07 퍼블 수정'
   },
   {
     cate: '',

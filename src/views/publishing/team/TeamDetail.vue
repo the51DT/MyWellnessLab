@@ -82,7 +82,7 @@ function imagePopupClose () {
           <dt>팀 가입일</dt>
           <dd><strong>2025.09.09</strong></dd>
         </dl>
-        <dl v-if="isLeader">
+        <dl v-if="isLeader"> <!-- 261007 isLeader false 일 때 본인 프로필이면 노출 필요 -->
           <dt>진행 미션</dt>
           <dd><span class="tag">혈당조절</span><span>1회 이상 식후 15분 가볍게 걷기</span></dd>
         </dl>
@@ -92,7 +92,7 @@ function imagePopupClose () {
           <dd v-else><span class="session">9월 22회</span><span class="color">223</span>회</dd> <!-- 260820 문구 수정 -->
         </dl>
       </div>
-      <div v-if="challengeTeam && isLeader" class="team-status--purchase active">제품 구매완료</div> <!-- .active 구매완료 / 없으면 미구매 스타일 -->
+      <div v-if="challengeTeam && isLeader" class="team-status--purchase active">제품 구매완료</div> <!-- .active 구매완료 / 없으면 미구매 스타일 --> <!-- 261007 isLeader false 일 때 본인 프로필이면 노출 필요 -->
     </div>
     <div class="team-detail--date-picker">
       <TextDatePicker 

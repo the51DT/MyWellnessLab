@@ -1995,6 +1995,7 @@ footer{
         background-color: #F5F5F5;
         position: sticky;
         bottom: 0;
+        z-index: 1;
         @media (min-width:$w-pc) {
           padding: 2rem 2rem 2.4rem;
         }
@@ -11696,7 +11697,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       @include txtStyle(body, lg);
       margin: 1.2rem 2rem 0;
       strong{
-        font-weight: 600
+        font-weight: 600;
       }
     }
   }
@@ -11905,7 +11906,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   &--for{
     &:last-child{
       .CheckupIntestine--label{
-        margin-bottom: 0
+        margin-bottom: 0;
       }
     }
   }
@@ -12136,7 +12137,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   &--for{
     &:last-child{
       .CheckupProstate--label{
-        margin-bottom: 0
+        margin-bottom: 0;
       }
     }
   }
@@ -12275,7 +12276,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   &--for{
     &:last-child{
       .CheckupEq5d--label{
-        margin-bottom: 0
+        margin-bottom: 0;
       }
     }
   }
@@ -17677,7 +17678,7 @@ span.legend-dot-interest{
           margin-top: 0.6rem;
         }
         &:first-child{
-          margin-top: 0
+          margin-top: 0;
         }
         &:last-child{
           border-bottom: none;

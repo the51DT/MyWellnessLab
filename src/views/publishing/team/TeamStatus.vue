@@ -134,7 +134,7 @@ const memberList = ref([ /* 퍼블 확인용 챌린지 팀원 데이터 */
             <dt>닉네임</dt>
             <dd>{{ item.nickname }}</dd>
           </dl>
-          <dl v-if="isLeader">
+          <dl v-if="isLeader">  <!-- 261007 isLeader false 일 때 본인 프로필이면 노출 필요 -->
             <dt>진행 미션</dt>
             <dd><span class="tag">{{ item.missionCate }}</span><span v-if="!sortLayout">{{ item.missionDetail }}</span></dd>
           </dl>
@@ -152,7 +152,7 @@ const memberList = ref([ /* 퍼블 확인용 챌린지 팀원 데이터 */
             <dd v-if="item.today"><span class="color">O</span></dd>
             <dd v-else><span class="not">X</span></dd>
           </dl>
-          <div v-if="challengeTeam && isLeader" class="team-status--purchase" :class="{active:item.purchase}">{{ item.purchase ? '제품 구매완료' : '제품 미구매' }}</div>
+          <div v-if="challengeTeam && isLeader" class="team-status--purchase" :class="{active:item.purchase}">{{ item.purchase ? '제품 구매완료' : '제품 미구매' }}</div>  <!-- 261007 isLeader false 일 때 본인 프로필이면 노출 필요 -->
         </div>
         <button v-if="!sortLayout" class="team-status--fav" @click.stop="item.isFavorite = !item.isFavorite" :class="{active: item.isFavorite}" :aria-label="isFavorite ? '즐겨찾기 해제' : '즐겨찾기 등록'"></button>
       </div>

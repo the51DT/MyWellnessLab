@@ -2083,7 +2083,7 @@
     "AnalyzeHealthLightDetail.healthAreaGuide": "건강 영역별 원료 가이드",
     "AnalyzeHealthLightDetail.nutriliteLogo": "NUTRILITE 로고",
     "AnalyzeHealthLightDetail.nutriliteDescription": "가 과학으로 제안하는<br /> 건강 영역별 핵심 영양성분 · 원료",
-    "AnalyzeHealthLightDetail.nutriliteDescription2": "가 과학으로 제안하는<br /> 건강 영역별 원료 가이드",
+    "AnalyzeHealthLightDetail.nutriliteDescription2": "가 <br />과학으로 제안하는 건강 영역별 원료 가이드",
     "AnalyzeHealthLightDetail.medicationWarning": "현재 {medications}과 관련된 의약품을 복용하고 있으므로, 해당 건강 지표가 실제 상태를 충분히 반영하지 않을 수 있습니다. 결과를 해석할 때 이점을 고려해 주세요.",
     "AnalyzeMuscleBalanceDetail.bodyComposition": "체성분",
     "AnalyzeMuscleBalanceDetail.ageGroupAverage": "대 평균",

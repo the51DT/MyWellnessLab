@@ -14349,9 +14349,6 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     &-view{
       @include alignBetween(normal, verti);
       margin-top: -0.2rem;
-      @media (min-width:$w-pc) {
-        justify-content: space-between;
-      }
     }
     &-data{
       margin-right: $marginRight-small;

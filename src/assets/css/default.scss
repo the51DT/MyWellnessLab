@@ -7797,7 +7797,7 @@ button{
       align-items: center;
       gap: 1.6rem;
       padding: 1.4rem 1.6rem;
-      flex: 1 0 auto;
+      flex: 1 1 auto;
       @media (min-width: $w-pc) {
         gap: 2rem;
         padding: 1.6rem 2rem;
@@ -7817,16 +7817,19 @@ button{
       display: flex;
       flex-direction: column;
       gap: .6rem;
+      flex: 1 1 auto;
       p{
         display: flex;
         gap: 1.2rem;
         @include txtStyle(body, 2xs, 600);
         color: #333;
+        word-break: break-all;
       }
       span{
         font-weight: 400;
         color: #666;
         flex-basis: 4rem;
+        flex-shrink: 0;
       }
       @media (min-width:$w-pc) {
         p{

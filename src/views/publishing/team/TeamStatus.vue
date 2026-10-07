@@ -134,20 +134,20 @@ const memberList = ref([ /* 퍼블 확인용 챌린지 팀원 데이터 */
             <dt>닉네임</dt>
             <dd>{{ item.nickname }}</dd>
           </dl>
-          <dl v-if="isLeader">  <!-- 261007 isLeader false 일 때 본인 프로필이면 노출 필요 -->
+          <dl v-if="isLeader" class="mission"> <!-- 261007 isLeader false 일 때 본인 프로필이면 노출 필요 --> <!-- 261007 sortLayout용 클래스 추가 -->
             <dt>진행 미션</dt>
             <dd><span class="tag">{{ item.missionCate }}</span><span v-if="!sortLayout">{{ item.missionDetail }}</span></dd>
           </dl>
-          <dl>
+          <dl class="count"> <!-- 261007 sortLayout용 클래스 추가 -->
             <dt>{{ challengeTeam ? '인증횟수' : sortLayout ? '전체인증횟수' : '전체 인증 횟수' }}</dt> <!-- 챌린지/상시 구분 퍼블 임의 -->
             <dd>{{ item.count }}회</dd>
           </dl>
-          <dl>
+          <dl class="per"> <!-- 261007 sortLayout용 클래스 추가 -->
             <dt>{{ challengeTeam ? '인증률' : sortLayout ? '이달의인증' : '이 달의 인증' }}</dt> <!-- 챌린지/상시 구분 퍼블 임의 -->
             <dd><span v-if="!challengeTeam">12월 22회</span><span class="color">{{ item.per }}%</span></dd>
           </dl>
           <!-- [e] 260820 .team-status--info 내부 수정 -->
-          <dl>
+          <dl class="today"> <!-- 261007 sortLayout용 클래스 추가 -->
             <dt>{{ sortLayout ? '오늘인증' : '오늘 인증' }}</dt>
             <dd v-if="item.today"><span class="color">O</span></dd>
             <dd v-else><span class="not">X</span></dd>

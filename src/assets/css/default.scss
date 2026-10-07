@@ -9335,11 +9335,17 @@ button{
       }
       dl{
         gap: .6rem;
-        &:nth-child(2){
-          order: 5;
-        }
-        &:nth-child(4){
+        &.count{
           order: 2;
+        }
+        &.today{
+          order: 3;
+        }
+        &.per{
+          order: 4;
+        }
+        &.mission{
+          order: 5;
         }
       }
       dt{
@@ -9369,28 +9375,16 @@ button{
         grid-template-columns: 1fr 1.6fr;
         gap: .6rem;
         dl{
-          &:nth-child(2) {
+          &.mission {
             grid-column: 1 / -1;
           }
           &:nth-child(3),
           &:nth-child(4){
             dt{
               flex-basis: 6.7rem;
-            }
-          }
-        }
-      }
-    }
-    &:not(.leaderCase){
-      .liteVersion{
-        .team-status--info {
-          dl{
-            &:nth-child(2){
-              order: unset;
-              grid-column: auto;
-            }
-            &:nth-child(3){
-              order: 3;
+              @media (min-width:$w-pc) {
+                flex-basis: 7.7rem;
+              }
             }
           }
         }

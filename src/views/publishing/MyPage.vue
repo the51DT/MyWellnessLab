@@ -13,7 +13,7 @@ export default {
   components: { MyPageServiceQuitPopup, MyPagePinChangePopup, MyPagePhoneChangePopup, BasePopup, BaseToast }, /* 202606 추가 */
   data() {
     return {
-      data: { age: 20, nickname: '둘리아빠', name: '이하늘', userNum: 7480000, gender: '남성', birth: '1980.03.12', phone: '010-1234-5678' },
+      data: { age: 20, nickname: null, name: '이하늘', userNum: 7480000, gender: '남성', birth: '1980.03.12', phone: '010-1234-5678' },
       isPopupPhone: false, /* 231212 폰번호 변경 팝업 오프너 */
       isPopupPin: false, /* 231212 핀번호변경 팝업 오프너 */
       isQuit: false, /* 231212 탈퇴 팝업 오프너 */
@@ -95,7 +95,7 @@ export default {
       </div>
       <div class="text-wrap">
         <div class="text-wrap-default" v-if="nicknameDefault">
-          <p>{{ data.nickname }}</p>
+          <p :class="data.nickname === null ? 'noNickname' : ''">{{ data.nickname === null ? '닉네임 미설정' : data.nickname }}</p> <!-- 261007 닉네임 미설정 추가 -->
           <button @click="onEdit" type="button" class="btn-modify" title="프로필명 변경" ></button>
           <button @click="" type="button" class="btn-user" title="사용자 선택"></button> <!-- 260923 공동사업자 사용자 선택 버튼 추가 -->
         </div>

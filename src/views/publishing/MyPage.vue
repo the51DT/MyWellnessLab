@@ -101,7 +101,7 @@ export default {
         </div>
         <div class="text-wrap-modify" v-else>
           <div class="BasePhoneInput">
-            <input type="text" v-model="nicknameEdit" placeholder="닉네임" />
+            <input type="text" v-model="nicknameEdit" :placeholder="data.nickname === null ? '닉네임을 설정해주세요' : '닉네임'" /> <!-- 261007 닉네임 미설정 시 플레이스홀더 문구 변경 -->
             <button :disabled="!nicknameEdit" @click="data.nickname = nicknameEdit, onEdit(), nicknameDisabledPopup = true" type="button" class="BasePhoneInput--btn">확인</button> <!-- 퍼블 임의로 click 이벤트 실행 / 개발 금지어 적용 필요-->
           </div>
           <p class="text-wrap-modify-desc">* 개인정보가 식별되는 닉네임 사용은 자제해 주세요</p>

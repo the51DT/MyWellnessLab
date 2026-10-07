@@ -174,8 +174,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/checkup/CheckupDateSelect.vue',
     go: '/publishing/checkup-input',
-    msg: "2606 퍼블 확인위해 api 주석처리<br>2606 퍼블 확인용 아래 주석이 원본<br>2606 하단 버튼 문구 변경<br>2606 이전 버튼 퍼블 확인용 주석처리",
-    confirm: '2026.08.26 퍼블 완료'
+    msg: "2606 퍼블 확인위해 api 주석처리<br>2606 퍼블 확인용 아래 주석이 원본<br>261007 하단 버튼 문구 변경<br>261007 이전 버튼 추가",
+    confirm: '2026.10.07 퍼블 수정'
   },
   {
     div: '',

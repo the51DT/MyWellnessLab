@@ -263,14 +263,13 @@ const handleProceed = async () => {
         <button
           @click="handleProceed"
           :disabled="nextDisabled"
-          type="button">{{ $t('Common.confirm') }}</button> <!-- 2606 하단 버튼 문구 변경 -->
+          type="button">{{ $t('Common.next') }}</button> <!-- 261007 하단 버튼 문구 변경 -->
       </div>
-      <!-- 이전 버튼 개발 요망 --> <!-- 2606 이전 버튼 퍼블 확인용 주석처리 -->
-      <!-- <div class="btn--bottom btn--bottom-line">
+      <div class="btn--bottom btn--bottom-line"> <!-- 261007 이전 버튼 추가 -->
         <button
             @click="handleBack"
             type="button">{{ $t('Common.prev') }}</button>
-      </div> -->
+      </div>
     </div>
 
   </div>

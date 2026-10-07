@@ -11486,6 +11486,9 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   @include btnBottomFixLayout;
   @media (min-width:$w-pc) {
     @include min-vh-fallback(100, 8.1rem);
+    .Checkup--btn-wrap{
+      margin-top: 2.4rem;
+    }
   }
   .AnalyzeCheckDateSelect--msg{
     margin-top: 2rem;

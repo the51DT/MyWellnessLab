@@ -14238,14 +14238,28 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
         content: none;
       }
     }
+    &:has( + .btn--top) {
+      @media (min-width:$w-pc) {
+        margin-left: 0;
+        &:not(.open) {
+          margin-left: 24.3rem;
+        }
+      }
+    }
     & + .btn--top{
-      bottom: 14rem;
+      bottom: 15rem;
       @media (min-width: $w-pc) {
-        bottom: 18rem;
+        bottom: 4rem;
       }
     }
   }
   /* E : 20260306 ASB-13674 - 마이웰니스랩 과학적 표현 강화 */
+  .AnalyzeDownload{
+    padding-bottom: 19.4rem;
+    @media (min-width:$w-pc) {
+      padding-bottom: 14.4rem;
+    }
+  }
 }
 .AnalyzeDetail--HumanNetwork--tip-dom{
   .tooltip--edge{

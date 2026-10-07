@@ -148,6 +148,9 @@ onBeforeUnmount(() => {
                 <span>1회차<span>진행</span></span><!-- 261001 진행종료 2회차 추가 -->
                 <span>2026.02.01 ~ 2026.02.28<em>28일</em></span>
               </p>
+              <p> <!-- 261007 제품 구매 플래그 추가 -->
+                <div class="team-status--purchase active">제품 구매완료</div> <!-- .active 구매완료 / 없으면 미구매 스타일 -->
+              </p>
             </div>
             <div class="challenge--box-rate">
               <div class="challenge--box-rate--wrap">

@@ -6462,7 +6462,7 @@ button{
         grid-template-columns: auto 21.1rem;
       }
     }
-    span{
+    span:not(.team-status--purchase){
       @include txtStyle(body, 2xs, 500);
       flex: 1 1 auto;
       display: flex;

@@ -8522,6 +8522,7 @@ button{
       padding-left: 1.6rem;
     }
     &.challenge{
+      min-height: unset;
       .tit{
         @media (min-width:$w-pc) {
           width: 11.2rem;

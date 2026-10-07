@@ -34,12 +34,11 @@ const porductStatusPopup = ref(false); /* 제품 구매 여부 알림 팝업 */
 const createBtn = ref(true);
 
 const handleScroll = () => { /* 261007 handleScroll 조건 수정 */
-  const scrollY = window.scrollY
-  const winHeight = window.innerHeight
-  const docHeight = document.documentElement.scrollHeight
-  const canScroll = docHeight > winHeight
-  const distanceToBottom = docHeight - (scrollY + winHeight)
-  createBtn.value = !canScroll || distanceToBottom > 100
+  const scrollTop = window.scrollY
+  const windowHeight = window.innerHeight
+  const documentHeight = document.documentElement.scrollHeight
+  const isBottom = Math.ceil(scrollTop + windowHeight) >= documentHeight
+  createBtn.value = !isBottom
 }
 /* [s] 260916 미션 변경하기 모션 수정 */
 function toggleSelectedMission () {

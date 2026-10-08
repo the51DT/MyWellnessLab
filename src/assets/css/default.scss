@@ -5904,17 +5904,40 @@ button{
     }
     &--tit{
       padding: 0 2rem;
-      @include txtStyle(body, xl, 700);
       color: #fff;
       max-width: $w-pc-wrap;
       margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      strong{
+        display: flex;
+        align-items: center;
+        gap: .4rem;
+        @include txtStyle(body, xl, 700);
+        span{
+          @include txtStyle(body, sm);
+        }
+      }
+    }
+    &--btn{
+      @include btnClear;
+      @include txtStyle(body, sm);
+      color: #fff;
+      &::after{
+        content: '';
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+        background: url('/img/ic_arrow_right_white.svg') no-repeat center / .7rem;
+        vertical-align: text-top;
+      }
     }
     &--folder{
       max-width: $w-pc-wrap;
       margin: 1.2rem auto 0;
       padding: 0 2rem;
       @media (min-width:$w-pc){
-        margin-top: 1.2rem;
+        margin-top: 1.8rem;
       }
       .tab{
         position: relative;

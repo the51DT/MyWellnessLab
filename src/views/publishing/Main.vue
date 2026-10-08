@@ -939,7 +939,10 @@ export default {
       </div>
     </div>
     <div class="main--team">
-      <p class="main--team--tit">나의 팀</p>
+      <p class="main--team--tit"> <!-- 261008 총 팀 수 / 전체보기 추가 -->
+        <strong>나의 팀<span>(총00팀)</span></strong>
+        <button class="main--team--btn" type="button">전체보기</button> <!-- 나의 팀 목록으로 이동 개발 필요 -->
+      </p>
       <div class="main--team--folder">
         <div class="tab-wrap">
           <!-- 260721 / 플로팅 탭 전환 핸들러 추가 - 버튼 클릭 이벤트 수정 -->

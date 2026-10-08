@@ -26,7 +26,7 @@ watch(regularManage, (value) => {
 }, { immediate: true })
 const regularEndDate = ref("") /* 상시 종료일 */
 const regularNoEndDate = ref(false) /* 상시 종료일 없음 */
-const targetRate = ref("100") /* 목표 인증률 */
+const targetRate = ref("80") /* 목표 인증률 */ /* 261008 목표 인증률 디폴트 값 변경 */
 
 const bottomObserver = ref(null)
 const isBottom = ref(false) /* 퍼블 확인용 하단 도착 여부 */

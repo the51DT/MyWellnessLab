@@ -6082,6 +6082,11 @@ button{
       @media (min-width:$w-pc){
         margin-bottom: 1.6rem;
       }
+      &.wait{
+        background-color: #fff;
+        color: var(--folder-tab-color);
+        border: .1rem solid var(--folder-tab-color);
+      }
     }
     &--box-tit{
       @include txtStyle(body, xl, 600);

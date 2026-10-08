@@ -961,6 +961,7 @@ export default {
           <div>
             <div class="challenge--box-tit"><span>6월 건강수면 챌린지팀 6월 건강수면 챌린지팀 6월 건강수면 챌린지팀 6월 건강수면 챌린지팀</span><button type="button" @click=""></button></div> <!-- 260819 tit 내부 버튼 추가 / 팀상세 이동 필요 -->
             <div class="challenge--box-tag">진행중</div>
+            <!-- <div class="challenge--box-tag wait">대기중</div> --> <!-- .wati 이중 클래스 = 대기중 --> <!-- 261008 대기중 플래그 추가 -->
             <div class="challenge--box-info">
               <p>
                 <span>성공 조건</span> <!-- 260827 문구 수정 -->
@@ -992,7 +993,8 @@ export default {
           <!-- 260930 260930 상시 성공/목표치 표기 변경 -->
           <div>
             <div class="challenge--box-tit"><span>6월 건강수면 챌린지팀</span><button type="button" @click=""></button></div> 
-            <div class="challenge--box-tag">진행중</div>
+            <!-- <div class="challenge--box-tag">진행중</div> -->
+            <div class="challenge--box-tag wait">대기중</div> <!-- .wati 이중 클래스 = 대기중 --> <!-- 261008 대기중 플래그 추가 -->
             <div class="challenge--box-info">
               <p>
                 <span>성공 조건</span>

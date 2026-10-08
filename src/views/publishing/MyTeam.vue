@@ -7,6 +7,7 @@ import BasePopup from '@/components/BasePopup.vue'
 import TabRound from '@/components/TabRound.vue'
 import TargetGauge from '@/components/TargetGauge.vue'
 import BtnTop from '@/views/publishing/BtnTop.vue'
+import { isScrolledToBottom } from '@/utils/scrollPosition'
 
  /* 퍼블 확인용 데이터 없을 때 받을 값 */
 const route = useRoute()
@@ -31,14 +32,15 @@ const unableJoinPopup = ref(false); /* 팀 가입 불가 안내 (이미 참여�
 const activeTeamTab = ref(0) /* 팝업 확인하러가기 버튼 탭 변경 */
 const changeMissionPopup = ref(false); /* 미션 변경 알림 팝업 */
 const porductStatusPopup = ref(false); /* 제품 구매 여부 알림 팝업 */
-const createBtn = ref(true);
 
-const handleScroll = () => { /* 261007 handleScroll 조건 수정 */
-  const scrollTop = window.scrollY
-  const windowHeight = window.innerHeight
-  const documentHeight = document.documentElement.scrollHeight
-  const isBottom = Math.ceil(scrollTop + windowHeight) >= documentHeight
-  createBtn.value = !isBottom
+const createBtn = ref(true);
+/*
+ * 팀 만들기 버튼은 top 버튼(BtnTop)과 같은 자리를 번갈아 쓴다.
+ * SIT test_25: 너무 일찍 top 버튼으로 바뀌어 팀 만들기가 안 보인다는 지적으로, 맨 아래에 닿았을 때만 바꾼다.
+ * BtnTop 도 bottom-only 로 같은 기준(isScrolledToBottom)을 써야 한다. 한쪽만 바꾸면 두 버튼이 겹친다(df098ee7 원복 사유).
+ */
+const handleScroll = () => {
+  createBtn.value = !isScrolledToBottom()
 }
 /* [s] 260916 미션 변경하기 모션 수정 */
 function toggleSelectedMission () {
@@ -458,7 +460,7 @@ onBeforeUnmount(() => {
         </div>
       </template>
     </TabRound>
-    <BtnTop />
+    <BtnTop :bottom-only="isAbo" />
     <Transition name="fade">
       <div v-show="createBtn" class="team--create-btn">
         <button type="button"><img src="/img/ico_plus-white.svg"><span>팀 만들기</span></button>

@@ -1577,6 +1577,7 @@ footer{
   &--tit{
     margin-right: auto;
     margin-left: auto;
+    word-break: break-all;
     &-wrap{
       text-align: center;
       @include txtStyle(body, md, 500);
@@ -2825,6 +2826,7 @@ footer{
       @include max-vh-fallback(100, 9.6rem);
       display: flex;
       flex-direction: column;
+      min-height: 0;
       @media (min-width:$w-pc) {
         max-width: 41.6rem;
         @include max-vh-fallback(100, 40rem);
@@ -2837,25 +2839,41 @@ footer{
     .popup--header {
       flex: 0 0 auto;
       width: 100%;
+      align-items: center;
+      gap: .8rem;
+      flex-wrap: nowrap;
+    }
+    .popup--tit-wrap{
+      flex: 1 1 auto !important;
+      text-align: left;
+    }
+    .popup--body{
+      flex: 1 1 auto;
+      min-height: 0;
+      margin: 0 2rem;
+      position: relative;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
     }
     .popup--space{
-      flex: 0 1 auto;
+      flex: 1 1 auto;
       min-height: 0;
-      max-height: calc((var(--vh, 1vh) * 100) - 9.6rem - 5.5rem - 7.6rem);
       height: auto;
+      max-height: none;
       padding: 0;
-      margin: 0 2rem;
+      margin: 0;
       border-radius: 1.2rem;
       background-color: #f0f0f0;
       overflow: hidden;
       position: relative;
-      @media (min-width:$w-pc) {
-        max-height: calc((var(--vh, 1vh) * 100) - 40rem - 6.6rem - 8.4rem);
-      }
+      display: flex;
+      flex-direction: column;
     }
     .popup--scroll{
-      height: 100%;
-      max-height: inherit;
+      flex: 1 1 auto;
+      min-height: 0;
+      height: auto;
       overflow-y: auto;
       scrollbar-width: none;
       &::-webkit-scrollbar {
@@ -2874,26 +2892,24 @@ footer{
     .popup--space-text{
       padding: 1.6rem;
       text-align: left;
+      word-break: break-all;
       @include txtStyle(body, 2xs);
     }
     .popup--fake-scrollbar {
       position: absolute;
       top: 0;
-      right: .8rem;
-      width: 1.2rem;
+      right: -.8rem;
+      width: .4rem;
       height: 100%;
       pointer-events: none;
     }
     .popup--fake-thumb {
       position: absolute;
-      top: 5.5rem;
-      right: .4rem;
+      top: 0;
+      right: 0;
       width: .4rem;
       border-radius: 9rem;
       background: #999;
-      @media (min-width:$w-pc) {
-        top: 6.6rem;
-      }
     }
     .pop-btn-wrap{
       flex: 0 0 auto;
@@ -18451,7 +18467,7 @@ span.legend-dot-interest{
     >span{
       @include txtStyle(body, sm, 500);
     }
-    >div{
+    &:not(.tooltip) >div{
       display: flex;
       align-items: center;
       gap: .6rem;
@@ -18459,6 +18475,34 @@ span.legend-dot-interest{
       color: #808080;
       @media (min-width:$w-pc) {
         gap: .8rem;
+      }
+    }
+    &.tooltip{
+      justify-content: flex-start;
+    }
+  }
+  .btn--tooltip{
+    width: 2rem;
+    height: 2rem;
+  }
+  .tooltip{
+    &--wrap{
+      top: 3.5rem;
+      left: -2rem;
+      width: 27.5rem;
+      padding: 1.2rem 1.2rem 1.4rem 1.6rem;
+      @media (min-width:$w-pc) {
+        width: 35.1rem;
+      }
+      > *:first-child{
+        width: 100%;
+      }
+    }
+    &--edge{
+      left: 13rem;
+      top: -2.3rem;
+      @media (min-width:$w-pc) {
+        left: 14.5rem;
       }
     }
   }
@@ -18483,6 +18527,71 @@ span.legend-dot-interest{
     margin-top: 1.2rem;
     @include txtStyle(caption, xl-1, 500);
     color: #808080;
+  }
+  .box-terms-wrap{
+    margin-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .box-terms{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .box-terms-text{
+    @include btnClear;
+    @include txtStyle(body, 2xs-1);
+    color: #1A1818;
+    padding: 0;
+    &::after{
+      content: '';
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      background: url('/img/ico_arrow_right_black.svg') no-repeat center / .7rem;
+      vertical-align: text-top;
+    }
+  }
+  .box-toggle{
+    @include btnClear;
+    position: relative;
+    width: 5.2rem;
+    height: 2.8rem;
+    padding: .3rem;
+    background-color: #fff;
+    border-radius: 9rem;
+    border: .1rem solid #ebebeb;
+    @media (min-width:$w-pc) {
+      width: 5.8rem;
+      height: 3.2rem;
+    }
+    &::before{
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: .3rem;
+      transform: translateY(-50%);
+      display: block;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 9rem;
+      background-color: #F0F0F0;
+      transition: left .3s ease-in-out;
+      @media (min-width:$w-pc) {
+        left: .4rem;
+      }
+    }
+    &.active{
+      background-color: #1DB196;
+      border: none;
+      &::before{
+        background-color: #fff;
+        left: 2.6rem;
+        @media (min-width:$w-pc) {
+          left: 3rem;
+        }
+      }
+    }
   }
 }
 .MyPagePhoneChange{
@@ -19495,6 +19604,59 @@ span.legend-dot-interest{
           border-bottom: 0;
         }
       }
+    }
+  }
+}
+.MyPageTermsCompPop{
+  .pop-text-caption{
+    @include txtStyle(body, xs);
+  }
+}
+.MyPageTermsDetailPop{
+  .popup--wrap{
+    @media (min-width:$w-pc) {
+      max-width: 88rem;
+      background-color: #F5F5F5;
+    }
+    .popup--header{
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: .8rem;
+      @media (min-width:$w-pc) {
+        background-color: #F5F5F5;
+      }
+      > *:first-child{
+      flex: 1 1 auto;
+      text-align: left;
+        @media (min-width:$w-pc) {
+          text-align: center;
+          font-weight: 700;
+        }
+      }
+    }
+    .popup--space,
+    .pop-btn-wrap{
+      @media (min-width:$w-pc) {
+        background-color: #F5F5F5;
+      }
+    }
+    .pop-text-light{
+      @include txtStyle(body, 2xs-1);
+      color: #333;
+      text-align: left;
+    }
+    .pop-text-bold{
+      @include txtStyle(body, 2xs-1, 600);
+      text-align: left;
+      text-decoration: underline;
+      text-underline-position: under;
+      margin-top: 1.2rem;
+    }
+  }
+  .AnalyzePrivacyAgree--tb{
+    td{
+      text-align: left;
+      vertical-align: middle;
     }
   }
 }

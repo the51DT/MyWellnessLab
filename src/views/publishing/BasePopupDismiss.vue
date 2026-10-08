@@ -8,11 +8,23 @@ export default {
       popupThumbTop: 0,
       popupThumbHeight: 0,
       isPopupScrollable: false,
+      /* 261008 popup--body 추가 */
+      popupResizeObserver: null,
+      popupUpdateFrame: null,
     }
   },
   methods: {
     close(){
       this.$emit("popupDismiss")
+    },
+    schedulePopupScrollbarUpdate() { /* 261008 popup--body 추가 */
+      if (this.popupUpdateFrame) {
+        cancelAnimationFrame(this.popupUpdateFrame)
+      }
+      this.popupUpdateFrame = requestAnimationFrame(() => {
+        this.updatePopupScrollbar()
+        this.popupUpdateFrame = null
+      })
     },
     updatePopupScrollbar() {
       const el = this.$refs.popupScroll
@@ -43,13 +55,31 @@ export default {
   },
   mounted () {
     bodyScroll(false) /* 팝업 노출 시 body 스크롤 정지 */
-    this.$nextTick(() => {
-      this.updatePopupScrollbar()
-      window.addEventListener('resize', this.updatePopupScrollbar)
+    this.$nextTick(() => { /* 261008 popup--body 추가 */
+      this.schedulePopupScrollbarUpdate()
+      window.addEventListener('resize', this.schedulePopupScrollbarUpdate)
+      this.popupResizeObserver = new ResizeObserver(() => {
+        this.schedulePopupScrollbarUpdate()
+      })
+      if (this.$refs.popupBody) {
+        this.popupResizeObserver.observe(this.$refs.popupBody)
+      }
+      if (this.$refs.popupScroll) {
+        this.popupResizeObserver.observe(this.$refs.popupScroll)
+      }
     })
   },
-  beforeUnmount() {
-    window.removeEventListener('resize', this.updatePopupScrollbar)
+  beforeUnmount() { /* 261008 popup--body 추가 */
+    window.removeEventListener('resize', this.schedulePopupScrollbarUpdate)
+
+    if (this.popupResizeObserver) {
+      this.popupResizeObserver.disconnect()
+      this.popupResizeObserver = null
+    }
+    if (this.popupUpdateFrame) {
+      cancelAnimationFrame(this.popupUpdateFrame)
+      this.popupUpdateFrame = null
+    }
   },
   unmounted () {
     bodyScroll(true) /* 팝업 삭제 시 body 스크롤 원복 */
@@ -67,20 +97,22 @@ export default {
         </div>
         <button @click="close" type="button" class="popup--close" aria-label="닫기"></button>
       </div>
-      <div class="popup--space">
-        <div class="popup--scroll" ref="popupScroll" @scroll="updatePopupScrollbar">
-          <div class="popup--space-img">
-            <img src="/img/img_daily_exam.png">
-          </div>
-          <div class="popup--space-text">
-            <!-- <slot name="contents"></slot> -->
-            <!-- Lorem 텍스트 퍼블 확인용 위쪽 주석으로 사용 필요 -->
-            Lorem ipsum dolor sit
+      <div class="popup--body" ref="popupBody"> <!-- 261008 popup--body 추가 -->
+        <div class="popup--space">
+          <div class="popup--scroll" ref="popupScroll" @scroll="updatePopupScrollbar">
+            <div class="popup--space-img">
+              <img src="/img/img_daily_exam.png" @load="schedulePopupScrollbarUpdate"> <!-- 261008 img load 추가 -->
+            </div>
+            <div class="popup--space-text">
+              <!-- <slot name="contents"></slot> -->
+              <!-- Lorem 텍스트 퍼블 확인용 위쪽 주석으로 사용 필요 -->
+              Lorem ipsum dolor sit
+            </div>
           </div>
         </div>
-      </div>
-      <div v-if="isPopupScrollable" class="popup--fake-scrollbar">
-        <div class="popup--fake-thumb" :style="{height: popupThumbHeight + 'px', transform: `translateY(${popupThumbTop}px)`}"></div>
+        <div v-if="isPopupScrollable" class="popup--fake-scrollbar">
+          <div class="popup--fake-thumb" :style="{height: popupThumbHeight + 'px', transform: `translateY(${popupThumbTop}px)`}"></div>
+        </div>
       </div>
       <div class="pop-btn-wrap">
         <div class="inputField--input--checkbox--wrap">

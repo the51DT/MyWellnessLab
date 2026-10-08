@@ -50,8 +50,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/BasePopupDismiss.vue',
     go: '/publishing/main/dismiss',
-    msg: "",
-    confirm: '2026.09.08 퍼블 완료'
+    msg: "261008 popup--body 추가<br>261008 img load 추가",
+    confirm: '2026.10.08 퍼블 수정'
   },
   { cate: 'blank'},
   {
@@ -996,8 +996,8 @@ const data = ref([
     div3: '',
     loca: '@/views/mypage/MyPage.vue<br>@/views/publishing/MyPage.vue -> 퍼블 확인용 경로',
     go: '/publishing/my-page',
-    msg: "0728 팝업 완료 목록<br>- 휴대폰번호 변경 팝업 = @/views/mypage/MyPagePhoneChangePopup.vue<br>- PIN번호 변경 팝업 = @/views/mypage/MyPagePinChangePopup.vue<br>- 서비스 탈퇴 팝업 (챌린지 팀 팝업 추가) = @/views/mypage/MyPageServiceQuitPopup.vue<br>MyPageServiceQuitPopup.vue / 260820 문구 수정<br>260827 문구 수정<br>260909 분석권 사용 이력 메뉴 제외<br>260909 이미지 src 변경<br>261007 닉네임 미설정 추가<br>261007 닉네임 미설정 시 플레이스홀더 문구 변경",
-    confirm: '2026.10.07 퍼블 수정'
+    msg: "0728 팝업 완료 목록<br>- 휴대폰번호 변경 팝업 = @/views/mypage/MyPagePhoneChangePopup.vue<br>- PIN번호 변경 팝업 = @/views/mypage/MyPagePinChangePopup.vue<br>- 서비스 탈퇴 팝업 (챌린지 팀 팝업 추가) = @/views/mypage/MyPageServiceQuitPopup.vue<br>MyPageServiceQuitPopup.vue / 260820 문구 수정<br>260827 문구 수정<br>260909 분석권 사용 이력 메뉴 제외<br>260909 이미지 src 변경<br>261007 닉네임 미설정 추가<br>261007 닉네임 미설정 시 플레이스홀더 문구 변경<br>261008 계정 연동 정보 수정 및 약관 동의 내역 추가<br>261008 선택 약관 동의 내역 추가",
+    confirm: '2026.10.08 퍼블 수정'
   },
   {
     div: '나의 분석권',

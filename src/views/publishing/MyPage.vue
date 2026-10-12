@@ -258,7 +258,7 @@ export default {
     <!-- 약관 동의 확인 팝업 -->
     <BasePopup v-if="TermsAgreePopup"> 
       <template v-slot:contents>
-        <p class="pop-text-bold">“$약관명$” 약관에 동의<br>하시겠습니까?</p>
+        <p class="pop-text-bold">“$약관명$” 약관에 동의 하시겠습니까?</p> <!-- 261012 약관 팝업 br 제거 -->
         <div class="pop-btn-wrap">
           <button type="button" @click="TermsAgreePopup = false" class="pop-btn pop-btn--gray">취소</button>
           <button type="button" @click="TermsAgreePopup = false, TermsAgreeCompPopup = true" class="pop-btn pop-btn--green">확인</button>
@@ -270,7 +270,7 @@ export default {
     <!-- 약관 동의 완료 팝업 -->
     <BasePopup v-if="TermsAgreeCompPopup" class="MyPageTermsCompPop"> 
       <template v-slot:contents>
-        <p class="pop-text-bold">“$약관명$” 약관에 동의<br>하였습니다.</p>
+        <p class="pop-text-bold">“$약관명$” 약관에 동의 하였습니다.</p> <!-- 261012 약관 팝업 br 제거 -->
         <p class="pop-text-caption center">동의 일자 : YYYY.MM.DD</p>
         <div class="pop-btn-wrap">
           <button type="button" @click="TermsAgreeCompPopup = false" class="pop-btn pop-btn--green">확인</button>
@@ -281,7 +281,7 @@ export default {
     <!-- 약관 철회 확인 팝업 -->
     <BasePopup v-if="TermsCancelPopup"> 
       <template v-slot:contents>
-        <p class="pop-text-bold">“$약관명$” 약관에 동의를<br>철회 하시겠습니까?</p>
+        <p class="pop-text-bold">“$약관명$” 약관에 동의를 철회 하시겠습니까?</p> <!-- 261012 약관 팝업 br 제거 -->
         <div class="pop-btn-wrap">
           <button type="button" @click="TermsCancelPopup = false" class="pop-btn pop-btn--gray">취소</button>
           <button type="button" @click="TermsCancelPopup = false, TermsCancelCompPopup = true" class="pop-btn pop-btn--green">확인</button>
@@ -292,7 +292,7 @@ export default {
     <!-- 약관 철회 완료 팝업 -->
     <BasePopup v-if="TermsCancelCompPopup" class="MyPageTermsCompPop"> 
       <template v-slot:contents>
-        <p class="pop-text-bold">“$약관명$” 약관에<br>철회하였습니다.</p>
+        <p class="pop-text-bold">“$약관명$” 약관에 철회하였습니다.</p> <!-- 261012 약관 팝업 br 제거 -->
         <div class="pop-btn-wrap">
           <button type="button" @click="TermsCancelCompPopup = false" class="pop-btn pop-btn--green">확인</button>
         </div>

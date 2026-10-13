@@ -212,10 +212,15 @@ const rankingList = [  /* 퍼블 확인용 팀 리스트 */
         </div>
       </template>
       <template #tab-1> <!-- 인증횟수 -->
-        <div class="team-ranking--list">
+        <!-- 261013 팀 랭킹 미집계 케이스 퍼블 확인용 인증횟수에 적용 -->
+        <div class="challenge--not">
+          <img src="/img/visual_alert_pink.png">
+          <p>선택하신 조건에 해당하는 팀이 없거나,<br>아직 순위가 산정되지 않았습니다.</p>
+        </div>
+        <!-- <div class="team-ranking--list">
           <div v-for="(team, index) in rankingList" :key="team.teamName" class="team-ranking--box" :class="{ myTeam: team.myTeam}">
             <div class="team-ranking--profile">
-              <div class="team-ranking--medal" :class="index >= 1 ? 'silver' : 'gold'"> <!-- 금메달 .gold / 은메달 .silver / 동메달(랭킹 리스트x) .bronze / 그 외 회색 -->
+              <div class="team-ranking--medal" :class="index >= 1 ? 'silver' : 'gold'">
                 <span>{{ index + 1 }}위</span>
               </div>
               <img :src="team.teamImg">
@@ -225,11 +230,9 @@ const rankingList = [  /* 퍼블 확인용 팀 리스트 */
               <div>
                 <div class="team-ranking--member">{{ team.teamMember }}명</div>
                 <div class="team-ranking--rate">
-                  <!-- [s] 261001 챌린지 인증 횟수 표기 변경 -->
                   <span>팀 인증횟수</span>
                   <strong>{{ team.teamRate }}</strong>
                   <span>회</span>
-                  <!-- [e] 261001 챌린지 인증 횟수 표기 변경 -->
                 </div>
               </div>
             </div>
@@ -238,7 +241,7 @@ const rankingList = [  /* 퍼블 확인용 팀 리스트 */
         <div class="team-ranking--sticky">
           <div class="team-ranking--box myTeam">
             <div class="team-ranking--profile">
-              <div class="team-ranking--medal silver"> <!-- 금메달 .gold / 은메달 .silver / 동메달(랭킹 리스트x) .bronze / 그 외 회색 -->
+              <div class="team-ranking--medal silver">
                 <span>2위</span>
               </div>
               <img src="/img/team_profile_exam.png">
@@ -255,7 +258,7 @@ const rankingList = [  /* 퍼블 확인용 팀 리스트 */
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </template>
       <template #tab-2> <!-- 혜택순위 - 챌린지 -->
         <div class="team-ranking--list">

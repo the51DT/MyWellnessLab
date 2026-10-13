@@ -154,7 +154,7 @@ export default {
           <span class="mission-records--tag orange">{{ mission.categoryTag }}</span>
 
           <span class="mission-records--tag green">
-            <i :class="`ico-${mission.healthIcon}`"></i>
+            <!-- <i :class="`ico-${mission.healthIcon}`"></i> --> <!-- 261013 태그 아이콘 삭제 -->
             {{ mission.healthTag }}
           </span>
 

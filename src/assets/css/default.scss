@@ -9036,6 +9036,12 @@ button{
       margin-top: 1.7rem;
     }
   }
+  .challenge--not{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 52rem;
+  }
 }
 .team-status{
   --team-status-text: #1DB196;

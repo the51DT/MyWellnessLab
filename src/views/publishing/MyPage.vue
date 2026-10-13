@@ -183,6 +183,7 @@ export default {
       </div>
     </div>
 
+    <!-- [s] 261013 서비스 이용 동의 타이틀 추가 -->
     <!-- [s] 261008 계정 연동 정보 수정 및 약관 동의 내역 추가 -->
     <div class="box-wrap">
       <p>계정 연동 정보</p>
@@ -190,7 +191,6 @@ export default {
         <div class="box-btn-wrap">
           <span>바디키 미션</span>
         </div>
-        <div class="box-note">※ 계정 연동은 해당 서비스에서 진행할 수 있습니다</div>
       </div>
       <div class="box-wrap-cont">
         <div class="box-btn-wrap">
@@ -199,7 +199,6 @@ export default {
             <button class="box-btn">연동하기</button>
           </div>
         </div>
-        <div class="box-note">※ 계정 연동은 해당 서비스에서 진행할 수 있습니다</div>
       </div>
       <div class="box-wrap-cont">
         <div class="box-btn-wrap">
@@ -209,8 +208,11 @@ export default {
             <button class="box-btn" disabled>연동완료</button>
           </div>
         </div>
-        <div class="box-note">※ 계정 연동은 해당 서비스에서 진행할 수 있습니다</div>
       </div>
+      <div class="box-note">※ 계정 연동은 해당 서비스에서 진행할 수 있습니다</div>
+    </div>
+    <div class="box-wrap">
+      <p>서비스 이용 동의</p>
       <div class="box-wrap-cont">
         <div class="box-btn-wrap tooltip">
           <span>선택 약관 동의 내역</span>
@@ -237,6 +239,7 @@ export default {
       </div>
     </div>
     <!-- [e] 261008 계정 연동 정보 수정 및 약관 동의 내역 추가 -->
+    <!-- [e] 261013 서비스 이용 동의 타이틀 추가 -->
     <a @click="popupQuit" href="javascript: void(0);" class="btn--txt2 break">서비스 탈퇴</a> <!--탈퇴 이동 요망-->
     <!--231212 함수 추가-->
 

@@ -113,6 +113,8 @@ onMounted(() => {
               </div>
             </div>
             <div v-if="!teamClassification" class="JoinPhoneCertification--validation">팀 유형을 선택해 주세요.</div> <!-- 260820 문구 수정 -->
+            <!-- 261013 챌린지 생성 권한 없을 때 문구 추가 / 개발 필요 -->
+            <!-- <div class="JoinPhoneCertification--validation">챌린지를 만들 수 있는 권한이 없습니다.</div> -->
           </div>
           <!-- [e] 260727 팀 구분 미선택 시 툴팁 & 팝업 추가 / 팀 관리 진입 시 팀 구분 변경 막기 개발 필요 -->
 

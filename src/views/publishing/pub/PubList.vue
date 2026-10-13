@@ -620,8 +620,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/team/CreateTeam.vue',
     go: '/publishing/my-team/create',
-    msg: "'팀 구분 - 챌린지 인풋', '완료' 버튼 클릭 시 퍼블 확인용으로 팝업 노출<br>260727 회차 진행 안내로 변경<br>260727 회차 기간 수정<br>팀 구분 미선택 시 툴팁 & 팝업 추가 / 팀 관리 진입 시 팀 구분 변경 막기 개발 필요<br>260727 팝업 추가<br>260820 문구 수정 / 챌린지 자율 미션 케이스 추가<br>260826 팀 유형 팀 관리 진입 시 비활성화<br>260827 문구 수정<br>260929 바우처명 케이스 추가<br>261006 상시 목표 인증률 변경<br>261008 목표 인증률 디폴트 값 변경",
-    confirm: '2026.10.08 퍼블 수정'
+    msg: "'팀 구분 - 챌린지 인풋', '완료' 버튼 클릭 시 퍼블 확인용으로 팝업 노출<br>260727 회차 진행 안내로 변경<br>260727 회차 기간 수정<br>팀 구분 미선택 시 툴팁 & 팝업 추가 / 팀 관리 진입 시 팀 구분 변경 막기 개발 필요<br>260727 팝업 추가<br>260820 문구 수정 / 챌린지 자율 미션 케이스 추가<br>260826 팀 유형 팀 관리 진입 시 비활성화<br>260827 문구 수정<br>260929 바우처명 케이스 추가<br>261006 상시 목표 인증률 변경<br>261008 목표 인증률 디폴트 값 변경<br>261013 챌린지 생성 권한 없을 때 문구 추가",
+    confirm: '2026.10.13 퍼블 수정'
   },
   {
     div: '',
@@ -936,8 +936,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/etc/Faq.vue',
     go: '/publishing/coupon-status/pub-faq',
-    msg: '',
-    confirm: '2026.07.30 퍼블 완료'
+    msg: '261013 탑버튼 추가',
+    confirm: '2026.10.13 퍼블 수정'
   },
   {
     div: 'myWellness LAB 소개',
@@ -1077,8 +1077,8 @@ const data = ref([
     div3: '',
     loca: '@/views/mypage/MyPageCheckupDataRecordDetail.vue<br>@/views/publishing/mypage/MyPageCheckupDataRecordDetail.vue -> 퍼블 확인용 경로',
     go: '/publishing/my-page/pub-my-page-checkup-data-record-detail',
-    msg: '',
-    confirm: '2026.07.29 퍼블 완료'
+    msg: '261013 버튼 삭제',
+    confirm: '2026.10.13 퍼블 수정'
   },
   {
     div: '체성분 데이터 이력',

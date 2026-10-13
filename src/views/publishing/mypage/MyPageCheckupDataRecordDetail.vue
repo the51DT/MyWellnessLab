@@ -101,9 +101,10 @@ export default {
         <dt>건강 검진일</dt>
         <dd>{{ data.date }}</dd>
       </dl>
-      <div :class="prefix + '--btn-wrap'">
+      <!-- 261013 버튼 삭제 -->
+      <!-- <div :class="prefix + '--btn-wrap'">
         <button type="button" :class="prefix + '--btn'">이 검진 데이터로 분석 시작하기</button>
-      </div>
+      </div> -->
     </div>
     <div :class="prefix + '--data'">
       <BaseInput

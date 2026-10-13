@@ -7159,15 +7159,23 @@ button{
   &--card-crown{
     @include txtStyle(caption, lg, 600);
     color: white;
-    display: flex;
+    position: relative;
+    display: block;
     align-items: center;
     gap: .4rem;
-    width: fit-content;
-    padding: .2rem .8rem .2rem .6rem;
+    min-width: 0;
+    padding: .2rem .8rem .2rem 2.2rem;
     border-radius: 3rem;
     background-color: var(--team-point-color);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     &::before{
       content: '';
+      position: absolute;
+      left: .6rem;
+      top: 50%;
+      transform: translateY(-50%);
       display: block;
       width: 1.2rem;
       height: 1.2rem;

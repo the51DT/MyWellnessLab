@@ -8,6 +8,7 @@ import TabRound from '@/components/TabRound.vue'
 import TargetGauge from '@/components/TargetGauge.vue'
 import BtnTop from '@/views/publishing/BtnTop.vue'
 import { isScrolledToBottom } from '@/utils/scrollPosition'
+import { flatMap } from 'lodash'
 
  /* 퍼블 확인용 데이터 없을 때 받을 값 */
 const route = useRoute()
@@ -29,6 +30,7 @@ const selectedMission = {
 }
 const inviteTeamPopup = ref(true); /* 챌린지 한정 팀 초대 알림 팝업 */
 const unableJoinPopup = ref(false); /* 팀 가입 불가 안내 (이미 참여중) 팝업 */
+const EndJoinPopup = ref(false); /* 팀 가입 불가 안내 (종료된 상시팀) 팝업 */ /* 261013 종료된 초대 팝업 추가 */
 const activeTeamTab = ref(0) /* 팝업 확인하러가기 버튼 탭 변경 */
 const changeMissionPopup = ref(false); /* 미션 변경 알림 팝업 */
 const porductStatusPopup = ref(false); /* 제품 구매 여부 알림 팝업 */
@@ -487,6 +489,19 @@ onBeforeUnmount(() => {
     </template>
     <template v-slot:button>
       <button type="button" @click="unableJoinPopup = false" class="pop-btn pop-btn--green">확인</button>
+    </template>
+  </BasePopupClose>
+
+  <!-- 261013 종료된 초대 팝업 추가 -->
+  <!-- 팀 가입 불가 안내 (종료된 상시팀) 팝업  -->
+  <BasePopupClose v-if="EndJoinPopup">
+    <template v-slot:title>팀 가입 불가</template>  
+    <template v-slot:contents>
+      <p class="pop-text-light">종료된 상시팀으로, 현재 팀원 초대 가능 기간이 아닙니다.</p>
+      <p class="pop-text-bold">팀 초대 목록에서 삭제 하시겠습니까?</p>
+    </template>
+    <template v-slot:button>
+      <button type="button" @click="EndJoinPopup = false" class="pop-btn pop-btn--green">확인</button>
     </template>
   </BasePopupClose>
 

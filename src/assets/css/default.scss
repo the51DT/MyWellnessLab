@@ -18298,9 +18298,9 @@ span.legend-dot-interest{
     }
   }
   .break{
-    margin-top: 4rem;
+    margin-top: 1.2rem;
     @media (min-width:$w-pc) {
-      margin-top: 4.8rem;
+      margin-top: 1.6rem;
     }
   }
   .btn--big3{
@@ -18569,9 +18569,8 @@ span.legend-dot-interest{
     width: 5.2rem;
     height: 2.8rem;
     padding: .3rem;
-    background-color: #fff;
+    background-color: #E5E5E5;
     border-radius: 9rem;
-    border: .1rem solid #ebebeb;
     @media (min-width:$w-pc) {
       width: 5.8rem;
       height: 3.2rem;
@@ -18586,7 +18585,7 @@ span.legend-dot-interest{
       width: 2.2rem;
       height: 2.2rem;
       border-radius: 9rem;
-      background-color: #F0F0F0;
+      background-color: #fff;
       transition: left .3s ease-in-out;
       @media (min-width:$w-pc) {
         left: .4rem;
@@ -18594,9 +18593,7 @@ span.legend-dot-interest{
     }
     &.active{
       background-color: #1DB196;
-      border: none;
       &::before{
-        background-color: #fff;
         left: 2.6rem;
         @media (min-width:$w-pc) {
           left: 3rem;

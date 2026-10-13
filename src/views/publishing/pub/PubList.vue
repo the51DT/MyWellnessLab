@@ -462,8 +462,8 @@ const data = ref([
     div3: '노화 속도(자세히 보기)',
     loca: '@/views/analyze/AnalyzeAgingSpeedDetail.vue',
     go: '/publishing/analyze/analyze-aging-speed-detail',
-    msg: "'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요<br>2606 라이브 버전에 맞춰 복약 부분 미노출<br>2606 스타일 태그 내용 수정<br><br>AnalyzeAgingSpeedDetailPopup.vue<br>2606 popup--wrap 이중 클래스 tit -> close 로 변경<br>2606 스타일 태그 내부 수정",
-    confirm: '2606.08.31 퍼블 완료'
+    msg: "'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요<br>2606 라이브 버전에 맞춰 복약 부분 미노출<br>2606 스타일 태그 내용 수정<br><br>AnalyzeAgingSpeedDetailPopup.vue<br>2606 popup--wrap 이중 클래스 tit -> close 로 변경<br>2606 스타일 태그 내부 수정<br>261013 스타일 태그 내용 수정",
+    confirm: '2606.10.13 퍼블 수정'
   },
   {
     div: '',

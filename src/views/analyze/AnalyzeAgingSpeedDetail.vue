@@ -430,7 +430,7 @@ onMounted(async () => {
   <!-- [e] 2606 라이브 버전에 맞춰 복약 부분 미노출 -->
 </template>
 
-<style lang="scss" scoped> /* 2606 스타일 태그 내용 수정 */
+<style lang="scss" scoped> /* 2606 스타일 태그 내용 수정 */ /* 261013 스타일 태그 내용 수정 */
 .graph {
   //position: relative;
   overflow: visible !important;
@@ -447,12 +447,12 @@ onMounted(async () => {
   //background: url("/img/graph_line.svg") bottom;
   background-size: contain;
   @media (min-width: 460px) {
-    max-width: 333px;
+    max-width: 32rem;
+    height: 26rem;
     left: 50%;
     transform: translateX(-50%);
   }
   @media (min-width: 960px) {
-    height: 280px;
     margin-top: 5.6rem;
   }
 

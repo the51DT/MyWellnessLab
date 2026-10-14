@@ -1014,7 +1014,7 @@ const data = ref([
     div3: '',
     loca: '@/views/coupon/CouponList.vue<br>@/views/publishing/etc/CouponStatus.vue -> 퍼블 확인용 경로',
     go: '/publishing/coupon-status',
-    msg: '',
+    msg: '261014 유효기간 문구 수정<br>261014 유효기간 시간 추가',
     confirm: '"'
   },
   {

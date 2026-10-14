@@ -4,113 +4,113 @@ export default {
   name: 'CouponStatus',
   data () {
     return {
-      coupon: [ /* 소지한 쿠폰 */
+      coupon: [ /* 소지한 쿠폰 */ /* 261014 유효기간 시간 추가 */
         {
           label:'구매', 
           title: '마이웰니스 랩 건강 분석권',
-          limit: '~ 2023.09.12',
+          limit: '~ 2023.09.12 23시까지',
           description: '마이웰니스 랩 분석권(구매) 쿠폰 안내 문구입니다.',
           quantity: 8
         },
         {
           label:'양수', 
           title: '마이웰니스 랩 건강 분석 2023 프로모션 쿠폰',
-          limit: '~ 2023.12.31',
+          limit: '~ 2023.12.31 23시까지',
           quantity: 2
         },
         {
           title: '마이웰니스 랩 건강 분석 2024 프로모션 쿠폰',
-          limit: '~ 2024.12.31',
+          limit: '~ 2024.12.31 23시까지',
           quantity: 4
         },
         {
           title: '마이웰니스 랩 건강 분석권',
-          limit: '~ 2023.09.12',
+          limit: '~ 2023.09.12 23시까지',
           quantity: 8
         },
         {
           title: '마이웰니스 랩 건강 분석 2023 프로모션 쿠폰',
-          limit: '~ 2023.12.31',
+          limit: '~ 2023.12.31 23시까지',
           quantity: 2
         },
         {
           title: '마이웰니스 랩 건강 분석 2024 프로모션 쿠폰',
-          limit: '~ 2024.12.31',
+          limit: '~ 2024.12.31 23시까지',
           quantity: 4
         },
         {
           title: '마이웰니스 랩 건강 분석권',
-          limit: '~ 2023.09.12',
+          limit: '~ 2023.09.12 23시까지',
           quantity: 8
         },
         {
           title: '마이웰니스 랩 건강 분석 2023 프로모션 쿠폰',
-          limit: '~ 2023.12.31',
+          limit: '~ 2023.12.31 23시까지',
           quantity: 2
         },
         {
           title: '마이웰니스 랩 건강 분석 2024 프로모션 쿠폰',
-          limit: '~ 2024.12.31',
+          limit: '~ 2024.12.31 23시까지',
           quantity: 4
         },
         {
           title: '마이웰니스 랩 건강 분석권',
-          limit: '~ 2023.09.12',
+          limit: '~ 2023.09.12 23시까지',
           quantity: 8
         },
         {
           title: '마이웰니스 랩 건강 분석 2023 프로모션 쿠폰',
-          limit: '~ 2023.12.31',
+          limit: '~ 2023.12.31 23시까지',
           quantity: 2
         },
         {
           title: '마이웰니스 랩 건강 분석 2024 프로모션 쿠폰',
-          limit: '~ 2024.12.31',
+          limit: '~ 2024.12.31 23시까지',
           quantity: 4
         },
         {
           title: '마이웰니스 랩 건강 분석권',
-          limit: '~ 2023.09.12',
+          limit: '~ 2023.09.12 23시까지',
           quantity: 8
         },
         {
           title: '마이웰니스 랩 건강 분석 2023 프로모션 쿠폰',
-          limit: '~ 2023.12.31',
+          limit: '~ 2023.12.31 23시까지',
           quantity: 2
         },
         {
           title: '마이웰니스 랩 건강 분석 2024 프로모션 쿠폰',
-          limit: '~ 2024.12.31',
+          limit: '~ 2024.12.31 23시까지',
           quantity: 4
         },
         {
           title: '마이웰니스 랩 건강 분석권',
-          limit: '~ 2023.09.12',
+          limit: '~ 2023.09.12 23시까지',
           quantity: 8
         },
         {
           title: '마이웰니스 랩 건강 분석 2023 프로모션 쿠폰',
-          limit: '~ 2023.12.31',
+          limit: '~ 2023.12.31 23시까지',
           quantity: 2
         },
         {
           title: '마이웰니스 랩 건강 분석 2024 프로모션 쿠폰',
-          limit: '~ 2024.12.31',
+          limit: '~ 2024.12.31 23시까지',
           quantity: 4
         },
         {
           title: '마이웰니스 랩 건강 분석권',
-          limit: '~ 2023.09.12',
+          limit: '~ 2023.09.12 23시까지',
           quantity: 8
         },
         {
           title: '마이웰니스 랩 건강 분석 2023 프로모션 쿠폰',
-          limit: '~ 2023.12.31',
+          limit: '~ 2023.12.31 23시까지',
           quantity: 2
         },
         {
           title: '마이웰니스 랩 건강 분석 2024 프로모션 쿠폰',
-          limit: '~ 2024.12.31',
+          limit: '~ 2024.12.31 23시까지',
           quantity: 4
         }
       ],
@@ -168,9 +168,9 @@ export default {
               <div class="CouponStatus--c-wrap">
                 <span class="CouponStatus--coupon-type">{{ item.label || "프로모션" }}</span>
                 <strong class="CouponStatus--coupon-tit">{{ item.title }}</strong>
-                <span class="CouponStatus--coupon-limit">사용기한
+                <span class="CouponStatus--coupon-limit">유효기간
                   <span class="CouponStatus--coupon-date">{{ item.limit }}</span>
-                </span>
+                </span> <!-- 261014 유효기간 문구 수정 -->
                 <p v-if="item.description" class="CouponStatus--coupon-desc">{{ item.description }}</p>
               </div>
             </div>

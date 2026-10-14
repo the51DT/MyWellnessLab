@@ -137,11 +137,11 @@ onBeforeUnmount(() => {
             </div>
             <div class="challenge--box-info">
               <p>
-                <span>성공조건</span>
+                <span>성공 조건</span> <!-- 261014 띄어쓰기 추가 -->
                 <span><em>팀 인증률</em><strong>80%</strong><em>이상</em></span>
               </p>
               <p>
-                <span>전체기간</span>
+                <span>전체 기간</span> <!-- 261014 띄어쓰기 추가 -->
                 <span>2026.02.01 ~ 2026.03.31<em>60일</em></span>
               </p>
               <p>
@@ -227,11 +227,11 @@ onBeforeUnmount(() => {
             <div class="challenge--box-info">
               <!-- [s] 261001 진행종료 2회차 추가 -->
               <p>
-                <span>성공조건</span>
+                <span>성공 조건</span> <!-- 261014 띄어쓰기 추가 -->
                 <span><em>팀 인증률</em><strong>80%</strong><em>이상</em></span>
               </p>
               <p>
-                <span>전체기간</span>
+                <span>전체 기간</span> <!-- 261014 띄어쓰기 추가 -->
                 <span>2026.02.01 ~ 2026.03.31<em>59일</em></span>
               </p>
               <p>

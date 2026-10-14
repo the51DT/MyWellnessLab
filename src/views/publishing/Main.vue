@@ -1079,11 +1079,12 @@ export default {
   </BasePopupClose>
 
   <!-- 261013 지정 미션 변경 불가 팝업 내용 수정 -->
+  <!-- 261014 지정 미션 변경 불가 팝업 내용 수정 -->
   <!-- 260827 지정 미션 챌린지 변경 불가 팝업 추가 / 주석 풀고 사용  -->
   <!-- <BasePopupClose v-if="" :close-btn="false">
-    <template v-slot:title>챌린지 지정 미션입니다.</template>
+    <template v-slot:title>지정미션 챌린지에 참여중입니다.</template>
     <template v-slot:contents>
-      <p class="pop-text-light">지정미션 챌린지에 참여중입니다.<br>챌린지 기간동안 변경하실 수 없습니다.</p>
+      <p class="pop-text-light">챌린지 기간동안 변경하실 수 없습니다.</p>
     </template>
     <template v-slot:button>
       <button type="button" @click="" class="pop-btn pop-btn--green">확인</button>

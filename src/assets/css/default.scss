@@ -15396,10 +15396,7 @@ $agingIndex: 431px;
   text-align: center;
   @media (min-width:$w-pc) {
     padding: 1rem 1.6rem;
-    border-radius: 1.2rem;
-    br{
-      display: none;
-    }
+    border-radius: 2rem;
   }
   img{
     height: 1.2rem;
@@ -15485,7 +15482,11 @@ $agingIndex: 431px;
         display: none;
         @media (min-width: $w-pc) {
           margin-bottom: 0;
+          border-radius: 1.2rem;
           display: block;
+          br{
+            display: none;
+          }
         }
       }
       .legend-wrap{

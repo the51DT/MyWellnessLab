@@ -312,7 +312,7 @@ export default {
 
                 <div class="badge-box-wrap" :class="category.wrapClass">
                   <div v-for="badge in category.list" :key="`${category.key}-${badge.img}-${badge.name}`" class="badge-box">
-                    <BadgeDefault :img="`badge--${badge.img}.svg`">{{ badge.name }}</BadgeDefault>
+                    <BadgeDefault :img="`badge--${badge.img}.png`">{{ badge.name }}</BadgeDefault> <!-- 261015 배지 png로 변경 -->
                   </div>
                 </div>
               </div>

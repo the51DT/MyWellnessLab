@@ -547,7 +547,7 @@ export default {
 
       this.selectedBadge = {
         title: badge.badgeName,
-        img: isDisabled ? `badge--lock-${badge.lockShape}.svg` : `badge--${badge.badgeImg}.svg`,
+        img: isDisabled ? `badge--lock-${badge.lockShape}.png` : `badge--${badge.badgeImg}.png`, /* 261015 배지 png로 변경 */
         hint: badge.badgeHint,
         disabled: isDisabled,
         configured: badge.configured === true,
@@ -737,7 +737,7 @@ export default {
       <div class="represent__badge-wrap">
         <!-- 대표 배지있을 시 -->
         <div v-if="configuredBadge" class="represent__badge" @click="handleBadgeClick(configuredBadge)">
-          <BadgeDefault :img="`badge--${configuredBadge.badgeImg}.svg`">
+          <BadgeDefault :img="`badge--${configuredBadge.badgeImg}.png`"> <!-- 261015 배지 png로 변경 -->
             {{ configuredBadge.badgeName }}
           </BadgeDefault>
           <button class="btn" type="button" title="대표 배지 설정" @click.stop="openBadgeSetting">
@@ -788,7 +788,7 @@ export default {
             :class="{ 'is-disabled': badge.disabled }"
             @click="handleBadgeClick(badge)"
           >
-            <BadgeDefault :img="badge.disabled ? `badge--lock-${badge.lockShape}.svg` : `badge--${badge.badgeImg}.svg`">
+            <BadgeDefault :img="badge.disabled ? `badge--lock-${badge.lockShape}.png` : `badge--${badge.badgeImg}.png`"> <!-- 261015 배지 png로 변경 -->
               {{ badge.badgeName }}
             </BadgeDefault>
           </div>

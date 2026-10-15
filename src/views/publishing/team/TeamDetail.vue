@@ -21,19 +21,19 @@ const allBadgePopup = ref(false) /* 획득한 배지 전체보기 팝업 */
 
 const badgeList = [ /* 퍼블 확인용 획득한 배지 목록 */ /* 260904 배지 컨펌 버전으로 변경 */ /* 260911 핀 컨펌 버전으로 수정 */
   {
-    img: '/img/badgeImg/badge--happy_birthday.svg',
+    img: '/img/badgeImg/badge--happy_birthday.svg', /* 261015 배지 png로 변경 */
     name: '30일<br>연속 인증',
   },
   {
-    img: '/img/badgeImg/badge--happy_birthday.svg',
+    img: '/img/badgeImg/badge--happy_birthday.svg', /* 261015 배지 png로 변경 */
     name: '10일<br>연속 인증',
   },
   {
-    img: '/img/badgeImg/badge--happy_birthday.svg',
+    img: '/img/badgeImg/badge--happy_birthday.svg', /* 261015 배지 png로 변경 */
     name: '챌린지 러버',
   },
   {
-    img: '/img/badgeImg/badge--happy_birthday.svg',
+    img: '/img/badgeImg/badge--happy_birthday.svg', /* 261015 배지 png로 변경 */
     name: '나의 생일',
   },
   {
@@ -68,12 +68,12 @@ function imagePopupClose () {
       <div class="team-detail--box">
         <div class="team-detail--badge-wrap">
           <p>마이웰니스 랩 핀</p>
-          <img src="/img/badgeImg/pin--ruby.svg"> <!-- 260911 핀 컨펌 버전으로 수정 -->
+          <img src="/img/badgeImg/pin--ruby.png"> <!-- 260911 핀 컨펌 버전으로 수정 --> <!-- 261015 핀 png로 변경 -->
           <span>루비</span>
         </div>
         <div v-if="isLeader" class="team-detail--badge-wrap"> <!-- v-if 퍼블 확인용 / 팀장 케이스만 대표 배지 노출 -->
           <p>대표 배지</p>
-          <img src="/img/badgeImg/badge--happy_birthday.svg"> <!-- 260904 배지 컨펌 버전으로 변경 -->
+          <img src="/img/badgeImg/badge--happy_birthday.png"> <!-- 260904 배지 컨펌 버전으로 변경 --> <!-- 261015 배지 png로 변경 -->
           <span>나의 생일</span>
         </div>
       </div>

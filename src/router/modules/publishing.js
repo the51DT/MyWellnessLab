@@ -174,7 +174,7 @@ const publishingRouter = {
           component: () =>
             import("@/views/checkupSide/CheckupPrivacyAgree.vue"),
           meta: {
-            title: "민감정보 수집 및 이용",
+            title: "개인 정보 및 민감 정보 수집∙이용 동의'",
             class: "wide",
           },
         },

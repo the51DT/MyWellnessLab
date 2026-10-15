@@ -1051,7 +1051,10 @@ const handleScroll = () => {
   // 100px 스크롤했을 때 버튼 활성화
   const triggerPoint = 100
 
-  if (currentScrollY > triggerPoint) {
+  if ( // 261015 하단 버튼 스크롤 이벤트 수정
+    currentScrollY > triggerPoint ||
+    document.documentElement.scrollHeight - (currentScrollY + window.innerHeight) <= 80
+  ) {
     activeFab.value = true
   } else {
     activeFab.value = false

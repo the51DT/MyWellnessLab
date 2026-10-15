@@ -31,7 +31,7 @@ const open = (e) => {
         <div class="MyPageCouponHistory--info">
           <span>사용 가능 수량</span>
           <strong>2개</strong>
-          <span>사용기한</span>
+          <span>유효기간</span> <!-- 261015 유효기간 문구 수정 -->
           <strong>~2026.09.12</strong>
         </div>
         <div class="MyPageCouponHistory--detail">
@@ -97,7 +97,7 @@ const open = (e) => {
                       <tr>
                         <th>#</th>
                         <th>구매일</th>
-                        <th>사용기한</th>
+                        <th>유효기간</th> <!-- 261015 유효기간 문구 수정 -->
                       </tr>
                     </thead>
                     <tbody>
@@ -126,7 +126,7 @@ const open = (e) => {
         <div class="MyPageCouponHistory--info">
           <span>사용 가능 수량</span>
           <strong>2개</strong>
-          <span>사용기한</span>
+          <span>유효기간</span> <!-- 261015 유효기간 문구 수정 -->
           <strong>~2026.09.12</strong>
         </div>
         <div class="MyPageCouponHistory--detail">
@@ -176,7 +176,7 @@ const open = (e) => {
                         <th>#</th>
                         <th>양도자</th>
                         <th>구매일</th>
-                        <th>사용기한</th>
+                        <th>유효기간</th> <!-- 261015 유효기간 문구 수정 -->
                       </tr>
                     </thead>
                     <tbody>
@@ -200,7 +200,7 @@ const open = (e) => {
         <div class="MyPageCouponHistory--info">
           <span>사용 가능 수량</span>
           <strong>0개</strong>
-          <span>사용기한</span>
+          <span>유효기간</span> <!-- 261015 유효기간 문구 수정 -->
           <strong>-</strong>
         </div>
         <div class="MyPageCouponHistory--detail">

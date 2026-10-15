@@ -1140,8 +1140,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/mypage/MyPageCouponHistory.vue',
     go: '/publishing/my-page/pub-my-coupon-history',
-    msg: '분석권 사용 이력 메뉴 제외 - 260909 기획',
-    confirm: '2026.07.31 퍼블 완료'
+    msg: '분석권 사용 이력 메뉴 제외 - 260909 기획<br>261015 유효기간 문구 수정',
+    confirm: '2026.10.15 퍼블 수정'
   },
   {
     div: '',

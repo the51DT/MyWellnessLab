@@ -426,8 +426,8 @@ const data = ref([
     div3: '',
     loca: '@/views/checkupSide/CheckupComplete.vue',
     go: '/publishing/checkup/checkup-complete',
-    msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요',
-    confirm: '2026.08.31 퍼블 완료'
+    msg: '"2606 퍼블 확인용"으로 시작하는 주석확인 후 개발 시 제거 필요<br>261015 유효기간 시간 추가 - 퍼블 임의',
+    confirm: '2026.10.15 퍼블 수정'
   },
   {
     div: '',
@@ -1015,7 +1015,7 @@ const data = ref([
     loca: '@/views/coupon/CouponList.vue<br>@/views/publishing/etc/CouponStatus.vue -> 퍼블 확인용 경로',
     go: '/publishing/coupon-status',
     msg: '261014 유효기간 문구 수정<br>261014 유효기간 시간 추가',
-    confirm: '"'
+    confirm: '2026.10.14 퍼블 수정'
   },
   {
     div: '건강수명 분석 결과 이력',

@@ -25,6 +25,7 @@ const selectedCoupon = ref(null)
 const isDataLoading = ref(true) // 데이터 로딩 상태 추가
 
 // 2606 퍼블 확인용 - 분석권 데이터
+// 261015 유효기간 시간 추가 - 퍼블 임의
 const publishingCouponList = [
   {
     couponId: 1,
@@ -34,6 +35,7 @@ const publishingCouponList = [
     availableRedemptions: 1,
     startDate: '20260101',
     endDate: '20261231',
+    endTime: '23시까지',
     creationTime: '20261025',
     reason: {
       label: '구매'
@@ -47,6 +49,7 @@ const publishingCouponList = [
     availableRedemptions: 1,
     startDate: '20260101',
     endDate: '20260912',
+    endTime: '23시까지',
     creationTime: '20261026',
     reason: {
       label: '양수'
@@ -302,8 +305,8 @@ onBeforeMount(async () => {
                   <span class="CouponStatus--coupon-limit">{{ $t('CouponList.text6')}}
                     <!-- 개발 필요 : 25. 1. 1 ~ 25. 1. 10 형식으로 표시 -->
                     <span class="CouponStatus--coupon-date">
-                    {{ getDateStr(item.startDate) }} ~ {{ getDateStr(item.endDate) }}
-                    </span>
+                    {{ getDateStr(item.startDate) }} ~ {{ getDateStr(item.endDate) }} {{ item.endTime }}
+                    </span> <!-- 261015 유효기간 시간 추가 - 퍼블 임의 -->
                   </span>
                   <!-- 개발 필요 : 안내 문구 표시 -->
                   <p class="CouponStatus--coupon-desc">{{ item.description }}</p>

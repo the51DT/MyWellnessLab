@@ -165,8 +165,8 @@ const data = ref([
     div3: '',
     loca: '@/views/checkupSide/CheckupPrivacyAgree.vue',
     go: '/publishing/checkup/checkup-privacy-agree',
-    msg: '[PASS] 수단 선택 시 진행가능<br>[민감정보 수집 및 이용]->[개인 정보 및 민감 정보 수집∙이용 동의] 페이지명 변경<br><br>2606 hr 태그 삭제<br>2606 label 밑 내용 감싸는 AnalyzePrivacyAgree--box 추가<br>2606 CheckupPrivacyAgree.text1, 16 (필수/선택) strong 태그 필요<br>2606 개인정보 표 리포트 항목 삭제',
-    confirm: '2026.08.26 퍼블 완료'
+    msg: '[PASS] 수단 선택 시 진행가능<br>[민감정보 수집 및 이용]->[개인 정보 및 민감 정보 수집∙이용 동의] 페이지명 변경<br><br>2606 hr 태그 삭제<br>2606 label 밑 내용 감싸는 AnalyzePrivacyAgree--box 추가<br>2606 CheckupPrivacyAgree.text1, 16 (필수/선택) strong 태그 필요<br>2606 개인정보 표 리포트 항목 삭제<br>261015 개인정보 수집∙이용 동의 추가<br>261015 민감정보 수집 이용동의 영역 클래스 수정',
+    confirm: '2026.10.15 퍼블 수정'
   },
   {
     div: '',
@@ -563,7 +563,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Challenge.vue',
     go: '/publishing/challenge',
-    msg: "(PU) 인증사진 보기, (PU) 챌린지 인증 공유하기 퍼블 확인용으로 넣어둠<br>260820 문구 수정<br>260827 문구 수정<br>260911 핀 컨펌 버전으로 수정 - ChallengeSharePop.vue<br>260916 onBeforeUnmount 추가<br>260916 미션 변경하기 모션 수정<br>260923 핀 png로 변경<br>260923 핀 이미지 임포트 - ChallengeSharePop.vue<br>260929 나의 팀 이동 버튼으로 수정<br>261001 진행종료 2회차 추가<br>261001 문구 수정<br>261002 br 제거<br>261002 팀명 줄바꿈<br>261007 제품 구매 플래그 추가<br>261014 띄어쓰기 추가",
+    msg: "(PU) 인증사진 보기, (PU) 챌린지 인증 공유하기 퍼블 확인용으로 넣어둠<br>260820 문구 수정<br>260827 문구 수정<br>260911 핀 컨펌 버전으로 수정 - ChallengeSharePop.vue<br>260916 onBeforeUnmount 추가<br>260916 미션 변경하기 모션 수정<br>260923 핀 png로 변경 - ChallengeSharePop.vue<br>260923 핀 이미지 임포트 - ChallengeSharePop.vue<br>260929 나의 팀 이동 버튼으로 수정<br>261001 진행종료 2회차 추가<br>261001 문구 수정<br>261002 br 제거<br>261002 팀명 줄바꿈<br>261007 제품 구매 플래그 추가<br>261014 띄어쓰기 추가",
     confirm: '2026.10.14 퍼블 수정'
   },
   {

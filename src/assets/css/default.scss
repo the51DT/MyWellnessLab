@@ -5118,14 +5118,14 @@ button{
     th{
       font-size: 1.3rem;
       word-break: auto-phrase;
-      @media (min-width: $w-pc) {
-        text-align: left;
-      }
     }
     td{
       font-weight: 600;
       &.light{
         font-weight: 400;
+      }
+      &.vertical{
+        vertical-align: text-top;
       }
       ul{
         list-style: none;
@@ -5139,10 +5139,10 @@ button{
     }
     th, td{
       font-family: inherit;
+      padding: 1rem;
       @media (min-width: $w-pc) {
         font-size: 1.5rem;
-        padding: 1.6rem;
-        vertical-align: baseline;
+        padding: 1rem 1.2rem;
       }
     }
   }
@@ -5207,6 +5207,20 @@ button{
       }
     }
   }
+  .space--top-default{
+    + .space--top-default{
+      margin-top: 2.8rem;
+      @media (min-width: $w-pc) {
+        margin-top: 3.6rem;
+      }
+    }
+    .AnalyzePrivacyAgree--tb tr:first-child th:first-child{
+      width: 6.3rem;
+    }
+    .AnalyzePrivacyAgree--tb tr th {
+      width: auto;
+    }
+  }
   .space--top-default:only-of-type + hr{
     display: none;
   }
@@ -5215,22 +5229,11 @@ button{
     @media (min-width: $w-pc) {
       margin-top: 3.6rem;
     }
-    .AnalyzePrivacyAgree--tb tr:first-child th:first-child{
-      @media (min-width: $w-pc) {
-        padding: 0 15px;
-      }
-    }
     .downUp4--wrap .AnalyzePrivacyAgree--tb tr th{
-      width: 30%;
-      @media (min-width:$w-pc) {
-        width: 15%;
-      }
+      width: 9.9rem;
     }
     .downUp4--wrap .AnalyzePrivacyAgree--tb tr td{
-      width: 70%;
-      @media (min-width:$w-pc) {
-        width: 85%;
-      }
+      width: auto;
     }
   }
   .AnalyzePrivacyAgree--tb {

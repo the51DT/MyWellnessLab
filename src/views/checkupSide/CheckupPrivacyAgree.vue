@@ -19,7 +19,9 @@ const popupCertification = ref(false)
 
 const toggleRule1 = ref(false)
 const toggleRule2 = ref(false)
+const toggleRule3 = ref(false) /* 261015 개인정보 수집∙이용 동의 추가 */
 const required = ref(false)
+const required2 = ref(false) /* 261015 개인정보 수집∙이용 동의 추가 */
 const nonRequired = ref(false)
 const refRule1 = ref(null)
 const popMust = ref(false)
@@ -54,6 +56,7 @@ const handleProceed = (value) => {
 
     store.dispatch('checkup/setTermsCheck', {
       required: required.value,
+      required2: required2.value, /* 261015 개인정보 수집∙이용 동의 추가 */
       nonRequired: nonRequired.value
     })
   } else if (value === 'N') {
@@ -77,6 +80,63 @@ const handleSuccess = () => {
 <template>
   <div class="AnalyzePrivacyAgree-wrap">
     <div class="AnalyzePrivacyAgree">
+
+      <!-- [s] 261015 개인정보 수집∙이용 동의 추가 -->
+      <div class="space--top-default">
+        <label>
+          <input
+            v-model="required2"
+            ref="refRule3"
+            type="checkbox"
+            name="AnalyzePrivacyAgree-check"
+            class="custom input-focus" />
+          <span />
+          개인정보 수집∙이용 동의 <strong>(필수)</strong>
+        </label>
+        <!-- [s] 2606 label 밑 내용 감싸는 AnalyzePrivacyAgree--box 추가 -->
+        <div class="AnalyzePrivacyAgree--box">
+          <div class="txt--desc c222 AnalyzePrivacyAgree--info">
+            {{ $t('CheckupPrivacyAgree.text2') }}
+          </div>
+          <div class="txt--desc c222 AnalyzePrivacyAgree--info2">
+            {{ $t('CheckupPrivacyAgree.text3') }}
+          </div>
+          <div class="downUp4--wrap">
+            <transition name="downUp4">
+              <table v-if="toggleRule3" class="AnalyzePrivacyAgree--tb">
+                <thead>
+                  <tr>
+                    <th>구분</th>
+                    <th>건강 데이터 입력 시</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>{{ $t('CheckupPrivacyAgree.text7') }}</th>
+                    <td class="light">{{ $t('CheckupPrivacyAgree.text8') }}</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('CheckupPrivacyAgree.text10') }}</th>
+                    <td class="light">기본검사: 검진일, 이름, 만나이, 성별</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('CheckupPrivacyAgree.text13') }}</th>
+                    <td class="light">{{ $t('CheckupPrivacyAgree.text14') }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </transition>
+          </div>
+          <div class="txt--center AnalyzePrivacyAgree--more">
+            <button
+              @click="toggleRule3 = !toggleRule3"
+              type="button"
+              class="btn--txt3"
+              :class="toggleRule3 ? 'up' : ''">{{ $t('Common.more') }}</button>
+          </div>
+        </div>
+      </div>
+      <!-- [e] 261015 개인정보 수집∙이용 동의 추가 -->
 
       <div class="space--top-default">
         <label>
@@ -122,7 +182,7 @@ const handleSuccess = () => {
                     <td>
                       {{ $t('CheckupPrivacyAgree.text11') }}
                     </td>
-                    <td>
+                    <td class="vertical">
                       {{ $t('CheckupPrivacyAgree.text12') }}
                     </td>
                     <!-- 2606 개인정보 표 리포트 항목 삭제 -->

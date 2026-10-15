@@ -107,7 +107,7 @@ const handleSuccess = () => {
                 <thead>
                   <tr>
                     <th>구분</th>
-                    <th>건강 데이터 입력 시</th>
+                    <td class="light">건강 데이터 입력 시</td>
                   </tr>
                 </thead>
                 <tbody>

@@ -5116,11 +5116,14 @@ button{
       }
     }
     th{
-      font-size: 1.3rem;
+      @include txtStyle(caption, xl);
       word-break: auto-phrase;
+      color: #1A1818;
     }
     td{
+      @include txtStyle(caption, xl);
       font-weight: 600;
+      color: #1A1818;
       &.light{
         font-weight: 400;
       }

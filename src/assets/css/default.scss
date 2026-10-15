@@ -2904,6 +2904,17 @@ footer{
       }
     }
   }
+  // 종료된 초대 팝업
+  &.EndJoinPopup{
+    .popup--header{
+      align-items: center;
+    }
+    .popup--tit-wrap{
+      flex-grow: 1 !important;
+      text-align: center;
+      padding-left: 2.4rem;
+    }
+  }
 }
 
 .circle-icon{

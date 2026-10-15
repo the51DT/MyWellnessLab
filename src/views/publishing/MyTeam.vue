@@ -494,7 +494,7 @@ onBeforeUnmount(() => {
 
   <!-- 261013 종료된 초대 팝업 추가 -->
   <!-- 팀 가입 불가 안내 (종료된 상시팀) 팝업  -->
-  <BasePopupClose  class="EndJoinPopup"> <!-- 261015 클래스 추가 -->
+  <BasePopupClose v-if="EndJoinPopup" class="EndJoinPopup"> <!-- 261015 클래스 추가 -->
     <template v-slot:title>팀 가입 불가</template>  
     <template v-slot:contents>
       <p class="pop-text-light">종료된 상시팀으로, 현재 팀원 초대 가능 기간이 아닙니다.</p>

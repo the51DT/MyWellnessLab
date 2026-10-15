@@ -97,7 +97,7 @@ const open = (e) => {
                       <tr>
                         <th>#</th>
                         <th>구매일</th>
-                        <th>유효기간</th> <!-- 261015 유효기간 문구 수정 -->
+                        <th>사용기한</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -176,7 +176,7 @@ const open = (e) => {
                         <th>#</th>
                         <th>양도자</th>
                         <th>구매일</th>
-                        <th>유효기간</th> <!-- 261015 유효기간 문구 수정 -->
+                        <th>사용기한</th>
                       </tr>
                     </thead>
                     <tbody>

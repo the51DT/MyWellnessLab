@@ -182,7 +182,7 @@ const handleSuccess = () => {
                     <td>
                       {{ $t('CheckupPrivacyAgree.text11') }}
                     </td>
-                    <td class="vertical">
+                    <td class="vertical"> <!-- 261015 vertical 클래스 추가 -->
                       {{ $t('CheckupPrivacyAgree.text12') }}
                     </td>
                     <!-- 2606 개인정보 표 리포트 항목 삭제 -->

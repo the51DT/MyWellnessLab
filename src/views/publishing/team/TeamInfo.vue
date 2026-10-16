@@ -77,6 +77,21 @@ onBeforeUnmount(() => {
         <div v-if="teamClassification === 'challenge'" class="challenge--box-note">
           <span><strong>목표치란, </strong>챌린지를 성공하기 위하여 오늘까지 달성해야 할 최소한의 인증률을 말합니다.</span>
         </div>
+        <!-- [s] 261016 회차 정보 추가 -->
+        <div v-if="teamClassification === 'challenge'" class="team-info--box-detail">
+          <div>
+            <strong>1회차</strong>
+            <span>팀 인증률</span>
+            <em>45%</em>
+            <span class="flag fail">실패</span>
+          </div>
+          <div>
+            <strong>2회차</strong>
+            <span>2026.11.01 ~ 2026.11.30</span>
+            <em>30일</em>
+          </div>
+        </div>
+        <!-- [e] 261016 회차 정보 추가 -->
       </div>
       <!-- 진행대기 -->
       <div class="team-info--box">
@@ -111,6 +126,21 @@ onBeforeUnmount(() => {
         <div v-if="teamClassification === 'challenge'" class="challenge--box-note">
           <span><strong>목표치란, </strong>챌린지를 성공하기 위하여 오늘까지 달성해야 할 최소한의 인증률을 말합니다.</span>
         </div>
+        <!-- [s] 261016 회차 정보 추가 -->
+        <div v-if="teamClassification === 'challenge'" class="team-info--box-detail">
+          <div>
+            <strong>1회차</strong>
+            <span>팀 인증률</span>
+            <em>100%</em>
+            <span class="flag">성공</span>
+          </div>
+          <div>
+            <strong>2회차</strong>
+            <span>2026.11.01 ~ 2026.11.30</span>
+            <em>30일</em>
+          </div>
+        </div>
+        <!-- [e] 261016 회차 정보 추가 -->
       </div>
 
       <!-- 월별 팀 인증률 보기 / 상시일 때 노출 -->

@@ -8323,6 +8323,47 @@ button{
       margin-top: .4rem;
     }
   }
+  &--box-detail{
+    margin-top: 1.2rem;
+    > div{
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      + div{
+        margin-top: .6rem;
+      }
+    }
+    strong{
+      @include txtStyle(body, xs, 600);
+      flex-basis: 7rem;
+    }
+    span{
+      @include txtStyle(body, xs);
+      color: #333;
+    }
+    em{
+      @include txtStyle(body, xs, 700);
+      color: #333;
+      font-style: normal;
+    }
+    .flag{
+      @include txtStyle(caption, lg-1, 500);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      width: fit-content;
+      height: 2rem;
+      padding: 0 .6rem;
+      border-radius: .4rem;
+      background-color: var(--team-info-color);
+      @media (min-width:$w-pc) {
+        height: 2.3rem;
+      }
+      &.fail{
+        background-color: #333;
+      }
+    }
+  }
   &--acco-arrow{
     position: absolute;
     top: 1.75em;

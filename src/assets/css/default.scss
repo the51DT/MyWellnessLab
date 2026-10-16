@@ -6879,6 +6879,10 @@ button{
         display: block;
         line-height: 1.7;
       }
+      &:has(span:not(.cate)){
+        flex-grow: 1;
+        justify-content: space-between;
+      }
     }
   }
   &--box{

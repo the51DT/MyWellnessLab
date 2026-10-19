@@ -15570,7 +15570,7 @@ $agingIndex: 431px;
           @include txtStyle(caption, xl);
           color: #333;
           padding-left: 1.4rem;
-          &::before{
+          &:not(.legend-medic)::before{
             width: 1rem;
             height: 1rem;
             background-size: 1rem;
@@ -17579,7 +17579,7 @@ $agingIndex: 431px;
     }
     .legend-medic{
       &::before{
-        background: url("/img/ic_medic_grey.svg") no-repeat center center;
+        background: url("/img/ico_check_circle_line.svg") no-repeat center center;
         background-size: 1.2rem;
         width: 1.2rem;
         height: 1.2rem;

@@ -199,16 +199,18 @@ onBeforeUnmount(() => {
           </button>
           <!-- [e] 260929 나의 팀 이동 버튼으로 수정 -->
           <div class="challenge--recruit-box">
+            <!-- [s] 261019 모집중 조건 및 기간 레이아웃 변경 -->
             <div class="challenge--recruit-info">
-              <div>
-                <p>진행 일시</p>
-                <p><span class="light">2026.02.01 ~ 2026.03.31</span><span class="light">/</span><span>60일</span></p>
-              </div>
               <div>
                 <p>성공 조건</p>
                 <p><span>팀 인증률</span><span class="color">80%</span><span>이상</span></p>
               </div>
+              <div>
+                <p>전체 기간</p>
+                <p><span class="light">2026.02.01 ~ 2026.03.31</span><span class="date">59일</span></p>
+              </div>
             </div>
+            <!-- [e] 261019 모집중 조건 및 기간 레이아웃 변경 -->
           </div>
           <p class="challenge--recruit-desc">챌린지 성공 및 보상 수령을 위해 OOOO 프로모션(300000L) 구매가 필요합니다. 챌린지 종료 시점까지 구매 인증을 완료하지 않으면 팀이 성공하더라도 개인 보상이 지급되지 않습니다.</p> <!-- 260820 문구 수정 -->
         </div>

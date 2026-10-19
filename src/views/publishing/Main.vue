@@ -969,7 +969,7 @@ export default {
               </p>
               <p>
                 <span>전체 기간</span> <!-- 260901 문구 수정 -->
-                <span>2026.06.11~2025.08.20<em>70일</em></span> <!-- 260901 문구 수정 -->
+                <span>2026.06.11~2025.08.20<em class="date">70일</em></span> <!-- 260901 문구 수정 --> <!-- 261019 날짜에 date 클래스 추가 -->
               </p>
             </div>
             <div class="challenge--box-rate">
@@ -1002,7 +1002,7 @@ export default {
               </p>
               <p>
                 <span>전체 기간</span>
-                <span>2026.06.11~2025.08.20<em>70일</em></span>
+                <span>2026.06.11~2025.08.20<em class="date">70일</em></span> <!-- 261019 날짜에 date 클래스 추가 -->
               </p>
             </div>
             <div class="challenge--box-rate">

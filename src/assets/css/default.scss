@@ -6115,6 +6115,7 @@ button{
     }
     &--box-info{
       p{
+        display: flex;
         font-weight: 400;
         gap: 1.6rem;
         @media (min-width:$w-pc){
@@ -6127,8 +6128,11 @@ button{
         justify-content: flex-start !important;
         align-items: center;
         &:first-child{
-          width: fit-content;
+          width: fit-content !important;
           @include txtStyle(body, 2xs);
+        }
+        &:nth-child(n+2){
+          flex: 1 1 auto;
         }
       }
       strong{
@@ -6491,7 +6495,8 @@ button{
     }
     p{
       display: grid;
-      grid-template-columns: auto 19.5rem;
+      grid-template-columns: 5.5rem auto;
+      gap: 1.6rem;
       align-items: center;
       width: 100%;
       &:nth-child(n + 2) {
@@ -6503,7 +6508,10 @@ button{
         }
       }
       @media (min-width:$w-pc) {
-        grid-template-columns: auto 21.1rem;
+        grid-template-columns: 6rem auto;
+      }
+      &:has(.team-status--purchase) {
+        grid-template-columns: 1fr;
       }
     }
     span:not(.team-status--purchase){
@@ -6535,9 +6543,6 @@ button{
       }
       @media (min-width:$w-pc) {
         flex: 0 0 auto;
-        &:has(strong) {
-          justify-content: flex-end;
-        }
       }
     }
     strong{
@@ -6548,6 +6553,9 @@ button{
     em{
       font-weight: 600;
       font-style: normal;
+    }
+    .date{
+      margin-left: auto;
     }
   }
   &--box-rate{
@@ -6657,13 +6665,16 @@ button{
       gap: .4rem;
       > div{
         display: flex;
-        justify-content: space-between;
+        gap: 1.6rem;
         @include txtStyle(caption, xl-1, 600);
       }
       p{
         flex: 0 0 auto;
         display: flex;
         gap: .2rem;
+        + p {
+          flex: 1 1 auto;
+        }
       }
       .light{
         font-weight: 400;
@@ -6671,6 +6682,9 @@ button{
       .color{
         color: #DD366E;
         margin-left: .2rem;
+      }
+      .date{
+        margin-left: auto;
       }
     }
     &-desc{
@@ -7246,13 +7260,12 @@ button{
   }
   &--card-info{
     display: grid;
-    grid-template-columns: auto 16.5rem 3.5rem;
+    grid-template-columns: 8rem auto 3.5rem;
     gap: .4rem 0;
     margin-top: 1.2rem;
     @include txtStyle(body, 2xs);
     color: #333;
     @media (min-width:$w-pc){
-      grid-template-columns: 22.2rem auto 4rem;
       margin-top: 1.6rem;
     }
     > div{

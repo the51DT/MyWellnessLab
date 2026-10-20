@@ -34,7 +34,7 @@ export default {
       <div class="mission-img">
         <div class="img-wrap">
           <img class="img-comp" src="/img/img_home_daily_comp.png" />
-          <img class="img-uploaded" src="/img/img_daily_exam.png" />
+          <img class="img-uploaded" src="/img/img_home_daily_default.png" /> <!-- 261020 미션 인증 디폴트 이미지 추가 -->
         </div>
         <div class="text-wrap">
           <p class="date">2026.09.23 (월)</p>

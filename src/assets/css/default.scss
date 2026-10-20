@@ -2391,6 +2391,18 @@ footer{
         }
       }
     }
+    .mission-not{
+      padding: 1.2rem;
+      border-radius: 1.2rem;
+      background-color: #F5F5F5;
+      @include txtStyle(body, 2xs-1, 600);
+      @media (min-width:$w-pc) {
+        padding: 1.4rem;
+        br{
+          display: none;
+        }
+      }
+    }
   }
 
   // 메인 배지 획득 팝업
@@ -5557,6 +5569,10 @@ button{
           @include txtStyle(body, md, 600);
           vertical-align: middle;
         }
+      }
+      .noData{
+        @include txtStyle(head, sm, 700);
+        color: #808080;
       }
     }
     &--link {

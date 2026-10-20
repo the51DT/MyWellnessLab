@@ -44,7 +44,7 @@ export default {
         total: 0.67,
         aging: 77,
         chronic: 79,
-        muscles: 85,
+        muscles: null, /* 261020 근육 밸런스 미분석 추가 */
       },
       agingSpeed: 0.67, /* 퍼블 확인용 노화속도 */
       isOpen: false, /* 미션 선택 팝업 아코디언 오프너 */
@@ -68,11 +68,11 @@ export default {
         },
         {
           day: 'mon',
-          img: '/img/img_home_daily_exam.png',
+          img: '/img/img_home_daily_default.png', /* 261020 미션 인증 디폴트 이미지 추가 */
         },
         {
           day: 'sun',
-          img: '/img/img_home_daily_exam.png',
+          img: '/img/img_home_daily_default.png', /* 261020 미션 인증 디폴트 이미지 추가 */
         },
       ],
       selectedMissionId: null, /* 퍼블 확인용 선택된 미션 id 데이터 */
@@ -862,7 +862,9 @@ export default {
             <p>만성질환 억제</p>
           </div>
           <div>
-            <p class="score" :class="70 < analyzeData.muscles && analyzeData.muscles <= 80 ? 'orange' :  80 < analyzeData.muscles ? 'red' : ''">{{ analyzeData.muscles }}<span>점</span></p>
+            <!-- 261020 근육 밸런스 미분석 추가 -->
+            <p v-if="analyzeData.muscles===null" class="noData">미분석</p>
+            <p v-else class="score" :class="70 < analyzeData.muscles && analyzeData.muscles <= 80 ? 'orange' :  80 < analyzeData.muscles ? 'red' : ''">{{ analyzeData.muscles }}<span>점</span></p>
             <p>근육 밸런스</p>
           </div>
         </div>
@@ -1141,7 +1143,10 @@ export default {
     <template v-slot:contents>
       <TabRound :tabs="[{title: isAnalyze ? '추천 미션' : '기본 미션'}, {title:'전체 미션'}]">
         <template #tab-0>
-          <div class="mission-select">
+          <div v-if="isAnalyze" class="mission-not"> <!-- 261020 추천 미션 없는 경우 추가 -->
+            추천할 미션이 없습니다. <br>전체 미션에서 선택해 주세요.
+          </div>
+          <div v-else class="mission-select">
             <div v-for="group in recommendMissionGroups" :key="group.key" class="mission-select__group">
               <div class="mission-select__head" :class="{ open: group.open }">
                 <span>{{ group.title }}</span>

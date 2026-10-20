@@ -32,8 +32,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Main.vue',
     go: '/publishing/main',
-    msg: "**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>퍼블 확인용 라우터 케이스 적용<br>260721 / mission-select 내부 구조 수정<br>260721 / 플로팅 탭 전환 핸들러 추가<br>260727 인증방법 선택 사진 찍기 디바이스 체크 후 노출되게 수정<br>260727 미션 주의사항 추가<br>260818 홈 추가 버튼 수정<br>260819 tit 내부 버튼 추가<br>260820 문구 수정<br>260821 문구 수정<br>AddBtnHomeRound.vue 260826 기본값 노출로 수정, 260826 버튼 음영 추가<br>260827 문구 수정<br>260827 지정 미션 챌린지 변경 불가 팝업 추가 / 주석 풀고 사용<br>260901 문구 수정<br>260901 미션 데이터 수정<br>260904 배지 컨펌 버전으로 수정<br>260908 미션 인증하기 클릭 영역 수정<br>260908 비디오 태그 구조 수정<br>260909 미션 변경하기 모션 수정<br>260910 문구 수정<br>260910 기록 없음 팝업 추가 - MainCalenderPop.vue<br>260911 핀 컨펌 버전으로 수정<br>260923 핀 png로 변경<br>260928 챌린지 없는 경우 이미지 수정<br>260929 플로팅 팀 참여 플래그 추가<br>260930 기본 영양 미션1 수정<br>260930 상시 성공/목표치 표기 변경 - main.vue, TargetGauge.vue<br>261008 총 팀 수 / 전체보기 추가<br>261008 대기중 플래그 추가<br>261013 문구 수정<br>261013 지정 미션 변경 불가 팝업 내용 수정<br>261013 지정 미션 변경 불가 팝업 내용 수정<br>261015 배지 png로 변경<br>261015 하단 버튼 스크롤 이벤트 수정<br>261019 날짜에 date 클래스 추가",
-    confirm: '2026.10.19 퍼블 수정'
+    msg: "**기존 home 내용이 건강수명분석으로 옮겨져 새로운 홈은 main으로 제작**<br>퍼블 확인용 라우터 케이스 적용<br>260721 / mission-select 내부 구조 수정<br>260721 / 플로팅 탭 전환 핸들러 추가<br>260727 인증방법 선택 사진 찍기 디바이스 체크 후 노출되게 수정<br>260727 미션 주의사항 추가<br>260818 홈 추가 버튼 수정<br>260819 tit 내부 버튼 추가<br>260820 문구 수정<br>260821 문구 수정<br>AddBtnHomeRound.vue 260826 기본값 노출로 수정, 260826 버튼 음영 추가<br>260827 문구 수정<br>260827 지정 미션 챌린지 변경 불가 팝업 추가 / 주석 풀고 사용<br>260901 문구 수정<br>260901 미션 데이터 수정<br>260904 배지 컨펌 버전으로 수정<br>260908 미션 인증하기 클릭 영역 수정<br>260908 비디오 태그 구조 수정<br>260909 미션 변경하기 모션 수정<br>260910 문구 수정<br>260910 기록 없음 팝업 추가 - MainCalenderPop.vue<br>260911 핀 컨펌 버전으로 수정<br>260923 핀 png로 변경<br>260928 챌린지 없는 경우 이미지 수정<br>260929 플로팅 팀 참여 플래그 추가<br>260930 기본 영양 미션1 수정<br>260930 상시 성공/목표치 표기 변경 - main.vue, TargetGauge.vue<br>261008 총 팀 수 / 전체보기 추가<br>261008 대기중 플래그 추가<br>261013 문구 수정<br>261013 지정 미션 변경 불가 팝업 내용 수정<br>261013 지정 미션 변경 불가 팝업 내용 수정<br>261015 배지 png로 변경<br>261015 하단 버튼 스크롤 이벤트 수정<br>261019 날짜에 date 클래스 추가<br>261020 미션 선택/변경 토스트 팝업 추가",
+    confirm: '2026.10.20 퍼블 수정'
   },
   {
     div: '',
@@ -453,8 +453,8 @@ const data = ref([
     div3: '',
     loca: '@/views/analyze/detail/AnalyzeDetail.vue<br>@/views/publishing/analyze/AnalyzeDetail.vue -> 퍼블 확인용',
     go: '/publishing/analyze/analyze-detail',
-    msg: "코드 수정<br>2606 ispc 기준점 수정<br>2606 스타일 태그 내용 수정<br>2606 나의 추천 미션 보기 버튼 추가 - 신규 버튼<br> 2606 복약 정보 있는 경우 텍스트 변경<br>**노화속도 [자세히 보기], 인체 생리 네트워크 [자세히 보기, 영향을 준 요인] 클릭 시 나오는 페이지 아래 리스트에서 확인 필요**<br><br>LayoutAnalyze.vue<br>2026 퍼블 확인용 헤더 홈 버튼 아래 주석 원본 - 개발 삭제 필요<br><br>AnalyzeCheckupData.vue<br>2606 라이브 버전에 맞춰서 안내 문구 삭제<br>2606 분석일 ':' 삭제<br><br>Wellness3DChart.vue<br>2606 스타일 태그 내용 수정<br>2606 차트 내부 스타일 수정용 변수<br>2606 차트 내부 마커 스타일 수정<br><br>AnalyzeScorecomAnalyzeIndex.vue<br>2606 스타일 태그 내용 수정<br>2606 --who 스타일 컬러 변수 추가<br>2606 커스텀 툴팁 꼬리 위치 수정<br><br>AnalyzeDietDetailGuide.vue, AnalyzeExerciseDetailGuide.vue, AnalyzeSleepDetailGuide.vue<br>'2606 퍼블 확인용' 들어간 주석 내용 개발 시 삭제 필요<br>2606 .AnalyzeExerciseDetailGuide-con-desc 내부 span 태그 텍스트 추가<br><br>AnalyzeScorecomAnalyzeIndex.vue<br>'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요<br><br>AnalyzeAgingSpeedPopGraph.vue<br>2606 라이브 버전에 맞춰 복약 부분 미노출<br>260918 scoped 추가 - ResultDocument.vue<br>261013 br 삭제",
-    confirm: '2026.10.13 퍼블 수정'
+    msg: "코드 수정<br>2606 ispc 기준점 수정<br>2606 스타일 태그 내용 수정<br>2606 나의 추천 미션 보기 버튼 추가 - 신규 버튼<br> 2606 복약 정보 있는 경우 텍스트 변경<br>**노화속도 [자세히 보기], 인체 생리 네트워크 [자세히 보기, 영향을 준 요인] 클릭 시 나오는 페이지 아래 리스트에서 확인 필요**<br><br>LayoutAnalyze.vue<br>2026 퍼블 확인용 헤더 홈 버튼 아래 주석 원본 - 개발 삭제 필요<br><br>AnalyzeCheckupData.vue<br>2606 라이브 버전에 맞춰서 안내 문구 삭제<br>2606 분석일 ':' 삭제<br><br>Wellness3DChart.vue<br>2606 스타일 태그 내용 수정<br>2606 차트 내부 스타일 수정용 변수<br>2606 차트 내부 마커 스타일 수정<br><br>AnalyzeScorecomAnalyzeIndex.vue<br>2606 스타일 태그 내용 수정<br>2606 --who 스타일 컬러 변수 추가<br>2606 커스텀 툴팁 꼬리 위치 수정<br><br>AnalyzeDietDetailGuide.vue, AnalyzeExerciseDetailGuide.vue, AnalyzeSleepDetailGuide.vue<br>'2606 퍼블 확인용' 들어간 주석 내용 개발 시 삭제 필요<br>2606 .AnalyzeExerciseDetailGuide-con-desc 내부 span 태그 텍스트 추가<br><br>AnalyzeScorecomAnalyzeIndex.vue<br>'2606 퍼블 확인용'으로 시작하는 주석확인 후 개발 시 제거 필요<br><br>AnalyzeAgingSpeedPopGraph.vue<br>2606 라이브 버전에 맞춰 복약 부분 미노출<br>260918 scoped 추가 - ResultDocument.vue<br>261013 br 삭제<br>261020 미션 선택/변경 토스트 팝업 추가",
+    confirm: '2026.10.20 퍼블 수정'
   },
   {
     div: '',
@@ -563,8 +563,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Challenge.vue',
     go: '/publishing/challenge',
-    msg: "(PU) 인증사진 보기, (PU) 챌린지 인증 공유하기 퍼블 확인용으로 넣어둠<br>260820 문구 수정<br>260827 문구 수정<br>260911 핀 컨펌 버전으로 수정 - ChallengeSharePop.vue<br>260916 onBeforeUnmount 추가<br>260916 미션 변경하기 모션 수정<br>260923 핀 png로 변경 - ChallengeSharePop.vue<br>260923 핀 이미지 임포트 - ChallengeSharePop.vue<br>260929 나의 팀 이동 버튼으로 수정<br>261001 진행종료 2회차 추가<br>261001 문구 수정<br>261002 br 제거<br>261002 팀명 줄바꿈<br>261007 제품 구매 플래그 추가<br>261014 띄어쓰기 추가<br>261019 모집중 조건 및 기간 레이아웃 변경",
-    confirm: '2026.10.19 퍼블 수정'
+    msg: "(PU) 인증사진 보기, (PU) 챌린지 인증 공유하기 퍼블 확인용으로 넣어둠<br>260820 문구 수정<br>260827 문구 수정<br>260911 핀 컨펌 버전으로 수정 - ChallengeSharePop.vue<br>260916 onBeforeUnmount 추가<br>260916 미션 변경하기 모션 수정<br>260923 핀 png로 변경 - ChallengeSharePop.vue<br>260923 핀 이미지 임포트 - ChallengeSharePop.vue<br>260929 나의 팀 이동 버튼으로 수정<br>261001 진행종료 2회차 추가<br>261001 문구 수정<br>261002 br 제거<br>261002 팀명 줄바꿈<br>261007 제품 구매 플래그 추가<br>261014 띄어쓰기 추가<br>261019 모집중 조건 및 기간 레이아웃 변경<br>261020 미션 선택/변경 토스트 팝업 추가",
+    confirm: '2026.10.20 퍼블 수정'
   },
   {
     div: '챌린지(미진행)',
@@ -601,8 +601,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/MyTeam.vue',
     go: '/publishing/my-team',
-    msg: "260807 이미지 변경<br>260820 문구 수정<br>260820 .team--card-info 내부구조 수정<br>260827 문구 수정<br>260916 미션 변경하기 모션 수정<br>260930 상시 성공/목표치 표기 변경<br>261001 나의팀 회차 진행 구조 변경<br>261007 handleScroll 조건 수정<br>261013 종료된 초대 팝업 추가<br>261015 클래스 추가",
-    confirm: '2026.10.15 퍼블 수정'
+    msg: "260807 이미지 변경<br>260820 문구 수정<br>260820 .team--card-info 내부구조 수정<br>260827 문구 수정<br>260916 미션 변경하기 모션 수정<br>260930 상시 성공/목표치 표기 변경<br>261001 나의팀 회차 진행 구조 변경<br>261007 handleScroll 조건 수정<br>261013 종료된 초대 팝업 추가<br>261015 클래스 추가<br>261020 미션 선택/변경 토스트 팝업 추가",
+    confirm: '2026.10.20 퍼블 수정'
   },
   {
     cate: '',

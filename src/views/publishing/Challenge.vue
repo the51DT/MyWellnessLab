@@ -7,6 +7,7 @@ import TextDatePicker from '@/components/TextDatePicker.vue'
 import TargetGauge from '@/components/TargetGauge.vue'
 import BasePopupImage from '@/views/publishing/BasePopupImage.vue'
 import ChallengeSharePop from '@/views/publishing/challenge/ChallengeSharePop.vue'
+import BaseToast from '@/components/BaseToast.vue' /* 261020 미션 선택/변경 토스트 팝업 추가 */
 
  /* 퍼블 확인용 챌린지 데이터 없을 때 받을 값 */
 const route = useRoute()
@@ -28,6 +29,7 @@ const selectedMission = {
 }
 const missionCertImagePopup = ref(false) /* 인증사진 보기 팝업 */
 const sharePopup = ref(false) /* 인증 공유하기 팝업 */
+const successToastMessage = ref('') /* 261020 미션 선택/변경 토스트 팝업 추가 */
 
 function winWidth () { /* 브라우저 가로 사이즈 체크 */
   isPc.value = window.innerWidth > 920
@@ -80,6 +82,14 @@ function toggleSelectedMission () {
 }
 /* [e] 260916 미션 변경하기 모션 수정 */
 
+function completeMissionSelect () {  /* 261020 미션 선택/변경 토스트 팝업 추가 */
+  /* 최초 선택 or 변경 여부 개발 필요 */
+  successToastMessage.value = '미션이 변경되었습니다'
+  setTimeout(() => {
+    successToastMessage.value = ''
+  }, 3000)
+}
+
 onMounted(() => {
   isPc.value = funcIsPc()
   window.addEventListener('resize', () => {
@@ -114,7 +124,7 @@ onBeforeUnmount(() => {
           <span>#{{ selectedMission.title }}</span>
           <span>#{{12}}일째</span>
           <p>건강기능식품 섭취 시 해당 제품의 복용량, 복용방법과 부작용 등<br>주의사항을 반드시 확인해 주세요.</p> <!-- 260727 미션 주의사항 추가 -->
-          <button type="button" class="main--mission__change" @click.stop="">미션 변경하기</button>
+          <button type="button" class="main--mission__change" @click.stop="completeMissionSelect()">미션 변경하기</button> <!-- 261020 미션 선택/변경 토스트 팝업 추가 -->
         </div>
       </transition>
     </div>
@@ -283,6 +293,8 @@ onBeforeUnmount(() => {
         <button class="challenge--share" @click="sharePopupOpen">챌린지 인증 공유하기<img src="/img/ico_btn_share.svg"></button>
       </template>
     </TabRound>
+
+    <BaseToast :msg="successToastMessage" /> <!-- 261020 미션 선택/변경 토스트 팝업 추가 -->
   </section>
 
   <!-- 인증사진 보기 팝업 -->

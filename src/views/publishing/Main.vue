@@ -12,6 +12,7 @@ import BaseOpener from '@/views/publishing/checkup/BaseOpener.vue'
 import BasePopupTit from '@/components/BasePopupTit.vue'
 import TargetGauge from '@/components/TargetGauge.vue'
 import MainCalenderPop from '@/views/publishing/main/MainCalenderPop.vue'
+import BaseToast from '@/components/BaseToast.vue' /* 261020 미션 선택/변경 토스트 팝업 추가 */
 
 export default {
   name: 'Main',
@@ -27,7 +28,8 @@ export default {
     BaseOpener,
     BasePopupTit,
     Swiper,
-    SwiperSlide
+    SwiperSlide,
+    BaseToast, /* 261020 미션 선택/변경 토스트 팝업 추가 */
   },
   data () {
     return {
@@ -549,6 +551,7 @@ export default {
         "2026-07-11",
         "2026-07-17",
       ],
+      successToastMessage: '', /* 261020 미션 선택/변경 토스트 팝업 추가 */
     }
   },
   setup() {
@@ -709,6 +712,18 @@ export default {
       if (!this.selectedMissionId) {
         this.popup.noMissionPopup = true
         return
+      }
+      /* 261020 미션 선택/변경 토스트 팝업 추가 */
+      if (this.selectMission) {
+        this.successToastMessage = '미션이 변경되었습니다'
+        setTimeout(() => {
+          this.successToastMessage = ''
+        }, 3000)
+      } else {
+        this.successToastMessage = '미션이 선택되었습니다'
+        setTimeout(() => {
+          this.successToastMessage = ''
+        }, 3000)
       }
       this.selectMission = true
       this.popup.missionPopup = false
@@ -1031,6 +1046,8 @@ export default {
         <TargetGauge :gaugePer="40" :compPer="80"></TargetGauge>
       </div>
     </div>
+
+    <BaseToast :msg="successToastMessage" /> <!-- 261020 미션 선택/변경 토스트 팝업 추가 -->
   </section>
 
   <!-- 설문 이어하기 팝업  -->

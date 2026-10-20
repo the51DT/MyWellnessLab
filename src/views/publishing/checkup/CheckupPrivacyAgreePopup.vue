@@ -563,7 +563,7 @@ onUnmounted(() => {
                           hidden="hidden" />
                         <span />
                       </span>
-                      <span class="JoinTermsAgree--tit">{{ $t('CheckupPrivacyAgreePopup.text34') }}</span>
+                      <span class="JoinTermsAgree--tit">개인정보수집이용동의 <strong>(필수)</strong></span> <!-- 261020 약관 수정 -->
                     </label>
                   </div>
                   <!-- <div v-html="serviceUseTerms" class="JoinTermsAgree--texts">
@@ -586,7 +586,7 @@ onUnmounted(() => {
                           hidden="hidden" />
                         <span />
                       </span>
-                      <span class="JoinTermsAgree--privacy-tit">{{ $t('CheckupPrivacyAgreePopup.text35') }}</span>
+                      <span class="JoinTermsAgree--privacy-tit">개인정보 제3자 제공 동의 <strong>(필수)</strong></span>
                     </label>
                   </div>
                   <!-- <div v-html="personalInfoRule" class="JoinTermsAgree--texts"></div> -->

@@ -10261,7 +10261,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
   &--pop-wrap{
     @include spaceRLSDefault;
-    max-width: $w-pc-wrap;
+    max-width: 48rem;
     @media (min-width: $w-pc-small3) {
       margin: 0 auto;
     }
@@ -10476,6 +10476,10 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       .JoinTermsAgree--privacy-tit{
         font-weight: 600;
         cursor: pointer;
+        strong{
+          color: #1db196;
+          font-weight: 600;
+        }
       }
       .JoinTermsAgree--all,
       .JoinTermsAgree--terms,
@@ -10489,12 +10493,18 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
   }
   &--finish{
     &-btn{
-      margin: 2.4rem auto;
+      margin: 5rem auto 2.4rem;
       width: 100%;
       @include btnBig();
+      &:disabled{
+        background-color: #E5E5E5;
+        border-color: #E5E5E5;
+        color: #999999;
+      }
       @media (min-width: $w-pc-small3) {
         display: block;
-        height: 4.8rem;
+        height: 6rem;
+        margin: 4rem auto 5.2rem;
       }
     }
   }
@@ -21247,16 +21257,32 @@ span.legend-dot-interest{
 }
 .agree3{
   .table{
-    td{
-      color: #222;
-      &.light{
-        font-weight: 400;
-      }
+    @include txtStyle(caption, xl);
+    color: #1A1818;
+    th{
+      font-weight: 400;
+      text-align: center;
+      width: 6.3rem;
     }
   }
   &--p{
-    margin-top: 1rem;
-    color: #222;
+    color: #333;
+    @include txtStyle(body, 2xs-1);
+    word-break: break-all;
+  }
+  &--underline{
+    margin-top: 1.2rem;
+    text-decoration: underline;
+    text-underline-position: under;
+    color: #1A1818;
+    word-break: break-all;
+    @include txtStyle(body, 2xs-1, 600);
+    + .table{
+      margin-top: 1.6rem;
+      @media (min-width:$w-pc) {
+        margin-top: 2rem;
+      }
+    }
   }
 }
 

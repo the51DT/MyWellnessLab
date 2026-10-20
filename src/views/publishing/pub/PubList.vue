@@ -868,8 +868,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/mission/MyMissionRecords.vue',
     go: '/publishing/my-mission/MyMissionRecords',
-    msg: "260820 배지 아이콘 클래스 정리 주석 추가<br>261013 태그 아이콘 삭제",
-    confirm: '2026.10.13 퍼블 수정'
+    msg: "260820 배지 아이콘 클래스 정리 주석 추가<br>261013 태그 아이콘 삭제<br>261020 더보기 페이징 수정",
+    confirm: '2026.10.20 퍼블 수정'
   },
   { cate: 'blank'},
   {

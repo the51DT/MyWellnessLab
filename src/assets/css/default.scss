@@ -1540,10 +1540,10 @@ footer{
       }
     }
     .pop-scroll-box{
-      background-color: #F0F0F0;
+      border: .1rem solid #e5e5e5;
       border-radius: 1.2rem;
       text-align: left;
-      padding: 1.6rem;
+      padding: 2rem;
       @include txtStyle(body, 2xs);
       p{
         word-break: break-all;
@@ -1587,6 +1587,9 @@ footer{
     &-wrap{
       text-align: center;
       @include txtStyle(body, md, 500);
+    }
+    .green{
+      color: #1DB196;
     }
   }
   &--close{
@@ -21278,6 +21281,12 @@ span.legend-dot-interest{
       font-weight: 400;
       text-align: center;
       width: 6.3rem;
+    }
+    td{
+      padding: 1rem 1.2rem;
+      &.bold{
+        font-weight: 600;
+      }
     }
   }
   &--p{

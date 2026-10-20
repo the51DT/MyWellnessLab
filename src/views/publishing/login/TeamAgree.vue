@@ -39,21 +39,38 @@ onMounted(async () => {
   </BasePopup>
   <!-- [e] 260923 미션 선택 팝업 추가 -->
   <!-- 개인정보 제3자 제공 이용동의 팝업 -->
+  <!-- 261020 개인정보 이용동의 팝업 수정 -->
   <BasePopupClose v-if="isShowTeamTermsPopup">
-    <template v-slot:title>개인정보 제3자 제공 이용동의</template>
+    <template v-slot:title>개인정보 수집∙이용 동의 <span class="green">(필수)</span></template>
     <template v-slot:contents>
       <div class="pop-scroll-box">
-        <p>
-          것모닝(Gut Morning) 서비스 내 이용자 식별, 회원관리 및 것모닝(Gut Morning) 서비스 제공, 회원비교식별을 위하여 귀하의 개인정보를 <span class="red">가입을 신청한 팀의 팀장</span>에게 제공합니다. 해당 정보는 동의 철회나 서비스 탈퇴 시 또는 제공 목적 달성 시 지체없이 파기됩니다. 아래 동의를 거부할 권리가 있으며, 필수 동의를 거부할 경우 서비스 이용이 제한됩니다.<br>
-          <br>
-          [제공을 받는 자] 팀장<br>
-          [필수 제공 항목]<span class="green">(팀 가입 시) 프로필 사진, 닉네임, 성명, 구매이력, (팀 활동 시)회원의 GUT Morning 미션 인증 정보, 미션 인증 사진</span><br>
-          [이용목적] 팀 가입 및 활동 참가, 팀원의 미션 인증 확인<br>
-          [제공 기간] 팀 탈퇴 및 개인정보 제3자 제공 동의 철회 시<br>
-          [보유 기간] <strong>동의 철회 또는 서비스 탈퇴 시 지체 없이 파기</strong>
-        </p>
+        <div class="agree3">
+          <div class="agree3--group">
+            <p class="agree3--p">한국암웨이㈜는(이하 “회사”라 함) 서비스 제공을 위해 다음과 같이 회원님의 개인정보를 제3자 제공하고자 합니다.</p>
+            <p class="agree3--underline">개인정보의 제3자 제공에 동의하지 않을 수 있으며, 다만 동의하지 않을 경우 마이웰니스 랩 서비스 이용이 제한됩니다.</p>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th>제공<br>받는 자</th>
+                  <td class="bold">팀장</td>
+                </tr>
+                <tr>
+                  <th>이용<br>목적</th>
+                  <td class="bold">팀 가입 및 활동 참가 팀원 미션 인증 확인</td>
+                </tr>
+                <tr>
+                  <th>제공<br>항목</th>
+                  <td>프로필 사진, 닉네임, 성명, 제품 구매 여부, 회원의 미션 인증정보, 미션 인증사진, 챌린지 이력</td>
+                </tr>
+                <tr>
+                  <th>보유 및<br>이용기간</th>
+                  <td class="bold">팀 탈퇴 및 회원탈퇴일로부터 5일까지</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-      <div class="pop-text-caption">원활한 서비스 이용을 위하여 개인정보 제3자 제공에 대하여 동의가 필요합니다. <br class="br-pc">동의하지 않으실 경우 서비스 이용이 제한됩니다.</div>
     </template>
     <template v-slot:button>
       <button type="button" @click="termsAgree" class="pop-btn pop-btn--gray">동의하지 않음</button>

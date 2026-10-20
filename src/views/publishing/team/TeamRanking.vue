@@ -85,17 +85,17 @@ const rankingList = [  /* 퍼블 확인용 팀 리스트 */
         <p>메달 부여 기준</p>
         <ul>
           <li>
-            <img src="/img/ico_medal_gold.svg">
+            <img src="/img/ico_medal_gold.png">
             <strong>금메달</strong>
             <span>1위</span>
           </li>
           <li>
-            <img src="/img/ico_medal_silver.svg">
+            <img src="/img/ico_medal_silver.png">
             <strong>은메달</strong>
             <span>2위~10위</span>
           </li>
           <li>
-            <img src="/img/ico_medal_bronze.svg">
+            <img src="/img/ico_medal_bronze.png">
             <strong>동메달</strong>
             <span>11위~30위</span>
           </li>

@@ -8600,13 +8600,16 @@ button{
       &:has(.select-wrap) {
         align-items: center;
       }
-      span:not(:has(em)){
+      span:not(:has(em), .mission){
         display: -webkit-box;
         overflow: hidden;
         white-space: normal;
         text-overflow: ellipsis;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
+        word-break: break-all;
+      }
+      .mission{
         word-break: break-all;
       }
     }
@@ -9406,7 +9409,7 @@ button{
       @include txtStyle(caption, xl-1, 600);
       color: #333;
       flex: 1 1 auto;
-      span:not(.tag, .date, .color){
+      span:not(.tag, .date, .color, .mission){
         display: -webkit-box;
         overflow: hidden;
         white-space: normal;
@@ -9440,7 +9443,7 @@ button{
         height: 2.4rem;
       }
       & + span {
-        display: inline-block;
+        display: inline-block !important;
         @include txtStyle(caption, xl, 500);
         color: #666;
         margin-top: .4rem;

@@ -737,8 +737,8 @@ const data = ref([
     div3: '팀장',
     loca: '@/views/publishing/team/TeamInfo.vue',
     go: '/publishing/my-team/info/regular/leader',
-    msg: "퍼블 확인용 라우터 케이스 적용<br>진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출<br>챌린지 팀 정보 주석 참고",
-    confirm: '2026.10.06 퍼블 수정'
+    msg: "퍼블 확인용 라우터 케이스 적용<br>진행중, 진행대기 등 케이스 페이지 분리하지 않고 전체 노출<br>챌린지 팀 정보 주석 참고<br>261021 미션 클래스 추가",
+    confirm: '2026.10.21 퍼블 수정'
   },
   {
     div: '',

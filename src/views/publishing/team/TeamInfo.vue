@@ -308,11 +308,11 @@ onBeforeUnmount(() => {
           <!-- [s] 261019 지정/자율 미션 구분 추가 -->
           <li>
             <span class="tit">지정 미션</span>
-            <span>$미션 정보$</span>
+            <span class="mission">$미션 정보$</span> <!-- 261021 미션 클래스 추가 -->
           </li>
           <li>
             <span class="tit">자율 미션</span>
-            <span>$미션 정보$</span>
+            <span class="mission">$미션 정보$</span> <!-- 261021 미션 클래스 추가 -->
           </li>
           <!-- [e] 261019 지정/자율 미션 구분 추가 -->
           <!-- [s] 260824 참여 인원 추가 -->

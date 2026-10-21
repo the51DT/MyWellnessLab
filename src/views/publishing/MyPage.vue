@@ -226,7 +226,7 @@ export default {
             :leftLoca="tooltipEdge"
             @tooltipClose="tooltipClose">
             <template v-slot:contents>
-              <p class="tooltip--contents">선택 약관에 대한 동의, 철회를 관리할 수 있습니다.<br>약관의 동의 상태를 변경하면 즉시 반영됩니다.</p>
+              <p class="tooltip--contents">선택 약관에 대한 동의, 철회를 관리할 수 있습니다. 약관의 동의 상태를 변경하면 즉시 반영됩니다.</p> <!-- 261021 br 삭제 -->
             </template>
           </BaseTooltip>
         </div>

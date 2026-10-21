@@ -18649,6 +18649,9 @@ span.legend-dot-interest{
         left: 14.5rem;
       }
     }
+    &--contents{
+      word-break: break-all;
+    }
   }
   .box-btn{
     @include btnClear;

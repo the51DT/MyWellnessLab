@@ -927,8 +927,8 @@ const data = ref([
     div3: '',
     loca: '@/views/info/ServiceUseGuide.vue',
     go: '/publishing/coupon-status/service-use-guide',
-    msg: '기존 마크업과 너무 달라 주석 남기지않고 작업<br>라우터 wide 클래스 제거',
-    confirm: '2026.10.02 퍼블 완료'
+    msg: '기존 마크업과 너무 달라 주석 남기지않고 작업<br>라우터 wide 클래스 제거<br>261021 줄바꿈 추가',
+    confirm: '2026.10.21 퍼블 수정'
   },
   {
     div: 'FAQ',

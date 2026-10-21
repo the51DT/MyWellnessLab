@@ -297,8 +297,8 @@ export default {
         <div :class="prefix + '--step-wrap'">
           <h3 :class="prefix + '--step'">STEP<span>4</span></h3>
           <p :class="prefix + '--txt2'" v-html="$t('ServiceUseGuide.text23')" />
-          <p :class="prefix + '--caution'">{{ $t('ServiceUseGuide.text61') }}</p>
-          <p :class="prefix + '--caution'">{{ $t('ServiceUseGuide.text62') }}</p>
+          <p :class="prefix + '--caution'" v-html="$t('ServiceUseGuide.text61')" /> <!-- 261021 줄바꿈 추가 -->
+          <p :class="prefix + '--caution'" v-html="$t('ServiceUseGuide.text62')" /> <!-- 261021 줄바꿈 추가 -->
         </div>
         <div :class="prefix + '--img'">
           <img :src="'/img/img_guide11_n' + isPc + '.png'" alt="" class="img11" />

@@ -6456,7 +6456,7 @@ button{
     flex-direction: column;
     gap: .4rem;
     margin-top: 2rem;
-    padding: 0 .6rem;
+    padding-left: .6rem;
     @include txtStyle(body, md);
     span{
       font-weight: 700;
@@ -6471,6 +6471,17 @@ button{
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       word-break: break-all;
+    }
+  }
+  &--desc{
+    display: flex;
+    gap: .4rem;
+    padding-left: .6rem;
+    color: #808080;
+    word-break: break-all;
+    @include txtStyle(caption, xl-1, 500);
+    &::before{
+      content: '※';
     }
   }
   &--box{

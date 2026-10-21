@@ -563,8 +563,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/Challenge.vue',
     go: '/publishing/challenge',
-    msg: "(PU) 인증사진 보기, (PU) 챌린지 인증 공유하기 퍼블 확인용으로 넣어둠<br>260820 문구 수정<br>260827 문구 수정<br>260911 핀 컨펌 버전으로 수정 - ChallengeSharePop.vue<br>260916 onBeforeUnmount 추가<br>260916 미션 변경하기 모션 수정<br>260923 핀 png로 변경 - ChallengeSharePop.vue<br>260923 핀 이미지 임포트 - ChallengeSharePop.vue<br>260929 나의 팀 이동 버튼으로 수정<br>261001 진행종료 2회차 추가<br>261001 문구 수정<br>261002 br 제거<br>261002 팀명 줄바꿈<br>261007 제품 구매 플래그 추가<br>261014 띄어쓰기 추가<br>261019 모집중 조건 및 기간 레이아웃 변경<br>261020 미션 선택/변경 토스트 팝업 추가<br>261020 미션 인증 디폴트 이미지 추가 - BasePopupImage.vue",
-    confirm: '2026.10.20 퍼블 수정'
+    msg: "(PU) 인증사진 보기, (PU) 챌린지 인증 공유하기 퍼블 확인용으로 넣어둠<br>260820 문구 수정<br>260827 문구 수정<br>260911 핀 컨펌 버전으로 수정 - ChallengeSharePop.vue<br>260916 onBeforeUnmount 추가<br>260916 미션 변경하기 모션 수정<br>260923 핀 png로 변경 - ChallengeSharePop.vue<br>260923 핀 이미지 임포트 - ChallengeSharePop.vue<br>260929 나의 팀 이동 버튼으로 수정<br>261001 진행종료 2회차 추가<br>261001 문구 수정<br>261002 br 제거<br>261002 팀명 줄바꿈<br>261007 제품 구매 플래그 추가<br>261014 띄어쓰기 추가<br>261019 모집중 조건 및 기간 레이아웃 변경<br>261020 미션 선택/변경 토스트 팝업 추가<br>261020 미션 인증 디폴트 이미지 추가 - BasePopupImage.vue<br>261021 디스크립션 추가",
+    confirm: '2026.10.21 퍼블 수정'
   },
   {
     div: '챌린지(미진행)',

@@ -140,6 +140,9 @@ onBeforeUnmount(() => {
             <strong>자두자두 졸리다 챌린지</strong>
             <p><span>50</span>일째 참여 중입니다.</p> <!-- 260827 문구 수정 -->
           </div>
+          <div class="challenge--desc"> <!-- 261021 디스크립션 추가 -->
+            챌린지 성공 및 보상 수령을 위해 OOOO 프로모션(300000L) 구매가 필요합니다. 챌린지 종료 시점까지 구매 인증을 완료하지 않으면 팀이 성공하더라도 개인 보상이 지급되지 않습니다.
+          </div>
           <div class="challenge--box">
             <div class="challenge--box-tit">
               6월 건강수면 챌린지팀

@@ -9404,6 +9404,8 @@ button{
     display: flex;
     flex-direction: column;
     gap: .6rem;
+    flex: 1 1 0;
+    min-width: 0;
     dl {
       display: flex;
       gap: 1.2rem;

@@ -9420,7 +9420,7 @@ button{
       @include txtStyle(caption, xl-1, 600);
       color: #333;
       flex: 1 1 auto;
-      span:not(.tag, .date, .color, .mission){
+      span:not(.tag, .date, .color, .mission, .rank, .count){
         display: -webkit-box;
         overflow: hidden;
         white-space: normal;

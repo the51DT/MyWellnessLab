@@ -125,7 +125,7 @@ const memberList = ref([ /* 퍼블 확인용 챌린지 팀원 데이터 */
           <!-- [s] 260820 .team-status--info 내부 수정 -->
           <dl v-if="!sortLayout">
             <dt>랭킹</dt>
-            <dd><span>{{ item.ranking }}위</span></dd>
+            <dd><span class="rank">{{ item.ranking }}위</span></dd>
           </dl>
           <dl v-if="isLeader">
             <dt>이름</dt>
@@ -141,7 +141,7 @@ const memberList = ref([ /* 퍼블 확인용 챌린지 팀원 데이터 */
           </dl>
           <dl class="count"> <!-- 261007 sortLayout용 클래스 추가 -->
             <dt>{{ challengeTeam ? '인증횟수' : sortLayout ? '전체인증횟수' : '전체 인증 횟수' }}</dt> <!-- 챌린지/상시 구분 퍼블 임의 -->
-            <dd><span>{{ item.count }}회</span></dd>
+            <dd><span class="count">{{ item.count }}회</span></dd>
           </dl>
           <dl class="per"> <!-- 261007 sortLayout용 클래스 추가 -->
             <dt>{{ challengeTeam ? '인증률' : sortLayout ? '이달의인증' : '이 달의 인증' }}</dt> <!-- 챌린지/상시 구분 퍼블 임의 -->

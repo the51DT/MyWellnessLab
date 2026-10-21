@@ -189,7 +189,7 @@ export default {
         </div>
 
         <div :class="prefix + '--step-wrap'">
-          <h3 :class="prefix + '--step'">STEP<span>1</span></h3>
+          <h3 :class="prefix + '--step'"><span>1</span>STEP</h3> <!-- 261021 step 숫자 위치 변경 -->
           <p :class="prefix + '--txt2'" v-html="$t('ServiceUseGuide.text7')" />
         </div>
         <div :class="prefix + '--img'">
@@ -197,7 +197,7 @@ export default {
         </div>
 
         <div :class="prefix + '--step-wrap'">
-          <h3 :class="prefix + '--step'">STEP<span>2</span></h3>
+          <h3 :class="prefix + '--step'"><span>2</span>STEP</h3> <!-- 261021 step 숫자 위치 변경 -->
           <p :class="prefix + '--txt2'" v-html="$t('ServiceUseGuide.text8')" />
           <p :class="prefix + '--caution'">{{ $t('ServiceUseGuide.text9') }}</p>
         </div>
@@ -206,7 +206,7 @@ export default {
         </div>
 
         <div :class="prefix + '--step-wrap'">
-          <h3 :class="prefix + '--step'">STEP<span>3</span></h3>
+          <h3 :class="prefix + '--step'"><span>3</span>STEP</h3> <!-- 261021 step 숫자 위치 변경 -->
           <p :class="prefix + '--txt2'" v-html="$t('ServiceUseGuide.text10')" />
           <p :class="prefix + '--caution'">{{ $t('ServiceUseGuide.text59') }}</p>
         </div>
@@ -223,7 +223,7 @@ export default {
         </div>
 
         <div :class="prefix + '--step-wrap'">
-          <h3 :class="prefix + '--step'">STEP<span>1</span></h3>
+          <h3 :class="prefix + '--step'"><span>1</span>STEP</h3> <!-- 261021 step 숫자 위치 변경 -->
           <p :class="prefix + '--txt2'" v-html="$t('ServiceUseGuide.text13')" />
         </div>
         <div :class="prefix + '--img'">
@@ -234,7 +234,7 @@ export default {
         </div>
 
         <div :class="prefix + '--step-wrap'">
-          <h3 :class="prefix + '--step'">STEP<span>2</span></h3>
+          <h3 :class="prefix + '--step'"><span>2</span>STEP</h3> <!-- 261021 step 숫자 위치 변경 -->
           <p :class="prefix + '--txt2'" v-html="$t('ServiceUseGuide.text14')" />
         </div>
         <div :class="prefix + '--img'">
@@ -242,7 +242,7 @@ export default {
         </div>
 
         <div :class="prefix + '--step-wrap'">
-          <h3 :class="prefix + '--step'">STEP<span>3</span></h3>
+          <h3 :class="prefix + '--step'"><span>3</span>STEP</h3> <!-- 261021 step 숫자 위치 변경 -->
           <p :class="prefix + '--txt2'">초대 받은 비회원 고객은 '지금 가입하기' 버튼을 눌러<br>마이웰니스 랩 가입 및 분석권을 구매하실 수 있습니다.</p>
           <p :class="prefix + '--txt2'">마이웰니스 랩 가입 및 분석권 구매 후 '분석 시작하기' 버튼을 눌러​<br class="pc-br">바로 마이웰니스 랩 분석을 진행하실 수 있도록 안내해 주세요.​​</p>
         </div>
@@ -259,7 +259,7 @@ export default {
         </div>
 
         <div :class="prefix + '--step-wrap'">
-          <h3 :class="prefix + '--step'">STEP<span>1</span></h3>
+          <h3 :class="prefix + '--step'"><span>1</span>STEP</h3> <!-- 261021 step 숫자 위치 변경 -->
           <p :class="prefix + '--txt2'">{{ $t('ServiceUseGuide.text16') }}</p>
         </div>
         <div :class="prefix + '--img i06'">
@@ -276,7 +276,7 @@ export default {
         </div>
 
         <div :class="prefix + '--step-wrap'">
-          <h3 :class="prefix + '--step'">STEP<span>2</span></h3>
+          <h3 :class="prefix + '--step'"><span>2</span>STEP</h3> <!-- 261021 step 숫자 위치 변경 -->
           <p :class="prefix + '--txt2'">{{ $t('ServiceUseGuide.text20') }}</p>
           <p :class="prefix + '--caution'">{{ $t('ServiceUseGuide.text21') }}</p>
         </div>
@@ -287,7 +287,7 @@ export default {
         </div>
 
         <div :class="prefix + '--step-wrap'">
-          <h3 :class="prefix + '--step'">STEP<span>3</span></h3>
+          <h3 :class="prefix + '--step'"><span>3</span>STEP</h3> <!-- 261021 step 숫자 위치 변경 -->
           <p :class="prefix + '--txt2'">{{ $t('ServiceUseGuide.text22') }}</p>
         </div>
         <div :class="prefix + '--img'">
@@ -295,7 +295,7 @@ export default {
         </div>
 
         <div :class="prefix + '--step-wrap'">
-          <h3 :class="prefix + '--step'">STEP<span>4</span></h3>
+          <h3 :class="prefix + '--step'"><span>4</span>STEP</h3> <!-- 261021 step 숫자 위치 변경 -->
           <p :class="prefix + '--txt2'" v-html="$t('ServiceUseGuide.text23')" />
           <p :class="prefix + '--caution'" v-html="$t('ServiceUseGuide.text61')" /> <!-- 261021 줄바꿈 추가 -->
           <p :class="prefix + '--caution'" v-html="$t('ServiceUseGuide.text62')" /> <!-- 261021 줄바꿈 추가 -->
@@ -317,7 +317,7 @@ export default {
         </div>
 
         <div :class="prefix + '--step-wrap'">
-          <h3 :class="prefix + '--step'">STEP<span>5</span></h3>
+          <h3 :class="prefix + '--step'"><span>5</span>STEP</h3> <!-- 261021 step 숫자 위치 변경 -->
           <p :class="prefix + '--txt2'">{{ $t('ServiceUseGuide.text27') }}</p>
         </div>
         <div :class="prefix + '--img'">
@@ -330,7 +330,7 @@ export default {
         </div>
 
         <div :class="prefix + '--step-wrap'">
-          <h3 :class="prefix + '--step'">STEP<span>6</span></h3>
+          <h3 :class="prefix + '--step'"><span>6</span>STEP</h3> <!-- 261021 step 숫자 위치 변경 -->
           <p :class="prefix + '--txt2'" v-html="$t('ServiceUseGuide.text30')" />
         </div>
         <div :class="prefix + '--img'">

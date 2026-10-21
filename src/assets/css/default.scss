@@ -5574,10 +5574,14 @@ button{
         }
       }
       .noData{
-        color: #808080;
-        @include txtStyle(head, 2xs, 700);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3.4rem;
+        color: #999;
+        @include txtStyle(body, md, 600);
         @media (min-width:$w-pc) {
-          @include txtStyle(head, sm, 600);
+          height: 4.4rem;
         }
       }
     }

@@ -1143,8 +1143,8 @@ export default {
     <template v-slot:contents>
       <TabRound :tabs="[{title: isAnalyze ? '추천 미션' : '기본 미션'}, {title:'전체 미션'}]">
         <template #tab-0>
-          <div v-if="isAnalyze" class="mission-not"> <!-- 261020 추천 미션 없는 경우 추가 -->
-            추천할 미션이 없습니다. <br>전체 미션에서 선택해 주세요.
+          <div v-if="isAnalyze" class="mission-not"> <!-- 261020 추천 미션 없는 경우 추가 --> <!-- 261021 문구 수정 -->
+            현재 건강 분석 결과에 따른 <br class="mo-br"/>추천 미션이 없습니다. <br/>전체 미션에서 원하는 미션을 선택해주세요.
           </div>
           <div v-else class="mission-select">
             <div v-for="group in recommendMissionGroups" :key="group.key" class="mission-select__group">

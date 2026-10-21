@@ -2401,7 +2401,7 @@ footer{
       @include txtStyle(body, 2xs-1, 600);
       @media (min-width:$w-pc) {
         padding: 1.4rem;
-        br{
+        .mo-br{
           display: none;
         }
       }
@@ -5574,8 +5574,11 @@ button{
         }
       }
       .noData{
-        @include txtStyle(head, sm, 700);
         color: #808080;
+        @include txtStyle(head, 2xs, 700);
+        @media (min-width:$w-pc) {
+          @include txtStyle(head, sm, 600);
+        }
       }
     }
     &--link {

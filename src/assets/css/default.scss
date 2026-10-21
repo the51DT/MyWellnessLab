@@ -9406,7 +9406,7 @@ button{
       @include txtStyle(caption, xl-1, 600);
       color: #333;
       flex: 1 1 auto;
-      &:not(:has(span)){
+      span:not(.tag, .date, .color){
         display: -webkit-box;
         overflow: hidden;
         white-space: normal;
@@ -9415,7 +9415,7 @@ button{
         -webkit-box-orient: vertical;
         word-break: break-all;
       }
-      span + .color{
+      .date + .color{
         margin-left: .4rem;
         @media (min-width:$w-pc) {
           margin-left: .6rem;

@@ -9445,8 +9445,8 @@ button{
       display: flex;
       align-items: center;
       width: fit-content;
-      height: 2rem;
-      padding: 0 .8rem;
+      min-height: 2rem;
+      padding: .1rem .8rem;
       border-radius: 9rem;
       background-color: #1DB196;
       overflow: hidden;
@@ -9456,7 +9456,7 @@ button{
       @include txtStyle(caption, lg-1, 600);
       color: #fff;
       @media (min-width:$w-pc) {
-        height: 2.4rem;
+        min-height: 2.4rem;
       }
       & + span {
         display: inline-block !important;

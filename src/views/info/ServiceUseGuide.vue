@@ -413,12 +413,12 @@ export default {
 
         <div :class="prefix + '--step-wrap'">
           <h3 :class="prefix + '--step'"><span>6</span>{{ $t('ServiceUseGuide.text49') }}</h3>
-          <p :class="prefix + '--txt2'">{{ $t('ServiceUseGuide.text50') }}</p>
+          <p :class="prefix + '--txt2'" v-html="$t('ServiceUseGuide.text50')" /> <!-- 261021 v-html 로 변경 -->
         </div>
         <div :class="prefix + '--img'">
           <img :src="'/img/img_guide29_n' + isPc + '.png'" alt="" class="img29" />
         </div>
-        <p :class="prefix + '--txt2'">{{ $t('ServiceUseGuide.text51') }}</p>
+        <p :class="prefix + '--txt2'" v-html="$t('ServiceUseGuide.text51')" /> <!-- 261021 v-html 로 변경 -->
         <div :class="prefix + '--img'">
           <img :src="'/img/img_guide30_n' + isPc + '.png'" alt="" class="img30" />
         </div>
@@ -659,7 +659,7 @@ export default {
       <div :class="prefix + '--step-wrap'">
         <h3 :class="prefix + '--step'"><span>3</span><em>이전 팀 팀원 초대</em></h3>
         <p :class="prefix + '--txt2'">이전 팀의 팀장이었을 경우, <br class="mo-br">이전 팀원 모두에게 <br class="mo-br">초대 메시지를 전송할 수 있습니다.</p>
-        <p :class="prefix + '--txt5'">*초대 메시지는 팀원을 선택할 수 없으며 <br class="mo-br">이전 팀원 모두에게 일괄 발송됩니다</p>
+        <p :class="prefix + '--txt5'">*초대 메시지는 팀원을 선택할 수 없으며 <br class="mo-br">이전 팀원 모두에게 일괄 발송됩니다.</p> <!-- 261021 마침표 추가 -->
       </div>
       <div :class="prefix + '--img'">
         <img :src="'/img/img_guide56_n' + isPc + '.png'" alt="" class="img56" />

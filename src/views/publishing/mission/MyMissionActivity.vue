@@ -599,18 +599,20 @@ export default {
   <div class="activity bg-green my--activity">
     <div class="activity__area">
       <div class="activity__area-certified">
+        <!-- [s] 261022 상단 박스 순서 변경 -->
         <div>
           <p>최초 인증일</p>
           <p class="_date"><strong>$2025년 7월 5일$</strong></p>
         </div>
         <div>
-          <p>미션별 누적 인증 기록</p>
-          <a href=""><strong>자세히 보기</strong></a>
-        </div>
-        <div>
           <p>총 누적 인증 횟수</p>
           <p class="_count"><strong>$1,230$회</strong></p>
         </div>
+        <div>
+          <p>미션별 누적 인증 기록</p>
+          <a href=""><strong>자세히 보기</strong></a>
+        </div>
+        <!-- [e] 261022 상단 박스 순서 변경 -->
       </div>
     </div>
     <div class="activity__area-terms-tab home">

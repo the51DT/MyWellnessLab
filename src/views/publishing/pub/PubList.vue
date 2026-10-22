@@ -838,7 +838,7 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/mission/MyMissionActivity.vue',
     go: '/publishing/my-mission/MyMissionActivity',
-    msg: '핀 디자인 컨펌 x 컨펌 후 교체 필요<br>260827 문구 수정<br>260904 배지 리스트 수정<br>BadgeDefault.vue - 260904 :style="imgStyle" 삭제<br>MyBadgeSetting.vue - 260904 배지 컨펌 버전으로 교체<br>260923 핀 png로 변경<br>261015 배지 png로 변경<br>261022 브론즈 빌더 횟수 변경<br>261022 챌린지 마니아 이름 변경<br>MyBadgeSetting.vue - 261022 png로 변경',
+    msg: '핀 디자인 컨펌 x 컨펌 후 교체 필요<br>260827 문구 수정<br>260904 배지 리스트 수정<br>BadgeDefault.vue - 260904 :style="imgStyle" 삭제<br>MyBadgeSetting.vue - 260904 배지 컨펌 버전으로 교체<br>260923 핀 png로 변경<br>261015 배지 png로 변경<br>261022 브론즈 빌더 횟수 변경<br>261022 챌린지 마니아 이름 변경<br>MyBadgeSetting.vue - 261022 png로 변경<br>261022 상단 박스 순서 변경',
     confirm: '2026.10.22 퍼블 수정'
   },
   {

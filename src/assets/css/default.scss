@@ -14016,6 +14016,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
     -moz-user-select: none;
     -ms-user-select: none;
     -webkit-user-select: none;
+    padding-left: 1rem;
     @media (min-width: $w-pc) {
       max-width: 96rem;
       margin: 0 auto;
@@ -14075,7 +14076,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       @include btnClear;
       @include txtStyle(body, 2xs-1);
       color: #808080;
-      padding: 1.3rem 2rem;
+      padding: 1.3rem 1rem;
       @media (min-width: $w-pc) {
         padding: 1.6rem 2rem;
       }

@@ -1096,8 +1096,8 @@ onBeforeUnmount(() => {
           <img src="@/assets/images/icons/i-copy.png" alt="copy" />
         </button>
         <!-- [s] 2606 나의 추천 미션 보기 버튼 추가 -->
-        <button type="button" class="AnalyzeDownload--mission" @click="missionToast()"> <!-- 261020 미션 선택/변경 토스트 팝업 추가 -->
-          나의 추천 미션 보기
+        <button type="button" class="AnalyzeDownload--mission" @click="missionToast()"> <!-- 261020 미션 선택/변경 토스트 팝업 추가 --> <!-- 261022 문구 변경 -->
+          나의 추천 미션 선택하기
         </button>
         <!-- [e] 2606 나의 추천 미션 보기 버튼 추가 -->
       </div>

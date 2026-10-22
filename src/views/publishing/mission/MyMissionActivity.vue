@@ -225,7 +225,7 @@ export default {
         },
         {
           badgeImg: 'challenge_mania',
-          badgeName: '챌린지 마니아',
+          badgeName: '챌린지 마니아 챌린지 3회 참여', /* 261022 챌린지 마니아 이름 변경 */
           badgeHint: '$챌린지 마니아 배지 획득 방법$',
           lockShape: '7',
           disabled: true,

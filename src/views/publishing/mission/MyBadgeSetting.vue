@@ -14,18 +14,18 @@ export default {
       isBottom: false, /* 퍼블 확인용 하단 도착 여부 */
       bottomObserverInstance: null, /* 퍼블 확인용 하단 옵저버 */
       selectedBadgeId: 'mission_streak_20',  /* 퍼블 확인용 대표 배지 임의 지정 */
-      badges: [ /* 260904 배지 컨펌 버전으로 교체 */
-        { id: 'mission_streak_10', img: 'badge--mission_streak_10.svg', label: '10일 연속 인증' },
-        { id: 'mission_streak_20', img: 'badge--mission_streak_20.svg', label: '20일 연속 인증' },
-        { id: 'mission_streak_30', img: 'badge--mission_streak_30.svg', label: '30일 연속 인증' },
-        { id: 'mission_streak_60', img: 'badge--mission_streak_60.svg', label: '60일 연속 인증' },
-        { id: 'mission_streak_90', img: 'badge--mission_streak_90.svg', label: '90일 연속 인증' },
-        { id: 'amway_global', img: 'badge--amway_global.svg', label: '한국암웨이 창립기념일' },
-        { id: 'founders_day', img: 'badge--amway_global.svg', label: '파운더스데이' },
-        { id: 'happy_new_year', img: 'badge--happy_new_year.svg', label: '새해 첫날' },
-        { id: 'mission_start', img: 'badge--mission_start.svg', label: '첫 인증' },
-        { id: 'octopus_mode', img: 'badge--octopus_mode.svg', label: '문어발' },
-        { id: 'happy_birthday', img: 'badge--happy_birthday.svg', label: '나의 생일' },
+      badges: [ /* 260904 배지 컨펌 버전으로 교체 */ /* 261022 png로 변경 */
+        { id: 'mission_streak_10', img: 'badge--mission_streak_10.png', label: '10일 연속 인증' },
+        { id: 'mission_streak_20', img: 'badge--mission_streak_20.png', label: '20일 연속 인증' },
+        { id: 'mission_streak_30', img: 'badge--mission_streak_30.png', label: '30일 연속 인증' },
+        { id: 'mission_streak_60', img: 'badge--mission_streak_60.png', label: '60일 연속 인증' },
+        { id: 'mission_streak_90', img: 'badge--mission_streak_90.png', label: '90일 연속 인증' },
+        { id: 'amway_global', img: 'badge--amway_global.png', label: '한국암웨이 창립기념일' },
+        { id: 'founders_day', img: 'badge--amway_global.png', label: '파운더스데이' },
+        { id: 'happy_new_year', img: 'badge--happy_new_year.png', label: '새해 첫날' },
+        { id: 'mission_start', img: 'badge--mission_start.png', label: '첫 인증' },
+        { id: 'octopus_mode', img: 'badge--octopus_mode.png', label: '문어발' },
+        { id: 'happy_birthday', img: 'badge--happy_birthday.png', label: '나의 생일' },
       ],
     }
   },

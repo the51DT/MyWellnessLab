@@ -581,8 +581,8 @@ const data = ref([
     div3: '',
     loca: '@/views/publishing/challenge/ChallengeHistory.vue',
     go: '/publishing/challenge-history',
-    msg: "260807 이미지 변경<br>260824 문구 수정<br>260827 문구 수정",
-    confirm: '2026.08.27 퍼블 수정'
+    msg: "260807 이미지 변경<br>260824 문구 수정<br>260827 문구 수정<br>261022 팀명 텍스트 뒤 공백 삭제",
+    confirm: '2026.10.22 퍼블 수정'
   },
   {
     div: '챌린지 이력보기 (진행중 없음)',

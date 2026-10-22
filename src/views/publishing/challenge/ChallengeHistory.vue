@@ -24,7 +24,7 @@ const isNoChallenge = computed(() => {
           <img src="/img/team_profile_exam.png"> <!-- 08.07 퍼블 수정 : 이미지 변경 -->
           <div>
             <div class="challenge-history--people">200명</div>
-            <div class="challenge-history--team"><span>팀명 </span>아침마다 오 마이 아침마다 오 마이 아침마다 오 마이 아침마다 오 마이</div>
+            <div class="challenge-history--team"><span>팀명</span>아침마다 오 마이 아침마다 오 마이 아침마다 오 마이 아침마다 오 마이</div> <!-- 261022 팀명 텍스트 뒤 공백 삭제 -->
           </div>
         </div>
         <div class="challenge-history--detail">
@@ -74,7 +74,7 @@ const isNoChallenge = computed(() => {
           <img src="/img/team_profile_exam.png"> <!-- 08.07 퍼블 수정 : 이미지 변경 -->
           <div>
             <div class="challenge-history--people">30명</div>
-            <div class="challenge-history--team"><span>팀명 </span>아침마다 오 마이</div>
+            <div class="challenge-history--team"><span>팀명</span>아침마다 오 마이</div> <!-- 261022 팀명 텍스트 뒤 공백 삭제 -->
           </div>
         </div>
         <div class="challenge-history--detail">

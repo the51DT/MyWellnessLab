@@ -38,7 +38,7 @@ export default {
         {
           pinImg: 'bronze_builder',
           pinName: '브론즈 빌더',
-          pinCount: '6',
+          pinCount: '8', /* 261022 브론즈 빌더 횟수 변경 */
         },
         {
           pinImg: 'silver_producer',

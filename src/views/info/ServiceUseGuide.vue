@@ -277,8 +277,8 @@ export default {
 
         <div :class="prefix + '--step-wrap'">
           <h3 :class="prefix + '--step'"><span>2</span>STEP</h3> <!-- 261021 step 숫자 위치 변경 -->
-          <p :class="prefix + '--txt2'">{{ $t('ServiceUseGuide.text20') }}</p>
-          <p :class="prefix + '--caution'">{{ $t('ServiceUseGuide.text21') }}</p>
+          <p :class="prefix + '--txt2'" v-html="$t('ServiceUseGuide.text20')" /> <!-- 261022 v-html 로 변경 -->
+          <p :class="prefix + '--caution'" v-html="$t('ServiceUseGuide.text21')" /> <!-- 261022 v-html 로 변경 -->
         </div>
         <div :class="prefix + '--img mt'">
           <div :class="prefix + '--img'">

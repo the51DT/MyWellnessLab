@@ -14190,7 +14190,7 @@ input[type=text].BasePhoneInput--input, input[type=number].BasePhoneInput--input
       }
     }
     &--swiper{
-      height: 50.2rem;
+      height: 51.4rem; /* 페이지네이션이 슬라이드에 너무 붙어서 1.2rem 늘림 */
       @media (min-width: $w-pc) {
         height: auto;
         max-width: 92.1rem;
@@ -22985,4 +22985,10 @@ span.legend-dot-interest{
       margin-top: 4.8rem;
     }
   }
+}
+
+/* swiper 12+ 는 버튼 안에 svg 를 넣어 화살표가 겹치고 커서 영역이 이중으로 잡힌다. 화살표는 각 화면 스타일이 그린다 */
+.swiper-button-prev .swiper-navigation-icon,
+.swiper-button-next .swiper-navigation-icon {
+  display: none;
 }
